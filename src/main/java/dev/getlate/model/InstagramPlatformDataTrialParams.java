@@ -35,7 +35,7 @@ import dev.getlate.ApiClient;
 @JsonPropertyOrder({
   InstagramPlatformDataTrialParams.JSON_PROPERTY_GRADUATION_STRATEGY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-03T16:32:46.748311391Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-03T17:22:10.096820721Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class InstagramPlatformDataTrialParams {
   /**
    * The graduation strategy specifies when a trial reel becomes a regular reel: - MANUAL: The trial reel can only be manually graduated from the native Instagram app. - SS_PERFORMANCE: The trial reel will be automatically graduated if it performs well with non-followers. 

@@ -37,7 +37,7 @@ import dev.getlate.ApiClient;
   GoogleBusinessPlatformDataCallToAction.JSON_PROPERTY_TYPE,
   GoogleBusinessPlatformDataCallToAction.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-03T16:32:46.748311391Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-03T17:22:10.096820721Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GoogleBusinessPlatformDataCallToAction {
   /**
    * Button action type: - LEARN_MORE: Link to more information - BOOK: Booking/reservation link - ORDER: Online ordering link - SHOP: E-commerce/shopping link - SIGN_UP: Registration/signup link - CALL: Phone call action 
