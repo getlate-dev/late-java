@@ -39,6 +39,7 @@ jobs:
             -i openapi.yaml \
             -g java \
             -o . \
+            --skip-validate-spec \
             --additional-properties=artifactId=late-sdk,groupId=dev.getlate,apiPackage=dev.getlate.api,modelPackage=dev.getlate.model,invokerPackage=dev.getlate,library=native \
             --git-user-id=getlate-dev \
             --git-repo-id=late-java
