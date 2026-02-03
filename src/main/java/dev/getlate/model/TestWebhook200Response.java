@@ -36,7 +36,7 @@ import dev.getlate.ApiClient;
   TestWebhook200Response.JSON_PROPERTY_SUCCESS,
   TestWebhook200Response.JSON_PROPERTY_MESSAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-03T16:25:09.332503768Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-03T16:29:58.024404591Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class TestWebhook200Response {
   public static final String JSON_PROPERTY_SUCCESS = "success";
   @javax.annotation.Nullable
