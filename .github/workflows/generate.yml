@@ -44,6 +44,11 @@ jobs:
             --git-user-id=getlate-dev \
             --git-repo-id=late-java
 
+      - name: Remove generated workflow files
+        run: |
+          rm -f .github/workflows/maven.yml || true
+          git checkout .github/workflows/generate.yml
+
       - name: Check for changes
         id: changes
         run: |
