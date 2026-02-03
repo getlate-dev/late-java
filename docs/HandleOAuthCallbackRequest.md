@@ -1,0 +1,15 @@
+
+
+# HandleOAuthCallbackRequest
+
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**code** | **String** |  |  |
+|**state** | **String** |  |  |
+|**profileId** | **String** |  |  |
+
+
+
