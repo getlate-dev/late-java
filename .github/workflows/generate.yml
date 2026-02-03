@@ -96,18 +96,31 @@ jobs:
           body: |
             ## Auto-generated SDK Update
 
-            Maven:
+            **Maven** (add JitPack repository):
             ```xml
+            <repositories>
+              <repository>
+                <id>jitpack.io</id>
+                <url>https://jitpack.io</url>
+              </repository>
+            </repositories>
+
             <dependency>
-              <groupId>dev.getlate</groupId>
-              <artifactId>late-sdk</artifactId>
-              <version>${{ steps.version.outputs.mvn_version }}</version>
+              <groupId>com.github.getlate-dev</groupId>
+              <artifactId>late-java</artifactId>
+              <version>${{ steps.version.outputs.new_version }}</version>
             </dependency>
             ```
 
-            Gradle:
+            **Gradle**:
             ```groovy
-            implementation 'dev.getlate:late-sdk:${{ steps.version.outputs.mvn_version }}'
+            repositories {
+              maven { url 'https://jitpack.io' }
+            }
+
+            dependencies {
+              implementation 'com.github.getlate-dev:late-java:${{ steps.version.outputs.new_version }}'
+            }
             ```
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
