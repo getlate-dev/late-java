@@ -4,7 +4,7 @@ info:
     API reference for Late. Authenticate with a Bearer API key.
     Base URL: https://getlate.dev/api
   title: Late API
-  version: 1.0.0
+  version: 1.0.1
 servers:
 - description: Production
   url: https://getlate.dev/api

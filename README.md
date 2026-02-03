@@ -2,9 +2,9 @@
 
 Late API
 
-- API version: 1.0.0
+- API version: 1.0.1
 
-- Build date: 2026-02-03T17:34:22.117939981Z[Etc/UTC]
+- Build date: 2026-02-03T18:18:10.129860260Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -46,7 +46,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>dev.getlate</groupId>
   <artifactId>late-sdk</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "dev.getlate:late-sdk:1.0.0"
+compile "dev.getlate:late-sdk:1.0.1"
 ```
 
 ### Others
@@ -69,7 +69,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/late-sdk-1.0.0.jar`
+- `target/late-sdk-1.0.1.jar`
 - `target/lib/*.jar`
 
 ## Getting Started
