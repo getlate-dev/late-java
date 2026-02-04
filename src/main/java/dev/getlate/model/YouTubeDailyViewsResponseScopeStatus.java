@@ -35,7 +35,7 @@ import dev.getlate.ApiClient;
 @JsonPropertyOrder({
   YouTubeDailyViewsResponseScopeStatus.JSON_PROPERTY_HAS_ANALYTICS_SCOPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-04T09:50:14.543041630Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-04T15:39:53.952140004Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class YouTubeDailyViewsResponseScopeStatus {
   public static final String JSON_PROPERTY_HAS_ANALYTICS_SCOPE = "hasAnalyticsScope";
   @javax.annotation.Nullable

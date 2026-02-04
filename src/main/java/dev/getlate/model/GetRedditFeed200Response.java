@@ -38,7 +38,7 @@ import dev.getlate.ApiClient;
   GetRedditFeed200Response.JSON_PROPERTY_POSTS,
   GetRedditFeed200Response.JSON_PROPERTY_AFTER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-04T09:50:14.543041630Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-04T15:39:53.952140004Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetRedditFeed200Response {
   public static final String JSON_PROPERTY_POSTS = "posts";
   @javax.annotation.Nullable

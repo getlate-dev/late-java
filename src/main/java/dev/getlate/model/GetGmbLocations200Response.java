@@ -40,7 +40,7 @@ import dev.getlate.ApiClient;
   GetGmbLocations200Response.JSON_PROPERTY_SELECTED_LOCATION_ID,
   GetGmbLocations200Response.JSON_PROPERTY_CACHED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-04T09:50:14.543041630Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-04T15:39:53.952140004Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetGmbLocations200Response {
   public static final String JSON_PROPERTY_LOCATIONS = "locations";
   @javax.annotation.Nullable

@@ -36,7 +36,7 @@ import dev.getlate.ApiClient;
 @JsonPropertyOrder({
   PostGetResponse.JSON_PROPERTY_POST
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-04T09:50:14.543041630Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-04T15:39:53.952140004Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class PostGetResponse {
   public static final String JSON_PROPERTY_POST = "post";
   @javax.annotation.Nullable
