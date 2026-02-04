@@ -329,7 +329,7 @@ ApiResponse<[**GetInboxConversationMessages200Response**](GetInboxConversationMe
 
 List conversations across all accounts
 
-Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated.  **Supported platforms:** Facebook, Instagram, Bluesky, Reddit, Telegram 
+Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Reddit, Telegram 
 
 ### Example
 
@@ -379,7 +379,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **profileId** | **String**| Filter by profile ID | [optional] |
-| **platform** | **String**| Filter by platform | [optional] [enum: facebook, instagram, bluesky, reddit, telegram] |
+| **platform** | **String**| Filter by platform | [optional] [enum: facebook, instagram, twitter, bluesky, reddit, telegram] |
 | **status** | **String**| Filter by conversation status | [optional] [enum: active, archived] |
 | **sortOrder** | **String**| Sort order by updated time | [optional] [default to desc] [enum: asc, desc] |
 | **limit** | **Integer**| Maximum number of conversations to return | [optional] [default to 50] |
@@ -413,7 +413,7 @@ public class Example {
 
 List conversations across all accounts
 
-Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated.  **Supported platforms:** Facebook, Instagram, Bluesky, Reddit, Telegram 
+Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Reddit, Telegram 
 
 ### Example
 
@@ -466,7 +466,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **profileId** | **String**| Filter by profile ID | [optional] |
-| **platform** | **String**| Filter by platform | [optional] [enum: facebook, instagram, bluesky, reddit, telegram] |
+| **platform** | **String**| Filter by platform | [optional] [enum: facebook, instagram, twitter, bluesky, reddit, telegram] |
 | **status** | **String**| Filter by conversation status | [optional] [enum: active, archived] |
 | **sortOrder** | **String**| Sort order by updated time | [optional] [default to desc] [enum: asc, desc] |
 | **limit** | **Integer**| Maximum number of conversations to return | [optional] [default to 50] |

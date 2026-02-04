@@ -59,7 +59,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-03T18:18:10.129860260Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-04T09:50:14.543041630Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CommentsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -635,7 +635,7 @@ public class CommentsApi {
 
   /**
    * Like a comment
-   * Like or upvote a comment on a post.  **Supported platforms:** Facebook, Bluesky, Reddit  For Bluesky, the &#x60;cid&#x60; (content identifier) is required in the request body. 
+   * Like or upvote a comment on a post.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;cid&#x60; (content identifier) is required in the request body. 
    * @param postId  (required)
    * @param commentId  (required)
    * @param likeInboxCommentRequest  (required)
@@ -648,7 +648,7 @@ public class CommentsApi {
 
   /**
    * Like a comment
-   * Like or upvote a comment on a post.  **Supported platforms:** Facebook, Bluesky, Reddit  For Bluesky, the &#x60;cid&#x60; (content identifier) is required in the request body. 
+   * Like or upvote a comment on a post.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;cid&#x60; (content identifier) is required in the request body. 
    * @param postId  (required)
    * @param commentId  (required)
    * @param likeInboxCommentRequest  (required)
@@ -663,7 +663,7 @@ public class CommentsApi {
 
   /**
    * Like a comment
-   * Like or upvote a comment on a post.  **Supported platforms:** Facebook, Bluesky, Reddit  For Bluesky, the &#x60;cid&#x60; (content identifier) is required in the request body. 
+   * Like or upvote a comment on a post.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;cid&#x60; (content identifier) is required in the request body. 
    * @param postId  (required)
    * @param commentId  (required)
    * @param likeInboxCommentRequest  (required)
@@ -676,7 +676,7 @@ public class CommentsApi {
 
   /**
    * Like a comment
-   * Like or upvote a comment on a post.  **Supported platforms:** Facebook, Bluesky, Reddit  For Bluesky, the &#x60;cid&#x60; (content identifier) is required in the request body. 
+   * Like or upvote a comment on a post.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;cid&#x60; (content identifier) is required in the request body. 
    * @param postId  (required)
    * @param commentId  (required)
    * @param likeInboxCommentRequest  (required)
@@ -776,7 +776,7 @@ public class CommentsApi {
 
   /**
    * List posts with comments across all accounts
-   * Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Bluesky, YouTube, LinkedIn, Reddit, TikTok (write-only) 
+   * Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Threads, YouTube, LinkedIn, Reddit, TikTok (write-only) 
    * @param profileId Filter by profile ID (optional)
    * @param platform Filter by platform (optional)
    * @param minComments Minimum comment count (optional)
@@ -795,7 +795,7 @@ public class CommentsApi {
 
   /**
    * List posts with comments across all accounts
-   * Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Bluesky, YouTube, LinkedIn, Reddit, TikTok (write-only) 
+   * Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Threads, YouTube, LinkedIn, Reddit, TikTok (write-only) 
    * @param profileId Filter by profile ID (optional)
    * @param platform Filter by platform (optional)
    * @param minComments Minimum comment count (optional)
@@ -816,7 +816,7 @@ public class CommentsApi {
 
   /**
    * List posts with comments across all accounts
-   * Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Bluesky, YouTube, LinkedIn, Reddit, TikTok (write-only) 
+   * Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Threads, YouTube, LinkedIn, Reddit, TikTok (write-only) 
    * @param profileId Filter by profile ID (optional)
    * @param platform Filter by platform (optional)
    * @param minComments Minimum comment count (optional)
@@ -835,7 +835,7 @@ public class CommentsApi {
 
   /**
    * List posts with comments across all accounts
-   * Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Bluesky, YouTube, LinkedIn, Reddit, TikTok (write-only) 
+   * Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Threads, YouTube, LinkedIn, Reddit, TikTok (write-only) 
    * @param profileId Filter by profile ID (optional)
    * @param platform Filter by platform (optional)
    * @param minComments Minimum comment count (optional)
@@ -1375,7 +1375,7 @@ public class CommentsApi {
 
   /**
    * Unlike a comment
-   * Remove a like from a comment.  **Supported platforms:** Facebook, Bluesky, Reddit  For Bluesky, the &#x60;likeUri&#x60; query parameter is required. 
+   * Remove a like from a comment.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;likeUri&#x60; query parameter is required. 
    * @param postId  (required)
    * @param commentId  (required)
    * @param accountId  (required)
@@ -1389,7 +1389,7 @@ public class CommentsApi {
 
   /**
    * Unlike a comment
-   * Remove a like from a comment.  **Supported platforms:** Facebook, Bluesky, Reddit  For Bluesky, the &#x60;likeUri&#x60; query parameter is required. 
+   * Remove a like from a comment.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;likeUri&#x60; query parameter is required. 
    * @param postId  (required)
    * @param commentId  (required)
    * @param accountId  (required)
@@ -1405,7 +1405,7 @@ public class CommentsApi {
 
   /**
    * Unlike a comment
-   * Remove a like from a comment.  **Supported platforms:** Facebook, Bluesky, Reddit  For Bluesky, the &#x60;likeUri&#x60; query parameter is required. 
+   * Remove a like from a comment.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;likeUri&#x60; query parameter is required. 
    * @param postId  (required)
    * @param commentId  (required)
    * @param accountId  (required)
@@ -1419,7 +1419,7 @@ public class CommentsApi {
 
   /**
    * Unlike a comment
-   * Remove a like from a comment.  **Supported platforms:** Facebook, Bluesky, Reddit  For Bluesky, the &#x60;likeUri&#x60; query parameter is required. 
+   * Remove a like from a comment.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;likeUri&#x60; query parameter is required. 
    * @param postId  (required)
    * @param commentId  (required)
    * @param accountId  (required)

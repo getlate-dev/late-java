@@ -5998,7 +5998,7 @@ paths:
         Fetch conversations (DMs) from all connected messaging accounts in a single API call.
         Supports filtering by profile and platform. Results are aggregated and deduplicated.
 
-        **Supported platforms:** Facebook, Instagram, Bluesky, Reddit, Telegram
+        **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Reddit, Telegram
       operationId: listInboxConversations
       parameters:
       - description: Filter by profile ID
@@ -6018,6 +6018,7 @@ paths:
           enum:
           - facebook
           - instagram
+          - twitter
           - bluesky
           - reddit
           - telegram
@@ -6280,7 +6281,7 @@ paths:
         Fetch posts with their comment counts from all connected accounts.
         Aggregates data from multiple accounts in a single API call.
 
-        **Supported platforms:** Facebook, Instagram, Bluesky, YouTube, LinkedIn, Reddit, TikTok (write-only)
+        **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Threads, YouTube, LinkedIn, Reddit, TikTok (write-only)
       operationId: listInboxComments
       parameters:
       - description: Filter by profile ID
@@ -6300,10 +6301,12 @@ paths:
           enum:
           - facebook
           - instagram
+          - twitter
+          - bluesky
+          - threads
           - youtube
           - linkedin
           - reddit
-          - bluesky
           - tiktok
           type: string
         style: form
@@ -6645,7 +6648,7 @@ paths:
       description: |
         Remove a like from a comment.
 
-        **Supported platforms:** Facebook, Bluesky, Reddit
+        **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit
 
         For Bluesky, the `likeUri` query parameter is required.
       operationId: unlikeInboxComment
@@ -6703,7 +6706,7 @@ paths:
       description: |
         Like or upvote a comment on a post.
 
-        **Supported platforms:** Facebook, Bluesky, Reddit
+        **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit
 
         For Bluesky, the `cid` (content identifier) is required in the request body.
       operationId: likeInboxComment

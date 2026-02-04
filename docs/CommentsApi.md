@@ -513,7 +513,7 @@ ApiResponse<[**HideInboxComment200Response**](HideInboxComment200Response.md)>
 
 Like a comment
 
-Like or upvote a comment on a post.  **Supported platforms:** Facebook, Bluesky, Reddit  For Bluesky, the &#x60;cid&#x60; (content identifier) is required in the request body. 
+Like or upvote a comment on a post.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;cid&#x60; (content identifier) is required in the request body. 
 
 ### Example
 
@@ -590,7 +590,7 @@ public class Example {
 
 Like a comment
 
-Like or upvote a comment on a post.  **Supported platforms:** Facebook, Bluesky, Reddit  For Bluesky, the &#x60;cid&#x60; (content identifier) is required in the request body. 
+Like or upvote a comment on a post.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;cid&#x60; (content identifier) is required in the request body. 
 
 ### Example
 
@@ -671,7 +671,7 @@ ApiResponse<[**LikeInboxComment200Response**](LikeInboxComment200Response.md)>
 
 List posts with comments across all accounts
 
-Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Bluesky, YouTube, LinkedIn, Reddit, TikTok (write-only) 
+Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Threads, YouTube, LinkedIn, Reddit, TikTok (write-only) 
 
 ### Example
 
@@ -723,7 +723,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **profileId** | **String**| Filter by profile ID | [optional] |
-| **platform** | **String**| Filter by platform | [optional] [enum: facebook, instagram, youtube, linkedin, reddit, bluesky, tiktok] |
+| **platform** | **String**| Filter by platform | [optional] [enum: facebook, instagram, twitter, bluesky, threads, youtube, linkedin, reddit, tiktok] |
 | **minComments** | **Integer**| Minimum comment count | [optional] |
 | **since** | **OffsetDateTime**| Posts created after this date | [optional] |
 | **sortBy** | **String**| Sort field | [optional] [default to date] [enum: date, comments] |
@@ -759,7 +759,7 @@ public class Example {
 
 List posts with comments across all accounts
 
-Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Bluesky, YouTube, LinkedIn, Reddit, TikTok (write-only) 
+Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Threads, YouTube, LinkedIn, Reddit, TikTok (write-only) 
 
 ### Example
 
@@ -814,7 +814,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **profileId** | **String**| Filter by profile ID | [optional] |
-| **platform** | **String**| Filter by platform | [optional] [enum: facebook, instagram, youtube, linkedin, reddit, bluesky, tiktok] |
+| **platform** | **String**| Filter by platform | [optional] [enum: facebook, instagram, twitter, bluesky, threads, youtube, linkedin, reddit, tiktok] |
 | **minComments** | **Integer**| Minimum comment count | [optional] |
 | **since** | **OffsetDateTime**| Posts created after this date | [optional] |
 | **sortBy** | **String**| Sort field | [optional] [default to date] [enum: date, comments] |
@@ -1321,7 +1321,7 @@ ApiResponse<[**HideInboxComment200Response**](HideInboxComment200Response.md)>
 
 Unlike a comment
 
-Remove a like from a comment.  **Supported platforms:** Facebook, Bluesky, Reddit  For Bluesky, the &#x60;likeUri&#x60; query parameter is required. 
+Remove a like from a comment.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;likeUri&#x60; query parameter is required. 
 
 ### Example
 
@@ -1400,7 +1400,7 @@ public class Example {
 
 Unlike a comment
 
-Remove a like from a comment.  **Supported platforms:** Facebook, Bluesky, Reddit  For Bluesky, the &#x60;likeUri&#x60; query parameter is required. 
+Remove a like from a comment.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;likeUri&#x60; query parameter is required. 
 
 ### Example
 

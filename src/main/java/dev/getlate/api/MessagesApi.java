@@ -54,7 +54,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-03T18:18:10.129860260Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-04T09:50:14.543041630Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class MessagesApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -455,7 +455,7 @@ public class MessagesApi {
 
   /**
    * List conversations across all accounts
-   * Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated.  **Supported platforms:** Facebook, Instagram, Bluesky, Reddit, Telegram 
+   * Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Reddit, Telegram 
    * @param profileId Filter by profile ID (optional)
    * @param platform Filter by platform (optional)
    * @param status Filter by conversation status (optional)
@@ -472,7 +472,7 @@ public class MessagesApi {
 
   /**
    * List conversations across all accounts
-   * Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated.  **Supported platforms:** Facebook, Instagram, Bluesky, Reddit, Telegram 
+   * Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Reddit, Telegram 
    * @param profileId Filter by profile ID (optional)
    * @param platform Filter by platform (optional)
    * @param status Filter by conversation status (optional)
@@ -491,7 +491,7 @@ public class MessagesApi {
 
   /**
    * List conversations across all accounts
-   * Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated.  **Supported platforms:** Facebook, Instagram, Bluesky, Reddit, Telegram 
+   * Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Reddit, Telegram 
    * @param profileId Filter by profile ID (optional)
    * @param platform Filter by platform (optional)
    * @param status Filter by conversation status (optional)
@@ -508,7 +508,7 @@ public class MessagesApi {
 
   /**
    * List conversations across all accounts
-   * Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated.  **Supported platforms:** Facebook, Instagram, Bluesky, Reddit, Telegram 
+   * Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Reddit, Telegram 
    * @param profileId Filter by profile ID (optional)
    * @param platform Filter by platform (optional)
    * @param status Filter by conversation status (optional)

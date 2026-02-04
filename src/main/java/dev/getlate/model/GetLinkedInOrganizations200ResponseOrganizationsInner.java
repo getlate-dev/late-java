@@ -38,7 +38,7 @@ import dev.getlate.ApiClient;
   GetLinkedInOrganizations200ResponseOrganizationsInner.JSON_PROPERTY_VANITY_NAME,
   GetLinkedInOrganizations200ResponseOrganizationsInner.JSON_PROPERTY_LOCALIZED_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-03T18:18:10.129860260Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-04T09:50:14.543041630Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetLinkedInOrganizations200ResponseOrganizationsInner {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable
