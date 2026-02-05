@@ -26,6 +26,7 @@ tags:
 - name: Reddit Search
 - name: Facebook
 - name: GMB Reviews
+- name: GMB Food Menus
 - name: LinkedIn Mentions
 - name: Pinterest
 - name: TikTok
@@ -3375,6 +3376,185 @@ paths:
       summary: Get Google Business Profile reviews
       tags:
       - GMB Reviews
+      x-accepts:
+      - application/json
+  /v1/accounts/{accountId}/gmb-food-menus:
+    get:
+      description: |
+        Fetches food menus for a connected Google Business Profile location.
+
+        Returns the full menu structure including:
+        - Menu names and descriptions
+        - Sections (e.g. Appetizers, Entrees, Drinks)
+        - Items with labels, pricing, dietary info, and allergens
+        - Item options/variants
+
+        Only available for locations with food menu support (restaurants, cafes, etc.).
+      operationId: getGoogleBusinessFoodMenus
+      parameters:
+      - description: The Late account ID (from /v1/accounts)
+        explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                success: true
+                accountId: 64e1f0a9e2b5af0012ab34cd
+                locationId: "9281089117903930794"
+                name: accounts/123456789/locations/9281089117903930794/foodMenus
+                menus:
+                - labels:
+                  - displayName: Lunch Menu
+                    description: Available 11am-3pm
+                    languageCode: en
+                  sections:
+                  - labels:
+                    - displayName: Appetizers
+                    items:
+                    - labels:
+                      - displayName: Caesar Salad
+                        description: "Romaine, parmesan, croutons"
+                      attributes:
+                        price:
+                          currencyCode: USD
+                          units: "12"
+                        dietaryRestriction:
+                        - VEGETARIAN
+              schema:
+                $ref: "#/components/schemas/getGoogleBusinessFoodMenus_200_response"
+          description: Food menus fetched successfully
+        "400":
+          content:
+            application/json:
+              example:
+                error: This endpoint is only available for Google Business Profile
+                  accounts
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Invalid request - not a Google Business account or missing
+            location
+        "401":
+          content:
+            application/json:
+              example:
+                error: Access token expired. Please reconnect your Google Business
+                  Profile account.
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Unauthorized or token expired
+        "403":
+          content:
+            application/json:
+              example:
+                error: You do not have permission to access food menus for this location.
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Permission denied for this location
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Failed to fetch food menus
+      security:
+      - bearerAuth: []
+      summary: Get Google Business Profile food menus
+      tags:
+      - GMB Food Menus
+      x-accepts:
+      - application/json
+    put:
+      description: |
+        Updates the food menus for a connected Google Business Profile location.
+
+        Send the full menus array. Use `updateMask` for partial updates (e.g. `"menus"` to only update the menus field).
+
+        Each menu can contain sections, and each section can contain items with pricing, dietary restrictions, allergens, and more.
+      operationId: updateGoogleBusinessFoodMenus
+      parameters:
+      - description: The Late account ID (from /v1/accounts)
+        explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            example:
+              menus:
+              - labels:
+                - displayName: Dinner Menu
+                  languageCode: en
+                sections:
+                - labels:
+                  - displayName: Mains
+                  items:
+                  - labels:
+                    - displayName: Grilled Salmon
+                      description: With seasonal vegetables
+                    attributes:
+                      price:
+                        currencyCode: USD
+                        units: "24"
+                      allergen:
+                      - FISH
+              updateMask: menus
+            schema:
+              $ref: "#/components/schemas/updateGoogleBusinessFoodMenus_request"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/updateGoogleBusinessFoodMenus_200_response"
+          description: Food menus updated successfully
+        "400":
+          content:
+            application/json:
+              example:
+                error: Request body must include a "menus" array
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Invalid request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Unauthorized or token expired
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Permission denied for this location
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Failed to update food menus
+      security:
+      - bearerAuth: []
+      summary: Update Google Business Profile food menus
+      tags:
+      - GMB Food Menus
+      x-content-type: application/json
       x-accepts:
       - application/json
   /v1/connect/pending-data:
@@ -7086,6 +7266,729 @@ components:
         details:
           additionalProperties: true
           type: object
+    FoodMenuLabel:
+      example:
+        displayName: displayName
+        description: description
+        languageCode: languageCode
+      properties:
+        displayName:
+          description: Display name of the item/section/menu
+          type: string
+        description:
+          description: Optional description
+          type: string
+        languageCode:
+          description: "BCP-47 language code (e.g. en, es)"
+          type: string
+      required:
+      - displayName
+    Money:
+      example:
+        nanos: 0
+        units: units
+        currencyCode: currencyCode
+      properties:
+        currencyCode:
+          description: "ISO 4217 currency code (e.g. USD, EUR)"
+          type: string
+        units:
+          description: Whole units of the amount
+          type: string
+        nanos:
+          description: Nano units (10^-9) of the amount
+          type: integer
+      required:
+      - currencyCode
+      - units
+    FoodMenuItemAttributes:
+      example:
+        dietaryRestriction:
+        - dietaryRestriction
+        - dietaryRestriction
+        allergen:
+        - allergen
+        - allergen
+        spiciness: spiciness
+        preparationMethods:
+        - preparationMethods
+        - preparationMethods
+        price:
+          nanos: 0
+          units: units
+          currencyCode: currencyCode
+        servesNumPeople: 6
+        mediaKeys:
+        - mediaKeys
+        - mediaKeys
+      properties:
+        price:
+          $ref: "#/components/schemas/Money"
+        spiciness:
+          description: "Spiciness level (e.g. MILD, MEDIUM, HOT)"
+          type: string
+        allergen:
+          description: "Allergens (e.g. DAIRY, GLUTEN, SHELLFISH)"
+          items:
+            type: string
+          type: array
+        dietaryRestriction:
+          description: "Dietary labels (e.g. VEGETARIAN, VEGAN, GLUTEN_FREE)"
+          items:
+            type: string
+          type: array
+        servesNumPeople:
+          description: Number of people the item serves
+          type: integer
+        preparationMethods:
+          description: "Preparation methods (e.g. GRILLED, FRIED)"
+          items:
+            type: string
+          type: array
+        mediaKeys:
+          description: Media references for item photos
+          items:
+            type: string
+          type: array
+    FoodMenuItem:
+      example:
+        options:
+        - attributes:
+            dietaryRestriction:
+            - dietaryRestriction
+            - dietaryRestriction
+            allergen:
+            - allergen
+            - allergen
+            spiciness: spiciness
+            preparationMethods:
+            - preparationMethods
+            - preparationMethods
+            price:
+              nanos: 0
+              units: units
+              currencyCode: currencyCode
+            servesNumPeople: 6
+            mediaKeys:
+            - mediaKeys
+            - mediaKeys
+          labels:
+          - displayName: displayName
+            description: description
+            languageCode: languageCode
+          - displayName: displayName
+            description: description
+            languageCode: languageCode
+        - attributes:
+            dietaryRestriction:
+            - dietaryRestriction
+            - dietaryRestriction
+            allergen:
+            - allergen
+            - allergen
+            spiciness: spiciness
+            preparationMethods:
+            - preparationMethods
+            - preparationMethods
+            price:
+              nanos: 0
+              units: units
+              currencyCode: currencyCode
+            servesNumPeople: 6
+            mediaKeys:
+            - mediaKeys
+            - mediaKeys
+          labels:
+          - displayName: displayName
+            description: description
+            languageCode: languageCode
+          - displayName: displayName
+            description: description
+            languageCode: languageCode
+        attributes:
+          dietaryRestriction:
+          - dietaryRestriction
+          - dietaryRestriction
+          allergen:
+          - allergen
+          - allergen
+          spiciness: spiciness
+          preparationMethods:
+          - preparationMethods
+          - preparationMethods
+          price:
+            nanos: 0
+            units: units
+            currencyCode: currencyCode
+          servesNumPeople: 6
+          mediaKeys:
+          - mediaKeys
+          - mediaKeys
+        labels:
+        - displayName: displayName
+          description: description
+          languageCode: languageCode
+        - displayName: displayName
+          description: description
+          languageCode: languageCode
+      properties:
+        labels:
+          items:
+            $ref: "#/components/schemas/FoodMenuLabel"
+          type: array
+        attributes:
+          $ref: "#/components/schemas/FoodMenuItemAttributes"
+        options:
+          description: "Item variants/options (e.g. sizes, preparations)"
+          items:
+            $ref: "#/components/schemas/FoodMenuItem_options_inner"
+          type: array
+      required:
+      - labels
+    FoodMenuSection:
+      example:
+        items:
+        - options:
+          - attributes:
+              dietaryRestriction:
+              - dietaryRestriction
+              - dietaryRestriction
+              allergen:
+              - allergen
+              - allergen
+              spiciness: spiciness
+              preparationMethods:
+              - preparationMethods
+              - preparationMethods
+              price:
+                nanos: 0
+                units: units
+                currencyCode: currencyCode
+              servesNumPeople: 6
+              mediaKeys:
+              - mediaKeys
+              - mediaKeys
+            labels:
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+          - attributes:
+              dietaryRestriction:
+              - dietaryRestriction
+              - dietaryRestriction
+              allergen:
+              - allergen
+              - allergen
+              spiciness: spiciness
+              preparationMethods:
+              - preparationMethods
+              - preparationMethods
+              price:
+                nanos: 0
+                units: units
+                currencyCode: currencyCode
+              servesNumPeople: 6
+              mediaKeys:
+              - mediaKeys
+              - mediaKeys
+            labels:
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+          attributes:
+            dietaryRestriction:
+            - dietaryRestriction
+            - dietaryRestriction
+            allergen:
+            - allergen
+            - allergen
+            spiciness: spiciness
+            preparationMethods:
+            - preparationMethods
+            - preparationMethods
+            price:
+              nanos: 0
+              units: units
+              currencyCode: currencyCode
+            servesNumPeople: 6
+            mediaKeys:
+            - mediaKeys
+            - mediaKeys
+          labels:
+          - displayName: displayName
+            description: description
+            languageCode: languageCode
+          - displayName: displayName
+            description: description
+            languageCode: languageCode
+        - options:
+          - attributes:
+              dietaryRestriction:
+              - dietaryRestriction
+              - dietaryRestriction
+              allergen:
+              - allergen
+              - allergen
+              spiciness: spiciness
+              preparationMethods:
+              - preparationMethods
+              - preparationMethods
+              price:
+                nanos: 0
+                units: units
+                currencyCode: currencyCode
+              servesNumPeople: 6
+              mediaKeys:
+              - mediaKeys
+              - mediaKeys
+            labels:
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+          - attributes:
+              dietaryRestriction:
+              - dietaryRestriction
+              - dietaryRestriction
+              allergen:
+              - allergen
+              - allergen
+              spiciness: spiciness
+              preparationMethods:
+              - preparationMethods
+              - preparationMethods
+              price:
+                nanos: 0
+                units: units
+                currencyCode: currencyCode
+              servesNumPeople: 6
+              mediaKeys:
+              - mediaKeys
+              - mediaKeys
+            labels:
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+          attributes:
+            dietaryRestriction:
+            - dietaryRestriction
+            - dietaryRestriction
+            allergen:
+            - allergen
+            - allergen
+            spiciness: spiciness
+            preparationMethods:
+            - preparationMethods
+            - preparationMethods
+            price:
+              nanos: 0
+              units: units
+              currencyCode: currencyCode
+            servesNumPeople: 6
+            mediaKeys:
+            - mediaKeys
+            - mediaKeys
+          labels:
+          - displayName: displayName
+            description: description
+            languageCode: languageCode
+          - displayName: displayName
+            description: description
+            languageCode: languageCode
+        labels:
+        - displayName: displayName
+          description: description
+          languageCode: languageCode
+        - displayName: displayName
+          description: description
+          languageCode: languageCode
+      properties:
+        labels:
+          items:
+            $ref: "#/components/schemas/FoodMenuLabel"
+          type: array
+        items:
+          items:
+            $ref: "#/components/schemas/FoodMenuItem"
+          type: array
+      required:
+      - labels
+    FoodMenu:
+      example:
+        sourceUrl: sourceUrl
+        sections:
+        - items:
+          - options:
+            - attributes:
+                dietaryRestriction:
+                - dietaryRestriction
+                - dietaryRestriction
+                allergen:
+                - allergen
+                - allergen
+                spiciness: spiciness
+                preparationMethods:
+                - preparationMethods
+                - preparationMethods
+                price:
+                  nanos: 0
+                  units: units
+                  currencyCode: currencyCode
+                servesNumPeople: 6
+                mediaKeys:
+                - mediaKeys
+                - mediaKeys
+              labels:
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+            - attributes:
+                dietaryRestriction:
+                - dietaryRestriction
+                - dietaryRestriction
+                allergen:
+                - allergen
+                - allergen
+                spiciness: spiciness
+                preparationMethods:
+                - preparationMethods
+                - preparationMethods
+                price:
+                  nanos: 0
+                  units: units
+                  currencyCode: currencyCode
+                servesNumPeople: 6
+                mediaKeys:
+                - mediaKeys
+                - mediaKeys
+              labels:
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+            attributes:
+              dietaryRestriction:
+              - dietaryRestriction
+              - dietaryRestriction
+              allergen:
+              - allergen
+              - allergen
+              spiciness: spiciness
+              preparationMethods:
+              - preparationMethods
+              - preparationMethods
+              price:
+                nanos: 0
+                units: units
+                currencyCode: currencyCode
+              servesNumPeople: 6
+              mediaKeys:
+              - mediaKeys
+              - mediaKeys
+            labels:
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+          - options:
+            - attributes:
+                dietaryRestriction:
+                - dietaryRestriction
+                - dietaryRestriction
+                allergen:
+                - allergen
+                - allergen
+                spiciness: spiciness
+                preparationMethods:
+                - preparationMethods
+                - preparationMethods
+                price:
+                  nanos: 0
+                  units: units
+                  currencyCode: currencyCode
+                servesNumPeople: 6
+                mediaKeys:
+                - mediaKeys
+                - mediaKeys
+              labels:
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+            - attributes:
+                dietaryRestriction:
+                - dietaryRestriction
+                - dietaryRestriction
+                allergen:
+                - allergen
+                - allergen
+                spiciness: spiciness
+                preparationMethods:
+                - preparationMethods
+                - preparationMethods
+                price:
+                  nanos: 0
+                  units: units
+                  currencyCode: currencyCode
+                servesNumPeople: 6
+                mediaKeys:
+                - mediaKeys
+                - mediaKeys
+              labels:
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+            attributes:
+              dietaryRestriction:
+              - dietaryRestriction
+              - dietaryRestriction
+              allergen:
+              - allergen
+              - allergen
+              spiciness: spiciness
+              preparationMethods:
+              - preparationMethods
+              - preparationMethods
+              price:
+                nanos: 0
+                units: units
+                currencyCode: currencyCode
+              servesNumPeople: 6
+              mediaKeys:
+              - mediaKeys
+              - mediaKeys
+            labels:
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+          labels:
+          - displayName: displayName
+            description: description
+            languageCode: languageCode
+          - displayName: displayName
+            description: description
+            languageCode: languageCode
+        - items:
+          - options:
+            - attributes:
+                dietaryRestriction:
+                - dietaryRestriction
+                - dietaryRestriction
+                allergen:
+                - allergen
+                - allergen
+                spiciness: spiciness
+                preparationMethods:
+                - preparationMethods
+                - preparationMethods
+                price:
+                  nanos: 0
+                  units: units
+                  currencyCode: currencyCode
+                servesNumPeople: 6
+                mediaKeys:
+                - mediaKeys
+                - mediaKeys
+              labels:
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+            - attributes:
+                dietaryRestriction:
+                - dietaryRestriction
+                - dietaryRestriction
+                allergen:
+                - allergen
+                - allergen
+                spiciness: spiciness
+                preparationMethods:
+                - preparationMethods
+                - preparationMethods
+                price:
+                  nanos: 0
+                  units: units
+                  currencyCode: currencyCode
+                servesNumPeople: 6
+                mediaKeys:
+                - mediaKeys
+                - mediaKeys
+              labels:
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+            attributes:
+              dietaryRestriction:
+              - dietaryRestriction
+              - dietaryRestriction
+              allergen:
+              - allergen
+              - allergen
+              spiciness: spiciness
+              preparationMethods:
+              - preparationMethods
+              - preparationMethods
+              price:
+                nanos: 0
+                units: units
+                currencyCode: currencyCode
+              servesNumPeople: 6
+              mediaKeys:
+              - mediaKeys
+              - mediaKeys
+            labels:
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+          - options:
+            - attributes:
+                dietaryRestriction:
+                - dietaryRestriction
+                - dietaryRestriction
+                allergen:
+                - allergen
+                - allergen
+                spiciness: spiciness
+                preparationMethods:
+                - preparationMethods
+                - preparationMethods
+                price:
+                  nanos: 0
+                  units: units
+                  currencyCode: currencyCode
+                servesNumPeople: 6
+                mediaKeys:
+                - mediaKeys
+                - mediaKeys
+              labels:
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+            - attributes:
+                dietaryRestriction:
+                - dietaryRestriction
+                - dietaryRestriction
+                allergen:
+                - allergen
+                - allergen
+                spiciness: spiciness
+                preparationMethods:
+                - preparationMethods
+                - preparationMethods
+                price:
+                  nanos: 0
+                  units: units
+                  currencyCode: currencyCode
+                servesNumPeople: 6
+                mediaKeys:
+                - mediaKeys
+                - mediaKeys
+              labels:
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+            attributes:
+              dietaryRestriction:
+              - dietaryRestriction
+              - dietaryRestriction
+              allergen:
+              - allergen
+              - allergen
+              spiciness: spiciness
+              preparationMethods:
+              - preparationMethods
+              - preparationMethods
+              price:
+                nanos: 0
+                units: units
+                currencyCode: currencyCode
+              servesNumPeople: 6
+              mediaKeys:
+              - mediaKeys
+              - mediaKeys
+            labels:
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+          labels:
+          - displayName: displayName
+            description: description
+            languageCode: languageCode
+          - displayName: displayName
+            description: description
+            languageCode: languageCode
+        labels:
+        - displayName: displayName
+          description: description
+          languageCode: languageCode
+        - displayName: displayName
+          description: description
+          languageCode: languageCode
+        cuisines:
+        - cuisines
+        - cuisines
+      properties:
+        labels:
+          items:
+            $ref: "#/components/schemas/FoodMenuLabel"
+          type: array
+        sections:
+          items:
+            $ref: "#/components/schemas/FoodMenuSection"
+          type: array
+        cuisines:
+          description: "Cuisine types (e.g. AMERICAN, ITALIAN, JAPANESE)"
+          items:
+            type: string
+          type: array
+        sourceUrl:
+          description: URL of the original menu source
+          type: string
+      required:
+      - labels
     YouTubeDailyViewsResponse:
       example:
         dateRange:
@@ -8692,6 +9595,7 @@ components:
         engagementRate: 0
         lastUpdated: 2000-01-23T04:56:07.000+00:00
         comments: 0
+        saves: 0
         reach: 0
         clicks: 0
         impressions: 0
@@ -8713,6 +9617,10 @@ components:
         shares:
           example: 0
           type: integer
+        saves:
+          description: "Number of saves/bookmarks (Instagram, Pinterest)"
+          example: 0
+          type: integer
         clicks:
           example: 0
           type: integer
@@ -8732,6 +9640,7 @@ components:
           engagementRate: 0
           lastUpdated: 2000-01-23T04:56:07.000+00:00
           comments: 0
+          saves: 0
           reach: 0
           clicks: 0
           impressions: 0
@@ -8776,6 +9685,7 @@ components:
           engagementRate: 0
           lastUpdated: 2000-01-23T04:56:07.000+00:00
           comments: 0
+          saves: 0
           reach: 0
           clicks: 0
           impressions: 0
@@ -8792,6 +9702,7 @@ components:
             engagementRate: 0
             lastUpdated: 2000-01-23T04:56:07.000+00:00
             comments: 0
+            saves: 0
             reach: 0
             clicks: 0
             impressions: 0
@@ -8810,6 +9721,7 @@ components:
             engagementRate: 0
             lastUpdated: 2000-01-23T04:56:07.000+00:00
             comments: 0
+            saves: 0
             reach: 0
             clicks: 0
             impressions: 0
@@ -12452,6 +13364,1435 @@ components:
           description: Token for next page
           type: string
           nullable: true
+    getGoogleBusinessFoodMenus_200_response:
+      example:
+        accountId: accountId
+        success: true
+        locationId: locationId
+        name: name
+        menus:
+        - sourceUrl: sourceUrl
+          sections:
+          - items:
+            - options:
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              attributes:
+                dietaryRestriction:
+                - dietaryRestriction
+                - dietaryRestriction
+                allergen:
+                - allergen
+                - allergen
+                spiciness: spiciness
+                preparationMethods:
+                - preparationMethods
+                - preparationMethods
+                price:
+                  nanos: 0
+                  units: units
+                  currencyCode: currencyCode
+                servesNumPeople: 6
+                mediaKeys:
+                - mediaKeys
+                - mediaKeys
+              labels:
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+            - options:
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              attributes:
+                dietaryRestriction:
+                - dietaryRestriction
+                - dietaryRestriction
+                allergen:
+                - allergen
+                - allergen
+                spiciness: spiciness
+                preparationMethods:
+                - preparationMethods
+                - preparationMethods
+                price:
+                  nanos: 0
+                  units: units
+                  currencyCode: currencyCode
+                servesNumPeople: 6
+                mediaKeys:
+                - mediaKeys
+                - mediaKeys
+              labels:
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+            labels:
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+          - items:
+            - options:
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              attributes:
+                dietaryRestriction:
+                - dietaryRestriction
+                - dietaryRestriction
+                allergen:
+                - allergen
+                - allergen
+                spiciness: spiciness
+                preparationMethods:
+                - preparationMethods
+                - preparationMethods
+                price:
+                  nanos: 0
+                  units: units
+                  currencyCode: currencyCode
+                servesNumPeople: 6
+                mediaKeys:
+                - mediaKeys
+                - mediaKeys
+              labels:
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+            - options:
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              attributes:
+                dietaryRestriction:
+                - dietaryRestriction
+                - dietaryRestriction
+                allergen:
+                - allergen
+                - allergen
+                spiciness: spiciness
+                preparationMethods:
+                - preparationMethods
+                - preparationMethods
+                price:
+                  nanos: 0
+                  units: units
+                  currencyCode: currencyCode
+                servesNumPeople: 6
+                mediaKeys:
+                - mediaKeys
+                - mediaKeys
+              labels:
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+            labels:
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+          labels:
+          - displayName: displayName
+            description: description
+            languageCode: languageCode
+          - displayName: displayName
+            description: description
+            languageCode: languageCode
+          cuisines:
+          - cuisines
+          - cuisines
+        - sourceUrl: sourceUrl
+          sections:
+          - items:
+            - options:
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              attributes:
+                dietaryRestriction:
+                - dietaryRestriction
+                - dietaryRestriction
+                allergen:
+                - allergen
+                - allergen
+                spiciness: spiciness
+                preparationMethods:
+                - preparationMethods
+                - preparationMethods
+                price:
+                  nanos: 0
+                  units: units
+                  currencyCode: currencyCode
+                servesNumPeople: 6
+                mediaKeys:
+                - mediaKeys
+                - mediaKeys
+              labels:
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+            - options:
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              attributes:
+                dietaryRestriction:
+                - dietaryRestriction
+                - dietaryRestriction
+                allergen:
+                - allergen
+                - allergen
+                spiciness: spiciness
+                preparationMethods:
+                - preparationMethods
+                - preparationMethods
+                price:
+                  nanos: 0
+                  units: units
+                  currencyCode: currencyCode
+                servesNumPeople: 6
+                mediaKeys:
+                - mediaKeys
+                - mediaKeys
+              labels:
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+            labels:
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+          - items:
+            - options:
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              attributes:
+                dietaryRestriction:
+                - dietaryRestriction
+                - dietaryRestriction
+                allergen:
+                - allergen
+                - allergen
+                spiciness: spiciness
+                preparationMethods:
+                - preparationMethods
+                - preparationMethods
+                price:
+                  nanos: 0
+                  units: units
+                  currencyCode: currencyCode
+                servesNumPeople: 6
+                mediaKeys:
+                - mediaKeys
+                - mediaKeys
+              labels:
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+            - options:
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              attributes:
+                dietaryRestriction:
+                - dietaryRestriction
+                - dietaryRestriction
+                allergen:
+                - allergen
+                - allergen
+                spiciness: spiciness
+                preparationMethods:
+                - preparationMethods
+                - preparationMethods
+                price:
+                  nanos: 0
+                  units: units
+                  currencyCode: currencyCode
+                servesNumPeople: 6
+                mediaKeys:
+                - mediaKeys
+                - mediaKeys
+              labels:
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+            labels:
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+          labels:
+          - displayName: displayName
+            description: description
+            languageCode: languageCode
+          - displayName: displayName
+            description: description
+            languageCode: languageCode
+          cuisines:
+          - cuisines
+          - cuisines
+      properties:
+        success:
+          type: boolean
+        accountId:
+          type: string
+        locationId:
+          type: string
+        name:
+          description: Resource name of the food menus
+          type: string
+        menus:
+          items:
+            $ref: "#/components/schemas/FoodMenu"
+          type: array
+    updateGoogleBusinessFoodMenus_request:
+      properties:
+        menus:
+          description: Array of food menus to set
+          items:
+            $ref: "#/components/schemas/FoodMenu"
+          type: array
+        updateMask:
+          description: Field mask for partial updates (e.g. "menus")
+          type: string
+      required:
+      - menus
+    updateGoogleBusinessFoodMenus_200_response:
+      example:
+        accountId: accountId
+        success: true
+        locationId: locationId
+        name: name
+        menus:
+        - sourceUrl: sourceUrl
+          sections:
+          - items:
+            - options:
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              attributes:
+                dietaryRestriction:
+                - dietaryRestriction
+                - dietaryRestriction
+                allergen:
+                - allergen
+                - allergen
+                spiciness: spiciness
+                preparationMethods:
+                - preparationMethods
+                - preparationMethods
+                price:
+                  nanos: 0
+                  units: units
+                  currencyCode: currencyCode
+                servesNumPeople: 6
+                mediaKeys:
+                - mediaKeys
+                - mediaKeys
+              labels:
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+            - options:
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              attributes:
+                dietaryRestriction:
+                - dietaryRestriction
+                - dietaryRestriction
+                allergen:
+                - allergen
+                - allergen
+                spiciness: spiciness
+                preparationMethods:
+                - preparationMethods
+                - preparationMethods
+                price:
+                  nanos: 0
+                  units: units
+                  currencyCode: currencyCode
+                servesNumPeople: 6
+                mediaKeys:
+                - mediaKeys
+                - mediaKeys
+              labels:
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+            labels:
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+          - items:
+            - options:
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              attributes:
+                dietaryRestriction:
+                - dietaryRestriction
+                - dietaryRestriction
+                allergen:
+                - allergen
+                - allergen
+                spiciness: spiciness
+                preparationMethods:
+                - preparationMethods
+                - preparationMethods
+                price:
+                  nanos: 0
+                  units: units
+                  currencyCode: currencyCode
+                servesNumPeople: 6
+                mediaKeys:
+                - mediaKeys
+                - mediaKeys
+              labels:
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+            - options:
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              attributes:
+                dietaryRestriction:
+                - dietaryRestriction
+                - dietaryRestriction
+                allergen:
+                - allergen
+                - allergen
+                spiciness: spiciness
+                preparationMethods:
+                - preparationMethods
+                - preparationMethods
+                price:
+                  nanos: 0
+                  units: units
+                  currencyCode: currencyCode
+                servesNumPeople: 6
+                mediaKeys:
+                - mediaKeys
+                - mediaKeys
+              labels:
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+            labels:
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+          labels:
+          - displayName: displayName
+            description: description
+            languageCode: languageCode
+          - displayName: displayName
+            description: description
+            languageCode: languageCode
+          cuisines:
+          - cuisines
+          - cuisines
+        - sourceUrl: sourceUrl
+          sections:
+          - items:
+            - options:
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              attributes:
+                dietaryRestriction:
+                - dietaryRestriction
+                - dietaryRestriction
+                allergen:
+                - allergen
+                - allergen
+                spiciness: spiciness
+                preparationMethods:
+                - preparationMethods
+                - preparationMethods
+                price:
+                  nanos: 0
+                  units: units
+                  currencyCode: currencyCode
+                servesNumPeople: 6
+                mediaKeys:
+                - mediaKeys
+                - mediaKeys
+              labels:
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+            - options:
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              attributes:
+                dietaryRestriction:
+                - dietaryRestriction
+                - dietaryRestriction
+                allergen:
+                - allergen
+                - allergen
+                spiciness: spiciness
+                preparationMethods:
+                - preparationMethods
+                - preparationMethods
+                price:
+                  nanos: 0
+                  units: units
+                  currencyCode: currencyCode
+                servesNumPeople: 6
+                mediaKeys:
+                - mediaKeys
+                - mediaKeys
+              labels:
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+            labels:
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+          - items:
+            - options:
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              attributes:
+                dietaryRestriction:
+                - dietaryRestriction
+                - dietaryRestriction
+                allergen:
+                - allergen
+                - allergen
+                spiciness: spiciness
+                preparationMethods:
+                - preparationMethods
+                - preparationMethods
+                price:
+                  nanos: 0
+                  units: units
+                  currencyCode: currencyCode
+                servesNumPeople: 6
+                mediaKeys:
+                - mediaKeys
+                - mediaKeys
+              labels:
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+            - options:
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              - attributes:
+                  dietaryRestriction:
+                  - dietaryRestriction
+                  - dietaryRestriction
+                  allergen:
+                  - allergen
+                  - allergen
+                  spiciness: spiciness
+                  preparationMethods:
+                  - preparationMethods
+                  - preparationMethods
+                  price:
+                    nanos: 0
+                    units: units
+                    currencyCode: currencyCode
+                  servesNumPeople: 6
+                  mediaKeys:
+                  - mediaKeys
+                  - mediaKeys
+                labels:
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+                - displayName: displayName
+                  description: description
+                  languageCode: languageCode
+              attributes:
+                dietaryRestriction:
+                - dietaryRestriction
+                - dietaryRestriction
+                allergen:
+                - allergen
+                - allergen
+                spiciness: spiciness
+                preparationMethods:
+                - preparationMethods
+                - preparationMethods
+                price:
+                  nanos: 0
+                  units: units
+                  currencyCode: currencyCode
+                servesNumPeople: 6
+                mediaKeys:
+                - mediaKeys
+                - mediaKeys
+              labels:
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+              - displayName: displayName
+                description: description
+                languageCode: languageCode
+            labels:
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+            - displayName: displayName
+              description: description
+              languageCode: languageCode
+          labels:
+          - displayName: displayName
+            description: description
+            languageCode: languageCode
+          - displayName: displayName
+            description: description
+            languageCode: languageCode
+          cuisines:
+          - cuisines
+          - cuisines
+      properties:
+        success:
+          type: boolean
+        accountId:
+          type: string
+        locationId:
+          type: string
+        name:
+          type: string
+        menus:
+          items:
+            $ref: "#/components/schemas/FoodMenu"
+          type: array
     getPendingOAuthData_200_response_organizations_inner:
       example:
         urn: urn
@@ -15366,6 +17707,41 @@ components:
           type: string
         platform:
           type: string
+    FoodMenuItem_options_inner:
+      example:
+        attributes:
+          dietaryRestriction:
+          - dietaryRestriction
+          - dietaryRestriction
+          allergen:
+          - allergen
+          - allergen
+          spiciness: spiciness
+          preparationMethods:
+          - preparationMethods
+          - preparationMethods
+          price:
+            nanos: 0
+            units: units
+            currencyCode: currencyCode
+          servesNumPeople: 6
+          mediaKeys:
+          - mediaKeys
+          - mediaKeys
+        labels:
+        - displayName: displayName
+          description: description
+          languageCode: languageCode
+        - displayName: displayName
+          description: description
+          languageCode: languageCode
+      properties:
+        labels:
+          items:
+            $ref: "#/components/schemas/FoodMenuLabel"
+          type: array
+        attributes:
+          $ref: "#/components/schemas/FoodMenuItemAttributes"
     YouTubeDailyViewsResponse_dateRange:
       example:
         endDate: 2000-01-23

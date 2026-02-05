@@ -4,7 +4,7 @@ Late API
 
 - API version: 1.0.1
 
-- Build date: 2026-02-04T15:39:53.952140004Z[Etc/UTC]
+- Build date: 2026-02-05T08:04:13.896039900Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -219,6 +219,10 @@ Class | Method | HTTP request | Description
 *ConnectApi* | [**updatePinterestBoardsWithHttpInfo**](docs/ConnectApi.md#updatePinterestBoardsWithHttpInfo) | **PUT** /v1/accounts/{accountId}/pinterest-boards | Set default Pinterest board on the connection
 *ConnectApi* | [**updateRedditSubreddits**](docs/ConnectApi.md#updateRedditSubreddits) | **PUT** /v1/accounts/{accountId}/reddit-subreddits | Set default subreddit on the connection
 *ConnectApi* | [**updateRedditSubredditsWithHttpInfo**](docs/ConnectApi.md#updateRedditSubredditsWithHttpInfo) | **PUT** /v1/accounts/{accountId}/reddit-subreddits | Set default subreddit on the connection
+*GmbFoodMenusApi* | [**getGoogleBusinessFoodMenus**](docs/GmbFoodMenusApi.md#getGoogleBusinessFoodMenus) | **GET** /v1/accounts/{accountId}/gmb-food-menus | Get Google Business Profile food menus
+*GmbFoodMenusApi* | [**getGoogleBusinessFoodMenusWithHttpInfo**](docs/GmbFoodMenusApi.md#getGoogleBusinessFoodMenusWithHttpInfo) | **GET** /v1/accounts/{accountId}/gmb-food-menus | Get Google Business Profile food menus
+*GmbFoodMenusApi* | [**updateGoogleBusinessFoodMenus**](docs/GmbFoodMenusApi.md#updateGoogleBusinessFoodMenus) | **PUT** /v1/accounts/{accountId}/gmb-food-menus | Update Google Business Profile food menus
+*GmbFoodMenusApi* | [**updateGoogleBusinessFoodMenusWithHttpInfo**](docs/GmbFoodMenusApi.md#updateGoogleBusinessFoodMenusWithHttpInfo) | **PUT** /v1/accounts/{accountId}/gmb-food-menus | Update Google Business Profile food menus
 *GmbReviewsApi* | [**getGoogleBusinessReviews**](docs/GmbReviewsApi.md#getGoogleBusinessReviews) | **GET** /v1/accounts/{accountId}/gmb-reviews | Get Google Business Profile reviews
 *GmbReviewsApi* | [**getGoogleBusinessReviewsWithHttpInfo**](docs/GmbReviewsApi.md#getGoogleBusinessReviewsWithHttpInfo) | **GET** /v1/accounts/{accountId}/gmb-reviews | Get Google Business Profile reviews
 *InvitesApi* | [**createInviteToken**](docs/InvitesApi.md#createInviteToken) | **POST** /v1/invite/tokens | Create a team member invite token
@@ -385,6 +389,12 @@ Class | Method | HTTP request | Description
  - [Expired](docs/Expired.md)
  - [FacebookPlatformData](docs/FacebookPlatformData.md)
  - [FollowerStatsResponse](docs/FollowerStatsResponse.md)
+ - [FoodMenu](docs/FoodMenu.md)
+ - [FoodMenuItem](docs/FoodMenuItem.md)
+ - [FoodMenuItemAttributes](docs/FoodMenuItemAttributes.md)
+ - [FoodMenuItemOptionsInner](docs/FoodMenuItemOptionsInner.md)
+ - [FoodMenuLabel](docs/FoodMenuLabel.md)
+ - [FoodMenuSection](docs/FoodMenuSection.md)
  - [GetAccountHealth200Response](docs/GetAccountHealth200Response.md)
  - [GetAccountHealth200ResponsePermissions](docs/GetAccountHealth200ResponsePermissions.md)
  - [GetAccountHealth200ResponsePermissionsPostingInner](docs/GetAccountHealth200ResponsePermissionsPostingInner.md)
@@ -403,6 +413,7 @@ Class | Method | HTTP request | Description
  - [GetFollowerStats403Response](docs/GetFollowerStats403Response.md)
  - [GetGmbLocations200Response](docs/GetGmbLocations200Response.md)
  - [GetGmbLocations200ResponseLocationsInner](docs/GetGmbLocations200ResponseLocationsInner.md)
+ - [GetGoogleBusinessFoodMenus200Response](docs/GetGoogleBusinessFoodMenus200Response.md)
  - [GetGoogleBusinessReviews200Response](docs/GetGoogleBusinessReviews200Response.md)
  - [GetGoogleBusinessReviews200ResponseReviewsInner](docs/GetGoogleBusinessReviews200ResponseReviewsInner.md)
  - [GetGoogleBusinessReviews200ResponseReviewsInnerReviewReply](docs/GetGoogleBusinessReviews200ResponseReviewsInnerReviewReply.md)
@@ -510,6 +521,7 @@ Class | Method | HTTP request | Description
  - [ListUsers200ResponseUsersInner](docs/ListUsers200ResponseUsersInner.md)
  - [MediaItem](docs/MediaItem.md)
  - [MediaUploadResponse](docs/MediaUploadResponse.md)
+ - [Money](docs/Money.md)
  - [Pagination](docs/Pagination.md)
  - [Pending](docs/Pending.md)
  - [PinterestPlatformData](docs/PinterestPlatformData.md)
@@ -605,6 +617,8 @@ Class | Method | HTTP request | Description
  - [UpdateFacebookPageRequest](docs/UpdateFacebookPageRequest.md)
  - [UpdateGmbLocation200Response](docs/UpdateGmbLocation200Response.md)
  - [UpdateGmbLocationRequest](docs/UpdateGmbLocationRequest.md)
+ - [UpdateGoogleBusinessFoodMenus200Response](docs/UpdateGoogleBusinessFoodMenus200Response.md)
+ - [UpdateGoogleBusinessFoodMenusRequest](docs/UpdateGoogleBusinessFoodMenusRequest.md)
  - [UpdateInboxConversation200Response](docs/UpdateInboxConversation200Response.md)
  - [UpdateInboxConversation200ResponseData](docs/UpdateInboxConversation200ResponseData.md)
  - [UpdateInboxConversationRequest](docs/UpdateInboxConversationRequest.md)

@@ -67,6 +67,12 @@ docs/ErrorResponse.md
 docs/Expired.md
 docs/FacebookPlatformData.md
 docs/FollowerStatsResponse.md
+docs/FoodMenu.md
+docs/FoodMenuItem.md
+docs/FoodMenuItemAttributes.md
+docs/FoodMenuItemOptionsInner.md
+docs/FoodMenuLabel.md
+docs/FoodMenuSection.md
 docs/GetAccountHealth200Response.md
 docs/GetAccountHealth200ResponsePermissions.md
 docs/GetAccountHealth200ResponsePermissionsPostingInner.md
@@ -85,6 +91,7 @@ docs/GetFollowerStats200ResponseStatsValueInner.md
 docs/GetFollowerStats403Response.md
 docs/GetGmbLocations200Response.md
 docs/GetGmbLocations200ResponseLocationsInner.md
+docs/GetGoogleBusinessFoodMenus200Response.md
 docs/GetGoogleBusinessReviews200Response.md
 docs/GetGoogleBusinessReviews200ResponseReviewsInner.md
 docs/GetGoogleBusinessReviews200ResponseReviewsInnerReviewReply.md
@@ -133,6 +140,7 @@ docs/GetYouTubeDailyViews403Response.md
 docs/GetYouTubeDailyViews500Response.md
 docs/GetYouTubeTranscript200Response.md
 docs/GetYouTubeTranscript200ResponseSegmentsInner.md
+docs/GmbFoodMenusApi.md
 docs/GmbReviewsApi.md
 docs/GoogleBusinessPlatformData.md
 docs/GoogleBusinessPlatformDataCallToAction.md
@@ -198,6 +206,7 @@ docs/MediaApi.md
 docs/MediaItem.md
 docs/MediaUploadResponse.md
 docs/MessagesApi.md
+docs/Money.md
 docs/Pagination.md
 docs/Pending.md
 docs/PinterestPlatformData.md
@@ -299,6 +308,8 @@ docs/UpdateFacebookPage200ResponseSelectedPage.md
 docs/UpdateFacebookPageRequest.md
 docs/UpdateGmbLocation200Response.md
 docs/UpdateGmbLocationRequest.md
+docs/UpdateGoogleBusinessFoodMenus200Response.md
+docs/UpdateGoogleBusinessFoodMenusRequest.md
 docs/UpdateInboxConversation200Response.md
 docs/UpdateInboxConversation200ResponseData.md
 docs/UpdateInboxConversationRequest.md
@@ -372,6 +383,7 @@ src/main/java/dev/getlate/api/AnalyticsApi.java
 src/main/java/dev/getlate/api/ApiKeysApi.java
 src/main/java/dev/getlate/api/CommentsApi.java
 src/main/java/dev/getlate/api/ConnectApi.java
+src/main/java/dev/getlate/api/GmbFoodMenusApi.java
 src/main/java/dev/getlate/api/GmbReviewsApi.java
 src/main/java/dev/getlate/api/InvitesApi.java
 src/main/java/dev/getlate/api/LinkedInMentionsApi.java
@@ -444,6 +456,12 @@ src/main/java/dev/getlate/model/ErrorResponse.java
 src/main/java/dev/getlate/model/Expired.java
 src/main/java/dev/getlate/model/FacebookPlatformData.java
 src/main/java/dev/getlate/model/FollowerStatsResponse.java
+src/main/java/dev/getlate/model/FoodMenu.java
+src/main/java/dev/getlate/model/FoodMenuItem.java
+src/main/java/dev/getlate/model/FoodMenuItemAttributes.java
+src/main/java/dev/getlate/model/FoodMenuItemOptionsInner.java
+src/main/java/dev/getlate/model/FoodMenuLabel.java
+src/main/java/dev/getlate/model/FoodMenuSection.java
 src/main/java/dev/getlate/model/GetAccountHealth200Response.java
 src/main/java/dev/getlate/model/GetAccountHealth200ResponsePermissions.java
 src/main/java/dev/getlate/model/GetAccountHealth200ResponsePermissionsPostingInner.java
@@ -462,6 +480,7 @@ src/main/java/dev/getlate/model/GetFollowerStats200ResponseStatsValueInner.java
 src/main/java/dev/getlate/model/GetFollowerStats403Response.java
 src/main/java/dev/getlate/model/GetGmbLocations200Response.java
 src/main/java/dev/getlate/model/GetGmbLocations200ResponseLocationsInner.java
+src/main/java/dev/getlate/model/GetGoogleBusinessFoodMenus200Response.java
 src/main/java/dev/getlate/model/GetGoogleBusinessReviews200Response.java
 src/main/java/dev/getlate/model/GetGoogleBusinessReviews200ResponseReviewsInner.java
 src/main/java/dev/getlate/model/GetGoogleBusinessReviews200ResponseReviewsInnerReviewReply.java
@@ -569,6 +588,7 @@ src/main/java/dev/getlate/model/ListUsers200Response.java
 src/main/java/dev/getlate/model/ListUsers200ResponseUsersInner.java
 src/main/java/dev/getlate/model/MediaItem.java
 src/main/java/dev/getlate/model/MediaUploadResponse.java
+src/main/java/dev/getlate/model/Money.java
 src/main/java/dev/getlate/model/Pagination.java
 src/main/java/dev/getlate/model/Pending.java
 src/main/java/dev/getlate/model/PinterestPlatformData.java
@@ -664,6 +684,8 @@ src/main/java/dev/getlate/model/UpdateFacebookPage200ResponseSelectedPage.java
 src/main/java/dev/getlate/model/UpdateFacebookPageRequest.java
 src/main/java/dev/getlate/model/UpdateGmbLocation200Response.java
 src/main/java/dev/getlate/model/UpdateGmbLocationRequest.java
+src/main/java/dev/getlate/model/UpdateGoogleBusinessFoodMenus200Response.java
+src/main/java/dev/getlate/model/UpdateGoogleBusinessFoodMenusRequest.java
 src/main/java/dev/getlate/model/UpdateInboxConversation200Response.java
 src/main/java/dev/getlate/model/UpdateInboxConversation200ResponseData.java
 src/main/java/dev/getlate/model/UpdateInboxConversationRequest.java
@@ -708,3 +730,14 @@ src/main/java/dev/getlate/model/YouTubeDailyViewsResponseScopeStatus.java
 src/main/java/dev/getlate/model/YouTubePlatformData.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponseScopeStatus.java
+src/test/java/dev/getlate/api/GmbFoodMenusApiTest.java
+src/test/java/dev/getlate/model/FoodMenuItemAttributesTest.java
+src/test/java/dev/getlate/model/FoodMenuItemOptionsInnerTest.java
+src/test/java/dev/getlate/model/FoodMenuItemTest.java
+src/test/java/dev/getlate/model/FoodMenuLabelTest.java
+src/test/java/dev/getlate/model/FoodMenuSectionTest.java
+src/test/java/dev/getlate/model/FoodMenuTest.java
+src/test/java/dev/getlate/model/GetGoogleBusinessFoodMenus200ResponseTest.java
+src/test/java/dev/getlate/model/MoneyTest.java
+src/test/java/dev/getlate/model/UpdateGoogleBusinessFoodMenus200ResponseTest.java
+src/test/java/dev/getlate/model/UpdateGoogleBusinessFoodMenusRequestTest.java

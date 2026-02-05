@@ -40,12 +40,13 @@ import dev.getlate.ApiClient;
   PostAnalytics.JSON_PROPERTY_LIKES,
   PostAnalytics.JSON_PROPERTY_COMMENTS,
   PostAnalytics.JSON_PROPERTY_SHARES,
+  PostAnalytics.JSON_PROPERTY_SAVES,
   PostAnalytics.JSON_PROPERTY_CLICKS,
   PostAnalytics.JSON_PROPERTY_VIEWS,
   PostAnalytics.JSON_PROPERTY_ENGAGEMENT_RATE,
   PostAnalytics.JSON_PROPERTY_LAST_UPDATED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-04T15:39:53.952140004Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-05T08:04:13.896039900Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class PostAnalytics {
   public static final String JSON_PROPERTY_IMPRESSIONS = "impressions";
   @javax.annotation.Nullable
@@ -66,6 +67,10 @@ public class PostAnalytics {
   public static final String JSON_PROPERTY_SHARES = "shares";
   @javax.annotation.Nullable
   private Integer shares;
+
+  public static final String JSON_PROPERTY_SAVES = "saves";
+  @javax.annotation.Nullable
+  private Integer saves;
 
   public static final String JSON_PROPERTY_CLICKS = "clicks";
   @javax.annotation.Nullable
@@ -206,6 +211,30 @@ public class PostAnalytics {
   }
 
 
+  public PostAnalytics saves(@javax.annotation.Nullable Integer saves) {
+    this.saves = saves;
+    return this;
+  }
+
+  /**
+   * Number of saves/bookmarks (Instagram, Pinterest)
+   * @return saves
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_SAVES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getSaves() {
+    return saves;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SAVES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSaves(@javax.annotation.Nullable Integer saves) {
+    this.saves = saves;
+  }
+
+
   public PostAnalytics clicks(@javax.annotation.Nullable Integer clicks) {
     this.clicks = clicks;
     return this;
@@ -319,6 +348,7 @@ public class PostAnalytics {
         Objects.equals(this.likes, postAnalytics.likes) &&
         Objects.equals(this.comments, postAnalytics.comments) &&
         Objects.equals(this.shares, postAnalytics.shares) &&
+        Objects.equals(this.saves, postAnalytics.saves) &&
         Objects.equals(this.clicks, postAnalytics.clicks) &&
         Objects.equals(this.views, postAnalytics.views) &&
         Objects.equals(this.engagementRate, postAnalytics.engagementRate) &&
@@ -327,7 +357,7 @@ public class PostAnalytics {
 
   @Override
   public int hashCode() {
-    return Objects.hash(impressions, reach, likes, comments, shares, clicks, views, engagementRate, lastUpdated);
+    return Objects.hash(impressions, reach, likes, comments, shares, saves, clicks, views, engagementRate, lastUpdated);
   }
 
   @Override
@@ -339,6 +369,7 @@ public class PostAnalytics {
     sb.append("    likes: ").append(toIndentedString(likes)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
     sb.append("    shares: ").append(toIndentedString(shares)).append("\n");
+    sb.append("    saves: ").append(toIndentedString(saves)).append("\n");
     sb.append("    clicks: ").append(toIndentedString(clicks)).append("\n");
     sb.append("    views: ").append(toIndentedString(views)).append("\n");
     sb.append("    engagementRate: ").append(toIndentedString(engagementRate)).append("\n");
@@ -413,6 +444,11 @@ public class PostAnalytics {
     // add `shares` to the URL query string
     if (getShares() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sshares%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getShares()))));
+    }
+
+    // add `saves` to the URL query string
+    if (getSaves() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%ssaves%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getSaves()))));
     }
 
     // add `clicks` to the URL query string
