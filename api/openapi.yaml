@@ -27,6 +27,10 @@ tags:
 - name: Facebook
 - name: GMB Reviews
 - name: GMB Food Menus
+- name: GMB Location Details
+- name: GMB Media
+- name: GMB Attributes
+- name: GMB Place Actions
 - name: LinkedIn Mentions
 - name: Pinterest
 - name: TikTok
@@ -3554,6 +3558,628 @@ paths:
       summary: Update Google Business Profile food menus
       tags:
       - GMB Food Menus
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v1/accounts/{accountId}/gmb-location-details:
+    get:
+      description: |
+        Fetches detailed location information including opening hours, special hours,
+        business description, phone numbers, website, categories, and more.
+
+        Use the `readMask` query parameter to request specific fields.
+      operationId: getGoogleBusinessLocationDetails
+      parameters:
+      - description: The Late account ID (from /v1/accounts)
+        explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: |
+          Comma-separated fields to return. Defaults to common fields.
+          Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri,
+          regularHours, specialHours, serviceArea, profile, openInfo, metadata, moreHours
+        explode: true
+        in: query
+        name: readMask
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                success: true
+                accountId: 64e1f0a9e2b5af0012ab34cd
+                locationId: "9281089117903930794"
+                title: Joe's Pizza
+                regularHours:
+                  periods:
+                  - openDay: MONDAY
+                    openTime: 11:00
+                    closeDay: MONDAY
+                    closeTime: 22:00
+                  - openDay: TUESDAY
+                    openTime: 11:00
+                    closeDay: TUESDAY
+                    closeTime: 22:00
+                specialHours:
+                  specialHourPeriods:
+                  - startDate:
+                      year: 2026
+                      month: 12
+                      day: 25
+                    closed: true
+                profile:
+                  description: Authentic New York style pizza since 1985
+                websiteUri: https://joespizza.com
+              schema:
+                $ref: "#/components/schemas/getGoogleBusinessLocationDetails_200_response"
+          description: Location details fetched successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Invalid request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Unauthorized or token expired
+        "404":
+          $ref: "#/components/responses/NotFound"
+      security:
+      - bearerAuth: []
+      summary: Get Google Business Profile location details
+      tags:
+      - GMB Location Details
+      x-accepts:
+      - application/json
+    put:
+      description: |
+        Updates location details such as opening hours, special hours, business description, phone, and website.
+
+        The `updateMask` field is required and specifies which fields to update.
+
+        Common update masks:
+        - `regularHours` - Update opening hours
+        - `specialHours` - Update holiday/special hours
+        - `profile.description` - Update business description
+        - `websiteUri` - Update website URL
+        - `phoneNumbers` - Update phone numbers
+        - `regularHours,specialHours` - Update both at once
+      operationId: updateGoogleBusinessLocationDetails
+      parameters:
+      - description: The Late account ID (from /v1/accounts)
+        explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            example:
+              updateMask: "regularHours,specialHours"
+              regularHours:
+                periods:
+                - openDay: MONDAY
+                  openTime: 09:00
+                  closeDay: MONDAY
+                  closeTime: 17:00
+                - openDay: SATURDAY
+                  openTime: 10:00
+                  closeDay: SATURDAY
+                  closeTime: 14:00
+              specialHours:
+                specialHourPeriods:
+                - startDate:
+                    year: 2026
+                    month: 12
+                    day: 25
+                  closed: true
+                - startDate:
+                    year: 2026
+                    month: 12
+                    day: 31
+                  openTime: 09:00
+                  closeTime: 15:00
+            schema:
+              $ref: "#/components/schemas/updateGoogleBusinessLocationDetails_request"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/updateGoogleBusinessLocationDetails_200_response"
+          description: Location updated successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Invalid request or missing updateMask
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Unauthorized or token expired
+        "404":
+          $ref: "#/components/responses/NotFound"
+      security:
+      - bearerAuth: []
+      summary: Update Google Business Profile location details
+      tags:
+      - GMB Location Details
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v1/accounts/{accountId}/gmb-media:
+    delete:
+      operationId: deleteGoogleBusinessMedia
+      parameters:
+      - explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The media item ID to delete
+        explode: true
+        in: query
+        name: mediaId
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/deleteGoogleBusinessMedia_200_response"
+          description: Media deleted successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Invalid request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+      summary: Delete a photo from Google Business Profile
+      tags:
+      - GMB Media
+      x-accepts:
+      - application/json
+    get:
+      description: |
+        Lists media items (photos) for a Google Business Profile location.
+        Returns photo URLs, descriptions, categories, and metadata.
+      operationId: listGoogleBusinessMedia
+      parameters:
+      - explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Number of items to return (max 100)
+        explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 100
+          maximum: 100
+          type: integer
+        style: form
+      - description: Pagination token from previous response
+        explode: true
+        in: query
+        name: pageToken
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/listGoogleBusinessMedia_200_response"
+          description: Media items fetched successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Invalid request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+      summary: List Google Business Profile media (photos)
+      tags:
+      - GMB Media
+      x-accepts:
+      - application/json
+    post:
+      description: |
+        Creates a media item (photo) for a location from a publicly accessible URL.
+
+        Categories determine where the photo appears:
+        - `COVER` - Cover photo
+        - `PROFILE` - Profile photo
+        - `LOGO` - Business logo
+        - `EXTERIOR` - Exterior shots
+        - `INTERIOR` - Interior shots
+        - `FOOD_AND_DRINK` - Food and drink photos
+        - `MENU` - Menu photos
+        - `PRODUCT` - Product photos
+        - `TEAMS` - Team/staff photos
+        - `ADDITIONAL` - Other photos
+      operationId: createGoogleBusinessMedia
+      parameters:
+      - explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            example:
+              sourceUrl: https://example.com/photos/restaurant-interior.jpg
+              description: Dining area with outdoor seating
+              category: INTERIOR
+            schema:
+              $ref: "#/components/schemas/createGoogleBusinessMedia_request"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/createGoogleBusinessMedia_200_response"
+          description: Media created successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Invalid request or unsupported media format
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+      summary: Upload a photo to Google Business Profile
+      tags:
+      - GMB Media
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v1/accounts/{accountId}/gmb-attributes:
+    get:
+      description: |
+        Fetches location attributes such as amenities, services, and accessibility features.
+
+        Common attributes for restaurants include:
+        - Dining options: has_dine_in, has_takeout, has_delivery
+        - Amenities: has_outdoor_seating, has_wifi, has_parking
+        - Accessibility: has_wheelchair_accessible_entrance
+        - Payments: pay_credit_card_types_accepted
+
+        Available attributes vary by business category.
+      operationId: getGoogleBusinessAttributes
+      parameters:
+      - explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                success: true
+                attributes:
+                - name: has_delivery
+                  valueType: BOOL
+                  values:
+                  - true
+                - name: has_takeout
+                  valueType: BOOL
+                  values:
+                  - true
+                - name: has_outdoor_seating
+                  valueType: BOOL
+                  values:
+                  - true
+                - name: pay_credit_card_types_accepted
+                  valueType: REPEATED_ENUM
+                  repeatedEnumValue:
+                    setValues:
+                    - visa
+                    - mastercard
+                    - amex
+              schema:
+                $ref: "#/components/schemas/getGoogleBusinessAttributes_200_response"
+          description: Attributes fetched successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Invalid request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+      summary: Get Google Business Profile location attributes
+      tags:
+      - GMB Attributes
+      x-accepts:
+      - application/json
+    put:
+      description: |
+        Updates location attributes (amenities, services, etc.).
+
+        The `attributeMask` specifies which attributes to update (comma-separated).
+      operationId: updateGoogleBusinessAttributes
+      parameters:
+      - explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            example:
+              attributes:
+              - name: has_delivery
+                values:
+                - true
+              - name: has_takeout
+                values:
+                - true
+              - name: has_outdoor_seating
+                values:
+                - false
+              attributeMask: "has_delivery,has_takeout,has_outdoor_seating"
+            schema:
+              $ref: "#/components/schemas/updateGoogleBusinessAttributes_request"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/updateGoogleBusinessAttributes_200_response"
+          description: Attributes updated successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Invalid request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+      summary: Update Google Business Profile location attributes
+      tags:
+      - GMB Attributes
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v1/accounts/{accountId}/gmb-place-actions:
+    delete:
+      operationId: deleteGoogleBusinessPlaceAction
+      parameters:
+      - explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The resource name of the place action link (e.g. locations/123/placeActionLinks/456)
+        explode: true
+        in: query
+        name: name
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/deleteGoogleBusinessPlaceAction_200_response"
+          description: Place action deleted successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Invalid request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+      summary: Delete a place action link
+      tags:
+      - GMB Place Actions
+      x-accepts:
+      - application/json
+    get:
+      description: |
+        Lists place action links for a Google Business Profile location.
+
+        Place actions are the booking, ordering, and reservation buttons that appear on your listing.
+      operationId: listGoogleBusinessPlaceActions
+      parameters:
+      - explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 100
+          maximum: 100
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: pageToken
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                success: true
+                placeActionLinks:
+                - name: locations/123/placeActionLinks/456
+                  uri: https://order.ubereats.com/joespizza
+                  placeActionType: FOOD_ORDERING
+                - name: locations/123/placeActionLinks/789
+                  uri: https://www.opentable.com/joespizza
+                  placeActionType: DINING_RESERVATION
+              schema:
+                $ref: "#/components/schemas/listGoogleBusinessPlaceActions_200_response"
+          description: Place actions fetched successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Invalid request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+      summary: "List place action links (booking, ordering, reservations)"
+      tags:
+      - GMB Place Actions
+      x-accepts:
+      - application/json
+    post:
+      description: |
+        Creates a place action link for a location.
+
+        Available action types:
+        - `APPOINTMENT` - Booking an appointment
+        - `ONLINE_APPOINTMENT` - Booking an online appointment
+        - `DINING_RESERVATION` - Making a dining reservation (OpenTable, Resy, etc.)
+        - `FOOD_ORDERING` - Ordering food for delivery and/or takeout (DoorDash, Uber Eats, etc.)
+        - `FOOD_DELIVERY` - Ordering food for delivery only
+        - `FOOD_TAKEOUT` - Ordering food for takeout only
+        - `SHOP_ONLINE` - Shopping with delivery and/or pickup
+      operationId: createGoogleBusinessPlaceAction
+      parameters:
+      - explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            example:
+              uri: https://order.ubereats.com/joespizza
+              placeActionType: FOOD_ORDERING
+            schema:
+              $ref: "#/components/schemas/createGoogleBusinessPlaceAction_request"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/createGoogleBusinessPlaceAction_200_response"
+          description: Place action created successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Invalid request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+      summary: "Create a place action link (booking, ordering, reservation)"
+      tags:
+      - GMB Place Actions
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -14793,6 +15419,611 @@ components:
           items:
             $ref: "#/components/schemas/FoodMenu"
           type: array
+    getGoogleBusinessLocationDetails_200_response_regularHours_periods_inner:
+      example:
+        openDay: MONDAY
+        closeDay: closeDay
+        closeTime: closeTime
+        openTime: openTime
+      properties:
+        openDay:
+          enum:
+          - MONDAY
+          - TUESDAY
+          - WEDNESDAY
+          - THURSDAY
+          - FRIDAY
+          - SATURDAY
+          - SUNDAY
+          type: string
+        openTime:
+          description: Opening time in HH:MM format
+          type: string
+        closeDay:
+          type: string
+        closeTime:
+          type: string
+    getGoogleBusinessLocationDetails_200_response_regularHours:
+      example:
+        periods:
+        - openDay: MONDAY
+          closeDay: closeDay
+          closeTime: closeTime
+          openTime: openTime
+        - openDay: MONDAY
+          closeDay: closeDay
+          closeTime: closeTime
+          openTime: openTime
+      properties:
+        periods:
+          items:
+            $ref: "#/components/schemas/getGoogleBusinessLocationDetails_200_response_regularHours_periods_inner"
+          type: array
+    getGoogleBusinessLocationDetails_200_response_specialHours_specialHourPeriods_inner_startDate:
+      example:
+        month: 6
+        year: 0
+        day: 1
+      properties:
+        year:
+          type: integer
+        month:
+          type: integer
+        day:
+          type: integer
+    getGoogleBusinessLocationDetails_200_response_specialHours_specialHourPeriods_inner:
+      example:
+        endDate:
+          month: 6
+          year: 0
+          day: 1
+        closeTime: closeTime
+        closed: true
+        openTime: openTime
+        startDate:
+          month: 6
+          year: 0
+          day: 1
+      properties:
+        startDate:
+          $ref: "#/components/schemas/getGoogleBusinessLocationDetails_200_response_specialHours_specialHourPeriods_inner_startDate"
+        endDate:
+          $ref: "#/components/schemas/getGoogleBusinessLocationDetails_200_response_specialHours_specialHourPeriods_inner_startDate"
+        openTime:
+          type: string
+        closeTime:
+          type: string
+        closed:
+          type: boolean
+    getGoogleBusinessLocationDetails_200_response_specialHours:
+      example:
+        specialHourPeriods:
+        - endDate:
+            month: 6
+            year: 0
+            day: 1
+          closeTime: closeTime
+          closed: true
+          openTime: openTime
+          startDate:
+            month: 6
+            year: 0
+            day: 1
+        - endDate:
+            month: 6
+            year: 0
+            day: 1
+          closeTime: closeTime
+          closed: true
+          openTime: openTime
+          startDate:
+            month: 6
+            year: 0
+            day: 1
+      properties:
+        specialHourPeriods:
+          items:
+            $ref: "#/components/schemas/getGoogleBusinessLocationDetails_200_response_specialHours_specialHourPeriods_inner"
+          type: array
+    getGoogleBusinessLocationDetails_200_response_profile:
+      example:
+        description: description
+      properties:
+        description:
+          description: Business description
+          type: string
+    getGoogleBusinessLocationDetails_200_response_phoneNumbers:
+      example:
+        primaryPhone: primaryPhone
+        additionalPhones:
+        - additionalPhones
+        - additionalPhones
+      properties:
+        primaryPhone:
+          type: string
+        additionalPhones:
+          items:
+            type: string
+          type: array
+    getGoogleBusinessLocationDetails_200_response:
+      example:
+        websiteUri: websiteUri
+        accountId: accountId
+        success: true
+        locationId: locationId
+        profile:
+          description: description
+        regularHours:
+          periods:
+          - openDay: MONDAY
+            closeDay: closeDay
+            closeTime: closeTime
+            openTime: openTime
+          - openDay: MONDAY
+            closeDay: closeDay
+            closeTime: closeTime
+            openTime: openTime
+        title: title
+        specialHours:
+          specialHourPeriods:
+          - endDate:
+              month: 6
+              year: 0
+              day: 1
+            closeTime: closeTime
+            closed: true
+            openTime: openTime
+            startDate:
+              month: 6
+              year: 0
+              day: 1
+          - endDate:
+              month: 6
+              year: 0
+              day: 1
+            closeTime: closeTime
+            closed: true
+            openTime: openTime
+            startDate:
+              month: 6
+              year: 0
+              day: 1
+        phoneNumbers:
+          primaryPhone: primaryPhone
+          additionalPhones:
+          - additionalPhones
+          - additionalPhones
+      properties:
+        success:
+          type: boolean
+        accountId:
+          type: string
+        locationId:
+          type: string
+        title:
+          description: Business name
+          type: string
+        regularHours:
+          $ref: "#/components/schemas/getGoogleBusinessLocationDetails_200_response_regularHours"
+        specialHours:
+          $ref: "#/components/schemas/getGoogleBusinessLocationDetails_200_response_specialHours"
+        profile:
+          $ref: "#/components/schemas/getGoogleBusinessLocationDetails_200_response_profile"
+        websiteUri:
+          type: string
+        phoneNumbers:
+          $ref: "#/components/schemas/getGoogleBusinessLocationDetails_200_response_phoneNumbers"
+    updateGoogleBusinessLocationDetails_request_regularHours_periods_inner:
+      properties:
+        openDay:
+          type: string
+        openTime:
+          type: string
+        closeDay:
+          type: string
+        closeTime:
+          type: string
+    updateGoogleBusinessLocationDetails_request_regularHours:
+      properties:
+        periods:
+          items:
+            $ref: "#/components/schemas/updateGoogleBusinessLocationDetails_request_regularHours_periods_inner"
+          type: array
+    updateGoogleBusinessLocationDetails_request_profile:
+      properties:
+        description:
+          type: string
+    updateGoogleBusinessLocationDetails_request:
+      properties:
+        updateMask:
+          description: "Required. Comma-separated fields to update (e.g. 'regularHours',\
+            \ 'specialHours', 'profile.description')"
+          type: string
+        regularHours:
+          $ref: "#/components/schemas/updateGoogleBusinessLocationDetails_request_regularHours"
+        specialHours:
+          $ref: "#/components/schemas/getGoogleBusinessLocationDetails_200_response_specialHours"
+        profile:
+          $ref: "#/components/schemas/updateGoogleBusinessLocationDetails_request_profile"
+        websiteUri:
+          type: string
+        phoneNumbers:
+          $ref: "#/components/schemas/getGoogleBusinessLocationDetails_200_response_phoneNumbers"
+      required:
+      - updateMask
+    updateGoogleBusinessLocationDetails_200_response:
+      example:
+        accountId: accountId
+        success: true
+        locationId: locationId
+      properties:
+        success:
+          type: boolean
+        accountId:
+          type: string
+        locationId:
+          type: string
+    listGoogleBusinessMedia_200_response_mediaItems_inner_locationAssociation:
+      example:
+        category: category
+      properties:
+        category:
+          type: string
+    listGoogleBusinessMedia_200_response_mediaItems_inner:
+      example:
+        sourceUrl: sourceUrl
+        googleUrl: googleUrl
+        createTime: 2000-01-23T04:56:07.000+00:00
+        name: name
+        description: description
+        mediaFormat: PHOTO
+        thumbnailUrl: thumbnailUrl
+        locationAssociation:
+          category: category
+      properties:
+        name:
+          description: Resource name
+          type: string
+        mediaFormat:
+          enum:
+          - PHOTO
+          - VIDEO
+          type: string
+        sourceUrl:
+          type: string
+        googleUrl:
+          description: Google-hosted URL
+          type: string
+        thumbnailUrl:
+          type: string
+        description:
+          type: string
+        createTime:
+          format: date-time
+          type: string
+        locationAssociation:
+          $ref: "#/components/schemas/listGoogleBusinessMedia_200_response_mediaItems_inner_locationAssociation"
+    listGoogleBusinessMedia_200_response:
+      example:
+        accountId: accountId
+        totalMediaItemsCount: 0
+        mediaItems:
+        - sourceUrl: sourceUrl
+          googleUrl: googleUrl
+          createTime: 2000-01-23T04:56:07.000+00:00
+          name: name
+          description: description
+          mediaFormat: PHOTO
+          thumbnailUrl: thumbnailUrl
+          locationAssociation:
+            category: category
+        - sourceUrl: sourceUrl
+          googleUrl: googleUrl
+          createTime: 2000-01-23T04:56:07.000+00:00
+          name: name
+          description: description
+          mediaFormat: PHOTO
+          thumbnailUrl: thumbnailUrl
+          locationAssociation:
+            category: category
+        success: true
+        locationId: locationId
+        nextPageToken: nextPageToken
+      properties:
+        success:
+          type: boolean
+        accountId:
+          type: string
+        locationId:
+          type: string
+        mediaItems:
+          items:
+            $ref: "#/components/schemas/listGoogleBusinessMedia_200_response_mediaItems_inner"
+          type: array
+        nextPageToken:
+          type: string
+        totalMediaItemsCount:
+          type: integer
+    createGoogleBusinessMedia_request:
+      properties:
+        sourceUrl:
+          description: Publicly accessible image URL
+          type: string
+        mediaFormat:
+          default: PHOTO
+          enum:
+          - PHOTO
+          - VIDEO
+          type: string
+        description:
+          description: Photo description
+          type: string
+        category:
+          description: Where the photo appears on the listing
+          enum:
+          - COVER
+          - PROFILE
+          - LOGO
+          - EXTERIOR
+          - INTERIOR
+          - FOOD_AND_DRINK
+          - MENU
+          - PRODUCT
+          - TEAMS
+          - ADDITIONAL
+          type: string
+      required:
+      - sourceUrl
+    createGoogleBusinessMedia_200_response:
+      example:
+        googleUrl: googleUrl
+        success: true
+        name: name
+        mediaFormat: mediaFormat
+      properties:
+        success:
+          type: boolean
+        name:
+          type: string
+        mediaFormat:
+          type: string
+        googleUrl:
+          type: string
+    deleteGoogleBusinessMedia_200_response:
+      example:
+        deleted: true
+        success: true
+        mediaId: mediaId
+      properties:
+        success:
+          type: boolean
+        deleted:
+          type: boolean
+        mediaId:
+          type: string
+    getGoogleBusinessAttributes_200_response_attributes_inner_repeatedEnumValue:
+      example:
+        setValues:
+        - setValues
+        - setValues
+        unsetValues:
+        - unsetValues
+        - unsetValues
+      properties:
+        setValues:
+          items:
+            type: string
+          type: array
+        unsetValues:
+          items:
+            type: string
+          type: array
+    getGoogleBusinessAttributes_200_response_attributes_inner:
+      example:
+        repeatedEnumValue:
+          setValues:
+          - setValues
+          - setValues
+          unsetValues:
+          - unsetValues
+          - unsetValues
+        valueType: valueType
+        values:
+        - ""
+        - ""
+        name: name
+      properties:
+        name:
+          description: Attribute identifier (e.g. has_delivery)
+          type: string
+        valueType:
+          description: "Value type (BOOL, ENUM, URL, REPEATED_ENUM)"
+          type: string
+        values:
+          items: {}
+          type: array
+        repeatedEnumValue:
+          $ref: "#/components/schemas/getGoogleBusinessAttributes_200_response_attributes_inner_repeatedEnumValue"
+    getGoogleBusinessAttributes_200_response:
+      example:
+        accountId: accountId
+        success: true
+        locationId: locationId
+        attributes:
+        - repeatedEnumValue:
+            setValues:
+            - setValues
+            - setValues
+            unsetValues:
+            - unsetValues
+            - unsetValues
+          valueType: valueType
+          values:
+          - ""
+          - ""
+          name: name
+        - repeatedEnumValue:
+            setValues:
+            - setValues
+            - setValues
+            unsetValues:
+            - unsetValues
+            - unsetValues
+          valueType: valueType
+          values:
+          - ""
+          - ""
+          name: name
+      properties:
+        success:
+          type: boolean
+        accountId:
+          type: string
+        locationId:
+          type: string
+        attributes:
+          items:
+            $ref: "#/components/schemas/getGoogleBusinessAttributes_200_response_attributes_inner"
+          type: array
+    updateGoogleBusinessAttributes_request_attributes_inner:
+      properties:
+        name:
+          type: string
+        values:
+          items: {}
+          type: array
+        repeatedEnumValue:
+          $ref: "#/components/schemas/getGoogleBusinessAttributes_200_response_attributes_inner_repeatedEnumValue"
+    updateGoogleBusinessAttributes_request:
+      properties:
+        attributes:
+          items:
+            $ref: "#/components/schemas/updateGoogleBusinessAttributes_request_attributes_inner"
+          type: array
+        attributeMask:
+          description: "Comma-separated attribute names to update (e.g. 'has_delivery,has_takeout')"
+          type: string
+      required:
+      - attributeMask
+      - attributes
+    updateGoogleBusinessAttributes_200_response:
+      example:
+        accountId: accountId
+        success: true
+        locationId: locationId
+        attributes:
+        - "{}"
+        - "{}"
+      properties:
+        success:
+          type: boolean
+        accountId:
+          type: string
+        locationId:
+          type: string
+        attributes:
+          items:
+            type: object
+          type: array
+    listGoogleBusinessPlaceActions_200_response_placeActionLinks_inner:
+      example:
+        placeActionType: placeActionType
+        createTime: 2000-01-23T04:56:07.000+00:00
+        name: name
+        updateTime: 2000-01-23T04:56:07.000+00:00
+        uri: uri
+      properties:
+        name:
+          description: Resource name
+          type: string
+        uri:
+          description: Action URL
+          type: string
+        placeActionType:
+          type: string
+        createTime:
+          format: date-time
+          type: string
+        updateTime:
+          format: date-time
+          type: string
+    listGoogleBusinessPlaceActions_200_response:
+      example:
+        placeActionLinks:
+        - placeActionType: placeActionType
+          createTime: 2000-01-23T04:56:07.000+00:00
+          name: name
+          updateTime: 2000-01-23T04:56:07.000+00:00
+          uri: uri
+        - placeActionType: placeActionType
+          createTime: 2000-01-23T04:56:07.000+00:00
+          name: name
+          updateTime: 2000-01-23T04:56:07.000+00:00
+          uri: uri
+        accountId: accountId
+        success: true
+        locationId: locationId
+        nextPageToken: nextPageToken
+      properties:
+        success:
+          type: boolean
+        accountId:
+          type: string
+        locationId:
+          type: string
+        placeActionLinks:
+          items:
+            $ref: "#/components/schemas/listGoogleBusinessPlaceActions_200_response_placeActionLinks_inner"
+          type: array
+        nextPageToken:
+          type: string
+    createGoogleBusinessPlaceAction_request:
+      properties:
+        uri:
+          description: The action URL
+          type: string
+        placeActionType:
+          description: Type of action
+          enum:
+          - APPOINTMENT
+          - ONLINE_APPOINTMENT
+          - DINING_RESERVATION
+          - FOOD_ORDERING
+          - FOOD_DELIVERY
+          - FOOD_TAKEOUT
+          - SHOP_ONLINE
+          type: string
+      required:
+      - placeActionType
+      - uri
+    createGoogleBusinessPlaceAction_200_response:
+      example:
+        placeActionType: placeActionType
+        success: true
+        name: name
+        uri: uri
+      properties:
+        success:
+          type: boolean
+        name:
+          description: Resource name of the created link
+          type: string
+        uri:
+          type: string
+        placeActionType:
+          type: string
+    deleteGoogleBusinessPlaceAction_200_response:
+      example:
+        deleted: true
+        success: true
+        name: name
+      properties:
+        success:
+          type: boolean
+        deleted:
+          type: boolean
+        name:
+          type: string
     getPendingOAuthData_200_response_organizations_inner:
       example:
         urn: urn

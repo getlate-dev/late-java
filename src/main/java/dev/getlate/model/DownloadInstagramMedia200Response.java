@@ -38,7 +38,7 @@ import dev.getlate.ApiClient;
   DownloadInstagramMedia200Response.JSON_PROPERTY_TITLE,
   DownloadInstagramMedia200Response.JSON_PROPERTY_DOWNLOAD_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-05T08:04:13.896039900Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-05T10:00:30.927569852Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class DownloadInstagramMedia200Response {
   public static final String JSON_PROPERTY_SUCCESS = "success";
   @javax.annotation.Nullable

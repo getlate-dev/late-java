@@ -45,7 +45,7 @@ import dev.getlate.ApiClient;
   GetGoogleBusinessReviews200Response.JSON_PROPERTY_TOTAL_REVIEW_COUNT,
   GetGoogleBusinessReviews200Response.JSON_PROPERTY_NEXT_PAGE_TOKEN
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-05T08:04:13.896039900Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-05T10:00:30.927569852Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetGoogleBusinessReviews200Response {
   public static final String JSON_PROPERTY_SUCCESS = "success";
   @javax.annotation.Nullable

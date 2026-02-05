@@ -4,7 +4,7 @@ Late API
 
 - API version: 1.0.1
 
-- Build date: 2026-02-05T08:04:13.896039900Z[Etc/UTC]
+- Build date: 2026-02-05T10:00:30.927569852Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -219,10 +219,30 @@ Class | Method | HTTP request | Description
 *ConnectApi* | [**updatePinterestBoardsWithHttpInfo**](docs/ConnectApi.md#updatePinterestBoardsWithHttpInfo) | **PUT** /v1/accounts/{accountId}/pinterest-boards | Set default Pinterest board on the connection
 *ConnectApi* | [**updateRedditSubreddits**](docs/ConnectApi.md#updateRedditSubreddits) | **PUT** /v1/accounts/{accountId}/reddit-subreddits | Set default subreddit on the connection
 *ConnectApi* | [**updateRedditSubredditsWithHttpInfo**](docs/ConnectApi.md#updateRedditSubredditsWithHttpInfo) | **PUT** /v1/accounts/{accountId}/reddit-subreddits | Set default subreddit on the connection
+*GmbAttributesApi* | [**getGoogleBusinessAttributes**](docs/GmbAttributesApi.md#getGoogleBusinessAttributes) | **GET** /v1/accounts/{accountId}/gmb-attributes | Get Google Business Profile location attributes
+*GmbAttributesApi* | [**getGoogleBusinessAttributesWithHttpInfo**](docs/GmbAttributesApi.md#getGoogleBusinessAttributesWithHttpInfo) | **GET** /v1/accounts/{accountId}/gmb-attributes | Get Google Business Profile location attributes
+*GmbAttributesApi* | [**updateGoogleBusinessAttributes**](docs/GmbAttributesApi.md#updateGoogleBusinessAttributes) | **PUT** /v1/accounts/{accountId}/gmb-attributes | Update Google Business Profile location attributes
+*GmbAttributesApi* | [**updateGoogleBusinessAttributesWithHttpInfo**](docs/GmbAttributesApi.md#updateGoogleBusinessAttributesWithHttpInfo) | **PUT** /v1/accounts/{accountId}/gmb-attributes | Update Google Business Profile location attributes
 *GmbFoodMenusApi* | [**getGoogleBusinessFoodMenus**](docs/GmbFoodMenusApi.md#getGoogleBusinessFoodMenus) | **GET** /v1/accounts/{accountId}/gmb-food-menus | Get Google Business Profile food menus
 *GmbFoodMenusApi* | [**getGoogleBusinessFoodMenusWithHttpInfo**](docs/GmbFoodMenusApi.md#getGoogleBusinessFoodMenusWithHttpInfo) | **GET** /v1/accounts/{accountId}/gmb-food-menus | Get Google Business Profile food menus
 *GmbFoodMenusApi* | [**updateGoogleBusinessFoodMenus**](docs/GmbFoodMenusApi.md#updateGoogleBusinessFoodMenus) | **PUT** /v1/accounts/{accountId}/gmb-food-menus | Update Google Business Profile food menus
 *GmbFoodMenusApi* | [**updateGoogleBusinessFoodMenusWithHttpInfo**](docs/GmbFoodMenusApi.md#updateGoogleBusinessFoodMenusWithHttpInfo) | **PUT** /v1/accounts/{accountId}/gmb-food-menus | Update Google Business Profile food menus
+*GmbLocationDetailsApi* | [**getGoogleBusinessLocationDetails**](docs/GmbLocationDetailsApi.md#getGoogleBusinessLocationDetails) | **GET** /v1/accounts/{accountId}/gmb-location-details | Get Google Business Profile location details
+*GmbLocationDetailsApi* | [**getGoogleBusinessLocationDetailsWithHttpInfo**](docs/GmbLocationDetailsApi.md#getGoogleBusinessLocationDetailsWithHttpInfo) | **GET** /v1/accounts/{accountId}/gmb-location-details | Get Google Business Profile location details
+*GmbLocationDetailsApi* | [**updateGoogleBusinessLocationDetails**](docs/GmbLocationDetailsApi.md#updateGoogleBusinessLocationDetails) | **PUT** /v1/accounts/{accountId}/gmb-location-details | Update Google Business Profile location details
+*GmbLocationDetailsApi* | [**updateGoogleBusinessLocationDetailsWithHttpInfo**](docs/GmbLocationDetailsApi.md#updateGoogleBusinessLocationDetailsWithHttpInfo) | **PUT** /v1/accounts/{accountId}/gmb-location-details | Update Google Business Profile location details
+*GmbMediaApi* | [**createGoogleBusinessMedia**](docs/GmbMediaApi.md#createGoogleBusinessMedia) | **POST** /v1/accounts/{accountId}/gmb-media | Upload a photo to Google Business Profile
+*GmbMediaApi* | [**createGoogleBusinessMediaWithHttpInfo**](docs/GmbMediaApi.md#createGoogleBusinessMediaWithHttpInfo) | **POST** /v1/accounts/{accountId}/gmb-media | Upload a photo to Google Business Profile
+*GmbMediaApi* | [**deleteGoogleBusinessMedia**](docs/GmbMediaApi.md#deleteGoogleBusinessMedia) | **DELETE** /v1/accounts/{accountId}/gmb-media | Delete a photo from Google Business Profile
+*GmbMediaApi* | [**deleteGoogleBusinessMediaWithHttpInfo**](docs/GmbMediaApi.md#deleteGoogleBusinessMediaWithHttpInfo) | **DELETE** /v1/accounts/{accountId}/gmb-media | Delete a photo from Google Business Profile
+*GmbMediaApi* | [**listGoogleBusinessMedia**](docs/GmbMediaApi.md#listGoogleBusinessMedia) | **GET** /v1/accounts/{accountId}/gmb-media | List Google Business Profile media (photos)
+*GmbMediaApi* | [**listGoogleBusinessMediaWithHttpInfo**](docs/GmbMediaApi.md#listGoogleBusinessMediaWithHttpInfo) | **GET** /v1/accounts/{accountId}/gmb-media | List Google Business Profile media (photos)
+*GmbPlaceActionsApi* | [**createGoogleBusinessPlaceAction**](docs/GmbPlaceActionsApi.md#createGoogleBusinessPlaceAction) | **POST** /v1/accounts/{accountId}/gmb-place-actions | Create a place action link (booking, ordering, reservation)
+*GmbPlaceActionsApi* | [**createGoogleBusinessPlaceActionWithHttpInfo**](docs/GmbPlaceActionsApi.md#createGoogleBusinessPlaceActionWithHttpInfo) | **POST** /v1/accounts/{accountId}/gmb-place-actions | Create a place action link (booking, ordering, reservation)
+*GmbPlaceActionsApi* | [**deleteGoogleBusinessPlaceAction**](docs/GmbPlaceActionsApi.md#deleteGoogleBusinessPlaceAction) | **DELETE** /v1/accounts/{accountId}/gmb-place-actions | Delete a place action link
+*GmbPlaceActionsApi* | [**deleteGoogleBusinessPlaceActionWithHttpInfo**](docs/GmbPlaceActionsApi.md#deleteGoogleBusinessPlaceActionWithHttpInfo) | **DELETE** /v1/accounts/{accountId}/gmb-place-actions | Delete a place action link
+*GmbPlaceActionsApi* | [**listGoogleBusinessPlaceActions**](docs/GmbPlaceActionsApi.md#listGoogleBusinessPlaceActions) | **GET** /v1/accounts/{accountId}/gmb-place-actions | List place action links (booking, ordering, reservations)
+*GmbPlaceActionsApi* | [**listGoogleBusinessPlaceActionsWithHttpInfo**](docs/GmbPlaceActionsApi.md#listGoogleBusinessPlaceActionsWithHttpInfo) | **GET** /v1/accounts/{accountId}/gmb-place-actions | List place action links (booking, ordering, reservations)
 *GmbReviewsApi* | [**getGoogleBusinessReviews**](docs/GmbReviewsApi.md#getGoogleBusinessReviews) | **GET** /v1/accounts/{accountId}/gmb-reviews | Get Google Business Profile reviews
 *GmbReviewsApi* | [**getGoogleBusinessReviewsWithHttpInfo**](docs/GmbReviewsApi.md#getGoogleBusinessReviewsWithHttpInfo) | **GET** /v1/accounts/{accountId}/gmb-reviews | Get Google Business Profile reviews
 *InvitesApi* | [**createInviteToken**](docs/InvitesApi.md#createInviteToken) | **POST** /v1/invite/tokens | Create a team member invite token
@@ -358,6 +378,10 @@ Class | Method | HTTP request | Description
  - [CreateAccountGroupRequest](docs/CreateAccountGroupRequest.md)
  - [CreateApiKey201Response](docs/CreateApiKey201Response.md)
  - [CreateApiKeyRequest](docs/CreateApiKeyRequest.md)
+ - [CreateGoogleBusinessMedia200Response](docs/CreateGoogleBusinessMedia200Response.md)
+ - [CreateGoogleBusinessMediaRequest](docs/CreateGoogleBusinessMediaRequest.md)
+ - [CreateGoogleBusinessPlaceAction200Response](docs/CreateGoogleBusinessPlaceAction200Response.md)
+ - [CreateGoogleBusinessPlaceActionRequest](docs/CreateGoogleBusinessPlaceActionRequest.md)
  - [CreateInviteToken201Response](docs/CreateInviteToken201Response.md)
  - [CreateInviteTokenRequest](docs/CreateInviteTokenRequest.md)
  - [CreatePost409Response](docs/CreatePost409Response.md)
@@ -372,6 +396,8 @@ Class | Method | HTTP request | Description
  - [CreateQueueSlotRequest](docs/CreateQueueSlotRequest.md)
  - [CreateWebhookSettingsRequest](docs/CreateWebhookSettingsRequest.md)
  - [DeleteAccountGroup200Response](docs/DeleteAccountGroup200Response.md)
+ - [DeleteGoogleBusinessMedia200Response](docs/DeleteGoogleBusinessMedia200Response.md)
+ - [DeleteGoogleBusinessPlaceAction200Response](docs/DeleteGoogleBusinessPlaceAction200Response.md)
  - [DeleteInboxComment200Response](docs/DeleteInboxComment200Response.md)
  - [DeleteInboxReviewReply200Response](docs/DeleteInboxReviewReply200Response.md)
  - [DeleteInboxReviewReplyRequest](docs/DeleteInboxReviewReplyRequest.md)
@@ -413,7 +439,18 @@ Class | Method | HTTP request | Description
  - [GetFollowerStats403Response](docs/GetFollowerStats403Response.md)
  - [GetGmbLocations200Response](docs/GetGmbLocations200Response.md)
  - [GetGmbLocations200ResponseLocationsInner](docs/GetGmbLocations200ResponseLocationsInner.md)
+ - [GetGoogleBusinessAttributes200Response](docs/GetGoogleBusinessAttributes200Response.md)
+ - [GetGoogleBusinessAttributes200ResponseAttributesInner](docs/GetGoogleBusinessAttributes200ResponseAttributesInner.md)
+ - [GetGoogleBusinessAttributes200ResponseAttributesInnerRepeatedEnumValue](docs/GetGoogleBusinessAttributes200ResponseAttributesInnerRepeatedEnumValue.md)
  - [GetGoogleBusinessFoodMenus200Response](docs/GetGoogleBusinessFoodMenus200Response.md)
+ - [GetGoogleBusinessLocationDetails200Response](docs/GetGoogleBusinessLocationDetails200Response.md)
+ - [GetGoogleBusinessLocationDetails200ResponsePhoneNumbers](docs/GetGoogleBusinessLocationDetails200ResponsePhoneNumbers.md)
+ - [GetGoogleBusinessLocationDetails200ResponseProfile](docs/GetGoogleBusinessLocationDetails200ResponseProfile.md)
+ - [GetGoogleBusinessLocationDetails200ResponseRegularHours](docs/GetGoogleBusinessLocationDetails200ResponseRegularHours.md)
+ - [GetGoogleBusinessLocationDetails200ResponseRegularHoursPeriodsInner](docs/GetGoogleBusinessLocationDetails200ResponseRegularHoursPeriodsInner.md)
+ - [GetGoogleBusinessLocationDetails200ResponseSpecialHours](docs/GetGoogleBusinessLocationDetails200ResponseSpecialHours.md)
+ - [GetGoogleBusinessLocationDetails200ResponseSpecialHoursSpecialHourPeriodsInner](docs/GetGoogleBusinessLocationDetails200ResponseSpecialHoursSpecialHourPeriodsInner.md)
+ - [GetGoogleBusinessLocationDetails200ResponseSpecialHoursSpecialHourPeriodsInnerStartDate](docs/GetGoogleBusinessLocationDetails200ResponseSpecialHoursSpecialHourPeriodsInnerStartDate.md)
  - [GetGoogleBusinessReviews200Response](docs/GetGoogleBusinessReviews200Response.md)
  - [GetGoogleBusinessReviews200ResponseReviewsInner](docs/GetGoogleBusinessReviews200ResponseReviewsInner.md)
  - [GetGoogleBusinessReviews200ResponseReviewsInnerReviewReply](docs/GetGoogleBusinessReviews200ResponseReviewsInnerReviewReply.md)
@@ -494,6 +531,11 @@ Class | Method | HTTP request | Description
  - [ListFacebookPages200ResponsePagesInner](docs/ListFacebookPages200ResponsePagesInner.md)
  - [ListGoogleBusinessLocations200Response](docs/ListGoogleBusinessLocations200Response.md)
  - [ListGoogleBusinessLocations200ResponseLocationsInner](docs/ListGoogleBusinessLocations200ResponseLocationsInner.md)
+ - [ListGoogleBusinessMedia200Response](docs/ListGoogleBusinessMedia200Response.md)
+ - [ListGoogleBusinessMedia200ResponseMediaItemsInner](docs/ListGoogleBusinessMedia200ResponseMediaItemsInner.md)
+ - [ListGoogleBusinessMedia200ResponseMediaItemsInnerLocationAssociation](docs/ListGoogleBusinessMedia200ResponseMediaItemsInnerLocationAssociation.md)
+ - [ListGoogleBusinessPlaceActions200Response](docs/ListGoogleBusinessPlaceActions200Response.md)
+ - [ListGoogleBusinessPlaceActions200ResponsePlaceActionLinksInner](docs/ListGoogleBusinessPlaceActions200ResponsePlaceActionLinksInner.md)
  - [ListInboxComments200Response](docs/ListInboxComments200Response.md)
  - [ListInboxComments200ResponseDataInner](docs/ListInboxComments200ResponseDataInner.md)
  - [ListInboxConversations200Response](docs/ListInboxConversations200Response.md)
@@ -617,8 +659,16 @@ Class | Method | HTTP request | Description
  - [UpdateFacebookPageRequest](docs/UpdateFacebookPageRequest.md)
  - [UpdateGmbLocation200Response](docs/UpdateGmbLocation200Response.md)
  - [UpdateGmbLocationRequest](docs/UpdateGmbLocationRequest.md)
+ - [UpdateGoogleBusinessAttributes200Response](docs/UpdateGoogleBusinessAttributes200Response.md)
+ - [UpdateGoogleBusinessAttributesRequest](docs/UpdateGoogleBusinessAttributesRequest.md)
+ - [UpdateGoogleBusinessAttributesRequestAttributesInner](docs/UpdateGoogleBusinessAttributesRequestAttributesInner.md)
  - [UpdateGoogleBusinessFoodMenus200Response](docs/UpdateGoogleBusinessFoodMenus200Response.md)
  - [UpdateGoogleBusinessFoodMenusRequest](docs/UpdateGoogleBusinessFoodMenusRequest.md)
+ - [UpdateGoogleBusinessLocationDetails200Response](docs/UpdateGoogleBusinessLocationDetails200Response.md)
+ - [UpdateGoogleBusinessLocationDetailsRequest](docs/UpdateGoogleBusinessLocationDetailsRequest.md)
+ - [UpdateGoogleBusinessLocationDetailsRequestProfile](docs/UpdateGoogleBusinessLocationDetailsRequestProfile.md)
+ - [UpdateGoogleBusinessLocationDetailsRequestRegularHours](docs/UpdateGoogleBusinessLocationDetailsRequestRegularHours.md)
+ - [UpdateGoogleBusinessLocationDetailsRequestRegularHoursPeriodsInner](docs/UpdateGoogleBusinessLocationDetailsRequestRegularHoursPeriodsInner.md)
  - [UpdateInboxConversation200Response](docs/UpdateInboxConversation200Response.md)
  - [UpdateInboxConversation200ResponseData](docs/UpdateInboxConversation200ResponseData.md)
  - [UpdateInboxConversationRequest](docs/UpdateInboxConversationRequest.md)
