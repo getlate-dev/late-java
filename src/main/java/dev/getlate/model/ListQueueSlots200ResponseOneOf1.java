@@ -39,7 +39,7 @@ import dev.getlate.ApiClient;
   ListQueueSlots200ResponseOneOf1.JSON_PROPERTY_QUEUES,
   ListQueueSlots200ResponseOneOf1.JSON_PROPERTY_COUNT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-05T10:00:30.927569852Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-08T08:10:16.999549581Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ListQueueSlots200ResponseOneOf1 {
   public static final String JSON_PROPERTY_QUEUES = "queues";
   @javax.annotation.Nullable

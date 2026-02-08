@@ -9190,6 +9190,9 @@ components:
         accountId:
           $ref: "#/components/schemas/PlatformTarget_accountId"
         customContent:
+          description: "Platform-specific text override. When set, this content is\
+            \ used instead of the top-level post content for this platform. Useful\
+            \ for tailoring captions per platform (e.g. keeping tweets under 280 characters)."
           type: string
         customMedia:
           items:
@@ -12400,6 +12403,9 @@ components:
         accountId:
           type: string
         customContent:
+          description: "Platform-specific text override. When set, this content is\
+            \ used instead of the top-level post content for this platform. Useful\
+            \ for tailoring captions per platform (e.g. keeping tweets under 280 characters)."
           type: string
         customMedia:
           items:
