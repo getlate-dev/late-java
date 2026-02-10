@@ -28,6 +28,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import dev.getlate.model.BlueskyPlatformData;
 import dev.getlate.model.FacebookPlatformData;
 import dev.getlate.model.GoogleBusinessPlatformData;
 import dev.getlate.model.GoogleBusinessPlatformDataCallToAction;
@@ -36,6 +37,7 @@ import dev.getlate.model.InstagramPlatformDataTrialParams;
 import dev.getlate.model.InstagramPlatformDataUserTagsInner;
 import dev.getlate.model.LinkedInPlatformData;
 import dev.getlate.model.PinterestPlatformData;
+import dev.getlate.model.RedditPlatformData;
 import dev.getlate.model.SnapchatPlatformData;
 import dev.getlate.model.TelegramPlatformData;
 import dev.getlate.model.ThreadsPlatformData;
@@ -74,7 +76,7 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import dev.getlate.ApiClient;
 import dev.getlate.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-09T12:27:58.144009838Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-10T13:03:55.549942125Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 @JsonDeserialize(using = PlatformTargetPlatformSpecificData.PlatformTargetPlatformSpecificDataDeserializer.class)
 @JsonSerialize(using = PlatformTargetPlatformSpecificData.PlatformTargetPlatformSpecificDataSerializer.class)
 public class PlatformTargetPlatformSpecificData extends AbstractOpenApiSchema {
@@ -111,6 +113,32 @@ public class PlatformTargetPlatformSpecificData extends AbstractOpenApiSchema {
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+            // deserialize BlueskyPlatformData
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (BlueskyPlatformData.class.equals(Integer.class) || BlueskyPlatformData.class.equals(Long.class) || BlueskyPlatformData.class.equals(Float.class) || BlueskyPlatformData.class.equals(Double.class) || BlueskyPlatformData.class.equals(Boolean.class) || BlueskyPlatformData.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((BlueskyPlatformData.class.equals(Integer.class) || BlueskyPlatformData.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((BlueskyPlatformData.class.equals(Float.class) || BlueskyPlatformData.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (BlueskyPlatformData.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (BlueskyPlatformData.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(BlueskyPlatformData.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'BlueskyPlatformData'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'BlueskyPlatformData'", e);
+            }
+
             // deserialize FacebookPlatformData
             try {
                 boolean attemptParsing = true;
@@ -239,6 +267,32 @@ public class PlatformTargetPlatformSpecificData extends AbstractOpenApiSchema {
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'PinterestPlatformData'", e);
+            }
+
+            // deserialize RedditPlatformData
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (RedditPlatformData.class.equals(Integer.class) || RedditPlatformData.class.equals(Long.class) || RedditPlatformData.class.equals(Float.class) || RedditPlatformData.class.equals(Double.class) || RedditPlatformData.class.equals(Boolean.class) || RedditPlatformData.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((RedditPlatformData.class.equals(Integer.class) || RedditPlatformData.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((RedditPlatformData.class.equals(Float.class) || RedditPlatformData.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (RedditPlatformData.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (RedditPlatformData.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(RedditPlatformData.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'RedditPlatformData'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'RedditPlatformData'", e);
             }
 
             // deserialize SnapchatPlatformData
@@ -476,6 +530,11 @@ public class PlatformTargetPlatformSpecificData extends AbstractOpenApiSchema {
     public int hashCode() {
         return Objects.hash(getActualInstance(), isNullable(), getSchemaType(), additionalProperties);
     }
+    public PlatformTargetPlatformSpecificData(BlueskyPlatformData o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     public PlatformTargetPlatformSpecificData(FacebookPlatformData o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
@@ -497,6 +556,11 @@ public class PlatformTargetPlatformSpecificData extends AbstractOpenApiSchema {
     }
 
     public PlatformTargetPlatformSpecificData(PinterestPlatformData o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public PlatformTargetPlatformSpecificData(RedditPlatformData o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
@@ -532,11 +596,13 @@ public class PlatformTargetPlatformSpecificData extends AbstractOpenApiSchema {
     }
 
     static {
+        schemas.put("BlueskyPlatformData", BlueskyPlatformData.class);
         schemas.put("FacebookPlatformData", FacebookPlatformData.class);
         schemas.put("GoogleBusinessPlatformData", GoogleBusinessPlatformData.class);
         schemas.put("InstagramPlatformData", InstagramPlatformData.class);
         schemas.put("LinkedInPlatformData", LinkedInPlatformData.class);
         schemas.put("PinterestPlatformData", PinterestPlatformData.class);
+        schemas.put("RedditPlatformData", RedditPlatformData.class);
         schemas.put("SnapchatPlatformData", SnapchatPlatformData.class);
         schemas.put("TelegramPlatformData", TelegramPlatformData.class);
         schemas.put("ThreadsPlatformData", ThreadsPlatformData.class);
@@ -554,13 +620,18 @@ public class PlatformTargetPlatformSpecificData extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * FacebookPlatformData, GoogleBusinessPlatformData, InstagramPlatformData, LinkedInPlatformData, PinterestPlatformData, SnapchatPlatformData, TelegramPlatformData, ThreadsPlatformData, TikTokPlatformData, TwitterPlatformData, YouTubePlatformData
+     * BlueskyPlatformData, FacebookPlatformData, GoogleBusinessPlatformData, InstagramPlatformData, LinkedInPlatformData, PinterestPlatformData, RedditPlatformData, SnapchatPlatformData, TelegramPlatformData, ThreadsPlatformData, TikTokPlatformData, TwitterPlatformData, YouTubePlatformData
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (JSON.isInstanceOf(BlueskyPlatformData.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (JSON.isInstanceOf(FacebookPlatformData.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
@@ -582,6 +653,11 @@ public class PlatformTargetPlatformSpecificData extends AbstractOpenApiSchema {
         }
 
         if (JSON.isInstanceOf(PinterestPlatformData.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (JSON.isInstanceOf(RedditPlatformData.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
@@ -616,18 +692,29 @@ public class PlatformTargetPlatformSpecificData extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be FacebookPlatformData, GoogleBusinessPlatformData, InstagramPlatformData, LinkedInPlatformData, PinterestPlatformData, SnapchatPlatformData, TelegramPlatformData, ThreadsPlatformData, TikTokPlatformData, TwitterPlatformData, YouTubePlatformData");
+        throw new RuntimeException("Invalid instance type. Must be BlueskyPlatformData, FacebookPlatformData, GoogleBusinessPlatformData, InstagramPlatformData, LinkedInPlatformData, PinterestPlatformData, RedditPlatformData, SnapchatPlatformData, TelegramPlatformData, ThreadsPlatformData, TikTokPlatformData, TwitterPlatformData, YouTubePlatformData");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * FacebookPlatformData, GoogleBusinessPlatformData, InstagramPlatformData, LinkedInPlatformData, PinterestPlatformData, SnapchatPlatformData, TelegramPlatformData, ThreadsPlatformData, TikTokPlatformData, TwitterPlatformData, YouTubePlatformData
+     * BlueskyPlatformData, FacebookPlatformData, GoogleBusinessPlatformData, InstagramPlatformData, LinkedInPlatformData, PinterestPlatformData, RedditPlatformData, SnapchatPlatformData, TelegramPlatformData, ThreadsPlatformData, TikTokPlatformData, TwitterPlatformData, YouTubePlatformData
      *
-     * @return The actual instance (FacebookPlatformData, GoogleBusinessPlatformData, InstagramPlatformData, LinkedInPlatformData, PinterestPlatformData, SnapchatPlatformData, TelegramPlatformData, ThreadsPlatformData, TikTokPlatformData, TwitterPlatformData, YouTubePlatformData)
+     * @return The actual instance (BlueskyPlatformData, FacebookPlatformData, GoogleBusinessPlatformData, InstagramPlatformData, LinkedInPlatformData, PinterestPlatformData, RedditPlatformData, SnapchatPlatformData, TelegramPlatformData, ThreadsPlatformData, TikTokPlatformData, TwitterPlatformData, YouTubePlatformData)
      */
     @Override
     public Object getActualInstance() {
         return super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `BlueskyPlatformData`. If the actual instance is not `BlueskyPlatformData`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `BlueskyPlatformData`
+     * @throws ClassCastException if the instance is not `BlueskyPlatformData`
+     */
+    public BlueskyPlatformData getBlueskyPlatformData() throws ClassCastException {
+        return (BlueskyPlatformData)super.getActualInstance();
     }
 
     /**
@@ -683,6 +770,17 @@ public class PlatformTargetPlatformSpecificData extends AbstractOpenApiSchema {
      */
     public PinterestPlatformData getPinterestPlatformData() throws ClassCastException {
         return (PinterestPlatformData)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `RedditPlatformData`. If the actual instance is not `RedditPlatformData`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `RedditPlatformData`
+     * @throws ClassCastException if the instance is not `RedditPlatformData`
+     */
+    public RedditPlatformData getRedditPlatformData() throws ClassCastException {
+        return (RedditPlatformData)super.getActualInstance();
     }
 
     /**
@@ -848,6 +946,18 @@ public class PlatformTargetPlatformSpecificData extends AbstractOpenApiSchema {
     if (getActualInstance() instanceof SnapchatPlatformData) {
         if (getActualInstance() != null) {
           joiner.add(((SnapchatPlatformData)getActualInstance()).toUrlQueryString(prefix + "one_of_10" + suffix));
+        }
+        return joiner.toString();
+    }
+    if (getActualInstance() instanceof RedditPlatformData) {
+        if (getActualInstance() != null) {
+          joiner.add(((RedditPlatformData)getActualInstance()).toUrlQueryString(prefix + "one_of_11" + suffix));
+        }
+        return joiner.toString();
+    }
+    if (getActualInstance() instanceof BlueskyPlatformData) {
+        if (getActualInstance() != null) {
+          joiner.add(((BlueskyPlatformData)getActualInstance()).toUrlQueryString(prefix + "one_of_12" + suffix));
         }
         return joiner.toString();
     }

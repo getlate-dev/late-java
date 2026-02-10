@@ -54,7 +54,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
-        String postId = "postId_example"; // String | 
+        String postId = "postId_example"; // String | The post identifier. Accepts a Late post ID or a platform-specific post ID.
         String accountId = "accountId_example"; // String | 
         String commentId = "commentId_example"; // String | 
         try {
@@ -76,7 +76,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **postId** | **String**|  | |
+| **postId** | **String**| The post identifier. Accepts a Late post ID or a platform-specific post ID. | |
 | **accountId** | **String**|  | |
 | **commentId** | **String**|  | |
 
@@ -131,7 +131,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
-        String postId = "postId_example"; // String | 
+        String postId = "postId_example"; // String | The post identifier. Accepts a Late post ID or a platform-specific post ID.
         String accountId = "accountId_example"; // String | 
         String commentId = "commentId_example"; // String | 
         try {
@@ -155,7 +155,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **postId** | **String**|  | |
+| **postId** | **String**| The post identifier. Accepts a Late post ID or a platform-specific post ID. | |
 | **accountId** | **String**|  | |
 | **commentId** | **String**|  | |
 
@@ -210,7 +210,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
-        String postId = "postId_example"; // String | 
+        String postId = "postId_example"; // String | The post identifier. Accepts a Late post ID (MongoDB ObjectId) which is automatically resolved to the platform-specific post ID, or a platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID, YouTube video ID).
         String accountId = "accountId_example"; // String | 
         String subreddit = "subreddit_example"; // String | (Reddit only) Subreddit name
         Integer limit = 25; // Integer | Maximum number of comments to return
@@ -235,7 +235,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **postId** | **String**|  | |
+| **postId** | **String**| The post identifier. Accepts a Late post ID (MongoDB ObjectId) which is automatically resolved to the platform-specific post ID, or a platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID, YouTube video ID). | |
 | **accountId** | **String**|  | |
 | **subreddit** | **String**| (Reddit only) Subreddit name | [optional] |
 | **limit** | **Integer**| Maximum number of comments to return | [optional] [default to 25] |
@@ -293,7 +293,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
-        String postId = "postId_example"; // String | 
+        String postId = "postId_example"; // String | The post identifier. Accepts a Late post ID (MongoDB ObjectId) which is automatically resolved to the platform-specific post ID, or a platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID, YouTube video ID).
         String accountId = "accountId_example"; // String | 
         String subreddit = "subreddit_example"; // String | (Reddit only) Subreddit name
         Integer limit = 25; // Integer | Maximum number of comments to return
@@ -320,7 +320,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **postId** | **String**|  | |
+| **postId** | **String**| The post identifier. Accepts a Late post ID (MongoDB ObjectId) which is automatically resolved to the platform-specific post ID, or a platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID, YouTube video ID). | |
 | **accountId** | **String**|  | |
 | **subreddit** | **String**| (Reddit only) Subreddit name | [optional] |
 | **limit** | **Integer**| Maximum number of comments to return | [optional] [default to 25] |
@@ -874,7 +874,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
-        String postId = "postId_example"; // String | 
+        String postId = "postId_example"; // String | The post identifier. Accepts a Late post ID or a platform-specific post ID.
         ReplyToInboxPostRequest replyToInboxPostRequest = new ReplyToInboxPostRequest(); // ReplyToInboxPostRequest | 
         try {
             ReplyToInboxPost200Response result = apiInstance.replyToInboxPost(postId, replyToInboxPostRequest);
@@ -895,7 +895,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **postId** | **String**|  | |
+| **postId** | **String**| The post identifier. Accepts a Late post ID or a platform-specific post ID. | |
 | **replyToInboxPostRequest** | [**ReplyToInboxPostRequest**](ReplyToInboxPostRequest.md)|  | |
 
 ### Return type
@@ -949,7 +949,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
-        String postId = "postId_example"; // String | 
+        String postId = "postId_example"; // String | The post identifier. Accepts a Late post ID or a platform-specific post ID.
         ReplyToInboxPostRequest replyToInboxPostRequest = new ReplyToInboxPostRequest(); // ReplyToInboxPostRequest | 
         try {
             ApiResponse<ReplyToInboxPost200Response> response = apiInstance.replyToInboxPostWithHttpInfo(postId, replyToInboxPostRequest);
@@ -972,7 +972,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **postId** | **String**|  | |
+| **postId** | **String**| The post identifier. Accepts a Late post ID or a platform-specific post ID. | |
 | **replyToInboxPostRequest** | [**ReplyToInboxPostRequest**](ReplyToInboxPostRequest.md)|  | |
 
 ### Return type

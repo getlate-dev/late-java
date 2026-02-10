@@ -3,10 +3,13 @@
 # CreatePostRequestPlatformsInnerPlatformSpecificData
 
 ## oneOf schemas
+* [BlueskyPlatformData](BlueskyPlatformData.md)
 * [FacebookPlatformData](FacebookPlatformData.md)
+* [GoogleBusinessPlatformData](GoogleBusinessPlatformData.md)
 * [InstagramPlatformData](InstagramPlatformData.md)
 * [LinkedInPlatformData](LinkedInPlatformData.md)
 * [PinterestPlatformData](PinterestPlatformData.md)
+* [RedditPlatformData](RedditPlatformData.md)
 * [SnapchatPlatformData](SnapchatPlatformData.md)
 * [TelegramPlatformData](TelegramPlatformData.md)
 * [ThreadsPlatformData](ThreadsPlatformData.md)
@@ -18,10 +21,13 @@
 ```java
 // Import classes:
 import dev.getlate.model.CreatePostRequestPlatformsInnerPlatformSpecificData;
+import dev.getlate.model.BlueskyPlatformData;
 import dev.getlate.model.FacebookPlatformData;
+import dev.getlate.model.GoogleBusinessPlatformData;
 import dev.getlate.model.InstagramPlatformData;
 import dev.getlate.model.LinkedInPlatformData;
 import dev.getlate.model.PinterestPlatformData;
+import dev.getlate.model.RedditPlatformData;
 import dev.getlate.model.SnapchatPlatformData;
 import dev.getlate.model.TelegramPlatformData;
 import dev.getlate.model.ThreadsPlatformData;
@@ -33,12 +39,26 @@ public class Example {
     public static void main(String[] args) {
         CreatePostRequestPlatformsInnerPlatformSpecificData exampleCreatePostRequestPlatformsInnerPlatformSpecificData = new CreatePostRequestPlatformsInnerPlatformSpecificData();
 
+        // create a new BlueskyPlatformData
+        BlueskyPlatformData exampleBlueskyPlatformData = new BlueskyPlatformData();
+        // set CreatePostRequestPlatformsInnerPlatformSpecificData to BlueskyPlatformData
+        exampleCreatePostRequestPlatformsInnerPlatformSpecificData.setActualInstance(exampleBlueskyPlatformData);
+        // to get back the BlueskyPlatformData set earlier
+        BlueskyPlatformData testBlueskyPlatformData = (BlueskyPlatformData) exampleCreatePostRequestPlatformsInnerPlatformSpecificData.getActualInstance();
+
         // create a new FacebookPlatformData
         FacebookPlatformData exampleFacebookPlatformData = new FacebookPlatformData();
         // set CreatePostRequestPlatformsInnerPlatformSpecificData to FacebookPlatformData
         exampleCreatePostRequestPlatformsInnerPlatformSpecificData.setActualInstance(exampleFacebookPlatformData);
         // to get back the FacebookPlatformData set earlier
         FacebookPlatformData testFacebookPlatformData = (FacebookPlatformData) exampleCreatePostRequestPlatformsInnerPlatformSpecificData.getActualInstance();
+
+        // create a new GoogleBusinessPlatformData
+        GoogleBusinessPlatformData exampleGoogleBusinessPlatformData = new GoogleBusinessPlatformData();
+        // set CreatePostRequestPlatformsInnerPlatformSpecificData to GoogleBusinessPlatformData
+        exampleCreatePostRequestPlatformsInnerPlatformSpecificData.setActualInstance(exampleGoogleBusinessPlatformData);
+        // to get back the GoogleBusinessPlatformData set earlier
+        GoogleBusinessPlatformData testGoogleBusinessPlatformData = (GoogleBusinessPlatformData) exampleCreatePostRequestPlatformsInnerPlatformSpecificData.getActualInstance();
 
         // create a new InstagramPlatformData
         InstagramPlatformData exampleInstagramPlatformData = new InstagramPlatformData();
@@ -60,6 +80,13 @@ public class Example {
         exampleCreatePostRequestPlatformsInnerPlatformSpecificData.setActualInstance(examplePinterestPlatformData);
         // to get back the PinterestPlatformData set earlier
         PinterestPlatformData testPinterestPlatformData = (PinterestPlatformData) exampleCreatePostRequestPlatformsInnerPlatformSpecificData.getActualInstance();
+
+        // create a new RedditPlatformData
+        RedditPlatformData exampleRedditPlatformData = new RedditPlatformData();
+        // set CreatePostRequestPlatformsInnerPlatformSpecificData to RedditPlatformData
+        exampleCreatePostRequestPlatformsInnerPlatformSpecificData.setActualInstance(exampleRedditPlatformData);
+        // to get back the RedditPlatformData set earlier
+        RedditPlatformData testRedditPlatformData = (RedditPlatformData) exampleCreatePostRequestPlatformsInnerPlatformSpecificData.getActualInstance();
 
         // create a new SnapchatPlatformData
         SnapchatPlatformData exampleSnapchatPlatformData = new SnapchatPlatformData();

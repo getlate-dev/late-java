@@ -5,11 +5,13 @@
 Platform-specific overrides and options.
 
 ## oneOf schemas
+* [BlueskyPlatformData](BlueskyPlatformData.md)
 * [FacebookPlatformData](FacebookPlatformData.md)
 * [GoogleBusinessPlatformData](GoogleBusinessPlatformData.md)
 * [InstagramPlatformData](InstagramPlatformData.md)
 * [LinkedInPlatformData](LinkedInPlatformData.md)
 * [PinterestPlatformData](PinterestPlatformData.md)
+* [RedditPlatformData](RedditPlatformData.md)
 * [SnapchatPlatformData](SnapchatPlatformData.md)
 * [TelegramPlatformData](TelegramPlatformData.md)
 * [ThreadsPlatformData](ThreadsPlatformData.md)
@@ -21,11 +23,13 @@ Platform-specific overrides and options.
 ```java
 // Import classes:
 import dev.getlate.model.PlatformTargetPlatformSpecificData;
+import dev.getlate.model.BlueskyPlatformData;
 import dev.getlate.model.FacebookPlatformData;
 import dev.getlate.model.GoogleBusinessPlatformData;
 import dev.getlate.model.InstagramPlatformData;
 import dev.getlate.model.LinkedInPlatformData;
 import dev.getlate.model.PinterestPlatformData;
+import dev.getlate.model.RedditPlatformData;
 import dev.getlate.model.SnapchatPlatformData;
 import dev.getlate.model.TelegramPlatformData;
 import dev.getlate.model.ThreadsPlatformData;
@@ -36,6 +40,13 @@ import dev.getlate.model.YouTubePlatformData;
 public class Example {
     public static void main(String[] args) {
         PlatformTargetPlatformSpecificData examplePlatformTargetPlatformSpecificData = new PlatformTargetPlatformSpecificData();
+
+        // create a new BlueskyPlatformData
+        BlueskyPlatformData exampleBlueskyPlatformData = new BlueskyPlatformData();
+        // set PlatformTargetPlatformSpecificData to BlueskyPlatformData
+        examplePlatformTargetPlatformSpecificData.setActualInstance(exampleBlueskyPlatformData);
+        // to get back the BlueskyPlatformData set earlier
+        BlueskyPlatformData testBlueskyPlatformData = (BlueskyPlatformData) examplePlatformTargetPlatformSpecificData.getActualInstance();
 
         // create a new FacebookPlatformData
         FacebookPlatformData exampleFacebookPlatformData = new FacebookPlatformData();
@@ -71,6 +82,13 @@ public class Example {
         examplePlatformTargetPlatformSpecificData.setActualInstance(examplePinterestPlatformData);
         // to get back the PinterestPlatformData set earlier
         PinterestPlatformData testPinterestPlatformData = (PinterestPlatformData) examplePlatformTargetPlatformSpecificData.getActualInstance();
+
+        // create a new RedditPlatformData
+        RedditPlatformData exampleRedditPlatformData = new RedditPlatformData();
+        // set PlatformTargetPlatformSpecificData to RedditPlatformData
+        examplePlatformTargetPlatformSpecificData.setActualInstance(exampleRedditPlatformData);
+        // to get back the RedditPlatformData set earlier
+        RedditPlatformData testRedditPlatformData = (RedditPlatformData) examplePlatformTargetPlatformSpecificData.getActualInstance();
 
         // create a new SnapchatPlatformData
         SnapchatPlatformData exampleSnapchatPlatformData = new SnapchatPlatformData();

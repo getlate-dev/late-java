@@ -17,6 +17,7 @@ docs/AnalyticsOverview.md
 docs/AnalyticsSinglePostResponse.md
 docs/ApiKey.md
 docs/ApiKeysApi.md
+docs/BlueskyPlatformData.md
 docs/BulkUploadPosts200Response.md
 docs/BulkUploadPosts200ResponseErrorsInner.md
 docs/BulkUploadPosts429Response.md
@@ -32,6 +33,10 @@ docs/ConnectBlueskyCredentials200Response.md
 docs/ConnectBlueskyCredentialsRequest.md
 docs/Connected.md
 docs/ConnectedAccount.md
+docs/ConnectionLog.md
+docs/ConnectionLogContext.md
+docs/ConnectionLogError.md
+docs/ConnectionLogSuccess.md
 docs/CreateAccountGroup201Response.md
 docs/CreateAccountGroupRequest.md
 docs/CreateApiKey201Response.md
@@ -193,6 +198,7 @@ docs/ListAccountGroups200Response.md
 docs/ListAccountGroups200ResponseGroupsInner.md
 docs/ListAccounts200Response.md
 docs/ListApiKeys200Response.md
+docs/ListConnectionLogs200Response.md
 docs/ListFacebookPages200Response.md
 docs/ListFacebookPages200ResponsePagesInner.md
 docs/ListGoogleBusinessLocations200Response.md
@@ -275,6 +281,7 @@ docs/QueueSchedule.md
 docs/QueueSlot.md
 docs/QueueSlotsResponse.md
 docs/QueueUpdateResponse.md
+docs/RedditPlatformData.md
 docs/RedditSearchApi.md
 docs/ReplyToInboxPost200Response.md
 docs/ReplyToInboxPost200ResponseData.md
@@ -446,6 +453,7 @@ src/main/java/dev/getlate/model/AnalyticsListResponsePostsInner.java
 src/main/java/dev/getlate/model/AnalyticsOverview.java
 src/main/java/dev/getlate/model/AnalyticsSinglePostResponse.java
 src/main/java/dev/getlate/model/ApiKey.java
+src/main/java/dev/getlate/model/BlueskyPlatformData.java
 src/main/java/dev/getlate/model/BulkUploadPosts200Response.java
 src/main/java/dev/getlate/model/BulkUploadPosts200ResponseErrorsInner.java
 src/main/java/dev/getlate/model/BulkUploadPosts429Response.java
@@ -459,6 +467,10 @@ src/main/java/dev/getlate/model/ConnectBlueskyCredentials200Response.java
 src/main/java/dev/getlate/model/ConnectBlueskyCredentialsRequest.java
 src/main/java/dev/getlate/model/Connected.java
 src/main/java/dev/getlate/model/ConnectedAccount.java
+src/main/java/dev/getlate/model/ConnectionLog.java
+src/main/java/dev/getlate/model/ConnectionLogContext.java
+src/main/java/dev/getlate/model/ConnectionLogError.java
+src/main/java/dev/getlate/model/ConnectionLogSuccess.java
 src/main/java/dev/getlate/model/CreateAccountGroup201Response.java
 src/main/java/dev/getlate/model/CreateAccountGroupRequest.java
 src/main/java/dev/getlate/model/CreateApiKey201Response.java
@@ -612,6 +624,7 @@ src/main/java/dev/getlate/model/ListAccountGroups200Response.java
 src/main/java/dev/getlate/model/ListAccountGroups200ResponseGroupsInner.java
 src/main/java/dev/getlate/model/ListAccounts200Response.java
 src/main/java/dev/getlate/model/ListApiKeys200Response.java
+src/main/java/dev/getlate/model/ListConnectionLogs200Response.java
 src/main/java/dev/getlate/model/ListFacebookPages200Response.java
 src/main/java/dev/getlate/model/ListFacebookPages200ResponsePagesInner.java
 src/main/java/dev/getlate/model/ListGoogleBusinessLocations200Response.java
@@ -688,6 +701,7 @@ src/main/java/dev/getlate/model/QueueSchedule.java
 src/main/java/dev/getlate/model/QueueSlot.java
 src/main/java/dev/getlate/model/QueueSlotsResponse.java
 src/main/java/dev/getlate/model/QueueUpdateResponse.java
+src/main/java/dev/getlate/model/RedditPlatformData.java
 src/main/java/dev/getlate/model/ReplyToInboxPost200Response.java
 src/main/java/dev/getlate/model/ReplyToInboxPost200ResponseData.java
 src/main/java/dev/getlate/model/ReplyToInboxPostRequest.java
@@ -798,3 +812,10 @@ src/main/java/dev/getlate/model/YouTubeDailyViewsResponseScopeStatus.java
 src/main/java/dev/getlate/model/YouTubePlatformData.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponseScopeStatus.java
+src/test/java/dev/getlate/model/BlueskyPlatformDataTest.java
+src/test/java/dev/getlate/model/ConnectionLogContextTest.java
+src/test/java/dev/getlate/model/ConnectionLogErrorTest.java
+src/test/java/dev/getlate/model/ConnectionLogSuccessTest.java
+src/test/java/dev/getlate/model/ConnectionLogTest.java
+src/test/java/dev/getlate/model/ListConnectionLogs200ResponseTest.java
+src/test/java/dev/getlate/model/RedditPlatformDataTest.java

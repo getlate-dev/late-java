@@ -6503,7 +6503,10 @@ paths:
       - application/json
   /v1/logs:
     get:
+      deprecated: true
       description: |
+        **Deprecated:** Use `/v1/posts/logs` instead. This endpoint is maintained for backwards compatibility.
+
         Retrieve publishing logs for all posts. Logs show detailed information about each
         publishing attempt including API requests, responses, and timing data.
 
@@ -6645,7 +6648,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
       security:
       - bearerAuth: []
-      summary: Get publishing logs
+      summary: Get publishing logs (deprecated)
       tags:
       - Logs
       x-accepts:
@@ -6720,6 +6723,310 @@ paths:
       security:
       - bearerAuth: []
       summary: Get a single log entry
+      tags:
+      - Logs
+      x-accepts:
+      - application/json
+  /v1/posts/logs:
+    get:
+      description: |
+        Retrieve publishing logs for all posts. Logs show detailed information about each
+        publishing attempt including API requests, responses, and timing data.
+
+        **Filtering:**
+        - Filter by status (success, failed, pending, skipped)
+        - Filter by platform (instagram, twitter, linkedin, etc.)
+        - Filter by action (publish, retry, rate_limit_pause, etc.)
+
+        **Retention:** Logs are automatically deleted after 7 days.
+      operationId: listPostsLogs
+      parameters:
+      - description: Filter by log status
+        explode: true
+        in: query
+        name: status
+        required: false
+        schema:
+          enum:
+          - success
+          - failed
+          - pending
+          - skipped
+          - all
+          type: string
+        style: form
+      - description: Filter by platform
+        explode: true
+        in: query
+        name: platform
+        required: false
+        schema:
+          enum:
+          - tiktok
+          - instagram
+          - facebook
+          - youtube
+          - linkedin
+          - twitter
+          - threads
+          - pinterest
+          - reddit
+          - bluesky
+          - googlebusiness
+          - telegram
+          - snapchat
+          - all
+          type: string
+        style: form
+      - description: Filter by action type
+        explode: true
+        in: query
+        name: action
+        required: false
+        schema:
+          enum:
+          - publish
+          - retry
+          - media_upload
+          - rate_limit_pause
+          - token_refresh
+          - cancelled
+          - all
+          type: string
+        style: form
+      - description: Number of days to look back (max 7)
+        explode: true
+        in: query
+        name: days
+        required: false
+        schema:
+          default: 7
+          maximum: 7
+          minimum: 1
+          type: integer
+        style: form
+      - description: Maximum number of logs to return (max 100)
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 50
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: Number of logs to skip (for pagination)
+        explode: true
+        in: query
+        name: skip
+        required: false
+        schema:
+          default: 0
+          minimum: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                logs:
+                - _id: 675f1c0a9e2b5af0012ab34cd
+                  postId:
+                    _id: 65f1c0a9e2b5af0012ab34cd
+                    content: Check out our new feature!
+                    status: published
+                  userId: 64e1f0a9e2b5af0012ab34de
+                  platform: instagram
+                  accountId: 64e1f0a9e2b5af0012ab34ef
+                  accountUsername: '@acmecorp'
+                  action: publish
+                  status: success
+                  statusCode: 200
+                  endpoint: graph.facebook.com/me/media_publish
+                  request:
+                    contentPreview: Check out our new feature!
+                    mediaCount: 1
+                    mediaTypes:
+                    - image
+                    mediaUrls:
+                    - https://storage.getlate.dev/abc123.jpg
+                  response:
+                    platformPostId: "17895695668004550"
+                    platformPostUrl: https://www.instagram.com/p/ABC123/
+                  durationMs: 2340
+                  attemptNumber: 1
+                  createdAt: 2024-11-01T10:00:05Z
+                pagination:
+                  total: 150
+                  limit: 50
+                  skip: 0
+                  pages: 3
+                  hasMore: true
+              schema:
+                $ref: "#/components/schemas/listLogs_200_response"
+          description: Publishing logs retrieved successfully
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+      security:
+      - bearerAuth: []
+      summary: Get publishing logs
+      tags:
+      - Logs
+      x-accepts:
+      - application/json
+  /v1/connections/logs:
+    get:
+      description: |
+        Retrieve connection event logs showing account connection and disconnection history.
+        Useful for debugging OAuth issues and tracking account lifecycle.
+
+        **Event Types:**
+        - `connect_success` - New account connected successfully
+        - `connect_failed` - Connection attempt failed
+        - `disconnect` - Account was disconnected
+        - `reconnect_success` - Existing account reconnected
+        - `reconnect_failed` - Reconnection attempt failed
+
+        **Retention:** Logs are automatically deleted after 7 days.
+      operationId: listConnectionLogs
+      parameters:
+      - description: Filter by platform
+        explode: true
+        in: query
+        name: platform
+        required: false
+        schema:
+          enum:
+          - tiktok
+          - instagram
+          - facebook
+          - youtube
+          - linkedin
+          - twitter
+          - threads
+          - pinterest
+          - reddit
+          - bluesky
+          - googlebusiness
+          - telegram
+          - snapchat
+          - all
+          type: string
+        style: form
+      - description: Filter by event type
+        explode: true
+        in: query
+        name: eventType
+        required: false
+        schema:
+          enum:
+          - connect_success
+          - connect_failed
+          - disconnect
+          - reconnect_success
+          - reconnect_failed
+          - all
+          type: string
+        style: form
+      - description: Filter by status (shorthand for event types)
+        explode: true
+        in: query
+        name: status
+        required: false
+        schema:
+          description: "success = connect_success + reconnect_success, failed = connect_failed\
+            \ + reconnect_failed"
+          enum:
+          - success
+          - failed
+          - all
+          type: string
+        style: form
+      - description: Number of days to look back (max 7)
+        explode: true
+        in: query
+        name: days
+        required: false
+        schema:
+          default: 7
+          maximum: 7
+          minimum: 1
+          type: integer
+        style: form
+      - description: Maximum number of logs to return (max 100)
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 50
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: Number of logs to skip (for pagination)
+        explode: true
+        in: query
+        name: skip
+        required: false
+        schema:
+          default: 0
+          minimum: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                logs:
+                - _id: 675f1c0a9e2b5af0012ab34cd
+                  userId: 64e1f0a9e2b5af0012ab34de
+                  profileId: 64e1f0a9e2b5af0012ab34ef
+                  accountId: 64e1f0a9e2b5af0012ab3500
+                  platform: instagram
+                  eventType: connect_success
+                  connectionMethod: oauth
+                  success:
+                    displayName: Acme Corp
+                    username: acmecorp
+                    profilePicture: https://...
+                    permissions:
+                    - instagram_basic
+                    - instagram_content_publish
+                    tokenExpiresAt: 2024-12-01T10:00:00Z
+                    accountType: business
+                  context:
+                    hasCustomRedirectUrl: false
+                  createdAt: 2024-11-01T10:00:00Z
+                - _id: 675f1c0a9e2b5af0012ab34ce
+                  userId: 64e1f0a9e2b5af0012ab34de
+                  profileId: 64e1f0a9e2b5af0012ab34ef
+                  platform: twitter
+                  eventType: connect_failed
+                  connectionMethod: oauth
+                  error:
+                    code: oauth_denied
+                    message: "OAuth error: access_denied"
+                  context:
+                    hasCustomRedirectUrl: true
+                  createdAt: 2024-11-01T09:00:00Z
+                pagination:
+                  total: 25
+                  limit: 50
+                  skip: 0
+                  pages: 1
+                  hasMore: false
+              schema:
+                $ref: "#/components/schemas/listConnectionLogs_200_response"
+          description: Connection logs retrieved successfully
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+      security:
+      - bearerAuth: []
+      summary: Get connection logs
       tags:
       - Logs
       x-accepts:
@@ -7208,7 +7515,9 @@ paths:
         Requires accountId and commentId query parameters.
       operationId: deleteInboxComment
       parameters:
-      - explode: false
+      - description: The post identifier. Accepts a Late post ID or a platform-specific
+          post ID.
+        explode: false
         in: path
         name: postId
         required: true
@@ -7251,7 +7560,11 @@ paths:
       description: Fetch comments for a specific post. Requires accountId query parameter.
       operationId: getInboxPostComments
       parameters:
-      - explode: false
+      - description: "The post identifier. Accepts a Late post ID (MongoDB ObjectId)\
+          \ which is automatically resolved to the platform-specific post ID, or a\
+          \ platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID,\
+          \ YouTube video ID)."
+        explode: false
         in: path
         name: postId
         required: true
@@ -7323,7 +7636,9 @@ paths:
         in request body.
       operationId: replyToInboxPost
       parameters:
-      - explode: false
+      - description: The post identifier. Accepts a Late post ID or a platform-specific
+          post ID.
+        explode: false
         in: path
         name: postId
         required: true
@@ -9035,6 +9350,104 @@ components:
         durationMs: 6
         status: success
         statusCode: 0
+    ConnectionLog:
+      description: Connection event log showing account connection/disconnection history
+      example:
+        metadata: "{}"
+        eventType: connect_success
+        error:
+          code: code
+          rawResponse: rawResponse
+          message: message
+        userId: userId
+        platform: tiktok
+        accountId: accountId
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        profileId: profileId
+        success:
+          profilePicture: profilePicture
+          displayName: displayName
+          permissions:
+          - permissions
+          - permissions
+          accountType: accountType
+          tokenExpiresAt: 2000-01-23T04:56:07.000+00:00
+          username: username
+        context:
+          isReconnection: true
+          connectToken: connectToken
+          isHeadlessMode: true
+          hasCustomRedirectUrl: true
+          invitationToken: invitationToken
+          isBYOK: true
+        _id: _id
+        durationMs: 0
+        connectionMethod: oauth
+      properties:
+        _id:
+          type: string
+        userId:
+          description: User who owns the connection (may be null for early OAuth failures)
+          type: string
+        profileId:
+          type: string
+        accountId:
+          description: The social account ID (present on successful connections and
+            disconnects)
+          type: string
+        platform:
+          enum:
+          - tiktok
+          - instagram
+          - facebook
+          - youtube
+          - linkedin
+          - twitter
+          - threads
+          - pinterest
+          - reddit
+          - bluesky
+          - googlebusiness
+          - telegram
+          - snapchat
+          type: string
+        eventType:
+          description: |
+            Type of connection event:
+            - `connect_success` - New account connected successfully
+            - `connect_failed` - Connection attempt failed
+            - `disconnect` - Account was disconnected
+            - `reconnect_success` - Existing account reconnected successfully
+            - `reconnect_failed` - Reconnection attempt failed
+          enum:
+          - connect_success
+          - connect_failed
+          - disconnect
+          - reconnect_success
+          - reconnect_failed
+          type: string
+        connectionMethod:
+          description: How the connection was initiated
+          enum:
+          - oauth
+          - credentials
+          - invitation
+          type: string
+        error:
+          $ref: "#/components/schemas/ConnectionLog_error"
+        success:
+          $ref: "#/components/schemas/ConnectionLog_success"
+        context:
+          $ref: "#/components/schemas/ConnectionLog_context"
+        durationMs:
+          description: How long the operation took in milliseconds
+          type: integer
+        metadata:
+          description: Additional metadata
+          type: object
+        createdAt:
+          format: date-time
+          type: string
     MediaItem:
       description: |
         Media referenced in posts. URLs must be publicly reachable over HTTPS by the destination platforms.
@@ -9976,6 +10389,52 @@ components:
           - saved_story
           - spotlight
           type: string
+    RedditPlatformData:
+      description: |
+        Reddit post settings:
+        - Posts are either "link" (with URL/media) or "self" (text-only)
+        - If media is provided, the first media item's URL is used as the link
+        - Use forceSelf to override and create a text post with the URL in the body
+        - Subreddit defaults to the account's configured subreddit if omitted
+        - Use the same accountId multiple times with different subreddit values in platformSpecificData to post to multiple subreddits
+        - Images are automatically compressed if they exceed Reddit's 20MB limit
+      properties:
+        subreddit:
+          description: |
+            Target subreddit name (without "r/" prefix).
+            Overrides the default subreddit configured on the account connection.
+            Use GET /api/v1/accounts/{id}/reddit-subreddits to list available subreddits.
+          example: socialmedia
+          type: string
+        title:
+          description: "Post title. Defaults to the first line of content, truncated\
+            \ to 300 characters."
+          maxLength: 300
+          type: string
+        url:
+          description: "URL for link posts. If provided (and forceSelf is not true),\
+            \ creates a link post instead of a text post."
+          format: uri
+          type: string
+        forceSelf:
+          description: "When true, creates a text/self post even when a URL or media\
+            \ is provided."
+          type: boolean
+    BlueskyPlatformData:
+      description: |
+        Bluesky post settings:
+        - Supports text posts with up to 4 images per post
+        - Videos supported (single video per post)
+        - threadItems creates a reply chain (Bluesky thread)
+        - Images exceeding Bluesky's 1MB limit are automatically compressed
+        - Alt text for images is supported via mediaItem properties
+      properties:
+        threadItems:
+          description: Sequence of posts in a Bluesky thread (root then replies in
+            order).
+          items:
+            $ref: "#/components/schemas/TwitterPlatformData_threadItems_inner"
+          type: array
     QueueSlot:
       example:
         dayOfWeek: 0
@@ -12392,9 +12851,12 @@ components:
       - $ref: "#/components/schemas/LinkedInPlatformData"
       - $ref: "#/components/schemas/PinterestPlatformData"
       - $ref: "#/components/schemas/YouTubePlatformData"
+      - $ref: "#/components/schemas/GoogleBusinessPlatformData"
       - $ref: "#/components/schemas/TikTokPlatformData"
       - $ref: "#/components/schemas/TelegramPlatformData"
       - $ref: "#/components/schemas/SnapchatPlatformData"
+      - $ref: "#/components/schemas/RedditPlatformData"
+      - $ref: "#/components/schemas/BlueskyPlatformData"
     createPost_request_platforms_inner:
       properties:
         platform:
@@ -17666,6 +18128,82 @@ components:
       properties:
         log:
           $ref: "#/components/schemas/PostLogDetail"
+    listConnectionLogs_200_response:
+      example:
+        pagination:
+          total: 5
+          pages: 9
+          limit: 2
+          hasMore: true
+          skip: 7
+        logs:
+        - metadata: "{}"
+          eventType: connect_success
+          error:
+            code: code
+            rawResponse: rawResponse
+            message: message
+          userId: userId
+          platform: tiktok
+          accountId: accountId
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          profileId: profileId
+          success:
+            profilePicture: profilePicture
+            displayName: displayName
+            permissions:
+            - permissions
+            - permissions
+            accountType: accountType
+            tokenExpiresAt: 2000-01-23T04:56:07.000+00:00
+            username: username
+          context:
+            isReconnection: true
+            connectToken: connectToken
+            isHeadlessMode: true
+            hasCustomRedirectUrl: true
+            invitationToken: invitationToken
+            isBYOK: true
+          _id: _id
+          durationMs: 0
+          connectionMethod: oauth
+        - metadata: "{}"
+          eventType: connect_success
+          error:
+            code: code
+            rawResponse: rawResponse
+            message: message
+          userId: userId
+          platform: tiktok
+          accountId: accountId
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          profileId: profileId
+          success:
+            profilePicture: profilePicture
+            displayName: displayName
+            permissions:
+            - permissions
+            - permissions
+            accountType: accountType
+            tokenExpiresAt: 2000-01-23T04:56:07.000+00:00
+            username: username
+          context:
+            isReconnection: true
+            connectToken: connectToken
+            isHeadlessMode: true
+            hasCustomRedirectUrl: true
+            invitationToken: invitationToken
+            isBYOK: true
+          _id: _id
+          durationMs: 0
+          connectionMethod: oauth
+      properties:
+        logs:
+          items:
+            $ref: "#/components/schemas/ConnectionLog"
+          type: array
+        pagination:
+          $ref: "#/components/schemas/listLogs_200_response_pagination"
     getPostLogs_200_response:
       example:
         count: 0
@@ -19316,6 +19854,74 @@ components:
     PostLogDetail_allOf_metadata:
       description: "Additional metadata (e.g., rate limit info)"
       type: object
+    ConnectionLog_error:
+      description: Error details (present on failed events)
+      example:
+        code: code
+        rawResponse: rawResponse
+        message: message
+      properties:
+        code:
+          description: "Error code (e.g., oauth_denied, token_exchange_failed)"
+          type: string
+        message:
+          description: Human-readable error message
+          type: string
+        rawResponse:
+          description: Raw error response (truncated to 2000 chars)
+          type: string
+    ConnectionLog_success:
+      description: Success details (present on successful events)
+      example:
+        profilePicture: profilePicture
+        displayName: displayName
+        permissions:
+        - permissions
+        - permissions
+        accountType: accountType
+        tokenExpiresAt: 2000-01-23T04:56:07.000+00:00
+        username: username
+      properties:
+        displayName:
+          type: string
+        username:
+          type: string
+        profilePicture:
+          type: string
+        permissions:
+          description: OAuth scopes/permissions granted
+          items:
+            type: string
+          type: array
+        tokenExpiresAt:
+          format: date-time
+          type: string
+        accountType:
+          description: "Account type (personal, business, organization)"
+          type: string
+    ConnectionLog_context:
+      description: Additional context about the connection attempt
+      example:
+        isReconnection: true
+        connectToken: connectToken
+        isHeadlessMode: true
+        hasCustomRedirectUrl: true
+        invitationToken: invitationToken
+        isBYOK: true
+      properties:
+        isHeadlessMode:
+          type: boolean
+        hasCustomRedirectUrl:
+          type: boolean
+        isReconnection:
+          type: boolean
+        isBYOK:
+          description: Using bring-your-own-keys
+          type: boolean
+        invitationToken:
+          type: string
+        connectToken:
+          type: string
     PlatformTarget_accountId:
       oneOf:
       - type: string
@@ -19335,6 +19941,8 @@ components:
       - $ref: "#/components/schemas/TikTokPlatformData"
       - $ref: "#/components/schemas/TelegramPlatformData"
       - $ref: "#/components/schemas/SnapchatPlatformData"
+      - $ref: "#/components/schemas/RedditPlatformData"
+      - $ref: "#/components/schemas/BlueskyPlatformData"
     Post_userId:
       oneOf:
       - type: string

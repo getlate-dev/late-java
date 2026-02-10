@@ -59,7 +59,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-09T12:27:58.144009838Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-10T13:03:55.549942125Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CommentsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -179,7 +179,7 @@ public class CommentsApi {
   /**
    * Delete a comment
    * Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, YouTube, LinkedIn, and TikTok. Requires accountId and commentId query parameters. 
-   * @param postId  (required)
+   * @param postId The post identifier. Accepts a Late post ID or a platform-specific post ID. (required)
    * @param accountId  (required)
    * @param commentId  (required)
    * @return DeleteInboxComment200Response
@@ -192,7 +192,7 @@ public class CommentsApi {
   /**
    * Delete a comment
    * Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, YouTube, LinkedIn, and TikTok. Requires accountId and commentId query parameters. 
-   * @param postId  (required)
+   * @param postId The post identifier. Accepts a Late post ID or a platform-specific post ID. (required)
    * @param accountId  (required)
    * @param commentId  (required)
    * @param headers Optional headers to include in the request
@@ -207,7 +207,7 @@ public class CommentsApi {
   /**
    * Delete a comment
    * Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, YouTube, LinkedIn, and TikTok. Requires accountId and commentId query parameters. 
-   * @param postId  (required)
+   * @param postId The post identifier. Accepts a Late post ID or a platform-specific post ID. (required)
    * @param accountId  (required)
    * @param commentId  (required)
    * @return ApiResponse&lt;DeleteInboxComment200Response&gt;
@@ -220,7 +220,7 @@ public class CommentsApi {
   /**
    * Delete a comment
    * Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, YouTube, LinkedIn, and TikTok. Requires accountId and commentId query parameters. 
-   * @param postId  (required)
+   * @param postId The post identifier. Accepts a Late post ID or a platform-specific post ID. (required)
    * @param accountId  (required)
    * @param commentId  (required)
    * @param headers Optional headers to include in the request
@@ -330,7 +330,7 @@ public class CommentsApi {
   /**
    * Get comments for a post
    * Fetch comments for a specific post. Requires accountId query parameter.
-   * @param postId  (required)
+   * @param postId The post identifier. Accepts a Late post ID (MongoDB ObjectId) which is automatically resolved to the platform-specific post ID, or a platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID, YouTube video ID). (required)
    * @param accountId  (required)
    * @param subreddit (Reddit only) Subreddit name (optional)
    * @param limit Maximum number of comments to return (optional, default to 25)
@@ -346,7 +346,7 @@ public class CommentsApi {
   /**
    * Get comments for a post
    * Fetch comments for a specific post. Requires accountId query parameter.
-   * @param postId  (required)
+   * @param postId The post identifier. Accepts a Late post ID (MongoDB ObjectId) which is automatically resolved to the platform-specific post ID, or a platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID, YouTube video ID). (required)
    * @param accountId  (required)
    * @param subreddit (Reddit only) Subreddit name (optional)
    * @param limit Maximum number of comments to return (optional, default to 25)
@@ -364,7 +364,7 @@ public class CommentsApi {
   /**
    * Get comments for a post
    * Fetch comments for a specific post. Requires accountId query parameter.
-   * @param postId  (required)
+   * @param postId The post identifier. Accepts a Late post ID (MongoDB ObjectId) which is automatically resolved to the platform-specific post ID, or a platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID, YouTube video ID). (required)
    * @param accountId  (required)
    * @param subreddit (Reddit only) Subreddit name (optional)
    * @param limit Maximum number of comments to return (optional, default to 25)
@@ -380,7 +380,7 @@ public class CommentsApi {
   /**
    * Get comments for a post
    * Fetch comments for a specific post. Requires accountId query parameter.
-   * @param postId  (required)
+   * @param postId The post identifier. Accepts a Late post ID (MongoDB ObjectId) which is automatically resolved to the platform-specific post ID, or a platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID, YouTube video ID). (required)
    * @param accountId  (required)
    * @param subreddit (Reddit only) Subreddit name (optional)
    * @param limit Maximum number of comments to return (optional, default to 25)
@@ -953,7 +953,7 @@ public class CommentsApi {
   /**
    * Reply to a post or comment
    * Post a reply to a post or specific comment. Requires accountId in request body.
-   * @param postId  (required)
+   * @param postId The post identifier. Accepts a Late post ID or a platform-specific post ID. (required)
    * @param replyToInboxPostRequest  (required)
    * @return ReplyToInboxPost200Response
    * @throws ApiException if fails to make API call
@@ -965,7 +965,7 @@ public class CommentsApi {
   /**
    * Reply to a post or comment
    * Post a reply to a post or specific comment. Requires accountId in request body.
-   * @param postId  (required)
+   * @param postId The post identifier. Accepts a Late post ID or a platform-specific post ID. (required)
    * @param replyToInboxPostRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ReplyToInboxPost200Response
@@ -979,7 +979,7 @@ public class CommentsApi {
   /**
    * Reply to a post or comment
    * Post a reply to a post or specific comment. Requires accountId in request body.
-   * @param postId  (required)
+   * @param postId The post identifier. Accepts a Late post ID or a platform-specific post ID. (required)
    * @param replyToInboxPostRequest  (required)
    * @return ApiResponse&lt;ReplyToInboxPost200Response&gt;
    * @throws ApiException if fails to make API call
@@ -991,7 +991,7 @@ public class CommentsApi {
   /**
    * Reply to a post or comment
    * Post a reply to a post or specific comment. Requires accountId in request body.
-   * @param postId  (required)
+   * @param postId The post identifier. Accepts a Late post ID or a platform-specific post ID. (required)
    * @param replyToInboxPostRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;ReplyToInboxPost200Response&gt;

@@ -4,7 +4,7 @@ Late API
 
 - API version: 1.0.1
 
-- Build date: 2026-02-09T12:27:58.144009838Z[Etc/UTC]
+- Build date: 2026-02-10T13:03:55.549942125Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -253,8 +253,12 @@ Class | Method | HTTP request | Description
 *LogsApi* | [**getLogWithHttpInfo**](docs/LogsApi.md#getLogWithHttpInfo) | **GET** /v1/logs/{logId} | Get a single log entry
 *LogsApi* | [**getPostLogs**](docs/LogsApi.md#getPostLogs) | **GET** /v1/posts/{postId}/logs | Get logs for a specific post
 *LogsApi* | [**getPostLogsWithHttpInfo**](docs/LogsApi.md#getPostLogsWithHttpInfo) | **GET** /v1/posts/{postId}/logs | Get logs for a specific post
-*LogsApi* | [**listLogs**](docs/LogsApi.md#listLogs) | **GET** /v1/logs | Get publishing logs
-*LogsApi* | [**listLogsWithHttpInfo**](docs/LogsApi.md#listLogsWithHttpInfo) | **GET** /v1/logs | Get publishing logs
+*LogsApi* | [**listConnectionLogs**](docs/LogsApi.md#listConnectionLogs) | **GET** /v1/connections/logs | Get connection logs
+*LogsApi* | [**listConnectionLogsWithHttpInfo**](docs/LogsApi.md#listConnectionLogsWithHttpInfo) | **GET** /v1/connections/logs | Get connection logs
+*LogsApi* | [**listLogs**](docs/LogsApi.md#listLogs) | **GET** /v1/logs | Get publishing logs (deprecated)
+*LogsApi* | [**listLogsWithHttpInfo**](docs/LogsApi.md#listLogsWithHttpInfo) | **GET** /v1/logs | Get publishing logs (deprecated)
+*LogsApi* | [**listPostsLogs**](docs/LogsApi.md#listPostsLogs) | **GET** /v1/posts/logs | Get publishing logs
+*LogsApi* | [**listPostsLogsWithHttpInfo**](docs/LogsApi.md#listPostsLogsWithHttpInfo) | **GET** /v1/posts/logs | Get publishing logs
 *MediaApi* | [**getMediaPresignedUrl**](docs/MediaApi.md#getMediaPresignedUrl) | **POST** /v1/media/presign | Get a presigned URL for direct file upload (up to 5GB)
 *MediaApi* | [**getMediaPresignedUrlWithHttpInfo**](docs/MediaApi.md#getMediaPresignedUrlWithHttpInfo) | **POST** /v1/media/presign | Get a presigned URL for direct file upload (up to 5GB)
 *MessagesApi* | [**getInboxConversation**](docs/MessagesApi.md#getInboxConversation) | **GET** /v1/inbox/conversations/{conversationId} | Get conversation details
@@ -361,6 +365,7 @@ Class | Method | HTTP request | Description
  - [AnalyticsOverview](docs/AnalyticsOverview.md)
  - [AnalyticsSinglePostResponse](docs/AnalyticsSinglePostResponse.md)
  - [ApiKey](docs/ApiKey.md)
+ - [BlueskyPlatformData](docs/BlueskyPlatformData.md)
  - [BulkUploadPosts200Response](docs/BulkUploadPosts200Response.md)
  - [BulkUploadPosts200ResponseErrorsInner](docs/BulkUploadPosts200ResponseErrorsInner.md)
  - [BulkUploadPosts429Response](docs/BulkUploadPosts429Response.md)
@@ -374,6 +379,10 @@ Class | Method | HTTP request | Description
  - [ConnectBlueskyCredentialsRequest](docs/ConnectBlueskyCredentialsRequest.md)
  - [Connected](docs/Connected.md)
  - [ConnectedAccount](docs/ConnectedAccount.md)
+ - [ConnectionLog](docs/ConnectionLog.md)
+ - [ConnectionLogContext](docs/ConnectionLogContext.md)
+ - [ConnectionLogError](docs/ConnectionLogError.md)
+ - [ConnectionLogSuccess](docs/ConnectionLogSuccess.md)
  - [CreateAccountGroup201Response](docs/CreateAccountGroup201Response.md)
  - [CreateAccountGroupRequest](docs/CreateAccountGroupRequest.md)
  - [CreateApiKey201Response](docs/CreateApiKey201Response.md)
@@ -527,6 +536,7 @@ Class | Method | HTTP request | Description
  - [ListAccountGroups200ResponseGroupsInner](docs/ListAccountGroups200ResponseGroupsInner.md)
  - [ListAccounts200Response](docs/ListAccounts200Response.md)
  - [ListApiKeys200Response](docs/ListApiKeys200Response.md)
+ - [ListConnectionLogs200Response](docs/ListConnectionLogs200Response.md)
  - [ListFacebookPages200Response](docs/ListFacebookPages200Response.md)
  - [ListFacebookPages200ResponsePagesInner](docs/ListFacebookPages200ResponsePagesInner.md)
  - [ListGoogleBusinessLocations200Response](docs/ListGoogleBusinessLocations200Response.md)
@@ -603,6 +613,7 @@ Class | Method | HTTP request | Description
  - [QueueSlot](docs/QueueSlot.md)
  - [QueueSlotsResponse](docs/QueueSlotsResponse.md)
  - [QueueUpdateResponse](docs/QueueUpdateResponse.md)
+ - [RedditPlatformData](docs/RedditPlatformData.md)
  - [ReplyToInboxPost200Response](docs/ReplyToInboxPost200Response.md)
  - [ReplyToInboxPost200ResponseData](docs/ReplyToInboxPost200ResponseData.md)
  - [ReplyToInboxPostRequest](docs/ReplyToInboxPostRequest.md)
