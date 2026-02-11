@@ -12,6 +12,7 @@ Webhook payload for message received events (DMs from Instagram, Telegram)
 |**message** | [**WebhookPayloadMessageMessage**](WebhookPayloadMessageMessage.md) |  |  [optional] |
 |**conversation** | [**WebhookPayloadMessageConversation**](WebhookPayloadMessageConversation.md) |  |  [optional] |
 |**account** | [**WebhookPayloadMessageAccount**](WebhookPayloadMessageAccount.md) |  |  [optional] |
+|**metadata** | [**WebhookPayloadMessageMetadata**](WebhookPayloadMessageMetadata.md) |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 
 

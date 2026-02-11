@@ -24,7 +24,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import dev.getlate.model.SendInboxMessageRequestButtonsInner;
+import dev.getlate.model.SendInboxMessageRequestQuickRepliesInner;
+import dev.getlate.model.SendInboxMessageRequestReplyMarkup;
+import dev.getlate.model.SendInboxMessageRequestTemplate;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -34,17 +40,128 @@ import dev.getlate.ApiClient;
  */
 @JsonPropertyOrder({
   SendInboxMessageRequest.JSON_PROPERTY_ACCOUNT_ID,
-  SendInboxMessageRequest.JSON_PROPERTY_MESSAGE
+  SendInboxMessageRequest.JSON_PROPERTY_MESSAGE,
+  SendInboxMessageRequest.JSON_PROPERTY_QUICK_REPLIES,
+  SendInboxMessageRequest.JSON_PROPERTY_BUTTONS,
+  SendInboxMessageRequest.JSON_PROPERTY_TEMPLATE,
+  SendInboxMessageRequest.JSON_PROPERTY_REPLY_MARKUP,
+  SendInboxMessageRequest.JSON_PROPERTY_MESSAGING_TYPE,
+  SendInboxMessageRequest.JSON_PROPERTY_MESSAGE_TAG,
+  SendInboxMessageRequest.JSON_PROPERTY_REPLY_TO
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-11T11:44:41.537184893Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-11T13:29:34.044983308Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class SendInboxMessageRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nonnull
   private String accountId;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String message;
+
+  public static final String JSON_PROPERTY_QUICK_REPLIES = "quickReplies";
+  @javax.annotation.Nullable
+  private List<SendInboxMessageRequestQuickRepliesInner> quickReplies = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_BUTTONS = "buttons";
+  @javax.annotation.Nullable
+  private List<SendInboxMessageRequestButtonsInner> buttons = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_TEMPLATE = "template";
+  @javax.annotation.Nullable
+  private SendInboxMessageRequestTemplate template;
+
+  public static final String JSON_PROPERTY_REPLY_MARKUP = "replyMarkup";
+  @javax.annotation.Nullable
+  private SendInboxMessageRequestReplyMarkup replyMarkup;
+
+  /**
+   * Facebook messaging type. Required when using messageTag.
+   */
+  public enum MessagingTypeEnum {
+    RESPONSE(String.valueOf("RESPONSE")),
+    
+    UPDATE(String.valueOf("UPDATE")),
+    
+    MESSAGE_TAG(String.valueOf("MESSAGE_TAG"));
+
+    private String value;
+
+    MessagingTypeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static MessagingTypeEnum fromValue(String value) {
+      for (MessagingTypeEnum b : MessagingTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_MESSAGING_TYPE = "messagingType";
+  @javax.annotation.Nullable
+  private MessagingTypeEnum messagingType;
+
+  /**
+   * Facebook message tag for messaging outside 24h window. Requires messagingType MESSAGE_TAG. Instagram only supports HUMAN_AGENT.
+   */
+  public enum MessageTagEnum {
+    CONFIRMED_EVENT_UPDATE(String.valueOf("CONFIRMED_EVENT_UPDATE")),
+    
+    POST_PURCHASE_UPDATE(String.valueOf("POST_PURCHASE_UPDATE")),
+    
+    ACCOUNT_UPDATE(String.valueOf("ACCOUNT_UPDATE")),
+    
+    HUMAN_AGENT(String.valueOf("HUMAN_AGENT"));
+
+    private String value;
+
+    MessageTagEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static MessageTagEnum fromValue(String value) {
+      for (MessageTagEnum b : MessageTagEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_MESSAGE_TAG = "messageTag";
+  @javax.annotation.Nullable
+  private MessageTagEnum messageTag;
+
+  public static final String JSON_PROPERTY_REPLY_TO = "replyTo";
+  @javax.annotation.Nullable
+  private String replyTo;
 
   public SendInboxMessageRequest() { 
   }
@@ -73,7 +190,7 @@ public class SendInboxMessageRequest {
   }
 
 
-  public SendInboxMessageRequest message(@javax.annotation.Nonnull String message) {
+  public SendInboxMessageRequest message(@javax.annotation.Nullable String message) {
     this.message = message;
     return this;
   }
@@ -82,18 +199,202 @@ public class SendInboxMessageRequest {
    * Message text
    * @return message
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
     return message;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setMessage(@javax.annotation.Nonnull String message) {
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMessage(@javax.annotation.Nullable String message) {
     this.message = message;
+  }
+
+
+  public SendInboxMessageRequest quickReplies(@javax.annotation.Nullable List<SendInboxMessageRequestQuickRepliesInner> quickReplies) {
+    this.quickReplies = quickReplies;
+    return this;
+  }
+
+  public SendInboxMessageRequest addQuickRepliesItem(SendInboxMessageRequestQuickRepliesInner quickRepliesItem) {
+    if (this.quickReplies == null) {
+      this.quickReplies = new ArrayList<>();
+    }
+    this.quickReplies.add(quickRepliesItem);
+    return this;
+  }
+
+  /**
+   * Quick reply buttons. Mutually exclusive with buttons. Max 13 items.
+   * @return quickReplies
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_QUICK_REPLIES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SendInboxMessageRequestQuickRepliesInner> getQuickReplies() {
+    return quickReplies;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_QUICK_REPLIES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setQuickReplies(@javax.annotation.Nullable List<SendInboxMessageRequestQuickRepliesInner> quickReplies) {
+    this.quickReplies = quickReplies;
+  }
+
+
+  public SendInboxMessageRequest buttons(@javax.annotation.Nullable List<SendInboxMessageRequestButtonsInner> buttons) {
+    this.buttons = buttons;
+    return this;
+  }
+
+  public SendInboxMessageRequest addButtonsItem(SendInboxMessageRequestButtonsInner buttonsItem) {
+    if (this.buttons == null) {
+      this.buttons = new ArrayList<>();
+    }
+    this.buttons.add(buttonsItem);
+    return this;
+  }
+
+  /**
+   * Action buttons. Mutually exclusive with quickReplies. Max 3 items.
+   * @return buttons
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_BUTTONS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SendInboxMessageRequestButtonsInner> getButtons() {
+    return buttons;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_BUTTONS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setButtons(@javax.annotation.Nullable List<SendInboxMessageRequestButtonsInner> buttons) {
+    this.buttons = buttons;
+  }
+
+
+  public SendInboxMessageRequest template(@javax.annotation.Nullable SendInboxMessageRequestTemplate template) {
+    this.template = template;
+    return this;
+  }
+
+  /**
+   * Get template
+   * @return template
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_TEMPLATE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SendInboxMessageRequestTemplate getTemplate() {
+    return template;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_TEMPLATE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTemplate(@javax.annotation.Nullable SendInboxMessageRequestTemplate template) {
+    this.template = template;
+  }
+
+
+  public SendInboxMessageRequest replyMarkup(@javax.annotation.Nullable SendInboxMessageRequestReplyMarkup replyMarkup) {
+    this.replyMarkup = replyMarkup;
+    return this;
+  }
+
+  /**
+   * Get replyMarkup
+   * @return replyMarkup
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_REPLY_MARKUP, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SendInboxMessageRequestReplyMarkup getReplyMarkup() {
+    return replyMarkup;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_REPLY_MARKUP, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReplyMarkup(@javax.annotation.Nullable SendInboxMessageRequestReplyMarkup replyMarkup) {
+    this.replyMarkup = replyMarkup;
+  }
+
+
+  public SendInboxMessageRequest messagingType(@javax.annotation.Nullable MessagingTypeEnum messagingType) {
+    this.messagingType = messagingType;
+    return this;
+  }
+
+  /**
+   * Facebook messaging type. Required when using messageTag.
+   * @return messagingType
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_MESSAGING_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MessagingTypeEnum getMessagingType() {
+    return messagingType;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_MESSAGING_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMessagingType(@javax.annotation.Nullable MessagingTypeEnum messagingType) {
+    this.messagingType = messagingType;
+  }
+
+
+  public SendInboxMessageRequest messageTag(@javax.annotation.Nullable MessageTagEnum messageTag) {
+    this.messageTag = messageTag;
+    return this;
+  }
+
+  /**
+   * Facebook message tag for messaging outside 24h window. Requires messagingType MESSAGE_TAG. Instagram only supports HUMAN_AGENT.
+   * @return messageTag
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE_TAG, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MessageTagEnum getMessageTag() {
+    return messageTag;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE_TAG, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMessageTag(@javax.annotation.Nullable MessageTagEnum messageTag) {
+    this.messageTag = messageTag;
+  }
+
+
+  public SendInboxMessageRequest replyTo(@javax.annotation.Nullable String replyTo) {
+    this.replyTo = replyTo;
+    return this;
+  }
+
+  /**
+   * Platform message ID to reply to (Telegram only).
+   * @return replyTo
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_REPLY_TO, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getReplyTo() {
+    return replyTo;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_REPLY_TO, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReplyTo(@javax.annotation.Nullable String replyTo) {
+    this.replyTo = replyTo;
   }
 
 
@@ -110,12 +411,19 @@ public class SendInboxMessageRequest {
     }
     SendInboxMessageRequest sendInboxMessageRequest = (SendInboxMessageRequest) o;
     return Objects.equals(this.accountId, sendInboxMessageRequest.accountId) &&
-        Objects.equals(this.message, sendInboxMessageRequest.message);
+        Objects.equals(this.message, sendInboxMessageRequest.message) &&
+        Objects.equals(this.quickReplies, sendInboxMessageRequest.quickReplies) &&
+        Objects.equals(this.buttons, sendInboxMessageRequest.buttons) &&
+        Objects.equals(this.template, sendInboxMessageRequest.template) &&
+        Objects.equals(this.replyMarkup, sendInboxMessageRequest.replyMarkup) &&
+        Objects.equals(this.messagingType, sendInboxMessageRequest.messagingType) &&
+        Objects.equals(this.messageTag, sendInboxMessageRequest.messageTag) &&
+        Objects.equals(this.replyTo, sendInboxMessageRequest.replyTo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, message);
+    return Objects.hash(accountId, message, quickReplies, buttons, template, replyMarkup, messagingType, messageTag, replyTo);
   }
 
   @Override
@@ -124,6 +432,13 @@ public class SendInboxMessageRequest {
     sb.append("class SendInboxMessageRequest {\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    quickReplies: ").append(toIndentedString(quickReplies)).append("\n");
+    sb.append("    buttons: ").append(toIndentedString(buttons)).append("\n");
+    sb.append("    template: ").append(toIndentedString(template)).append("\n");
+    sb.append("    replyMarkup: ").append(toIndentedString(replyMarkup)).append("\n");
+    sb.append("    messagingType: ").append(toIndentedString(messagingType)).append("\n");
+    sb.append("    messageTag: ").append(toIndentedString(messageTag)).append("\n");
+    sb.append("    replyTo: ").append(toIndentedString(replyTo)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -179,6 +494,51 @@ public class SendInboxMessageRequest {
     // add `message` to the URL query string
     if (getMessage() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%smessage%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getMessage()))));
+    }
+
+    // add `quickReplies` to the URL query string
+    if (getQuickReplies() != null) {
+      for (int i = 0; i < getQuickReplies().size(); i++) {
+        if (getQuickReplies().get(i) != null) {
+          joiner.add(getQuickReplies().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%squickReplies%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `buttons` to the URL query string
+    if (getButtons() != null) {
+      for (int i = 0; i < getButtons().size(); i++) {
+        if (getButtons().get(i) != null) {
+          joiner.add(getButtons().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%sbuttons%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `template` to the URL query string
+    if (getTemplate() != null) {
+      joiner.add(getTemplate().toUrlQueryString(prefix + "template" + suffix));
+    }
+
+    // add `replyMarkup` to the URL query string
+    if (getReplyMarkup() != null) {
+      joiner.add(getReplyMarkup().toUrlQueryString(prefix + "replyMarkup" + suffix));
+    }
+
+    // add `messagingType` to the URL query string
+    if (getMessagingType() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%smessagingType%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getMessagingType()))));
+    }
+
+    // add `messageTag` to the URL query string
+    if (getMessageTag() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%smessageTag%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getMessageTag()))));
+    }
+
+    // add `replyTo` to the URL query string
+    if (getReplyTo() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sreplyTo%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getReplyTo()))));
     }
 
     return joiner.toString();

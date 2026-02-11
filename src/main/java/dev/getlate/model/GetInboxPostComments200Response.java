@@ -43,7 +43,7 @@ import dev.getlate.ApiClient;
   GetInboxPostComments200Response.JSON_PROPERTY_PAGINATION,
   GetInboxPostComments200Response.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-11T11:44:41.537184893Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-11T13:29:34.044983308Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetInboxPostComments200Response {
   public static final String JSON_PROPERTY_STATUS = "status";
   @javax.annotation.Nullable

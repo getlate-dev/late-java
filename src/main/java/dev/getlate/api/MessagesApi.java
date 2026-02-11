@@ -18,6 +18,8 @@ import dev.getlate.ApiResponse;
 import dev.getlate.Configuration;
 import dev.getlate.Pair;
 
+import dev.getlate.model.EditInboxMessage200Response;
+import dev.getlate.model.EditInboxMessageRequest;
 import dev.getlate.model.GetInboxConversation200Response;
 import dev.getlate.model.GetInboxConversationMessages200Response;
 import dev.getlate.model.InlineObject;
@@ -54,7 +56,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-11T11:44:41.537184893Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-11T13:29:34.044983308Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class MessagesApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -169,6 +171,147 @@ public class MessagesApi {
       file.deleteOnExit(); // best effort cleanup
     }
     return file;
+  }
+
+  /**
+   * Edit a message (Telegram only)
+   * Edit the text and/or reply markup of a previously sent Telegram message. Only supported for Telegram. Returns 400 for other platforms. 
+   * @param conversationId The conversation ID (required)
+   * @param messageId The Telegram message ID to edit (required)
+   * @param editInboxMessageRequest  (required)
+   * @return EditInboxMessage200Response
+   * @throws ApiException if fails to make API call
+   */
+  public EditInboxMessage200Response editInboxMessage(@javax.annotation.Nonnull String conversationId, @javax.annotation.Nonnull String messageId, @javax.annotation.Nonnull EditInboxMessageRequest editInboxMessageRequest) throws ApiException {
+    return editInboxMessage(conversationId, messageId, editInboxMessageRequest, null);
+  }
+
+  /**
+   * Edit a message (Telegram only)
+   * Edit the text and/or reply markup of a previously sent Telegram message. Only supported for Telegram. Returns 400 for other platforms. 
+   * @param conversationId The conversation ID (required)
+   * @param messageId The Telegram message ID to edit (required)
+   * @param editInboxMessageRequest  (required)
+   * @param headers Optional headers to include in the request
+   * @return EditInboxMessage200Response
+   * @throws ApiException if fails to make API call
+   */
+  public EditInboxMessage200Response editInboxMessage(@javax.annotation.Nonnull String conversationId, @javax.annotation.Nonnull String messageId, @javax.annotation.Nonnull EditInboxMessageRequest editInboxMessageRequest, Map<String, String> headers) throws ApiException {
+    ApiResponse<EditInboxMessage200Response> localVarResponse = editInboxMessageWithHttpInfo(conversationId, messageId, editInboxMessageRequest, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Edit a message (Telegram only)
+   * Edit the text and/or reply markup of a previously sent Telegram message. Only supported for Telegram. Returns 400 for other platforms. 
+   * @param conversationId The conversation ID (required)
+   * @param messageId The Telegram message ID to edit (required)
+   * @param editInboxMessageRequest  (required)
+   * @return ApiResponse&lt;EditInboxMessage200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<EditInboxMessage200Response> editInboxMessageWithHttpInfo(@javax.annotation.Nonnull String conversationId, @javax.annotation.Nonnull String messageId, @javax.annotation.Nonnull EditInboxMessageRequest editInboxMessageRequest) throws ApiException {
+    return editInboxMessageWithHttpInfo(conversationId, messageId, editInboxMessageRequest, null);
+  }
+
+  /**
+   * Edit a message (Telegram only)
+   * Edit the text and/or reply markup of a previously sent Telegram message. Only supported for Telegram. Returns 400 for other platforms. 
+   * @param conversationId The conversation ID (required)
+   * @param messageId The Telegram message ID to edit (required)
+   * @param editInboxMessageRequest  (required)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;EditInboxMessage200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<EditInboxMessage200Response> editInboxMessageWithHttpInfo(@javax.annotation.Nonnull String conversationId, @javax.annotation.Nonnull String messageId, @javax.annotation.Nonnull EditInboxMessageRequest editInboxMessageRequest, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = editInboxMessageRequestBuilder(conversationId, messageId, editInboxMessageRequest, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("editInboxMessage", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<EditInboxMessage200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        EditInboxMessage200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<EditInboxMessage200Response>() {});
+        
+
+        return new ApiResponse<EditInboxMessage200Response>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder editInboxMessageRequestBuilder(@javax.annotation.Nonnull String conversationId, @javax.annotation.Nonnull String messageId, @javax.annotation.Nonnull EditInboxMessageRequest editInboxMessageRequest, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'conversationId' is set
+    if (conversationId == null) {
+      throw new ApiException(400, "Missing the required parameter 'conversationId' when calling editInboxMessage");
+    }
+    // verify the required parameter 'messageId' is set
+    if (messageId == null) {
+      throw new ApiException(400, "Missing the required parameter 'messageId' when calling editInboxMessage");
+    }
+    // verify the required parameter 'editInboxMessageRequest' is set
+    if (editInboxMessageRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'editInboxMessageRequest' when calling editInboxMessage");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/inbox/conversations/{conversationId}/messages/{messageId}"
+        .replace("{conversationId}", ApiClient.urlEncode(conversationId.toString()))
+        .replace("{messageId}", ApiClient.urlEncode(messageId.toString()));
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(editInboxMessageRequest);
+      localVarRequestBuilder.method("PATCH", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
   }
 
   /**
@@ -619,7 +762,7 @@ public class MessagesApi {
 
   /**
    * Send a message
-   * Send a message in a conversation. Requires accountId in request body.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Twitter/X: Images, videos (requires media upload) - Instagram: Not supported (API limitation) - Bluesky: Not supported (API limitation) - Reddit: Not supported (API limitation) 
+   * Send a message in a conversation. Supports text, attachments, quick replies, buttons, carousels, and message tags.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Instagram: Images, videos, audio via URL (8MB images, 25MB video/audio) - Twitter/X: Images, videos (requires media upload) - Bluesky: Not supported - Reddit: Not supported  **Interactive message support:** | Field | Instagram | Facebook | Telegram | |---|---|---|---| | quickReplies | Meta quick_replies (13 max) | Meta quick_replies (13 max) | ReplyKeyboardMarkup (one_time) | | buttons | Generic template | Generic template | Inline keyboard | | template | Generic template (carousel) | Generic template (carousel) | Ignored | | replyMarkup | Ignored | Ignored | InlineKeyboardMarkup / ReplyKeyboardMarkup | | messagingType | Ignored | RESPONSE / UPDATE / MESSAGE_TAG | Ignored | | messageTag | HUMAN_AGENT only | 4 tag types | Ignored | | replyTo | Ignored | Ignored | reply_parameters |  Platform-specific fields are silently ignored on unsupported platforms. 
    * @param conversationId The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID. (required)
    * @param sendInboxMessageRequest  (required)
    * @return SendInboxMessage200Response
@@ -631,7 +774,7 @@ public class MessagesApi {
 
   /**
    * Send a message
-   * Send a message in a conversation. Requires accountId in request body.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Twitter/X: Images, videos (requires media upload) - Instagram: Not supported (API limitation) - Bluesky: Not supported (API limitation) - Reddit: Not supported (API limitation) 
+   * Send a message in a conversation. Supports text, attachments, quick replies, buttons, carousels, and message tags.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Instagram: Images, videos, audio via URL (8MB images, 25MB video/audio) - Twitter/X: Images, videos (requires media upload) - Bluesky: Not supported - Reddit: Not supported  **Interactive message support:** | Field | Instagram | Facebook | Telegram | |---|---|---|---| | quickReplies | Meta quick_replies (13 max) | Meta quick_replies (13 max) | ReplyKeyboardMarkup (one_time) | | buttons | Generic template | Generic template | Inline keyboard | | template | Generic template (carousel) | Generic template (carousel) | Ignored | | replyMarkup | Ignored | Ignored | InlineKeyboardMarkup / ReplyKeyboardMarkup | | messagingType | Ignored | RESPONSE / UPDATE / MESSAGE_TAG | Ignored | | messageTag | HUMAN_AGENT only | 4 tag types | Ignored | | replyTo | Ignored | Ignored | reply_parameters |  Platform-specific fields are silently ignored on unsupported platforms. 
    * @param conversationId The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID. (required)
    * @param sendInboxMessageRequest  (required)
    * @param headers Optional headers to include in the request
@@ -645,7 +788,7 @@ public class MessagesApi {
 
   /**
    * Send a message
-   * Send a message in a conversation. Requires accountId in request body.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Twitter/X: Images, videos (requires media upload) - Instagram: Not supported (API limitation) - Bluesky: Not supported (API limitation) - Reddit: Not supported (API limitation) 
+   * Send a message in a conversation. Supports text, attachments, quick replies, buttons, carousels, and message tags.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Instagram: Images, videos, audio via URL (8MB images, 25MB video/audio) - Twitter/X: Images, videos (requires media upload) - Bluesky: Not supported - Reddit: Not supported  **Interactive message support:** | Field | Instagram | Facebook | Telegram | |---|---|---|---| | quickReplies | Meta quick_replies (13 max) | Meta quick_replies (13 max) | ReplyKeyboardMarkup (one_time) | | buttons | Generic template | Generic template | Inline keyboard | | template | Generic template (carousel) | Generic template (carousel) | Ignored | | replyMarkup | Ignored | Ignored | InlineKeyboardMarkup / ReplyKeyboardMarkup | | messagingType | Ignored | RESPONSE / UPDATE / MESSAGE_TAG | Ignored | | messageTag | HUMAN_AGENT only | 4 tag types | Ignored | | replyTo | Ignored | Ignored | reply_parameters |  Platform-specific fields are silently ignored on unsupported platforms. 
    * @param conversationId The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID. (required)
    * @param sendInboxMessageRequest  (required)
    * @return ApiResponse&lt;SendInboxMessage200Response&gt;
@@ -657,7 +800,7 @@ public class MessagesApi {
 
   /**
    * Send a message
-   * Send a message in a conversation. Requires accountId in request body.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Twitter/X: Images, videos (requires media upload) - Instagram: Not supported (API limitation) - Bluesky: Not supported (API limitation) - Reddit: Not supported (API limitation) 
+   * Send a message in a conversation. Supports text, attachments, quick replies, buttons, carousels, and message tags.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Instagram: Images, videos, audio via URL (8MB images, 25MB video/audio) - Twitter/X: Images, videos (requires media upload) - Bluesky: Not supported - Reddit: Not supported  **Interactive message support:** | Field | Instagram | Facebook | Telegram | |---|---|---|---| | quickReplies | Meta quick_replies (13 max) | Meta quick_replies (13 max) | ReplyKeyboardMarkup (one_time) | | buttons | Generic template | Generic template | Inline keyboard | | template | Generic template (carousel) | Generic template (carousel) | Ignored | | replyMarkup | Ignored | Ignored | InlineKeyboardMarkup / ReplyKeyboardMarkup | | messagingType | Ignored | RESPONSE / UPDATE / MESSAGE_TAG | Ignored | | messageTag | HUMAN_AGENT only | 4 tag types | Ignored | | replyTo | Ignored | Ignored | reply_parameters |  Platform-specific fields are silently ignored on unsupported platforms. 
    * @param conversationId The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID. (required)
    * @param sendInboxMessageRequest  (required)
    * @param headers Optional headers to include in the request

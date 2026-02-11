@@ -27,6 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import dev.getlate.model.WebhookPayloadMessageAccount;
 import dev.getlate.model.WebhookPayloadMessageConversation;
 import dev.getlate.model.WebhookPayloadMessageMessage;
+import dev.getlate.model.WebhookPayloadMessageMetadata;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -41,9 +42,10 @@ import dev.getlate.ApiClient;
   WebhookPayloadMessage.JSON_PROPERTY_MESSAGE,
   WebhookPayloadMessage.JSON_PROPERTY_CONVERSATION,
   WebhookPayloadMessage.JSON_PROPERTY_ACCOUNT,
+  WebhookPayloadMessage.JSON_PROPERTY_METADATA,
   WebhookPayloadMessage.JSON_PROPERTY_TIMESTAMP
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-11T11:44:41.537184893Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-11T13:29:34.044983308Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WebhookPayloadMessage {
   /**
    * Gets or Sets event
@@ -93,6 +95,10 @@ public class WebhookPayloadMessage {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
   @javax.annotation.Nullable
   private WebhookPayloadMessageAccount account;
+
+  public static final String JSON_PROPERTY_METADATA = "metadata";
+  @javax.annotation.Nullable
+  private WebhookPayloadMessageMetadata metadata;
 
   public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
   @javax.annotation.Nullable
@@ -197,6 +203,30 @@ public class WebhookPayloadMessage {
   }
 
 
+  public WebhookPayloadMessage metadata(@javax.annotation.Nullable WebhookPayloadMessageMetadata metadata) {
+    this.metadata = metadata;
+    return this;
+  }
+
+  /**
+   * Get metadata
+   * @return metadata
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_METADATA, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WebhookPayloadMessageMetadata getMetadata() {
+    return metadata;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_METADATA, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMetadata(@javax.annotation.Nullable WebhookPayloadMessageMetadata metadata) {
+    this.metadata = metadata;
+  }
+
+
   public WebhookPayloadMessage timestamp(@javax.annotation.Nullable OffsetDateTime timestamp) {
     this.timestamp = timestamp;
     return this;
@@ -237,12 +267,13 @@ public class WebhookPayloadMessage {
         Objects.equals(this.message, webhookPayloadMessage.message) &&
         Objects.equals(this.conversation, webhookPayloadMessage.conversation) &&
         Objects.equals(this.account, webhookPayloadMessage.account) &&
+        Objects.equals(this.metadata, webhookPayloadMessage.metadata) &&
         Objects.equals(this.timestamp, webhookPayloadMessage.timestamp);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(event, message, conversation, account, timestamp);
+    return Objects.hash(event, message, conversation, account, metadata, timestamp);
   }
 
   @Override
@@ -253,6 +284,7 @@ public class WebhookPayloadMessage {
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    conversation: ").append(toIndentedString(conversation)).append("\n");
     sb.append("    account: ").append(toIndentedString(account)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -319,6 +351,11 @@ public class WebhookPayloadMessage {
     // add `account` to the URL query string
     if (getAccount() != null) {
       joiner.add(getAccount().toUrlQueryString(prefix + "account" + suffix));
+    }
+
+    // add `metadata` to the URL query string
+    if (getMetadata() != null) {
+      joiner.add(getMetadata().toUrlQueryString(prefix + "metadata" + suffix));
     }
 
     // add `timestamp` to the URL query string
