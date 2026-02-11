@@ -1872,8 +1872,7 @@ paths:
               content: Updated content for our launch post!
               scheduledFor: 2024-11-02T14:00:00Z
             schema:
-              additionalProperties: true
-              type: object
+              $ref: "#/components/schemas/updatePost_request"
         required: true
       responses:
         "200":
@@ -12992,6 +12991,21 @@ components:
         details:
           description: Additional context about the rate limit
           type: object
+    updatePost_request:
+      additionalProperties: {}
+      properties:
+        content:
+          type: string
+        scheduledFor:
+          format: date-time
+          type: string
+        tiktokSettings:
+          allOf:
+          - $ref: "#/components/schemas/TikTokPlatformData"
+          description: |
+            Root-level TikTok settings applied to all TikTok platforms in the request.
+            This is a convenience shorthand. Settings here are merged into each TikTok
+            platform's platformSpecificData, with platform-specific settings taking precedence.
     bulkUploadPosts_request:
       properties:
         file:

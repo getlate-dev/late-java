@@ -37,7 +37,7 @@ import dev.getlate.ApiClient;
   FoodMenuLabel.JSON_PROPERTY_DESCRIPTION,
   FoodMenuLabel.JSON_PROPERTY_LANGUAGE_CODE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-10T13:03:55.549942125Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-11T11:44:41.537184893Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class FoodMenuLabel {
   public static final String JSON_PROPERTY_DISPLAY_NAME = "displayName";
   @javax.annotation.Nonnull

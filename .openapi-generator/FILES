@@ -356,6 +356,7 @@ docs/UpdateInboxConversation200ResponseData.md
 docs/UpdateInboxConversationRequest.md
 docs/UpdateLinkedInOrganizationRequest.md
 docs/UpdatePinterestBoardsRequest.md
+docs/UpdatePostRequest.md
 docs/UpdateProfile200Response.md
 docs/UpdateProfileRequest.md
 docs/UpdateQueueSlot200Response.md
@@ -773,6 +774,7 @@ src/main/java/dev/getlate/model/UpdateInboxConversation200ResponseData.java
 src/main/java/dev/getlate/model/UpdateInboxConversationRequest.java
 src/main/java/dev/getlate/model/UpdateLinkedInOrganizationRequest.java
 src/main/java/dev/getlate/model/UpdatePinterestBoardsRequest.java
+src/main/java/dev/getlate/model/UpdatePostRequest.java
 src/main/java/dev/getlate/model/UpdateProfile200Response.java
 src/main/java/dev/getlate/model/UpdateProfileRequest.java
 src/main/java/dev/getlate/model/UpdateQueueSlot200Response.java
@@ -812,10 +814,4 @@ src/main/java/dev/getlate/model/YouTubeDailyViewsResponseScopeStatus.java
 src/main/java/dev/getlate/model/YouTubePlatformData.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponseScopeStatus.java
-src/test/java/dev/getlate/model/BlueskyPlatformDataTest.java
-src/test/java/dev/getlate/model/ConnectionLogContextTest.java
-src/test/java/dev/getlate/model/ConnectionLogErrorTest.java
-src/test/java/dev/getlate/model/ConnectionLogSuccessTest.java
-src/test/java/dev/getlate/model/ConnectionLogTest.java
-src/test/java/dev/getlate/model/ListConnectionLogs200ResponseTest.java
-src/test/java/dev/getlate/model/RedditPlatformDataTest.java
+src/test/java/dev/getlate/model/UpdatePostRequestTest.java

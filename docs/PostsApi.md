@@ -963,7 +963,7 @@ ApiResponse<[**PostRetryResponse**](PostRetryResponse.md)>
 
 ## updatePost
 
-> PostUpdateResponse updatePost(postId, requestBody)
+> PostUpdateResponse updatePost(postId, updatePostRequest)
 
 Update a post
 
@@ -991,9 +991,9 @@ public class Example {
 
         PostsApi apiInstance = new PostsApi(defaultClient);
         String postId = "postId_example"; // String | 
-        Map<String, Object> requestBody = {"content":"Updated content for our launch post!","scheduledFor":"2024-11-02T14:00:00Z"}; // Map<String, Object> | 
+        UpdatePostRequest updatePostRequest = new UpdatePostRequest(); // UpdatePostRequest | 
         try {
-            PostUpdateResponse result = apiInstance.updatePost(postId, requestBody);
+            PostUpdateResponse result = apiInstance.updatePost(postId, updatePostRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling PostsApi#updatePost");
@@ -1012,7 +1012,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **postId** | **String**|  | |
-| **requestBody** | [**Map&lt;String, Object&gt;**](Object.md)|  | |
+| **updatePostRequest** | [**UpdatePostRequest**](UpdatePostRequest.md)|  | |
 
 ### Return type
 
@@ -1040,7 +1040,7 @@ public class Example {
 
 ## updatePostWithHttpInfo
 
-> ApiResponse<PostUpdateResponse> updatePost updatePostWithHttpInfo(postId, requestBody)
+> ApiResponse<PostUpdateResponse> updatePost updatePostWithHttpInfo(postId, updatePostRequest)
 
 Update a post
 
@@ -1069,9 +1069,9 @@ public class Example {
 
         PostsApi apiInstance = new PostsApi(defaultClient);
         String postId = "postId_example"; // String | 
-        Map<String, Object> requestBody = {"content":"Updated content for our launch post!","scheduledFor":"2024-11-02T14:00:00Z"}; // Map<String, Object> | 
+        UpdatePostRequest updatePostRequest = new UpdatePostRequest(); // UpdatePostRequest | 
         try {
-            ApiResponse<PostUpdateResponse> response = apiInstance.updatePostWithHttpInfo(postId, requestBody);
+            ApiResponse<PostUpdateResponse> response = apiInstance.updatePostWithHttpInfo(postId, updatePostRequest);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
             System.out.println("Response body: " + response.getData());
@@ -1092,7 +1092,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **postId** | **String**|  | |
-| **requestBody** | [**Map&lt;String, Object&gt;**](Object.md)|  | |
+| **updatePostRequest** | [**UpdatePostRequest**](UpdatePostRequest.md)|  | |
 
 ### Return type
 

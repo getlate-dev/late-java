@@ -34,6 +34,7 @@ import dev.getlate.model.PostGetResponse;
 import dev.getlate.model.PostRetryResponse;
 import dev.getlate.model.PostUpdateResponse;
 import dev.getlate.model.PostsListResponse;
+import dev.getlate.model.UpdatePostRequest;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -66,7 +67,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-10T13:03:55.549942125Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-11T11:44:41.537184893Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class PostsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -1006,25 +1007,25 @@ public class PostsApi {
    * Update a post
    * Update an existing post. Only draft, scheduled, failed, and partial posts can be edited. Published, publishing, and cancelled posts cannot be modified. 
    * @param postId  (required)
-   * @param requestBody  (required)
+   * @param updatePostRequest  (required)
    * @return PostUpdateResponse
    * @throws ApiException if fails to make API call
    */
-  public PostUpdateResponse updatePost(@javax.annotation.Nonnull String postId, @javax.annotation.Nonnull Map<String, Object> requestBody) throws ApiException {
-    return updatePost(postId, requestBody, null);
+  public PostUpdateResponse updatePost(@javax.annotation.Nonnull String postId, @javax.annotation.Nonnull UpdatePostRequest updatePostRequest) throws ApiException {
+    return updatePost(postId, updatePostRequest, null);
   }
 
   /**
    * Update a post
    * Update an existing post. Only draft, scheduled, failed, and partial posts can be edited. Published, publishing, and cancelled posts cannot be modified. 
    * @param postId  (required)
-   * @param requestBody  (required)
+   * @param updatePostRequest  (required)
    * @param headers Optional headers to include in the request
    * @return PostUpdateResponse
    * @throws ApiException if fails to make API call
    */
-  public PostUpdateResponse updatePost(@javax.annotation.Nonnull String postId, @javax.annotation.Nonnull Map<String, Object> requestBody, Map<String, String> headers) throws ApiException {
-    ApiResponse<PostUpdateResponse> localVarResponse = updatePostWithHttpInfo(postId, requestBody, headers);
+  public PostUpdateResponse updatePost(@javax.annotation.Nonnull String postId, @javax.annotation.Nonnull UpdatePostRequest updatePostRequest, Map<String, String> headers) throws ApiException {
+    ApiResponse<PostUpdateResponse> localVarResponse = updatePostWithHttpInfo(postId, updatePostRequest, headers);
     return localVarResponse.getData();
   }
 
@@ -1032,25 +1033,25 @@ public class PostsApi {
    * Update a post
    * Update an existing post. Only draft, scheduled, failed, and partial posts can be edited. Published, publishing, and cancelled posts cannot be modified. 
    * @param postId  (required)
-   * @param requestBody  (required)
+   * @param updatePostRequest  (required)
    * @return ApiResponse&lt;PostUpdateResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<PostUpdateResponse> updatePostWithHttpInfo(@javax.annotation.Nonnull String postId, @javax.annotation.Nonnull Map<String, Object> requestBody) throws ApiException {
-    return updatePostWithHttpInfo(postId, requestBody, null);
+  public ApiResponse<PostUpdateResponse> updatePostWithHttpInfo(@javax.annotation.Nonnull String postId, @javax.annotation.Nonnull UpdatePostRequest updatePostRequest) throws ApiException {
+    return updatePostWithHttpInfo(postId, updatePostRequest, null);
   }
 
   /**
    * Update a post
    * Update an existing post. Only draft, scheduled, failed, and partial posts can be edited. Published, publishing, and cancelled posts cannot be modified. 
    * @param postId  (required)
-   * @param requestBody  (required)
+   * @param updatePostRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;PostUpdateResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<PostUpdateResponse> updatePostWithHttpInfo(@javax.annotation.Nonnull String postId, @javax.annotation.Nonnull Map<String, Object> requestBody, Map<String, String> headers) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = updatePostRequestBuilder(postId, requestBody, headers);
+  public ApiResponse<PostUpdateResponse> updatePostWithHttpInfo(@javax.annotation.Nonnull String postId, @javax.annotation.Nonnull UpdatePostRequest updatePostRequest, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updatePostRequestBuilder(postId, updatePostRequest, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -1097,14 +1098,14 @@ public class PostsApi {
     }
   }
 
-  private HttpRequest.Builder updatePostRequestBuilder(@javax.annotation.Nonnull String postId, @javax.annotation.Nonnull Map<String, Object> requestBody, Map<String, String> headers) throws ApiException {
+  private HttpRequest.Builder updatePostRequestBuilder(@javax.annotation.Nonnull String postId, @javax.annotation.Nonnull UpdatePostRequest updatePostRequest, Map<String, String> headers) throws ApiException {
     // verify the required parameter 'postId' is set
     if (postId == null) {
       throw new ApiException(400, "Missing the required parameter 'postId' when calling updatePost");
     }
-    // verify the required parameter 'requestBody' is set
-    if (requestBody == null) {
-      throw new ApiException(400, "Missing the required parameter 'requestBody' when calling updatePost");
+    // verify the required parameter 'updatePostRequest' is set
+    if (updatePostRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updatePostRequest' when calling updatePost");
     }
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
@@ -1118,7 +1119,7 @@ public class PostsApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
     try {
-      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(requestBody);
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(updatePostRequest);
       localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
     } catch (IOException e) {
       throw new ApiException(e);

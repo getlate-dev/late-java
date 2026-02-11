@@ -4,7 +4,7 @@ Late API
 
 - API version: 1.0.1
 
-- Build date: 2026-02-10T13:03:55.549942125Z[Etc/UTC]
+- Build date: 2026-02-11T11:44:41.537184893Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -685,6 +685,7 @@ Class | Method | HTTP request | Description
  - [UpdateInboxConversationRequest](docs/UpdateInboxConversationRequest.md)
  - [UpdateLinkedInOrganizationRequest](docs/UpdateLinkedInOrganizationRequest.md)
  - [UpdatePinterestBoardsRequest](docs/UpdatePinterestBoardsRequest.md)
+ - [UpdatePostRequest](docs/UpdatePostRequest.md)
  - [UpdateProfile200Response](docs/UpdateProfile200Response.md)
  - [UpdateProfileRequest](docs/UpdateProfileRequest.md)
  - [UpdateQueueSlot200Response](docs/UpdateQueueSlot200Response.md)
