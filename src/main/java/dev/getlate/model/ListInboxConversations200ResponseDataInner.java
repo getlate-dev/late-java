@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import dev.getlate.model.ListInboxConversations200ResponseDataInnerInstagramProfile;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -45,9 +46,10 @@ import dev.getlate.ApiClient;
   ListInboxConversations200ResponseDataInner.JSON_PROPERTY_UPDATED_TIME,
   ListInboxConversations200ResponseDataInner.JSON_PROPERTY_STATUS,
   ListInboxConversations200ResponseDataInner.JSON_PROPERTY_UNREAD_COUNT,
-  ListInboxConversations200ResponseDataInner.JSON_PROPERTY_URL
+  ListInboxConversations200ResponseDataInner.JSON_PROPERTY_URL,
+  ListInboxConversations200ResponseDataInner.JSON_PROPERTY_INSTAGRAM_PROFILE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-11T13:29:34.044983308Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-11T19:46:49.372401686Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ListInboxConversations200ResponseDataInner {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable
@@ -131,6 +133,10 @@ public class ListInboxConversations200ResponseDataInner {
   public static final String JSON_PROPERTY_URL = "url";
   @javax.annotation.Nullable
   private String url;
+
+  public static final String JSON_PROPERTY_INSTAGRAM_PROFILE = "instagramProfile";
+  @javax.annotation.Nullable
+  private ListInboxConversations200ResponseDataInnerInstagramProfile instagramProfile;
 
   public ListInboxConversations200ResponseDataInner() { 
   }
@@ -423,6 +429,30 @@ public class ListInboxConversations200ResponseDataInner {
   }
 
 
+  public ListInboxConversations200ResponseDataInner instagramProfile(@javax.annotation.Nullable ListInboxConversations200ResponseDataInnerInstagramProfile instagramProfile) {
+    this.instagramProfile = instagramProfile;
+    return this;
+  }
+
+  /**
+   * Get instagramProfile
+   * @return instagramProfile
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_INSTAGRAM_PROFILE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ListInboxConversations200ResponseDataInnerInstagramProfile getInstagramProfile() {
+    return instagramProfile;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_INSTAGRAM_PROFILE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInstagramProfile(@javax.annotation.Nullable ListInboxConversations200ResponseDataInnerInstagramProfile instagramProfile) {
+    this.instagramProfile = instagramProfile;
+  }
+
+
   /**
    * Return true if this listInboxConversations_200_response_data_inner object is equal to o.
    */
@@ -446,12 +476,13 @@ public class ListInboxConversations200ResponseDataInner {
         Objects.equals(this.updatedTime, listInboxConversations200ResponseDataInner.updatedTime) &&
         Objects.equals(this.status, listInboxConversations200ResponseDataInner.status) &&
         Objects.equals(this.unreadCount, listInboxConversations200ResponseDataInner.unreadCount) &&
-        Objects.equals(this.url, listInboxConversations200ResponseDataInner.url);
+        Objects.equals(this.url, listInboxConversations200ResponseDataInner.url) &&
+        Objects.equals(this.instagramProfile, listInboxConversations200ResponseDataInner.instagramProfile);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, platform, accountId, accountUsername, participantId, participantName, participantPicture, lastMessage, updatedTime, status, unreadCount, url);
+    return Objects.hash(id, platform, accountId, accountUsername, participantId, participantName, participantPicture, lastMessage, updatedTime, status, unreadCount, url, instagramProfile);
   }
 
   @Override
@@ -470,6 +501,7 @@ public class ListInboxConversations200ResponseDataInner {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    unreadCount: ").append(toIndentedString(unreadCount)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    instagramProfile: ").append(toIndentedString(instagramProfile)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -575,6 +607,11 @@ public class ListInboxConversations200ResponseDataInner {
     // add `url` to the URL query string
     if (getUrl() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%surl%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getUrl()))));
+    }
+
+    // add `instagramProfile` to the URL query string
+    if (getInstagramProfile() != null) {
+      joiner.add(getInstagramProfile().toUrlQueryString(prefix + "instagramProfile" + suffix));
     }
 
     return joiner.toString();

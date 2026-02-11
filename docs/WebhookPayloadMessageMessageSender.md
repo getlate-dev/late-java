@@ -11,6 +11,7 @@
 |**name** | **String** |  |  [optional] |
 |**username** | **String** |  |  [optional] |
 |**picture** | **String** |  |  [optional] |
+|**instagramProfile** | [**WebhookPayloadMessageMessageSenderInstagramProfile**](WebhookPayloadMessageMessageSenderInstagramProfile.md) |  |  [optional] |
 
 
 

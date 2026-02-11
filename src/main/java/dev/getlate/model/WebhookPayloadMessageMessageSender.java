@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import dev.getlate.model.WebhookPayloadMessageMessageSenderInstagramProfile;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -36,9 +37,10 @@ import dev.getlate.ApiClient;
   WebhookPayloadMessageMessageSender.JSON_PROPERTY_ID,
   WebhookPayloadMessageMessageSender.JSON_PROPERTY_NAME,
   WebhookPayloadMessageMessageSender.JSON_PROPERTY_USERNAME,
-  WebhookPayloadMessageMessageSender.JSON_PROPERTY_PICTURE
+  WebhookPayloadMessageMessageSender.JSON_PROPERTY_PICTURE,
+  WebhookPayloadMessageMessageSender.JSON_PROPERTY_INSTAGRAM_PROFILE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-11T13:29:34.044983308Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-11T19:46:49.372401686Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WebhookPayloadMessageMessageSender {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable
@@ -55,6 +57,10 @@ public class WebhookPayloadMessageMessageSender {
   public static final String JSON_PROPERTY_PICTURE = "picture";
   @javax.annotation.Nullable
   private String picture;
+
+  public static final String JSON_PROPERTY_INSTAGRAM_PROFILE = "instagramProfile";
+  @javax.annotation.Nullable
+  private WebhookPayloadMessageMessageSenderInstagramProfile instagramProfile;
 
   public WebhookPayloadMessageMessageSender() { 
   }
@@ -155,6 +161,30 @@ public class WebhookPayloadMessageMessageSender {
   }
 
 
+  public WebhookPayloadMessageMessageSender instagramProfile(@javax.annotation.Nullable WebhookPayloadMessageMessageSenderInstagramProfile instagramProfile) {
+    this.instagramProfile = instagramProfile;
+    return this;
+  }
+
+  /**
+   * Get instagramProfile
+   * @return instagramProfile
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_INSTAGRAM_PROFILE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WebhookPayloadMessageMessageSenderInstagramProfile getInstagramProfile() {
+    return instagramProfile;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_INSTAGRAM_PROFILE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInstagramProfile(@javax.annotation.Nullable WebhookPayloadMessageMessageSenderInstagramProfile instagramProfile) {
+    this.instagramProfile = instagramProfile;
+  }
+
+
   /**
    * Return true if this WebhookPayloadMessage_message_sender object is equal to o.
    */
@@ -170,12 +200,13 @@ public class WebhookPayloadMessageMessageSender {
     return Objects.equals(this.id, webhookPayloadMessageMessageSender.id) &&
         Objects.equals(this.name, webhookPayloadMessageMessageSender.name) &&
         Objects.equals(this.username, webhookPayloadMessageMessageSender.username) &&
-        Objects.equals(this.picture, webhookPayloadMessageMessageSender.picture);
+        Objects.equals(this.picture, webhookPayloadMessageMessageSender.picture) &&
+        Objects.equals(this.instagramProfile, webhookPayloadMessageMessageSender.instagramProfile);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, username, picture);
+    return Objects.hash(id, name, username, picture, instagramProfile);
   }
 
   @Override
@@ -186,6 +217,7 @@ public class WebhookPayloadMessageMessageSender {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    picture: ").append(toIndentedString(picture)).append("\n");
+    sb.append("    instagramProfile: ").append(toIndentedString(instagramProfile)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -251,6 +283,11 @@ public class WebhookPayloadMessageMessageSender {
     // add `picture` to the URL query string
     if (getPicture() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%spicture%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getPicture()))));
+    }
+
+    // add `instagramProfile` to the URL query string
+    if (getInstagramProfile() != null) {
+      joiner.add(getInstagramProfile().toUrlQueryString(prefix + "instagramProfile" + suffix));
     }
 
     return joiner.toString();

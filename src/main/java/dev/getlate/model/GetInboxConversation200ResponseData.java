@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import dev.getlate.model.ListInboxConversations200ResponseDataInnerInstagramProfile;
 import dev.getlate.model.UpdateFacebookPage200ResponseSelectedPage;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -47,9 +48,10 @@ import dev.getlate.ApiClient;
   GetInboxConversation200ResponseData.JSON_PROPERTY_LAST_MESSAGE,
   GetInboxConversation200ResponseData.JSON_PROPERTY_LAST_MESSAGE_AT,
   GetInboxConversation200ResponseData.JSON_PROPERTY_UPDATED_TIME,
-  GetInboxConversation200ResponseData.JSON_PROPERTY_PARTICIPANTS
+  GetInboxConversation200ResponseData.JSON_PROPERTY_PARTICIPANTS,
+  GetInboxConversation200ResponseData.JSON_PROPERTY_INSTAGRAM_PROFILE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-11T13:29:34.044983308Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-11T19:46:49.372401686Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetInboxConversation200ResponseData {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable
@@ -129,6 +131,10 @@ public class GetInboxConversation200ResponseData {
   public static final String JSON_PROPERTY_PARTICIPANTS = "participants";
   @javax.annotation.Nullable
   private List<UpdateFacebookPage200ResponseSelectedPage> participants = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_INSTAGRAM_PROFILE = "instagramProfile";
+  @javax.annotation.Nullable
+  private ListInboxConversations200ResponseDataInnerInstagramProfile instagramProfile;
 
   public GetInboxConversation200ResponseData() { 
   }
@@ -405,6 +411,30 @@ public class GetInboxConversation200ResponseData {
   }
 
 
+  public GetInboxConversation200ResponseData instagramProfile(@javax.annotation.Nullable ListInboxConversations200ResponseDataInnerInstagramProfile instagramProfile) {
+    this.instagramProfile = instagramProfile;
+    return this;
+  }
+
+  /**
+   * Get instagramProfile
+   * @return instagramProfile
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_INSTAGRAM_PROFILE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ListInboxConversations200ResponseDataInnerInstagramProfile getInstagramProfile() {
+    return instagramProfile;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_INSTAGRAM_PROFILE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInstagramProfile(@javax.annotation.Nullable ListInboxConversations200ResponseDataInnerInstagramProfile instagramProfile) {
+    this.instagramProfile = instagramProfile;
+  }
+
+
   /**
    * Return true if this getInboxConversation_200_response_data object is equal to o.
    */
@@ -427,12 +457,13 @@ public class GetInboxConversation200ResponseData {
         Objects.equals(this.lastMessage, getInboxConversation200ResponseData.lastMessage) &&
         Objects.equals(this.lastMessageAt, getInboxConversation200ResponseData.lastMessageAt) &&
         Objects.equals(this.updatedTime, getInboxConversation200ResponseData.updatedTime) &&
-        Objects.equals(this.participants, getInboxConversation200ResponseData.participants);
+        Objects.equals(this.participants, getInboxConversation200ResponseData.participants) &&
+        Objects.equals(this.instagramProfile, getInboxConversation200ResponseData.instagramProfile);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, accountId, accountUsername, platform, status, participantName, participantId, lastMessage, lastMessageAt, updatedTime, participants);
+    return Objects.hash(id, accountId, accountUsername, platform, status, participantName, participantId, lastMessage, lastMessageAt, updatedTime, participants, instagramProfile);
   }
 
   @Override
@@ -450,6 +481,7 @@ public class GetInboxConversation200ResponseData {
     sb.append("    lastMessageAt: ").append(toIndentedString(lastMessageAt)).append("\n");
     sb.append("    updatedTime: ").append(toIndentedString(updatedTime)).append("\n");
     sb.append("    participants: ").append(toIndentedString(participants)).append("\n");
+    sb.append("    instagramProfile: ").append(toIndentedString(instagramProfile)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -555,6 +587,11 @@ public class GetInboxConversation200ResponseData {
           "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
+    }
+
+    // add `instagramProfile` to the URL query string
+    if (getInstagramProfile() != null) {
+      joiner.add(getInstagramProfile().toUrlQueryString(prefix + "instagramProfile" + suffix));
     }
 
     return joiner.toString();

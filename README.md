@@ -4,7 +4,7 @@ Late API
 
 - API version: 1.0.1
 
-- Build date: 2026-02-11T13:29:34.044983308Z[Etc/UTC]
+- Build date: 2026-02-11T19:46:49.372401686Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -578,6 +578,7 @@ Class | Method | HTTP request | Description
  - [ListInboxComments200ResponseDataInner](docs/ListInboxComments200ResponseDataInner.md)
  - [ListInboxConversations200Response](docs/ListInboxConversations200Response.md)
  - [ListInboxConversations200ResponseDataInner](docs/ListInboxConversations200ResponseDataInner.md)
+ - [ListInboxConversations200ResponseDataInnerInstagramProfile](docs/ListInboxConversations200ResponseDataInnerInstagramProfile.md)
  - [ListInboxConversations200ResponseMeta](docs/ListInboxConversations200ResponseMeta.md)
  - [ListInboxConversations200ResponseMetaFailedAccountsInner](docs/ListInboxConversations200ResponseMetaFailedAccountsInner.md)
  - [ListInboxConversations200ResponsePagination](docs/ListInboxConversations200ResponsePagination.md)
@@ -755,6 +756,7 @@ Class | Method | HTTP request | Description
  - [WebhookPayloadMessageMessage](docs/WebhookPayloadMessageMessage.md)
  - [WebhookPayloadMessageMessageAttachmentsInner](docs/WebhookPayloadMessageMessageAttachmentsInner.md)
  - [WebhookPayloadMessageMessageSender](docs/WebhookPayloadMessageMessageSender.md)
+ - [WebhookPayloadMessageMessageSenderInstagramProfile](docs/WebhookPayloadMessageMessageSenderInstagramProfile.md)
  - [WebhookPayloadMessageMetadata](docs/WebhookPayloadMessageMetadata.md)
  - [WebhookPayloadPost](docs/WebhookPayloadPost.md)
  - [WebhookPayloadPostPost](docs/WebhookPayloadPostPost.md)

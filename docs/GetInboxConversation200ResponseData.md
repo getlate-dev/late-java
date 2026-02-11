@@ -18,6 +18,7 @@
 |**lastMessageAt** | **OffsetDateTime** |  |  [optional] |
 |**updatedTime** | **OffsetDateTime** |  |  [optional] |
 |**participants** | [**List&lt;UpdateFacebookPage200ResponseSelectedPage&gt;**](UpdateFacebookPage200ResponseSelectedPage.md) |  |  [optional] |
+|**instagramProfile** | [**ListInboxConversations200ResponseDataInnerInstagramProfile**](ListInboxConversations200ResponseDataInnerInstagramProfile.md) |  |  [optional] |
 
 
 

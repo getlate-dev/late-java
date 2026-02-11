@@ -40,7 +40,7 @@ import dev.getlate.ApiClient;
   FoodMenuItemOptionsInner.JSON_PROPERTY_LABELS,
   FoodMenuItemOptionsInner.JSON_PROPERTY_ATTRIBUTES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-11T13:29:34.044983308Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-11T19:46:49.372401686Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class FoodMenuItemOptionsInner {
   public static final String JSON_PROPERTY_LABELS = "labels";
   @javax.annotation.Nullable

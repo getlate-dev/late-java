@@ -18619,19 +18619,57 @@ components:
           type: integer
         postId:
           type: string
+    listInboxConversations_200_response_data_inner_instagramProfile:
+      description: Instagram profile data for the participant. Only present for Instagram
+        conversations.
+      example:
+        isFollowing: true
+        isVerified: true
+        fetchedAt: 2000-01-23T04:56:07.000+00:00
+        isFollower: true
+        followerCount: 6
+      properties:
+        isFollower:
+          description: Whether the participant follows your Instagram business account
+          type: boolean
+          nullable: true
+        isFollowing:
+          description: Whether your Instagram business account follows the participant
+          type: boolean
+          nullable: true
+        followerCount:
+          description: The participant's follower count on Instagram
+          type: integer
+          nullable: true
+        isVerified:
+          description: Whether the participant is a verified Instagram user
+          type: boolean
+          nullable: true
+        fetchedAt:
+          description: When this profile data was last fetched from Instagram
+          format: date-time
+          type: string
+          nullable: true
+      nullable: true
     listInboxConversations_200_response_data_inner:
       example:
-        participantId: participantId
-        accountId: accountId
         updatedTime: 2000-01-23T04:56:07.000+00:00
-        accountUsername: accountUsername
         participantPicture: participantPicture
         lastMessage: lastMessage
         unreadCount: 0
-        id: id
-        participantName: participantName
         platform: platform
         url: url
+        instagramProfile:
+          isFollowing: true
+          isVerified: true
+          fetchedAt: 2000-01-23T04:56:07.000+00:00
+          isFollower: true
+          followerCount: 6
+        participantId: participantId
+        accountId: accountId
+        accountUsername: accountUsername
+        id: id
+        participantName: participantName
         status: active
       properties:
         id:
@@ -18667,6 +18705,8 @@ components:
           description: Direct link to open the conversation on the platform (if available)
           type: string
           nullable: true
+        instagramProfile:
+          $ref: "#/components/schemas/listInboxConversations_200_response_data_inner_instagramProfile"
     listInboxConversations_200_response_pagination:
       example:
         nextCursor: nextCursor
@@ -18706,7 +18746,7 @@ components:
     listInboxConversations_200_response_meta:
       example:
         lastUpdated: 2000-01-23T04:56:07.000+00:00
-        accountsFailed: 1
+        accountsFailed: 5
         failedAccounts:
         - accountId: accountId
           code: code
@@ -18720,7 +18760,7 @@ components:
           accountUsername: accountUsername
           error: error
           platform: platform
-        accountsQueried: 6
+        accountsQueried: 1
       properties:
         accountsQueried:
           type: integer
@@ -18739,33 +18779,45 @@ components:
           nextCursor: nextCursor
           hasMore: true
         data:
-        - participantId: participantId
-          accountId: accountId
-          updatedTime: 2000-01-23T04:56:07.000+00:00
-          accountUsername: accountUsername
+        - updatedTime: 2000-01-23T04:56:07.000+00:00
           participantPicture: participantPicture
           lastMessage: lastMessage
           unreadCount: 0
-          id: id
-          participantName: participantName
           platform: platform
           url: url
+          instagramProfile:
+            isFollowing: true
+            isVerified: true
+            fetchedAt: 2000-01-23T04:56:07.000+00:00
+            isFollower: true
+            followerCount: 6
+          participantId: participantId
+          accountId: accountId
+          accountUsername: accountUsername
+          id: id
+          participantName: participantName
           status: active
-        - participantId: participantId
-          accountId: accountId
-          updatedTime: 2000-01-23T04:56:07.000+00:00
-          accountUsername: accountUsername
+        - updatedTime: 2000-01-23T04:56:07.000+00:00
           participantPicture: participantPicture
           lastMessage: lastMessage
           unreadCount: 0
-          id: id
-          participantName: participantName
           platform: platform
           url: url
+          instagramProfile:
+            isFollowing: true
+            isVerified: true
+            fetchedAt: 2000-01-23T04:56:07.000+00:00
+            isFollower: true
+            followerCount: 6
+          participantId: participantId
+          accountId: accountId
+          accountUsername: accountUsername
+          id: id
+          participantName: participantName
           status: active
         meta:
           lastUpdated: 2000-01-23T04:56:07.000+00:00
-          accountsFailed: 1
+          accountsFailed: 5
           failedAccounts:
           - accountId: accountId
             code: code
@@ -18779,7 +18831,7 @@ components:
             accountUsername: accountUsername
             error: error
             platform: platform
-          accountsQueried: 6
+          accountsQueried: 1
       properties:
         data:
           items:
@@ -18800,6 +18852,12 @@ components:
         id: id
         participantName: participantName
         platform: platform
+        instagramProfile:
+          isFollowing: true
+          isVerified: true
+          fetchedAt: 2000-01-23T04:56:07.000+00:00
+          isFollower: true
+          followerCount: 6
         status: active
         participants:
         - name: name
@@ -18836,6 +18894,8 @@ components:
           items:
             $ref: "#/components/schemas/updateFacebookPage_200_response_selectedPage"
           type: array
+        instagramProfile:
+          $ref: "#/components/schemas/listInboxConversations_200_response_data_inner_instagramProfile"
     getInboxConversation_200_response:
       example:
         data:
@@ -18848,6 +18908,12 @@ components:
           id: id
           participantName: participantName
           platform: platform
+          instagramProfile:
+            isFollowing: true
+            isVerified: true
+            fetchedAt: 2000-01-23T04:56:07.000+00:00
+            isFollower: true
+            followerCount: 6
           status: active
           participants:
           - name: name
@@ -19519,7 +19585,7 @@ components:
           cid: cid
         meta:
           lastUpdated: 2000-01-23T04:56:07.000+00:00
-          accountsFailed: 1
+          accountsFailed: 5
           failedAccounts:
           - accountId: accountId
             code: code
@@ -19533,7 +19599,7 @@ components:
             accountUsername: accountUsername
             error: error
             platform: platform
-          accountsQueried: 6
+          accountsQueried: 1
       properties:
         data:
           items:
@@ -20044,7 +20110,7 @@ components:
           platform: platform
         meta:
           lastUpdated: 2000-01-23T04:56:07.000+00:00
-          accountsFailed: 1
+          accountsFailed: 5
           failedAccounts:
           - accountId: accountId
             code: code
@@ -20058,7 +20124,7 @@ components:
             accountUsername: accountUsername
             error: error
             platform: platform
-          accountsQueried: 6
+          accountsQueried: 1
         status: status
       properties:
         status:
@@ -20305,6 +20371,27 @@ components:
         payload:
           description: Additional attachment metadata
           type: object
+    WebhookPayloadMessage_message_sender_instagramProfile:
+      description: Instagram profile data for the sender. Only present for Instagram
+        conversations.
+      properties:
+        isFollower:
+          description: Whether the sender follows your Instagram business account
+          type: boolean
+          nullable: true
+        isFollowing:
+          description: Whether your Instagram business account follows the sender
+          type: boolean
+          nullable: true
+        followerCount:
+          description: The sender's follower count on Instagram
+          type: integer
+          nullable: true
+        isVerified:
+          description: Whether the sender is a verified Instagram user
+          type: boolean
+          nullable: true
+      nullable: true
     WebhookPayloadMessage_message_sender:
       properties:
         id:
@@ -20315,6 +20402,8 @@ components:
           type: string
         picture:
           type: string
+        instagramProfile:
+          $ref: "#/components/schemas/WebhookPayloadMessage_message_sender_instagramProfile"
     WebhookPayloadMessage_message:
       properties:
         id:
