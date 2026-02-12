@@ -5870,6 +5870,53 @@ paths:
       x-content-type: application/json
       x-accepts:
       - application/json
+  /v1/accounts/{accountId}/reddit-flairs:
+    get:
+      operationId: getRedditFlairs
+      parameters:
+      - explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Subreddit name (without "r/" prefix) to fetch flairs for
+        explode: true
+        in: query
+        name: subreddit
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                flairs:
+                - id: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+                  text: Discussion
+                  textColor: dark
+                  backgroundColor: "#edeff1"
+                - id: b2c3d4e5-f6a7-8901-bcde-f12345678901
+                  text: News
+                  textColor: light
+                  backgroundColor: "#ff4500"
+              schema:
+                $ref: "#/components/schemas/getRedditFlairs_200_response"
+          description: Flairs list
+        "400":
+          description: Not a Reddit account or missing subreddit parameter
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: Account not found
+      summary: List available post flairs for a Reddit subreddit
+      tags:
+      - Connect
+      x-accepts:
+      - application/json
   /v1/queue/slots:
     delete:
       description: |
@@ -10721,6 +10768,7 @@ components:
         - Subreddit defaults to the account's configured subreddit if omitted
         - Use the same accountId multiple times with different subreddit values in platformSpecificData to post to multiple subreddits
         - Images are automatically compressed if they exceed Reddit's 20MB limit
+        - Some subreddits require a flair; if not provided, the API will attempt to use the first available flair as fallback
       properties:
         subreddit:
           description: |
@@ -10743,6 +10791,12 @@ components:
           description: "When true, creates a text/self post even when a URL or media\
             \ is provided."
           type: boolean
+        flairId:
+          description: |
+            Flair ID for the post. Required by some subreddits.
+            Use GET /api/v1/accounts/{id}/reddit-flairs?subreddit=name to list available flairs.
+          example: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+          type: string
     BlueskyPlatformData:
       description: |
         Bluesky post settings:
@@ -17935,6 +17989,41 @@ components:
       properties:
         success:
           type: boolean
+    getRedditFlairs_200_response_flairs_inner:
+      example:
+        backgroundColor: backgroundColor
+        id: id
+        text: text
+        textColor: textColor
+      properties:
+        id:
+          description: Flair ID to pass as flairId in platformSpecificData
+          type: string
+        text:
+          description: Flair display text
+          type: string
+        textColor:
+          description: "Text color: 'dark' or 'light'"
+          type: string
+        backgroundColor:
+          description: Background hex color (e.g. '#ff4500')
+          type: string
+    getRedditFlairs_200_response:
+      example:
+        flairs:
+        - backgroundColor: backgroundColor
+          id: id
+          text: text
+          textColor: textColor
+        - backgroundColor: backgroundColor
+          id: id
+          text: text
+          textColor: textColor
+      properties:
+        flairs:
+          items:
+            $ref: "#/components/schemas/getRedditFlairs_200_response_flairs_inner"
+          type: array
     listQueueSlots_200_response_oneOf:
       description: Single queue response (default behavior)
       example:

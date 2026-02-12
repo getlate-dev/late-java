@@ -31,15 +31,16 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.getlate.ApiClient;
 /**
- * Reddit post settings: - Posts are either \&quot;link\&quot; (with URL/media) or \&quot;self\&quot; (text-only) - If media is provided, the first media item&#39;s URL is used as the link - Use forceSelf to override and create a text post with the URL in the body - Subreddit defaults to the account&#39;s configured subreddit if omitted - Use the same accountId multiple times with different subreddit values in platformSpecificData to post to multiple subreddits - Images are automatically compressed if they exceed Reddit&#39;s 20MB limit 
+ * Reddit post settings: - Posts are either \&quot;link\&quot; (with URL/media) or \&quot;self\&quot; (text-only) - If media is provided, the first media item&#39;s URL is used as the link - Use forceSelf to override and create a text post with the URL in the body - Subreddit defaults to the account&#39;s configured subreddit if omitted - Use the same accountId multiple times with different subreddit values in platformSpecificData to post to multiple subreddits - Images are automatically compressed if they exceed Reddit&#39;s 20MB limit - Some subreddits require a flair; if not provided, the API will attempt to use the first available flair as fallback 
  */
 @JsonPropertyOrder({
   RedditPlatformData.JSON_PROPERTY_SUBREDDIT,
   RedditPlatformData.JSON_PROPERTY_TITLE,
   RedditPlatformData.JSON_PROPERTY_URL,
-  RedditPlatformData.JSON_PROPERTY_FORCE_SELF
+  RedditPlatformData.JSON_PROPERTY_FORCE_SELF,
+  RedditPlatformData.JSON_PROPERTY_FLAIR_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-11T19:46:49.372401686Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-12T18:15:27.858828501Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class RedditPlatformData {
   public static final String JSON_PROPERTY_SUBREDDIT = "subreddit";
   @javax.annotation.Nullable
@@ -56,6 +57,10 @@ public class RedditPlatformData {
   public static final String JSON_PROPERTY_FORCE_SELF = "forceSelf";
   @javax.annotation.Nullable
   private Boolean forceSelf;
+
+  public static final String JSON_PROPERTY_FLAIR_ID = "flairId";
+  @javax.annotation.Nullable
+  private String flairId;
 
   public RedditPlatformData() { 
   }
@@ -156,6 +161,30 @@ public class RedditPlatformData {
   }
 
 
+  public RedditPlatformData flairId(@javax.annotation.Nullable String flairId) {
+    this.flairId = flairId;
+    return this;
+  }
+
+  /**
+   * Flair ID for the post. Required by some subreddits. Use GET /api/v1/accounts/{id}/reddit-flairs?subreddit&#x3D;name to list available flairs. 
+   * @return flairId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_FLAIR_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getFlairId() {
+    return flairId;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_FLAIR_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFlairId(@javax.annotation.Nullable String flairId) {
+    this.flairId = flairId;
+  }
+
+
   /**
    * Return true if this RedditPlatformData object is equal to o.
    */
@@ -171,12 +200,13 @@ public class RedditPlatformData {
     return Objects.equals(this.subreddit, redditPlatformData.subreddit) &&
         Objects.equals(this.title, redditPlatformData.title) &&
         Objects.equals(this.url, redditPlatformData.url) &&
-        Objects.equals(this.forceSelf, redditPlatformData.forceSelf);
+        Objects.equals(this.forceSelf, redditPlatformData.forceSelf) &&
+        Objects.equals(this.flairId, redditPlatformData.flairId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subreddit, title, url, forceSelf);
+    return Objects.hash(subreddit, title, url, forceSelf, flairId);
   }
 
   @Override
@@ -187,6 +217,7 @@ public class RedditPlatformData {
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    forceSelf: ").append(toIndentedString(forceSelf)).append("\n");
+    sb.append("    flairId: ").append(toIndentedString(flairId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -252,6 +283,11 @@ public class RedditPlatformData {
     // add `forceSelf` to the URL query string
     if (getForceSelf() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sforceSelf%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getForceSelf()))));
+    }
+
+    // add `flairId` to the URL query string
+    if (getFlairId() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sflairId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getFlairId()))));
     }
 
     return joiner.toString();

@@ -37,7 +37,7 @@ import dev.getlate.ApiClient;
   GetGoogleBusinessReviews200ResponseReviewsInnerReviewReply.JSON_PROPERTY_COMMENT,
   GetGoogleBusinessReviews200ResponseReviewsInnerReviewReply.JSON_PROPERTY_UPDATE_TIME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-11T19:46:49.372401686Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-12T18:15:27.858828501Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetGoogleBusinessReviews200ResponseReviewsInnerReviewReply {
   public static final String JSON_PROPERTY_COMMENT = "comment";
   @javax.annotation.Nullable

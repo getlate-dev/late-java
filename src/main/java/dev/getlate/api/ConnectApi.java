@@ -28,6 +28,7 @@ import dev.getlate.model.GetGmbLocations200Response;
 import dev.getlate.model.GetLinkedInOrganizations200Response;
 import dev.getlate.model.GetPendingOAuthData200Response;
 import dev.getlate.model.GetPinterestBoards200Response;
+import dev.getlate.model.GetRedditFlairs200Response;
 import dev.getlate.model.GetRedditSubreddits200Response;
 import dev.getlate.model.GetTelegramConnectStatus200Response;
 import dev.getlate.model.GetYouTubeDailyViews400Response;
@@ -85,7 +86,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-11T19:46:49.372401686Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-12T18:15:27.858828501Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ConnectApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -1193,6 +1194,147 @@ public class ConnectApi {
         .replace("{accountId}", ApiClient.urlEncode(accountId.toString()));
 
     localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * List available post flairs for a Reddit subreddit
+   * 
+   * @param accountId  (required)
+   * @param subreddit Subreddit name (without \&quot;r/\&quot; prefix) to fetch flairs for (required)
+   * @return GetRedditFlairs200Response
+   * @throws ApiException if fails to make API call
+   */
+  public GetRedditFlairs200Response getRedditFlairs(@javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull String subreddit) throws ApiException {
+    return getRedditFlairs(accountId, subreddit, null);
+  }
+
+  /**
+   * List available post flairs for a Reddit subreddit
+   * 
+   * @param accountId  (required)
+   * @param subreddit Subreddit name (without \&quot;r/\&quot; prefix) to fetch flairs for (required)
+   * @param headers Optional headers to include in the request
+   * @return GetRedditFlairs200Response
+   * @throws ApiException if fails to make API call
+   */
+  public GetRedditFlairs200Response getRedditFlairs(@javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull String subreddit, Map<String, String> headers) throws ApiException {
+    ApiResponse<GetRedditFlairs200Response> localVarResponse = getRedditFlairsWithHttpInfo(accountId, subreddit, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * List available post flairs for a Reddit subreddit
+   * 
+   * @param accountId  (required)
+   * @param subreddit Subreddit name (without \&quot;r/\&quot; prefix) to fetch flairs for (required)
+   * @return ApiResponse&lt;GetRedditFlairs200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<GetRedditFlairs200Response> getRedditFlairsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull String subreddit) throws ApiException {
+    return getRedditFlairsWithHttpInfo(accountId, subreddit, null);
+  }
+
+  /**
+   * List available post flairs for a Reddit subreddit
+   * 
+   * @param accountId  (required)
+   * @param subreddit Subreddit name (without \&quot;r/\&quot; prefix) to fetch flairs for (required)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;GetRedditFlairs200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<GetRedditFlairs200Response> getRedditFlairsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull String subreddit, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getRedditFlairsRequestBuilder(accountId, subreddit, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getRedditFlairs", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<GetRedditFlairs200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        GetRedditFlairs200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<GetRedditFlairs200Response>() {});
+        
+
+        return new ApiResponse<GetRedditFlairs200Response>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getRedditFlairsRequestBuilder(@javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull String subreddit, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling getRedditFlairs");
+    }
+    // verify the required parameter 'subreddit' is set
+    if (subreddit == null) {
+      throw new ApiException(400, "Missing the required parameter 'subreddit' when calling getRedditFlairs");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/accounts/{accountId}/reddit-flairs"
+        .replace("{accountId}", ApiClient.urlEncode(accountId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "subreddit";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("subreddit", subreddit));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
 
     localVarRequestBuilder.header("Accept", "application/json");
 

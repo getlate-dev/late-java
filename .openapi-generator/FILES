@@ -157,6 +157,8 @@ docs/GetPinterestBoards200ResponseBoardsInner.md
 docs/GetPostLogs200Response.md
 docs/GetProfile200Response.md
 docs/GetRedditFeed200Response.md
+docs/GetRedditFlairs200Response.md
+docs/GetRedditFlairs200ResponseFlairsInner.md
 docs/GetRedditSubreddits200Response.md
 docs/GetRedditSubreddits200ResponseSubredditsInner.md
 docs/GetTelegramCommands200Response.md
@@ -616,6 +618,8 @@ src/main/java/dev/getlate/model/GetPinterestBoards200ResponseBoardsInner.java
 src/main/java/dev/getlate/model/GetPostLogs200Response.java
 src/main/java/dev/getlate/model/GetProfile200Response.java
 src/main/java/dev/getlate/model/GetRedditFeed200Response.java
+src/main/java/dev/getlate/model/GetRedditFlairs200Response.java
+src/main/java/dev/getlate/model/GetRedditFlairs200ResponseFlairsInner.java
 src/main/java/dev/getlate/model/GetRedditSubreddits200Response.java
 src/main/java/dev/getlate/model/GetRedditSubreddits200ResponseSubredditsInner.java
 src/main/java/dev/getlate/model/GetTelegramCommands200Response.java
@@ -862,5 +866,5 @@ src/main/java/dev/getlate/model/YouTubeDailyViewsResponseScopeStatus.java
 src/main/java/dev/getlate/model/YouTubePlatformData.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponseScopeStatus.java
-src/test/java/dev/getlate/model/ListInboxConversations200ResponseDataInnerInstagramProfileTest.java
-src/test/java/dev/getlate/model/WebhookPayloadMessageMessageSenderInstagramProfileTest.java
+src/test/java/dev/getlate/model/GetRedditFlairs200ResponseFlairsInnerTest.java
+src/test/java/dev/getlate/model/GetRedditFlairs200ResponseTest.java

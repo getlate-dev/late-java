@@ -4,7 +4,7 @@ Late API
 
 - API version: 1.0.1
 
-- Build date: 2026-02-11T19:46:49.372401686Z[Etc/UTC]
+- Build date: 2026-02-12T18:15:27.858828501Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -199,6 +199,8 @@ Class | Method | HTTP request | Description
 *ConnectApi* | [**getPendingOAuthDataWithHttpInfo**](docs/ConnectApi.md#getPendingOAuthDataWithHttpInfo) | **GET** /v1/connect/pending-data | Fetch pending OAuth selection data (Headless Mode)
 *ConnectApi* | [**getPinterestBoards**](docs/ConnectApi.md#getPinterestBoards) | **GET** /v1/accounts/{accountId}/pinterest-boards | List Pinterest boards for a connected account
 *ConnectApi* | [**getPinterestBoardsWithHttpInfo**](docs/ConnectApi.md#getPinterestBoardsWithHttpInfo) | **GET** /v1/accounts/{accountId}/pinterest-boards | List Pinterest boards for a connected account
+*ConnectApi* | [**getRedditFlairs**](docs/ConnectApi.md#getRedditFlairs) | **GET** /v1/accounts/{accountId}/reddit-flairs | List available post flairs for a Reddit subreddit
+*ConnectApi* | [**getRedditFlairsWithHttpInfo**](docs/ConnectApi.md#getRedditFlairsWithHttpInfo) | **GET** /v1/accounts/{accountId}/reddit-flairs | List available post flairs for a Reddit subreddit
 *ConnectApi* | [**getRedditSubreddits**](docs/ConnectApi.md#getRedditSubreddits) | **GET** /v1/accounts/{accountId}/reddit-subreddits | List Reddit subreddits for a connected account
 *ConnectApi* | [**getRedditSubredditsWithHttpInfo**](docs/ConnectApi.md#getRedditSubredditsWithHttpInfo) | **GET** /v1/accounts/{accountId}/reddit-subreddits | List Reddit subreddits for a connected account
 *ConnectApi* | [**getTelegramConnectStatus**](docs/ConnectApi.md#getTelegramConnectStatus) | **GET** /v1/connect/telegram | Generate Telegram access code
@@ -522,6 +524,8 @@ Class | Method | HTTP request | Description
  - [GetPostLogs200Response](docs/GetPostLogs200Response.md)
  - [GetProfile200Response](docs/GetProfile200Response.md)
  - [GetRedditFeed200Response](docs/GetRedditFeed200Response.md)
+ - [GetRedditFlairs200Response](docs/GetRedditFlairs200Response.md)
+ - [GetRedditFlairs200ResponseFlairsInner](docs/GetRedditFlairs200ResponseFlairsInner.md)
  - [GetRedditSubreddits200Response](docs/GetRedditSubreddits200Response.md)
  - [GetRedditSubreddits200ResponseSubredditsInner](docs/GetRedditSubreddits200ResponseSubredditsInner.md)
  - [GetTelegramCommands200Response](docs/GetTelegramCommands200Response.md)
