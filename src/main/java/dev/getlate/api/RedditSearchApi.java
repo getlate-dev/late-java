@@ -53,7 +53,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-12T18:15:27.858828501Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-15T07:40:53.067310401Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class RedditSearchApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.

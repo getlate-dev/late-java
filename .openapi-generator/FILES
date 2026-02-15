@@ -866,5 +866,3 @@ src/main/java/dev/getlate/model/YouTubeDailyViewsResponseScopeStatus.java
 src/main/java/dev/getlate/model/YouTubePlatformData.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponseScopeStatus.java
-src/test/java/dev/getlate/model/GetRedditFlairs200ResponseFlairsInnerTest.java
-src/test/java/dev/getlate/model/GetRedditFlairs200ResponseTest.java

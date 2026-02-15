@@ -38,7 +38,7 @@ import dev.getlate.ApiClient;
   CreateGoogleBusinessMedia200Response.JSON_PROPERTY_MEDIA_FORMAT,
   CreateGoogleBusinessMedia200Response.JSON_PROPERTY_GOOGLE_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-12T18:15:27.858828501Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-15T07:40:53.067310401Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateGoogleBusinessMedia200Response {
   public static final String JSON_PROPERTY_SUCCESS = "success";
   @javax.annotation.Nullable
