@@ -69,7 +69,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T18:15:45.495210887Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T18:29:51.561318521Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class PostsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -1007,7 +1007,7 @@ public class PostsApi {
 
   /**
    * Delete a published post from a social media platform
-   * Permanently deletes a published post from the specified social media platform. The post record in Late is kept but its platform status is set to \&quot;cancelled\&quot;.  **Supported platforms:** Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram.  **Not supported:** - **Instagram:** No deletion API available. Posts must be deleted manually. - **TikTok:** No deletion API available. Posts must be deleted manually. - **Snapchat:** No deletion API available. Posts must be deleted manually.  **Platform notes:** - **Telegram:** Messages older than 48 hours may fail to delete (Telegram Bot API limitation). - **YouTube:** This permanently deletes the video from YouTube. 
+   * Permanently deletes a published post from the specified social media platform. The post record in Late is kept but its platform status is set to \&quot;cancelled\&quot;.  **Supported platforms:** Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram.  **Not supported:** - **Instagram:** No deletion API available. Posts must be deleted manually. - **TikTok:** No deletion API available. Posts must be deleted manually. - **Snapchat:** No deletion API available. Posts must be deleted manually.  **Platform notes:** - **Threaded posts (Twitter, Threads, Bluesky):** If the post was published as a thread, all items in the thread are deleted (not just the first one). Posts published before this feature was added will only have the first item deleted. - **Telegram:** Messages older than 48 hours may fail to delete (Telegram Bot API limitation). - **YouTube:** This permanently deletes the video from YouTube. 
    * @param postId  (required)
    * @param unpublishPostRequest  (required)
    * @return UnpublishPost200Response
@@ -1019,7 +1019,7 @@ public class PostsApi {
 
   /**
    * Delete a published post from a social media platform
-   * Permanently deletes a published post from the specified social media platform. The post record in Late is kept but its platform status is set to \&quot;cancelled\&quot;.  **Supported platforms:** Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram.  **Not supported:** - **Instagram:** No deletion API available. Posts must be deleted manually. - **TikTok:** No deletion API available. Posts must be deleted manually. - **Snapchat:** No deletion API available. Posts must be deleted manually.  **Platform notes:** - **Telegram:** Messages older than 48 hours may fail to delete (Telegram Bot API limitation). - **YouTube:** This permanently deletes the video from YouTube. 
+   * Permanently deletes a published post from the specified social media platform. The post record in Late is kept but its platform status is set to \&quot;cancelled\&quot;.  **Supported platforms:** Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram.  **Not supported:** - **Instagram:** No deletion API available. Posts must be deleted manually. - **TikTok:** No deletion API available. Posts must be deleted manually. - **Snapchat:** No deletion API available. Posts must be deleted manually.  **Platform notes:** - **Threaded posts (Twitter, Threads, Bluesky):** If the post was published as a thread, all items in the thread are deleted (not just the first one). Posts published before this feature was added will only have the first item deleted. - **Telegram:** Messages older than 48 hours may fail to delete (Telegram Bot API limitation). - **YouTube:** This permanently deletes the video from YouTube. 
    * @param postId  (required)
    * @param unpublishPostRequest  (required)
    * @param headers Optional headers to include in the request
@@ -1033,7 +1033,7 @@ public class PostsApi {
 
   /**
    * Delete a published post from a social media platform
-   * Permanently deletes a published post from the specified social media platform. The post record in Late is kept but its platform status is set to \&quot;cancelled\&quot;.  **Supported platforms:** Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram.  **Not supported:** - **Instagram:** No deletion API available. Posts must be deleted manually. - **TikTok:** No deletion API available. Posts must be deleted manually. - **Snapchat:** No deletion API available. Posts must be deleted manually.  **Platform notes:** - **Telegram:** Messages older than 48 hours may fail to delete (Telegram Bot API limitation). - **YouTube:** This permanently deletes the video from YouTube. 
+   * Permanently deletes a published post from the specified social media platform. The post record in Late is kept but its platform status is set to \&quot;cancelled\&quot;.  **Supported platforms:** Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram.  **Not supported:** - **Instagram:** No deletion API available. Posts must be deleted manually. - **TikTok:** No deletion API available. Posts must be deleted manually. - **Snapchat:** No deletion API available. Posts must be deleted manually.  **Platform notes:** - **Threaded posts (Twitter, Threads, Bluesky):** If the post was published as a thread, all items in the thread are deleted (not just the first one). Posts published before this feature was added will only have the first item deleted. - **Telegram:** Messages older than 48 hours may fail to delete (Telegram Bot API limitation). - **YouTube:** This permanently deletes the video from YouTube. 
    * @param postId  (required)
    * @param unpublishPostRequest  (required)
    * @return ApiResponse&lt;UnpublishPost200Response&gt;
@@ -1045,7 +1045,7 @@ public class PostsApi {
 
   /**
    * Delete a published post from a social media platform
-   * Permanently deletes a published post from the specified social media platform. The post record in Late is kept but its platform status is set to \&quot;cancelled\&quot;.  **Supported platforms:** Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram.  **Not supported:** - **Instagram:** No deletion API available. Posts must be deleted manually. - **TikTok:** No deletion API available. Posts must be deleted manually. - **Snapchat:** No deletion API available. Posts must be deleted manually.  **Platform notes:** - **Telegram:** Messages older than 48 hours may fail to delete (Telegram Bot API limitation). - **YouTube:** This permanently deletes the video from YouTube. 
+   * Permanently deletes a published post from the specified social media platform. The post record in Late is kept but its platform status is set to \&quot;cancelled\&quot;.  **Supported platforms:** Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram.  **Not supported:** - **Instagram:** No deletion API available. Posts must be deleted manually. - **TikTok:** No deletion API available. Posts must be deleted manually. - **Snapchat:** No deletion API available. Posts must be deleted manually.  **Platform notes:** - **Threaded posts (Twitter, Threads, Bluesky):** If the post was published as a thread, all items in the thread are deleted (not just the first one). Posts published before this feature was added will only have the first item deleted. - **Telegram:** Messages older than 48 hours may fail to delete (Telegram Bot API limitation). - **YouTube:** This permanently deletes the video from YouTube. 
    * @param postId  (required)
    * @param unpublishPostRequest  (required)
    * @param headers Optional headers to include in the request
