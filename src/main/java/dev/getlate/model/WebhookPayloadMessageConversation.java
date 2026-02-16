@@ -41,7 +41,7 @@ import dev.getlate.ApiClient;
   WebhookPayloadMessageConversation.JSON_PROPERTY_PARTICIPANT_PICTURE,
   WebhookPayloadMessageConversation.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T07:45:15.191548497Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T11:05:25.291910694Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WebhookPayloadMessageConversation {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable

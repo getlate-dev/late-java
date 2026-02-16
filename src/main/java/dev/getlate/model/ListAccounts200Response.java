@@ -39,7 +39,7 @@ import dev.getlate.ApiClient;
   ListAccounts200Response.JSON_PROPERTY_ACCOUNTS,
   ListAccounts200Response.JSON_PROPERTY_HAS_ANALYTICS_ACCESS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T07:45:15.191548497Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T11:05:25.291910694Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ListAccounts200Response {
   public static final String JSON_PROPERTY_ACCOUNTS = "accounts";
   @javax.annotation.Nullable

@@ -38,7 +38,7 @@ import dev.getlate.ApiClient;
   TranscriptSegment.JSON_PROPERTY_START,
   TranscriptSegment.JSON_PROPERTY_DURATION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T07:45:15.191548497Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T11:05:25.291910694Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class TranscriptSegment {
   public static final String JSON_PROPERTY_TEXT = "text";
   @javax.annotation.Nullable

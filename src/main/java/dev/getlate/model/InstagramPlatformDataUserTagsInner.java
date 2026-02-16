@@ -36,9 +36,10 @@ import dev.getlate.ApiClient;
 @JsonPropertyOrder({
   InstagramPlatformDataUserTagsInner.JSON_PROPERTY_USERNAME,
   InstagramPlatformDataUserTagsInner.JSON_PROPERTY_X,
-  InstagramPlatformDataUserTagsInner.JSON_PROPERTY_Y
+  InstagramPlatformDataUserTagsInner.JSON_PROPERTY_Y,
+  InstagramPlatformDataUserTagsInner.JSON_PROPERTY_MEDIA_INDEX
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T07:45:15.191548497Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T11:05:25.291910694Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class InstagramPlatformDataUserTagsInner {
   public static final String JSON_PROPERTY_USERNAME = "username";
   @javax.annotation.Nonnull
@@ -51,6 +52,10 @@ public class InstagramPlatformDataUserTagsInner {
   public static final String JSON_PROPERTY_Y = "y";
   @javax.annotation.Nonnull
   private BigDecimal y;
+
+  public static final String JSON_PROPERTY_MEDIA_INDEX = "mediaIndex";
+  @javax.annotation.Nullable
+  private Integer mediaIndex;
 
   public InstagramPlatformDataUserTagsInner() { 
   }
@@ -131,6 +136,31 @@ public class InstagramPlatformDataUserTagsInner {
   }
 
 
+  public InstagramPlatformDataUserTagsInner mediaIndex(@javax.annotation.Nullable Integer mediaIndex) {
+    this.mediaIndex = mediaIndex;
+    return this;
+  }
+
+  /**
+   * Zero-based index of the carousel item to tag. Defaults to 0 (first image) if omitted. Only relevant for carousel posts. Tags targeting video items or out-of-range indices are ignored. 
+   * minimum: 0
+   * @return mediaIndex
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_MEDIA_INDEX, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getMediaIndex() {
+    return mediaIndex;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_MEDIA_INDEX, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMediaIndex(@javax.annotation.Nullable Integer mediaIndex) {
+    this.mediaIndex = mediaIndex;
+  }
+
+
   /**
    * Return true if this InstagramPlatformData_userTags_inner object is equal to o.
    */
@@ -145,12 +175,13 @@ public class InstagramPlatformDataUserTagsInner {
     InstagramPlatformDataUserTagsInner instagramPlatformDataUserTagsInner = (InstagramPlatformDataUserTagsInner) o;
     return Objects.equals(this.username, instagramPlatformDataUserTagsInner.username) &&
         Objects.equals(this.x, instagramPlatformDataUserTagsInner.x) &&
-        Objects.equals(this.y, instagramPlatformDataUserTagsInner.y);
+        Objects.equals(this.y, instagramPlatformDataUserTagsInner.y) &&
+        Objects.equals(this.mediaIndex, instagramPlatformDataUserTagsInner.mediaIndex);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(username, x, y);
+    return Objects.hash(username, x, y, mediaIndex);
   }
 
   @Override
@@ -160,6 +191,7 @@ public class InstagramPlatformDataUserTagsInner {
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    x: ").append(toIndentedString(x)).append("\n");
     sb.append("    y: ").append(toIndentedString(y)).append("\n");
+    sb.append("    mediaIndex: ").append(toIndentedString(mediaIndex)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -220,6 +252,11 @@ public class InstagramPlatformDataUserTagsInner {
     // add `y` to the URL query string
     if (getY() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sy%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getY()))));
+    }
+
+    // add `mediaIndex` to the URL query string
+    if (getMediaIndex() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%smediaIndex%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getMediaIndex()))));
     }
 
     return joiner.toString();

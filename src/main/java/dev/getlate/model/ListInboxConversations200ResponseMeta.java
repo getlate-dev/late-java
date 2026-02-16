@@ -42,7 +42,7 @@ import dev.getlate.ApiClient;
   ListInboxConversations200ResponseMeta.JSON_PROPERTY_FAILED_ACCOUNTS,
   ListInboxConversations200ResponseMeta.JSON_PROPERTY_LAST_UPDATED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T07:45:15.191548497Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T11:05:25.291910694Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ListInboxConversations200ResponseMeta {
   public static final String JSON_PROPERTY_ACCOUNTS_QUERIED = "accountsQueried";
   @javax.annotation.Nullable

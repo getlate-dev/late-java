@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.getlate.ApiClient;
 /**
- * Constraints: - Feed posts require images with aspect ratio between 0.8 (4:5 portrait) and 1.91 (1.91:1 landscape). - Images outside this range (e.g., 9:16 Stories/TikTok format) must use contentType &#39;story&#39;. - Validation happens at post creation; invalid images are rejected immediately with helpful error messages. - Carousels support up to 10 media items. - Stories require media; no captions are published with Stories. - User tags: coordinates range from 0.0 to 1.0 representing position from top-left corner. Tagged users receive notifications.  **Automatic Compression (similar to Bluesky):** - All images (story, post, carousel, thumbnails) exceeding 8 MB are automatically compressed using quality reduction and resizing. - Story videos exceeding 100 MB are automatically compressed. - Reel videos exceeding 300 MB are automatically compressed. - Compression uses Sharp (images) and FFmpeg (videos) to maintain quality while meeting size limits. - Original files are preserved; compressed versions are uploaded to blob storage automatically. 
+ * Constraints: - Feed posts require images with aspect ratio between 0.8 (4:5 portrait) and 1.91 (1.91:1 landscape). - Images outside this range (e.g., 9:16 Stories/TikTok format) must use contentType &#39;story&#39;. - Validation happens at post creation; invalid images are rejected immediately with helpful error messages. - Carousels support up to 10 media items. - Stories require media; no captions are published with Stories. - User tags: coordinates range from 0.0 to 1.0 representing position from top-left corner. For carousels, use &#x60;mediaIndex&#x60; to tag specific slides. Tagged users receive notifications.  **Automatic Compression (similar to Bluesky):** - All images (story, post, carousel, thumbnails) exceeding 8 MB are automatically compressed using quality reduction and resizing. - Story videos exceeding 100 MB are automatically compressed. - Reel videos exceeding 300 MB are automatically compressed. - Compression uses Sharp (images) and FFmpeg (videos) to maintain quality while meeting size limits. - Original files are preserved; compressed versions are uploaded to blob storage automatically. 
  */
 @JsonPropertyOrder({
   InstagramPlatformData.JSON_PROPERTY_CONTENT_TYPE,
@@ -46,7 +46,7 @@ import dev.getlate.ApiClient;
   InstagramPlatformData.JSON_PROPERTY_AUDIO_NAME,
   InstagramPlatformData.JSON_PROPERTY_THUMB_OFFSET
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T07:45:15.191548497Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T11:05:25.291910694Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class InstagramPlatformData {
   /**
    * Set to &#39;story&#39; to publish as a Story. Default posts become Reels or feed depending on media.
@@ -258,7 +258,7 @@ public class InstagramPlatformData {
   }
 
   /**
-   * Tag Instagram users in photos by username and position coordinates. Only works for single image posts and the first image of carousel posts. Not supported for stories or videos.
+   * Tag Instagram users in photos by username and position coordinates. Not supported for stories or videos. For carousel posts, use the optional &#x60;mediaIndex&#x60; field to specify which slide each tag applies to. Tags without &#x60;mediaIndex&#x60; default to the first image (index 0) for backwards compatibility. Tags targeting video items are silently skipped (Instagram only supports tagging on images). 
    * @return userTags
    */
   @javax.annotation.Nullable
