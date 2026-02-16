@@ -40,7 +40,7 @@ import dev.getlate.ApiClient;
   WebhookPayloadMessageMessageSender.JSON_PROPERTY_PICTURE,
   WebhookPayloadMessageMessageSender.JSON_PROPERTY_INSTAGRAM_PROFILE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T18:29:51.561318521Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T18:31:55.532937671Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WebhookPayloadMessageMessageSender {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable

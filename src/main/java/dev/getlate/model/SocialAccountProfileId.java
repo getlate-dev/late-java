@@ -54,7 +54,7 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import dev.getlate.ApiClient;
 import dev.getlate.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T18:29:51.561318521Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T18:31:55.532937671Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 @JsonDeserialize(using = SocialAccountProfileId.SocialAccountProfileIdDeserializer.class)
 @JsonSerialize(using = SocialAccountProfileId.SocialAccountProfileIdSerializer.class)
 public class SocialAccountProfileId extends AbstractOpenApiSchema {
