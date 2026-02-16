@@ -10,7 +10,16 @@
 |**status** | **String** |  |  [optional] |
 |**messageId** | **String** | The ID of the sent message |  [optional] |
 |**commentId** | **String** | The comment ID that was replied to |  [optional] |
-|**platform** | **String** |  |  [optional] |
+|**platform** | [**PlatformEnum**](#PlatformEnum) |  |  [optional] |
+
+
+
+## Enum: PlatformEnum
+
+| Name | Value |
+|---- | -----|
+| INSTAGRAM | &quot;instagram&quot; |
+| FACEBOOK | &quot;facebook&quot; |
 
 
 

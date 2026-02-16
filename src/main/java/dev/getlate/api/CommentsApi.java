@@ -59,7 +59,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-15T07:40:53.067310401Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T07:45:15.191548497Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CommentsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -1084,8 +1084,8 @@ public class CommentsApi {
 
   /**
    * Send private reply to comment author
-   * Send a private direct message to the author of a comment on your post. This is useful for handling customer inquiries or sensitive matters privately.  **Supported platforms:** Instagram only  **Limitations:** - Instagram only allows ONE private reply per comment - Must be sent within 7 days of the comment being posted - Only works for comments on posts owned by the connected account - Message goes to the user&#39;s Inbox (if they follow you) or Message Requests (if they don&#39;t) - Requires &#x60;instagram_business_manage_messages&#x60; permission (already included in Late&#39;s OAuth)  **Note:** This does not create a conversation thread until the user replies back. 
-   * @param postId The Instagram media/post ID (required)
+   * Send a private direct message to the author of a comment on your post. This is useful for handling customer inquiries or sensitive matters privately.  **Supported platforms:** Instagram, Facebook  **Limitations:** - Only ONE private reply per comment (platform API restriction) - Must be sent within 7 days of the comment being posted - Only works for comments on posts owned by the connected account - Text only (no media attachments) - Instagram: message goes to the user&#39;s Inbox (if they follow you) or Message Requests (if they don&#39;t). Requires &#x60;instagram_business_manage_messages&#x60; permission. - Facebook: message opens a Messenger conversation with the commenter. Requires &#x60;pages_messaging&#x60; permission.  **Note:** Both permissions are already included in Late&#39;s OAuth flow. This does not create a conversation thread until the user replies back. 
+   * @param postId The media/post ID (Instagram media ID or Facebook post ID) (required)
    * @param commentId The comment ID to send a private reply to (required)
    * @param sendPrivateReplyToCommentRequest  (required)
    * @return SendPrivateReplyToComment200Response
@@ -1097,8 +1097,8 @@ public class CommentsApi {
 
   /**
    * Send private reply to comment author
-   * Send a private direct message to the author of a comment on your post. This is useful for handling customer inquiries or sensitive matters privately.  **Supported platforms:** Instagram only  **Limitations:** - Instagram only allows ONE private reply per comment - Must be sent within 7 days of the comment being posted - Only works for comments on posts owned by the connected account - Message goes to the user&#39;s Inbox (if they follow you) or Message Requests (if they don&#39;t) - Requires &#x60;instagram_business_manage_messages&#x60; permission (already included in Late&#39;s OAuth)  **Note:** This does not create a conversation thread until the user replies back. 
-   * @param postId The Instagram media/post ID (required)
+   * Send a private direct message to the author of a comment on your post. This is useful for handling customer inquiries or sensitive matters privately.  **Supported platforms:** Instagram, Facebook  **Limitations:** - Only ONE private reply per comment (platform API restriction) - Must be sent within 7 days of the comment being posted - Only works for comments on posts owned by the connected account - Text only (no media attachments) - Instagram: message goes to the user&#39;s Inbox (if they follow you) or Message Requests (if they don&#39;t). Requires &#x60;instagram_business_manage_messages&#x60; permission. - Facebook: message opens a Messenger conversation with the commenter. Requires &#x60;pages_messaging&#x60; permission.  **Note:** Both permissions are already included in Late&#39;s OAuth flow. This does not create a conversation thread until the user replies back. 
+   * @param postId The media/post ID (Instagram media ID or Facebook post ID) (required)
    * @param commentId The comment ID to send a private reply to (required)
    * @param sendPrivateReplyToCommentRequest  (required)
    * @param headers Optional headers to include in the request
@@ -1112,8 +1112,8 @@ public class CommentsApi {
 
   /**
    * Send private reply to comment author
-   * Send a private direct message to the author of a comment on your post. This is useful for handling customer inquiries or sensitive matters privately.  **Supported platforms:** Instagram only  **Limitations:** - Instagram only allows ONE private reply per comment - Must be sent within 7 days of the comment being posted - Only works for comments on posts owned by the connected account - Message goes to the user&#39;s Inbox (if they follow you) or Message Requests (if they don&#39;t) - Requires &#x60;instagram_business_manage_messages&#x60; permission (already included in Late&#39;s OAuth)  **Note:** This does not create a conversation thread until the user replies back. 
-   * @param postId The Instagram media/post ID (required)
+   * Send a private direct message to the author of a comment on your post. This is useful for handling customer inquiries or sensitive matters privately.  **Supported platforms:** Instagram, Facebook  **Limitations:** - Only ONE private reply per comment (platform API restriction) - Must be sent within 7 days of the comment being posted - Only works for comments on posts owned by the connected account - Text only (no media attachments) - Instagram: message goes to the user&#39;s Inbox (if they follow you) or Message Requests (if they don&#39;t). Requires &#x60;instagram_business_manage_messages&#x60; permission. - Facebook: message opens a Messenger conversation with the commenter. Requires &#x60;pages_messaging&#x60; permission.  **Note:** Both permissions are already included in Late&#39;s OAuth flow. This does not create a conversation thread until the user replies back. 
+   * @param postId The media/post ID (Instagram media ID or Facebook post ID) (required)
    * @param commentId The comment ID to send a private reply to (required)
    * @param sendPrivateReplyToCommentRequest  (required)
    * @return ApiResponse&lt;SendPrivateReplyToComment200Response&gt;
@@ -1125,8 +1125,8 @@ public class CommentsApi {
 
   /**
    * Send private reply to comment author
-   * Send a private direct message to the author of a comment on your post. This is useful for handling customer inquiries or sensitive matters privately.  **Supported platforms:** Instagram only  **Limitations:** - Instagram only allows ONE private reply per comment - Must be sent within 7 days of the comment being posted - Only works for comments on posts owned by the connected account - Message goes to the user&#39;s Inbox (if they follow you) or Message Requests (if they don&#39;t) - Requires &#x60;instagram_business_manage_messages&#x60; permission (already included in Late&#39;s OAuth)  **Note:** This does not create a conversation thread until the user replies back. 
-   * @param postId The Instagram media/post ID (required)
+   * Send a private direct message to the author of a comment on your post. This is useful for handling customer inquiries or sensitive matters privately.  **Supported platforms:** Instagram, Facebook  **Limitations:** - Only ONE private reply per comment (platform API restriction) - Must be sent within 7 days of the comment being posted - Only works for comments on posts owned by the connected account - Text only (no media attachments) - Instagram: message goes to the user&#39;s Inbox (if they follow you) or Message Requests (if they don&#39;t). Requires &#x60;instagram_business_manage_messages&#x60; permission. - Facebook: message opens a Messenger conversation with the commenter. Requires &#x60;pages_messaging&#x60; permission.  **Note:** Both permissions are already included in Late&#39;s OAuth flow. This does not create a conversation thread until the user replies back. 
+   * @param postId The media/post ID (Instagram media ID or Facebook post ID) (required)
    * @param commentId The comment ID to send a private reply to (required)
    * @param sendPrivateReplyToCommentRequest  (required)
    * @param headers Optional headers to include in the request

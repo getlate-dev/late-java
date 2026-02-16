@@ -1003,7 +1003,7 @@ ApiResponse<[**ReplyToInboxPost200Response**](ReplyToInboxPost200Response.md)>
 
 Send private reply to comment author
 
-Send a private direct message to the author of a comment on your post. This is useful for handling customer inquiries or sensitive matters privately.  **Supported platforms:** Instagram only  **Limitations:** - Instagram only allows ONE private reply per comment - Must be sent within 7 days of the comment being posted - Only works for comments on posts owned by the connected account - Message goes to the user&#39;s Inbox (if they follow you) or Message Requests (if they don&#39;t) - Requires &#x60;instagram_business_manage_messages&#x60; permission (already included in Late&#39;s OAuth)  **Note:** This does not create a conversation thread until the user replies back. 
+Send a private direct message to the author of a comment on your post. This is useful for handling customer inquiries or sensitive matters privately.  **Supported platforms:** Instagram, Facebook  **Limitations:** - Only ONE private reply per comment (platform API restriction) - Must be sent within 7 days of the comment being posted - Only works for comments on posts owned by the connected account - Text only (no media attachments) - Instagram: message goes to the user&#39;s Inbox (if they follow you) or Message Requests (if they don&#39;t). Requires &#x60;instagram_business_manage_messages&#x60; permission. - Facebook: message opens a Messenger conversation with the commenter. Requires &#x60;pages_messaging&#x60; permission.  **Note:** Both permissions are already included in Late&#39;s OAuth flow. This does not create a conversation thread until the user replies back. 
 
 ### Example
 
@@ -1026,7 +1026,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
-        String postId = "postId_example"; // String | The Instagram media/post ID
+        String postId = "postId_example"; // String | The media/post ID (Instagram media ID or Facebook post ID)
         String commentId = "commentId_example"; // String | The comment ID to send a private reply to
         SendPrivateReplyToCommentRequest sendPrivateReplyToCommentRequest = new SendPrivateReplyToCommentRequest(); // SendPrivateReplyToCommentRequest | 
         try {
@@ -1048,7 +1048,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **postId** | **String**| The Instagram media/post ID | |
+| **postId** | **String**| The media/post ID (Instagram media ID or Facebook post ID) | |
 | **commentId** | **String**| The comment ID to send a private reply to | |
 | **sendPrivateReplyToCommentRequest** | [**SendPrivateReplyToCommentRequest**](SendPrivateReplyToCommentRequest.md)|  | |
 
@@ -1081,7 +1081,7 @@ public class Example {
 
 Send private reply to comment author
 
-Send a private direct message to the author of a comment on your post. This is useful for handling customer inquiries or sensitive matters privately.  **Supported platforms:** Instagram only  **Limitations:** - Instagram only allows ONE private reply per comment - Must be sent within 7 days of the comment being posted - Only works for comments on posts owned by the connected account - Message goes to the user&#39;s Inbox (if they follow you) or Message Requests (if they don&#39;t) - Requires &#x60;instagram_business_manage_messages&#x60; permission (already included in Late&#39;s OAuth)  **Note:** This does not create a conversation thread until the user replies back. 
+Send a private direct message to the author of a comment on your post. This is useful for handling customer inquiries or sensitive matters privately.  **Supported platforms:** Instagram, Facebook  **Limitations:** - Only ONE private reply per comment (platform API restriction) - Must be sent within 7 days of the comment being posted - Only works for comments on posts owned by the connected account - Text only (no media attachments) - Instagram: message goes to the user&#39;s Inbox (if they follow you) or Message Requests (if they don&#39;t). Requires &#x60;instagram_business_manage_messages&#x60; permission. - Facebook: message opens a Messenger conversation with the commenter. Requires &#x60;pages_messaging&#x60; permission.  **Note:** Both permissions are already included in Late&#39;s OAuth flow. This does not create a conversation thread until the user replies back. 
 
 ### Example
 
@@ -1105,7 +1105,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
-        String postId = "postId_example"; // String | The Instagram media/post ID
+        String postId = "postId_example"; // String | The media/post ID (Instagram media ID or Facebook post ID)
         String commentId = "commentId_example"; // String | The comment ID to send a private reply to
         SendPrivateReplyToCommentRequest sendPrivateReplyToCommentRequest = new SendPrivateReplyToCommentRequest(); // SendPrivateReplyToCommentRequest | 
         try {
@@ -1129,7 +1129,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **postId** | **String**| The Instagram media/post ID | |
+| **postId** | **String**| The media/post ID (Instagram media ID or Facebook post ID) | |
 | **commentId** | **String**| The comment ID to send a private reply to | |
 | **sendPrivateReplyToCommentRequest** | [**SendPrivateReplyToCommentRequest**](SendPrivateReplyToCommentRequest.md)|  | |
 

@@ -38,7 +38,7 @@ import dev.getlate.ApiClient;
   SendPrivateReplyToComment200Response.JSON_PROPERTY_COMMENT_ID,
   SendPrivateReplyToComment200Response.JSON_PROPERTY_PLATFORM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-15T07:40:53.067310401Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T07:45:15.191548497Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class SendPrivateReplyToComment200Response {
   public static final String JSON_PROPERTY_STATUS = "status";
   @javax.annotation.Nullable
@@ -52,9 +52,44 @@ public class SendPrivateReplyToComment200Response {
   @javax.annotation.Nullable
   private String commentId;
 
+  /**
+   * Gets or Sets platform
+   */
+  public enum PlatformEnum {
+    INSTAGRAM(String.valueOf("instagram")),
+    
+    FACEBOOK(String.valueOf("facebook"));
+
+    private String value;
+
+    PlatformEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static PlatformEnum fromValue(String value) {
+      for (PlatformEnum b : PlatformEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
   public static final String JSON_PROPERTY_PLATFORM = "platform";
   @javax.annotation.Nullable
-  private String platform;
+  private PlatformEnum platform;
 
   public SendPrivateReplyToComment200Response() { 
   }
@@ -131,7 +166,7 @@ public class SendPrivateReplyToComment200Response {
   }
 
 
-  public SendPrivateReplyToComment200Response platform(@javax.annotation.Nullable String platform) {
+  public SendPrivateReplyToComment200Response platform(@javax.annotation.Nullable PlatformEnum platform) {
     this.platform = platform;
     return this;
   }
@@ -143,14 +178,14 @@ public class SendPrivateReplyToComment200Response {
   @javax.annotation.Nullable
   @JsonProperty(value = JSON_PROPERTY_PLATFORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPlatform() {
+  public PlatformEnum getPlatform() {
     return platform;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_PLATFORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPlatform(@javax.annotation.Nullable String platform) {
+  public void setPlatform(@javax.annotation.Nullable PlatformEnum platform) {
     this.platform = platform;
   }
 

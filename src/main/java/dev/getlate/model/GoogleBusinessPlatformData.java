@@ -31,17 +31,22 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.getlate.ApiClient;
 /**
- * Google Business Profile post settings: - Posts support text content and a single image (no videos) - Images must be publicly accessible URLs - Call-to-action buttons drive user engagement - Posts appear on your Google Business Profile and in Google Search/Maps - Use locationId to post to multiple locations from the same account connection 
+ * Google Business Profile post settings: - Posts support text content and a single image (no videos) - Images must be publicly accessible URLs - Call-to-action buttons drive user engagement - Posts appear on your Google Business Profile and in Google Search/Maps - Use locationId to post to multiple locations from the same account connection - Language is auto-detected from content; override with languageCode if needed 
  */
 @JsonPropertyOrder({
   GoogleBusinessPlatformData.JSON_PROPERTY_LOCATION_ID,
+  GoogleBusinessPlatformData.JSON_PROPERTY_LANGUAGE_CODE,
   GoogleBusinessPlatformData.JSON_PROPERTY_CALL_TO_ACTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-15T07:40:53.067310401Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T07:45:15.191548497Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GoogleBusinessPlatformData {
   public static final String JSON_PROPERTY_LOCATION_ID = "locationId";
   @javax.annotation.Nullable
   private String locationId;
+
+  public static final String JSON_PROPERTY_LANGUAGE_CODE = "languageCode";
+  @javax.annotation.Nullable
+  private String languageCode;
 
   public static final String JSON_PROPERTY_CALL_TO_ACTION = "callToAction";
   @javax.annotation.Nullable
@@ -71,6 +76,30 @@ public class GoogleBusinessPlatformData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLocationId(@javax.annotation.Nullable String locationId) {
     this.locationId = locationId;
+  }
+
+
+  public GoogleBusinessPlatformData languageCode(@javax.annotation.Nullable String languageCode) {
+    this.languageCode = languageCode;
+    return this;
+  }
+
+  /**
+   * BCP 47 language code for the post content (e.g., \&quot;en\&quot;, \&quot;de\&quot;, \&quot;es\&quot;, \&quot;fr\&quot;). If omitted, the language is automatically detected from the post text. Setting this explicitly is recommended when auto-detection may not be accurate (e.g., very short posts, mixed-language content, or transliterated text). 
+   * @return languageCode
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_LANGUAGE_CODE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLanguageCode() {
+    return languageCode;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_LANGUAGE_CODE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLanguageCode(@javax.annotation.Nullable String languageCode) {
+    this.languageCode = languageCode;
   }
 
 
@@ -111,12 +140,13 @@ public class GoogleBusinessPlatformData {
     }
     GoogleBusinessPlatformData googleBusinessPlatformData = (GoogleBusinessPlatformData) o;
     return Objects.equals(this.locationId, googleBusinessPlatformData.locationId) &&
+        Objects.equals(this.languageCode, googleBusinessPlatformData.languageCode) &&
         Objects.equals(this.callToAction, googleBusinessPlatformData.callToAction);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(locationId, callToAction);
+    return Objects.hash(locationId, languageCode, callToAction);
   }
 
   @Override
@@ -124,6 +154,7 @@ public class GoogleBusinessPlatformData {
     StringBuilder sb = new StringBuilder();
     sb.append("class GoogleBusinessPlatformData {\n");
     sb.append("    locationId: ").append(toIndentedString(locationId)).append("\n");
+    sb.append("    languageCode: ").append(toIndentedString(languageCode)).append("\n");
     sb.append("    callToAction: ").append(toIndentedString(callToAction)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -175,6 +206,11 @@ public class GoogleBusinessPlatformData {
     // add `locationId` to the URL query string
     if (getLocationId() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%slocationId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getLocationId()))));
+    }
+
+    // add `languageCode` to the URL query string
+    if (getLanguageCode() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%slanguageCode%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getLanguageCode()))));
     }
 
     // add `callToAction` to the URL query string
