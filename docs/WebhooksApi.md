@@ -613,7 +613,7 @@ ApiResponse<[**GetWebhookSettings200Response**](GetWebhookSettings200Response.md
 
 ## testWebhook
 
-> TestWebhook200Response testWebhook(testWebhookRequest)
+> UnpublishPost200Response testWebhook(testWebhookRequest)
 
 Send test webhook
 
@@ -642,7 +642,7 @@ public class Example {
         WebhooksApi apiInstance = new WebhooksApi(defaultClient);
         TestWebhookRequest testWebhookRequest = new TestWebhookRequest(); // TestWebhookRequest | 
         try {
-            TestWebhook200Response result = apiInstance.testWebhook(testWebhookRequest);
+            UnpublishPost200Response result = apiInstance.testWebhook(testWebhookRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling WebhooksApi#testWebhook");
@@ -664,7 +664,7 @@ public class Example {
 
 ### Return type
 
-[**TestWebhook200Response**](TestWebhook200Response.md)
+[**UnpublishPost200Response**](UnpublishPost200Response.md)
 
 
 ### Authorization
@@ -686,7 +686,7 @@ public class Example {
 
 ## testWebhookWithHttpInfo
 
-> ApiResponse<TestWebhook200Response> testWebhook testWebhookWithHttpInfo(testWebhookRequest)
+> ApiResponse<UnpublishPost200Response> testWebhook testWebhookWithHttpInfo(testWebhookRequest)
 
 Send test webhook
 
@@ -716,7 +716,7 @@ public class Example {
         WebhooksApi apiInstance = new WebhooksApi(defaultClient);
         TestWebhookRequest testWebhookRequest = new TestWebhookRequest(); // TestWebhookRequest | 
         try {
-            ApiResponse<TestWebhook200Response> response = apiInstance.testWebhookWithHttpInfo(testWebhookRequest);
+            ApiResponse<UnpublishPost200Response> response = apiInstance.testWebhookWithHttpInfo(testWebhookRequest);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
             System.out.println("Response body: " + response.getData());
@@ -740,7 +740,7 @@ public class Example {
 
 ### Return type
 
-ApiResponse<[**TestWebhook200Response**](TestWebhook200Response.md)>
+ApiResponse<[**UnpublishPost200Response**](UnpublishPost200Response.md)>
 
 
 ### Authorization

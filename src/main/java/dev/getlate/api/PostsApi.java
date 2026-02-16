@@ -34,6 +34,8 @@ import dev.getlate.model.PostGetResponse;
 import dev.getlate.model.PostRetryResponse;
 import dev.getlate.model.PostUpdateResponse;
 import dev.getlate.model.PostsListResponse;
+import dev.getlate.model.UnpublishPost200Response;
+import dev.getlate.model.UnpublishPostRequest;
 import dev.getlate.model.UpdatePostRequest;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -67,7 +69,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T11:42:25.991231132Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T18:15:45.495210887Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class PostsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -992,6 +994,138 @@ public class PostsApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
     localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Delete a published post from a social media platform
+   * Permanently deletes a published post from the specified social media platform. The post record in Late is kept but its platform status is set to \&quot;cancelled\&quot;.  **Supported platforms:** Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram.  **Not supported:** - **Instagram:** No deletion API available. Posts must be deleted manually. - **TikTok:** No deletion API available. Posts must be deleted manually. - **Snapchat:** No deletion API available. Posts must be deleted manually.  **Platform notes:** - **Telegram:** Messages older than 48 hours may fail to delete (Telegram Bot API limitation). - **YouTube:** This permanently deletes the video from YouTube. 
+   * @param postId  (required)
+   * @param unpublishPostRequest  (required)
+   * @return UnpublishPost200Response
+   * @throws ApiException if fails to make API call
+   */
+  public UnpublishPost200Response unpublishPost(@javax.annotation.Nonnull String postId, @javax.annotation.Nonnull UnpublishPostRequest unpublishPostRequest) throws ApiException {
+    return unpublishPost(postId, unpublishPostRequest, null);
+  }
+
+  /**
+   * Delete a published post from a social media platform
+   * Permanently deletes a published post from the specified social media platform. The post record in Late is kept but its platform status is set to \&quot;cancelled\&quot;.  **Supported platforms:** Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram.  **Not supported:** - **Instagram:** No deletion API available. Posts must be deleted manually. - **TikTok:** No deletion API available. Posts must be deleted manually. - **Snapchat:** No deletion API available. Posts must be deleted manually.  **Platform notes:** - **Telegram:** Messages older than 48 hours may fail to delete (Telegram Bot API limitation). - **YouTube:** This permanently deletes the video from YouTube. 
+   * @param postId  (required)
+   * @param unpublishPostRequest  (required)
+   * @param headers Optional headers to include in the request
+   * @return UnpublishPost200Response
+   * @throws ApiException if fails to make API call
+   */
+  public UnpublishPost200Response unpublishPost(@javax.annotation.Nonnull String postId, @javax.annotation.Nonnull UnpublishPostRequest unpublishPostRequest, Map<String, String> headers) throws ApiException {
+    ApiResponse<UnpublishPost200Response> localVarResponse = unpublishPostWithHttpInfo(postId, unpublishPostRequest, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Delete a published post from a social media platform
+   * Permanently deletes a published post from the specified social media platform. The post record in Late is kept but its platform status is set to \&quot;cancelled\&quot;.  **Supported platforms:** Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram.  **Not supported:** - **Instagram:** No deletion API available. Posts must be deleted manually. - **TikTok:** No deletion API available. Posts must be deleted manually. - **Snapchat:** No deletion API available. Posts must be deleted manually.  **Platform notes:** - **Telegram:** Messages older than 48 hours may fail to delete (Telegram Bot API limitation). - **YouTube:** This permanently deletes the video from YouTube. 
+   * @param postId  (required)
+   * @param unpublishPostRequest  (required)
+   * @return ApiResponse&lt;UnpublishPost200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnpublishPost200Response> unpublishPostWithHttpInfo(@javax.annotation.Nonnull String postId, @javax.annotation.Nonnull UnpublishPostRequest unpublishPostRequest) throws ApiException {
+    return unpublishPostWithHttpInfo(postId, unpublishPostRequest, null);
+  }
+
+  /**
+   * Delete a published post from a social media platform
+   * Permanently deletes a published post from the specified social media platform. The post record in Late is kept but its platform status is set to \&quot;cancelled\&quot;.  **Supported platforms:** Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram.  **Not supported:** - **Instagram:** No deletion API available. Posts must be deleted manually. - **TikTok:** No deletion API available. Posts must be deleted manually. - **Snapchat:** No deletion API available. Posts must be deleted manually.  **Platform notes:** - **Telegram:** Messages older than 48 hours may fail to delete (Telegram Bot API limitation). - **YouTube:** This permanently deletes the video from YouTube. 
+   * @param postId  (required)
+   * @param unpublishPostRequest  (required)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;UnpublishPost200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnpublishPost200Response> unpublishPostWithHttpInfo(@javax.annotation.Nonnull String postId, @javax.annotation.Nonnull UnpublishPostRequest unpublishPostRequest, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = unpublishPostRequestBuilder(postId, unpublishPostRequest, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("unpublishPost", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<UnpublishPost200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        UnpublishPost200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<UnpublishPost200Response>() {});
+        
+
+        return new ApiResponse<UnpublishPost200Response>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder unpublishPostRequestBuilder(@javax.annotation.Nonnull String postId, @javax.annotation.Nonnull UnpublishPostRequest unpublishPostRequest, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'postId' is set
+    if (postId == null) {
+      throw new ApiException(400, "Missing the required parameter 'postId' when calling unpublishPost");
+    }
+    // verify the required parameter 'unpublishPostRequest' is set
+    if (unpublishPostRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'unpublishPostRequest' when calling unpublishPost");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/posts/{postId}/unpublish"
+        .replace("{postId}", ApiClient.urlEncode(postId.toString()));
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(unpublishPostRequest);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }

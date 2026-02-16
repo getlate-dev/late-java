@@ -4,7 +4,7 @@ Late API
 
 - API version: 1.0.1
 
-- Build date: 2026-02-16T11:42:25.991231132Z[Etc/UTC]
+- Build date: 2026-02-16T18:15:45.495210887Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -306,6 +306,8 @@ Class | Method | HTTP request | Description
 *PostsApi* | [**listPostsWithHttpInfo**](docs/PostsApi.md#listPostsWithHttpInfo) | **GET** /v1/posts | List posts visible to the authenticated user
 *PostsApi* | [**retryPost**](docs/PostsApi.md#retryPost) | **POST** /v1/posts/{postId}/retry | Retry publishing a failed or partial post
 *PostsApi* | [**retryPostWithHttpInfo**](docs/PostsApi.md#retryPostWithHttpInfo) | **POST** /v1/posts/{postId}/retry | Retry publishing a failed or partial post
+*PostsApi* | [**unpublishPost**](docs/PostsApi.md#unpublishPost) | **POST** /v1/posts/{postId}/unpublish | Delete a published post from a social media platform
+*PostsApi* | [**unpublishPostWithHttpInfo**](docs/PostsApi.md#unpublishPostWithHttpInfo) | **POST** /v1/posts/{postId}/unpublish | Delete a published post from a social media platform
 *PostsApi* | [**updatePost**](docs/PostsApi.md#updatePost) | **PUT** /v1/posts/{postId} | Update a post
 *PostsApi* | [**updatePostWithHttpInfo**](docs/PostsApi.md#updatePostWithHttpInfo) | **PUT** /v1/posts/{postId} | Update a post
 *ProfilesApi* | [**createProfile**](docs/ProfilesApi.md#createProfile) | **POST** /v1/profiles | Create a new profile
@@ -697,7 +699,6 @@ Class | Method | HTTP request | Description
  - [SocialAccount](docs/SocialAccount.md)
  - [SocialAccountProfileId](docs/SocialAccountProfileId.md)
  - [TelegramPlatformData](docs/TelegramPlatformData.md)
- - [TestWebhook200Response](docs/TestWebhook200Response.md)
  - [TestWebhookRequest](docs/TestWebhookRequest.md)
  - [ThreadsPlatformData](docs/ThreadsPlatformData.md)
  - [TikTokPlatformData](docs/TikTokPlatformData.md)
@@ -707,6 +708,8 @@ Class | Method | HTTP request | Description
  - [TwitterPlatformData](docs/TwitterPlatformData.md)
  - [TwitterPlatformDataThreadItemsInner](docs/TwitterPlatformDataThreadItemsInner.md)
  - [UnlikeInboxComment200Response](docs/UnlikeInboxComment200Response.md)
+ - [UnpublishPost200Response](docs/UnpublishPost200Response.md)
+ - [UnpublishPostRequest](docs/UnpublishPostRequest.md)
  - [UpdateAccount200Response](docs/UpdateAccount200Response.md)
  - [UpdateAccountGroup200Response](docs/UpdateAccountGroup200Response.md)
  - [UpdateAccountGroupRequest](docs/UpdateAccountGroupRequest.md)

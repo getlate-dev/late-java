@@ -22,8 +22,8 @@ import dev.getlate.model.CreateWebhookSettingsRequest;
 import dev.getlate.model.GetWebhookLogs200Response;
 import dev.getlate.model.GetWebhookSettings200Response;
 import dev.getlate.model.InlineObject;
-import dev.getlate.model.TestWebhook200Response;
 import dev.getlate.model.TestWebhookRequest;
+import dev.getlate.model.UnpublishPost200Response;
 import dev.getlate.model.UpdateRedditSubreddits200Response;
 import dev.getlate.model.UpdateWebhookSettings200Response;
 import dev.getlate.model.UpdateWebhookSettingsRequest;
@@ -59,7 +59,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T11:42:25.991231132Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T18:15:45.495210887Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WebhooksApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -690,10 +690,10 @@ public class WebhooksApi {
    * Send test webhook
    * Send a test webhook to verify your endpoint is configured correctly. The test payload includes &#x60;event: \&quot;webhook.test\&quot;&#x60; to distinguish it from real events. 
    * @param testWebhookRequest  (required)
-   * @return TestWebhook200Response
+   * @return UnpublishPost200Response
    * @throws ApiException if fails to make API call
    */
-  public TestWebhook200Response testWebhook(@javax.annotation.Nonnull TestWebhookRequest testWebhookRequest) throws ApiException {
+  public UnpublishPost200Response testWebhook(@javax.annotation.Nonnull TestWebhookRequest testWebhookRequest) throws ApiException {
     return testWebhook(testWebhookRequest, null);
   }
 
@@ -702,11 +702,11 @@ public class WebhooksApi {
    * Send a test webhook to verify your endpoint is configured correctly. The test payload includes &#x60;event: \&quot;webhook.test\&quot;&#x60; to distinguish it from real events. 
    * @param testWebhookRequest  (required)
    * @param headers Optional headers to include in the request
-   * @return TestWebhook200Response
+   * @return UnpublishPost200Response
    * @throws ApiException if fails to make API call
    */
-  public TestWebhook200Response testWebhook(@javax.annotation.Nonnull TestWebhookRequest testWebhookRequest, Map<String, String> headers) throws ApiException {
-    ApiResponse<TestWebhook200Response> localVarResponse = testWebhookWithHttpInfo(testWebhookRequest, headers);
+  public UnpublishPost200Response testWebhook(@javax.annotation.Nonnull TestWebhookRequest testWebhookRequest, Map<String, String> headers) throws ApiException {
+    ApiResponse<UnpublishPost200Response> localVarResponse = testWebhookWithHttpInfo(testWebhookRequest, headers);
     return localVarResponse.getData();
   }
 
@@ -714,10 +714,10 @@ public class WebhooksApi {
    * Send test webhook
    * Send a test webhook to verify your endpoint is configured correctly. The test payload includes &#x60;event: \&quot;webhook.test\&quot;&#x60; to distinguish it from real events. 
    * @param testWebhookRequest  (required)
-   * @return ApiResponse&lt;TestWebhook200Response&gt;
+   * @return ApiResponse&lt;UnpublishPost200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<TestWebhook200Response> testWebhookWithHttpInfo(@javax.annotation.Nonnull TestWebhookRequest testWebhookRequest) throws ApiException {
+  public ApiResponse<UnpublishPost200Response> testWebhookWithHttpInfo(@javax.annotation.Nonnull TestWebhookRequest testWebhookRequest) throws ApiException {
     return testWebhookWithHttpInfo(testWebhookRequest, null);
   }
 
@@ -726,10 +726,10 @@ public class WebhooksApi {
    * Send a test webhook to verify your endpoint is configured correctly. The test payload includes &#x60;event: \&quot;webhook.test\&quot;&#x60; to distinguish it from real events. 
    * @param testWebhookRequest  (required)
    * @param headers Optional headers to include in the request
-   * @return ApiResponse&lt;TestWebhook200Response&gt;
+   * @return ApiResponse&lt;UnpublishPost200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<TestWebhook200Response> testWebhookWithHttpInfo(@javax.annotation.Nonnull TestWebhookRequest testWebhookRequest, Map<String, String> headers) throws ApiException {
+  public ApiResponse<UnpublishPost200Response> testWebhookWithHttpInfo(@javax.annotation.Nonnull TestWebhookRequest testWebhookRequest, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = testWebhookRequestBuilder(testWebhookRequest, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -745,7 +745,7 @@ public class WebhooksApi {
         }
         localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
         if (localVarResponseBody == null) {
-          return new ApiResponse<TestWebhook200Response>(
+          return new ApiResponse<UnpublishPost200Response>(
               localVarResponse.statusCode(),
               localVarResponse.headers().map(),
               null
@@ -755,10 +755,10 @@ public class WebhooksApi {
         
         
         String responseBody = new String(localVarResponseBody.readAllBytes());
-        TestWebhook200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<TestWebhook200Response>() {});
+        UnpublishPost200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<UnpublishPost200Response>() {});
         
 
-        return new ApiResponse<TestWebhook200Response>(
+        return new ApiResponse<UnpublishPost200Response>(
             localVarResponse.statusCode(),
             localVarResponse.headers().map(),
             responseValue

@@ -345,7 +345,6 @@ docs/SnapchatPlatformData.md
 docs/SocialAccount.md
 docs/SocialAccountProfileId.md
 docs/TelegramPlatformData.md
-docs/TestWebhook200Response.md
 docs/TestWebhookRequest.md
 docs/ThreadsPlatformData.md
 docs/TikTokPlatformData.md
@@ -356,6 +355,8 @@ docs/TranscriptSegment.md
 docs/TwitterPlatformData.md
 docs/TwitterPlatformDataThreadItemsInner.md
 docs/UnlikeInboxComment200Response.md
+docs/UnpublishPost200Response.md
+docs/UnpublishPostRequest.md
 docs/UpdateAccount200Response.md
 docs/UpdateAccountGroup200Response.md
 docs/UpdateAccountGroupRequest.md
@@ -790,7 +791,6 @@ src/main/java/dev/getlate/model/SnapchatPlatformData.java
 src/main/java/dev/getlate/model/SocialAccount.java
 src/main/java/dev/getlate/model/SocialAccountProfileId.java
 src/main/java/dev/getlate/model/TelegramPlatformData.java
-src/main/java/dev/getlate/model/TestWebhook200Response.java
 src/main/java/dev/getlate/model/TestWebhookRequest.java
 src/main/java/dev/getlate/model/ThreadsPlatformData.java
 src/main/java/dev/getlate/model/TikTokPlatformData.java
@@ -800,6 +800,8 @@ src/main/java/dev/getlate/model/TranscriptSegment.java
 src/main/java/dev/getlate/model/TwitterPlatformData.java
 src/main/java/dev/getlate/model/TwitterPlatformDataThreadItemsInner.java
 src/main/java/dev/getlate/model/UnlikeInboxComment200Response.java
+src/main/java/dev/getlate/model/UnpublishPost200Response.java
+src/main/java/dev/getlate/model/UnpublishPostRequest.java
 src/main/java/dev/getlate/model/UpdateAccount200Response.java
 src/main/java/dev/getlate/model/UpdateAccountGroup200Response.java
 src/main/java/dev/getlate/model/UpdateAccountGroupRequest.java
@@ -866,3 +868,5 @@ src/main/java/dev/getlate/model/YouTubeDailyViewsResponseScopeStatus.java
 src/main/java/dev/getlate/model/YouTubePlatformData.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponseScopeStatus.java
+src/test/java/dev/getlate/model/UnpublishPost200ResponseTest.java
+src/test/java/dev/getlate/model/UnpublishPostRequestTest.java

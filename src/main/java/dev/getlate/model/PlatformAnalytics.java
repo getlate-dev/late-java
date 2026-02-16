@@ -42,7 +42,7 @@ import dev.getlate.ApiClient;
   PlatformAnalytics.JSON_PROPERTY_ANALYTICS,
   PlatformAnalytics.JSON_PROPERTY_ACCOUNT_METRICS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T11:42:25.991231132Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T18:15:45.495210887Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class PlatformAnalytics {
   public static final String JSON_PROPERTY_PLATFORM = "platform";
   @javax.annotation.Nullable

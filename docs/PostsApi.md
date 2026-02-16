@@ -16,6 +16,8 @@ All URIs are relative to *https://getlate.dev/api*
 | [**listPostsWithHttpInfo**](PostsApi.md#listPostsWithHttpInfo) | **GET** /v1/posts | List posts visible to the authenticated user |
 | [**retryPost**](PostsApi.md#retryPost) | **POST** /v1/posts/{postId}/retry | Retry publishing a failed or partial post |
 | [**retryPostWithHttpInfo**](PostsApi.md#retryPostWithHttpInfo) | **POST** /v1/posts/{postId}/retry | Retry publishing a failed or partial post |
+| [**unpublishPost**](PostsApi.md#unpublishPost) | **POST** /v1/posts/{postId}/unpublish | Delete a published post from a social media platform |
+| [**unpublishPostWithHttpInfo**](PostsApi.md#unpublishPostWithHttpInfo) | **POST** /v1/posts/{postId}/unpublish | Delete a published post from a social media platform |
 | [**updatePost**](PostsApi.md#updatePost) | **PUT** /v1/posts/{postId} | Update a post |
 | [**updatePostWithHttpInfo**](PostsApi.md#updatePostWithHttpInfo) | **PUT** /v1/posts/{postId} | Update a post |
 
@@ -959,6 +961,164 @@ ApiResponse<[**PostRetryResponse**](PostRetryResponse.md)>
 | **404** | Resource not found |  -  |
 | **409** | Post is currently publishing |  -  |
 | **429** | Rate limit exceeded. Can be triggered by: - **API rate limit**: Requests per minute exceeded - **Velocity limit**: 15 posts per hour per account exceeded - **Account cooldown**: Account temporarily rate-limited due to repeated errors  |  -  |
+
+
+## unpublishPost
+
+> UnpublishPost200Response unpublishPost(postId, unpublishPostRequest)
+
+Delete a published post from a social media platform
+
+Permanently deletes a published post from the specified social media platform. The post record in Late is kept but its platform status is set to \&quot;cancelled\&quot;.  **Supported platforms:** Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram.  **Not supported:** - **Instagram:** No deletion API available. Posts must be deleted manually. - **TikTok:** No deletion API available. Posts must be deleted manually. - **Snapchat:** No deletion API available. Posts must be deleted manually.  **Platform notes:** - **Telegram:** Messages older than 48 hours may fail to delete (Telegram Bot API limitation). - **YouTube:** This permanently deletes the video from YouTube. 
+
+### Example
+
+```java
+// Import classes:
+import dev.getlate.ApiClient;
+import dev.getlate.ApiException;
+import dev.getlate.Configuration;
+import dev.getlate.auth.*;
+import dev.getlate.models.*;
+import dev.getlate.api.PostsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://getlate.dev/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        PostsApi apiInstance = new PostsApi(defaultClient);
+        String postId = "postId_example"; // String | 
+        UnpublishPostRequest unpublishPostRequest = new UnpublishPostRequest(); // UnpublishPostRequest | 
+        try {
+            UnpublishPost200Response result = apiInstance.unpublishPost(postId, unpublishPostRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PostsApi#unpublishPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **postId** | **String**|  | |
+| **unpublishPostRequest** | [**UnpublishPostRequest**](UnpublishPostRequest.md)|  | |
+
+### Return type
+
+[**UnpublishPost200Response**](UnpublishPost200Response.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Post deleted from platform |  -  |
+| **400** | Invalid request. Possible reasons: - Platform not recognized or not supported for deletion - Post does not have the specified platform - Post is not in \&quot;published\&quot; status on that platform - No platform post ID found (post may not have been published correctly) - No access token (account needs to be reconnected)  |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Resource not found |  -  |
+| **500** | Platform API deletion failed |  -  |
+
+## unpublishPostWithHttpInfo
+
+> ApiResponse<UnpublishPost200Response> unpublishPost unpublishPostWithHttpInfo(postId, unpublishPostRequest)
+
+Delete a published post from a social media platform
+
+Permanently deletes a published post from the specified social media platform. The post record in Late is kept but its platform status is set to \&quot;cancelled\&quot;.  **Supported platforms:** Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram.  **Not supported:** - **Instagram:** No deletion API available. Posts must be deleted manually. - **TikTok:** No deletion API available. Posts must be deleted manually. - **Snapchat:** No deletion API available. Posts must be deleted manually.  **Platform notes:** - **Telegram:** Messages older than 48 hours may fail to delete (Telegram Bot API limitation). - **YouTube:** This permanently deletes the video from YouTube. 
+
+### Example
+
+```java
+// Import classes:
+import dev.getlate.ApiClient;
+import dev.getlate.ApiException;
+import dev.getlate.ApiResponse;
+import dev.getlate.Configuration;
+import dev.getlate.auth.*;
+import dev.getlate.models.*;
+import dev.getlate.api.PostsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://getlate.dev/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        PostsApi apiInstance = new PostsApi(defaultClient);
+        String postId = "postId_example"; // String | 
+        UnpublishPostRequest unpublishPostRequest = new UnpublishPostRequest(); // UnpublishPostRequest | 
+        try {
+            ApiResponse<UnpublishPost200Response> response = apiInstance.unpublishPostWithHttpInfo(postId, unpublishPostRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PostsApi#unpublishPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **postId** | **String**|  | |
+| **unpublishPostRequest** | [**UnpublishPostRequest**](UnpublishPostRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**UnpublishPost200Response**](UnpublishPost200Response.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Post deleted from platform |  -  |
+| **400** | Invalid request. Possible reasons: - Platform not recognized or not supported for deletion - Post does not have the specified platform - Post is not in \&quot;published\&quot; status on that platform - No platform post ID found (post may not have been published correctly) - No access token (account needs to be reconnected)  |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Resource not found |  -  |
+| **500** | Platform API deletion failed |  -  |
 
 
 ## updatePost

@@ -2079,6 +2079,71 @@ paths:
       - Posts
       x-accepts:
       - application/json
+  /v1/posts/{postId}/unpublish:
+    post:
+      description: |
+        Permanently deletes a published post from the specified social media platform.
+        The post record in Late is kept but its platform status is set to "cancelled".
+
+        **Supported platforms:** Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram.
+
+        **Not supported:**
+        - **Instagram:** No deletion API available. Posts must be deleted manually.
+        - **TikTok:** No deletion API available. Posts must be deleted manually.
+        - **Snapchat:** No deletion API available. Posts must be deleted manually.
+
+        **Platform notes:**
+        - **Telegram:** Messages older than 48 hours may fail to delete (Telegram Bot API limitation).
+        - **YouTube:** This permanently deletes the video from YouTube.
+      operationId: unpublishPost
+      parameters:
+      - explode: false
+        in: path
+        name: postId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            example:
+              platform: threads
+            schema:
+              $ref: "#/components/schemas/unpublishPost_request"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                success: true
+                message: Post deleted from threads successfully
+              schema:
+                $ref: "#/components/schemas/unpublishPost_200_response"
+          description: Post deleted from platform
+        "400":
+          description: |
+            Invalid request. Possible reasons:
+            - Platform not recognized or not supported for deletion
+            - Post does not have the specified platform
+            - Post is not in "published" status on that platform
+            - No platform post ID found (post may not have been published correctly)
+            - No access token (account needs to be reconnected)
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          description: Forbidden
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "500":
+          description: Platform API deletion failed
+      summary: Delete a published post from a social media platform
+      tags:
+      - Posts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /v1/users:
     get:
       operationId: listUsers
@@ -6506,7 +6571,7 @@ paths:
                 success: true
                 message: Test webhook sent successfully
               schema:
-                $ref: "#/components/schemas/testWebhook_200_response"
+                $ref: "#/components/schemas/unpublishPost_200_response"
           description: Test webhook sent successfully
         "400":
           description: Webhook ID required
@@ -6519,7 +6584,7 @@ paths:
                 success: false
                 message: Test webhook failed
               schema:
-                $ref: "#/components/schemas/testWebhook_200_response"
+                $ref: "#/components/schemas/unpublishPost_200_response"
           description: Test webhook failed to deliver
       security:
       - bearerAuth: []
@@ -13843,6 +13908,33 @@ components:
           type: string
         details:
           type: object
+    unpublishPost_request:
+      properties:
+        platform:
+          description: The platform to delete the post from
+          enum:
+          - threads
+          - facebook
+          - twitter
+          - linkedin
+          - youtube
+          - pinterest
+          - reddit
+          - bluesky
+          - googlebusiness
+          - telegram
+          type: string
+      required:
+      - platform
+    unpublishPost_200_response:
+      example:
+        success: true
+        message: message
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
     listUsers_200_response_users_inner:
       example:
         profileAccess:
@@ -18423,15 +18515,6 @@ components:
           type: string
       required:
       - webhookId
-    testWebhook_200_response:
-      example:
-        success: true
-        message: message
-      properties:
-        success:
-          type: boolean
-        message:
-          type: string
     getWebhookLogs_200_response:
       example:
         logs:
