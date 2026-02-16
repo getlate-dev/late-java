@@ -38,7 +38,7 @@ import dev.getlate.ApiClient;
   ErrorResponse.JSON_PROPERTY_ERROR,
   ErrorResponse.JSON_PROPERTY_DETAILS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T18:31:55.532937671Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T20:23:55.802652085Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ErrorResponse {
   public static final String JSON_PROPERTY_ERROR = "error";
   @javax.annotation.Nullable

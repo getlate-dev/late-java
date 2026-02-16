@@ -42,7 +42,7 @@ import dev.getlate.ApiClient;
   UpdateQueueSlot200Response.JSON_PROPERTY_NEXT_SLOTS,
   UpdateQueueSlot200Response.JSON_PROPERTY_RESHUFFLED_COUNT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T18:31:55.532937671Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T20:23:55.802652085Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UpdateQueueSlot200Response {
   public static final String JSON_PROPERTY_SUCCESS = "success";
   @javax.annotation.Nullable
