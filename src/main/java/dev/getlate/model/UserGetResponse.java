@@ -36,7 +36,7 @@ import dev.getlate.ApiClient;
 @JsonPropertyOrder({
   UserGetResponse.JSON_PROPERTY_USER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T20:23:55.802652085Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T07:51:32.891397159Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UserGetResponse {
   public static final String JSON_PROPERTY_USER = "user";
   @javax.annotation.Nullable
