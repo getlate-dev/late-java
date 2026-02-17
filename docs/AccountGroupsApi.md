@@ -21,6 +21,8 @@ All URIs are relative to *https://getlate.dev/api*
 
 Create group
 
+Creates a new account group with a name and a list of social account IDs.
+
 ### Example
 
 ```java
@@ -91,6 +93,8 @@ public class Example {
 > ApiResponse<CreateAccountGroup201Response> createAccountGroup createAccountGroupWithHttpInfo(createAccountGroupRequest)
 
 Create group
+
+Creates a new account group with a name and a list of social account IDs.
 
 ### Example
 
@@ -167,6 +171,8 @@ ApiResponse<[**CreateAccountGroup201Response**](CreateAccountGroup201Response.md
 
 Delete group
 
+Permanently deletes an account group. The accounts themselves are not affected.
+
 ### Example
 
 ```java
@@ -236,6 +242,8 @@ public class Example {
 > ApiResponse<DeleteAccountGroup200Response> deleteAccountGroup deleteAccountGroupWithHttpInfo(groupId)
 
 Delete group
+
+Permanently deletes an account group. The accounts themselves are not affected.
 
 ### Example
 
@@ -311,6 +319,8 @@ ApiResponse<[**DeleteAccountGroup200Response**](DeleteAccountGroup200Response.md
 
 List groups
 
+Returns all account groups for the authenticated user, including group names and associated account IDs.
+
 ### Example
 
 ```java
@@ -375,6 +385,8 @@ This endpoint does not need any parameter.
 > ApiResponse<ListAccountGroups200Response> listAccountGroups listAccountGroupsWithHttpInfo()
 
 List groups
+
+Returns all account groups for the authenticated user, including group names and associated account IDs.
 
 ### Example
 
@@ -444,6 +456,8 @@ ApiResponse<[**ListAccountGroups200Response**](ListAccountGroups200Response.md)>
 > UpdateAccountGroup200Response updateAccountGroup(groupId, updateAccountGroupRequest)
 
 Update group
+
+Updates the name or account list of an existing group. You can rename the group, change its accounts, or both.
 
 ### Example
 
@@ -517,6 +531,8 @@ public class Example {
 > ApiResponse<UpdateAccountGroup200Response> updateAccountGroup updateAccountGroupWithHttpInfo(groupId, updateAccountGroupRequest)
 
 Update group
+
+Updates the name or account list of an existing group. You can rename the group, change its accounts, or both.
 
 ### Example
 

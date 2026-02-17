@@ -15,7 +15,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 Resolve LinkedIn mention
 
-Converts a LinkedIn profile or company URL to a URN for @mentions in posts. Supports person mentions (linkedin.com/in/username or just username) and org mentions (linkedin.com/company/name or company/name). Person mentions require admin access to at least one LinkedIn Organization. Org mentions work with any account. For person mentions to be clickable, provide the displayName parameter matching the exact name on their profile. Org names are fetched automatically. Use the returned mentionFormat directly in post content. 
+Converts a LinkedIn profile or company URL to a URN for @mentions in posts. Person mentions require org admin access. Use the returned mentionFormat in post content.
 
 ### Example
 
@@ -39,8 +39,8 @@ public class Example {
 
         LinkedInMentionsApi apiInstance = new LinkedInMentionsApi(defaultClient);
         String accountId = "accountId_example"; // String | The LinkedIn account ID
-        String url = "miquelpalet"; // String | LinkedIn profile URL, company URL, or vanity name. Person examples: miquelpalet, linkedin.com/in/miquelpalet. Organization examples: company/microsoft, linkedin.com/company/microsoft. 
-        String displayName = "Miquel Palet"; // String | The exact display name as shown on LinkedIn. Required for person mentions (for clickable mentions; if not provided, a name is derived from the vanity URL which may not match). Optional for organization mentions (company name is auto-retrieved from LinkedIn). 
+        String url = "miquelpalet"; // String | LinkedIn profile URL, company URL, or vanity name.
+        String displayName = "Miquel Palet"; // String | Exact display name as shown on LinkedIn. Required for person mentions to be clickable. Optional for org mentions.
         try {
             GetLinkedInMentions200Response result = apiInstance.getLinkedInMentions(accountId, url, displayName);
             System.out.println(result);
@@ -61,8 +61,8 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **accountId** | **String**| The LinkedIn account ID | |
-| **url** | **String**| LinkedIn profile URL, company URL, or vanity name. Person examples: miquelpalet, linkedin.com/in/miquelpalet. Organization examples: company/microsoft, linkedin.com/company/microsoft.  | |
-| **displayName** | **String**| The exact display name as shown on LinkedIn. Required for person mentions (for clickable mentions; if not provided, a name is derived from the vanity URL which may not match). Optional for organization mentions (company name is auto-retrieved from LinkedIn).  | [optional] |
+| **url** | **String**| LinkedIn profile URL, company URL, or vanity name. | |
+| **displayName** | **String**| Exact display name as shown on LinkedIn. Required for person mentions to be clickable. Optional for org mentions. | [optional] |
 
 ### Return type
 
@@ -92,7 +92,7 @@ public class Example {
 
 Resolve LinkedIn mention
 
-Converts a LinkedIn profile or company URL to a URN for @mentions in posts. Supports person mentions (linkedin.com/in/username or just username) and org mentions (linkedin.com/company/name or company/name). Person mentions require admin access to at least one LinkedIn Organization. Org mentions work with any account. For person mentions to be clickable, provide the displayName parameter matching the exact name on their profile. Org names are fetched automatically. Use the returned mentionFormat directly in post content. 
+Converts a LinkedIn profile or company URL to a URN for @mentions in posts. Person mentions require org admin access. Use the returned mentionFormat in post content.
 
 ### Example
 
@@ -117,8 +117,8 @@ public class Example {
 
         LinkedInMentionsApi apiInstance = new LinkedInMentionsApi(defaultClient);
         String accountId = "accountId_example"; // String | The LinkedIn account ID
-        String url = "miquelpalet"; // String | LinkedIn profile URL, company URL, or vanity name. Person examples: miquelpalet, linkedin.com/in/miquelpalet. Organization examples: company/microsoft, linkedin.com/company/microsoft. 
-        String displayName = "Miquel Palet"; // String | The exact display name as shown on LinkedIn. Required for person mentions (for clickable mentions; if not provided, a name is derived from the vanity URL which may not match). Optional for organization mentions (company name is auto-retrieved from LinkedIn). 
+        String url = "miquelpalet"; // String | LinkedIn profile URL, company URL, or vanity name.
+        String displayName = "Miquel Palet"; // String | Exact display name as shown on LinkedIn. Required for person mentions to be clickable. Optional for org mentions.
         try {
             ApiResponse<GetLinkedInMentions200Response> response = apiInstance.getLinkedInMentionsWithHttpInfo(accountId, url, displayName);
             System.out.println("Status code: " + response.getStatusCode());
@@ -141,8 +141,8 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **accountId** | **String**| The LinkedIn account ID | |
-| **url** | **String**| LinkedIn profile URL, company URL, or vanity name. Person examples: miquelpalet, linkedin.com/in/miquelpalet. Organization examples: company/microsoft, linkedin.com/company/microsoft.  | |
-| **displayName** | **String**| The exact display name as shown on LinkedIn. Required for person mentions (for clickable mentions; if not provided, a name is derived from the vanity URL which may not match). Optional for organization mentions (company name is auto-retrieved from LinkedIn).  | [optional] |
+| **url** | **String**| LinkedIn profile URL, company URL, or vanity name. | |
+| **displayName** | **String**| Exact display name as shown on LinkedIn. Required for person mentions to be clickable. Optional for org mentions. | [optional] |
 
 ### Return type
 

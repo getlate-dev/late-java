@@ -17,6 +17,8 @@ All URIs are relative to *https://getlate.dev/api*
 
 Get subreddit feed
 
+Fetch posts from a subreddit feed. Supports sorting, time filtering, and cursor-based pagination.
+
 ### Example
 
 ```java
@@ -97,6 +99,8 @@ public class Example {
 > ApiResponse<GetRedditFeed200Response> getRedditFeed getRedditFeedWithHttpInfo(accountId, subreddit, sort, limit, after, t)
 
 Get subreddit feed
+
+Fetch posts from a subreddit feed. Supports sorting, time filtering, and cursor-based pagination.
 
 ### Example
 
@@ -183,6 +187,8 @@ ApiResponse<[**GetRedditFeed200Response**](GetRedditFeed200Response.md)>
 
 Search posts
 
+Search Reddit posts using a connected account. Optionally scope to a specific subreddit.
+
 ### Example
 
 ```java
@@ -265,6 +271,8 @@ public class Example {
 > ApiResponse<SearchReddit200Response> searchReddit searchRedditWithHttpInfo(accountId, q, subreddit, restrictSr, sort, limit, after)
 
 Search posts
+
+Search Reddit posts using a connected account. Optionally scope to a specific subreddit.
 
 ### Example
 

@@ -2,7 +2,7 @@
 
 # SelectGoogleBusinessLocationRequestUserProfile
 
-Decoded user profile object from the OAuth callback. Contains the refresh token needed for token refresh. Always include this field. 
+Decoded user profile from the OAuth callback. Contains the refresh token. Always include this field.
 
 ## Properties
 

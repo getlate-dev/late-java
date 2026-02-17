@@ -17,7 +17,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 Get food menus
 
-Fetches food menus for a connected Google Business Profile location. Returns the full menu structure including sections, items with pricing, dietary info, allergens, and variants. Only available for locations with food menu support (restaurants, cafes, etc.). 
+Returns food menus for a GBP location including sections, items, pricing, and dietary info. Only for locations with food menu support.
 
 ### Example
 
@@ -92,7 +92,7 @@ public class Example {
 
 Get food menus
 
-Fetches food menus for a connected Google Business Profile location. Returns the full menu structure including sections, items with pricing, dietary info, allergens, and variants. Only available for locations with food menu support (restaurants, cafes, etc.). 
+Returns food menus for a GBP location including sections, items, pricing, and dietary info. Only for locations with food menu support.
 
 ### Example
 
@@ -171,7 +171,7 @@ ApiResponse<[**GetGoogleBusinessFoodMenus200Response**](GetGoogleBusinessFoodMen
 
 Update food menus
 
-Updates the food menus for a connected Google Business Profile location.  Send the full menus array. Use updateMask for partial updates (e.g. \&quot;menus\&quot; to only update the menus field).  Each menu can contain sections, and each section can contain items with pricing, dietary restrictions, allergens, and more. 
+Updates food menus for a GBP location. Send the full menus array. Use updateMask for partial updates.
 
 ### Example
 
@@ -248,7 +248,7 @@ public class Example {
 
 Update food menus
 
-Updates the food menus for a connected Google Business Profile location.  Send the full menus array. Use updateMask for partial updates (e.g. \&quot;menus\&quot; to only update the menus field).  Each menu can contain sections, and each section can contain items with pricing, dietary restrictions, allergens, and more. 
+Updates food menus for a GBP location. Send the full menus array. Use updateMask for partial updates.
 
 ### Example
 

@@ -49,7 +49,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GmbMediaApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -300,7 +300,7 @@ public class GmbMediaApi {
 
   /**
    * Delete photo
-   * 
+   * Deletes a photo or media item from a GBP location.
    * @param accountId  (required)
    * @param mediaId The media item ID to delete (required)
    * @return DeleteGoogleBusinessMedia200Response
@@ -312,7 +312,7 @@ public class GmbMediaApi {
 
   /**
    * Delete photo
-   * 
+   * Deletes a photo or media item from a GBP location.
    * @param accountId  (required)
    * @param mediaId The media item ID to delete (required)
    * @param headers Optional headers to include in the request
@@ -326,7 +326,7 @@ public class GmbMediaApi {
 
   /**
    * Delete photo
-   * 
+   * Deletes a photo or media item from a GBP location.
    * @param accountId  (required)
    * @param mediaId The media item ID to delete (required)
    * @return ApiResponse&lt;DeleteGoogleBusinessMedia200Response&gt;
@@ -338,7 +338,7 @@ public class GmbMediaApi {
 
   /**
    * Delete photo
-   * 
+   * Deletes a photo or media item from a GBP location.
    * @param accountId  (required)
    * @param mediaId The media item ID to delete (required)
    * @param headers Optional headers to include in the request

@@ -15,6 +15,8 @@ All URIs are relative to *https://getlate.dev/api*
 
 Get plan and usage stats
 
+Returns the current plan name, billing period, plan limits, and usage counts.
+
 ### Example
 
 ```java
@@ -80,6 +82,8 @@ This endpoint does not need any parameter.
 > ApiResponse<UsageStats> getUsageStats getUsageStatsWithHttpInfo()
 
 Get plan and usage stats
+
+Returns the current plan name, billing period, plan limits, and usage counts.
 
 ### Example
 

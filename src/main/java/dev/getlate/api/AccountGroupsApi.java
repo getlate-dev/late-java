@@ -52,7 +52,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AccountGroupsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -171,7 +171,7 @@ public class AccountGroupsApi {
 
   /**
    * Create group
-   * 
+   * Creates a new account group with a name and a list of social account IDs.
    * @param createAccountGroupRequest  (required)
    * @return CreateAccountGroup201Response
    * @throws ApiException if fails to make API call
@@ -182,7 +182,7 @@ public class AccountGroupsApi {
 
   /**
    * Create group
-   * 
+   * Creates a new account group with a name and a list of social account IDs.
    * @param createAccountGroupRequest  (required)
    * @param headers Optional headers to include in the request
    * @return CreateAccountGroup201Response
@@ -195,7 +195,7 @@ public class AccountGroupsApi {
 
   /**
    * Create group
-   * 
+   * Creates a new account group with a name and a list of social account IDs.
    * @param createAccountGroupRequest  (required)
    * @return ApiResponse&lt;CreateAccountGroup201Response&gt;
    * @throws ApiException if fails to make API call
@@ -206,7 +206,7 @@ public class AccountGroupsApi {
 
   /**
    * Create group
-   * 
+   * Creates a new account group with a name and a list of social account IDs.
    * @param createAccountGroupRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;CreateAccountGroup201Response&gt;
@@ -294,7 +294,7 @@ public class AccountGroupsApi {
 
   /**
    * Delete group
-   * 
+   * Permanently deletes an account group. The accounts themselves are not affected.
    * @param groupId  (required)
    * @return DeleteAccountGroup200Response
    * @throws ApiException if fails to make API call
@@ -305,7 +305,7 @@ public class AccountGroupsApi {
 
   /**
    * Delete group
-   * 
+   * Permanently deletes an account group. The accounts themselves are not affected.
    * @param groupId  (required)
    * @param headers Optional headers to include in the request
    * @return DeleteAccountGroup200Response
@@ -318,7 +318,7 @@ public class AccountGroupsApi {
 
   /**
    * Delete group
-   * 
+   * Permanently deletes an account group. The accounts themselves are not affected.
    * @param groupId  (required)
    * @return ApiResponse&lt;DeleteAccountGroup200Response&gt;
    * @throws ApiException if fails to make API call
@@ -329,7 +329,7 @@ public class AccountGroupsApi {
 
   /**
    * Delete group
-   * 
+   * Permanently deletes an account group. The accounts themselves are not affected.
    * @param groupId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;DeleteAccountGroup200Response&gt;
@@ -412,7 +412,7 @@ public class AccountGroupsApi {
 
   /**
    * List groups
-   * 
+   * Returns all account groups for the authenticated user, including group names and associated account IDs.
    * @return ListAccountGroups200Response
    * @throws ApiException if fails to make API call
    */
@@ -422,7 +422,7 @@ public class AccountGroupsApi {
 
   /**
    * List groups
-   * 
+   * Returns all account groups for the authenticated user, including group names and associated account IDs.
    * @param headers Optional headers to include in the request
    * @return ListAccountGroups200Response
    * @throws ApiException if fails to make API call
@@ -434,7 +434,7 @@ public class AccountGroupsApi {
 
   /**
    * List groups
-   * 
+   * Returns all account groups for the authenticated user, including group names and associated account IDs.
    * @return ApiResponse&lt;ListAccountGroups200Response&gt;
    * @throws ApiException if fails to make API call
    */
@@ -444,7 +444,7 @@ public class AccountGroupsApi {
 
   /**
    * List groups
-   * 
+   * Returns all account groups for the authenticated user, including group names and associated account IDs.
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;ListAccountGroups200Response&gt;
    * @throws ApiException if fails to make API call
@@ -521,7 +521,7 @@ public class AccountGroupsApi {
 
   /**
    * Update group
-   * 
+   * Updates the name or account list of an existing group. You can rename the group, change its accounts, or both.
    * @param groupId  (required)
    * @param updateAccountGroupRequest  (required)
    * @return UpdateAccountGroup200Response
@@ -533,7 +533,7 @@ public class AccountGroupsApi {
 
   /**
    * Update group
-   * 
+   * Updates the name or account list of an existing group. You can rename the group, change its accounts, or both.
    * @param groupId  (required)
    * @param updateAccountGroupRequest  (required)
    * @param headers Optional headers to include in the request
@@ -547,7 +547,7 @@ public class AccountGroupsApi {
 
   /**
    * Update group
-   * 
+   * Updates the name or account list of an existing group. You can rename the group, change its accounts, or both.
    * @param groupId  (required)
    * @param updateAccountGroupRequest  (required)
    * @return ApiResponse&lt;UpdateAccountGroup200Response&gt;
@@ -559,7 +559,7 @@ public class AccountGroupsApi {
 
   /**
    * Update group
-   * 
+   * Updates the name or account list of an existing group. You can rename the group, change its accounts, or both.
    * @param groupId  (required)
    * @param updateAccountGroupRequest  (required)
    * @param headers Optional headers to include in the request

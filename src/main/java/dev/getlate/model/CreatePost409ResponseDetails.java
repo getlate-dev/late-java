@@ -37,7 +37,7 @@ import dev.getlate.ApiClient;
   CreatePost409ResponseDetails.JSON_PROPERTY_PLATFORM,
   CreatePost409ResponseDetails.JSON_PROPERTY_EXISTING_POST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreatePost409ResponseDetails {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nullable

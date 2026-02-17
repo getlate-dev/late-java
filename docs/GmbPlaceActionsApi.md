@@ -171,6 +171,8 @@ ApiResponse<[**CreateGoogleBusinessPlaceAction200Response**](CreateGoogleBusines
 
 Delete action link
 
+Deletes a place action link (e.g. booking or ordering URL) from a GBP location.
+
 ### Example
 
 ```java
@@ -242,6 +244,8 @@ public class Example {
 > ApiResponse<DeleteGoogleBusinessPlaceAction200Response> deleteGoogleBusinessPlaceAction deleteGoogleBusinessPlaceActionWithHttpInfo(accountId, name)
 
 Delete action link
+
+Deletes a place action link (e.g. booking or ordering URL) from a GBP location.
 
 ### Example
 

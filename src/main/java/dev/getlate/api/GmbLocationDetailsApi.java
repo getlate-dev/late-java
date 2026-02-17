@@ -49,7 +49,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GmbLocationDetailsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -168,9 +168,9 @@ public class GmbLocationDetailsApi {
 
   /**
    * Get location details
-   * Fetches detailed location information including opening hours, special hours, business description, phone numbers, website, categories, and more.  Use the readMask query parameter to request specific fields. 
+   * Returns detailed GBP location info (hours, description, phone, website, categories). Use readMask to request specific fields.
    * @param accountId The Late account ID (from /v1/accounts) (required)
-   * @param readMask Comma-separated fields to return. Defaults to common fields. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, profile, openInfo, metadata, moreHours  (optional)
+   * @param readMask Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, profile, openInfo, metadata, moreHours. (optional)
    * @return GetGoogleBusinessLocationDetails200Response
    * @throws ApiException if fails to make API call
    */
@@ -180,9 +180,9 @@ public class GmbLocationDetailsApi {
 
   /**
    * Get location details
-   * Fetches detailed location information including opening hours, special hours, business description, phone numbers, website, categories, and more.  Use the readMask query parameter to request specific fields. 
+   * Returns detailed GBP location info (hours, description, phone, website, categories). Use readMask to request specific fields.
    * @param accountId The Late account ID (from /v1/accounts) (required)
-   * @param readMask Comma-separated fields to return. Defaults to common fields. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, profile, openInfo, metadata, moreHours  (optional)
+   * @param readMask Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, profile, openInfo, metadata, moreHours. (optional)
    * @param headers Optional headers to include in the request
    * @return GetGoogleBusinessLocationDetails200Response
    * @throws ApiException if fails to make API call
@@ -194,9 +194,9 @@ public class GmbLocationDetailsApi {
 
   /**
    * Get location details
-   * Fetches detailed location information including opening hours, special hours, business description, phone numbers, website, categories, and more.  Use the readMask query parameter to request specific fields. 
+   * Returns detailed GBP location info (hours, description, phone, website, categories). Use readMask to request specific fields.
    * @param accountId The Late account ID (from /v1/accounts) (required)
-   * @param readMask Comma-separated fields to return. Defaults to common fields. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, profile, openInfo, metadata, moreHours  (optional)
+   * @param readMask Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, profile, openInfo, metadata, moreHours. (optional)
    * @return ApiResponse&lt;GetGoogleBusinessLocationDetails200Response&gt;
    * @throws ApiException if fails to make API call
    */
@@ -206,9 +206,9 @@ public class GmbLocationDetailsApi {
 
   /**
    * Get location details
-   * Fetches detailed location information including opening hours, special hours, business description, phone numbers, website, categories, and more.  Use the readMask query parameter to request specific fields. 
+   * Returns detailed GBP location info (hours, description, phone, website, categories). Use readMask to request specific fields.
    * @param accountId The Late account ID (from /v1/accounts) (required)
-   * @param readMask Comma-separated fields to return. Defaults to common fields. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, profile, openInfo, metadata, moreHours  (optional)
+   * @param readMask Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, profile, openInfo, metadata, moreHours. (optional)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetGoogleBusinessLocationDetails200Response&gt;
    * @throws ApiException if fails to make API call
@@ -305,7 +305,7 @@ public class GmbLocationDetailsApi {
 
   /**
    * Update location details
-   * Updates location details such as opening hours, special hours, business description, phone, and website. The updateMask field is required and specifies which fields to update. Common masks: regularHours, specialHours, profile.description, websiteUri, phoneNumbers. Combine with commas (e.g. regularHours,specialHours). 
+   * Updates GBP location details (hours, description, phone, website). The updateMask field is required and specifies which fields to update.
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param updateGoogleBusinessLocationDetailsRequest  (required)
    * @return UpdateGoogleBusinessLocationDetails200Response
@@ -317,7 +317,7 @@ public class GmbLocationDetailsApi {
 
   /**
    * Update location details
-   * Updates location details such as opening hours, special hours, business description, phone, and website. The updateMask field is required and specifies which fields to update. Common masks: regularHours, specialHours, profile.description, websiteUri, phoneNumbers. Combine with commas (e.g. regularHours,specialHours). 
+   * Updates GBP location details (hours, description, phone, website). The updateMask field is required and specifies which fields to update.
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param updateGoogleBusinessLocationDetailsRequest  (required)
    * @param headers Optional headers to include in the request
@@ -331,7 +331,7 @@ public class GmbLocationDetailsApi {
 
   /**
    * Update location details
-   * Updates location details such as opening hours, special hours, business description, phone, and website. The updateMask field is required and specifies which fields to update. Common masks: regularHours, specialHours, profile.description, websiteUri, phoneNumbers. Combine with commas (e.g. regularHours,specialHours). 
+   * Updates GBP location details (hours, description, phone, website). The updateMask field is required and specifies which fields to update.
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param updateGoogleBusinessLocationDetailsRequest  (required)
    * @return ApiResponse&lt;UpdateGoogleBusinessLocationDetails200Response&gt;
@@ -343,7 +343,7 @@ public class GmbLocationDetailsApi {
 
   /**
    * Update location details
-   * Updates location details such as opening hours, special hours, business description, phone, and website. The updateMask field is required and specifies which fields to update. Common masks: regularHours, specialHours, profile.description, websiteUri, phoneNumbers. Combine with commas (e.g. regularHours,specialHours). 
+   * Updates GBP location details (hours, description, phone, website). The updateMask field is required and specifies which fields to update.
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param updateGoogleBusinessLocationDetailsRequest  (required)
    * @param headers Optional headers to include in the request

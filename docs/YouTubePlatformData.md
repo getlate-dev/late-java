@@ -2,7 +2,7 @@
 
 # YouTubePlatformData
 
-Videos up to 3 min are auto-detected as Shorts, longer as regular videos. Custom thumbnails supported for regular videos only (via mediaItem.thumbnail). Scheduled videos are uploaded immediately with the specified visibility. madeForKids defaults to false.
+Videos under 3 min auto-detected as Shorts. Custom thumbnails for regular videos only. Scheduled videos are uploaded immediately with the specified visibility.
 
 ## Properties
 

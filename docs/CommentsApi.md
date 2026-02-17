@@ -54,7 +54,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
-        String postId = "postId_example"; // String | The post identifier. Accepts a Late post ID or a platform-specific post ID.  LinkedIn: for third-party posts, pass the full activity URN (e.g. urn:li:activity:7422459067685855232) or the raw numeric activity ID from the URL. 
+        String postId = "postId_example"; // String | Late post ID or platform-specific post ID. LinkedIn third-party posts accept full activity URN or numeric ID.
         String accountId = "accountId_example"; // String | 
         String commentId = "commentId_example"; // String | 
         try {
@@ -76,7 +76,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **postId** | **String**| The post identifier. Accepts a Late post ID or a platform-specific post ID.  LinkedIn: for third-party posts, pass the full activity URN (e.g. urn:li:activity:7422459067685855232) or the raw numeric activity ID from the URL.  | |
+| **postId** | **String**| Late post ID or platform-specific post ID. LinkedIn third-party posts accept full activity URN or numeric ID. | |
 | **accountId** | **String**|  | |
 | **commentId** | **String**|  | |
 
@@ -131,7 +131,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
-        String postId = "postId_example"; // String | The post identifier. Accepts a Late post ID or a platform-specific post ID.  LinkedIn: for third-party posts, pass the full activity URN (e.g. urn:li:activity:7422459067685855232) or the raw numeric activity ID from the URL. 
+        String postId = "postId_example"; // String | Late post ID or platform-specific post ID. LinkedIn third-party posts accept full activity URN or numeric ID.
         String accountId = "accountId_example"; // String | 
         String commentId = "commentId_example"; // String | 
         try {
@@ -155,7 +155,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **postId** | **String**| The post identifier. Accepts a Late post ID or a platform-specific post ID.  LinkedIn: for third-party posts, pass the full activity URN (e.g. urn:li:activity:7422459067685855232) or the raw numeric activity ID from the URL.  | |
+| **postId** | **String**| Late post ID or platform-specific post ID. LinkedIn third-party posts accept full activity URN or numeric ID. | |
 | **accountId** | **String**|  | |
 | **commentId** | **String**|  | |
 
@@ -210,7 +210,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
-        String postId = "postId_example"; // String | The post identifier. Accepts a Late post ID (MongoDB ObjectId) which is automatically resolved to the platform-specific post ID, or a platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID, YouTube video ID). LinkedIn: for your own posts, the full URN stored in Late is used automatically. For third-party posts, pass the full activity URN or the raw numeric activity ID from the LinkedIn URL (automatically wrapped as urn:li:activity:). 
+        String postId = "postId_example"; // String | Late post ID or platform-specific post ID. Late IDs are auto-resolved. LinkedIn third-party posts accept full activity URN or numeric ID.
         String accountId = "accountId_example"; // String | 
         String subreddit = "subreddit_example"; // String | (Reddit only) Subreddit name
         Integer limit = 25; // Integer | Maximum number of comments to return
@@ -235,7 +235,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **postId** | **String**| The post identifier. Accepts a Late post ID (MongoDB ObjectId) which is automatically resolved to the platform-specific post ID, or a platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID, YouTube video ID). LinkedIn: for your own posts, the full URN stored in Late is used automatically. For third-party posts, pass the full activity URN or the raw numeric activity ID from the LinkedIn URL (automatically wrapped as urn:li:activity:).  | |
+| **postId** | **String**| Late post ID or platform-specific post ID. Late IDs are auto-resolved. LinkedIn third-party posts accept full activity URN or numeric ID. | |
 | **accountId** | **String**|  | |
 | **subreddit** | **String**| (Reddit only) Subreddit name | [optional] |
 | **limit** | **Integer**| Maximum number of comments to return | [optional] [default to 25] |
@@ -293,7 +293,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
-        String postId = "postId_example"; // String | The post identifier. Accepts a Late post ID (MongoDB ObjectId) which is automatically resolved to the platform-specific post ID, or a platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID, YouTube video ID). LinkedIn: for your own posts, the full URN stored in Late is used automatically. For third-party posts, pass the full activity URN or the raw numeric activity ID from the LinkedIn URL (automatically wrapped as urn:li:activity:). 
+        String postId = "postId_example"; // String | Late post ID or platform-specific post ID. Late IDs are auto-resolved. LinkedIn third-party posts accept full activity URN or numeric ID.
         String accountId = "accountId_example"; // String | 
         String subreddit = "subreddit_example"; // String | (Reddit only) Subreddit name
         Integer limit = 25; // Integer | Maximum number of comments to return
@@ -320,7 +320,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **postId** | **String**| The post identifier. Accepts a Late post ID (MongoDB ObjectId) which is automatically resolved to the platform-specific post ID, or a platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID, YouTube video ID). LinkedIn: for your own posts, the full URN stored in Late is used automatically. For third-party posts, pass the full activity URN or the raw numeric activity ID from the LinkedIn URL (automatically wrapped as urn:li:activity:).  | |
+| **postId** | **String**| Late post ID or platform-specific post ID. Late IDs are auto-resolved. LinkedIn third-party posts accept full activity URN or numeric ID. | |
 | **accountId** | **String**|  | |
 | **subreddit** | **String**| (Reddit only) Subreddit name | [optional] |
 | **limit** | **Integer**| Maximum number of comments to return | [optional] [default to 25] |
@@ -671,7 +671,7 @@ ApiResponse<[**LikeInboxComment200Response**](LikeInboxComment200Response.md)>
 
 List commented posts
 
-Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  Supported platforms: Facebook, Instagram, Twitter/X, Bluesky, Threads, YouTube, LinkedIn, Reddit, TikTok (write-only). 
+Returns posts with comment counts from all connected accounts. Aggregates data across multiple accounts.
 
 ### Example
 
@@ -759,7 +759,7 @@ public class Example {
 
 List commented posts
 
-Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  Supported platforms: Facebook, Instagram, Twitter/X, Bluesky, Threads, YouTube, LinkedIn, Reddit, TikTok (write-only). 
+Returns posts with comment counts from all connected accounts. Aggregates data across multiple accounts.
 
 ### Example
 
@@ -874,7 +874,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
-        String postId = "postId_example"; // String | The post identifier. Accepts a Late post ID or a platform-specific post ID.  LinkedIn: for third-party posts, pass the full activity URN (e.g. urn:li:activity:7422459067685855232) or the raw numeric activity ID from the URL. 
+        String postId = "postId_example"; // String | Late post ID or platform-specific post ID. LinkedIn third-party posts accept full activity URN or numeric ID.
         ReplyToInboxPostRequest replyToInboxPostRequest = new ReplyToInboxPostRequest(); // ReplyToInboxPostRequest | 
         try {
             ReplyToInboxPost200Response result = apiInstance.replyToInboxPost(postId, replyToInboxPostRequest);
@@ -895,7 +895,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **postId** | **String**| The post identifier. Accepts a Late post ID or a platform-specific post ID.  LinkedIn: for third-party posts, pass the full activity URN (e.g. urn:li:activity:7422459067685855232) or the raw numeric activity ID from the URL.  | |
+| **postId** | **String**| Late post ID or platform-specific post ID. LinkedIn third-party posts accept full activity URN or numeric ID. | |
 | **replyToInboxPostRequest** | [**ReplyToInboxPostRequest**](ReplyToInboxPostRequest.md)|  | |
 
 ### Return type
@@ -949,7 +949,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
-        String postId = "postId_example"; // String | The post identifier. Accepts a Late post ID or a platform-specific post ID.  LinkedIn: for third-party posts, pass the full activity URN (e.g. urn:li:activity:7422459067685855232) or the raw numeric activity ID from the URL. 
+        String postId = "postId_example"; // String | Late post ID or platform-specific post ID. LinkedIn third-party posts accept full activity URN or numeric ID.
         ReplyToInboxPostRequest replyToInboxPostRequest = new ReplyToInboxPostRequest(); // ReplyToInboxPostRequest | 
         try {
             ApiResponse<ReplyToInboxPost200Response> response = apiInstance.replyToInboxPostWithHttpInfo(postId, replyToInboxPostRequest);
@@ -972,7 +972,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **postId** | **String**| The post identifier. Accepts a Late post ID or a platform-specific post ID.  LinkedIn: for third-party posts, pass the full activity URN (e.g. urn:li:activity:7422459067685855232) or the raw numeric activity ID from the URL.  | |
+| **postId** | **String**| Late post ID or platform-specific post ID. LinkedIn third-party posts accept full activity URN or numeric ID. | |
 | **replyToInboxPostRequest** | [**ReplyToInboxPostRequest**](ReplyToInboxPostRequest.md)|  | |
 
 ### Return type
@@ -1003,7 +1003,7 @@ ApiResponse<[**ReplyToInboxPost200Response**](ReplyToInboxPost200Response.md)>
 
 Send private reply
 
-Send a private direct message to the author of a comment on your post. Supported platforms: Instagram, Facebook. Only one private reply per comment (platform restriction), must be sent within 7 days, only for comments on your own posts, text only. Instagram messages go to Inbox or Message Requests; Facebook opens a Messenger conversation. Both permissions are already included in Late&#39;s OAuth flow. 
+Send a private message to the author of a comment. Supported on Instagram and Facebook only. One reply per comment, must be sent within 7 days, text only.
 
 ### Example
 
@@ -1081,7 +1081,7 @@ public class Example {
 
 Send private reply
 
-Send a private direct message to the author of a comment on your post. Supported platforms: Instagram, Facebook. Only one private reply per comment (platform restriction), must be sent within 7 days, only for comments on your own posts, text only. Instagram messages go to Inbox or Message Requests; Facebook opens a Messenger conversation. Both permissions are already included in Late&#39;s OAuth flow. 
+Send a private message to the author of a comment. Supported on Instagram and Facebook only. One reply per comment, must be sent within 7 days, text only.
 
 ### Example
 

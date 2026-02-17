@@ -31,14 +31,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.getlate.ApiClient;
 /**
- * Posts support text and a single image (no videos). Images must be publicly accessible URLs. Optional call-to-action button. Posts appear on GBP, Google Search, and Maps. Use locationId for multi-location posting. Language is auto-detected; override with languageCode.
+ * Text and single image only (no videos). Optional call-to-action button. Posts appear on GBP, Google Search, and Maps. Use locationId for multi-location posting.
  */
 @JsonPropertyOrder({
   GoogleBusinessPlatformData.JSON_PROPERTY_LOCATION_ID,
   GoogleBusinessPlatformData.JSON_PROPERTY_LANGUAGE_CODE,
   GoogleBusinessPlatformData.JSON_PROPERTY_CALL_TO_ACTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GoogleBusinessPlatformData {
   public static final String JSON_PROPERTY_LOCATION_ID = "locationId";
   @javax.annotation.Nullable
@@ -61,7 +61,7 @@ public class GoogleBusinessPlatformData {
   }
 
   /**
-   * Target Google Business location ID for multi-location posting. Format: \&quot;locations/123456789\&quot; If omitted, uses the selected/default location on the connection. Use GET /api/v1/accounts/{id}/gmb-locations to list available locations. 
+   * Target GBP location ID (e.g. \&quot;locations/123456789\&quot;). If omitted, uses the default location. Use GET /v1/accounts/{id}/gmb-locations to list locations.
    * @return locationId
    */
   @javax.annotation.Nullable
@@ -85,7 +85,7 @@ public class GoogleBusinessPlatformData {
   }
 
   /**
-   * BCP 47 language code for the post content (e.g., \&quot;en\&quot;, \&quot;de\&quot;, \&quot;es\&quot;, \&quot;fr\&quot;). If omitted, the language is automatically detected from the post text. Setting this explicitly is recommended when auto-detection may not be accurate (e.g., very short posts, mixed-language content, or transliterated text). 
+   * BCP 47 language code (e.g. \&quot;en\&quot;, \&quot;de\&quot;, \&quot;es\&quot;). Auto-detected if omitted. Set explicitly for short or mixed-language posts.
    * @return languageCode
    */
   @javax.annotation.Nullable

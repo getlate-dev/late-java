@@ -31,6 +31,8 @@ All URIs are relative to *https://getlate.dev/api*
 
 Delete IG ice breakers
 
+Removes the ice breaker questions from an Instagram account&#39;s Messenger experience.
+
 ### Example
 
 ```java
@@ -98,6 +100,8 @@ null (empty response body)
 > ApiResponse<Void> deleteInstagramIceBreakers deleteInstagramIceBreakersWithHttpInfo(accountId)
 
 Delete IG ice breakers
+
+Removes the ice breaker questions from an Instagram account&#39;s Messenger experience.
 
 ### Example
 
@@ -171,6 +175,8 @@ ApiResponse<Void>
 
 Delete FB persistent menu
 
+Removes the persistent menu from Facebook Messenger conversations for this account.
+
 ### Example
 
 ```java
@@ -238,6 +244,8 @@ null (empty response body)
 > ApiResponse<Void> deleteMessengerMenu deleteMessengerMenuWithHttpInfo(accountId)
 
 Delete FB persistent menu
+
+Removes the persistent menu from Facebook Messenger conversations for this account.
 
 ### Example
 
@@ -311,6 +319,8 @@ ApiResponse<Void>
 
 Delete TG bot commands
 
+Clears all bot commands configured for a Telegram bot account.
+
 ### Example
 
 ```java
@@ -378,6 +388,8 @@ null (empty response body)
 > ApiResponse<Void> deleteTelegramCommands deleteTelegramCommandsWithHttpInfo(accountId)
 
 Delete TG bot commands
+
+Clears all bot commands configured for a Telegram bot account.
 
 ### Example
 

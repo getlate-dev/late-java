@@ -53,7 +53,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class RedditSearchApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -172,7 +172,7 @@ public class RedditSearchApi {
 
   /**
    * Get subreddit feed
-   * 
+   * Fetch posts from a subreddit feed. Supports sorting, time filtering, and cursor-based pagination.
    * @param accountId  (required)
    * @param subreddit  (optional)
    * @param sort  (optional, default to hot)
@@ -188,7 +188,7 @@ public class RedditSearchApi {
 
   /**
    * Get subreddit feed
-   * 
+   * Fetch posts from a subreddit feed. Supports sorting, time filtering, and cursor-based pagination.
    * @param accountId  (required)
    * @param subreddit  (optional)
    * @param sort  (optional, default to hot)
@@ -206,7 +206,7 @@ public class RedditSearchApi {
 
   /**
    * Get subreddit feed
-   * 
+   * Fetch posts from a subreddit feed. Supports sorting, time filtering, and cursor-based pagination.
    * @param accountId  (required)
    * @param subreddit  (optional)
    * @param sort  (optional, default to hot)
@@ -222,7 +222,7 @@ public class RedditSearchApi {
 
   /**
    * Get subreddit feed
-   * 
+   * Fetch posts from a subreddit feed. Supports sorting, time filtering, and cursor-based pagination.
    * @param accountId  (required)
    * @param subreddit  (optional)
    * @param sort  (optional, default to hot)
@@ -334,7 +334,7 @@ public class RedditSearchApi {
 
   /**
    * Search posts
-   * 
+   * Search Reddit posts using a connected account. Optionally scope to a specific subreddit.
    * @param accountId  (required)
    * @param q  (required)
    * @param subreddit  (optional)
@@ -351,7 +351,7 @@ public class RedditSearchApi {
 
   /**
    * Search posts
-   * 
+   * Search Reddit posts using a connected account. Optionally scope to a specific subreddit.
    * @param accountId  (required)
    * @param q  (required)
    * @param subreddit  (optional)
@@ -370,7 +370,7 @@ public class RedditSearchApi {
 
   /**
    * Search posts
-   * 
+   * Search Reddit posts using a connected account. Optionally scope to a specific subreddit.
    * @param accountId  (required)
    * @param q  (required)
    * @param subreddit  (optional)
@@ -387,7 +387,7 @@ public class RedditSearchApi {
 
   /**
    * Search posts
-   * 
+   * Search Reddit posts using a connected account. Optionally scope to a specific subreddit.
    * @param accountId  (required)
    * @param q  (required)
    * @param subreddit  (optional)

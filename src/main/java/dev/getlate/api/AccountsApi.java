@@ -55,7 +55,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AccountsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -174,7 +174,7 @@ public class AccountsApi {
 
   /**
    * Disconnect account
-   * 
+   * Disconnects and removes a connected social account.
    * @param accountId  (required)
    * @return DeleteAccountGroup200Response
    * @throws ApiException if fails to make API call
@@ -185,7 +185,7 @@ public class AccountsApi {
 
   /**
    * Disconnect account
-   * 
+   * Disconnects and removes a connected social account.
    * @param accountId  (required)
    * @param headers Optional headers to include in the request
    * @return DeleteAccountGroup200Response
@@ -198,7 +198,7 @@ public class AccountsApi {
 
   /**
    * Disconnect account
-   * 
+   * Disconnects and removes a connected social account.
    * @param accountId  (required)
    * @return ApiResponse&lt;DeleteAccountGroup200Response&gt;
    * @throws ApiException if fails to make API call
@@ -209,7 +209,7 @@ public class AccountsApi {
 
   /**
    * Disconnect account
-   * 
+   * Disconnects and removes a connected social account.
    * @param accountId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;DeleteAccountGroup200Response&gt;
@@ -292,7 +292,7 @@ public class AccountsApi {
 
   /**
    * Check account health
-   * Returns detailed health information for a specific social account, including token status, granted permissions, missing permissions, and actionable recommendations. 
+   * Returns detailed health info for a specific account including token status, permissions, and recommendations.
    * @param accountId The account ID to check (required)
    * @return GetAccountHealth200Response
    * @throws ApiException if fails to make API call
@@ -303,7 +303,7 @@ public class AccountsApi {
 
   /**
    * Check account health
-   * Returns detailed health information for a specific social account, including token status, granted permissions, missing permissions, and actionable recommendations. 
+   * Returns detailed health info for a specific account including token status, permissions, and recommendations.
    * @param accountId The account ID to check (required)
    * @param headers Optional headers to include in the request
    * @return GetAccountHealth200Response
@@ -316,7 +316,7 @@ public class AccountsApi {
 
   /**
    * Check account health
-   * Returns detailed health information for a specific social account, including token status, granted permissions, missing permissions, and actionable recommendations. 
+   * Returns detailed health info for a specific account including token status, permissions, and recommendations.
    * @param accountId The account ID to check (required)
    * @return ApiResponse&lt;GetAccountHealth200Response&gt;
    * @throws ApiException if fails to make API call
@@ -327,7 +327,7 @@ public class AccountsApi {
 
   /**
    * Check account health
-   * Returns detailed health information for a specific social account, including token status, granted permissions, missing permissions, and actionable recommendations. 
+   * Returns detailed health info for a specific account including token status, permissions, and recommendations.
    * @param accountId The account ID to check (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetAccountHealth200Response&gt;
@@ -410,7 +410,7 @@ public class AccountsApi {
 
   /**
    * Check accounts health
-   * Returns the health status of all connected social accounts, including token validity, permissions status, and any issues that need attention. Useful for monitoring account connections and identifying accounts that need reconnection. 
+   * Returns health status of all connected accounts including token validity, permissions, and issues needing attention.
    * @param profileId Filter by profile ID (optional)
    * @param platform Filter by platform (optional)
    * @param status Filter by health status (optional)
@@ -423,7 +423,7 @@ public class AccountsApi {
 
   /**
    * Check accounts health
-   * Returns the health status of all connected social accounts, including token validity, permissions status, and any issues that need attention. Useful for monitoring account connections and identifying accounts that need reconnection. 
+   * Returns health status of all connected accounts including token validity, permissions, and issues needing attention.
    * @param profileId Filter by profile ID (optional)
    * @param platform Filter by platform (optional)
    * @param status Filter by health status (optional)
@@ -438,7 +438,7 @@ public class AccountsApi {
 
   /**
    * Check accounts health
-   * Returns the health status of all connected social accounts, including token validity, permissions status, and any issues that need attention. Useful for monitoring account connections and identifying accounts that need reconnection. 
+   * Returns health status of all connected accounts including token validity, permissions, and issues needing attention.
    * @param profileId Filter by profile ID (optional)
    * @param platform Filter by platform (optional)
    * @param status Filter by health status (optional)
@@ -451,7 +451,7 @@ public class AccountsApi {
 
   /**
    * Check accounts health
-   * Returns the health status of all connected social accounts, including token validity, permissions status, and any issues that need attention. Useful for monitoring account connections and identifying accounts that need reconnection. 
+   * Returns health status of all connected accounts including token validity, permissions, and issues needing attention.
    * @param profileId Filter by profile ID (optional)
    * @param platform Filter by platform (optional)
    * @param status Filter by health status (optional)
@@ -702,9 +702,9 @@ public class AccountsApi {
 
   /**
    * List accounts
-   * Returns list of connected social accounts. By default, only returns accounts from profiles within the user&#39;s plan limit. Follower count data (followersCount, followersLastUpdated) is only included if user has analytics add-on. 
+   * Returns connected social accounts. Only includes accounts within the plan limit by default. Follower data requires analytics add-on.
    * @param profileId Filter accounts by profile ID (optional)
-   * @param includeOverLimit When true, includes accounts from profiles that exceed the user&#39;s plan limit. Useful for disconnecting accounts from over-limit profiles so they can be deleted.  (optional, default to false)
+   * @param includeOverLimit When true, includes accounts from over-limit profiles. (optional, default to false)
    * @return ListAccounts200Response
    * @throws ApiException if fails to make API call
    */
@@ -714,9 +714,9 @@ public class AccountsApi {
 
   /**
    * List accounts
-   * Returns list of connected social accounts. By default, only returns accounts from profiles within the user&#39;s plan limit. Follower count data (followersCount, followersLastUpdated) is only included if user has analytics add-on. 
+   * Returns connected social accounts. Only includes accounts within the plan limit by default. Follower data requires analytics add-on.
    * @param profileId Filter accounts by profile ID (optional)
-   * @param includeOverLimit When true, includes accounts from profiles that exceed the user&#39;s plan limit. Useful for disconnecting accounts from over-limit profiles so they can be deleted.  (optional, default to false)
+   * @param includeOverLimit When true, includes accounts from over-limit profiles. (optional, default to false)
    * @param headers Optional headers to include in the request
    * @return ListAccounts200Response
    * @throws ApiException if fails to make API call
@@ -728,9 +728,9 @@ public class AccountsApi {
 
   /**
    * List accounts
-   * Returns list of connected social accounts. By default, only returns accounts from profiles within the user&#39;s plan limit. Follower count data (followersCount, followersLastUpdated) is only included if user has analytics add-on. 
+   * Returns connected social accounts. Only includes accounts within the plan limit by default. Follower data requires analytics add-on.
    * @param profileId Filter accounts by profile ID (optional)
-   * @param includeOverLimit When true, includes accounts from profiles that exceed the user&#39;s plan limit. Useful for disconnecting accounts from over-limit profiles so they can be deleted.  (optional, default to false)
+   * @param includeOverLimit When true, includes accounts from over-limit profiles. (optional, default to false)
    * @return ApiResponse&lt;ListAccounts200Response&gt;
    * @throws ApiException if fails to make API call
    */
@@ -740,9 +740,9 @@ public class AccountsApi {
 
   /**
    * List accounts
-   * Returns list of connected social accounts. By default, only returns accounts from profiles within the user&#39;s plan limit. Follower count data (followersCount, followersLastUpdated) is only included if user has analytics add-on. 
+   * Returns connected social accounts. Only includes accounts within the plan limit by default. Follower data requires analytics add-on.
    * @param profileId Filter accounts by profile ID (optional)
-   * @param includeOverLimit When true, includes accounts from profiles that exceed the user&#39;s plan limit. Useful for disconnecting accounts from over-limit profiles so they can be deleted.  (optional, default to false)
+   * @param includeOverLimit When true, includes accounts from over-limit profiles. (optional, default to false)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;ListAccounts200Response&gt;
    * @throws ApiException if fails to make API call
@@ -836,7 +836,7 @@ public class AccountsApi {
 
   /**
    * Update account
-   * 
+   * Updates a connected social account&#39;s display name or username override.
    * @param accountId  (required)
    * @param updateAccountRequest  (required)
    * @return UpdateAccount200Response
@@ -848,7 +848,7 @@ public class AccountsApi {
 
   /**
    * Update account
-   * 
+   * Updates a connected social account&#39;s display name or username override.
    * @param accountId  (required)
    * @param updateAccountRequest  (required)
    * @param headers Optional headers to include in the request
@@ -862,7 +862,7 @@ public class AccountsApi {
 
   /**
    * Update account
-   * 
+   * Updates a connected social account&#39;s display name or username override.
    * @param accountId  (required)
    * @param updateAccountRequest  (required)
    * @return ApiResponse&lt;UpdateAccount200Response&gt;
@@ -874,7 +874,7 @@ public class AccountsApi {
 
   /**
    * Update account
-   * 
+   * Updates a connected social account&#39;s display name or username override.
    * @param accountId  (required)
    * @param updateAccountRequest  (required)
    * @param headers Optional headers to include in the request

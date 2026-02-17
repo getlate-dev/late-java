@@ -23,6 +23,8 @@ All URIs are relative to *https://getlate.dev/api*
 
 Create profile
 
+Creates a new profile with a name, optional description, and color.
+
 ### Example
 
 ```java
@@ -93,6 +95,8 @@ public class Example {
 > ApiResponse<ProfileCreateResponse> createProfile createProfileWithHttpInfo(createProfileRequest)
 
 Create profile
+
+Creates a new profile with a name, optional description, and color.
 
 ### Example
 
@@ -169,6 +173,8 @@ ApiResponse<[**ProfileCreateResponse**](ProfileCreateResponse.md)>
 
 Delete profile
 
+Permanently deletes a profile by ID.
+
 ### Example
 
 ```java
@@ -240,6 +246,8 @@ public class Example {
 > ApiResponse<DeleteAccountGroup200Response> deleteProfile deleteProfileWithHttpInfo(profileId)
 
 Delete profile
+
+Permanently deletes a profile by ID.
 
 ### Example
 
@@ -317,6 +325,8 @@ ApiResponse<[**DeleteAccountGroup200Response**](DeleteAccountGroup200Response.md
 
 Get profile
 
+Returns a single profile by ID, including its name, color, and default status.
+
 ### Example
 
 ```java
@@ -386,6 +396,8 @@ public class Example {
 > ApiResponse<GetProfile200Response> getProfile getProfileWithHttpInfo(profileId)
 
 Get profile
+
+Returns a single profile by ID, including its name, color, and default status.
 
 ### Example
 
@@ -461,7 +473,7 @@ ApiResponse<[**GetProfile200Response**](GetProfile200Response.md)>
 
 List profiles
 
-Returns profiles within the user&#39;s plan limit, sorted by creation date (oldest first). Use includeOverLimit&#x3D;true to include profiles that exceed the plan limit (for management/deletion purposes). 
+Returns profiles sorted by creation date. Use includeOverLimit&#x3D;true to include profiles that exceed the plan limit.
 
 ### Example
 
@@ -484,7 +496,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ProfilesApi apiInstance = new ProfilesApi(defaultClient);
-        Boolean includeOverLimit = false; // Boolean | When true, includes profiles that exceed the user's plan limit. Over-limit profiles will have isOverLimit: true in the response. Useful for managing/deleting profiles after a plan downgrade. 
+        Boolean includeOverLimit = false; // Boolean | When true, includes over-limit profiles (marked with isOverLimit: true).
         try {
             ProfilesListResponse result = apiInstance.listProfiles(includeOverLimit);
             System.out.println(result);
@@ -504,7 +516,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **includeOverLimit** | **Boolean**| When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have isOverLimit: true in the response. Useful for managing/deleting profiles after a plan downgrade.  | [optional] [default to false] |
+| **includeOverLimit** | **Boolean**| When true, includes over-limit profiles (marked with isOverLimit: true). | [optional] [default to false] |
 
 ### Return type
 
@@ -532,7 +544,7 @@ public class Example {
 
 List profiles
 
-Returns profiles within the user&#39;s plan limit, sorted by creation date (oldest first). Use includeOverLimit&#x3D;true to include profiles that exceed the plan limit (for management/deletion purposes). 
+Returns profiles sorted by creation date. Use includeOverLimit&#x3D;true to include profiles that exceed the plan limit.
 
 ### Example
 
@@ -556,7 +568,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ProfilesApi apiInstance = new ProfilesApi(defaultClient);
-        Boolean includeOverLimit = false; // Boolean | When true, includes profiles that exceed the user's plan limit. Over-limit profiles will have isOverLimit: true in the response. Useful for managing/deleting profiles after a plan downgrade. 
+        Boolean includeOverLimit = false; // Boolean | When true, includes over-limit profiles (marked with isOverLimit: true).
         try {
             ApiResponse<ProfilesListResponse> response = apiInstance.listProfilesWithHttpInfo(includeOverLimit);
             System.out.println("Status code: " + response.getStatusCode());
@@ -578,7 +590,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **includeOverLimit** | **Boolean**| When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have isOverLimit: true in the response. Useful for managing/deleting profiles after a plan downgrade.  | [optional] [default to false] |
+| **includeOverLimit** | **Boolean**| When true, includes over-limit profiles (marked with isOverLimit: true). | [optional] [default to false] |
 
 ### Return type
 
@@ -606,6 +618,8 @@ ApiResponse<[**ProfilesListResponse**](ProfilesListResponse.md)>
 > UpdateProfile200Response updateProfile(profileId, updateProfileRequest)
 
 Update profile
+
+Updates a profile&#39;s name, description, color, or default status.
 
 ### Example
 
@@ -678,6 +692,8 @@ public class Example {
 > ApiResponse<UpdateProfile200Response> updateProfile updateProfileWithHttpInfo(profileId, updateProfileRequest)
 
 Update profile
+
+Updates a profile&#39;s name, description, color, or default status.
 
 ### Example
 

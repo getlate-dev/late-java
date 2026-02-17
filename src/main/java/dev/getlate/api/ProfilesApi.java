@@ -59,7 +59,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ProfilesApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -178,7 +178,7 @@ public class ProfilesApi {
 
   /**
    * Create profile
-   * 
+   * Creates a new profile with a name, optional description, and color.
    * @param createProfileRequest  (required)
    * @return ProfileCreateResponse
    * @throws ApiException if fails to make API call
@@ -189,7 +189,7 @@ public class ProfilesApi {
 
   /**
    * Create profile
-   * 
+   * Creates a new profile with a name, optional description, and color.
    * @param createProfileRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ProfileCreateResponse
@@ -202,7 +202,7 @@ public class ProfilesApi {
 
   /**
    * Create profile
-   * 
+   * Creates a new profile with a name, optional description, and color.
    * @param createProfileRequest  (required)
    * @return ApiResponse&lt;ProfileCreateResponse&gt;
    * @throws ApiException if fails to make API call
@@ -213,7 +213,7 @@ public class ProfilesApi {
 
   /**
    * Create profile
-   * 
+   * Creates a new profile with a name, optional description, and color.
    * @param createProfileRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;ProfileCreateResponse&gt;
@@ -301,7 +301,7 @@ public class ProfilesApi {
 
   /**
    * Delete profile
-   * 
+   * Permanently deletes a profile by ID.
    * @param profileId  (required)
    * @return DeleteAccountGroup200Response
    * @throws ApiException if fails to make API call
@@ -312,7 +312,7 @@ public class ProfilesApi {
 
   /**
    * Delete profile
-   * 
+   * Permanently deletes a profile by ID.
    * @param profileId  (required)
    * @param headers Optional headers to include in the request
    * @return DeleteAccountGroup200Response
@@ -325,7 +325,7 @@ public class ProfilesApi {
 
   /**
    * Delete profile
-   * 
+   * Permanently deletes a profile by ID.
    * @param profileId  (required)
    * @return ApiResponse&lt;DeleteAccountGroup200Response&gt;
    * @throws ApiException if fails to make API call
@@ -336,7 +336,7 @@ public class ProfilesApi {
 
   /**
    * Delete profile
-   * 
+   * Permanently deletes a profile by ID.
    * @param profileId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;DeleteAccountGroup200Response&gt;
@@ -419,7 +419,7 @@ public class ProfilesApi {
 
   /**
    * Get profile
-   * 
+   * Returns a single profile by ID, including its name, color, and default status.
    * @param profileId  (required)
    * @return GetProfile200Response
    * @throws ApiException if fails to make API call
@@ -430,7 +430,7 @@ public class ProfilesApi {
 
   /**
    * Get profile
-   * 
+   * Returns a single profile by ID, including its name, color, and default status.
    * @param profileId  (required)
    * @param headers Optional headers to include in the request
    * @return GetProfile200Response
@@ -443,7 +443,7 @@ public class ProfilesApi {
 
   /**
    * Get profile
-   * 
+   * Returns a single profile by ID, including its name, color, and default status.
    * @param profileId  (required)
    * @return ApiResponse&lt;GetProfile200Response&gt;
    * @throws ApiException if fails to make API call
@@ -454,7 +454,7 @@ public class ProfilesApi {
 
   /**
    * Get profile
-   * 
+   * Returns a single profile by ID, including its name, color, and default status.
    * @param profileId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetProfile200Response&gt;
@@ -537,8 +537,8 @@ public class ProfilesApi {
 
   /**
    * List profiles
-   * Returns profiles within the user&#39;s plan limit, sorted by creation date (oldest first). Use includeOverLimit&#x3D;true to include profiles that exceed the plan limit (for management/deletion purposes). 
-   * @param includeOverLimit When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have isOverLimit: true in the response. Useful for managing/deleting profiles after a plan downgrade.  (optional, default to false)
+   * Returns profiles sorted by creation date. Use includeOverLimit&#x3D;true to include profiles that exceed the plan limit.
+   * @param includeOverLimit When true, includes over-limit profiles (marked with isOverLimit: true). (optional, default to false)
    * @return ProfilesListResponse
    * @throws ApiException if fails to make API call
    */
@@ -548,8 +548,8 @@ public class ProfilesApi {
 
   /**
    * List profiles
-   * Returns profiles within the user&#39;s plan limit, sorted by creation date (oldest first). Use includeOverLimit&#x3D;true to include profiles that exceed the plan limit (for management/deletion purposes). 
-   * @param includeOverLimit When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have isOverLimit: true in the response. Useful for managing/deleting profiles after a plan downgrade.  (optional, default to false)
+   * Returns profiles sorted by creation date. Use includeOverLimit&#x3D;true to include profiles that exceed the plan limit.
+   * @param includeOverLimit When true, includes over-limit profiles (marked with isOverLimit: true). (optional, default to false)
    * @param headers Optional headers to include in the request
    * @return ProfilesListResponse
    * @throws ApiException if fails to make API call
@@ -561,8 +561,8 @@ public class ProfilesApi {
 
   /**
    * List profiles
-   * Returns profiles within the user&#39;s plan limit, sorted by creation date (oldest first). Use includeOverLimit&#x3D;true to include profiles that exceed the plan limit (for management/deletion purposes). 
-   * @param includeOverLimit When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have isOverLimit: true in the response. Useful for managing/deleting profiles after a plan downgrade.  (optional, default to false)
+   * Returns profiles sorted by creation date. Use includeOverLimit&#x3D;true to include profiles that exceed the plan limit.
+   * @param includeOverLimit When true, includes over-limit profiles (marked with isOverLimit: true). (optional, default to false)
    * @return ApiResponse&lt;ProfilesListResponse&gt;
    * @throws ApiException if fails to make API call
    */
@@ -572,8 +572,8 @@ public class ProfilesApi {
 
   /**
    * List profiles
-   * Returns profiles within the user&#39;s plan limit, sorted by creation date (oldest first). Use includeOverLimit&#x3D;true to include profiles that exceed the plan limit (for management/deletion purposes). 
-   * @param includeOverLimit When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have isOverLimit: true in the response. Useful for managing/deleting profiles after a plan downgrade.  (optional, default to false)
+   * Returns profiles sorted by creation date. Use includeOverLimit&#x3D;true to include profiles that exceed the plan limit.
+   * @param includeOverLimit When true, includes over-limit profiles (marked with isOverLimit: true). (optional, default to false)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;ProfilesListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -665,7 +665,7 @@ public class ProfilesApi {
 
   /**
    * Update profile
-   * 
+   * Updates a profile&#39;s name, description, color, or default status.
    * @param profileId  (required)
    * @param updateProfileRequest  (required)
    * @return UpdateProfile200Response
@@ -677,7 +677,7 @@ public class ProfilesApi {
 
   /**
    * Update profile
-   * 
+   * Updates a profile&#39;s name, description, color, or default status.
    * @param profileId  (required)
    * @param updateProfileRequest  (required)
    * @param headers Optional headers to include in the request
@@ -691,7 +691,7 @@ public class ProfilesApi {
 
   /**
    * Update profile
-   * 
+   * Updates a profile&#39;s name, description, color, or default status.
    * @param profileId  (required)
    * @param updateProfileRequest  (required)
    * @return ApiResponse&lt;UpdateProfile200Response&gt;
@@ -703,7 +703,7 @@ public class ProfilesApi {
 
   /**
    * Update profile
-   * 
+   * Updates a profile&#39;s name, description, color, or default status.
    * @param profileId  (required)
    * @param updateProfileRequest  (required)
    * @param headers Optional headers to include in the request

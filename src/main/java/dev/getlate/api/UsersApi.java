@@ -54,7 +54,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UsersApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -173,7 +173,7 @@ public class UsersApi {
 
   /**
    * Get user
-   * 
+   * Returns a single user&#39;s details by ID, including name, email, and role.
    * @param userId  (required)
    * @return GetUser200Response
    * @throws ApiException if fails to make API call
@@ -184,7 +184,7 @@ public class UsersApi {
 
   /**
    * Get user
-   * 
+   * Returns a single user&#39;s details by ID, including name, email, and role.
    * @param userId  (required)
    * @param headers Optional headers to include in the request
    * @return GetUser200Response
@@ -197,7 +197,7 @@ public class UsersApi {
 
   /**
    * Get user
-   * 
+   * Returns a single user&#39;s details by ID, including name, email, and role.
    * @param userId  (required)
    * @return ApiResponse&lt;GetUser200Response&gt;
    * @throws ApiException if fails to make API call
@@ -208,7 +208,7 @@ public class UsersApi {
 
   /**
    * Get user
-   * 
+   * Returns a single user&#39;s details by ID, including name, email, and role.
    * @param userId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetUser200Response&gt;
@@ -291,7 +291,7 @@ public class UsersApi {
 
   /**
    * List users
-   * 
+   * Returns all users in the workspace including roles and profile access. Also returns the currentUserId of the caller.
    * @return ListUsers200Response
    * @throws ApiException if fails to make API call
    */
@@ -301,7 +301,7 @@ public class UsersApi {
 
   /**
    * List users
-   * 
+   * Returns all users in the workspace including roles and profile access. Also returns the currentUserId of the caller.
    * @param headers Optional headers to include in the request
    * @return ListUsers200Response
    * @throws ApiException if fails to make API call
@@ -313,7 +313,7 @@ public class UsersApi {
 
   /**
    * List users
-   * 
+   * Returns all users in the workspace including roles and profile access. Also returns the currentUserId of the caller.
    * @return ApiResponse&lt;ListUsers200Response&gt;
    * @throws ApiException if fails to make API call
    */
@@ -323,7 +323,7 @@ public class UsersApi {
 
   /**
    * List users
-   * 
+   * Returns all users in the workspace including roles and profile access. Also returns the currentUserId of the caller.
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;ListUsers200Response&gt;
    * @throws ApiException if fails to make API call

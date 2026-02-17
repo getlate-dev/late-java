@@ -49,7 +49,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GmbFoodMenusApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -168,7 +168,7 @@ public class GmbFoodMenusApi {
 
   /**
    * Get food menus
-   * Fetches food menus for a connected Google Business Profile location. Returns the full menu structure including sections, items with pricing, dietary info, allergens, and variants. Only available for locations with food menu support (restaurants, cafes, etc.). 
+   * Returns food menus for a GBP location including sections, items, pricing, and dietary info. Only for locations with food menu support.
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @return GetGoogleBusinessFoodMenus200Response
    * @throws ApiException if fails to make API call
@@ -179,7 +179,7 @@ public class GmbFoodMenusApi {
 
   /**
    * Get food menus
-   * Fetches food menus for a connected Google Business Profile location. Returns the full menu structure including sections, items with pricing, dietary info, allergens, and variants. Only available for locations with food menu support (restaurants, cafes, etc.). 
+   * Returns food menus for a GBP location including sections, items, pricing, and dietary info. Only for locations with food menu support.
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param headers Optional headers to include in the request
    * @return GetGoogleBusinessFoodMenus200Response
@@ -192,7 +192,7 @@ public class GmbFoodMenusApi {
 
   /**
    * Get food menus
-   * Fetches food menus for a connected Google Business Profile location. Returns the full menu structure including sections, items with pricing, dietary info, allergens, and variants. Only available for locations with food menu support (restaurants, cafes, etc.). 
+   * Returns food menus for a GBP location including sections, items, pricing, and dietary info. Only for locations with food menu support.
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @return ApiResponse&lt;GetGoogleBusinessFoodMenus200Response&gt;
    * @throws ApiException if fails to make API call
@@ -203,7 +203,7 @@ public class GmbFoodMenusApi {
 
   /**
    * Get food menus
-   * Fetches food menus for a connected Google Business Profile location. Returns the full menu structure including sections, items with pricing, dietary info, allergens, and variants. Only available for locations with food menu support (restaurants, cafes, etc.). 
+   * Returns food menus for a GBP location including sections, items, pricing, and dietary info. Only for locations with food menu support.
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetGoogleBusinessFoodMenus200Response&gt;
@@ -286,7 +286,7 @@ public class GmbFoodMenusApi {
 
   /**
    * Update food menus
-   * Updates the food menus for a connected Google Business Profile location.  Send the full menus array. Use updateMask for partial updates (e.g. \&quot;menus\&quot; to only update the menus field).  Each menu can contain sections, and each section can contain items with pricing, dietary restrictions, allergens, and more. 
+   * Updates food menus for a GBP location. Send the full menus array. Use updateMask for partial updates.
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param updateGoogleBusinessFoodMenusRequest  (required)
    * @return UpdateGoogleBusinessFoodMenus200Response
@@ -298,7 +298,7 @@ public class GmbFoodMenusApi {
 
   /**
    * Update food menus
-   * Updates the food menus for a connected Google Business Profile location.  Send the full menus array. Use updateMask for partial updates (e.g. \&quot;menus\&quot; to only update the menus field).  Each menu can contain sections, and each section can contain items with pricing, dietary restrictions, allergens, and more. 
+   * Updates food menus for a GBP location. Send the full menus array. Use updateMask for partial updates.
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param updateGoogleBusinessFoodMenusRequest  (required)
    * @param headers Optional headers to include in the request
@@ -312,7 +312,7 @@ public class GmbFoodMenusApi {
 
   /**
    * Update food menus
-   * Updates the food menus for a connected Google Business Profile location.  Send the full menus array. Use updateMask for partial updates (e.g. \&quot;menus\&quot; to only update the menus field).  Each menu can contain sections, and each section can contain items with pricing, dietary restrictions, allergens, and more. 
+   * Updates food menus for a GBP location. Send the full menus array. Use updateMask for partial updates.
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param updateGoogleBusinessFoodMenusRequest  (required)
    * @return ApiResponse&lt;UpdateGoogleBusinessFoodMenus200Response&gt;
@@ -324,7 +324,7 @@ public class GmbFoodMenusApi {
 
   /**
    * Update food menus
-   * Updates the food menus for a connected Google Business Profile location.  Send the full menus array. Use updateMask for partial updates (e.g. \&quot;menus\&quot; to only update the menus field).  Each menu can contain sections, and each section can contain items with pricing, dietary restrictions, allergens, and more. 
+   * Updates food menus for a GBP location. Send the full menus array. Use updateMask for partial updates.
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param updateGoogleBusinessFoodMenusRequest  (required)
    * @param headers Optional headers to include in the request

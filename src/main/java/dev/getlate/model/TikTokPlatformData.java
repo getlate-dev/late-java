@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.getlate.ApiClient;
 /**
- * Photo carousels up to 35 images. Video titles up to 2200 chars; photo titles auto-truncated to 90 chars (use description field for longer text up to 4000 chars). privacyLevel must match creator_info options. allowDuet/allowStitch required for videos. contentPreviewConfirmed and expressConsentGiven must be true. Both camelCase and snake_case accepted.
+ * Photo carousels up to 35 images. Video titles up to 2200 chars, photo titles truncated to 90 chars. privacyLevel must match creator_info options. Both camelCase and snake_case accepted.
  */
 @JsonPropertyOrder({
   TikTokPlatformData.JSON_PROPERTY_DRAFT,
@@ -50,7 +50,7 @@ import dev.getlate.ApiClient;
   TikTokPlatformData.JSON_PROPERTY_VIDEO_MADE_WITH_AI,
   TikTokPlatformData.JSON_PROPERTY_DESCRIPTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class TikTokPlatformData {
   public static final String JSON_PROPERTY_DRAFT = "draft";
   @javax.annotation.Nullable

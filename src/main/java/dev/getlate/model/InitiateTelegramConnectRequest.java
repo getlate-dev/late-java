@@ -36,7 +36,7 @@ import dev.getlate.ApiClient;
   InitiateTelegramConnectRequest.JSON_PROPERTY_CHAT_ID,
   InitiateTelegramConnectRequest.JSON_PROPERTY_PROFILE_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class InitiateTelegramConnectRequest {
   public static final String JSON_PROPERTY_CHAT_ID = "chatId";
   @javax.annotation.Nonnull
@@ -55,7 +55,7 @@ public class InitiateTelegramConnectRequest {
   }
 
   /**
-   * The Telegram chat ID. Can be: - Numeric ID (e.g., \&quot;-1001234567890\&quot;) - Username with @ prefix (e.g., \&quot;@mychannel\&quot;) 
+   * The Telegram chat ID. Numeric ID (e.g. \&quot;-1001234567890\&quot;) or username with @ prefix (e.g. \&quot;@mychannel\&quot;).
    * @return chatId
    */
   @javax.annotation.Nonnull

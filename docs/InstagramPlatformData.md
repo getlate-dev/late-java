@@ -2,7 +2,7 @@
 
 # InstagramPlatformData
 
-Feed posts require aspect ratio 0.8-1.91; images outside this range must use contentType story. Carousels up to 10 items. Stories require media, no captions. User tag coordinates 0.0-1.0 from top-left. Images over 8 MB and videos over 100 MB (stories) or 300 MB (reels) are auto-compressed.
+Feed aspect ratio 0.8-1.91, carousels up to 10 items, stories require media (no captions). User tag coordinates 0.0-1.0 from top-left. Images over 8 MB and videos over platform limits are auto-compressed.
 
 ## Properties
 

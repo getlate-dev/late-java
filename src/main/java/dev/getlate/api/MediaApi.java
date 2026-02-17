@@ -48,7 +48,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class MediaApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -167,7 +167,7 @@ public class MediaApi {
 
   /**
    * Get presigned upload URL
-   * Get a presigned URL to upload files directly to cloud storage. Supports files up to 5GB.  How it works: call this endpoint with the filename and content type, receive an uploadUrl (presigned) and publicUrl, PUT your file directly to the uploadUrl, then use the publicUrl in your posts. 
+   * Get a presigned URL to upload files directly to cloud storage (up to 5GB). Returns an uploadUrl and publicUrl. PUT your file to the uploadUrl, then use the publicUrl in your posts.
    * @param getMediaPresignedUrlRequest  (required)
    * @return GetMediaPresignedUrl200Response
    * @throws ApiException if fails to make API call
@@ -178,7 +178,7 @@ public class MediaApi {
 
   /**
    * Get presigned upload URL
-   * Get a presigned URL to upload files directly to cloud storage. Supports files up to 5GB.  How it works: call this endpoint with the filename and content type, receive an uploadUrl (presigned) and publicUrl, PUT your file directly to the uploadUrl, then use the publicUrl in your posts. 
+   * Get a presigned URL to upload files directly to cloud storage (up to 5GB). Returns an uploadUrl and publicUrl. PUT your file to the uploadUrl, then use the publicUrl in your posts.
    * @param getMediaPresignedUrlRequest  (required)
    * @param headers Optional headers to include in the request
    * @return GetMediaPresignedUrl200Response
@@ -191,7 +191,7 @@ public class MediaApi {
 
   /**
    * Get presigned upload URL
-   * Get a presigned URL to upload files directly to cloud storage. Supports files up to 5GB.  How it works: call this endpoint with the filename and content type, receive an uploadUrl (presigned) and publicUrl, PUT your file directly to the uploadUrl, then use the publicUrl in your posts. 
+   * Get a presigned URL to upload files directly to cloud storage (up to 5GB). Returns an uploadUrl and publicUrl. PUT your file to the uploadUrl, then use the publicUrl in your posts.
    * @param getMediaPresignedUrlRequest  (required)
    * @return ApiResponse&lt;GetMediaPresignedUrl200Response&gt;
    * @throws ApiException if fails to make API call
@@ -202,7 +202,7 @@ public class MediaApi {
 
   /**
    * Get presigned upload URL
-   * Get a presigned URL to upload files directly to cloud storage. Supports files up to 5GB.  How it works: call this endpoint with the filename and content type, receive an uploadUrl (presigned) and publicUrl, PUT your file directly to the uploadUrl, then use the publicUrl in your posts. 
+   * Get a presigned URL to upload files directly to cloud storage (up to 5GB). Returns an uploadUrl and publicUrl. PUT your file to the uploadUrl, then use the publicUrl in your posts.
    * @param getMediaPresignedUrlRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetMediaPresignedUrl200Response&gt;

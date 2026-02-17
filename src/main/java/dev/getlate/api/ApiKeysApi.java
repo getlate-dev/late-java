@@ -50,7 +50,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ApiKeysApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -169,7 +169,7 @@ public class ApiKeysApi {
 
   /**
    * Create key
-   * 
+   * Creates a new API key with an optional expiry. The full key value is only returned once in the response.
    * @param createApiKeyRequest  (required)
    * @return CreateApiKey201Response
    * @throws ApiException if fails to make API call
@@ -180,7 +180,7 @@ public class ApiKeysApi {
 
   /**
    * Create key
-   * 
+   * Creates a new API key with an optional expiry. The full key value is only returned once in the response.
    * @param createApiKeyRequest  (required)
    * @param headers Optional headers to include in the request
    * @return CreateApiKey201Response
@@ -193,7 +193,7 @@ public class ApiKeysApi {
 
   /**
    * Create key
-   * 
+   * Creates a new API key with an optional expiry. The full key value is only returned once in the response.
    * @param createApiKeyRequest  (required)
    * @return ApiResponse&lt;CreateApiKey201Response&gt;
    * @throws ApiException if fails to make API call
@@ -204,7 +204,7 @@ public class ApiKeysApi {
 
   /**
    * Create key
-   * 
+   * Creates a new API key with an optional expiry. The full key value is only returned once in the response.
    * @param createApiKeyRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;CreateApiKey201Response&gt;
@@ -292,7 +292,7 @@ public class ApiKeysApi {
 
   /**
    * Delete key
-   * 
+   * Permanently revokes and deletes an API key.
    * @param keyId  (required)
    * @return DeleteAccountGroup200Response
    * @throws ApiException if fails to make API call
@@ -303,7 +303,7 @@ public class ApiKeysApi {
 
   /**
    * Delete key
-   * 
+   * Permanently revokes and deletes an API key.
    * @param keyId  (required)
    * @param headers Optional headers to include in the request
    * @return DeleteAccountGroup200Response
@@ -316,7 +316,7 @@ public class ApiKeysApi {
 
   /**
    * Delete key
-   * 
+   * Permanently revokes and deletes an API key.
    * @param keyId  (required)
    * @return ApiResponse&lt;DeleteAccountGroup200Response&gt;
    * @throws ApiException if fails to make API call
@@ -327,7 +327,7 @@ public class ApiKeysApi {
 
   /**
    * Delete key
-   * 
+   * Permanently revokes and deletes an API key.
    * @param keyId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;DeleteAccountGroup200Response&gt;
@@ -410,7 +410,7 @@ public class ApiKeysApi {
 
   /**
    * List keys
-   * 
+   * Returns all API keys for the authenticated user. Keys are returned with a preview only, not the full key value.
    * @return ListApiKeys200Response
    * @throws ApiException if fails to make API call
    */
@@ -420,7 +420,7 @@ public class ApiKeysApi {
 
   /**
    * List keys
-   * 
+   * Returns all API keys for the authenticated user. Keys are returned with a preview only, not the full key value.
    * @param headers Optional headers to include in the request
    * @return ListApiKeys200Response
    * @throws ApiException if fails to make API call
@@ -432,7 +432,7 @@ public class ApiKeysApi {
 
   /**
    * List keys
-   * 
+   * Returns all API keys for the authenticated user. Keys are returned with a preview only, not the full key value.
    * @return ApiResponse&lt;ListApiKeys200Response&gt;
    * @throws ApiException if fails to make API call
    */
@@ -442,7 +442,7 @@ public class ApiKeysApi {
 
   /**
    * List keys
-   * 
+   * Returns all API keys for the authenticated user. Keys are returned with a preview only, not the full key value.
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;ListApiKeys200Response&gt;
    * @throws ApiException if fails to make API call

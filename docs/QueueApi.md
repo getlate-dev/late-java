@@ -327,7 +327,7 @@ ApiResponse<[**DeleteQueueSlot200Response**](DeleteQueueSlot200Response.md)>
 
 Get next available slot
 
-Returns the next available queue slot for preview/informational purposes. Do NOT use this response with scheduledFor to schedule a post, as that creates a manual post, not a queue post. Instead, use POST /v1/posts with queuedFromProfile (and optionally queueId). Useful for showing users when their next post will go out, debugging queue configuration, or building UI previews.  If no queueId is specified, uses the profile&#39;s default queue. 
+Returns the next available queue slot for preview purposes. To create a queue post, use POST /v1/posts with queuedFromProfile instead of scheduledFor.
 
 ### Example
 
@@ -402,7 +402,7 @@ public class Example {
 
 Get next available slot
 
-Returns the next available queue slot for preview/informational purposes. Do NOT use this response with scheduledFor to schedule a post, as that creates a manual post, not a queue post. Instead, use POST /v1/posts with queuedFromProfile (and optionally queueId). Useful for showing users when their next post will go out, debugging queue configuration, or building UI previews.  If no queueId is specified, uses the profile&#39;s default queue. 
+Returns the next available queue slot for preview purposes. To create a queue post, use POST /v1/posts with queuedFromProfile instead of scheduledFor.
 
 ### Example
 
@@ -481,7 +481,7 @@ ApiResponse<[**GetNextQueueSlot200Response**](GetNextQueueSlot200Response.md)>
 
 List schedules
 
-Retrieve queue schedules for a profile. Each profile can have multiple queues. Without all&#x3D;true, returns the default queue (or specific queue if queueId provided). With all&#x3D;true, returns all queues for the profile. 
+Returns queue schedules for a profile. Use all&#x3D;true for all queues, or queueId for a specific one. Defaults to the default queue.
 
 ### Example
 
@@ -558,7 +558,7 @@ public class Example {
 
 List schedules
 
-Retrieve queue schedules for a profile. Each profile can have multiple queues. Without all&#x3D;true, returns the default queue (or specific queue if queueId provided). With all&#x3D;true, returns all queues for the profile. 
+Returns queue schedules for a profile. Use all&#x3D;true for all queues, or queueId for a specific one. Defaults to the default queue.
 
 ### Example
 
@@ -639,6 +639,8 @@ ApiResponse<[**ListQueueSlots200Response**](ListQueueSlots200Response.md)>
 
 Preview upcoming slots
 
+Returns the next N upcoming queue slot times for a profile as ISO datetime strings.
+
 ### Example
 
 ```java
@@ -711,6 +713,8 @@ public class Example {
 > ApiResponse<PreviewQueue200Response> previewQueue previewQueueWithHttpInfo(profileId, count)
 
 Preview upcoming slots
+
+Returns the next N upcoming queue slot times for a profile as ISO datetime strings.
 
 ### Example
 

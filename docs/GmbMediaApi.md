@@ -171,6 +171,8 @@ ApiResponse<[**CreateGoogleBusinessMedia200Response**](CreateGoogleBusinessMedia
 
 Delete photo
 
+Deletes a photo or media item from a GBP location.
+
 ### Example
 
 ```java
@@ -242,6 +244,8 @@ public class Example {
 > ApiResponse<DeleteGoogleBusinessMedia200Response> deleteGoogleBusinessMedia deleteGoogleBusinessMediaWithHttpInfo(accountId, mediaId)
 
 Delete photo
+
+Deletes a photo or media item from a GBP location.
 
 ### Example
 

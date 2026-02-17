@@ -17,6 +17,8 @@ All URIs are relative to *https://getlate.dev/api*
 
 Get user
 
+Returns a single user&#39;s details by ID, including name, email, and role.
+
 ### Example
 
 ```java
@@ -87,6 +89,8 @@ public class Example {
 > ApiResponse<GetUser200Response> getUser getUserWithHttpInfo(userId)
 
 Get user
+
+Returns a single user&#39;s details by ID, including name, email, and role.
 
 ### Example
 
@@ -163,6 +167,8 @@ ApiResponse<[**GetUser200Response**](GetUser200Response.md)>
 
 List users
 
+Returns all users in the workspace including roles and profile access. Also returns the currentUserId of the caller.
+
 ### Example
 
 ```java
@@ -227,6 +233,8 @@ This endpoint does not need any parameter.
 > ApiResponse<ListUsers200Response> listUsers listUsersWithHttpInfo()
 
 List users
+
+Returns all users in the workspace including roles and profile access. Also returns the currentUserId of the caller.
 
 ### Example
 

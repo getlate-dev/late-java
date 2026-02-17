@@ -64,7 +64,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AnalyticsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -183,7 +183,7 @@ public class AnalyticsApi {
 
   /**
    * Get post analytics
-   * Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. This endpoint returns External Post IDs by default. The postId parameter accepts both Late Post IDs and External Post IDs, auto-resolving Late IDs to External Post analytics. Use latePostId in responses to link back to your original post, or platformPostUrl as a stable identifier. isExternal indicates post origin (true &#x3D; synced from platform). For follower stats, use /v1/accounts/follower-stats. LinkedIn personal accounts: per-post analytics only for Late-published posts. Telegram: not available. Data is cached and refreshed at most once per hour. 
+   * Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). Data is cached and refreshed at most once per hour. For follower stats, use /v1/accounts/follower-stats. 
    * @param postId Returns analytics for a single post. Accepts both Late Post IDs and External Post IDs. Late IDs are auto-resolved to External Post analytics. (optional)
    * @param platform Filter by platform (default \&quot;all\&quot;) (optional)
    * @param profileId Filter by profile ID (default \&quot;all\&quot;) (optional)
@@ -203,7 +203,7 @@ public class AnalyticsApi {
 
   /**
    * Get post analytics
-   * Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. This endpoint returns External Post IDs by default. The postId parameter accepts both Late Post IDs and External Post IDs, auto-resolving Late IDs to External Post analytics. Use latePostId in responses to link back to your original post, or platformPostUrl as a stable identifier. isExternal indicates post origin (true &#x3D; synced from platform). For follower stats, use /v1/accounts/follower-stats. LinkedIn personal accounts: per-post analytics only for Late-published posts. Telegram: not available. Data is cached and refreshed at most once per hour. 
+   * Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). Data is cached and refreshed at most once per hour. For follower stats, use /v1/accounts/follower-stats. 
    * @param postId Returns analytics for a single post. Accepts both Late Post IDs and External Post IDs. Late IDs are auto-resolved to External Post analytics. (optional)
    * @param platform Filter by platform (default \&quot;all\&quot;) (optional)
    * @param profileId Filter by profile ID (default \&quot;all\&quot;) (optional)
@@ -225,7 +225,7 @@ public class AnalyticsApi {
 
   /**
    * Get post analytics
-   * Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. This endpoint returns External Post IDs by default. The postId parameter accepts both Late Post IDs and External Post IDs, auto-resolving Late IDs to External Post analytics. Use latePostId in responses to link back to your original post, or platformPostUrl as a stable identifier. isExternal indicates post origin (true &#x3D; synced from platform). For follower stats, use /v1/accounts/follower-stats. LinkedIn personal accounts: per-post analytics only for Late-published posts. Telegram: not available. Data is cached and refreshed at most once per hour. 
+   * Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). Data is cached and refreshed at most once per hour. For follower stats, use /v1/accounts/follower-stats. 
    * @param postId Returns analytics for a single post. Accepts both Late Post IDs and External Post IDs. Late IDs are auto-resolved to External Post analytics. (optional)
    * @param platform Filter by platform (default \&quot;all\&quot;) (optional)
    * @param profileId Filter by profile ID (default \&quot;all\&quot;) (optional)
@@ -245,7 +245,7 @@ public class AnalyticsApi {
 
   /**
    * Get post analytics
-   * Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. This endpoint returns External Post IDs by default. The postId parameter accepts both Late Post IDs and External Post IDs, auto-resolving Late IDs to External Post analytics. Use latePostId in responses to link back to your original post, or platformPostUrl as a stable identifier. isExternal indicates post origin (true &#x3D; synced from platform). For follower stats, use /v1/accounts/follower-stats. LinkedIn personal accounts: per-post analytics only for Late-published posts. Telegram: not available. Data is cached and refreshed at most once per hour. 
+   * Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). Data is cached and refreshed at most once per hour. For follower stats, use /v1/accounts/follower-stats. 
    * @param postId Returns analytics for a single post. Accepts both Late Post IDs and External Post IDs. Late IDs are auto-resolved to External Post analytics. (optional)
    * @param platform Filter by platform (default \&quot;all\&quot;) (optional)
    * @param profileId Filter by profile ID (default \&quot;all\&quot;) (optional)
@@ -517,12 +517,12 @@ public class AnalyticsApi {
 
   /**
    * Get LinkedIn aggregate stats
-   * Returns aggregate analytics across all posts for a LinkedIn personal account. Org accounts should use /v1/analytics instead. Required scope: r_member_postAnalytics (missing scope returns 403). Aggregation: TOTAL (default, lifetime totals) or DAILY (time series). Use startDate/endDate to filter. MEMBERS_REACHED is not available with DAILY aggregation. 
+   * Returns aggregate analytics across all posts for a LinkedIn personal account. Org accounts should use /v1/analytics instead. Requires r_member_postAnalytics scope.
    * @param accountId The ID of the LinkedIn personal account (required)
-   * @param aggregation Type of aggregation: TOTAL (default, returns single totals) or DAILY (returns daily breakdown). Note: MEMBERS_REACHED is not available with DAILY aggregation.  (optional, default to TOTAL)
-   * @param startDate Start date for analytics data in YYYY-MM-DD format. If provided without endDate, endDate defaults to today. If omitted entirely, returns lifetime analytics.  (optional)
-   * @param endDate End date for analytics data in YYYY-MM-DD format (exclusive). If provided without startDate, startDate defaults to 30 days before endDate.  (optional)
-   * @param metrics Comma-separated list of metrics to fetch. If omitted, fetches all available metrics. Valid values: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE  (optional)
+   * @param aggregation TOTAL (default, lifetime totals) or DAILY (time series). MEMBERS_REACHED not available with DAILY. (optional, default to TOTAL)
+   * @param startDate Start date (YYYY-MM-DD). If omitted, returns lifetime analytics. (optional)
+   * @param endDate End date (YYYY-MM-DD, exclusive). Defaults to today if omitted. (optional)
+   * @param metrics Comma-separated metrics: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE. Omit for all. (optional)
    * @return GetLinkedInAggregateAnalytics200Response
    * @throws ApiException if fails to make API call
    */
@@ -532,12 +532,12 @@ public class AnalyticsApi {
 
   /**
    * Get LinkedIn aggregate stats
-   * Returns aggregate analytics across all posts for a LinkedIn personal account. Org accounts should use /v1/analytics instead. Required scope: r_member_postAnalytics (missing scope returns 403). Aggregation: TOTAL (default, lifetime totals) or DAILY (time series). Use startDate/endDate to filter. MEMBERS_REACHED is not available with DAILY aggregation. 
+   * Returns aggregate analytics across all posts for a LinkedIn personal account. Org accounts should use /v1/analytics instead. Requires r_member_postAnalytics scope.
    * @param accountId The ID of the LinkedIn personal account (required)
-   * @param aggregation Type of aggregation: TOTAL (default, returns single totals) or DAILY (returns daily breakdown). Note: MEMBERS_REACHED is not available with DAILY aggregation.  (optional, default to TOTAL)
-   * @param startDate Start date for analytics data in YYYY-MM-DD format. If provided without endDate, endDate defaults to today. If omitted entirely, returns lifetime analytics.  (optional)
-   * @param endDate End date for analytics data in YYYY-MM-DD format (exclusive). If provided without startDate, startDate defaults to 30 days before endDate.  (optional)
-   * @param metrics Comma-separated list of metrics to fetch. If omitted, fetches all available metrics. Valid values: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE  (optional)
+   * @param aggregation TOTAL (default, lifetime totals) or DAILY (time series). MEMBERS_REACHED not available with DAILY. (optional, default to TOTAL)
+   * @param startDate Start date (YYYY-MM-DD). If omitted, returns lifetime analytics. (optional)
+   * @param endDate End date (YYYY-MM-DD, exclusive). Defaults to today if omitted. (optional)
+   * @param metrics Comma-separated metrics: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE. Omit for all. (optional)
    * @param headers Optional headers to include in the request
    * @return GetLinkedInAggregateAnalytics200Response
    * @throws ApiException if fails to make API call
@@ -549,12 +549,12 @@ public class AnalyticsApi {
 
   /**
    * Get LinkedIn aggregate stats
-   * Returns aggregate analytics across all posts for a LinkedIn personal account. Org accounts should use /v1/analytics instead. Required scope: r_member_postAnalytics (missing scope returns 403). Aggregation: TOTAL (default, lifetime totals) or DAILY (time series). Use startDate/endDate to filter. MEMBERS_REACHED is not available with DAILY aggregation. 
+   * Returns aggregate analytics across all posts for a LinkedIn personal account. Org accounts should use /v1/analytics instead. Requires r_member_postAnalytics scope.
    * @param accountId The ID of the LinkedIn personal account (required)
-   * @param aggregation Type of aggregation: TOTAL (default, returns single totals) or DAILY (returns daily breakdown). Note: MEMBERS_REACHED is not available with DAILY aggregation.  (optional, default to TOTAL)
-   * @param startDate Start date for analytics data in YYYY-MM-DD format. If provided without endDate, endDate defaults to today. If omitted entirely, returns lifetime analytics.  (optional)
-   * @param endDate End date for analytics data in YYYY-MM-DD format (exclusive). If provided without startDate, startDate defaults to 30 days before endDate.  (optional)
-   * @param metrics Comma-separated list of metrics to fetch. If omitted, fetches all available metrics. Valid values: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE  (optional)
+   * @param aggregation TOTAL (default, lifetime totals) or DAILY (time series). MEMBERS_REACHED not available with DAILY. (optional, default to TOTAL)
+   * @param startDate Start date (YYYY-MM-DD). If omitted, returns lifetime analytics. (optional)
+   * @param endDate End date (YYYY-MM-DD, exclusive). Defaults to today if omitted. (optional)
+   * @param metrics Comma-separated metrics: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE. Omit for all. (optional)
    * @return ApiResponse&lt;GetLinkedInAggregateAnalytics200Response&gt;
    * @throws ApiException if fails to make API call
    */
@@ -564,12 +564,12 @@ public class AnalyticsApi {
 
   /**
    * Get LinkedIn aggregate stats
-   * Returns aggregate analytics across all posts for a LinkedIn personal account. Org accounts should use /v1/analytics instead. Required scope: r_member_postAnalytics (missing scope returns 403). Aggregation: TOTAL (default, lifetime totals) or DAILY (time series). Use startDate/endDate to filter. MEMBERS_REACHED is not available with DAILY aggregation. 
+   * Returns aggregate analytics across all posts for a LinkedIn personal account. Org accounts should use /v1/analytics instead. Requires r_member_postAnalytics scope.
    * @param accountId The ID of the LinkedIn personal account (required)
-   * @param aggregation Type of aggregation: TOTAL (default, returns single totals) or DAILY (returns daily breakdown). Note: MEMBERS_REACHED is not available with DAILY aggregation.  (optional, default to TOTAL)
-   * @param startDate Start date for analytics data in YYYY-MM-DD format. If provided without endDate, endDate defaults to today. If omitted entirely, returns lifetime analytics.  (optional)
-   * @param endDate End date for analytics data in YYYY-MM-DD format (exclusive). If provided without startDate, startDate defaults to 30 days before endDate.  (optional)
-   * @param metrics Comma-separated list of metrics to fetch. If omitted, fetches all available metrics. Valid values: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE  (optional)
+   * @param aggregation TOTAL (default, lifetime totals) or DAILY (time series). MEMBERS_REACHED not available with DAILY. (optional, default to TOTAL)
+   * @param startDate Start date (YYYY-MM-DD). If omitted, returns lifetime analytics. (optional)
+   * @param endDate End date (YYYY-MM-DD, exclusive). Defaults to today if omitted. (optional)
+   * @param metrics Comma-separated metrics: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE. Omit for all. (optional)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetLinkedInAggregateAnalytics200Response&gt;
    * @throws ApiException if fails to make API call
@@ -672,7 +672,7 @@ public class AnalyticsApi {
 
   /**
    * Get LinkedIn post stats
-   * Returns analytics for a specific LinkedIn post using its URN. Works for both personal and organization accounts. Useful for fetching analytics of posts not published through Late. Personal accounts require r_member_postAnalytics scope and return impressions, reach, likes, comments, shares, and video views (clicks not available). Organization accounts require r_organization_social scope and additionally return clicks and engagement rate. 
+   * Returns analytics for a specific LinkedIn post by URN. Works for both personal and organization accounts.
    * @param accountId The ID of the LinkedIn account (required)
    * @param urn The LinkedIn post URN (required)
    * @return GetLinkedInPostAnalytics200Response
@@ -684,7 +684,7 @@ public class AnalyticsApi {
 
   /**
    * Get LinkedIn post stats
-   * Returns analytics for a specific LinkedIn post using its URN. Works for both personal and organization accounts. Useful for fetching analytics of posts not published through Late. Personal accounts require r_member_postAnalytics scope and return impressions, reach, likes, comments, shares, and video views (clicks not available). Organization accounts require r_organization_social scope and additionally return clicks and engagement rate. 
+   * Returns analytics for a specific LinkedIn post by URN. Works for both personal and organization accounts.
    * @param accountId The ID of the LinkedIn account (required)
    * @param urn The LinkedIn post URN (required)
    * @param headers Optional headers to include in the request
@@ -698,7 +698,7 @@ public class AnalyticsApi {
 
   /**
    * Get LinkedIn post stats
-   * Returns analytics for a specific LinkedIn post using its URN. Works for both personal and organization accounts. Useful for fetching analytics of posts not published through Late. Personal accounts require r_member_postAnalytics scope and return impressions, reach, likes, comments, shares, and video views (clicks not available). Organization accounts require r_organization_social scope and additionally return clicks and engagement rate. 
+   * Returns analytics for a specific LinkedIn post by URN. Works for both personal and organization accounts.
    * @param accountId The ID of the LinkedIn account (required)
    * @param urn The LinkedIn post URN (required)
    * @return ApiResponse&lt;GetLinkedInPostAnalytics200Response&gt;
@@ -710,7 +710,7 @@ public class AnalyticsApi {
 
   /**
    * Get LinkedIn post stats
-   * Returns analytics for a specific LinkedIn post using its URN. Works for both personal and organization accounts. Useful for fetching analytics of posts not published through Late. Personal accounts require r_member_postAnalytics scope and return impressions, reach, likes, comments, shares, and video views (clicks not available). Organization accounts require r_organization_social scope and additionally return clicks and engagement rate. 
+   * Returns analytics for a specific LinkedIn post by URN. Works for both personal and organization accounts.
    * @param accountId The ID of the LinkedIn account (required)
    * @param urn The LinkedIn post URN (required)
    * @param headers Optional headers to include in the request
@@ -813,7 +813,7 @@ public class AnalyticsApi {
 
   /**
    * Get YouTube daily views
-   * Returns historical daily view counts for a specific YouTube video. Uses YouTube Analytics API v2 to fetch daily breakdowns including views, watch time, and subscriber changes.  Requires the yt-analytics.readonly OAuth scope. Existing YouTube accounts may need to re-authorize. If the scope is missing, the response includes a reauthorizeUrl. Data has a 2-3 day delay; endDate is automatically capped to 3 days ago. Maximum 90 days of historical data. Defaults to last 30 days. 
+   * Returns daily view counts for a YouTube video including views, watch time, and subscriber changes. Requires yt-analytics.readonly scope (re-authorization may be needed). Data has a 2-3 day delay. Max 90 days, defaults to last 30 days. 
    * @param videoId The YouTube video ID (e.g., \&quot;dQw4w9WgXcQ\&quot;) (required)
    * @param accountId The Late account ID for the YouTube account (required)
    * @param startDate Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
@@ -827,7 +827,7 @@ public class AnalyticsApi {
 
   /**
    * Get YouTube daily views
-   * Returns historical daily view counts for a specific YouTube video. Uses YouTube Analytics API v2 to fetch daily breakdowns including views, watch time, and subscriber changes.  Requires the yt-analytics.readonly OAuth scope. Existing YouTube accounts may need to re-authorize. If the scope is missing, the response includes a reauthorizeUrl. Data has a 2-3 day delay; endDate is automatically capped to 3 days ago. Maximum 90 days of historical data. Defaults to last 30 days. 
+   * Returns daily view counts for a YouTube video including views, watch time, and subscriber changes. Requires yt-analytics.readonly scope (re-authorization may be needed). Data has a 2-3 day delay. Max 90 days, defaults to last 30 days. 
    * @param videoId The YouTube video ID (e.g., \&quot;dQw4w9WgXcQ\&quot;) (required)
    * @param accountId The Late account ID for the YouTube account (required)
    * @param startDate Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
@@ -843,7 +843,7 @@ public class AnalyticsApi {
 
   /**
    * Get YouTube daily views
-   * Returns historical daily view counts for a specific YouTube video. Uses YouTube Analytics API v2 to fetch daily breakdowns including views, watch time, and subscriber changes.  Requires the yt-analytics.readonly OAuth scope. Existing YouTube accounts may need to re-authorize. If the scope is missing, the response includes a reauthorizeUrl. Data has a 2-3 day delay; endDate is automatically capped to 3 days ago. Maximum 90 days of historical data. Defaults to last 30 days. 
+   * Returns daily view counts for a YouTube video including views, watch time, and subscriber changes. Requires yt-analytics.readonly scope (re-authorization may be needed). Data has a 2-3 day delay. Max 90 days, defaults to last 30 days. 
    * @param videoId The YouTube video ID (e.g., \&quot;dQw4w9WgXcQ\&quot;) (required)
    * @param accountId The Late account ID for the YouTube account (required)
    * @param startDate Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
@@ -857,7 +857,7 @@ public class AnalyticsApi {
 
   /**
    * Get YouTube daily views
-   * Returns historical daily view counts for a specific YouTube video. Uses YouTube Analytics API v2 to fetch daily breakdowns including views, watch time, and subscriber changes.  Requires the yt-analytics.readonly OAuth scope. Existing YouTube accounts may need to re-authorize. If the scope is missing, the response includes a reauthorizeUrl. Data has a 2-3 day delay; endDate is automatically capped to 3 days ago. Maximum 90 days of historical data. Defaults to last 30 days. 
+   * Returns daily view counts for a YouTube video including views, watch time, and subscriber changes. Requires yt-analytics.readonly scope (re-authorization may be needed). Data has a 2-3 day delay. Max 90 days, defaults to last 30 days. 
    * @param videoId The YouTube video ID (e.g., \&quot;dQw4w9WgXcQ\&quot;) (required)
    * @param accountId The Late account ID for the YouTube account (required)
    * @param startDate Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)

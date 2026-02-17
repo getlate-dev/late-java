@@ -39,7 +39,7 @@ import dev.getlate.ApiClient;
   GetLinkedInAggregateAnalytics400Response.JSON_PROPERTY_CODE,
   GetLinkedInAggregateAnalytics400Response.JSON_PROPERTY_VALID_OPTIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetLinkedInAggregateAnalytics400Response {
   public static final String JSON_PROPERTY_ERROR = "error";
   @javax.annotation.Nullable

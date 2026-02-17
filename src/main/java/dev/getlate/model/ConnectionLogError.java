@@ -37,7 +37,7 @@ import dev.getlate.ApiClient;
   ConnectionLogError.JSON_PROPERTY_MESSAGE,
   ConnectionLogError.JSON_PROPERTY_RAW_RESPONSE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ConnectionLogError {
   public static final String JSON_PROPERTY_CODE = "code";
   @javax.annotation.Nullable

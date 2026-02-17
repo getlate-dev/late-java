@@ -47,7 +47,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GmbReviewsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -166,7 +166,7 @@ public class GmbReviewsApi {
 
   /**
    * Get reviews
-   * Fetches reviews for a connected Google Business Profile account. Returns all reviews including reviewer info, star rating, comment text, owner reply, and timestamps. Use pagination via nextPageToken for locations with many reviews. 
+   * Returns reviews for a GBP account including ratings, comments, and owner replies. Use nextPageToken for pagination.
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param pageSize Number of reviews to fetch per page (max 50) (optional, default to 50)
    * @param pageToken Pagination token from previous response (optional)
@@ -179,7 +179,7 @@ public class GmbReviewsApi {
 
   /**
    * Get reviews
-   * Fetches reviews for a connected Google Business Profile account. Returns all reviews including reviewer info, star rating, comment text, owner reply, and timestamps. Use pagination via nextPageToken for locations with many reviews. 
+   * Returns reviews for a GBP account including ratings, comments, and owner replies. Use nextPageToken for pagination.
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param pageSize Number of reviews to fetch per page (max 50) (optional, default to 50)
    * @param pageToken Pagination token from previous response (optional)
@@ -194,7 +194,7 @@ public class GmbReviewsApi {
 
   /**
    * Get reviews
-   * Fetches reviews for a connected Google Business Profile account. Returns all reviews including reviewer info, star rating, comment text, owner reply, and timestamps. Use pagination via nextPageToken for locations with many reviews. 
+   * Returns reviews for a GBP account including ratings, comments, and owner replies. Use nextPageToken for pagination.
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param pageSize Number of reviews to fetch per page (max 50) (optional, default to 50)
    * @param pageToken Pagination token from previous response (optional)
@@ -207,7 +207,7 @@ public class GmbReviewsApi {
 
   /**
    * Get reviews
-   * Fetches reviews for a connected Google Business Profile account. Returns all reviews including reviewer info, star rating, comment text, owner reply, and timestamps. Use pagination via nextPageToken for locations with many reviews. 
+   * Returns reviews for a GBP account including ratings, comments, and owner replies. Use nextPageToken for pagination.
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param pageSize Number of reviews to fetch per page (max 50) (optional, default to 50)
    * @param pageToken Pagination token from previous response (optional)

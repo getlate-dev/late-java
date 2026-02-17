@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.getlate.ApiClient;
 /**
- * Videos up to 3 min are auto-detected as Shorts, longer as regular videos. Custom thumbnails supported for regular videos only (via mediaItem.thumbnail). Scheduled videos are uploaded immediately with the specified visibility. madeForKids defaults to false.
+ * Videos under 3 min auto-detected as Shorts. Custom thumbnails for regular videos only. Scheduled videos are uploaded immediately with the specified visibility.
  */
 @JsonPropertyOrder({
   YouTubePlatformData.JSON_PROPERTY_TITLE,
@@ -40,7 +40,7 @@ import dev.getlate.ApiClient;
   YouTubePlatformData.JSON_PROPERTY_CONTAINS_SYNTHETIC_MEDIA,
   YouTubePlatformData.JSON_PROPERTY_CATEGORY_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class YouTubePlatformData {
   public static final String JSON_PROPERTY_TITLE = "title";
   @javax.annotation.Nullable

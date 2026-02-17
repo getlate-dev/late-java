@@ -33,12 +33,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.getlate.ApiClient;
 /**
- * Carousels support up to 10 images (no videos). Single posts support one image or video. Videos must be H.264/AAC MP4, max 5 min. Images must be JPEG/PNG, max 8 MB. threadItems creates a reply chain.
+ * Up to 10 images per carousel (no videos). Videos must be H.264/AAC MP4, max 5 min. Images JPEG/PNG, max 8 MB. Use threadItems for reply chains.
  */
 @JsonPropertyOrder({
   ThreadsPlatformData.JSON_PROPERTY_THREAD_ITEMS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ThreadsPlatformData {
   public static final String JSON_PROPERTY_THREAD_ITEMS = "threadItems";
   @javax.annotation.Nullable

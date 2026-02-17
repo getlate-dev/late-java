@@ -19,6 +19,8 @@ All URIs are relative to *https://getlate.dev/api*
 
 Create key
 
+Creates a new API key with an optional expiry. The full key value is only returned once in the response.
+
 ### Example
 
 ```java
@@ -88,6 +90,8 @@ public class Example {
 > ApiResponse<CreateApiKey201Response> createApiKey createApiKeyWithHttpInfo(createApiKeyRequest)
 
 Create key
+
+Creates a new API key with an optional expiry. The full key value is only returned once in the response.
 
 ### Example
 
@@ -163,6 +167,8 @@ ApiResponse<[**CreateApiKey201Response**](CreateApiKey201Response.md)>
 
 Delete key
 
+Permanently revokes and deletes an API key.
+
 ### Example
 
 ```java
@@ -232,6 +238,8 @@ public class Example {
 > ApiResponse<DeleteAccountGroup200Response> deleteApiKey deleteApiKeyWithHttpInfo(keyId)
 
 Delete key
+
+Permanently revokes and deletes an API key.
 
 ### Example
 
@@ -307,6 +315,8 @@ ApiResponse<[**DeleteAccountGroup200Response**](DeleteAccountGroup200Response.md
 
 List keys
 
+Returns all API keys for the authenticated user. Keys are returned with a preview only, not the full key value.
+
 ### Example
 
 ```java
@@ -371,6 +381,8 @@ This endpoint does not need any parameter.
 > ApiResponse<ListApiKeys200Response> listApiKeys listApiKeysWithHttpInfo()
 
 List keys
+
+Returns all API keys for the authenticated user. Keys are returned with a preview only, not the full key value.
 
 ### Example
 

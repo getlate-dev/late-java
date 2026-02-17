@@ -31,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.getlate.ApiClient;
 /**
- * Media referenced in posts. URLs must be publicly reachable over HTTPS. When using third-party storage, ensure signed links remain valid until upload completes. Use POST /v1/media/presign to get a presigned URL for direct cloud storage upload (up to 5GB). Late automatically compresses images and videos that exceed platform limits server-side during publishing. Videos larger than 200 MB may not be compressed due to timeout constraints. 
+ * Media referenced in posts. URLs must be publicly reachable over HTTPS. Use POST /v1/media/presign for uploads up to 5GB. Late auto-compresses images and videos that exceed platform limits (videos over 200 MB may not be compressed).
  */
 @JsonPropertyOrder({
   MediaItem.JSON_PROPERTY_TYPE,
@@ -43,7 +43,7 @@ import dev.getlate.ApiClient;
   MediaItem.JSON_PROPERTY_INSTAGRAM_THUMBNAIL,
   MediaItem.JSON_PROPERTY_TIKTOK_PROCESSED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class MediaItem {
   /**
    * Gets or Sets type

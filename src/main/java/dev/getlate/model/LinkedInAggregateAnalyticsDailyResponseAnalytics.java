@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.getlate.ApiClient;
 /**
- * Daily breakdown of each metric. Each metric contains an array of date/count pairs. Note: &#39;reach&#39; (MEMBERS_REACHED) is not available with DAILY aggregation per LinkedIn API limitations. 
+ * Daily breakdown of each metric as date/count pairs. Reach not available with DAILY aggregation.
  */
 @JsonPropertyOrder({
   LinkedInAggregateAnalyticsDailyResponseAnalytics.JSON_PROPERTY_IMPRESSIONS,
@@ -41,7 +41,7 @@ import dev.getlate.ApiClient;
   LinkedInAggregateAnalyticsDailyResponseAnalytics.JSON_PROPERTY_COMMENTS,
   LinkedInAggregateAnalyticsDailyResponseAnalytics.JSON_PROPERTY_SHARES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class LinkedInAggregateAnalyticsDailyResponseAnalytics {
   public static final String JSON_PROPERTY_IMPRESSIONS = "impressions";
   @javax.annotation.Nullable

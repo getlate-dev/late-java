@@ -59,7 +59,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class QueueApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -443,7 +443,7 @@ public class QueueApi {
 
   /**
    * Get next available slot
-   * Returns the next available queue slot for preview/informational purposes. Do NOT use this response with scheduledFor to schedule a post, as that creates a manual post, not a queue post. Instead, use POST /v1/posts with queuedFromProfile (and optionally queueId). Useful for showing users when their next post will go out, debugging queue configuration, or building UI previews.  If no queueId is specified, uses the profile&#39;s default queue. 
+   * Returns the next available queue slot for preview purposes. To create a queue post, use POST /v1/posts with queuedFromProfile instead of scheduledFor.
    * @param profileId  (required)
    * @param queueId Specific queue ID (optional, defaults to profile&#39;s default queue) (optional)
    * @return GetNextQueueSlot200Response
@@ -455,7 +455,7 @@ public class QueueApi {
 
   /**
    * Get next available slot
-   * Returns the next available queue slot for preview/informational purposes. Do NOT use this response with scheduledFor to schedule a post, as that creates a manual post, not a queue post. Instead, use POST /v1/posts with queuedFromProfile (and optionally queueId). Useful for showing users when their next post will go out, debugging queue configuration, or building UI previews.  If no queueId is specified, uses the profile&#39;s default queue. 
+   * Returns the next available queue slot for preview purposes. To create a queue post, use POST /v1/posts with queuedFromProfile instead of scheduledFor.
    * @param profileId  (required)
    * @param queueId Specific queue ID (optional, defaults to profile&#39;s default queue) (optional)
    * @param headers Optional headers to include in the request
@@ -469,7 +469,7 @@ public class QueueApi {
 
   /**
    * Get next available slot
-   * Returns the next available queue slot for preview/informational purposes. Do NOT use this response with scheduledFor to schedule a post, as that creates a manual post, not a queue post. Instead, use POST /v1/posts with queuedFromProfile (and optionally queueId). Useful for showing users when their next post will go out, debugging queue configuration, or building UI previews.  If no queueId is specified, uses the profile&#39;s default queue. 
+   * Returns the next available queue slot for preview purposes. To create a queue post, use POST /v1/posts with queuedFromProfile instead of scheduledFor.
    * @param profileId  (required)
    * @param queueId Specific queue ID (optional, defaults to profile&#39;s default queue) (optional)
    * @return ApiResponse&lt;GetNextQueueSlot200Response&gt;
@@ -481,7 +481,7 @@ public class QueueApi {
 
   /**
    * Get next available slot
-   * Returns the next available queue slot for preview/informational purposes. Do NOT use this response with scheduledFor to schedule a post, as that creates a manual post, not a queue post. Instead, use POST /v1/posts with queuedFromProfile (and optionally queueId). Useful for showing users when their next post will go out, debugging queue configuration, or building UI previews.  If no queueId is specified, uses the profile&#39;s default queue. 
+   * Returns the next available queue slot for preview purposes. To create a queue post, use POST /v1/posts with queuedFromProfile instead of scheduledFor.
    * @param profileId  (required)
    * @param queueId Specific queue ID (optional, defaults to profile&#39;s default queue) (optional)
    * @param headers Optional headers to include in the request
@@ -581,7 +581,7 @@ public class QueueApi {
 
   /**
    * List schedules
-   * Retrieve queue schedules for a profile. Each profile can have multiple queues. Without all&#x3D;true, returns the default queue (or specific queue if queueId provided). With all&#x3D;true, returns all queues for the profile. 
+   * Returns queue schedules for a profile. Use all&#x3D;true for all queues, or queueId for a specific one. Defaults to the default queue.
    * @param profileId Profile ID to get queues for (required)
    * @param queueId Specific queue ID to retrieve (optional) (optional)
    * @param all Set to &#39;true&#39; to list all queues for the profile (optional)
@@ -594,7 +594,7 @@ public class QueueApi {
 
   /**
    * List schedules
-   * Retrieve queue schedules for a profile. Each profile can have multiple queues. Without all&#x3D;true, returns the default queue (or specific queue if queueId provided). With all&#x3D;true, returns all queues for the profile. 
+   * Returns queue schedules for a profile. Use all&#x3D;true for all queues, or queueId for a specific one. Defaults to the default queue.
    * @param profileId Profile ID to get queues for (required)
    * @param queueId Specific queue ID to retrieve (optional) (optional)
    * @param all Set to &#39;true&#39; to list all queues for the profile (optional)
@@ -609,7 +609,7 @@ public class QueueApi {
 
   /**
    * List schedules
-   * Retrieve queue schedules for a profile. Each profile can have multiple queues. Without all&#x3D;true, returns the default queue (or specific queue if queueId provided). With all&#x3D;true, returns all queues for the profile. 
+   * Returns queue schedules for a profile. Use all&#x3D;true for all queues, or queueId for a specific one. Defaults to the default queue.
    * @param profileId Profile ID to get queues for (required)
    * @param queueId Specific queue ID to retrieve (optional) (optional)
    * @param all Set to &#39;true&#39; to list all queues for the profile (optional)
@@ -622,7 +622,7 @@ public class QueueApi {
 
   /**
    * List schedules
-   * Retrieve queue schedules for a profile. Each profile can have multiple queues. Without all&#x3D;true, returns the default queue (or specific queue if queueId provided). With all&#x3D;true, returns all queues for the profile. 
+   * Returns queue schedules for a profile. Use all&#x3D;true for all queues, or queueId for a specific one. Defaults to the default queue.
    * @param profileId Profile ID to get queues for (required)
    * @param queueId Specific queue ID to retrieve (optional) (optional)
    * @param all Set to &#39;true&#39; to list all queues for the profile (optional)
@@ -725,7 +725,7 @@ public class QueueApi {
 
   /**
    * Preview upcoming slots
-   * 
+   * Returns the next N upcoming queue slot times for a profile as ISO datetime strings.
    * @param profileId  (required)
    * @param count  (optional, default to 20)
    * @return PreviewQueue200Response
@@ -737,7 +737,7 @@ public class QueueApi {
 
   /**
    * Preview upcoming slots
-   * 
+   * Returns the next N upcoming queue slot times for a profile as ISO datetime strings.
    * @param profileId  (required)
    * @param count  (optional, default to 20)
    * @param headers Optional headers to include in the request
@@ -751,7 +751,7 @@ public class QueueApi {
 
   /**
    * Preview upcoming slots
-   * 
+   * Returns the next N upcoming queue slot times for a profile as ISO datetime strings.
    * @param profileId  (required)
    * @param count  (optional, default to 20)
    * @return ApiResponse&lt;PreviewQueue200Response&gt;
@@ -763,7 +763,7 @@ public class QueueApi {
 
   /**
    * Preview upcoming slots
-   * 
+   * Returns the next N upcoming queue slot times for a profile as ISO datetime strings.
    * @param profileId  (required)
    * @param count  (optional, default to 20)
    * @param headers Optional headers to include in the request

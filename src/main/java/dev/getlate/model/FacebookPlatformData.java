@@ -30,14 +30,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.getlate.ApiClient;
 /**
- * Cannot mix videos and images. Up to 10 images for feed posts. Stories require single image or video (no captions, ephemeral 24h). Use pageId for multi-page posting.
+ * Up to 10 images for feed posts, cannot mix videos and images. Stories require single image or video (ephemeral 24h, no captions). Use pageId for multi-page posting.
  */
 @JsonPropertyOrder({
   FacebookPlatformData.JSON_PROPERTY_CONTENT_TYPE,
   FacebookPlatformData.JSON_PROPERTY_FIRST_COMMENT,
   FacebookPlatformData.JSON_PROPERTY_PAGE_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class FacebookPlatformData {
   /**
    * Set to &#39;story&#39; to publish as a Facebook Page Story (24-hour ephemeral content). Requires media.
@@ -141,7 +141,7 @@ public class FacebookPlatformData {
   }
 
   /**
-   * Target Facebook Page ID for multi-page posting. If omitted, uses the selected/default page on the connection. Use GET /api/v1/accounts/{id}/facebook-page to list available pages. 
+   * Target Facebook Page ID for multi-page posting. If omitted, uses the default page. Use GET /v1/accounts/{id}/facebook-page to list pages.
    * @return pageId
    */
   @javax.annotation.Nullable

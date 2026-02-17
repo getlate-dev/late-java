@@ -50,7 +50,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AccountSettingsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -169,7 +169,7 @@ public class AccountSettingsApi {
 
   /**
    * Delete IG ice breakers
-   * 
+   * Removes the ice breaker questions from an Instagram account&#39;s Messenger experience.
    * @param accountId  (required)
    * @throws ApiException if fails to make API call
    */
@@ -179,7 +179,7 @@ public class AccountSettingsApi {
 
   /**
    * Delete IG ice breakers
-   * 
+   * Removes the ice breaker questions from an Instagram account&#39;s Messenger experience.
    * @param accountId  (required)
    * @param headers Optional headers to include in the request
    * @throws ApiException if fails to make API call
@@ -190,7 +190,7 @@ public class AccountSettingsApi {
 
   /**
    * Delete IG ice breakers
-   * 
+   * Removes the ice breaker questions from an Instagram account&#39;s Messenger experience.
    * @param accountId  (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -201,7 +201,7 @@ public class AccountSettingsApi {
 
   /**
    * Delete IG ice breakers
-   * 
+   * Removes the ice breaker questions from an Instagram account&#39;s Messenger experience.
    * @param accountId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;Void&gt;
@@ -273,7 +273,7 @@ public class AccountSettingsApi {
 
   /**
    * Delete FB persistent menu
-   * 
+   * Removes the persistent menu from Facebook Messenger conversations for this account.
    * @param accountId  (required)
    * @throws ApiException if fails to make API call
    */
@@ -283,7 +283,7 @@ public class AccountSettingsApi {
 
   /**
    * Delete FB persistent menu
-   * 
+   * Removes the persistent menu from Facebook Messenger conversations for this account.
    * @param accountId  (required)
    * @param headers Optional headers to include in the request
    * @throws ApiException if fails to make API call
@@ -294,7 +294,7 @@ public class AccountSettingsApi {
 
   /**
    * Delete FB persistent menu
-   * 
+   * Removes the persistent menu from Facebook Messenger conversations for this account.
    * @param accountId  (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -305,7 +305,7 @@ public class AccountSettingsApi {
 
   /**
    * Delete FB persistent menu
-   * 
+   * Removes the persistent menu from Facebook Messenger conversations for this account.
    * @param accountId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;Void&gt;
@@ -377,7 +377,7 @@ public class AccountSettingsApi {
 
   /**
    * Delete TG bot commands
-   * 
+   * Clears all bot commands configured for a Telegram bot account.
    * @param accountId  (required)
    * @throws ApiException if fails to make API call
    */
@@ -387,7 +387,7 @@ public class AccountSettingsApi {
 
   /**
    * Delete TG bot commands
-   * 
+   * Clears all bot commands configured for a Telegram bot account.
    * @param accountId  (required)
    * @param headers Optional headers to include in the request
    * @throws ApiException if fails to make API call
@@ -398,7 +398,7 @@ public class AccountSettingsApi {
 
   /**
    * Delete TG bot commands
-   * 
+   * Clears all bot commands configured for a Telegram bot account.
    * @param accountId  (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -409,7 +409,7 @@ public class AccountSettingsApi {
 
   /**
    * Delete TG bot commands
-   * 
+   * Clears all bot commands configured for a Telegram bot account.
    * @param accountId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;Void&gt;

@@ -23,7 +23,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 Get post analytics
 
-Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. This endpoint returns External Post IDs by default. The postId parameter accepts both Late Post IDs and External Post IDs, auto-resolving Late IDs to External Post analytics. Use latePostId in responses to link back to your original post, or platformPostUrl as a stable identifier. isExternal indicates post origin (true &#x3D; synced from platform). For follower stats, use /v1/accounts/follower-stats. LinkedIn personal accounts: per-post analytics only for Late-published posts. Telegram: not available. Data is cached and refreshed at most once per hour. 
+Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). Data is cached and refreshed at most once per hour. For follower stats, use /v1/accounts/follower-stats. 
 
 ### Example
 
@@ -115,7 +115,7 @@ public class Example {
 
 Get post analytics
 
-Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. This endpoint returns External Post IDs by default. The postId parameter accepts both Late Post IDs and External Post IDs, auto-resolving Late IDs to External Post analytics. Use latePostId in responses to link back to your original post, or platformPostUrl as a stable identifier. isExternal indicates post origin (true &#x3D; synced from platform). For follower stats, use /v1/accounts/follower-stats. LinkedIn personal accounts: per-post analytics only for Late-published posts. Telegram: not available. Data is cached and refreshed at most once per hour. 
+Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). Data is cached and refreshed at most once per hour. For follower stats, use /v1/accounts/follower-stats. 
 
 ### Example
 
@@ -375,7 +375,7 @@ ApiResponse<[**GetFollowerStats200Response**](GetFollowerStats200Response.md)>
 
 Get LinkedIn aggregate stats
 
-Returns aggregate analytics across all posts for a LinkedIn personal account. Org accounts should use /v1/analytics instead. Required scope: r_member_postAnalytics (missing scope returns 403). Aggregation: TOTAL (default, lifetime totals) or DAILY (time series). Use startDate/endDate to filter. MEMBERS_REACHED is not available with DAILY aggregation. 
+Returns aggregate analytics across all posts for a LinkedIn personal account. Org accounts should use /v1/analytics instead. Requires r_member_postAnalytics scope.
 
 ### Example
 
@@ -399,10 +399,10 @@ public class Example {
 
         AnalyticsApi apiInstance = new AnalyticsApi(defaultClient);
         String accountId = "accountId_example"; // String | The ID of the LinkedIn personal account
-        String aggregation = "TOTAL"; // String | Type of aggregation: TOTAL (default, returns single totals) or DAILY (returns daily breakdown). Note: MEMBERS_REACHED is not available with DAILY aggregation. 
-        LocalDate startDate = LocalDate.parse("2024-01-01"); // LocalDate | Start date for analytics data in YYYY-MM-DD format. If provided without endDate, endDate defaults to today. If omitted entirely, returns lifetime analytics. 
-        LocalDate endDate = LocalDate.parse("2024-01-31"); // LocalDate | End date for analytics data in YYYY-MM-DD format (exclusive). If provided without startDate, startDate defaults to 30 days before endDate. 
-        String metrics = "IMPRESSION,REACTION,COMMENT"; // String | Comma-separated list of metrics to fetch. If omitted, fetches all available metrics. Valid values: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE 
+        String aggregation = "TOTAL"; // String | TOTAL (default, lifetime totals) or DAILY (time series). MEMBERS_REACHED not available with DAILY.
+        LocalDate startDate = LocalDate.parse("2024-01-01"); // LocalDate | Start date (YYYY-MM-DD). If omitted, returns lifetime analytics.
+        LocalDate endDate = LocalDate.parse("2024-01-31"); // LocalDate | End date (YYYY-MM-DD, exclusive). Defaults to today if omitted.
+        String metrics = "IMPRESSION,REACTION,COMMENT"; // String | Comma-separated metrics: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE. Omit for all.
         try {
             GetLinkedInAggregateAnalytics200Response result = apiInstance.getLinkedInAggregateAnalytics(accountId, aggregation, startDate, endDate, metrics);
             System.out.println(result);
@@ -423,10 +423,10 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **accountId** | **String**| The ID of the LinkedIn personal account | |
-| **aggregation** | **String**| Type of aggregation: TOTAL (default, returns single totals) or DAILY (returns daily breakdown). Note: MEMBERS_REACHED is not available with DAILY aggregation.  | [optional] [default to TOTAL] [enum: TOTAL, DAILY] |
-| **startDate** | **LocalDate**| Start date for analytics data in YYYY-MM-DD format. If provided without endDate, endDate defaults to today. If omitted entirely, returns lifetime analytics.  | [optional] |
-| **endDate** | **LocalDate**| End date for analytics data in YYYY-MM-DD format (exclusive). If provided without startDate, startDate defaults to 30 days before endDate.  | [optional] |
-| **metrics** | **String**| Comma-separated list of metrics to fetch. If omitted, fetches all available metrics. Valid values: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE  | [optional] |
+| **aggregation** | **String**| TOTAL (default, lifetime totals) or DAILY (time series). MEMBERS_REACHED not available with DAILY. | [optional] [default to TOTAL] [enum: TOTAL, DAILY] |
+| **startDate** | **LocalDate**| Start date (YYYY-MM-DD). If omitted, returns lifetime analytics. | [optional] |
+| **endDate** | **LocalDate**| End date (YYYY-MM-DD, exclusive). Defaults to today if omitted. | [optional] |
+| **metrics** | **String**| Comma-separated metrics: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE. Omit for all. | [optional] |
 
 ### Return type
 
@@ -458,7 +458,7 @@ public class Example {
 
 Get LinkedIn aggregate stats
 
-Returns aggregate analytics across all posts for a LinkedIn personal account. Org accounts should use /v1/analytics instead. Required scope: r_member_postAnalytics (missing scope returns 403). Aggregation: TOTAL (default, lifetime totals) or DAILY (time series). Use startDate/endDate to filter. MEMBERS_REACHED is not available with DAILY aggregation. 
+Returns aggregate analytics across all posts for a LinkedIn personal account. Org accounts should use /v1/analytics instead. Requires r_member_postAnalytics scope.
 
 ### Example
 
@@ -483,10 +483,10 @@ public class Example {
 
         AnalyticsApi apiInstance = new AnalyticsApi(defaultClient);
         String accountId = "accountId_example"; // String | The ID of the LinkedIn personal account
-        String aggregation = "TOTAL"; // String | Type of aggregation: TOTAL (default, returns single totals) or DAILY (returns daily breakdown). Note: MEMBERS_REACHED is not available with DAILY aggregation. 
-        LocalDate startDate = LocalDate.parse("2024-01-01"); // LocalDate | Start date for analytics data in YYYY-MM-DD format. If provided without endDate, endDate defaults to today. If omitted entirely, returns lifetime analytics. 
-        LocalDate endDate = LocalDate.parse("2024-01-31"); // LocalDate | End date for analytics data in YYYY-MM-DD format (exclusive). If provided without startDate, startDate defaults to 30 days before endDate. 
-        String metrics = "IMPRESSION,REACTION,COMMENT"; // String | Comma-separated list of metrics to fetch. If omitted, fetches all available metrics. Valid values: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE 
+        String aggregation = "TOTAL"; // String | TOTAL (default, lifetime totals) or DAILY (time series). MEMBERS_REACHED not available with DAILY.
+        LocalDate startDate = LocalDate.parse("2024-01-01"); // LocalDate | Start date (YYYY-MM-DD). If omitted, returns lifetime analytics.
+        LocalDate endDate = LocalDate.parse("2024-01-31"); // LocalDate | End date (YYYY-MM-DD, exclusive). Defaults to today if omitted.
+        String metrics = "IMPRESSION,REACTION,COMMENT"; // String | Comma-separated metrics: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE. Omit for all.
         try {
             ApiResponse<GetLinkedInAggregateAnalytics200Response> response = apiInstance.getLinkedInAggregateAnalyticsWithHttpInfo(accountId, aggregation, startDate, endDate, metrics);
             System.out.println("Status code: " + response.getStatusCode());
@@ -509,10 +509,10 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **accountId** | **String**| The ID of the LinkedIn personal account | |
-| **aggregation** | **String**| Type of aggregation: TOTAL (default, returns single totals) or DAILY (returns daily breakdown). Note: MEMBERS_REACHED is not available with DAILY aggregation.  | [optional] [default to TOTAL] [enum: TOTAL, DAILY] |
-| **startDate** | **LocalDate**| Start date for analytics data in YYYY-MM-DD format. If provided without endDate, endDate defaults to today. If omitted entirely, returns lifetime analytics.  | [optional] |
-| **endDate** | **LocalDate**| End date for analytics data in YYYY-MM-DD format (exclusive). If provided without startDate, startDate defaults to 30 days before endDate.  | [optional] |
-| **metrics** | **String**| Comma-separated list of metrics to fetch. If omitted, fetches all available metrics. Valid values: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE  | [optional] |
+| **aggregation** | **String**| TOTAL (default, lifetime totals) or DAILY (time series). MEMBERS_REACHED not available with DAILY. | [optional] [default to TOTAL] [enum: TOTAL, DAILY] |
+| **startDate** | **LocalDate**| Start date (YYYY-MM-DD). If omitted, returns lifetime analytics. | [optional] |
+| **endDate** | **LocalDate**| End date (YYYY-MM-DD, exclusive). Defaults to today if omitted. | [optional] |
+| **metrics** | **String**| Comma-separated metrics: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE. Omit for all. | [optional] |
 
 ### Return type
 
@@ -545,7 +545,7 @@ ApiResponse<[**GetLinkedInAggregateAnalytics200Response**](GetLinkedInAggregateA
 
 Get LinkedIn post stats
 
-Returns analytics for a specific LinkedIn post using its URN. Works for both personal and organization accounts. Useful for fetching analytics of posts not published through Late. Personal accounts require r_member_postAnalytics scope and return impressions, reach, likes, comments, shares, and video views (clicks not available). Organization accounts require r_organization_social scope and additionally return clicks and engagement rate. 
+Returns analytics for a specific LinkedIn post by URN. Works for both personal and organization accounts.
 
 ### Example
 
@@ -622,7 +622,7 @@ public class Example {
 
 Get LinkedIn post stats
 
-Returns analytics for a specific LinkedIn post using its URN. Works for both personal and organization accounts. Useful for fetching analytics of posts not published through Late. Personal accounts require r_member_postAnalytics scope and return impressions, reach, likes, comments, shares, and video views (clicks not available). Organization accounts require r_organization_social scope and additionally return clicks and engagement rate. 
+Returns analytics for a specific LinkedIn post by URN. Works for both personal and organization accounts.
 
 ### Example
 
@@ -703,7 +703,7 @@ ApiResponse<[**GetLinkedInPostAnalytics200Response**](GetLinkedInPostAnalytics20
 
 Get YouTube daily views
 
-Returns historical daily view counts for a specific YouTube video. Uses YouTube Analytics API v2 to fetch daily breakdowns including views, watch time, and subscriber changes.  Requires the yt-analytics.readonly OAuth scope. Existing YouTube accounts may need to re-authorize. If the scope is missing, the response includes a reauthorizeUrl. Data has a 2-3 day delay; endDate is automatically capped to 3 days ago. Maximum 90 days of historical data. Defaults to last 30 days. 
+Returns daily view counts for a YouTube video including views, watch time, and subscriber changes. Requires yt-analytics.readonly scope (re-authorization may be needed). Data has a 2-3 day delay. Max 90 days, defaults to last 30 days. 
 
 ### Example
 
@@ -785,7 +785,7 @@ public class Example {
 
 Get YouTube daily views
 
-Returns historical daily view counts for a specific YouTube video. Uses YouTube Analytics API v2 to fetch daily breakdowns including views, watch time, and subscriber changes.  Requires the yt-analytics.readonly OAuth scope. Existing YouTube accounts may need to re-authorize. If the scope is missing, the response includes a reauthorizeUrl. Data has a 2-3 day delay; endDate is automatically capped to 3 days ago. Maximum 90 days of historical data. Defaults to last 30 days. 
+Returns daily view counts for a YouTube video including views, watch time, and subscriber changes. Requires yt-analytics.readonly scope (re-authorization may be needed). Data has a 2-3 day delay. Max 90 days, defaults to last 30 days. 
 
 ### Example
 

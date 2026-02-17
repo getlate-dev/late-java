@@ -43,7 +43,7 @@ import dev.getlate.ApiClient;
   Profile.JSON_PROPERTY_IS_OVER_LIMIT,
   Profile.JSON_PROPERTY_CREATED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class Profile {
   public static final String JSON_PROPERTY_ID = "_id";
   @javax.annotation.Nullable
@@ -230,7 +230,7 @@ public class Profile {
   }
 
   /**
-   * Only present when includeOverLimit&#x3D;true is used. Indicates if this profile exceeds the user&#39;s plan limit. Over-limit profiles cannot be used for posting but can be managed (disconnected accounts, deleted). 
+   * Only present when includeOverLimit&#x3D;true. Indicates if this profile exceeds the plan limit.
    * @return isOverLimit
    */
   @javax.annotation.Nullable

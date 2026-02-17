@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.getlate.ApiClient;
 /**
- * Feed posts require aspect ratio 0.8-1.91; images outside this range must use contentType story. Carousels up to 10 items. Stories require media, no captions. User tag coordinates 0.0-1.0 from top-left. Images over 8 MB and videos over 100 MB (stories) or 300 MB (reels) are auto-compressed.
+ * Feed aspect ratio 0.8-1.91, carousels up to 10 items, stories require media (no captions). User tag coordinates 0.0-1.0 from top-left. Images over 8 MB and videos over platform limits are auto-compressed.
  */
 @JsonPropertyOrder({
   InstagramPlatformData.JSON_PROPERTY_CONTENT_TYPE,
@@ -46,7 +46,7 @@ import dev.getlate.ApiClient;
   InstagramPlatformData.JSON_PROPERTY_AUDIO_NAME,
   InstagramPlatformData.JSON_PROPERTY_THUMB_OFFSET
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class InstagramPlatformData {
   /**
    * Set to &#39;story&#39; to publish as a Story. Default posts become Reels or feed depending on media.

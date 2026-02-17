@@ -31,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.getlate.ApiClient;
 /**
- * Posts are either link (with URL/media) or self (text-only). If media is provided, the first item URL is used as the link; use forceSelf to override. Subreddit defaults to the account&#39;s configured one. Images over 20 MB are auto-compressed. Some subreddits require a flair; if missing, the first available flair is used as fallback.
+ * Posts are either link (with URL/media) or self (text-only). Use forceSelf to override. Subreddit defaults to the account&#39;s configured one. Some subreddits require a flair.
  */
 @JsonPropertyOrder({
   RedditPlatformData.JSON_PROPERTY_SUBREDDIT,
@@ -40,7 +40,7 @@ import dev.getlate.ApiClient;
   RedditPlatformData.JSON_PROPERTY_FORCE_SELF,
   RedditPlatformData.JSON_PROPERTY_FLAIR_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class RedditPlatformData {
   public static final String JSON_PROPERTY_SUBREDDIT = "subreddit";
   @javax.annotation.Nullable
@@ -71,7 +71,7 @@ public class RedditPlatformData {
   }
 
   /**
-   * Target subreddit name (without \&quot;r/\&quot; prefix). Overrides the default subreddit configured on the account connection. Use GET /api/v1/accounts/{id}/reddit-subreddits to list available subreddits. 
+   * Target subreddit name (without \&quot;r/\&quot; prefix). Overrides the default. Use GET /v1/accounts/{id}/reddit-subreddits to list options.
    * @return subreddit
    */
   @javax.annotation.Nullable
@@ -167,7 +167,7 @@ public class RedditPlatformData {
   }
 
   /**
-   * Flair ID for the post. Required by some subreddits. Use GET /api/v1/accounts/{id}/reddit-flairs?subreddit&#x3D;name to list available flairs. 
+   * Flair ID for the post. Required by some subreddits. Use GET /v1/accounts/{id}/reddit-flairs?subreddit&#x3D;name to list flairs.
    * @return flairId
    */
   @javax.annotation.Nullable

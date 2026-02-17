@@ -47,7 +47,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class LinkedInMentionsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -166,10 +166,10 @@ public class LinkedInMentionsApi {
 
   /**
    * Resolve LinkedIn mention
-   * Converts a LinkedIn profile or company URL to a URN for @mentions in posts. Supports person mentions (linkedin.com/in/username or just username) and org mentions (linkedin.com/company/name or company/name). Person mentions require admin access to at least one LinkedIn Organization. Org mentions work with any account. For person mentions to be clickable, provide the displayName parameter matching the exact name on their profile. Org names are fetched automatically. Use the returned mentionFormat directly in post content. 
+   * Converts a LinkedIn profile or company URL to a URN for @mentions in posts. Person mentions require org admin access. Use the returned mentionFormat in post content.
    * @param accountId The LinkedIn account ID (required)
-   * @param url LinkedIn profile URL, company URL, or vanity name. Person examples: miquelpalet, linkedin.com/in/miquelpalet. Organization examples: company/microsoft, linkedin.com/company/microsoft.  (required)
-   * @param displayName The exact display name as shown on LinkedIn. Required for person mentions (for clickable mentions; if not provided, a name is derived from the vanity URL which may not match). Optional for organization mentions (company name is auto-retrieved from LinkedIn).  (optional)
+   * @param url LinkedIn profile URL, company URL, or vanity name. (required)
+   * @param displayName Exact display name as shown on LinkedIn. Required for person mentions to be clickable. Optional for org mentions. (optional)
    * @return GetLinkedInMentions200Response
    * @throws ApiException if fails to make API call
    */
@@ -179,10 +179,10 @@ public class LinkedInMentionsApi {
 
   /**
    * Resolve LinkedIn mention
-   * Converts a LinkedIn profile or company URL to a URN for @mentions in posts. Supports person mentions (linkedin.com/in/username or just username) and org mentions (linkedin.com/company/name or company/name). Person mentions require admin access to at least one LinkedIn Organization. Org mentions work with any account. For person mentions to be clickable, provide the displayName parameter matching the exact name on their profile. Org names are fetched automatically. Use the returned mentionFormat directly in post content. 
+   * Converts a LinkedIn profile or company URL to a URN for @mentions in posts. Person mentions require org admin access. Use the returned mentionFormat in post content.
    * @param accountId The LinkedIn account ID (required)
-   * @param url LinkedIn profile URL, company URL, or vanity name. Person examples: miquelpalet, linkedin.com/in/miquelpalet. Organization examples: company/microsoft, linkedin.com/company/microsoft.  (required)
-   * @param displayName The exact display name as shown on LinkedIn. Required for person mentions (for clickable mentions; if not provided, a name is derived from the vanity URL which may not match). Optional for organization mentions (company name is auto-retrieved from LinkedIn).  (optional)
+   * @param url LinkedIn profile URL, company URL, or vanity name. (required)
+   * @param displayName Exact display name as shown on LinkedIn. Required for person mentions to be clickable. Optional for org mentions. (optional)
    * @param headers Optional headers to include in the request
    * @return GetLinkedInMentions200Response
    * @throws ApiException if fails to make API call
@@ -194,10 +194,10 @@ public class LinkedInMentionsApi {
 
   /**
    * Resolve LinkedIn mention
-   * Converts a LinkedIn profile or company URL to a URN for @mentions in posts. Supports person mentions (linkedin.com/in/username or just username) and org mentions (linkedin.com/company/name or company/name). Person mentions require admin access to at least one LinkedIn Organization. Org mentions work with any account. For person mentions to be clickable, provide the displayName parameter matching the exact name on their profile. Org names are fetched automatically. Use the returned mentionFormat directly in post content. 
+   * Converts a LinkedIn profile or company URL to a URN for @mentions in posts. Person mentions require org admin access. Use the returned mentionFormat in post content.
    * @param accountId The LinkedIn account ID (required)
-   * @param url LinkedIn profile URL, company URL, or vanity name. Person examples: miquelpalet, linkedin.com/in/miquelpalet. Organization examples: company/microsoft, linkedin.com/company/microsoft.  (required)
-   * @param displayName The exact display name as shown on LinkedIn. Required for person mentions (for clickable mentions; if not provided, a name is derived from the vanity URL which may not match). Optional for organization mentions (company name is auto-retrieved from LinkedIn).  (optional)
+   * @param url LinkedIn profile URL, company URL, or vanity name. (required)
+   * @param displayName Exact display name as shown on LinkedIn. Required for person mentions to be clickable. Optional for org mentions. (optional)
    * @return ApiResponse&lt;GetLinkedInMentions200Response&gt;
    * @throws ApiException if fails to make API call
    */
@@ -207,10 +207,10 @@ public class LinkedInMentionsApi {
 
   /**
    * Resolve LinkedIn mention
-   * Converts a LinkedIn profile or company URL to a URN for @mentions in posts. Supports person mentions (linkedin.com/in/username or just username) and org mentions (linkedin.com/company/name or company/name). Person mentions require admin access to at least one LinkedIn Organization. Org mentions work with any account. For person mentions to be clickable, provide the displayName parameter matching the exact name on their profile. Org names are fetched automatically. Use the returned mentionFormat directly in post content. 
+   * Converts a LinkedIn profile or company URL to a URN for @mentions in posts. Person mentions require org admin access. Use the returned mentionFormat in post content.
    * @param accountId The LinkedIn account ID (required)
-   * @param url LinkedIn profile URL, company URL, or vanity name. Person examples: miquelpalet, linkedin.com/in/miquelpalet. Organization examples: company/microsoft, linkedin.com/company/microsoft.  (required)
-   * @param displayName The exact display name as shown on LinkedIn. Required for person mentions (for clickable mentions; if not provided, a name is derived from the vanity URL which may not match). Optional for organization mentions (company name is auto-retrieved from LinkedIn).  (optional)
+   * @param url LinkedIn profile URL, company URL, or vanity name. (required)
+   * @param displayName Exact display name as shown on LinkedIn. Required for person mentions to be clickable. Optional for org mentions. (optional)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetLinkedInMentions200Response&gt;
    * @throws ApiException if fails to make API call

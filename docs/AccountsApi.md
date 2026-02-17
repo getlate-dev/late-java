@@ -25,6 +25,8 @@ All URIs are relative to *https://getlate.dev/api*
 
 Disconnect account
 
+Disconnects and removes a connected social account.
+
 ### Example
 
 ```java
@@ -94,6 +96,8 @@ public class Example {
 > ApiResponse<DeleteAccountGroup200Response> deleteAccount deleteAccountWithHttpInfo(accountId)
 
 Disconnect account
+
+Disconnects and removes a connected social account.
 
 ### Example
 
@@ -169,7 +173,7 @@ ApiResponse<[**DeleteAccountGroup200Response**](DeleteAccountGroup200Response.md
 
 Check account health
 
-Returns detailed health information for a specific social account, including token status, granted permissions, missing permissions, and actionable recommendations. 
+Returns detailed health info for a specific account including token status, permissions, and recommendations.
 
 ### Example
 
@@ -241,7 +245,7 @@ public class Example {
 
 Check account health
 
-Returns detailed health information for a specific social account, including token status, granted permissions, missing permissions, and actionable recommendations. 
+Returns detailed health info for a specific account including token status, permissions, and recommendations.
 
 ### Example
 
@@ -317,7 +321,7 @@ ApiResponse<[**GetAccountHealth200Response**](GetAccountHealth200Response.md)>
 
 Check accounts health
 
-Returns the health status of all connected social accounts, including token validity, permissions status, and any issues that need attention. Useful for monitoring account connections and identifying accounts that need reconnection. 
+Returns health status of all connected accounts including token validity, permissions, and issues needing attention.
 
 ### Example
 
@@ -392,7 +396,7 @@ public class Example {
 
 Check accounts health
 
-Returns the health status of all connected social accounts, including token validity, permissions status, and any issues that need attention. Useful for monitoring account connections and identifying accounts that need reconnection. 
+Returns health status of all connected accounts including token validity, permissions, and issues needing attention.
 
 ### Example
 
@@ -635,7 +639,7 @@ ApiResponse<[**GetFollowerStats200Response**](GetFollowerStats200Response.md)>
 
 List accounts
 
-Returns list of connected social accounts. By default, only returns accounts from profiles within the user&#39;s plan limit. Follower count data (followersCount, followersLastUpdated) is only included if user has analytics add-on. 
+Returns connected social accounts. Only includes accounts within the plan limit by default. Follower data requires analytics add-on.
 
 ### Example
 
@@ -659,7 +663,7 @@ public class Example {
 
         AccountsApi apiInstance = new AccountsApi(defaultClient);
         String profileId = "profileId_example"; // String | Filter accounts by profile ID
-        Boolean includeOverLimit = false; // Boolean | When true, includes accounts from profiles that exceed the user's plan limit. Useful for disconnecting accounts from over-limit profiles so they can be deleted. 
+        Boolean includeOverLimit = false; // Boolean | When true, includes accounts from over-limit profiles.
         try {
             ListAccounts200Response result = apiInstance.listAccounts(profileId, includeOverLimit);
             System.out.println(result);
@@ -680,7 +684,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **profileId** | **String**| Filter accounts by profile ID | [optional] |
-| **includeOverLimit** | **Boolean**| When true, includes accounts from profiles that exceed the user&#39;s plan limit. Useful for disconnecting accounts from over-limit profiles so they can be deleted.  | [optional] [default to false] |
+| **includeOverLimit** | **Boolean**| When true, includes accounts from over-limit profiles. | [optional] [default to false] |
 
 ### Return type
 
@@ -708,7 +712,7 @@ public class Example {
 
 List accounts
 
-Returns list of connected social accounts. By default, only returns accounts from profiles within the user&#39;s plan limit. Follower count data (followersCount, followersLastUpdated) is only included if user has analytics add-on. 
+Returns connected social accounts. Only includes accounts within the plan limit by default. Follower data requires analytics add-on.
 
 ### Example
 
@@ -733,7 +737,7 @@ public class Example {
 
         AccountsApi apiInstance = new AccountsApi(defaultClient);
         String profileId = "profileId_example"; // String | Filter accounts by profile ID
-        Boolean includeOverLimit = false; // Boolean | When true, includes accounts from profiles that exceed the user's plan limit. Useful for disconnecting accounts from over-limit profiles so they can be deleted. 
+        Boolean includeOverLimit = false; // Boolean | When true, includes accounts from over-limit profiles.
         try {
             ApiResponse<ListAccounts200Response> response = apiInstance.listAccountsWithHttpInfo(profileId, includeOverLimit);
             System.out.println("Status code: " + response.getStatusCode());
@@ -756,7 +760,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **profileId** | **String**| Filter accounts by profile ID | [optional] |
-| **includeOverLimit** | **Boolean**| When true, includes accounts from profiles that exceed the user&#39;s plan limit. Useful for disconnecting accounts from over-limit profiles so they can be deleted.  | [optional] [default to false] |
+| **includeOverLimit** | **Boolean**| When true, includes accounts from over-limit profiles. | [optional] [default to false] |
 
 ### Return type
 
@@ -784,6 +788,8 @@ ApiResponse<[**ListAccounts200Response**](ListAccounts200Response.md)>
 > UpdateAccount200Response updateAccount(accountId, updateAccountRequest)
 
 Update account
+
+Updates a connected social account&#39;s display name or username override.
 
 ### Example
 
@@ -857,6 +863,8 @@ public class Example {
 > ApiResponse<UpdateAccount200Response> updateAccount updateAccountWithHttpInfo(accountId, updateAccountRequest)
 
 Update account
+
+Updates a connected social account&#39;s display name or username override.
 
 ### Example
 

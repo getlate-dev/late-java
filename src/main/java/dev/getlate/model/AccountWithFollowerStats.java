@@ -52,7 +52,7 @@ import dev.getlate.ApiClient;
   AccountWithFollowerStats.JSON_PROPERTY_GROWTH_PERCENTAGE,
   AccountWithFollowerStats.JSON_PROPERTY_DATA_POINTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AccountWithFollowerStats {
   public static final String JSON_PROPERTY_ID = "_id";
   @javax.annotation.Nullable
@@ -243,7 +243,7 @@ public class AccountWithFollowerStats {
   }
 
   /**
-   * Full profile URL for the connected account. Available for all platforms: - Twitter/X: https://x.com/{username} - Instagram: https://instagram.com/{username} - TikTok: https://tiktok.com/@{username} - YouTube: https://youtube.com/@{handle} or https://youtube.com/channel/{id} - LinkedIn Personal: https://www.linkedin.com/in/{vanityName}/ - LinkedIn Organization: https://www.linkedin.com/company/{vanityName}/ - Threads: https://threads.net/@{username} - Pinterest: https://pinterest.com/{username} - Reddit: https://reddit.com/user/{username} - Bluesky: https://bsky.app/profile/{handle} - Facebook: https://facebook.com/{username} or https://facebook.com/{pageId} - Google Business: Google Maps URL for the business location 
+   * Full profile URL for the connected account on its platform.
    * @return profileUrl
    */
   @javax.annotation.Nullable

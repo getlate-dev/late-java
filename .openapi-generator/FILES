@@ -858,5 +858,3 @@ src/main/java/dev/getlate/model/YouTubeDailyViewsResponseScopeStatus.java
 src/main/java/dev/getlate/model/YouTubePlatformData.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponseScopeStatus.java
-src/test/java/dev/getlate/model/ListPostsLogs200ResponsePaginationTest.java
-src/test/java/dev/getlate/model/ListPostsLogs200ResponseTest.java

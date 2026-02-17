@@ -30,14 +30,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.getlate.ApiClient;
 /**
- * Up to 20 images, no multi-video. Single PDF supported (max 100MB, ~300 pages, cannot mix with other media). Link previews auto-generated when no media attached (disable with disableLinkPreview). Use organizationUrn for multi-org posting.
+ * Up to 20 images, no multi-video. Single PDF supported (max 100MB). Link previews auto-generated when no media attached. Use organizationUrn for multi-org posting.
  */
 @JsonPropertyOrder({
   LinkedInPlatformData.JSON_PROPERTY_ORGANIZATION_URN,
   LinkedInPlatformData.JSON_PROPERTY_FIRST_COMMENT,
   LinkedInPlatformData.JSON_PROPERTY_DISABLE_LINK_PREVIEW
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class LinkedInPlatformData {
   public static final String JSON_PROPERTY_ORGANIZATION_URN = "organizationUrn";
   @javax.annotation.Nullable
@@ -60,7 +60,7 @@ public class LinkedInPlatformData {
   }
 
   /**
-   * Target LinkedIn Organization URN for multi-organization posting. Format: \&quot;urn:li:organization:123456789\&quot; If omitted, uses the selected/default organization on the connection. Use GET /api/v1/accounts/{id}/linkedin-organizations to list available organizations. 
+   * Target LinkedIn Organization URN (e.g. \&quot;urn:li:organization:123456789\&quot;). If omitted, uses the default org. Use GET /v1/accounts/{id}/linkedin-organizations to list orgs.
    * @return organizationUrn
    */
   @javax.annotation.Nullable
