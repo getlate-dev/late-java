@@ -59,7 +59,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ToolsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -177,8 +177,8 @@ public class ToolsApi {
   }
 
   /**
-   * Check Instagram hashtag bans
-   * Check if Instagram hashtags are banned, restricted, or safe to use.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Check IG hashtag bans
+   * Check if Instagram hashtags are banned, restricted, or safe to use.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param checkInstagramHashtagsRequest  (required)
    * @return CheckInstagramHashtags200Response
    * @throws ApiException if fails to make API call
@@ -188,8 +188,8 @@ public class ToolsApi {
   }
 
   /**
-   * Check Instagram hashtag bans
-   * Check if Instagram hashtags are banned, restricted, or safe to use.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Check IG hashtag bans
+   * Check if Instagram hashtags are banned, restricted, or safe to use.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param checkInstagramHashtagsRequest  (required)
    * @param headers Optional headers to include in the request
    * @return CheckInstagramHashtags200Response
@@ -201,8 +201,8 @@ public class ToolsApi {
   }
 
   /**
-   * Check Instagram hashtag bans
-   * Check if Instagram hashtags are banned, restricted, or safe to use.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Check IG hashtag bans
+   * Check if Instagram hashtags are banned, restricted, or safe to use.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param checkInstagramHashtagsRequest  (required)
    * @return ApiResponse&lt;CheckInstagramHashtags200Response&gt;
    * @throws ApiException if fails to make API call
@@ -212,8 +212,8 @@ public class ToolsApi {
   }
 
   /**
-   * Check Instagram hashtag bans
-   * Check if Instagram hashtags are banned, restricted, or safe to use.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Check IG hashtag bans
+   * Check if Instagram hashtags are banned, restricted, or safe to use.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param checkInstagramHashtagsRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;CheckInstagramHashtags200Response&gt;
@@ -301,7 +301,7 @@ public class ToolsApi {
 
   /**
    * Download Bluesky media
-   * Download videos from Bluesky posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download videos from Bluesky posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url Bluesky post URL (required)
    * @return DownloadBlueskyMedia200Response
    * @throws ApiException if fails to make API call
@@ -312,7 +312,7 @@ public class ToolsApi {
 
   /**
    * Download Bluesky media
-   * Download videos from Bluesky posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download videos from Bluesky posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url Bluesky post URL (required)
    * @param headers Optional headers to include in the request
    * @return DownloadBlueskyMedia200Response
@@ -325,7 +325,7 @@ public class ToolsApi {
 
   /**
    * Download Bluesky media
-   * Download videos from Bluesky posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download videos from Bluesky posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url Bluesky post URL (required)
    * @return ApiResponse&lt;DownloadBlueskyMedia200Response&gt;
    * @throws ApiException if fails to make API call
@@ -336,7 +336,7 @@ public class ToolsApi {
 
   /**
    * Download Bluesky media
-   * Download videos from Bluesky posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download videos from Bluesky posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url Bluesky post URL (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;DownloadBlueskyMedia200Response&gt;
@@ -433,7 +433,7 @@ public class ToolsApi {
 
   /**
    * Download Facebook video
-   * Download videos and reels from Facebook.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download videos and reels from Facebook.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url Facebook video or reel URL (required)
    * @return DownloadFacebookVideo200Response
    * @throws ApiException if fails to make API call
@@ -444,7 +444,7 @@ public class ToolsApi {
 
   /**
    * Download Facebook video
-   * Download videos and reels from Facebook.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download videos and reels from Facebook.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url Facebook video or reel URL (required)
    * @param headers Optional headers to include in the request
    * @return DownloadFacebookVideo200Response
@@ -457,7 +457,7 @@ public class ToolsApi {
 
   /**
    * Download Facebook video
-   * Download videos and reels from Facebook.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download videos and reels from Facebook.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url Facebook video or reel URL (required)
    * @return ApiResponse&lt;DownloadFacebookVideo200Response&gt;
    * @throws ApiException if fails to make API call
@@ -468,7 +468,7 @@ public class ToolsApi {
 
   /**
    * Download Facebook video
-   * Download videos and reels from Facebook.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download videos and reels from Facebook.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url Facebook video or reel URL (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;DownloadFacebookVideo200Response&gt;
@@ -565,7 +565,7 @@ public class ToolsApi {
 
   /**
    * Download Instagram media
-   * Download Instagram reels, posts, or photos.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download Instagram reels, posts, or photos.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url Instagram reel or post URL (required)
    * @return DownloadInstagramMedia200Response
    * @throws ApiException if fails to make API call
@@ -576,7 +576,7 @@ public class ToolsApi {
 
   /**
    * Download Instagram media
-   * Download Instagram reels, posts, or photos.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download Instagram reels, posts, or photos.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url Instagram reel or post URL (required)
    * @param headers Optional headers to include in the request
    * @return DownloadInstagramMedia200Response
@@ -589,7 +589,7 @@ public class ToolsApi {
 
   /**
    * Download Instagram media
-   * Download Instagram reels, posts, or photos.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download Instagram reels, posts, or photos.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url Instagram reel or post URL (required)
    * @return ApiResponse&lt;DownloadInstagramMedia200Response&gt;
    * @throws ApiException if fails to make API call
@@ -600,7 +600,7 @@ public class ToolsApi {
 
   /**
    * Download Instagram media
-   * Download Instagram reels, posts, or photos.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download Instagram reels, posts, or photos.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url Instagram reel or post URL (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;DownloadInstagramMedia200Response&gt;
@@ -697,7 +697,7 @@ public class ToolsApi {
 
   /**
    * Download LinkedIn video
-   * Download videos from LinkedIn posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download videos from LinkedIn posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url LinkedIn post URL (required)
    * @return DownloadInstagramMedia200Response
    * @throws ApiException if fails to make API call
@@ -708,7 +708,7 @@ public class ToolsApi {
 
   /**
    * Download LinkedIn video
-   * Download videos from LinkedIn posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download videos from LinkedIn posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url LinkedIn post URL (required)
    * @param headers Optional headers to include in the request
    * @return DownloadInstagramMedia200Response
@@ -721,7 +721,7 @@ public class ToolsApi {
 
   /**
    * Download LinkedIn video
-   * Download videos from LinkedIn posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download videos from LinkedIn posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url LinkedIn post URL (required)
    * @return ApiResponse&lt;DownloadInstagramMedia200Response&gt;
    * @throws ApiException if fails to make API call
@@ -732,7 +732,7 @@ public class ToolsApi {
 
   /**
    * Download LinkedIn video
-   * Download videos from LinkedIn posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download videos from LinkedIn posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url LinkedIn post URL (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;DownloadInstagramMedia200Response&gt;
@@ -829,7 +829,7 @@ public class ToolsApi {
 
   /**
    * Download TikTok video
-   * Download TikTok videos with or without watermark.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download TikTok videos with or without watermark.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url TikTok video URL or ID (required)
    * @param action &#39;formats&#39; to list available formats (optional, default to download)
    * @param formatId Specific format ID (0 &#x3D; no watermark, etc.) (optional)
@@ -842,7 +842,7 @@ public class ToolsApi {
 
   /**
    * Download TikTok video
-   * Download TikTok videos with or without watermark.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download TikTok videos with or without watermark.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url TikTok video URL or ID (required)
    * @param action &#39;formats&#39; to list available formats (optional, default to download)
    * @param formatId Specific format ID (0 &#x3D; no watermark, etc.) (optional)
@@ -857,7 +857,7 @@ public class ToolsApi {
 
   /**
    * Download TikTok video
-   * Download TikTok videos with or without watermark.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download TikTok videos with or without watermark.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url TikTok video URL or ID (required)
    * @param action &#39;formats&#39; to list available formats (optional, default to download)
    * @param formatId Specific format ID (0 &#x3D; no watermark, etc.) (optional)
@@ -870,7 +870,7 @@ public class ToolsApi {
 
   /**
    * Download TikTok video
-   * Download TikTok videos with or without watermark.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download TikTok videos with or without watermark.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url TikTok video URL or ID (required)
    * @param action &#39;formats&#39; to list available formats (optional, default to download)
    * @param formatId Specific format ID (0 &#x3D; no watermark, etc.) (optional)
@@ -973,7 +973,7 @@ public class ToolsApi {
 
   /**
    * Download Twitter/X media
-   * Download videos from Twitter/X posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download videos from Twitter/X posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url Twitter/X post URL (required)
    * @param action  (optional, default to download)
    * @param formatId  (optional)
@@ -986,7 +986,7 @@ public class ToolsApi {
 
   /**
    * Download Twitter/X media
-   * Download videos from Twitter/X posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download videos from Twitter/X posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url Twitter/X post URL (required)
    * @param action  (optional, default to download)
    * @param formatId  (optional)
@@ -1001,7 +1001,7 @@ public class ToolsApi {
 
   /**
    * Download Twitter/X media
-   * Download videos from Twitter/X posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download videos from Twitter/X posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url Twitter/X post URL (required)
    * @param action  (optional, default to download)
    * @param formatId  (optional)
@@ -1014,7 +1014,7 @@ public class ToolsApi {
 
   /**
    * Download Twitter/X media
-   * Download videos from Twitter/X posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download videos from Twitter/X posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url Twitter/X post URL (required)
    * @param action  (optional, default to download)
    * @param formatId  (optional)
@@ -1117,7 +1117,7 @@ public class ToolsApi {
 
   /**
    * Download YouTube video
-   * Download YouTube videos or audio. Returns available formats or direct download URL.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download YouTube videos or audio. Returns available formats or direct download URL.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url YouTube video URL or video ID (required)
    * @param action Action to perform: &#39;download&#39; returns download URL, &#39;formats&#39; lists available formats (optional, default to download)
    * @param format Desired format (when action&#x3D;download) (optional, default to video)
@@ -1132,7 +1132,7 @@ public class ToolsApi {
 
   /**
    * Download YouTube video
-   * Download YouTube videos or audio. Returns available formats or direct download URL.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download YouTube videos or audio. Returns available formats or direct download URL.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url YouTube video URL or video ID (required)
    * @param action Action to perform: &#39;download&#39; returns download URL, &#39;formats&#39; lists available formats (optional, default to download)
    * @param format Desired format (when action&#x3D;download) (optional, default to video)
@@ -1149,7 +1149,7 @@ public class ToolsApi {
 
   /**
    * Download YouTube video
-   * Download YouTube videos or audio. Returns available formats or direct download URL.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download YouTube videos or audio. Returns available formats or direct download URL.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url YouTube video URL or video ID (required)
    * @param action Action to perform: &#39;download&#39; returns download URL, &#39;formats&#39; lists available formats (optional, default to download)
    * @param format Desired format (when action&#x3D;download) (optional, default to video)
@@ -1164,7 +1164,7 @@ public class ToolsApi {
 
   /**
    * Download YouTube video
-   * Download YouTube videos or audio. Returns available formats or direct download URL.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Download YouTube videos or audio. Returns available formats or direct download URL.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url YouTube video URL or video ID (required)
    * @param action Action to perform: &#39;download&#39; returns download URL, &#39;formats&#39; lists available formats (optional, default to download)
    * @param format Desired format (when action&#x3D;download) (optional, default to video)
@@ -1273,7 +1273,7 @@ public class ToolsApi {
 
   /**
    * Get YouTube transcript
-   * Extract transcript/captions from a YouTube video.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Extract transcript/captions from a YouTube video.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url YouTube video URL or video ID (required)
    * @param lang Language code for transcript (optional, default to en)
    * @return GetYouTubeTranscript200Response
@@ -1285,7 +1285,7 @@ public class ToolsApi {
 
   /**
    * Get YouTube transcript
-   * Extract transcript/captions from a YouTube video.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Extract transcript/captions from a YouTube video.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url YouTube video URL or video ID (required)
    * @param lang Language code for transcript (optional, default to en)
    * @param headers Optional headers to include in the request
@@ -1299,7 +1299,7 @@ public class ToolsApi {
 
   /**
    * Get YouTube transcript
-   * Extract transcript/captions from a YouTube video.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Extract transcript/captions from a YouTube video.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url YouTube video URL or video ID (required)
    * @param lang Language code for transcript (optional, default to en)
    * @return ApiResponse&lt;GetYouTubeTranscript200Response&gt;
@@ -1311,7 +1311,7 @@ public class ToolsApi {
 
   /**
    * Get YouTube transcript
-   * Extract transcript/captions from a YouTube video.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+   * Extract transcript/captions from a YouTube video.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
    * @param url YouTube video URL or video ID (required)
    * @param lang Language code for transcript (optional, default to en)
    * @param headers Optional headers to include in the request

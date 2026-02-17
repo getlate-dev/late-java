@@ -16,7 +16,7 @@
 |**scheduledFor** | **OffsetDateTime** |  |  [optional] |
 |**timezone** | **String** |  |  [optional] |
 |**status** | [**StatusEnum**](#StatusEnum) |  |  [optional] |
-|**tags** | **List&lt;String&gt;** | YouTube tag constraints when targeting YouTube: - No count cap; duplicates removed. - Each tag must be ≤ 100 chars. - Combined characters across all tags ≤ 500.  |  [optional] |
+|**tags** | **List&lt;String&gt;** | YouTube constraints: each tag max 100 chars, combined max 500 chars, duplicates removed. |  [optional] |
 |**hashtags** | **List&lt;String&gt;** |  |  [optional] |
 |**mentions** | **List&lt;String&gt;** |  |  [optional] |
 |**visibility** | [**VisibilityEnum**](#VisibilityEnum) |  |  [optional] |

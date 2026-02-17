@@ -18,16 +18,9 @@ info:
     YouTube, Threads, Reddit, Pinterest, Bluesky, Telegram, Google Business, and Snapchat, all
     from a single REST API.
 
-    **Key Features:**
-    - **Unified Posting** - Schedule or publish to 13 platforms with one API call. Supports text, images, video, carousels, stories, and reels.
-    - **Analytics** - Aggregated engagement metrics (likes, shares, reach, impressions, clicks, views) across all platforms.
-    - **Unified Inbox** - Manage DMs, comments, and reviews from all connected accounts in one place.
-    - **Webhooks** - Real-time notifications for post delivery, account events, and incoming messages.
-    - **OAuth Connect** - Let your users connect their social accounts through one OAuth flow, no developer apps needed.
-    - **Queue Scheduling** - Set up recurring time slots and Late auto-schedules posts to the next available slot.
-    - **White-label ready** - Built for agencies and SaaS products managing 5,000+ accounts.
+    Key features: Unified posting to 13 platforms, aggregated analytics, unified inbox (DMs, comments, reviews), webhooks, OAuth connect, queue scheduling, and white-label support for agencies managing 5,000+ accounts.
 
-    **Supported platforms:** Twitter/X, Instagram, Facebook, LinkedIn, TikTok, YouTube, Pinterest, Reddit, Bluesky, Threads, Google Business, Telegram, Snapchat.
+    Supported platforms: Twitter/X, Instagram, Facebook, LinkedIn, TikTok, YouTube, Pinterest, Reddit, Bluesky, Threads, Google Business, Telegram, Snapchat.
   x-category: Social
   x-website: https://getlate.dev
   x-thumbnail: https://rapidapi-prod-apis.s3.amazonaws.com/b24d3df5-563c-4a50-9e1e-1ad3eb1fce69.png
@@ -112,33 +105,11 @@ tags:
     Platform-specific account settings: Facebook persistent menu, Instagram ice breakers, and Telegram bot commands.
   name: Account Settings
 - description: |
-    Configure webhooks to receive real-time notifications about post status changes, account events, and incoming messages.
-
-    **Available Events:**
-    - `post.scheduled` - When a post is successfully scheduled
-    - `post.published` - When a post is successfully published
-    - `post.failed` - When a post fails to publish on all platforms
-    - `post.partial` - When a post publishes to some platforms but fails on others
-    - `account.connected` - When a social account is successfully connected
-    - `account.disconnected` - When a social account is disconnected (token expired/revoked)
-    - `message.received` - When a new DM is received (Instagram, Telegram)
-
-    **Security:**
-    - Optional HMAC-SHA256 signature sent in `X-Late-Signature` header
-    - Configure a secret key in webhook settings to enable signature verification
-    - Custom headers can be added to webhook requests for additional authentication
+    Configure webhooks for real-time notifications. Events: post.scheduled, post.published, post.failed, post.partial, account.connected, account.disconnected, message.received.
+    Security: optional HMAC-SHA256 signature in X-Late-Signature header. Configure a secret key to enable verification. Custom headers supported.
   name: Webhooks
 - description: |
-    Publishing logs for transparency and debugging. Shows detailed records of all post publishing attempts.
-
-    **Log Data Includes:**
-    - Platform API endpoint called
-    - HTTP status code
-    - Request body (content preview, media URLs)
-    - Response body (platform post ID/URL or error details)
-    - Duration and retry attempts
-
-    **Retention:** Logs are automatically deleted after 7 days via TTL index.
+    Publishing logs for transparency and debugging. Each log includes the platform API endpoint, HTTP status code, request/response bodies, duration, and retry attempts. Logs are automatically deleted after 7 days.
   name: Logs
 paths:
   /v1/tools/youtube/download:
@@ -146,7 +117,7 @@ paths:
       description: |
         Download YouTube videos or audio. Returns available formats or direct download URL.
 
-        **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited)
+        Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited).
       operationId: downloadYouTubeVideo
       parameters:
       - description: YouTube video URL or video ID
@@ -247,7 +218,7 @@ paths:
       description: |
         Extract transcript/captions from a YouTube video.
 
-        **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited)
+        Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited).
       operationId: getYouTubeTranscript
       parameters:
       - description: YouTube video URL or video ID
@@ -288,7 +259,7 @@ paths:
       description: |
         Download Instagram reels, posts, or photos.
 
-        **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited)
+        Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited).
       operationId: downloadInstagramMedia
       parameters:
       - description: Instagram reel or post URL
@@ -319,7 +290,7 @@ paths:
       description: |
         Check if Instagram hashtags are banned, restricted, or safe to use.
 
-        **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited)
+        Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited).
       operationId: checkInstagramHashtags
       requestBody:
         content:
@@ -336,7 +307,7 @@ paths:
           description: Success
       security:
       - bearerAuth: []
-      summary: Check Instagram hashtag bans
+      summary: Check IG hashtag bans
       tags:
       - Tools
       x-content-type: application/json
@@ -347,7 +318,7 @@ paths:
       description: |
         Download TikTok videos with or without watermark.
 
-        **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited)
+        Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited).
       operationId: downloadTikTokVideo
       parameters:
       - description: TikTok video URL or ID
@@ -397,7 +368,7 @@ paths:
       description: |
         Download videos from Twitter/X posts.
 
-        **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited)
+        Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited).
       operationId: downloadTwitterMedia
       parameters:
       - description: Twitter/X post URL
@@ -446,7 +417,7 @@ paths:
       description: |
         Download videos and reels from Facebook.
 
-        **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited)
+        Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited).
       operationId: downloadFacebookVideo
       parameters:
       - description: Facebook video or reel URL
@@ -476,7 +447,7 @@ paths:
       description: |
         Download videos from LinkedIn posts.
 
-        **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited)
+        Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited).
       operationId: downloadLinkedInVideo
       parameters:
       - description: LinkedIn post URL
@@ -506,7 +477,7 @@ paths:
       description: |
         Download videos from Bluesky posts.
 
-        **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited)
+        Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited).
       operationId: downloadBlueskyMedia
       parameters:
       - description: Bluesky post URL
@@ -535,25 +506,13 @@ paths:
   /v1/analytics:
     get:
       description: |
-        Returns analytics for posts. With `postId`, returns a single post's analytics. Without it, returns a paginated list with overview stats.
-
-        **Post ID types:** This endpoint returns External Post IDs by default. The `postId` parameter accepts both Late Post IDs (from `POST /v1/posts`) and External Post IDs. Late Post IDs are automatically resolved to External Post analytics. Use `latePostId` in responses to link analytics back to your original Late post, or `platformPostUrl` as a stable identifier.
-
-        **List response:** Use `isExternal` to identify post origin. `isExternal: true` means synced from platform, `isExternal: false` means queried by Late post ID.
-
-        For follower stats, use `/v1/accounts/follower-stats` instead.
-
-        **Platform notes:**
-        - LinkedIn personal accounts: per-post analytics only for posts published through Late (API restriction).
-        - Telegram: analytics not available (Bot API limitation).
-
-        **Data freshness:** Cached and refreshed at most once per hour. Stale caches trigger a background refresh.
+        Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats.
+        This endpoint returns External Post IDs by default. The postId parameter accepts both Late Post IDs and External Post IDs, auto-resolving Late IDs to External Post analytics. Use latePostId in responses to link back to your original post, or platformPostUrl as a stable identifier. isExternal indicates post origin (true = synced from platform).
+        For follower stats, use /v1/accounts/follower-stats. LinkedIn personal accounts: per-post analytics only for Late-published posts. Telegram: not available. Data is cached and refreshed at most once per hour.
       operationId: getAnalytics
       parameters:
-      - description: "Returns analytics for a single post. Accepts both Late Post\
-          \ IDs (from `POST /v1/posts`) \nand External Post IDs (from this endpoint's\
-          \ list response). The API automatically \nresolves Late Post IDs to their\
-          \ corresponding External Post analytics.\n"
+      - description: Returns analytics for a single post. Accepts both Late Post IDs
+          and External Post IDs. Late IDs are auto-resolved to External Post analytics.
         explode: true
         in: query
         name: postId
@@ -577,11 +536,8 @@ paths:
         schema:
           type: string
         style: form
-      - description: |
-          Filter by post source:
-          - `late` - Only posts scheduled/published via Late API
-          - `external` - Only posts synced from the platform (not posted via Late)
-          - `all` - All posts (default)
+      - description: "Filter by post source: late (posted via Late API), external\
+          \ (synced from platform), all (default)"
         explode: true
         in: query
         name: source
@@ -779,14 +735,8 @@ paths:
         Uses YouTube Analytics API v2 to fetch daily breakdowns including views,
         watch time, and subscriber changes.
 
-        **Required Scope:** This endpoint requires the `yt-analytics.readonly` OAuth scope.
-        Existing YouTube accounts may need to re-authorize to grant this permission.
-        If the scope is missing, the response will include a `reauthorizeUrl`.
-
-        **Data Latency:** YouTube Analytics data has a 2-3 day delay. The `endDate`
-        is automatically capped to 3 days ago.
-
-        **Date Range:** Maximum 90 days of historical data available. Defaults to last 30 days.
+        Requires the yt-analytics.readonly OAuth scope. Existing YouTube accounts may need to re-authorize. If the scope is missing, the response includes a reauthorizeUrl.
+        Data has a 2-3 day delay; endDate is automatically capped to 3 days ago. Maximum 90 days of historical data. Defaults to last 30 days.
       operationId: getYouTubeDailyViews
       parameters:
       - description: "The YouTube video ID (e.g., \"dQw4w9WgXcQ\")"
@@ -1072,11 +1022,7 @@ paths:
       description: |
         Get a presigned URL to upload files directly to cloud storage. Supports files up to 5GB.
 
-        **How it works:**
-        1. Call this endpoint with the filename and content type
-        2. Receive an `uploadUrl` (presigned) and `publicUrl`
-        3. PUT your file directly to the `uploadUrl`
-        4. Use the `publicUrl` in your posts
+        How it works: call this endpoint with the filename and content type, receive an uploadUrl (presigned) and publicUrl, PUT your file directly to the uploadUrl, then use the publicUrl in your posts.
       operationId: getMediaPresignedUrl
       requestBody:
         content:
@@ -1347,14 +1293,9 @@ paths:
   /v1/posts:
     get:
       description: |
-        **Getting Post URLs:**
-        For published posts, each platform entry includes `platformPostUrl` with the public URL.
-        Use `status=published` filter to fetch only published posts with their URLs.
+        For published posts, each platform entry includes platformPostUrl with the public URL. Use status=published to fetch only published posts with their URLs.
 
-        Notes and constraints by platform when interpreting the response:
-        - YouTube: posts always include at least one video in mediaItems.
-        - Instagram/TikTok: posts always include media; drafts may omit media until finalized in client.
-        - TikTok: mediaItems will not mix photos and videos in the same post.
+        Platform notes: YouTube posts always include at least one video. Instagram/TikTok posts always include media (drafts may omit media). TikTok does not mix photos and videos in the same post.
       operationId: listPosts
       parameters:
       - $ref: "#/components/parameters/PageParam"
@@ -1505,23 +1446,9 @@ paths:
       - application/json
     post:
       description: |
-        **Getting Post URLs:**
-        - Immediate posts (`publishNow: true`): response includes `platformPostUrl` in `post.platforms[]`.
-        - Scheduled posts: fetch via `GET /v1/posts/{postId}` after publish time for `platformPostUrl`.
-
-        **Content requirements:**
-        - `content` is optional when media is attached, all platforms have `customContent`, or posting to YouTube only.
-        - Text-only posts require `content`. Stories ignore captions.
-
-        **Platform constraints:**
-        - YouTube: video required, optional thumbnail via `MediaItem.thumbnail`
-        - Instagram/TikTok: media required; TikTok cannot mix videos and images
-        - Instagram carousels: up to 10 items; Threads carousels: up to 10 images only
-        - Facebook Stories: single image or video, set `contentType: 'story'`
-        - LinkedIn: up to 20 images or a single PDF (max 100MB)
-        - Pinterest: single image or video, `boardId` required
-        - Bluesky: up to 4 images, auto-recompressed to ~1MB
-        - Snapchat: single image or video, set `contentType` in platformSpecificData
+        Immediate posts (publishNow: true) include platformPostUrl in the response. Scheduled posts: fetch via GET /v1/posts/{postId} after publish time.
+        content is optional when media is attached, all platforms have customContent, or posting to YouTube only. Text-only posts require content. Stories ignore captions.
+        Platform constraints: YouTube requires video. Instagram/TikTok require media (TikTok cannot mix videos and images). Instagram carousels up to 10 items, Threads up to 10 images. Facebook Stories need single image/video with contentType story. LinkedIn up to 20 images or single PDF. Pinterest single image/video with boardId. Bluesky up to 4 images. Snapchat single image/video.
       operationId: createPost
       requestBody:
         content:
@@ -1689,11 +1616,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/createPost_429_response"
           description: |
-            Rate limit exceeded. Can be triggered by:
-            - **API rate limit**: Requests per minute exceeded (Free: 60, Build: 120, Accelerate: 600, Unlimited: 1,200)
-            - **Velocity limit**: 15 posts per hour per account exceeded
-            - **Account cooldown**: Account temporarily rate-limited due to repeated errors (escalating: 10min, 20min, 40min, up to 24h)
-            - **Daily post limit**: Platform daily limits exceeded (X: 20, Pinterest: 25, Instagram/Facebook: 100, Threads: 250, others: 50)
+            Rate limit exceeded. Possible causes: API rate limit (requests per minute), velocity limit (15 posts/hour per account), account cooldown (escalating from 10min to 24h due to repeated errors), or daily platform post limits.
           headers:
             Retry-After:
               description: Seconds until the rate limit resets (for API rate limits)
@@ -1757,9 +1680,8 @@ paths:
       x-accepts:
       - application/json
     get:
-      description: "Fetch a single post by ID. For published posts, this returns `platformPostUrl`\
-        \ \nfor each platform - useful for retrieving post URLs after scheduled posts\
-        \ publish.\n"
+      description: |
+        Fetch a single post by ID. For published posts, this returns platformPostUrl for each platform.
       operationId: getPost
       parameters:
       - explode: false
@@ -1990,9 +1912,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/bulkUploadPosts_429_response"
           description: |
-            Rate limit exceeded. Can be triggered by:
-            - **API rate limit**: Requests per minute exceeded
-            - **Account cooldown**: One or more accounts are temporarily rate-limited
+            Rate limit exceeded. Possible causes: API rate limit (requests per minute) or account cooldown (one or more accounts temporarily rate-limited).
       summary: Bulk upload from CSV
       tags:
       - Posts
@@ -2053,10 +1973,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/bulkUploadPosts_429_response"
           description: |
-            Rate limit exceeded. Can be triggered by:
-            - **API rate limit**: Requests per minute exceeded
-            - **Velocity limit**: 15 posts per hour per account exceeded
-            - **Account cooldown**: Account temporarily rate-limited due to repeated errors
+            Rate limit exceeded. Possible causes: API rate limit (requests per minute), velocity limit (15 posts/hour per account), or account cooldown (temporarily rate-limited due to repeated errors).
       summary: Retry failed post
       tags:
       - Posts
@@ -2065,21 +1982,9 @@ paths:
   /v1/posts/{postId}/unpublish:
     post:
       description: |
-        Permanently deletes a published post from the specified social media platform.
-        The post record in Late is kept but its platform status is updated to "cancelled".
-        This does not delete the post from Late, only from the platform.
-
-        **Supported platforms:** Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram.
-
-        **Not supported:**
-        - **Instagram:** No deletion API available. Posts must be deleted manually.
-        - **TikTok:** No deletion API available. Posts must be deleted manually.
-        - **Snapchat:** No deletion API available. Posts must be deleted manually.
-
-        **Platform notes:**
-        - **Threaded posts (Twitter, Threads, Bluesky):** If the post was published as a thread, all items in the thread are deleted (not just the first one). Posts published before this feature was added will only have the first item deleted.
-        - **Telegram:** Messages older than 48 hours may fail to delete (Telegram Bot API limitation).
-        - **YouTube:** This permanently deletes the video from YouTube.
+        Deletes a published post from the specified platform. The post record in Late is kept but its platform status is updated to cancelled.
+        Supported: Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram. Not supported: Instagram, TikTok, Snapchat (must be deleted manually).
+        Threaded posts (Twitter, Threads, Bluesky) delete all items in the thread. Telegram messages older than 48h may fail to delete. YouTube deletion is permanent.
       operationId: unpublishPost
       parameters:
       - explode: false
@@ -2108,13 +2013,9 @@ paths:
                 $ref: "#/components/schemas/unpublishPost_200_response"
           description: Post deleted from platform
         "400":
-          description: |
-            Invalid request. Possible reasons:
-            - Platform not recognized or not supported for deletion
-            - Post does not have the specified platform
-            - Post is not in "published" status on that platform
-            - No platform post ID found (post may not have been published correctly)
-            - No access token (account needs to be reconnected)
+          description: "Invalid request: platform not supported for deletion, post\
+            \ not on that platform, not published, no platform post ID, or no access\
+            \ token."
         "401":
           $ref: "#/components/responses/Unauthorized"
         "403":
@@ -2207,14 +2108,12 @@ paths:
   /v1/profiles:
     get:
       description: |
-        Returns profiles within the user's plan limit. Profiles are sorted by creation date (oldest first).
-        Use `includeOverLimit=true` to include profiles that exceed the plan limit (for management/deletion purposes).
+        Returns profiles within the user's plan limit, sorted by creation date (oldest first).
+        Use includeOverLimit=true to include profiles that exceed the plan limit (for management/deletion purposes).
       operationId: listProfiles
       parameters:
       - description: |
-          When true, includes profiles that exceed the user's plan limit.
-          Over-limit profiles will have `isOverLimit: true` in the response.
-          Useful for managing/deleting profiles after a plan downgrade.
+          When true, includes profiles that exceed the user's plan limit. Over-limit profiles will have isOverLimit: true in the response. Useful for managing/deleting profiles after a plan downgrade.
         explode: true
         in: query
         name: includeOverLimit
@@ -2461,9 +2360,7 @@ paths:
     get:
       description: |
         Returns follower count history and growth metrics for connected social accounts.
-        **Requires analytics add-on subscription.**
-
-        **Data Freshness:** Follower counts are automatically refreshed once per day.
+        Requires analytics add-on subscription. Follower counts are refreshed once per day.
       operationId: getFollowerStats
       parameters:
       - description: "Comma-separated list of account IDs (optional, defaults to all\
@@ -2920,27 +2817,10 @@ paths:
   /v1/connect/{platform}:
     get:
       description: |
-        Initiate an OAuth connection flow for any supported social media platform.
-
-        **Standard Flow (Hosted UI):**
-        1. Call this endpoint with your API key and `redirect_url` (optional)
-        2. Redirect your user to the returned `authUrl`
-        3. After OAuth, Late hosts the page/account selection UI
-        4. Once the user picks, Late saves the connection and redirects to your `redirect_url` (if provided)
-
-        **Headless Mode (Facebook, LinkedIn, Pinterest, Google Business, Snapchat):**
-        Build your own branded selection UI while Late handles OAuth. Add `&headless=true` to this endpoint:
-
-        `GET /v1/connect/{platform}?profileId=PROFILE_ID&redirect_url=https://yourapp.com/callback&headless=true`
-
-        After OAuth, the user is redirected to your `redirect_url` with OAuth data including `profileId`, `tempToken`, `userProfile`, `connect_token`, `platform`, and a `step` parameter indicating what selection is needed.
-
-        **Facebook example:**
-        1. Redirect params include `step=select_page`
-        2. Use `GET /v1/connect/facebook/select-page` to fetch pages
-        3. Use `POST /v1/connect/facebook/select-page` to save the selected page
-
-        LinkedIn, Pinterest, Google Business, and Snapchat follow the same pattern with their respective selection endpoints. LinkedIn uses `pendingDataToken` instead of `tempToken` in redirect params; call `GET /v1/connect/pending-data?token=TOKEN` to retrieve the OAuth data (one-time use, expires in 10 minutes).
+        Initiate an OAuth connection flow for any supported platform.
+        Standard flow: call this endpoint, redirect user to the returned authUrl, Late hosts the selection UI, then redirects to your redirect_url.
+        Headless mode (Facebook, LinkedIn, Pinterest, Google Business, Snapchat): add headless=true to this endpoint. After OAuth, the user is redirected to your redirect_url with OAuth data (profileId, tempToken, userProfile, connect_token, platform, step). Use the platform-specific selection endpoints to fetch options and save the selection.
+        LinkedIn uses pendingDataToken instead of tempToken; call GET /v1/connect/pending-data?token=TOKEN to retrieve OAuth data (one-time use, expires in 10 minutes).
       operationId: getConnectUrl
       parameters:
       - description: Social media platform to connect
@@ -2975,12 +2855,8 @@ paths:
         style: form
       - description: |
           Your custom redirect URL after connection completes.
-
-          **Standard Mode:** After the user selects an account, Late redirects here with `?connected={platform}&profileId=X&username=Y`.
-
-          **Headless Mode:** Pass `headless=true` as a query parameter on this endpoint. After OAuth, the user is redirected to your URL with OAuth data (`profileId`, `tempToken`, `userProfile`, `connect_token`, `platform`, `step`). See the main endpoint description for details.
-
-          Example: `https://yourdomain.com/integrations/callback`
+          Standard mode: Late redirects here with ?connected={platform}&profileId=X&username=Y.
+          Headless mode: pass headless=true on this endpoint. User is redirected to your URL with OAuth data (profileId, tempToken, userProfile, connect_token, platform, step). See endpoint description for details.
         explode: true
         in: query
         name: redirect_url
@@ -3049,13 +2925,9 @@ paths:
       - application/json
   /v1/connect/facebook/select-page:
     get:
-      description: "**Headless Mode for Custom UI**\n\nAfter initiating Facebook OAuth\
-        \ via `/v1/connect/facebook`, you'll be redirected to \n`/connect/facebook/select-page`\
-        \ with query params including `tempToken` and `userProfile`.\n\nFor a **headless/whitelabeled\
-        \ flow**, extract these params from the URL and call this \nendpoint to retrieve\
-        \ the list of Facebook Pages the user can manage. Then build your \nown UI\
-        \ to let users select a page.\n\n**Note:** Use the `X-Connect-Token` header\
-        \ if you initiated the connection via API key \n(rather than a browser session).\n"
+      description: Returns the list of Facebook Pages the user can manage after OAuth.
+        Extract tempToken and userProfile from the OAuth redirect params and pass
+        them here. Use the X-Connect-Token header if connecting via API key.
       operationId: listFacebookPages
       parameters:
       - description: Profile ID from your connection flow
@@ -3110,12 +2982,9 @@ paths:
       x-accepts:
       - application/json
     post:
-      description: "**Complete the Headless Flow**\n\nAfter displaying your custom\
-        \ UI with the list of pages from the GET endpoint, call this \nendpoint to\
-        \ finalize the connection with the user's selected page.\n\nThe `userProfile`\
-        \ should be the decoded JSON object from the `userProfile` query param \n\
-        in the OAuth callback redirect URL.\n\n**Note:** Use the `X-Connect-Token`\
-        \ header if you initiated the connection via API key.\n"
+      description: |
+        Complete the headless flow. After displaying your custom UI with the list of pages from the GET endpoint, call this endpoint to finalize the connection with the user's selected page.
+        The userProfile should be the decoded JSON object from the userProfile query param in the OAuth callback redirect URL. Use the X-Connect-Token header if you initiated the connection via API key.
       operationId: selectFacebookPage
       requestBody:
         content:
@@ -3171,14 +3040,9 @@ paths:
       - application/json
   /v1/connect/googlebusiness/locations:
     get:
-      description: "**Headless Mode for Custom UI**\n\nAfter initiating Google Business\
-        \ OAuth via `/v1/connect/googlebusiness?headless=true`, you'll be redirected\
-        \ \nto your `redirect_url` with query params including `tempToken` and `userProfile`.\n\
-        \nFor a **headless/whitelabeled flow**, extract these params from the URL\
-        \ and call this \nendpoint to retrieve the list of Google Business locations\
-        \ the user can manage. Then build your \nown UI to let users select a location.\n\
-        \n**Note:** Use the `X-Connect-Token` header if you initiated the connection\
-        \ via API key \n(rather than a browser session).\n"
+      description: |
+        For headless/whitelabel flows. After Google Business OAuth with headless=true, you'll be redirected to your redirect_url with tempToken and userProfile params.
+        Call this endpoint to retrieve the list of locations the user can manage, then build your own UI to let them select one. Use the X-Connect-Token header if you initiated the connection via API key.
       operationId: listGoogleBusinessLocations
       parameters:
       - description: Profile ID from your connection flow
@@ -3226,21 +3090,16 @@ paths:
       security:
       - bearerAuth: []
       - connectToken: []
-      summary: List Google Business locations
+      summary: List GBP locations
       tags:
       - Connect
       x-accepts:
       - application/json
   /v1/connect/googlebusiness/select-location:
     post:
-      description: "**Complete the Headless Flow**\n\nAfter displaying your custom\
-        \ UI with the list of locations from the GET `/v1/connect/googlebusiness/locations`\
-        \ \nendpoint, call this endpoint to finalize the connection with the user's\
-        \ selected location.\n\nThe `userProfile` should be the decoded JSON object\
-        \ from the `userProfile` query param \nin the OAuth callback redirect URL.\
-        \ It contains important token information (including refresh token).\n\n**Note:**\
-        \ Use the `X-Connect-Token` header if you initiated the connection via API\
-        \ key.\n"
+      description: |
+        Complete the headless flow. After displaying your custom UI with the list of locations from the GET /v1/connect/googlebusiness/locations endpoint, call this endpoint to finalize the connection with the user's selected location.
+        The userProfile should be the decoded JSON object from the userProfile query param in the OAuth callback redirect URL. It contains important token information including the refresh token. Use the X-Connect-Token header if you initiated the connection via API key.
       operationId: selectGoogleBusinessLocation
       requestBody:
         content:
@@ -3290,7 +3149,7 @@ paths:
       security:
       - bearerAuth: []
       - connectToken: []
-      summary: Select Google Business location
+      summary: Select GBP location
       tags:
       - Connect
       x-content-type: application/json
@@ -3299,16 +3158,8 @@ paths:
   /v1/accounts/{accountId}/gmb-reviews:
     get:
       description: |
-        Fetches reviews for a connected Google Business Profile account.
-
-        Returns all reviews for the business location, including:
-        - Reviewer information (name, profile photo)
-        - Star rating (1-5)
-        - Review comment/text
-        - Business owner's reply (if any)
-        - Review timestamps
-
-        Use pagination via `nextPageToken` to fetch all reviews for locations with many reviews.
+        Fetches reviews for a connected Google Business Profile account. Returns all reviews including reviewer info, star rating, comment text, owner reply, and timestamps.
+        Use pagination via nextPageToken for locations with many reviews.
       operationId: getGoogleBusinessReviews
       parameters:
       - description: The Late account ID (from /v1/accounts)
@@ -3424,14 +3275,7 @@ paths:
   /v1/accounts/{accountId}/gmb-food-menus:
     get:
       description: |
-        Fetches food menus for a connected Google Business Profile location.
-
-        Returns the full menu structure including:
-        - Menu names and descriptions
-        - Sections (e.g. Appetizers, Entrees, Drinks)
-        - Items with labels, pricing, dietary info, and allergens
-        - Item options/variants
-
+        Fetches food menus for a connected Google Business Profile location. Returns the full menu structure including sections, items with pricing, dietary info, allergens, and variants.
         Only available for locations with food menu support (restaurants, cafes, etc.).
       operationId: getGoogleBusinessFoodMenus
       parameters:
@@ -3519,7 +3363,7 @@ paths:
       description: |
         Updates the food menus for a connected Google Business Profile location.
 
-        Send the full menus array. Use `updateMask` for partial updates (e.g. `"menus"` to only update the menus field).
+        Send the full menus array. Use updateMask for partial updates (e.g. "menus" to only update the menus field).
 
         Each menu can contain sections, and each section can contain items with pricing, dietary restrictions, allergens, and more.
       operationId: updateGoogleBusinessFoodMenus
@@ -3606,7 +3450,7 @@ paths:
         Fetches detailed location information including opening hours, special hours,
         business description, phone numbers, website, categories, and more.
 
-        Use the `readMask` query parameter to request specific fields.
+        Use the readMask query parameter to request specific fields.
       operationId: getGoogleBusinessLocationDetails
       parameters:
       - description: The Late account ID (from /v1/accounts)
@@ -3684,16 +3528,7 @@ paths:
     put:
       description: |
         Updates location details such as opening hours, special hours, business description, phone, and website.
-
-        The `updateMask` field is required and specifies which fields to update.
-
-        Common update masks:
-        - `regularHours` - Update opening hours
-        - `specialHours` - Update holiday/special hours
-        - `profile.description` - Update business description
-        - `websiteUri` - Update website URL
-        - `phoneNumbers` - Update phone numbers
-        - `regularHours,specialHours` - Update both at once
+        The updateMask field is required and specifies which fields to update. Common masks: regularHours, specialHours, profile.description, websiteUri, phoneNumbers. Combine with commas (e.g. regularHours,specialHours).
       operationId: updateGoogleBusinessLocationDetails
       parameters:
       - description: The Late account ID (from /v1/accounts)
@@ -3870,17 +3705,7 @@ paths:
       description: |
         Creates a media item (photo) for a location from a publicly accessible URL.
 
-        Categories determine where the photo appears:
-        - `COVER` - Cover photo
-        - `PROFILE` - Profile photo
-        - `LOGO` - Business logo
-        - `EXTERIOR` - Exterior shots
-        - `INTERIOR` - Interior shots
-        - `FOOD_AND_DRINK` - Food and drink photos
-        - `MENU` - Menu photos
-        - `PRODUCT` - Product photos
-        - `TEAMS` - Team/staff photos
-        - `ADDITIONAL` - Other photos
+        Categories determine where the photo appears: COVER, PROFILE, LOGO, EXTERIOR, INTERIOR, FOOD_AND_DRINK, MENU, PRODUCT, TEAMS, ADDITIONAL.
       operationId: createGoogleBusinessMedia
       parameters:
       - explode: false
@@ -3930,15 +3755,7 @@ paths:
   /v1/accounts/{accountId}/gmb-attributes:
     get:
       description: |
-        Fetches location attributes such as amenities, services, and accessibility features.
-
-        Common attributes for restaurants include:
-        - Dining options: has_dine_in, has_takeout, has_delivery
-        - Amenities: has_outdoor_seating, has_wifi, has_parking
-        - Accessibility: has_wheelchair_accessible_entrance
-        - Payments: pay_credit_card_types_accepted
-
-        Available attributes vary by business category.
+        Fetches location attributes such as amenities, services, and accessibility features. Common attributes include dining options (has_dine_in, has_takeout, has_delivery), amenities (has_outdoor_seating, has_wifi), accessibility, and payment types. Available attributes vary by business category.
       operationId: getGoogleBusinessAttributes
       parameters:
       - explode: false
@@ -4000,7 +3817,7 @@ paths:
       description: |
         Updates location attributes (amenities, services, etc.).
 
-        The `attributeMask` specifies which attributes to update (comma-separated).
+        The attributeMask specifies which attributes to update (comma-separated).
       operationId: updateGoogleBusinessAttributes
       parameters:
       - explode: false
@@ -4169,14 +3986,7 @@ paths:
       description: |
         Creates a place action link for a location.
 
-        Available action types:
-        - `APPOINTMENT` - Booking an appointment
-        - `ONLINE_APPOINTMENT` - Booking an online appointment
-        - `DINING_RESERVATION` - Making a dining reservation (OpenTable, Resy, etc.)
-        - `FOOD_ORDERING` - Ordering food for delivery and/or takeout (DoorDash, Uber Eats, etc.)
-        - `FOOD_DELIVERY` - Ordering food for delivery only
-        - `FOOD_TAKEOUT` - Ordering food for takeout only
-        - `SHOP_ONLINE` - Shopping with delivery and/or pickup
+        Available action types: APPOINTMENT, ONLINE_APPOINTMENT, DINING_RESERVATION, FOOD_ORDERING, FOOD_DELIVERY, FOOD_TAKEOUT, SHOP_ONLINE.
       operationId: createGoogleBusinessPlaceAction
       parameters:
       - explode: false
@@ -4225,21 +4035,11 @@ paths:
   /v1/connect/pending-data:
     get:
       description: |
-        **Fetch Pending OAuth Data for Headless Mode**
-
-        In headless mode, platforms like LinkedIn store OAuth selection data (organizations, pages, etc.)
-        in the database instead of passing it via URL parameters. This prevents URI_TOO_LONG errors
-        when users have many organizations/pages to select from.
-
-        After OAuth redirect, use the `pendingDataToken` from the URL to fetch the stored data.
-
-        **Important:**
-        - This endpoint is one-time use: data is deleted after being fetched
-        - Data expires automatically after 10 minutes if not fetched
-        - No authentication required, just the token from the redirect URL
+        Fetch pending OAuth data for headless mode. Platforms like LinkedIn store OAuth selection data (organizations, pages, etc.) server-side to prevent URI_TOO_LONG errors.
+        After OAuth redirect, use the pendingDataToken from the URL to fetch the stored data. This endpoint is one-time use (data is deleted after fetch) and expires after 10 minutes. No authentication required, just the token.
       operationId: getPendingOAuthData
       parameters:
-      - description: The pending data token from the OAuth redirect URL (`pendingDataToken`
+      - description: The pending data token from the OAuth redirect URL (pendingDataToken
           parameter)
         explode: true
         in: query
@@ -4296,16 +4096,8 @@ paths:
   /v1/connect/linkedin/organizations:
     get:
       description: |
-        **Fetch Full Organization Details for Custom UI**
-
-        After LinkedIn OAuth in headless mode, the redirect URL contains organization data with only
-        `id`, `urn`, and `name` fields (additional details are excluded to prevent URL length issues with many organizations).
-
-        Use this endpoint to fetch full organization details including logos, vanity names, websites, and more
-        if you want to display them in your custom selection UI.
-
-        **Note:** This endpoint requires no authentication - just the `tempToken` from the OAuth redirect.
-        Details are fetched directly from LinkedIn's API in parallel for fast response times.
+        Fetch full organization details for custom UI. After LinkedIn OAuth in headless mode, the redirect URL only contains id, urn, and name fields.
+        Use this endpoint to fetch full details including logos, vanity names, websites, and more. No authentication required, just the tempToken from the OAuth redirect.
       operationId: listLinkedInOrganizations
       parameters:
       - description: The temporary LinkedIn access token from the OAuth redirect
@@ -4363,17 +4155,9 @@ paths:
       - application/json
   /v1/connect/linkedin/select-organization:
     post:
-      description: "**Complete the LinkedIn Connection Flow**\n\nAfter OAuth, the\
-        \ user is redirected with `organizations` in the URL params (if they have\
-        \ org admin access).\nThe organizations array contains `id`, `urn`, and `name`\
-        \ fields. Use this data to build your UI, \nthen call this endpoint to save\
-        \ the selection.\n\nSet `accountType` to `personal` to connect as the user's\
-        \ personal LinkedIn profile, or\n`organization` to connect as a company page\
-        \ (requires `selectedOrganization` object).\n\n**Personal Profile:** To connect\
-        \ a personal LinkedIn account, set `accountType` to `\"personal\"`\nand **omit**\
-        \ the `selectedOrganization` field entirely. This is the simplest flow.\n\n\
-        **Headless Mode:** Use the `X-Connect-Token` header if you initiated the connection\
-        \ via API key.\n"
+      description: |
+        Complete the LinkedIn connection flow. After OAuth, the user is redirected with organizations in the URL params (if they have org admin access). Use this data to build your UI, then call this endpoint to save the selection.
+        Set accountType to "personal" for a personal profile (omit selectedOrganization), or "organization" to connect as a company page. Use the X-Connect-Token header if you initiated the connection via API key.
       operationId: selectLinkedInOrganization
       requestBody:
         content:
@@ -4464,16 +4248,8 @@ paths:
   /v1/connect/pinterest/select-board:
     get:
       description: |
-        **Retrieve Pinterest Boards for Selection UI**
-
-        After initiating Pinterest OAuth via `/v1/connect/pinterest` with `headless=true`, you'll be redirected to
-        your `redirect_url` with query params including `tempToken` and `userProfile`.
-
-        If you want to build your own fully-branded board selector (instead of Late's hosted UI), call this
-        endpoint to retrieve the list of Pinterest Boards the user can post to. Then build your
-        UI and call `POST /v1/connect/pinterest/select-board` to save the selection.
-
-        **Authentication:** Use `X-Connect-Token` header with the `connect_token` from the redirect URL.
+        Retrieve Pinterest boards for headless selection UI. After Pinterest OAuth with headless=true, you'll be redirected to your redirect_url with tempToken and userProfile params.
+        Call this endpoint to retrieve the list of boards the user can post to, then build your UI and call POST /v1/connect/pinterest/select-board to save the selection. Use X-Connect-Token header with the connect_token from the redirect URL.
       operationId: listPinterestBoardsForSelection
       parameters:
       - description: Short-lived connect token from the OAuth redirect
@@ -4532,11 +4308,7 @@ paths:
       - application/json
     post:
       description: |
-        **Complete the Pinterest Connection Flow**
-
-        After OAuth, use this endpoint to save the selected board and complete the Pinterest account connection.
-
-        **Headless Mode:** Use the `X-Connect-Token` header if you initiated the connection via API key.
+        Complete the Pinterest connection flow. After OAuth, use this endpoint to save the selected board and complete the account connection. Use the X-Connect-Token header if you initiated the connection via API key.
       operationId: selectPinterestBoard
       requestBody:
         content:
@@ -4605,16 +4377,8 @@ paths:
   /v1/connect/snapchat/select-profile:
     get:
       description: |
-        **Headless Mode for Custom UI**
-
-        After initiating Snapchat OAuth via `/v1/connect/snapchat?headless=true`, you'll be redirected to
-        your `redirect_url` with query params including `tempToken`, `userProfile`, and `publicProfiles`.
-
-        If you want to build your own fully-branded profile selector (instead of Late's hosted UI), call this
-        endpoint to retrieve the list of Snapchat Public Profiles the user can post to. Then build your
-        UI and call `POST /v1/connect/snapchat/select-profile` to save the selection.
-
-        **Authentication:** Use `X-Connect-Token` header with the `connect_token` from the redirect URL.
+        For headless/whitelabel flows. After Snapchat OAuth with headless=true, you'll be redirected to your redirect_url with tempToken, userProfile, and publicProfiles params.
+        Call this endpoint to retrieve the list of Snapchat Public Profiles the user can post to, then build your UI and call POST /v1/connect/snapchat/select-profile to save the selection. Use X-Connect-Token header with the connect_token from the redirect URL.
       operationId: listSnapchatProfiles
       parameters:
       - description: Short-lived connect token from the OAuth redirect
@@ -4675,23 +4439,8 @@ paths:
       - application/json
     post:
       description: |
-        **Complete the Snapchat Connection Flow**
-
-        After OAuth, use this endpoint to save the selected Public Profile and complete the Snapchat account connection.
-        Snapchat requires a Public Profile to publish Stories, Saved Stories, and Spotlight content.
-
-        **Headless Mode:** Use the `X-Connect-Token` header if you initiated the connection via API key.
-
-        After initiating Snapchat OAuth via `/v1/connect/snapchat?headless=true`, you'll be redirected to
-        your `redirect_url` with query params including:
-        - `tempToken` - Temporary access token
-        - `userProfile` - URL-encoded JSON with user info
-        - `publicProfiles` - URL-encoded JSON array of available public profiles
-        - `connect_token` - Short-lived token for API authentication
-        - `platform=snapchat`
-        - `step=select_public_profile`
-
-        Parse `publicProfiles` to build your custom selector UI, then call this endpoint with the selected profile.
+        Complete the Snapchat connection flow. Save the selected Public Profile and complete the account connection. Snapchat requires a Public Profile to publish Stories, Saved Stories, and Spotlight content.
+        After Snapchat OAuth with headless=true, you'll be redirected with tempToken, userProfile, publicProfiles, connect_token, platform=snapchat, and step=select_public_profile in the URL. Parse publicProfiles to build your custom selector UI, then call this endpoint with the selected profile. Use the X-Connect-Token header if you initiated the connection via API key.
       operationId: selectSnapchatProfile
       parameters:
       - description: Short-lived connect token from the OAuth redirect (for API users)
@@ -4774,8 +4523,7 @@ paths:
     post:
       description: |
         Connect a Bluesky account using identifier (handle or email) and an app password.
-
-        To get your userId for the state parameter, call `GET /v1/users` - the response includes a `currentUserId` field.
+        To get your userId for the state parameter, call GET /v1/users which includes a currentUserId field.
       operationId: connectBlueskyCredentials
       requestBody:
         content:
@@ -4819,15 +4567,7 @@ paths:
     get:
       description: |
         Generate a unique access code for connecting a Telegram channel or group.
-
-        **Connection Flow:**
-        1. Call this endpoint to get an access code (valid for 15 minutes)
-        2. Add the bot (@LateScheduleBot or your configured bot) as an administrator in your Telegram channel/group
-        3. Open a private chat with the bot
-        4. Send: `{CODE} @yourchannel` (e.g., `LATE-ABC123 @mychannel`)
-        5. Poll `PATCH /v1/connect/telegram?code={CODE}` to check connection status
-
-        **Alternative for private channels:** If your channel has no public username, forward any message from the channel to the bot along with the access code.
+        Flow: get an access code (valid 15 minutes), add the bot as admin in your channel/group, open a private chat with the bot, send the code + @yourchannel (e.g. LATE-ABC123 @mychannel), then poll PATCH /v1/connect/telegram?code={CODE} to check connection status. For private channels without a public username, forward any message from the channel to the bot along with the access code.
       operationId: getTelegramConnectStatus
       parameters:
       - description: The profile ID to connect the Telegram account to
@@ -4875,14 +4615,8 @@ paths:
       - application/json
     patch:
       description: |
-        Poll this endpoint to check if a Telegram access code has been used to connect a channel/group.
-
-        **Recommended polling interval:** 3 seconds
-
-        **Status values:**
-        - `pending`: Code is valid, waiting for user to complete connection
-        - `connected`: Connection successful - channel/group is now linked
-        - `expired`: Code has expired, generate a new one
+        Poll this endpoint to check if a Telegram access code has been used to connect a channel/group. Recommended polling interval: 3 seconds.
+        Status values: pending (waiting for user), connected (channel/group linked), expired (generate a new code).
       operationId: completeTelegramConnect
       parameters:
       - description: The access code to check status for
@@ -5109,11 +4843,8 @@ paths:
   /v1/accounts/{accountId}/linkedin-aggregate-analytics:
     get:
       description: |
-        Returns aggregate analytics across all posts for a LinkedIn personal account. Organization accounts should use `/v1/analytics` instead.
-
-        **Required scope:** `r_member_postAnalytics`. Missing scope returns 403 with reconnect instructions.
-
-        **Aggregation:** `TOTAL` (default, lifetime totals) or `DAILY` (time series). Use `startDate`/`endDate` to filter by date range. Note: `MEMBERS_REACHED` is not available with `DAILY` aggregation.
+        Returns aggregate analytics across all posts for a LinkedIn personal account. Org accounts should use /v1/analytics instead.
+        Required scope: r_member_postAnalytics (missing scope returns 403). Aggregation: TOTAL (default, lifetime totals) or DAILY (time series). Use startDate/endDate to filter. MEMBERS_REACHED is not available with DAILY aggregation.
       operationId: getLinkedInAggregateAnalytics
       parameters:
       - description: The ID of the LinkedIn personal account
@@ -5125,11 +4856,7 @@ paths:
           type: string
         style: simple
       - description: |
-          Type of aggregation for the analytics data.
-          - `TOTAL` (default): Returns single totals for each metric
-          - `DAILY`: Returns daily breakdown of metrics
-
-          Note: `MEMBERS_REACHED` metric is not available with `DAILY` aggregation.
+          Type of aggregation: TOTAL (default, returns single totals) or DAILY (returns daily breakdown). Note: MEMBERS_REACHED is not available with DAILY aggregation.
         explode: true
         in: query
         name: aggregation
@@ -5338,22 +5065,8 @@ paths:
   /v1/accounts/{accountId}/linkedin-post-analytics:
     get:
       description: |
-        Returns analytics for a specific LinkedIn post using its URN.
-        Works for both personal and organization accounts.
-
-        This is useful for fetching analytics of posts that weren't published through Late,
-        as long as you have the post URN.
-
-        **For Personal Accounts:**
-        - Uses `memberCreatorPostAnalytics` API + `memberCreatorVideoAnalytics` for video posts
-        - Requires `r_member_postAnalytics` scope
-        - Available metrics: impressions, reach, likes, comments, shares, video views (video posts only)
-        - **Clicks are NOT available** for personal accounts
-
-        **For Organization Accounts:**
-        - Uses `organizationalEntityShareStatistics` API + `videoAnalytics` for video posts
-        - Requires `r_organization_social` scope
-        - Available metrics: impressions, reach, clicks, likes, comments, shares, video views (video posts only), engagement rate
+        Returns analytics for a specific LinkedIn post using its URN. Works for both personal and organization accounts. Useful for fetching analytics of posts not published through Late.
+        Personal accounts require r_member_postAnalytics scope and return impressions, reach, likes, comments, shares, and video views (clicks not available). Organization accounts require r_organization_social scope and additionally return clicks and engagement rate.
       operationId: getLinkedInPostAnalytics
       parameters:
       - description: The ID of the LinkedIn account
@@ -5497,13 +5210,8 @@ paths:
   /v1/accounts/{accountId}/linkedin-mentions:
     get:
       description: |
-        Converts a LinkedIn profile or company URL to a URN for @mentions in posts. Supports person mentions (`linkedin.com/in/username` or just `username`) and organization mentions (`linkedin.com/company/name` or `company/name`).
-
-        Person mentions require the connected account to have admin access to at least one LinkedIn Organization. Organization mentions work with any account.
-
-        For person mentions to be clickable, provide the `displayName` parameter matching the exact name on their LinkedIn profile. Organization names are fetched automatically.
-
-        Use the returned `mentionFormat` value directly in your post content.
+        Converts a LinkedIn profile or company URL to a URN for @mentions in posts. Supports person mentions (linkedin.com/in/username or just username) and org mentions (linkedin.com/company/name or company/name).
+        Person mentions require admin access to at least one LinkedIn Organization. Org mentions work with any account. For person mentions to be clickable, provide the displayName parameter matching the exact name on their profile. Org names are fetched automatically. Use the returned mentionFormat directly in post content.
       operationId: getLinkedInMentions
       parameters:
       - description: The LinkedIn account ID
@@ -5515,9 +5223,7 @@ paths:
           type: string
         style: simple
       - description: |
-          LinkedIn profile URL, company URL, or vanity name.
-          - Person: `miquelpalet`, `linkedin.com/in/miquelpalet`
-          - Organization: `company/microsoft`, `linkedin.com/company/microsoft`
+          LinkedIn profile URL, company URL, or vanity name. Person examples: miquelpalet, linkedin.com/in/miquelpalet. Organization examples: company/microsoft, linkedin.com/company/microsoft.
         examples:
           personVanityName:
             summary: Person - just the vanity name
@@ -5539,9 +5245,7 @@ paths:
           type: string
         style: form
       - description: |
-          The exact display name as shown on LinkedIn.
-          - **Person mentions:** Required for clickable mentions. If not provided, a name is derived from the vanity URL which may not match exactly.
-          - **Organization mentions:** Optional. If not provided, the company name is automatically retrieved from LinkedIn.
+          The exact display name as shown on LinkedIn. Required for person mentions (for clickable mentions; if not provided, a name is derived from the vanity URL which may not match). Optional for organization mentions (company name is auto-retrieved from LinkedIn).
         examples:
           personName:
             summary: Exact name as shown on LinkedIn profile
@@ -5744,7 +5448,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           description: Account not found
-      summary: List Google Business locations
+      summary: List GBP locations
       tags:
       - Connect
       x-accepts:
@@ -5785,7 +5489,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           description: Account not found
-      summary: Update Google Business location
+      summary: Update GBP location
       tags:
       - Connect
       x-content-type: application/json
@@ -5962,9 +5666,7 @@ paths:
       - application/json
     get:
       description: |
-        Retrieve queue schedules for a profile. Each profile can have multiple queues.
-        - Without `all=true`: Returns the default queue (or specific queue if queueId provided)
-        - With `all=true`: Returns all queues for the profile
+        Retrieve queue schedules for a profile. Each profile can have multiple queues. Without all=true, returns the default queue (or specific queue if queueId provided). With all=true, returns all queues for the profile.
       operationId: listQueueSlots
       parameters:
       - description: Profile ID to get queues for
@@ -6098,10 +5800,7 @@ paths:
       - application/json
     put:
       description: |
-        Create a new queue or update an existing one.
-        - Without queueId: Creates or updates the default queue
-        - With queueId: Updates the specific queue
-        - With setAsDefault=true: Makes this queue the default for the profile
+        Create a new queue or update an existing one. Without queueId, creates/updates the default queue. With queueId, updates a specific queue. With setAsDefault=true, makes this queue the default for the profile.
       operationId: updateQueueSlot
       requestBody:
         content:
@@ -6218,19 +5917,8 @@ paths:
   /v1/queue/next-slot:
     get:
       description: |
-        Returns the next available queue slot for preview/informational purposes.
-
-        **Important: To schedule a post to the queue, do NOT use this endpoint's response
-        with `scheduledFor`.** That creates a manual post, not a queue post.
-
-        Instead, use `POST /v1/posts` with `queuedFromProfile` (and optionally `queueId`).
-        The system will automatically assign the next available slot with proper locking
-        to prevent race conditions.
-
-        This endpoint is useful for:
-        - Showing users when their next post will go out before they commit
-        - Debugging/verifying queue configuration
-        - Building UI previews
+        Returns the next available queue slot for preview/informational purposes. Do NOT use this response with scheduledFor to schedule a post, as that creates a manual post, not a queue post.
+        Instead, use POST /v1/posts with queuedFromProfile (and optionally queueId). Useful for showing users when their next post will go out, debugging queue configuration, or building UI previews.
 
         If no queueId is specified, uses the profile's default queue.
       operationId: getNextQueueSlot
@@ -6348,7 +6036,7 @@ paths:
       description: |
         Create a new webhook configuration. Maximum 10 webhooks per user.
 
-        **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures.
+        Webhooks are automatically disabled after 10 consecutive delivery failures.
       operationId: createWebhookSettings
       requestBody:
         content:
@@ -6393,9 +6081,9 @@ paths:
       - application/json
     put:
       description: |
-        Update an existing webhook configuration. All fields except `_id` are optional - only provided fields will be updated.
+        Update an existing webhook configuration. All fields except _id are optional; only provided fields will be updated.
 
-        **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures.
+        Webhooks are automatically disabled after 10 consecutive delivery failures.
       operationId: updateWebhookSettings
       requestBody:
         content:
@@ -6441,8 +6129,7 @@ paths:
   /v1/webhooks/test:
     post:
       description: |
-        Send a test webhook to verify your endpoint is configured correctly.
-        The test payload includes `event: "webhook.test"` to distinguish it from real events.
+        Send a test webhook to verify your endpoint is configured correctly. The test payload includes event: "webhook.test" to distinguish it from real events.
       operationId: testWebhook
       requestBody:
         content:
@@ -6552,244 +6239,10 @@ paths:
       - Webhooks
       x-accepts:
       - application/json
-  /v1/logs:
-    get:
-      deprecated: true
-      description: |
-        **Deprecated:** Use `/v1/posts/logs` instead. This endpoint is maintained for backwards compatibility.
-
-        Retrieve publishing logs for all posts. Logs show detailed information about each
-        publishing attempt including API requests, responses, and timing data.
-
-        **Filtering:**
-        - Filter by status (success, failed, pending, skipped)
-        - Filter by platform (instagram, twitter, linkedin, etc.)
-        - Filter by action (publish, retry, rate_limit_pause, etc.)
-
-        **Retention:** Logs are automatically deleted after 7 days.
-      operationId: listLogs
-      parameters:
-      - description: Filter by log status
-        explode: true
-        in: query
-        name: status
-        required: false
-        schema:
-          enum:
-          - success
-          - failed
-          - pending
-          - skipped
-          - all
-          type: string
-        style: form
-      - description: Filter by platform
-        explode: true
-        in: query
-        name: platform
-        required: false
-        schema:
-          enum:
-          - tiktok
-          - instagram
-          - facebook
-          - youtube
-          - linkedin
-          - twitter
-          - threads
-          - pinterest
-          - reddit
-          - bluesky
-          - googlebusiness
-          - telegram
-          - snapchat
-          - all
-          type: string
-        style: form
-      - description: Filter by action type
-        explode: true
-        in: query
-        name: action
-        required: false
-        schema:
-          enum:
-          - publish
-          - retry
-          - media_upload
-          - rate_limit_pause
-          - token_refresh
-          - cancelled
-          - all
-          type: string
-        style: form
-      - description: Number of days to look back (max 7)
-        explode: true
-        in: query
-        name: days
-        required: false
-        schema:
-          default: 7
-          maximum: 7
-          minimum: 1
-          type: integer
-        style: form
-      - description: Maximum number of logs to return (max 100)
-        explode: true
-        in: query
-        name: limit
-        required: false
-        schema:
-          default: 50
-          maximum: 100
-          minimum: 1
-          type: integer
-        style: form
-      - description: Number of logs to skip (for pagination)
-        explode: true
-        in: query
-        name: skip
-        required: false
-        schema:
-          default: 0
-          minimum: 0
-          type: integer
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              example:
-                logs:
-                - _id: 675f1c0a9e2b5af0012ab34cd
-                  postId:
-                    _id: 65f1c0a9e2b5af0012ab34cd
-                    content: Check out our new feature!
-                    status: published
-                  userId: 64e1f0a9e2b5af0012ab34de
-                  platform: instagram
-                  accountId: 64e1f0a9e2b5af0012ab34ef
-                  accountUsername: '@acmecorp'
-                  action: publish
-                  status: success
-                  statusCode: 200
-                  endpoint: graph.facebook.com/me/media_publish
-                  request:
-                    contentPreview: Check out our new feature!
-                    mediaCount: 1
-                    mediaTypes:
-                    - image
-                    mediaUrls:
-                    - https://storage.getlate.dev/abc123.jpg
-                  response:
-                    platformPostId: "17895695668004550"
-                    platformPostUrl: https://www.instagram.com/p/ABC123/
-                  durationMs: 2340
-                  attemptNumber: 1
-                  createdAt: 2024-11-01T10:00:05Z
-                pagination:
-                  total: 150
-                  limit: 50
-                  skip: 0
-                  pages: 3
-                  hasMore: true
-              schema:
-                $ref: "#/components/schemas/listLogs_200_response"
-          description: Publishing logs retrieved successfully
-        "401":
-          $ref: "#/components/responses/Unauthorized"
-      security:
-      - bearerAuth: []
-      summary: List publishing logs (deprecated)
-      tags:
-      - Logs
-      x-accepts:
-      - application/json
-  /v1/logs/{logId}:
-    get:
-      description: |
-        Retrieve detailed information about a specific log entry, including full request
-        and response bodies for debugging.
-      operationId: getLog
-      parameters:
-      - description: The log entry ID
-        explode: false
-        in: path
-        name: logId
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              example:
-                log:
-                  _id: 675f1c0a9e2b5af0012ab34cd
-                  postId:
-                    _id: 65f1c0a9e2b5af0012ab34cd
-                    content: Check out our new feature!
-                    status: published
-                    scheduledFor: 2024-11-01T10:00:00Z
-                    mediaItems:
-                    - type: image
-                      url: https://storage.getlate.dev/abc123.jpg
-                  userId: 64e1f0a9e2b5af0012ab34de
-                  platform: instagram
-                  accountId:
-                    _id: 64e1f0a9e2b5af0012ab34ef
-                    platform: instagram
-                    username: acmecorp
-                    displayName: Acme Corporation
-                  accountUsername: acmecorp
-                  action: publish
-                  status: success
-                  statusCode: 200
-                  endpoint: graph.facebook.com/me/media_publish
-                  request:
-                    contentPreview: Check out our new feature!
-                    mediaCount: 1
-                    mediaTypes:
-                    - image
-                    mediaUrls:
-                    - https://storage.getlate.dev/abc123.jpg
-                    rawBody: "{\"image_url\":\"https://storage.getlate.dev/abc123.jpg\"\
-                      ,\"caption\":\"Check out our new feature!\"}"
-                  response:
-                    platformPostId: "17895695668004550"
-                    platformPostUrl: https://www.instagram.com/p/ABC123/
-                    rawBody: "{\"id\":\"17895695668004550\"}"
-                  durationMs: 2340
-                  attemptNumber: 1
-                  createdAt: 2024-11-01T10:00:05Z
-              schema:
-                $ref: "#/components/schemas/getLog_200_response"
-          description: Log entry retrieved successfully
-        "401":
-          $ref: "#/components/responses/Unauthorized"
-        "403":
-          description: Forbidden - not authorized to view this log
-        "404":
-          $ref: "#/components/responses/NotFound"
-      security:
-      - bearerAuth: []
-      summary: Get log entry
-      tags:
-      - Logs
-      x-accepts:
-      - application/json
   /v1/posts/logs:
     get:
       description: |
-        Retrieve publishing logs for all posts. Logs show detailed information about each
-        publishing attempt including API requests, responses, and timing data.
-
-        **Filtering:**
-        - Filter by status (success, failed, pending, skipped)
-        - Filter by platform (instagram, twitter, linkedin, etc.)
-        - Filter by action (publish, retry, rate_limit_pause, etc.)
-
-        **Retention:** Logs are automatically deleted after 7 days.
+        Retrieve publishing logs for all posts with detailed information about each publishing attempt. Filter by status, platform, or action. Logs are automatically deleted after 7 days.
       operationId: listPostsLogs
       parameters:
       - description: Filter by log status
@@ -6916,7 +6369,7 @@ paths:
                   pages: 3
                   hasMore: true
               schema:
-                $ref: "#/components/schemas/listLogs_200_response"
+                $ref: "#/components/schemas/listPostsLogs_200_response"
           description: Publishing logs retrieved successfully
         "401":
           $ref: "#/components/responses/Unauthorized"
@@ -6930,17 +6383,8 @@ paths:
   /v1/connections/logs:
     get:
       description: |
-        Retrieve connection event logs showing account connection and disconnection history.
-        Useful for debugging OAuth issues and tracking account lifecycle.
-
-        **Event Types:**
-        - `connect_success` - New account connected successfully
-        - `connect_failed` - Connection attempt failed
-        - `disconnect` - Account was disconnected
-        - `reconnect_success` - Existing account reconnected
-        - `reconnect_failed` - Reconnection attempt failed
-
-        **Retention:** Logs are automatically deleted after 7 days.
+        Retrieve connection event logs showing account connection and disconnection history. Event types: connect_success, connect_failed, disconnect, reconnect_success, reconnect_failed.
+        Logs are automatically deleted after 7 days.
       operationId: listConnectionLogs
       parameters:
       - description: Filter by platform
@@ -7159,10 +6603,8 @@ paths:
   /v1/inbox/conversations:
     get:
       description: |
-        Fetch conversations (DMs) from all connected messaging accounts in a single API call.
-        Supports filtering by profile and platform. Results are aggregated and deduplicated.
-
-        **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Reddit, Telegram
+        Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated.
+        Supported platforms: Facebook, Instagram, Twitter/X, Bluesky, Reddit, Telegram.
       operationId: listInboxConversations
       parameters:
       - description: Filter by profile ID
@@ -7385,15 +6827,8 @@ paths:
     post:
       description: |
         Send a message in a conversation. Supports text, attachments, quick replies, buttons, carousels, and message tags.
-
-        **Attachment support by platform:**
-        - Telegram: Images, videos, documents (up to 50MB)
-        - Facebook Messenger: Images, videos, audio, files
-        - Instagram: Images, videos, audio via URL (8MB images, 25MB video/audio)
-        - Twitter/X: Images, videos (requires media upload)
-        - Bluesky/Reddit: Not supported
-
-        **Interactive messages:** Supports quick replies, buttons, templates, and reply markup. Feature availability varies by platform (Instagram, Facebook, Telegram). Unsupported fields are silently ignored.
+        Attachments: Telegram (images, videos, docs up to 50MB), Facebook (images, videos, audio, files), Instagram (images, videos, audio via URL), Twitter/X (images, videos). Not supported on Bluesky/Reddit.
+        Interactive messages (quick replies, buttons, templates, reply markup) vary by platform. Unsupported fields are silently ignored.
       operationId: sendInboxMessage
       parameters:
       - description: "The conversation ID (id field from list conversations endpoint).\
@@ -7509,7 +6944,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
       security:
       - bearerAuth: []
-      summary: Delete Facebook persistent menu
+      summary: Delete FB persistent menu
       tags:
       - Account Settings
       x-accepts:
@@ -7539,7 +6974,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
       security:
       - bearerAuth: []
-      summary: Get Facebook persistent menu
+      summary: Get FB persistent menu
       tags:
       - Account Settings
       x-accepts:
@@ -7571,7 +7006,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
       security:
       - bearerAuth: []
-      summary: Set Facebook persistent menu
+      summary: Set FB persistent menu
       tags:
       - Account Settings
       x-content-type: application/json
@@ -7595,7 +7030,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
       security:
       - bearerAuth: []
-      summary: Delete Instagram ice breakers
+      summary: Delete IG ice breakers
       tags:
       - Account Settings
       x-accepts:
@@ -7624,7 +7059,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
       security:
       - bearerAuth: []
-      summary: Get Instagram ice breakers
+      summary: Get IG ice breakers
       tags:
       - Account Settings
       x-accepts:
@@ -7656,7 +7091,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
       security:
       - bearerAuth: []
-      summary: Set Instagram ice breakers
+      summary: Set IG ice breakers
       tags:
       - Account Settings
       x-content-type: application/json
@@ -7680,7 +7115,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
       security:
       - bearerAuth: []
-      summary: Delete Telegram bot commands
+      summary: Delete TG bot commands
       tags:
       - Account Settings
       x-accepts:
@@ -7709,7 +7144,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
       security:
       - bearerAuth: []
-      summary: Get Telegram bot commands
+      summary: Get TG bot commands
       tags:
       - Account Settings
       x-accepts:
@@ -7740,7 +7175,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
       security:
       - bearerAuth: []
-      summary: Set Telegram bot commands
+      summary: Set TG bot commands
       tags:
       - Account Settings
       x-content-type: application/json
@@ -7752,7 +7187,7 @@ paths:
         Fetch posts with their comment counts from all connected accounts.
         Aggregates data from multiple accounts in a single API call.
 
-        **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Threads, YouTube, LinkedIn, Reddit, TikTok (write-only)
+        Supported platforms: Facebook, Instagram, Twitter/X, Bluesky, Threads, YouTube, LinkedIn, Reddit, TikTok (write-only).
       operationId: listInboxComments
       parameters:
       - description: Filter by profile ID
@@ -7876,7 +7311,7 @@ paths:
       - description: |
           The post identifier. Accepts a Late post ID or a platform-specific post ID.
 
-          **LinkedIn:** For third-party posts, pass the full activity URN (e.g., `urn:li:activity:7422459067685855232`) or the raw numeric activity ID from the URL.
+          LinkedIn: for third-party posts, pass the full activity URN (e.g. urn:li:activity:7422459067685855232) or the raw numeric activity ID from the URL.
         explode: false
         in: path
         name: postId
@@ -7922,10 +7357,7 @@ paths:
       parameters:
       - description: |
           The post identifier. Accepts a Late post ID (MongoDB ObjectId) which is automatically resolved to the platform-specific post ID, or a platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID, YouTube video ID).
-
-          **LinkedIn:** For your own posts, the full URN stored in Late (e.g., `urn:li:share:7429218977714745345`) is used automatically.
-          For third-party posts, pass either the full activity URN (e.g., `urn:li:activity:7422459067685855232`) or the raw numeric activity ID from the LinkedIn URL (automatically wrapped as `urn:li:activity:`).
-          Note: LinkedIn post URLs use activity IDs (`linkedin.com/feed/update/urn:li:activity:XXXX`).
+          LinkedIn: for your own posts, the full URN stored in Late is used automatically. For third-party posts, pass the full activity URN or the raw numeric activity ID from the LinkedIn URL (automatically wrapped as urn:li:activity:).
         explode: false
         in: path
         name: postId
@@ -8001,7 +7433,7 @@ paths:
       - description: |
           The post identifier. Accepts a Late post ID or a platform-specific post ID.
 
-          **LinkedIn:** For third-party posts, pass the full activity URN (e.g., `urn:li:activity:7422459067685855232`) or the raw numeric activity ID from the URL.
+          LinkedIn: for third-party posts, pass the full activity URN (e.g. urn:li:activity:7422459067685855232) or the raw numeric activity ID from the URL.
         explode: false
         in: path
         name: postId
@@ -8131,11 +7563,8 @@ paths:
   /v1/inbox/comments/{postId}/{commentId}/like:
     delete:
       description: |
-        Remove a like from a comment.
-
-        **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit
-
-        For Bluesky, the `likeUri` query parameter is required.
+        Remove a like from a comment. Supported platforms: Facebook, Twitter/X, Bluesky, Reddit.
+        For Bluesky, the likeUri query parameter is required.
       operationId: unlikeInboxComment
       parameters:
       - explode: false
@@ -8189,11 +7618,8 @@ paths:
       - application/json
     post:
       description: |
-        Like or upvote a comment on a post.
-
-        **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit
-
-        For Bluesky, the `cid` (content identifier) is required in the request body.
+        Like or upvote a comment on a post. Supported platforms: Facebook, Twitter/X, Bluesky, Reddit.
+        For Bluesky, the cid (content identifier) is required in the request body.
       operationId: likeInboxComment
       parameters:
       - explode: false
@@ -8240,20 +7666,8 @@ paths:
   /v1/inbox/comments/{postId}/{commentId}/private-reply:
     post:
       description: |
-        Send a private direct message to the author of a comment on your post.
-        This is useful for handling customer inquiries or sensitive matters privately.
-
-        **Supported platforms:** Instagram, Facebook
-
-        **Limitations:**
-        - Only ONE private reply per comment (platform API restriction)
-        - Must be sent within 7 days of the comment being posted
-        - Only works for comments on posts owned by the connected account
-        - Text only (no media attachments)
-        - Instagram: message goes to the user's Inbox (if they follow you) or Message Requests (if they don't). Requires `instagram_business_manage_messages` permission.
-        - Facebook: message opens a Messenger conversation with the commenter. Requires `pages_messaging` permission.
-
-        **Note:** Both permissions are already included in Late's OAuth flow. This does not create a conversation thread until the user replies back.
+        Send a private direct message to the author of a comment on your post. Supported platforms: Instagram, Facebook.
+        Only one private reply per comment (platform restriction), must be sent within 7 days, only for comments on your own posts, text only. Instagram messages go to Inbox or Message Requests; Facebook opens a Messenger conversation. Both permissions are already included in Late's OAuth flow.
       operationId: sendPrivateReplyToComment
       parameters:
       - description: The media/post ID (Instagram media ID or Facebook post ID)
@@ -8334,10 +7748,8 @@ paths:
   /v1/inbox/reviews:
     get:
       description: |
-        Fetch reviews from all connected Facebook Pages and Google Business accounts.
-        Aggregates data with filtering and sorting options.
-
-        **Supported platforms:** Facebook, Google Business
+        Fetch reviews from all connected Facebook Pages and Google Business accounts. Aggregates data with filtering and sorting options.
+        Supported platforms: Facebook, Google Business.
       operationId: listInboxReviews
       parameters:
       - explode: true
@@ -9618,14 +9030,8 @@ components:
         accountUsername:
           type: string
         action:
-          description: |
-            Type of action logged:
-            - `publish` - Initial publish attempt
-            - `retry` - Retry after failure
-            - `media_upload` - Media upload step
-            - `rate_limit_pause` - Account paused due to rate limits
-            - `token_refresh` - Token was refreshed
-            - `cancelled` - Post was cancelled
+          description: "Type of action logged: publish (initial attempt), retry (after\
+            \ failure), media_upload, rate_limit_pause, token_refresh, cancelled"
           enum:
           - publish
           - retry
@@ -9660,64 +9066,6 @@ components:
         createdAt:
           format: date-time
           type: string
-    PostLogDetail:
-      allOf:
-      - $ref: "#/components/schemas/PostLog"
-      - description: Detailed log entry with populated references
-        properties:
-          postId:
-            $ref: "#/components/schemas/PostLogDetail_allOf_postId"
-          accountId:
-            $ref: "#/components/schemas/PostLogDetail_allOf_accountId"
-          metadata:
-            $ref: "#/components/schemas/PostLogDetail_allOf_metadata"
-      example:
-        attemptNumber: 1
-        request:
-          mediaTypes:
-          - mediaTypes
-          - mediaTypes
-          rawBody: rawBody
-          scheduledFor: 2000-01-23T04:56:07.000+00:00
-          mediaCount: 6
-          contentPreview: contentPreview
-          mediaUrls:
-          - mediaUrls
-          - mediaUrls
-        metadata: null
-        postId:
-          mediaItems:
-          - "{}"
-          - "{}"
-          scheduledFor: 2000-01-23T04:56:07.000+00:00
-          _id: _id
-          content: content
-          status: status
-          platforms:
-          - "{}"
-          - "{}"
-        userId: userId
-        platform: tiktok
-        accountId:
-          displayName: displayName
-          _id: _id
-          platform: platform
-          username: username
-        createdAt: 2000-01-23T04:56:07.000+00:00
-        endpoint: endpoint
-        profileId: profileId
-        response:
-          rawBody: rawBody
-          platformPostUrl: platformPostUrl
-          errorMessage: errorMessage
-          errorCode: errorCode
-          platformPostId: platformPostId
-        accountUsername: accountUsername
-        action: publish
-        _id: _id
-        durationMs: 6
-        status: success
-        statusCode: 0
     ConnectionLog:
       description: Connection event log showing account connection/disconnection history
       example:
@@ -9780,13 +9128,8 @@ components:
           - snapchat
           type: string
         eventType:
-          description: |
-            Type of connection event:
-            - `connect_success` - New account connected successfully
-            - `connect_failed` - Connection attempt failed
-            - `disconnect` - Account was disconnected
-            - `reconnect_success` - Existing account reconnected successfully
-            - `reconnect_failed` - Reconnection attempt failed
+          description: "Type of connection event: connect_success, connect_failed,\
+            \ disconnect, reconnect_success, reconnect_failed"
           enum:
           - connect_success
           - connect_failed
@@ -9818,15 +9161,8 @@ components:
           type: string
     MediaItem:
       description: |
-        Media referenced in posts. URLs must be publicly reachable over HTTPS by the destination platforms.
-        When using third-party storage, ensure signed links remain valid until upload completes.
-
-        **Uploading Media:**
-        Use `POST /v1/media/presign` to get a presigned URL, then upload your file directly to cloud storage.
-        Supports files up to 5GB. See the `/v1/media/presign` endpoint documentation for details.
-
-        **Automatic Media Compression:**
-        Late automatically compresses images and videos that exceed platform limits. Compression happens server-side during publishing. Videos larger than 200 MB may not be compressed due to server timeout constraints.
+        Media referenced in posts. URLs must be publicly reachable over HTTPS. When using third-party storage, ensure signed links remain valid until upload completes.
+        Use POST /v1/media/presign to get a presigned URL for direct cloud storage upload (up to 5GB). Late automatically compresses images and videos that exceed platform limits server-side during publishing. Videos larger than 200 MB may not be compressed due to timeout constraints.
       example:
         thumbnail: https://openapi-generator.tech
         filename: filename
@@ -9981,26 +9317,15 @@ components:
           format: date-time
           type: string
         errorMessage:
-          description: |
-            Human-readable error message when status is 'failed'.
-            Contains platform-specific error details explaining why the publish failed.
-            Examples:
-            - "Instagram access token has expired. Please reconnect your account."
-            - "Post text exceeds the 500 character limit for Threads."
-            - "You do not have enough karma to post in this subreddit."
-            - "Video is too long for Reels. Facebook Reels must be 90 seconds or less."
+          description: Human-readable error message when status is failed. Contains
+            platform-specific error details explaining why the publish failed.
           type: string
         errorCategory:
-          description: |
-            Error category for programmatic handling:
-            - auth_expired: Token expired or revoked, account needs reconnection
-            - user_content: Content doesn't meet platform requirements (too long, wrong format, etc.)
-            - user_abuse: Rate limits, spam detection, excessive posting
-            - account_issue: Account configuration problems (missing board, inactive account)
-            - platform_rejected: Platform rules violated (banned, suspended, policy violation)
-            - platform_error: Platform-side issues (5xx errors, maintenance)
-            - system_error: Late infrastructure issues (timeouts, network errors)
-            - unknown: Unclassified error
+          description: "Error category for programmatic handling: auth_expired (token\
+            \ expired/revoked), user_content (wrong format/too long), user_abuse (rate\
+            \ limits/spam), account_issue (config problems), platform_rejected (policy\
+            \ violation), platform_error (5xx/maintenance), system_error (Late infra),\
+            \ unknown"
           enum:
           - auth_expired
           - user_content
@@ -10012,11 +9337,8 @@ components:
           - unknown
           type: string
         errorSource:
-          description: |
-            Who/what caused the error:
-            - user: User action required (fix content, reconnect account)
-            - platform: Platform-side issue (outage, API change)
-            - system: Late system issue (rare)
+          description: "Who caused the error: user (fix content/reconnect), platform\
+            \ (outage/API change), system (Late issue, rare)"
           enum:
           - user
           - platform
@@ -10231,11 +9553,8 @@ components:
           - partial
           type: string
         tags:
-          description: |
-            YouTube tag constraints when targeting YouTube:
-            - No count cap; duplicates removed.
-            - Each tag must be ≤ 100 chars.
-            - Combined characters across all tags ≤ 500.
+          description: "YouTube constraints: each tag max 100 chars, combined max\
+            \ 500 chars, duplicates removed."
           items:
             type: string
           type: array
@@ -10314,13 +9633,9 @@ components:
             $ref: "#/components/schemas/TwitterPlatformData_threadItems_inner"
           type: array
     ThreadsPlatformData:
-      description: |
-        Constraints:
-        - Carousel posts support up to 10 images (no videos in carousels).
-        - Single posts support one image or one video.
-        - Videos must be H.264/AAC MP4 format, max 5 minutes duration.
-        - Images must be JPEG or PNG, max 8 MB each.
-        - threadItems creates a reply chain (Threads equivalent of Twitter threads).
+      description: "Carousels support up to 10 images (no videos). Single posts support\
+        \ one image or video. Videos must be H.264/AAC MP4, max 5 min. Images must\
+        \ be JPEG/PNG, max 8 MB. threadItems creates a reply chain."
       properties:
         threadItems:
           description: Sequence of posts in a Threads thread (root then replies in
@@ -10329,14 +9644,9 @@ components:
             $ref: "#/components/schemas/TwitterPlatformData_threadItems_inner"
           type: array
     FacebookPlatformData:
-      description: |
-        Constraints:
-        - Posts cannot mix videos and images.
-        - Multiple images supported via attached_media (up to 10 images for feed posts).
-        - Multiple videos in the same post are not supported.
-        - Stories require media (single image or video); text captions are not displayed with stories.
-        - Stories are ephemeral (disappear after 24 hours).
-        - Use pageId to post to multiple pages from the same account connection.
+      description: "Cannot mix videos and images. Up to 10 images for feed posts.\
+        \ Stories require single image or video (no captions, ephemeral 24h). Use\
+        \ pageId for multi-page posting."
       properties:
         contentType:
           description: Set to 'story' to publish as a Facebook Page Story (24-hour
@@ -10355,21 +9665,10 @@ components:
             Use GET /api/v1/accounts/{id}/facebook-page to list available pages.
           type: string
     InstagramPlatformData:
-      description: |
-        Constraints:
-        - Feed posts require images with aspect ratio between 0.8 (4:5 portrait) and 1.91 (1.91:1 landscape).
-        - Images outside this range (e.g., 9:16 Stories/TikTok format) must use contentType 'story'.
-        - Validation happens at post creation; invalid images are rejected immediately with helpful error messages.
-        - Carousels support up to 10 media items.
-        - Stories require media; no captions are published with Stories.
-        - User tags: coordinates range from 0.0 to 1.0 representing position from top-left corner. For carousels, use `mediaIndex` to tag specific slides. Tagged users receive notifications.
-
-        **Automatic Compression (similar to Bluesky):**
-        - All images (story, post, carousel, thumbnails) exceeding 8 MB are automatically compressed using quality reduction and resizing.
-        - Story videos exceeding 100 MB are automatically compressed.
-        - Reel videos exceeding 300 MB are automatically compressed.
-        - Compression uses Sharp (images) and FFmpeg (videos) to maintain quality while meeting size limits.
-        - Original files are preserved; compressed versions are uploaded to blob storage automatically.
+      description: "Feed posts require aspect ratio 0.8-1.91; images outside this\
+        \ range must use contentType story. Carousels up to 10 items. Stories require\
+        \ media, no captions. User tag coordinates 0.0-1.0 from top-left. Images over\
+        \ 8 MB and videos over 100 MB (stories) or 300 MB (reels) are auto-compressed."
       properties:
         contentType:
           description: Set to 'story' to publish as a Story. Default posts become
@@ -10396,39 +9695,28 @@ components:
         trialParams:
           $ref: "#/components/schemas/InstagramPlatformData_trialParams"
         userTags:
-          description: |
-            Tag Instagram users in photos by username and position coordinates. Not supported for stories or videos.
-            For carousel posts, use the optional `mediaIndex` field to specify which slide each tag applies to.
-            Tags without `mediaIndex` default to the first image (index 0) for backwards compatibility.
-            Tags targeting video items are silently skipped (Instagram only supports tagging on images).
+          description: "Tag Instagram users in photos by username and position. Not\
+            \ supported for stories or videos. For carousels, use mediaIndex to target\
+            \ specific slides (defaults to 0). Tags on video items are silently skipped."
           items:
             $ref: "#/components/schemas/InstagramPlatformData_userTags_inner"
           type: array
         audioName:
-          description: |
-            Custom name for the original audio in Reels. Replaces the default "Original Audio" label.
-            Only applies to Reels (video posts). Can only be set once - either during creation or
-            later from the Instagram audio page in the app.
+          description: Custom name for original audio in Reels. Replaces the default
+            "Original Audio" label. Can only be set once.
           example: My Podcast Intro
           type: string
         thumbOffset:
-          description: |
-            Millisecond offset from the start of the video to use as the Reel thumbnail.
-            Only applies to Reels (video posts). If a custom thumbnail URL (instagramThumbnail
-            in mediaItems) is provided, it takes priority and this offset is ignored.
-            Defaults to 0 (first frame).
+          description: Millisecond offset from video start for the Reel thumbnail.
+            Ignored if a custom thumbnail URL is provided. Defaults to 0.
           example: 5000
           minimum: 0
           type: integer
     LinkedInPlatformData:
-      description: |
-        Constraints:
-        - Multi-image posts support up to 20 images.
-        - Multi-video posts are not supported.
-        - Single PDF document posts are supported (max 100MB, ~300 pages). Documents cannot be mixed with other media.
-        - Post ID is returned in the x-restli-id response header.
-        - Link previews are automatically generated for URLs when no media is attached (can be disabled with disableLinkPreview).
-        - Use organizationUrn to post to multiple organizations from the same account connection.
+      description: "Up to 20 images, no multi-video. Single PDF supported (max 100MB,\
+        \ ~300 pages, cannot mix with other media). Link previews auto-generated when\
+        \ no media attached (disable with disableLinkPreview). Use organizationUrn\
+        \ for multi-org posting."
       properties:
         organizationUrn:
           description: |
@@ -10467,16 +9755,10 @@ components:
           description: Optional key frame time in seconds for derived video cover
           type: integer
     YouTubePlatformData:
-      description: |
-        YouTube video upload settings:
-        - Videos ≤ 3 minutes are automatically detected as YouTube Shorts
-        - Videos > 3 minutes become regular YouTube videos
-        - Custom thumbnails supported for regular videos (via mediaItem.thumbnail)
-        - Custom thumbnails NOT supported for Shorts via API
-        - Scheduled videos are uploaded immediately as the specified visibility and published at scheduled time
-        - Visibility defaults to "public" if not specified
-        - madeForKids defaults to false (not child-directed)
-        - Set containsSyntheticMedia: true if your video contains AI-generated content
+      description: "Videos up to 3 min are auto-detected as Shorts, longer as regular\
+        \ videos. Custom thumbnails supported for regular videos only (via mediaItem.thumbnail).\
+        \ Scheduled videos are uploaded immediately with the specified visibility.\
+        \ madeForKids defaults to false."
       properties:
         title:
           description: Video title. Defaults to first line of content or "Untitled
@@ -10485,11 +9767,8 @@ components:
           type: string
         visibility:
           default: public
-          description: |
-            Video visibility setting:
-            - public: Anyone can search for and watch (default)
-            - unlisted: Only people with the link can watch
-            - private: Only you and people you specifically share with can watch
+          description: "Video visibility: public (default, anyone can watch), unlisted\
+            \ (link only), private (invite only)"
           enum:
           - public
           - private
@@ -10497,16 +9776,9 @@ components:
           type: string
         madeForKids:
           default: false
-          description: |
-            COPPA compliance: Audience designation for the video.
-            - true: Video is made for kids (child-directed content)
-            - false: Video is NOT made for kids (default)
-
-            This field maps to YouTube's `selfDeclaredMadeForKids` setting. Videos marked as made for kids
-            have restricted features (no comments, no notifications, limited ad targeting).
-
-            IMPORTANT: If not specified, defaults to false. YouTube requires this to be explicitly set,
-            otherwise the video may be blocked from views until configured in YouTube Studio.
+          description: "COPPA compliance flag. Set true for child-directed content\
+            \ (restricts comments, notifications, ad targeting). Defaults to false.\
+            \ YouTube may block views if not explicitly set."
           type: boolean
         firstComment:
           description: "Optional first comment to post immediately after video upload.\
@@ -10515,30 +9787,21 @@ components:
           type: string
         containsSyntheticMedia:
           default: false
-          description: |
-            AI-generated content disclosure flag. Set to true if your video contains AI-generated or synthetic content
-            that could be mistaken for real people, places, or events. This helps viewers understand when realistic
-            content has been created or altered using AI. YouTube may add a label to videos when this is set.
-            Added to YouTube Data API in October 2024.
+          description: AI-generated content disclosure. Set true if the video contains
+            synthetic content that could be mistaken for real. YouTube may add a label.
           type: boolean
         categoryId:
           default: "22"
-          description: |
-            YouTube video category ID. Defaults to '22' (People & Blogs).
-            Common categories: 1 (Film & Animation), 2 (Autos & Vehicles), 10 (Music),
-            15 (Pets & Animals), 17 (Sports), 20 (Gaming), 22 (People & Blogs),
-            23 (Comedy), 24 (Entertainment), 25 (News & Politics), 26 (Howto & Style),
-            27 (Education), 28 (Science & Technology).
+          description: "YouTube video category ID. Defaults to 22 (People & Blogs).\
+            \ Common: 1 (Film), 2 (Autos), 10 (Music), 15 (Pets), 17 (Sports), 20\
+            \ (Gaming), 23 (Comedy), 24 (Entertainment), 25 (News), 26 (Howto), 27\
+            \ (Education), 28 (Science & Tech)."
           type: string
     GoogleBusinessPlatformData:
-      description: |
-        Google Business Profile post settings:
-        - Posts support text content and a single image (no videos)
-        - Images must be publicly accessible URLs
-        - Call-to-action buttons drive user engagement
-        - Posts appear on your Google Business Profile and in Google Search/Maps
-        - Use locationId to post to multiple locations from the same account connection
-        - Language is auto-detected from content; override with languageCode if needed
+      description: "Posts support text and a single image (no videos). Images must\
+        \ be publicly accessible URLs. Optional call-to-action button. Posts appear\
+        \ on GBP, Google Search, and Maps. Use locationId for multi-location posting.\
+        \ Language is auto-detected; override with languageCode."
       properties:
         locationId:
           description: |
@@ -10558,24 +9821,15 @@ components:
         callToAction:
           $ref: "#/components/schemas/GoogleBusinessPlatformData_callToAction"
     TikTokPlatformData:
-      description: |
-        TikTok platform-specific settings for video/photo posting.
-
-        **Constraints:**
-        - Photo carousels support up to 35 images.
-        - **Title length limits**:
-          - Videos: up to 2200 chars (full content used as title)
-          - Photos: content is automatically truncated to 90 chars for title (hashtags/URLs stripped). Use 'description' field for longer text (up to 4000 chars).
-        - privacyLevel must be chosen from creator_info.privacy_level_options (no defaulting).
-        - allowDuet and allowStitch required for videos; allowComment for all.
-        - contentPreviewConfirmed and expressConsentGiven must be true before posting.
-
-        **Note:** Both camelCase and snake_case field names are accepted for backwards compatibility.
-        The nested `tiktokSettings` object format is also still supported but deprecated.
+      description: Photo carousels up to 35 images. Video titles up to 2200 chars;
+        photo titles auto-truncated to 90 chars (use description field for longer
+        text up to 4000 chars). privacyLevel must match creator_info options. allowDuet/allowStitch
+        required for videos. contentPreviewConfirmed and expressConsentGiven must
+        be true. Both camelCase and snake_case accepted.
       properties:
         draft:
-          description: |
-            When true, Late sends the post to the TikTok Creator Inbox as a draft instead of publishing it immediately. When omitted or false, TikTok uses direct posting (live publish) as usual.
+          description: "When true, sends the post to the TikTok Creator Inbox as a\
+            \ draft instead of publishing immediately."
           type: boolean
         privacyLevel:
           description: One of the values returned by the TikTok creator info API for
@@ -10632,60 +9886,15 @@ components:
           description: Set true to disclose AI-generated content
           type: boolean
         description:
-          description: |
-            Optional long-form description for photo posts (max 4000 chars).
-            Recommended for photo posts when content exceeds 90 characters, as photo titles are automatically truncated to 90 chars (after stripping hashtags/URLs).
+          description: "Optional long-form description for photo posts (max 4000 chars).\
+            \ Recommended when content exceeds 90 chars, as photo titles are auto-truncated."
           maxLength: 4000
           type: string
-    TikTokSettings:
-      deprecated: true
-      description: |
-        **DEPRECATED**: Use flat properties directly in TikTokPlatformData instead.
-        This nested format is supported for backwards compatibility only.
-      properties:
-        privacyLevel:
-          type: string
-        allowComment:
-          type: boolean
-        allowDuet:
-          type: boolean
-        allowStitch:
-          type: boolean
-        commercialContentType:
-          type: string
-        brandPartnerPromote:
-          type: boolean
-        isBrandOrganicPost:
-          type: boolean
-        contentPreviewConfirmed:
-          type: boolean
-        expressConsentGiven:
-          type: boolean
-        mediaType:
-          type: string
-        videoCoverTimestampMs:
-          type: integer
-        photoCoverIndex:
-          type: integer
-        autoAddMusic:
-          type: boolean
-        videoMadeWithAi:
-          type: boolean
-        description:
-          type: string
     TelegramPlatformData:
-      description: |
-        Telegram channel/group posting settings:
-        - Supports text, images (up to 10), videos (up to 10), and mixed media albums
-        - Posts to channels display the channel name and logo as author
-        - Posts to groups display the bot name (Late) as author
-        - Message IDs are returned for analytics tracking
-        - Captions support up to 1024 characters for media posts, 4096 for text-only
-
-        **Analytics:**
-        - **Not available via API.** The Telegram Bot API does not expose message analytics (views, forwards, reactions).
-        - View counts are only visible to channel admins directly in the Telegram app.
-        - This is a Telegram platform limitation that affects all third-party tools.
+      description: "Supports text, images (up to 10), videos (up to 10), and mixed\
+        \ media albums. Captions up to 1024 chars for media posts, 4096 for text-only.\
+        \ Channel posts show channel name as author; group posts show bot name. Analytics\
+        \ not available via Telegram Bot API."
       properties:
         parseMode:
           description: Text formatting mode for the message (default is HTML)
@@ -10706,34 +9915,25 @@ components:
           type: boolean
     SnapchatPlatformData:
       description: |
-        Snapchat requires a Public Profile. Media is required for all content types (single item only, auto-encrypted before upload).
-
-        **Content types:** Story (ephemeral 24h, no caption), Saved Story (permanent, title max 45 chars), Spotlight (video, description max 160 chars).
-
-        **Media limits:** Images max 20 MB (JPEG/PNG), videos max 500 MB (MP4, 5-60s, min 540x960px, 9:16 recommended).
+        Requires a Public Profile. Media required for all content types (single item only, auto-encrypted).
+        Content types: story (ephemeral 24h, no caption), saved_story (permanent, title max 45 chars), spotlight (video, description max 160 chars).
+        Images max 20 MB (JPEG/PNG), videos max 500 MB (MP4, 5-60s, min 540x960px).
       properties:
         contentType:
           default: story
-          description: |
-            Type of Snapchat content to publish:
-            - `story` - Ephemeral snap visible for 24 hours (default)
-            - `saved_story` - Permanent story saved to Public Profile
-            - `spotlight` - Video posted to Spotlight (Snapchat's TikTok-like feed)
+          description: "Content type: story (ephemeral 24h, default), saved_story\
+            \ (permanent on Public Profile), spotlight (video feed)"
           enum:
           - story
           - saved_story
           - spotlight
           type: string
     RedditPlatformData:
-      description: |
-        Reddit post settings:
-        - Posts are either "link" (with URL/media) or "self" (text-only)
-        - If media is provided, the first media item's URL is used as the link
-        - Use forceSelf to override and create a text post with the URL in the body
-        - Subreddit defaults to the account's configured subreddit if omitted
-        - Use the same accountId multiple times with different subreddit values in platformSpecificData to post to multiple subreddits
-        - Images are automatically compressed if they exceed Reddit's 20MB limit
-        - Some subreddits require a flair; if not provided, the API will attempt to use the first available flair as fallback
+      description: "Posts are either link (with URL/media) or self (text-only). If\
+        \ media is provided, the first item URL is used as the link; use forceSelf\
+        \ to override. Subreddit defaults to the account's configured one. Images\
+        \ over 20 MB are auto-compressed. Some subreddits require a flair; if missing,\
+        \ the first available flair is used as fallback."
       properties:
         subreddit:
           description: |
@@ -10764,12 +9964,7 @@ components:
           type: string
     BlueskyPlatformData:
       description: |
-        Bluesky post settings:
-        - Supports text posts with up to 4 images per post
-        - Videos supported (single video per post)
-        - threadItems creates a reply chain (Bluesky thread)
-        - Images exceeding Bluesky's 1MB limit are automatically compressed
-        - Alt text for images is supported via mediaItem properties
+        Bluesky post settings. Supports text posts with up to 4 images or a single video. threadItems creates a reply chain (Bluesky thread). Images exceeding 1MB are automatically compressed. Alt text supported via mediaItem properties.
       properties:
         threadItems:
           description: Sequence of posts in a Bluesky thread (root then replies in
@@ -10876,9 +10071,7 @@ components:
           type: boolean
         isOverLimit:
           description: |
-            Only present when `includeOverLimit=true` is used. Indicates if this profile
-            exceeds the user's plan limit. Over-limit profiles cannot be used for posting
-            but can be managed (disconnected accounts, deleted).
+            Only present when includeOverLimit=true is used. Indicates if this profile exceeds the user's plan limit. Over-limit profiles cannot be used for posting but can be managed (disconnected accounts, deleted).
           type: boolean
         createdAt:
           format: date-time
@@ -13227,9 +12420,8 @@ components:
         title:
           type: string
         content:
-          description: |
-            Post caption/text content. Optional when media is attached (images, videos, etc.).
-            Required for text-only posts. Can also be omitted if all platforms have customContent set.
+          description: Post caption/text. Optional when media is attached or all platforms
+            have customContent. Required for text-only posts.
           type: string
         mediaItems:
           items:
@@ -13252,11 +12444,8 @@ components:
           default: UTC
           type: string
         tags:
-          description: |
-            Tags/keywords for the post. YouTube-specific constraints:
-            - No count limit; duplicates are automatically removed
-            - Each tag must be ≤ 100 characters
-            - Combined total across all tags ≤ 500 characters (YouTube's limit)
+          description: "Tags/keywords. YouTube constraints: each tag max 100 chars,\
+            \ combined max 500 chars, duplicates auto-removed."
           items:
             type: string
           type: array
@@ -13277,19 +12466,13 @@ components:
         tiktokSettings:
           allOf:
           - $ref: "#/components/schemas/TikTokPlatformData"
-          description: |
-            Root-level TikTok settings applied to all TikTok platforms in the request.
-            This is a convenience shorthand. Settings here are merged into each TikTok
-            platform's platformSpecificData, with platform-specific settings taking precedence.
+          description: "Root-level TikTok settings applied to all TikTok platforms.\
+            \ Merged into each platform's platformSpecificData, with platform-specific\
+            \ settings taking precedence."
         queuedFromProfile:
-          description: |
-            Profile ID to schedule via queue.
-
-            When provided (without `scheduledFor`), the post will be automatically assigned
-            to the next available slot from the profile's queue. The system uses distributed
-            locking to prevent race conditions when multiple posts are scheduled concurrently.
-            Do not call `/v1/queue/next-slot` and then use that time in `scheduledFor`.
-            That bypasses the queue system and can cause duplicate slot assignments.
+          description: "Profile ID to schedule via queue. When provided without scheduledFor,\
+            \ the post is auto-assigned to the next available slot. Do not call /v1/queue/next-slot\
+            \ and use that time in scheduledFor, as that bypasses queue locking."
           type: string
         queueId:
           description: |
@@ -13345,10 +12528,9 @@ components:
         tiktokSettings:
           allOf:
           - $ref: "#/components/schemas/TikTokPlatformData"
-          description: |
-            Root-level TikTok settings applied to all TikTok platforms in the request.
-            This is a convenience shorthand. Settings here are merged into each TikTok
-            platform's platformSpecificData, with platform-specific settings taking precedence.
+          description: "Root-level TikTok settings applied to all TikTok platforms.\
+            \ Merged into each platform's platformSpecificData, with platform-specific\
+            \ settings taking precedence."
     bulkUploadPosts_request:
       properties:
         file:
@@ -14624,9 +13806,8 @@ components:
             $ref: "#/components/schemas/listGoogleBusinessLocations_200_response_locations_inner"
           type: array
     selectGoogleBusinessLocation_request_userProfile:
-      description: "Decoded user profile object from the OAuth callback. **Important:**\
-        \ This contains \nthe refresh token needed for token refresh. Always include\
-        \ this field.\n"
+      description: |
+        Decoded user profile object from the OAuth callback. Contains the refresh token needed for token refresh. Always include this field.
       properties:
         id:
           type: string
@@ -17339,9 +16520,7 @@ components:
           type: string
         state:
           description: |
-            Required state parameter formatted as `{userId}-{profileId}`.
-            - `userId`: Your Late user ID (get from `GET /v1/users` → `currentUserId`)
-            - `profileId`: The profile ID to connect the account to (get from `GET /v1/profiles`)
+            Required state parameter formatted as {userId}-{profileId}. userId is your Late user ID (from GET /v1/users, currentUserId field), profileId is the profile to connect the account to (from GET /v1/profiles).
           example: 6507a1b2c3d4e5f6a7b8c9d0-6507a1b2c3d4e5f6a7b8c9d1
           type: string
         redirectUri:
@@ -18388,7 +17567,7 @@ components:
           items:
             $ref: "#/components/schemas/WebhookLog"
           type: array
-    listLogs_200_response_pagination:
+    listPostsLogs_200_response_pagination:
       example:
         total: 5
         pages: 9
@@ -18408,7 +17587,7 @@ components:
           type: integer
         hasMore:
           type: boolean
-    listLogs_200_response:
+    listPostsLogs_200_response:
       example:
         pagination:
           total: 5
@@ -18485,59 +17664,7 @@ components:
             $ref: "#/components/schemas/PostLog"
           type: array
         pagination:
-          $ref: "#/components/schemas/listLogs_200_response_pagination"
-    getLog_200_response:
-      example:
-        log:
-          attemptNumber: 1
-          request:
-            mediaTypes:
-            - mediaTypes
-            - mediaTypes
-            rawBody: rawBody
-            scheduledFor: 2000-01-23T04:56:07.000+00:00
-            mediaCount: 6
-            contentPreview: contentPreview
-            mediaUrls:
-            - mediaUrls
-            - mediaUrls
-          metadata: null
-          postId:
-            mediaItems:
-            - "{}"
-            - "{}"
-            scheduledFor: 2000-01-23T04:56:07.000+00:00
-            _id: _id
-            content: content
-            status: status
-            platforms:
-            - "{}"
-            - "{}"
-          userId: userId
-          platform: tiktok
-          accountId:
-            displayName: displayName
-            _id: _id
-            platform: platform
-            username: username
-          createdAt: 2000-01-23T04:56:07.000+00:00
-          endpoint: endpoint
-          profileId: profileId
-          response:
-            rawBody: rawBody
-            platformPostUrl: platformPostUrl
-            errorMessage: errorMessage
-            errorCode: errorCode
-            platformPostId: platformPostId
-          accountUsername: accountUsername
-          action: publish
-          _id: _id
-          durationMs: 6
-          status: success
-          statusCode: 0
-      properties:
-        log:
-          $ref: "#/components/schemas/PostLogDetail"
+          $ref: "#/components/schemas/listPostsLogs_200_response_pagination"
     listConnectionLogs_200_response:
       example:
         pagination:
@@ -18613,7 +17740,7 @@ components:
             $ref: "#/components/schemas/ConnectionLog"
           type: array
         pagination:
-          $ref: "#/components/schemas/listLogs_200_response_pagination"
+          $ref: "#/components/schemas/listPostsLogs_200_response_pagination"
     getPostLogs_200_response:
       example:
         count: 0
@@ -20631,56 +19758,6 @@ components:
         rawBody:
           description: Full response body JSON (max 5000 chars)
           type: string
-    PostLogDetail_allOf_postId:
-      description: Populated post with full details
-      example:
-        mediaItems:
-        - "{}"
-        - "{}"
-        scheduledFor: 2000-01-23T04:56:07.000+00:00
-        _id: _id
-        content: content
-        status: status
-        platforms:
-        - "{}"
-        - "{}"
-      properties:
-        _id:
-          type: string
-        content:
-          type: string
-        status:
-          type: string
-        scheduledFor:
-          format: date-time
-          type: string
-        platforms:
-          items:
-            type: object
-          type: array
-        mediaItems:
-          items:
-            type: object
-          type: array
-    PostLogDetail_allOf_accountId:
-      description: Populated account reference
-      example:
-        displayName: displayName
-        _id: _id
-        platform: platform
-        username: username
-      properties:
-        _id:
-          type: string
-        platform:
-          type: string
-        username:
-          type: string
-        displayName:
-          type: string
-    PostLogDetail_allOf_metadata:
-      description: "Additional metadata (e.g., rate limit info)"
-      type: object
     ConnectionLog_error:
       description: Error details (present on failed events)
       example:
@@ -20802,17 +19879,13 @@ components:
             $ref: "#/components/schemas/MediaItem"
           type: array
     InstagramPlatformData_trialParams:
-      description: |
-        Trial Reels configuration. Trial reels are only shared to non-followers initially.
-        They can later be "graduated" (converted to regular reels visible to followers)
-        either manually in the Instagram app or automatically based on performance.
-        Only applies to Reels (video posts).
+      description: Trial Reels configuration. Trial reels are shared to non-followers
+        first and can later be graduated to regular reels manually or automatically
+        based on performance. Only applies to Reels.
       properties:
         graduationStrategy:
-          description: |
-            The graduation strategy specifies when a trial reel becomes a regular reel:
-            - MANUAL: The trial reel can only be manually graduated from the native Instagram app.
-            - SS_PERFORMANCE: The trial reel will be automatically graduated if it performs well with non-followers.
+          description: MANUAL (graduate from Instagram app) or SS_PERFORMANCE (auto-graduate
+            if performs well with non-followers)
           enum:
           - MANUAL
           - SS_PERFORMANCE
@@ -20839,9 +19912,8 @@ components:
           minimum: 0
           type: number
         mediaIndex:
-          description: |
-            Zero-based index of the carousel item to tag. Defaults to 0 (first image) if omitted.
-            Only relevant for carousel posts. Tags targeting video items or out-of-range indices are ignored.
+          description: Zero-based index of the carousel item to tag. Defaults to 0.
+            Tags on video items or out-of-range indices are ignored.
           example: 0
           minimum: 0
           type: integer
@@ -20853,14 +19925,8 @@ components:
       description: Optional call-to-action button displayed on the post
       properties:
         type:
-          description: |
-            Button action type:
-            - LEARN_MORE: Link to more information
-            - BOOK: Booking/reservation link
-            - ORDER: Online ordering link
-            - SHOP: E-commerce/shopping link
-            - SIGN_UP: Registration/signup link
-            - CALL: Phone call action
+          description: "Button action type: LEARN_MORE, BOOK, ORDER, SHOP, SIGN_UP,\
+            \ CALL"
           enum:
           - LEARN_MORE
           - BOOK

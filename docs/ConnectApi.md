@@ -12,8 +12,8 @@ All URIs are relative to *https://getlate.dev/api*
 | [**getConnectUrlWithHttpInfo**](ConnectApi.md#getConnectUrlWithHttpInfo) | **GET** /v1/connect/{platform} | Get OAuth connect URL |
 | [**getFacebookPages**](ConnectApi.md#getFacebookPages) | **GET** /v1/accounts/{accountId}/facebook-page | List Facebook pages |
 | [**getFacebookPagesWithHttpInfo**](ConnectApi.md#getFacebookPagesWithHttpInfo) | **GET** /v1/accounts/{accountId}/facebook-page | List Facebook pages |
-| [**getGmbLocations**](ConnectApi.md#getGmbLocations) | **GET** /v1/accounts/{accountId}/gmb-locations | List Google Business locations |
-| [**getGmbLocationsWithHttpInfo**](ConnectApi.md#getGmbLocationsWithHttpInfo) | **GET** /v1/accounts/{accountId}/gmb-locations | List Google Business locations |
+| [**getGmbLocations**](ConnectApi.md#getGmbLocations) | **GET** /v1/accounts/{accountId}/gmb-locations | List GBP locations |
+| [**getGmbLocationsWithHttpInfo**](ConnectApi.md#getGmbLocationsWithHttpInfo) | **GET** /v1/accounts/{accountId}/gmb-locations | List GBP locations |
 | [**getLinkedInOrganizations**](ConnectApi.md#getLinkedInOrganizations) | **GET** /v1/accounts/{accountId}/linkedin-organizations | List LinkedIn orgs |
 | [**getLinkedInOrganizationsWithHttpInfo**](ConnectApi.md#getLinkedInOrganizationsWithHttpInfo) | **GET** /v1/accounts/{accountId}/linkedin-organizations | List LinkedIn orgs |
 | [**getPendingOAuthData**](ConnectApi.md#getPendingOAuthData) | **GET** /v1/connect/pending-data | Get pending OAuth data |
@@ -32,8 +32,8 @@ All URIs are relative to *https://getlate.dev/api*
 | [**initiateTelegramConnectWithHttpInfo**](ConnectApi.md#initiateTelegramConnectWithHttpInfo) | **POST** /v1/connect/telegram | Connect Telegram directly |
 | [**listFacebookPages**](ConnectApi.md#listFacebookPages) | **GET** /v1/connect/facebook/select-page | List Facebook pages |
 | [**listFacebookPagesWithHttpInfo**](ConnectApi.md#listFacebookPagesWithHttpInfo) | **GET** /v1/connect/facebook/select-page | List Facebook pages |
-| [**listGoogleBusinessLocations**](ConnectApi.md#listGoogleBusinessLocations) | **GET** /v1/connect/googlebusiness/locations | List Google Business locations |
-| [**listGoogleBusinessLocationsWithHttpInfo**](ConnectApi.md#listGoogleBusinessLocationsWithHttpInfo) | **GET** /v1/connect/googlebusiness/locations | List Google Business locations |
+| [**listGoogleBusinessLocations**](ConnectApi.md#listGoogleBusinessLocations) | **GET** /v1/connect/googlebusiness/locations | List GBP locations |
+| [**listGoogleBusinessLocationsWithHttpInfo**](ConnectApi.md#listGoogleBusinessLocationsWithHttpInfo) | **GET** /v1/connect/googlebusiness/locations | List GBP locations |
 | [**listLinkedInOrganizations**](ConnectApi.md#listLinkedInOrganizations) | **GET** /v1/connect/linkedin/organizations | List LinkedIn orgs |
 | [**listLinkedInOrganizationsWithHttpInfo**](ConnectApi.md#listLinkedInOrganizationsWithHttpInfo) | **GET** /v1/connect/linkedin/organizations | List LinkedIn orgs |
 | [**listPinterestBoardsForSelection**](ConnectApi.md#listPinterestBoardsForSelection) | **GET** /v1/connect/pinterest/select-board | List Pinterest boards |
@@ -42,8 +42,8 @@ All URIs are relative to *https://getlate.dev/api*
 | [**listSnapchatProfilesWithHttpInfo**](ConnectApi.md#listSnapchatProfilesWithHttpInfo) | **GET** /v1/connect/snapchat/select-profile | List Snapchat profiles |
 | [**selectFacebookPage**](ConnectApi.md#selectFacebookPage) | **POST** /v1/connect/facebook/select-page | Select Facebook page |
 | [**selectFacebookPageWithHttpInfo**](ConnectApi.md#selectFacebookPageWithHttpInfo) | **POST** /v1/connect/facebook/select-page | Select Facebook page |
-| [**selectGoogleBusinessLocation**](ConnectApi.md#selectGoogleBusinessLocation) | **POST** /v1/connect/googlebusiness/select-location | Select Google Business location |
-| [**selectGoogleBusinessLocationWithHttpInfo**](ConnectApi.md#selectGoogleBusinessLocationWithHttpInfo) | **POST** /v1/connect/googlebusiness/select-location | Select Google Business location |
+| [**selectGoogleBusinessLocation**](ConnectApi.md#selectGoogleBusinessLocation) | **POST** /v1/connect/googlebusiness/select-location | Select GBP location |
+| [**selectGoogleBusinessLocationWithHttpInfo**](ConnectApi.md#selectGoogleBusinessLocationWithHttpInfo) | **POST** /v1/connect/googlebusiness/select-location | Select GBP location |
 | [**selectLinkedInOrganization**](ConnectApi.md#selectLinkedInOrganization) | **POST** /v1/connect/linkedin/select-organization | Select LinkedIn org |
 | [**selectLinkedInOrganizationWithHttpInfo**](ConnectApi.md#selectLinkedInOrganizationWithHttpInfo) | **POST** /v1/connect/linkedin/select-organization | Select LinkedIn org |
 | [**selectPinterestBoard**](ConnectApi.md#selectPinterestBoard) | **POST** /v1/connect/pinterest/select-board | Select Pinterest board |
@@ -52,8 +52,8 @@ All URIs are relative to *https://getlate.dev/api*
 | [**selectSnapchatProfileWithHttpInfo**](ConnectApi.md#selectSnapchatProfileWithHttpInfo) | **POST** /v1/connect/snapchat/select-profile | Select Snapchat profile |
 | [**updateFacebookPage**](ConnectApi.md#updateFacebookPage) | **PUT** /v1/accounts/{accountId}/facebook-page | Update Facebook page |
 | [**updateFacebookPageWithHttpInfo**](ConnectApi.md#updateFacebookPageWithHttpInfo) | **PUT** /v1/accounts/{accountId}/facebook-page | Update Facebook page |
-| [**updateGmbLocation**](ConnectApi.md#updateGmbLocation) | **PUT** /v1/accounts/{accountId}/gmb-locations | Update Google Business location |
-| [**updateGmbLocationWithHttpInfo**](ConnectApi.md#updateGmbLocationWithHttpInfo) | **PUT** /v1/accounts/{accountId}/gmb-locations | Update Google Business location |
+| [**updateGmbLocation**](ConnectApi.md#updateGmbLocation) | **PUT** /v1/accounts/{accountId}/gmb-locations | Update GBP location |
+| [**updateGmbLocationWithHttpInfo**](ConnectApi.md#updateGmbLocationWithHttpInfo) | **PUT** /v1/accounts/{accountId}/gmb-locations | Update GBP location |
 | [**updateLinkedInOrganization**](ConnectApi.md#updateLinkedInOrganization) | **PUT** /v1/accounts/{accountId}/linkedin-organization | Switch LinkedIn account type |
 | [**updateLinkedInOrganizationWithHttpInfo**](ConnectApi.md#updateLinkedInOrganizationWithHttpInfo) | **PUT** /v1/accounts/{accountId}/linkedin-organization | Switch LinkedIn account type |
 | [**updatePinterestBoards**](ConnectApi.md#updatePinterestBoards) | **PUT** /v1/accounts/{accountId}/pinterest-boards | Set default Pinterest board |
@@ -69,7 +69,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 Check Telegram status
 
-Poll this endpoint to check if a Telegram access code has been used to connect a channel/group.  **Recommended polling interval:** 3 seconds  **Status values:** - &#x60;pending&#x60;: Code is valid, waiting for user to complete connection - &#x60;connected&#x60;: Connection successful - channel/group is now linked - &#x60;expired&#x60;: Code has expired, generate a new one 
+Poll this endpoint to check if a Telegram access code has been used to connect a channel/group. Recommended polling interval: 3 seconds. Status values: pending (waiting for user), connected (channel/group linked), expired (generate a new code). 
 
 ### Example
 
@@ -142,7 +142,7 @@ public class Example {
 
 Check Telegram status
 
-Poll this endpoint to check if a Telegram access code has been used to connect a channel/group.  **Recommended polling interval:** 3 seconds  **Status values:** - &#x60;pending&#x60;: Code is valid, waiting for user to complete connection - &#x60;connected&#x60;: Connection successful - channel/group is now linked - &#x60;expired&#x60;: Code has expired, generate a new one 
+Poll this endpoint to check if a Telegram access code has been used to connect a channel/group. Recommended polling interval: 3 seconds. Status values: pending (waiting for user), connected (channel/group linked), expired (generate a new code). 
 
 ### Example
 
@@ -219,7 +219,7 @@ ApiResponse<[**CompleteTelegramConnect200Response**](CompleteTelegramConnect200R
 
 Connect Bluesky account
 
-Connect a Bluesky account using identifier (handle or email) and an app password.  To get your userId for the state parameter, call &#x60;GET /v1/users&#x60; - the response includes a &#x60;currentUserId&#x60; field. 
+Connect a Bluesky account using identifier (handle or email) and an app password. To get your userId for the state parameter, call GET /v1/users which includes a currentUserId field. 
 
 ### Example
 
@@ -292,7 +292,7 @@ public class Example {
 
 Connect Bluesky account
 
-Connect a Bluesky account using identifier (handle or email) and an app password.  To get your userId for the state parameter, call &#x60;GET /v1/users&#x60; - the response includes a &#x60;currentUserId&#x60; field. 
+Connect a Bluesky account using identifier (handle or email) and an app password. To get your userId for the state parameter, call GET /v1/users which includes a currentUserId field. 
 
 ### Example
 
@@ -369,7 +369,7 @@ ApiResponse<[**ConnectBlueskyCredentials200Response**](ConnectBlueskyCredentials
 
 Get OAuth connect URL
 
-Initiate an OAuth connection flow for any supported social media platform.  **Standard Flow (Hosted UI):** 1. Call this endpoint with your API key and &#x60;redirect_url&#x60; (optional) 2. Redirect your user to the returned &#x60;authUrl&#x60; 3. After OAuth, Late hosts the page/account selection UI 4. Once the user picks, Late saves the connection and redirects to your &#x60;redirect_url&#x60; (if provided)  **Headless Mode (Facebook, LinkedIn, Pinterest, Google Business, Snapchat):** Build your own branded selection UI while Late handles OAuth. Add &#x60;&amp;headless&#x3D;true&#x60; to this endpoint:  &#x60;GET /v1/connect/{platform}?profileId&#x3D;PROFILE_ID&amp;redirect_url&#x3D;https://yourapp.com/callback&amp;headless&#x3D;true&#x60;  After OAuth, the user is redirected to your &#x60;redirect_url&#x60; with OAuth data including &#x60;profileId&#x60;, &#x60;tempToken&#x60;, &#x60;userProfile&#x60;, &#x60;connect_token&#x60;, &#x60;platform&#x60;, and a &#x60;step&#x60; parameter indicating what selection is needed.  **Facebook example:** 1. Redirect params include &#x60;step&#x3D;select_page&#x60; 2. Use &#x60;GET /v1/connect/facebook/select-page&#x60; to fetch pages 3. Use &#x60;POST /v1/connect/facebook/select-page&#x60; to save the selected page  LinkedIn, Pinterest, Google Business, and Snapchat follow the same pattern with their respective selection endpoints. LinkedIn uses &#x60;pendingDataToken&#x60; instead of &#x60;tempToken&#x60; in redirect params; call &#x60;GET /v1/connect/pending-data?token&#x3D;TOKEN&#x60; to retrieve the OAuth data (one-time use, expires in 10 minutes). 
+Initiate an OAuth connection flow for any supported platform. Standard flow: call this endpoint, redirect user to the returned authUrl, Late hosts the selection UI, then redirects to your redirect_url. Headless mode (Facebook, LinkedIn, Pinterest, Google Business, Snapchat): add headless&#x3D;true to this endpoint. After OAuth, the user is redirected to your redirect_url with OAuth data (profileId, tempToken, userProfile, connect_token, platform, step). Use the platform-specific selection endpoints to fetch options and save the selection. LinkedIn uses pendingDataToken instead of tempToken; call GET /v1/connect/pending-data?token&#x3D;TOKEN to retrieve OAuth data (one-time use, expires in 10 minutes). 
 
 ### Example
 
@@ -394,7 +394,7 @@ public class Example {
         ConnectApi apiInstance = new ConnectApi(defaultClient);
         String platform = "facebook"; // String | Social media platform to connect
         String profileId = "profileId_example"; // String | Your Late profile ID (get from /v1/profiles)
-        URI redirectUrl = new URI(); // URI | Your custom redirect URL after connection completes.  **Standard Mode:** After the user selects an account, Late redirects here with `?connected={platform}&profileId=X&username=Y`.  **Headless Mode:** Pass `headless=true` as a query parameter on this endpoint. After OAuth, the user is redirected to your URL with OAuth data (`profileId`, `tempToken`, `userProfile`, `connect_token`, `platform`, `step`). See the main endpoint description for details.  Example: `https://yourdomain.com/integrations/callback` 
+        URI redirectUrl = new URI(); // URI | Your custom redirect URL after connection completes. Standard mode: Late redirects here with ?connected={platform}&profileId=X&username=Y. Headless mode: pass headless=true on this endpoint. User is redirected to your URL with OAuth data (profileId, tempToken, userProfile, connect_token, platform, step). See endpoint description for details. 
         try {
             GetConnectUrl200Response result = apiInstance.getConnectUrl(platform, profileId, redirectUrl);
             System.out.println(result);
@@ -416,7 +416,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **platform** | **String**| Social media platform to connect | [enum: facebook, instagram, linkedin, twitter, tiktok, youtube, threads, reddit, pinterest, bluesky, googlebusiness, telegram, snapchat] |
 | **profileId** | **String**| Your Late profile ID (get from /v1/profiles) | |
-| **redirectUrl** | **URI**| Your custom redirect URL after connection completes.  **Standard Mode:** After the user selects an account, Late redirects here with &#x60;?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;username&#x3D;Y&#x60;.  **Headless Mode:** Pass &#x60;headless&#x3D;true&#x60; as a query parameter on this endpoint. After OAuth, the user is redirected to your URL with OAuth data (&#x60;profileId&#x60;, &#x60;tempToken&#x60;, &#x60;userProfile&#x60;, &#x60;connect_token&#x60;, &#x60;platform&#x60;, &#x60;step&#x60;). See the main endpoint description for details.  Example: &#x60;https://yourdomain.com/integrations/callback&#x60;  | [optional] |
+| **redirectUrl** | **URI**| Your custom redirect URL after connection completes. Standard mode: Late redirects here with ?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;username&#x3D;Y. Headless mode: pass headless&#x3D;true on this endpoint. User is redirected to your URL with OAuth data (profileId, tempToken, userProfile, connect_token, platform, step). See endpoint description for details.  | [optional] |
 
 ### Return type
 
@@ -447,7 +447,7 @@ public class Example {
 
 Get OAuth connect URL
 
-Initiate an OAuth connection flow for any supported social media platform.  **Standard Flow (Hosted UI):** 1. Call this endpoint with your API key and &#x60;redirect_url&#x60; (optional) 2. Redirect your user to the returned &#x60;authUrl&#x60; 3. After OAuth, Late hosts the page/account selection UI 4. Once the user picks, Late saves the connection and redirects to your &#x60;redirect_url&#x60; (if provided)  **Headless Mode (Facebook, LinkedIn, Pinterest, Google Business, Snapchat):** Build your own branded selection UI while Late handles OAuth. Add &#x60;&amp;headless&#x3D;true&#x60; to this endpoint:  &#x60;GET /v1/connect/{platform}?profileId&#x3D;PROFILE_ID&amp;redirect_url&#x3D;https://yourapp.com/callback&amp;headless&#x3D;true&#x60;  After OAuth, the user is redirected to your &#x60;redirect_url&#x60; with OAuth data including &#x60;profileId&#x60;, &#x60;tempToken&#x60;, &#x60;userProfile&#x60;, &#x60;connect_token&#x60;, &#x60;platform&#x60;, and a &#x60;step&#x60; parameter indicating what selection is needed.  **Facebook example:** 1. Redirect params include &#x60;step&#x3D;select_page&#x60; 2. Use &#x60;GET /v1/connect/facebook/select-page&#x60; to fetch pages 3. Use &#x60;POST /v1/connect/facebook/select-page&#x60; to save the selected page  LinkedIn, Pinterest, Google Business, and Snapchat follow the same pattern with their respective selection endpoints. LinkedIn uses &#x60;pendingDataToken&#x60; instead of &#x60;tempToken&#x60; in redirect params; call &#x60;GET /v1/connect/pending-data?token&#x3D;TOKEN&#x60; to retrieve the OAuth data (one-time use, expires in 10 minutes). 
+Initiate an OAuth connection flow for any supported platform. Standard flow: call this endpoint, redirect user to the returned authUrl, Late hosts the selection UI, then redirects to your redirect_url. Headless mode (Facebook, LinkedIn, Pinterest, Google Business, Snapchat): add headless&#x3D;true to this endpoint. After OAuth, the user is redirected to your redirect_url with OAuth data (profileId, tempToken, userProfile, connect_token, platform, step). Use the platform-specific selection endpoints to fetch options and save the selection. LinkedIn uses pendingDataToken instead of tempToken; call GET /v1/connect/pending-data?token&#x3D;TOKEN to retrieve OAuth data (one-time use, expires in 10 minutes). 
 
 ### Example
 
@@ -473,7 +473,7 @@ public class Example {
         ConnectApi apiInstance = new ConnectApi(defaultClient);
         String platform = "facebook"; // String | Social media platform to connect
         String profileId = "profileId_example"; // String | Your Late profile ID (get from /v1/profiles)
-        URI redirectUrl = new URI(); // URI | Your custom redirect URL after connection completes.  **Standard Mode:** After the user selects an account, Late redirects here with `?connected={platform}&profileId=X&username=Y`.  **Headless Mode:** Pass `headless=true` as a query parameter on this endpoint. After OAuth, the user is redirected to your URL with OAuth data (`profileId`, `tempToken`, `userProfile`, `connect_token`, `platform`, `step`). See the main endpoint description for details.  Example: `https://yourdomain.com/integrations/callback` 
+        URI redirectUrl = new URI(); // URI | Your custom redirect URL after connection completes. Standard mode: Late redirects here with ?connected={platform}&profileId=X&username=Y. Headless mode: pass headless=true on this endpoint. User is redirected to your URL with OAuth data (profileId, tempToken, userProfile, connect_token, platform, step). See endpoint description for details. 
         try {
             ApiResponse<GetConnectUrl200Response> response = apiInstance.getConnectUrlWithHttpInfo(platform, profileId, redirectUrl);
             System.out.println("Status code: " + response.getStatusCode());
@@ -497,7 +497,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **platform** | **String**| Social media platform to connect | [enum: facebook, instagram, linkedin, twitter, tiktok, youtube, threads, reddit, pinterest, bluesky, googlebusiness, telegram, snapchat] |
 | **profileId** | **String**| Your Late profile ID (get from /v1/profiles) | |
-| **redirectUrl** | **URI**| Your custom redirect URL after connection completes.  **Standard Mode:** After the user selects an account, Late redirects here with &#x60;?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;username&#x3D;Y&#x60;.  **Headless Mode:** Pass &#x60;headless&#x3D;true&#x60; as a query parameter on this endpoint. After OAuth, the user is redirected to your URL with OAuth data (&#x60;profileId&#x60;, &#x60;tempToken&#x60;, &#x60;userProfile&#x60;, &#x60;connect_token&#x60;, &#x60;platform&#x60;, &#x60;step&#x60;). See the main endpoint description for details.  Example: &#x60;https://yourdomain.com/integrations/callback&#x60;  | [optional] |
+| **redirectUrl** | **URI**| Your custom redirect URL after connection completes. Standard mode: Late redirects here with ?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;username&#x3D;Y. Headless mode: pass headless&#x3D;true on this endpoint. User is redirected to your URL with OAuth data (profileId, tempToken, userProfile, connect_token, platform, step). See endpoint description for details.  | [optional] |
 
 ### Return type
 
@@ -675,7 +675,7 @@ ApiResponse<[**GetFacebookPages200Response**](GetFacebookPages200Response.md)>
 
 > GetGmbLocations200Response getGmbLocations(accountId)
 
-List Google Business locations
+List GBP locations
 
 Returns all Google Business Profile locations the connected account has access to, including the currently selected location.
 
@@ -747,7 +747,7 @@ public class Example {
 
 > ApiResponse<GetGmbLocations200Response> getGmbLocations getGmbLocationsWithHttpInfo(accountId)
 
-List Google Business locations
+List GBP locations
 
 Returns all Google Business Profile locations the connected account has access to, including the currently selected location.
 
@@ -969,7 +969,7 @@ ApiResponse<[**GetLinkedInOrganizations200Response**](GetLinkedInOrganizations20
 
 Get pending OAuth data
 
-**Fetch Pending OAuth Data for Headless Mode**  In headless mode, platforms like LinkedIn store OAuth selection data (organizations, pages, etc.) in the database instead of passing it via URL parameters. This prevents URI_TOO_LONG errors when users have many organizations/pages to select from.  After OAuth redirect, use the &#x60;pendingDataToken&#x60; from the URL to fetch the stored data.  **Important:** - This endpoint is one-time use: data is deleted after being fetched - Data expires automatically after 10 minutes if not fetched - No authentication required, just the token from the redirect URL 
+Fetch pending OAuth data for headless mode. Platforms like LinkedIn store OAuth selection data (organizations, pages, etc.) server-side to prevent URI_TOO_LONG errors. After OAuth redirect, use the pendingDataToken from the URL to fetch the stored data. This endpoint is one-time use (data is deleted after fetch) and expires after 10 minutes. No authentication required, just the token. 
 
 ### Example
 
@@ -992,7 +992,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ConnectApi apiInstance = new ConnectApi(defaultClient);
-        String token = "token_example"; // String | The pending data token from the OAuth redirect URL (`pendingDataToken` parameter)
+        String token = "token_example"; // String | The pending data token from the OAuth redirect URL (pendingDataToken parameter)
         try {
             GetPendingOAuthData200Response result = apiInstance.getPendingOAuthData(token);
             System.out.println(result);
@@ -1012,7 +1012,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **token** | **String**| The pending data token from the OAuth redirect URL (&#x60;pendingDataToken&#x60; parameter) | |
+| **token** | **String**| The pending data token from the OAuth redirect URL (pendingDataToken parameter) | |
 
 ### Return type
 
@@ -1041,7 +1041,7 @@ public class Example {
 
 Get pending OAuth data
 
-**Fetch Pending OAuth Data for Headless Mode**  In headless mode, platforms like LinkedIn store OAuth selection data (organizations, pages, etc.) in the database instead of passing it via URL parameters. This prevents URI_TOO_LONG errors when users have many organizations/pages to select from.  After OAuth redirect, use the &#x60;pendingDataToken&#x60; from the URL to fetch the stored data.  **Important:** - This endpoint is one-time use: data is deleted after being fetched - Data expires automatically after 10 minutes if not fetched - No authentication required, just the token from the redirect URL 
+Fetch pending OAuth data for headless mode. Platforms like LinkedIn store OAuth selection data (organizations, pages, etc.) server-side to prevent URI_TOO_LONG errors. After OAuth redirect, use the pendingDataToken from the URL to fetch the stored data. This endpoint is one-time use (data is deleted after fetch) and expires after 10 minutes. No authentication required, just the token. 
 
 ### Example
 
@@ -1065,7 +1065,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ConnectApi apiInstance = new ConnectApi(defaultClient);
-        String token = "token_example"; // String | The pending data token from the OAuth redirect URL (`pendingDataToken` parameter)
+        String token = "token_example"; // String | The pending data token from the OAuth redirect URL (pendingDataToken parameter)
         try {
             ApiResponse<GetPendingOAuthData200Response> response = apiInstance.getPendingOAuthDataWithHttpInfo(token);
             System.out.println("Status code: " + response.getStatusCode());
@@ -1087,7 +1087,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **token** | **String**| The pending data token from the OAuth redirect URL (&#x60;pendingDataToken&#x60; parameter) | |
+| **token** | **String**| The pending data token from the OAuth redirect URL (pendingDataToken parameter) | |
 
 ### Return type
 
@@ -1559,7 +1559,7 @@ ApiResponse<[**GetRedditSubreddits200Response**](GetRedditSubreddits200Response.
 
 Generate Telegram code
 
-Generate a unique access code for connecting a Telegram channel or group.  **Connection Flow:** 1. Call this endpoint to get an access code (valid for 15 minutes) 2. Add the bot (@LateScheduleBot or your configured bot) as an administrator in your Telegram channel/group 3. Open a private chat with the bot 4. Send: &#x60;{CODE} @yourchannel&#x60; (e.g., &#x60;LATE-ABC123 @mychannel&#x60;) 5. Poll &#x60;PATCH /v1/connect/telegram?code&#x3D;{CODE}&#x60; to check connection status  **Alternative for private channels:** If your channel has no public username, forward any message from the channel to the bot along with the access code. 
+Generate a unique access code for connecting a Telegram channel or group. Flow: get an access code (valid 15 minutes), add the bot as admin in your channel/group, open a private chat with the bot, send the code + @yourchannel (e.g. LATE-ABC123 @mychannel), then poll PATCH /v1/connect/telegram?code&#x3D;{CODE} to check connection status. For private channels without a public username, forward any message from the channel to the bot along with the access code. 
 
 ### Example
 
@@ -1634,7 +1634,7 @@ public class Example {
 
 Generate Telegram code
 
-Generate a unique access code for connecting a Telegram channel or group.  **Connection Flow:** 1. Call this endpoint to get an access code (valid for 15 minutes) 2. Add the bot (@LateScheduleBot or your configured bot) as an administrator in your Telegram channel/group 3. Open a private chat with the bot 4. Send: &#x60;{CODE} @yourchannel&#x60; (e.g., &#x60;LATE-ABC123 @mychannel&#x60;) 5. Poll &#x60;PATCH /v1/connect/telegram?code&#x3D;{CODE}&#x60; to check connection status  **Alternative for private channels:** If your channel has no public username, forward any message from the channel to the bot along with the access code. 
+Generate a unique access code for connecting a Telegram channel or group. Flow: get an access code (valid 15 minutes), add the bot as admin in your channel/group, open a private chat with the bot, send the code + @yourchannel (e.g. LATE-ABC123 @mychannel), then poll PATCH /v1/connect/telegram?code&#x3D;{CODE} to check connection status. For private channels without a public username, forward any message from the channel to the bot along with the access code. 
 
 ### Example
 
@@ -2017,7 +2017,7 @@ ApiResponse<[**InitiateTelegramConnect200Response**](InitiateTelegramConnect200R
 
 List Facebook pages
 
-**Headless Mode for Custom UI**  After initiating Facebook OAuth via &#x60;/v1/connect/facebook&#x60;, you&#39;ll be redirected to  &#x60;/connect/facebook/select-page&#x60; with query params including &#x60;tempToken&#x60; and &#x60;userProfile&#x60;.  For a **headless/whitelabeled flow**, extract these params from the URL and call this  endpoint to retrieve the list of Facebook Pages the user can manage. Then build your  own UI to let users select a page.  **Note:** Use the &#x60;X-Connect-Token&#x60; header if you initiated the connection via API key  (rather than a browser session). 
+Returns the list of Facebook Pages the user can manage after OAuth. Extract tempToken and userProfile from the OAuth redirect params and pass them here. Use the X-Connect-Token header if connecting via API key.
 
 ### Example
 
@@ -2098,7 +2098,7 @@ public class Example {
 
 List Facebook pages
 
-**Headless Mode for Custom UI**  After initiating Facebook OAuth via &#x60;/v1/connect/facebook&#x60;, you&#39;ll be redirected to  &#x60;/connect/facebook/select-page&#x60; with query params including &#x60;tempToken&#x60; and &#x60;userProfile&#x60;.  For a **headless/whitelabeled flow**, extract these params from the URL and call this  endpoint to retrieve the list of Facebook Pages the user can manage. Then build your  own UI to let users select a page.  **Note:** Use the &#x60;X-Connect-Token&#x60; header if you initiated the connection via API key  (rather than a browser session). 
+Returns the list of Facebook Pages the user can manage after OAuth. Extract tempToken and userProfile from the OAuth redirect params and pass them here. Use the X-Connect-Token header if connecting via API key.
 
 ### Example
 
@@ -2181,9 +2181,9 @@ ApiResponse<[**ListFacebookPages200Response**](ListFacebookPages200Response.md)>
 
 > ListGoogleBusinessLocations200Response listGoogleBusinessLocations(profileId, tempToken)
 
-List Google Business locations
+List GBP locations
 
-**Headless Mode for Custom UI**  After initiating Google Business OAuth via &#x60;/v1/connect/googlebusiness?headless&#x3D;true&#x60;, you&#39;ll be redirected  to your &#x60;redirect_url&#x60; with query params including &#x60;tempToken&#x60; and &#x60;userProfile&#x60;.  For a **headless/whitelabeled flow**, extract these params from the URL and call this  endpoint to retrieve the list of Google Business locations the user can manage. Then build your  own UI to let users select a location.  **Note:** Use the &#x60;X-Connect-Token&#x60; header if you initiated the connection via API key  (rather than a browser session). 
+For headless/whitelabel flows. After Google Business OAuth with headless&#x3D;true, you&#39;ll be redirected to your redirect_url with tempToken and userProfile params. Call this endpoint to retrieve the list of locations the user can manage, then build your own UI to let them select one. Use the X-Connect-Token header if you initiated the connection via API key. 
 
 ### Example
 
@@ -2262,9 +2262,9 @@ public class Example {
 
 > ApiResponse<ListGoogleBusinessLocations200Response> listGoogleBusinessLocations listGoogleBusinessLocationsWithHttpInfo(profileId, tempToken)
 
-List Google Business locations
+List GBP locations
 
-**Headless Mode for Custom UI**  After initiating Google Business OAuth via &#x60;/v1/connect/googlebusiness?headless&#x3D;true&#x60;, you&#39;ll be redirected  to your &#x60;redirect_url&#x60; with query params including &#x60;tempToken&#x60; and &#x60;userProfile&#x60;.  For a **headless/whitelabeled flow**, extract these params from the URL and call this  endpoint to retrieve the list of Google Business locations the user can manage. Then build your  own UI to let users select a location.  **Note:** Use the &#x60;X-Connect-Token&#x60; header if you initiated the connection via API key  (rather than a browser session). 
+For headless/whitelabel flows. After Google Business OAuth with headless&#x3D;true, you&#39;ll be redirected to your redirect_url with tempToken and userProfile params. Call this endpoint to retrieve the list of locations the user can manage, then build your own UI to let them select one. Use the X-Connect-Token header if you initiated the connection via API key. 
 
 ### Example
 
@@ -2349,7 +2349,7 @@ ApiResponse<[**ListGoogleBusinessLocations200Response**](ListGoogleBusinessLocat
 
 List LinkedIn orgs
 
-**Fetch Full Organization Details for Custom UI**  After LinkedIn OAuth in headless mode, the redirect URL contains organization data with only &#x60;id&#x60;, &#x60;urn&#x60;, and &#x60;name&#x60; fields (additional details are excluded to prevent URL length issues with many organizations).  Use this endpoint to fetch full organization details including logos, vanity names, websites, and more if you want to display them in your custom selection UI.  **Note:** This endpoint requires no authentication - just the &#x60;tempToken&#x60; from the OAuth redirect. Details are fetched directly from LinkedIn&#39;s API in parallel for fast response times. 
+Fetch full organization details for custom UI. After LinkedIn OAuth in headless mode, the redirect URL only contains id, urn, and name fields. Use this endpoint to fetch full details including logos, vanity names, websites, and more. No authentication required, just the tempToken from the OAuth redirect. 
 
 ### Example
 
@@ -2423,7 +2423,7 @@ public class Example {
 
 List LinkedIn orgs
 
-**Fetch Full Organization Details for Custom UI**  After LinkedIn OAuth in headless mode, the redirect URL contains organization data with only &#x60;id&#x60;, &#x60;urn&#x60;, and &#x60;name&#x60; fields (additional details are excluded to prevent URL length issues with many organizations).  Use this endpoint to fetch full organization details including logos, vanity names, websites, and more if you want to display them in your custom selection UI.  **Note:** This endpoint requires no authentication - just the &#x60;tempToken&#x60; from the OAuth redirect. Details are fetched directly from LinkedIn&#39;s API in parallel for fast response times. 
+Fetch full organization details for custom UI. After LinkedIn OAuth in headless mode, the redirect URL only contains id, urn, and name fields. Use this endpoint to fetch full details including logos, vanity names, websites, and more. No authentication required, just the tempToken from the OAuth redirect. 
 
 ### Example
 
@@ -2501,7 +2501,7 @@ ApiResponse<[**ListLinkedInOrganizations200Response**](ListLinkedInOrganizations
 
 List Pinterest boards
 
-**Retrieve Pinterest Boards for Selection UI**  After initiating Pinterest OAuth via &#x60;/v1/connect/pinterest&#x60; with &#x60;headless&#x3D;true&#x60;, you&#39;ll be redirected to your &#x60;redirect_url&#x60; with query params including &#x60;tempToken&#x60; and &#x60;userProfile&#x60;.  If you want to build your own fully-branded board selector (instead of Late&#39;s hosted UI), call this endpoint to retrieve the list of Pinterest Boards the user can post to. Then build your UI and call &#x60;POST /v1/connect/pinterest/select-board&#x60; to save the selection.  **Authentication:** Use &#x60;X-Connect-Token&#x60; header with the &#x60;connect_token&#x60; from the redirect URL. 
+Retrieve Pinterest boards for headless selection UI. After Pinterest OAuth with headless&#x3D;true, you&#39;ll be redirected to your redirect_url with tempToken and userProfile params. Call this endpoint to retrieve the list of boards the user can post to, then build your UI and call POST /v1/connect/pinterest/select-board to save the selection. Use X-Connect-Token header with the connect_token from the redirect URL. 
 
 ### Example
 
@@ -2579,7 +2579,7 @@ public class Example {
 
 List Pinterest boards
 
-**Retrieve Pinterest Boards for Selection UI**  After initiating Pinterest OAuth via &#x60;/v1/connect/pinterest&#x60; with &#x60;headless&#x3D;true&#x60;, you&#39;ll be redirected to your &#x60;redirect_url&#x60; with query params including &#x60;tempToken&#x60; and &#x60;userProfile&#x60;.  If you want to build your own fully-branded board selector (instead of Late&#39;s hosted UI), call this endpoint to retrieve the list of Pinterest Boards the user can post to. Then build your UI and call &#x60;POST /v1/connect/pinterest/select-board&#x60; to save the selection.  **Authentication:** Use &#x60;X-Connect-Token&#x60; header with the &#x60;connect_token&#x60; from the redirect URL. 
+Retrieve Pinterest boards for headless selection UI. After Pinterest OAuth with headless&#x3D;true, you&#39;ll be redirected to your redirect_url with tempToken and userProfile params. Call this endpoint to retrieve the list of boards the user can post to, then build your UI and call POST /v1/connect/pinterest/select-board to save the selection. Use X-Connect-Token header with the connect_token from the redirect URL. 
 
 ### Example
 
@@ -2661,7 +2661,7 @@ ApiResponse<[**ListPinterestBoardsForSelection200Response**](ListPinterestBoards
 
 List Snapchat profiles
 
-**Headless Mode for Custom UI**  After initiating Snapchat OAuth via &#x60;/v1/connect/snapchat?headless&#x3D;true&#x60;, you&#39;ll be redirected to your &#x60;redirect_url&#x60; with query params including &#x60;tempToken&#x60;, &#x60;userProfile&#x60;, and &#x60;publicProfiles&#x60;.  If you want to build your own fully-branded profile selector (instead of Late&#39;s hosted UI), call this endpoint to retrieve the list of Snapchat Public Profiles the user can post to. Then build your UI and call &#x60;POST /v1/connect/snapchat/select-profile&#x60; to save the selection.  **Authentication:** Use &#x60;X-Connect-Token&#x60; header with the &#x60;connect_token&#x60; from the redirect URL. 
+For headless/whitelabel flows. After Snapchat OAuth with headless&#x3D;true, you&#39;ll be redirected to your redirect_url with tempToken, userProfile, and publicProfiles params. Call this endpoint to retrieve the list of Snapchat Public Profiles the user can post to, then build your UI and call POST /v1/connect/snapchat/select-profile to save the selection. Use X-Connect-Token header with the connect_token from the redirect URL. 
 
 ### Example
 
@@ -2739,7 +2739,7 @@ public class Example {
 
 List Snapchat profiles
 
-**Headless Mode for Custom UI**  After initiating Snapchat OAuth via &#x60;/v1/connect/snapchat?headless&#x3D;true&#x60;, you&#39;ll be redirected to your &#x60;redirect_url&#x60; with query params including &#x60;tempToken&#x60;, &#x60;userProfile&#x60;, and &#x60;publicProfiles&#x60;.  If you want to build your own fully-branded profile selector (instead of Late&#39;s hosted UI), call this endpoint to retrieve the list of Snapchat Public Profiles the user can post to. Then build your UI and call &#x60;POST /v1/connect/snapchat/select-profile&#x60; to save the selection.  **Authentication:** Use &#x60;X-Connect-Token&#x60; header with the &#x60;connect_token&#x60; from the redirect URL. 
+For headless/whitelabel flows. After Snapchat OAuth with headless&#x3D;true, you&#39;ll be redirected to your redirect_url with tempToken, userProfile, and publicProfiles params. Call this endpoint to retrieve the list of Snapchat Public Profiles the user can post to, then build your UI and call POST /v1/connect/snapchat/select-profile to save the selection. Use X-Connect-Token header with the connect_token from the redirect URL. 
 
 ### Example
 
@@ -2821,7 +2821,7 @@ ApiResponse<[**ListSnapchatProfiles200Response**](ListSnapchatProfiles200Respons
 
 Select Facebook page
 
-**Complete the Headless Flow**  After displaying your custom UI with the list of pages from the GET endpoint, call this  endpoint to finalize the connection with the user&#39;s selected page.  The &#x60;userProfile&#x60; should be the decoded JSON object from the &#x60;userProfile&#x60; query param  in the OAuth callback redirect URL.  **Note:** Use the &#x60;X-Connect-Token&#x60; header if you initiated the connection via API key. 
+Complete the headless flow. After displaying your custom UI with the list of pages from the GET endpoint, call this endpoint to finalize the connection with the user&#39;s selected page. The userProfile should be the decoded JSON object from the userProfile query param in the OAuth callback redirect URL. Use the X-Connect-Token header if you initiated the connection via API key. 
 
 ### Example
 
@@ -2902,7 +2902,7 @@ public class Example {
 
 Select Facebook page
 
-**Complete the Headless Flow**  After displaying your custom UI with the list of pages from the GET endpoint, call this  endpoint to finalize the connection with the user&#39;s selected page.  The &#x60;userProfile&#x60; should be the decoded JSON object from the &#x60;userProfile&#x60; query param  in the OAuth callback redirect URL.  **Note:** Use the &#x60;X-Connect-Token&#x60; header if you initiated the connection via API key. 
+Complete the headless flow. After displaying your custom UI with the list of pages from the GET endpoint, call this endpoint to finalize the connection with the user&#39;s selected page. The userProfile should be the decoded JSON object from the userProfile query param in the OAuth callback redirect URL. Use the X-Connect-Token header if you initiated the connection via API key. 
 
 ### Example
 
@@ -2985,9 +2985,9 @@ ApiResponse<[**SelectFacebookPage200Response**](SelectFacebookPage200Response.md
 
 > SelectGoogleBusinessLocation200Response selectGoogleBusinessLocation(selectGoogleBusinessLocationRequest)
 
-Select Google Business location
+Select GBP location
 
-**Complete the Headless Flow**  After displaying your custom UI with the list of locations from the GET &#x60;/v1/connect/googlebusiness/locations&#x60;  endpoint, call this endpoint to finalize the connection with the user&#39;s selected location.  The &#x60;userProfile&#x60; should be the decoded JSON object from the &#x60;userProfile&#x60; query param  in the OAuth callback redirect URL. It contains important token information (including refresh token).  **Note:** Use the &#x60;X-Connect-Token&#x60; header if you initiated the connection via API key. 
+Complete the headless flow. After displaying your custom UI with the list of locations from the GET /v1/connect/googlebusiness/locations endpoint, call this endpoint to finalize the connection with the user&#39;s selected location. The userProfile should be the decoded JSON object from the userProfile query param in the OAuth callback redirect URL. It contains important token information including the refresh token. Use the X-Connect-Token header if you initiated the connection via API key. 
 
 ### Example
 
@@ -3066,9 +3066,9 @@ public class Example {
 
 > ApiResponse<SelectGoogleBusinessLocation200Response> selectGoogleBusinessLocation selectGoogleBusinessLocationWithHttpInfo(selectGoogleBusinessLocationRequest)
 
-Select Google Business location
+Select GBP location
 
-**Complete the Headless Flow**  After displaying your custom UI with the list of locations from the GET &#x60;/v1/connect/googlebusiness/locations&#x60;  endpoint, call this endpoint to finalize the connection with the user&#39;s selected location.  The &#x60;userProfile&#x60; should be the decoded JSON object from the &#x60;userProfile&#x60; query param  in the OAuth callback redirect URL. It contains important token information (including refresh token).  **Note:** Use the &#x60;X-Connect-Token&#x60; header if you initiated the connection via API key. 
+Complete the headless flow. After displaying your custom UI with the list of locations from the GET /v1/connect/googlebusiness/locations endpoint, call this endpoint to finalize the connection with the user&#39;s selected location. The userProfile should be the decoded JSON object from the userProfile query param in the OAuth callback redirect URL. It contains important token information including the refresh token. Use the X-Connect-Token header if you initiated the connection via API key. 
 
 ### Example
 
@@ -3153,7 +3153,7 @@ ApiResponse<[**SelectGoogleBusinessLocation200Response**](SelectGoogleBusinessLo
 
 Select LinkedIn org
 
-**Complete the LinkedIn Connection Flow**  After OAuth, the user is redirected with &#x60;organizations&#x60; in the URL params (if they have org admin access). The organizations array contains &#x60;id&#x60;, &#x60;urn&#x60;, and &#x60;name&#x60; fields. Use this data to build your UI,  then call this endpoint to save the selection.  Set &#x60;accountType&#x60; to &#x60;personal&#x60; to connect as the user&#39;s personal LinkedIn profile, or &#x60;organization&#x60; to connect as a company page (requires &#x60;selectedOrganization&#x60; object).  **Personal Profile:** To connect a personal LinkedIn account, set &#x60;accountType&#x60; to &#x60;\&quot;personal\&quot;&#x60; and **omit** the &#x60;selectedOrganization&#x60; field entirely. This is the simplest flow.  **Headless Mode:** Use the &#x60;X-Connect-Token&#x60; header if you initiated the connection via API key. 
+Complete the LinkedIn connection flow. After OAuth, the user is redirected with organizations in the URL params (if they have org admin access). Use this data to build your UI, then call this endpoint to save the selection. Set accountType to \&quot;personal\&quot; for a personal profile (omit selectedOrganization), or \&quot;organization\&quot; to connect as a company page. Use the X-Connect-Token header if you initiated the connection via API key. 
 
 ### Example
 
@@ -3226,7 +3226,7 @@ public class Example {
 
 Select LinkedIn org
 
-**Complete the LinkedIn Connection Flow**  After OAuth, the user is redirected with &#x60;organizations&#x60; in the URL params (if they have org admin access). The organizations array contains &#x60;id&#x60;, &#x60;urn&#x60;, and &#x60;name&#x60; fields. Use this data to build your UI,  then call this endpoint to save the selection.  Set &#x60;accountType&#x60; to &#x60;personal&#x60; to connect as the user&#39;s personal LinkedIn profile, or &#x60;organization&#x60; to connect as a company page (requires &#x60;selectedOrganization&#x60; object).  **Personal Profile:** To connect a personal LinkedIn account, set &#x60;accountType&#x60; to &#x60;\&quot;personal\&quot;&#x60; and **omit** the &#x60;selectedOrganization&#x60; field entirely. This is the simplest flow.  **Headless Mode:** Use the &#x60;X-Connect-Token&#x60; header if you initiated the connection via API key. 
+Complete the LinkedIn connection flow. After OAuth, the user is redirected with organizations in the URL params (if they have org admin access). Use this data to build your UI, then call this endpoint to save the selection. Set accountType to \&quot;personal\&quot; for a personal profile (omit selectedOrganization), or \&quot;organization\&quot; to connect as a company page. Use the X-Connect-Token header if you initiated the connection via API key. 
 
 ### Example
 
@@ -3303,7 +3303,7 @@ ApiResponse<[**SelectLinkedInOrganization200Response**](SelectLinkedInOrganizati
 
 Select Pinterest board
 
-**Complete the Pinterest Connection Flow**  After OAuth, use this endpoint to save the selected board and complete the Pinterest account connection.  **Headless Mode:** Use the &#x60;X-Connect-Token&#x60; header if you initiated the connection via API key. 
+Complete the Pinterest connection flow. After OAuth, use this endpoint to save the selected board and complete the account connection. Use the X-Connect-Token header if you initiated the connection via API key. 
 
 ### Example
 
@@ -3377,7 +3377,7 @@ public class Example {
 
 Select Pinterest board
 
-**Complete the Pinterest Connection Flow**  After OAuth, use this endpoint to save the selected board and complete the Pinterest account connection.  **Headless Mode:** Use the &#x60;X-Connect-Token&#x60; header if you initiated the connection via API key. 
+Complete the Pinterest connection flow. After OAuth, use this endpoint to save the selected board and complete the account connection. Use the X-Connect-Token header if you initiated the connection via API key. 
 
 ### Example
 
@@ -3455,7 +3455,7 @@ ApiResponse<[**SelectPinterestBoard200Response**](SelectPinterestBoard200Respons
 
 Select Snapchat profile
 
-**Complete the Snapchat Connection Flow**  After OAuth, use this endpoint to save the selected Public Profile and complete the Snapchat account connection. Snapchat requires a Public Profile to publish Stories, Saved Stories, and Spotlight content.  **Headless Mode:** Use the &#x60;X-Connect-Token&#x60; header if you initiated the connection via API key.  After initiating Snapchat OAuth via &#x60;/v1/connect/snapchat?headless&#x3D;true&#x60;, you&#39;ll be redirected to your &#x60;redirect_url&#x60; with query params including: - &#x60;tempToken&#x60; - Temporary access token - &#x60;userProfile&#x60; - URL-encoded JSON with user info - &#x60;publicProfiles&#x60; - URL-encoded JSON array of available public profiles - &#x60;connect_token&#x60; - Short-lived token for API authentication - &#x60;platform&#x3D;snapchat&#x60; - &#x60;step&#x3D;select_public_profile&#x60;  Parse &#x60;publicProfiles&#x60; to build your custom selector UI, then call this endpoint with the selected profile. 
+Complete the Snapchat connection flow. Save the selected Public Profile and complete the account connection. Snapchat requires a Public Profile to publish Stories, Saved Stories, and Spotlight content. After Snapchat OAuth with headless&#x3D;true, you&#39;ll be redirected with tempToken, userProfile, publicProfiles, connect_token, platform&#x3D;snapchat, and step&#x3D;select_public_profile in the URL. Parse publicProfiles to build your custom selector UI, then call this endpoint with the selected profile. Use the X-Connect-Token header if you initiated the connection via API key. 
 
 ### Example
 
@@ -3531,7 +3531,7 @@ public class Example {
 
 Select Snapchat profile
 
-**Complete the Snapchat Connection Flow**  After OAuth, use this endpoint to save the selected Public Profile and complete the Snapchat account connection. Snapchat requires a Public Profile to publish Stories, Saved Stories, and Spotlight content.  **Headless Mode:** Use the &#x60;X-Connect-Token&#x60; header if you initiated the connection via API key.  After initiating Snapchat OAuth via &#x60;/v1/connect/snapchat?headless&#x3D;true&#x60;, you&#39;ll be redirected to your &#x60;redirect_url&#x60; with query params including: - &#x60;tempToken&#x60; - Temporary access token - &#x60;userProfile&#x60; - URL-encoded JSON with user info - &#x60;publicProfiles&#x60; - URL-encoded JSON array of available public profiles - &#x60;connect_token&#x60; - Short-lived token for API authentication - &#x60;platform&#x3D;snapchat&#x60; - &#x60;step&#x3D;select_public_profile&#x60;  Parse &#x60;publicProfiles&#x60; to build your custom selector UI, then call this endpoint with the selected profile. 
+Complete the Snapchat connection flow. Save the selected Public Profile and complete the account connection. Snapchat requires a Public Profile to publish Stories, Saved Stories, and Spotlight content. After Snapchat OAuth with headless&#x3D;true, you&#39;ll be redirected with tempToken, userProfile, publicProfiles, connect_token, platform&#x3D;snapchat, and step&#x3D;select_public_profile in the URL. Parse publicProfiles to build your custom selector UI, then call this endpoint with the selected profile. Use the X-Connect-Token header if you initiated the connection via API key. 
 
 ### Example
 
@@ -3759,7 +3759,7 @@ ApiResponse<[**UpdateFacebookPage200Response**](UpdateFacebookPage200Response.md
 
 > UpdateGmbLocation200Response updateGmbLocation(accountId, updateGmbLocationRequest)
 
-Update Google Business location
+Update GBP location
 
 ### Example
 
@@ -3832,7 +3832,7 @@ public class Example {
 
 > ApiResponse<UpdateGmbLocation200Response> updateGmbLocation updateGmbLocationWithHttpInfo(accountId, updateGmbLocationRequest)
 
-Update Google Business location
+Update GBP location
 
 ### Example
 

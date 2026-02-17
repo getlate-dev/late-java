@@ -4,7 +4,7 @@ Late API
 
 - API version: 1.0.1
 
-- Build date: 2026-02-17T12:06:49.388083070Z[Etc/UTC]
+- Build date: 2026-02-17T12:43:04.808571241Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -120,24 +120,24 @@ Class | Method | HTTP request | Description
 *AccountGroupsApi* | [**listAccountGroupsWithHttpInfo**](docs/AccountGroupsApi.md#listAccountGroupsWithHttpInfo) | **GET** /v1/account-groups | List groups
 *AccountGroupsApi* | [**updateAccountGroup**](docs/AccountGroupsApi.md#updateAccountGroup) | **PUT** /v1/account-groups/{groupId} | Update group
 *AccountGroupsApi* | [**updateAccountGroupWithHttpInfo**](docs/AccountGroupsApi.md#updateAccountGroupWithHttpInfo) | **PUT** /v1/account-groups/{groupId} | Update group
-*AccountSettingsApi* | [**deleteInstagramIceBreakers**](docs/AccountSettingsApi.md#deleteInstagramIceBreakers) | **DELETE** /v1/accounts/{accountId}/instagram-ice-breakers | Delete Instagram ice breakers
-*AccountSettingsApi* | [**deleteInstagramIceBreakersWithHttpInfo**](docs/AccountSettingsApi.md#deleteInstagramIceBreakersWithHttpInfo) | **DELETE** /v1/accounts/{accountId}/instagram-ice-breakers | Delete Instagram ice breakers
-*AccountSettingsApi* | [**deleteMessengerMenu**](docs/AccountSettingsApi.md#deleteMessengerMenu) | **DELETE** /v1/accounts/{accountId}/messenger-menu | Delete Facebook persistent menu
-*AccountSettingsApi* | [**deleteMessengerMenuWithHttpInfo**](docs/AccountSettingsApi.md#deleteMessengerMenuWithHttpInfo) | **DELETE** /v1/accounts/{accountId}/messenger-menu | Delete Facebook persistent menu
-*AccountSettingsApi* | [**deleteTelegramCommands**](docs/AccountSettingsApi.md#deleteTelegramCommands) | **DELETE** /v1/accounts/{accountId}/telegram-commands | Delete Telegram bot commands
-*AccountSettingsApi* | [**deleteTelegramCommandsWithHttpInfo**](docs/AccountSettingsApi.md#deleteTelegramCommandsWithHttpInfo) | **DELETE** /v1/accounts/{accountId}/telegram-commands | Delete Telegram bot commands
-*AccountSettingsApi* | [**getInstagramIceBreakers**](docs/AccountSettingsApi.md#getInstagramIceBreakers) | **GET** /v1/accounts/{accountId}/instagram-ice-breakers | Get Instagram ice breakers
-*AccountSettingsApi* | [**getInstagramIceBreakersWithHttpInfo**](docs/AccountSettingsApi.md#getInstagramIceBreakersWithHttpInfo) | **GET** /v1/accounts/{accountId}/instagram-ice-breakers | Get Instagram ice breakers
-*AccountSettingsApi* | [**getMessengerMenu**](docs/AccountSettingsApi.md#getMessengerMenu) | **GET** /v1/accounts/{accountId}/messenger-menu | Get Facebook persistent menu
-*AccountSettingsApi* | [**getMessengerMenuWithHttpInfo**](docs/AccountSettingsApi.md#getMessengerMenuWithHttpInfo) | **GET** /v1/accounts/{accountId}/messenger-menu | Get Facebook persistent menu
-*AccountSettingsApi* | [**getTelegramCommands**](docs/AccountSettingsApi.md#getTelegramCommands) | **GET** /v1/accounts/{accountId}/telegram-commands | Get Telegram bot commands
-*AccountSettingsApi* | [**getTelegramCommandsWithHttpInfo**](docs/AccountSettingsApi.md#getTelegramCommandsWithHttpInfo) | **GET** /v1/accounts/{accountId}/telegram-commands | Get Telegram bot commands
-*AccountSettingsApi* | [**setInstagramIceBreakers**](docs/AccountSettingsApi.md#setInstagramIceBreakers) | **PUT** /v1/accounts/{accountId}/instagram-ice-breakers | Set Instagram ice breakers
-*AccountSettingsApi* | [**setInstagramIceBreakersWithHttpInfo**](docs/AccountSettingsApi.md#setInstagramIceBreakersWithHttpInfo) | **PUT** /v1/accounts/{accountId}/instagram-ice-breakers | Set Instagram ice breakers
-*AccountSettingsApi* | [**setMessengerMenu**](docs/AccountSettingsApi.md#setMessengerMenu) | **PUT** /v1/accounts/{accountId}/messenger-menu | Set Facebook persistent menu
-*AccountSettingsApi* | [**setMessengerMenuWithHttpInfo**](docs/AccountSettingsApi.md#setMessengerMenuWithHttpInfo) | **PUT** /v1/accounts/{accountId}/messenger-menu | Set Facebook persistent menu
-*AccountSettingsApi* | [**setTelegramCommands**](docs/AccountSettingsApi.md#setTelegramCommands) | **PUT** /v1/accounts/{accountId}/telegram-commands | Set Telegram bot commands
-*AccountSettingsApi* | [**setTelegramCommandsWithHttpInfo**](docs/AccountSettingsApi.md#setTelegramCommandsWithHttpInfo) | **PUT** /v1/accounts/{accountId}/telegram-commands | Set Telegram bot commands
+*AccountSettingsApi* | [**deleteInstagramIceBreakers**](docs/AccountSettingsApi.md#deleteInstagramIceBreakers) | **DELETE** /v1/accounts/{accountId}/instagram-ice-breakers | Delete IG ice breakers
+*AccountSettingsApi* | [**deleteInstagramIceBreakersWithHttpInfo**](docs/AccountSettingsApi.md#deleteInstagramIceBreakersWithHttpInfo) | **DELETE** /v1/accounts/{accountId}/instagram-ice-breakers | Delete IG ice breakers
+*AccountSettingsApi* | [**deleteMessengerMenu**](docs/AccountSettingsApi.md#deleteMessengerMenu) | **DELETE** /v1/accounts/{accountId}/messenger-menu | Delete FB persistent menu
+*AccountSettingsApi* | [**deleteMessengerMenuWithHttpInfo**](docs/AccountSettingsApi.md#deleteMessengerMenuWithHttpInfo) | **DELETE** /v1/accounts/{accountId}/messenger-menu | Delete FB persistent menu
+*AccountSettingsApi* | [**deleteTelegramCommands**](docs/AccountSettingsApi.md#deleteTelegramCommands) | **DELETE** /v1/accounts/{accountId}/telegram-commands | Delete TG bot commands
+*AccountSettingsApi* | [**deleteTelegramCommandsWithHttpInfo**](docs/AccountSettingsApi.md#deleteTelegramCommandsWithHttpInfo) | **DELETE** /v1/accounts/{accountId}/telegram-commands | Delete TG bot commands
+*AccountSettingsApi* | [**getInstagramIceBreakers**](docs/AccountSettingsApi.md#getInstagramIceBreakers) | **GET** /v1/accounts/{accountId}/instagram-ice-breakers | Get IG ice breakers
+*AccountSettingsApi* | [**getInstagramIceBreakersWithHttpInfo**](docs/AccountSettingsApi.md#getInstagramIceBreakersWithHttpInfo) | **GET** /v1/accounts/{accountId}/instagram-ice-breakers | Get IG ice breakers
+*AccountSettingsApi* | [**getMessengerMenu**](docs/AccountSettingsApi.md#getMessengerMenu) | **GET** /v1/accounts/{accountId}/messenger-menu | Get FB persistent menu
+*AccountSettingsApi* | [**getMessengerMenuWithHttpInfo**](docs/AccountSettingsApi.md#getMessengerMenuWithHttpInfo) | **GET** /v1/accounts/{accountId}/messenger-menu | Get FB persistent menu
+*AccountSettingsApi* | [**getTelegramCommands**](docs/AccountSettingsApi.md#getTelegramCommands) | **GET** /v1/accounts/{accountId}/telegram-commands | Get TG bot commands
+*AccountSettingsApi* | [**getTelegramCommandsWithHttpInfo**](docs/AccountSettingsApi.md#getTelegramCommandsWithHttpInfo) | **GET** /v1/accounts/{accountId}/telegram-commands | Get TG bot commands
+*AccountSettingsApi* | [**setInstagramIceBreakers**](docs/AccountSettingsApi.md#setInstagramIceBreakers) | **PUT** /v1/accounts/{accountId}/instagram-ice-breakers | Set IG ice breakers
+*AccountSettingsApi* | [**setInstagramIceBreakersWithHttpInfo**](docs/AccountSettingsApi.md#setInstagramIceBreakersWithHttpInfo) | **PUT** /v1/accounts/{accountId}/instagram-ice-breakers | Set IG ice breakers
+*AccountSettingsApi* | [**setMessengerMenu**](docs/AccountSettingsApi.md#setMessengerMenu) | **PUT** /v1/accounts/{accountId}/messenger-menu | Set FB persistent menu
+*AccountSettingsApi* | [**setMessengerMenuWithHttpInfo**](docs/AccountSettingsApi.md#setMessengerMenuWithHttpInfo) | **PUT** /v1/accounts/{accountId}/messenger-menu | Set FB persistent menu
+*AccountSettingsApi* | [**setTelegramCommands**](docs/AccountSettingsApi.md#setTelegramCommands) | **PUT** /v1/accounts/{accountId}/telegram-commands | Set TG bot commands
+*AccountSettingsApi* | [**setTelegramCommandsWithHttpInfo**](docs/AccountSettingsApi.md#setTelegramCommandsWithHttpInfo) | **PUT** /v1/accounts/{accountId}/telegram-commands | Set TG bot commands
 *AccountsApi* | [**deleteAccount**](docs/AccountsApi.md#deleteAccount) | **DELETE** /v1/accounts/{accountId} | Disconnect account
 *AccountsApi* | [**deleteAccountWithHttpInfo**](docs/AccountsApi.md#deleteAccountWithHttpInfo) | **DELETE** /v1/accounts/{accountId} | Disconnect account
 *AccountsApi* | [**getAccountHealth**](docs/AccountsApi.md#getAccountHealth) | **GET** /v1/accounts/{accountId}/health | Check account health
@@ -192,8 +192,8 @@ Class | Method | HTTP request | Description
 *ConnectApi* | [**getConnectUrlWithHttpInfo**](docs/ConnectApi.md#getConnectUrlWithHttpInfo) | **GET** /v1/connect/{platform} | Get OAuth connect URL
 *ConnectApi* | [**getFacebookPages**](docs/ConnectApi.md#getFacebookPages) | **GET** /v1/accounts/{accountId}/facebook-page | List Facebook pages
 *ConnectApi* | [**getFacebookPagesWithHttpInfo**](docs/ConnectApi.md#getFacebookPagesWithHttpInfo) | **GET** /v1/accounts/{accountId}/facebook-page | List Facebook pages
-*ConnectApi* | [**getGmbLocations**](docs/ConnectApi.md#getGmbLocations) | **GET** /v1/accounts/{accountId}/gmb-locations | List Google Business locations
-*ConnectApi* | [**getGmbLocationsWithHttpInfo**](docs/ConnectApi.md#getGmbLocationsWithHttpInfo) | **GET** /v1/accounts/{accountId}/gmb-locations | List Google Business locations
+*ConnectApi* | [**getGmbLocations**](docs/ConnectApi.md#getGmbLocations) | **GET** /v1/accounts/{accountId}/gmb-locations | List GBP locations
+*ConnectApi* | [**getGmbLocationsWithHttpInfo**](docs/ConnectApi.md#getGmbLocationsWithHttpInfo) | **GET** /v1/accounts/{accountId}/gmb-locations | List GBP locations
 *ConnectApi* | [**getLinkedInOrganizations**](docs/ConnectApi.md#getLinkedInOrganizations) | **GET** /v1/accounts/{accountId}/linkedin-organizations | List LinkedIn orgs
 *ConnectApi* | [**getLinkedInOrganizationsWithHttpInfo**](docs/ConnectApi.md#getLinkedInOrganizationsWithHttpInfo) | **GET** /v1/accounts/{accountId}/linkedin-organizations | List LinkedIn orgs
 *ConnectApi* | [**getPendingOAuthData**](docs/ConnectApi.md#getPendingOAuthData) | **GET** /v1/connect/pending-data | Get pending OAuth data
@@ -212,8 +212,8 @@ Class | Method | HTTP request | Description
 *ConnectApi* | [**initiateTelegramConnectWithHttpInfo**](docs/ConnectApi.md#initiateTelegramConnectWithHttpInfo) | **POST** /v1/connect/telegram | Connect Telegram directly
 *ConnectApi* | [**listFacebookPages**](docs/ConnectApi.md#listFacebookPages) | **GET** /v1/connect/facebook/select-page | List Facebook pages
 *ConnectApi* | [**listFacebookPagesWithHttpInfo**](docs/ConnectApi.md#listFacebookPagesWithHttpInfo) | **GET** /v1/connect/facebook/select-page | List Facebook pages
-*ConnectApi* | [**listGoogleBusinessLocations**](docs/ConnectApi.md#listGoogleBusinessLocations) | **GET** /v1/connect/googlebusiness/locations | List Google Business locations
-*ConnectApi* | [**listGoogleBusinessLocationsWithHttpInfo**](docs/ConnectApi.md#listGoogleBusinessLocationsWithHttpInfo) | **GET** /v1/connect/googlebusiness/locations | List Google Business locations
+*ConnectApi* | [**listGoogleBusinessLocations**](docs/ConnectApi.md#listGoogleBusinessLocations) | **GET** /v1/connect/googlebusiness/locations | List GBP locations
+*ConnectApi* | [**listGoogleBusinessLocationsWithHttpInfo**](docs/ConnectApi.md#listGoogleBusinessLocationsWithHttpInfo) | **GET** /v1/connect/googlebusiness/locations | List GBP locations
 *ConnectApi* | [**listLinkedInOrganizations**](docs/ConnectApi.md#listLinkedInOrganizations) | **GET** /v1/connect/linkedin/organizations | List LinkedIn orgs
 *ConnectApi* | [**listLinkedInOrganizationsWithHttpInfo**](docs/ConnectApi.md#listLinkedInOrganizationsWithHttpInfo) | **GET** /v1/connect/linkedin/organizations | List LinkedIn orgs
 *ConnectApi* | [**listPinterestBoardsForSelection**](docs/ConnectApi.md#listPinterestBoardsForSelection) | **GET** /v1/connect/pinterest/select-board | List Pinterest boards
@@ -222,8 +222,8 @@ Class | Method | HTTP request | Description
 *ConnectApi* | [**listSnapchatProfilesWithHttpInfo**](docs/ConnectApi.md#listSnapchatProfilesWithHttpInfo) | **GET** /v1/connect/snapchat/select-profile | List Snapchat profiles
 *ConnectApi* | [**selectFacebookPage**](docs/ConnectApi.md#selectFacebookPage) | **POST** /v1/connect/facebook/select-page | Select Facebook page
 *ConnectApi* | [**selectFacebookPageWithHttpInfo**](docs/ConnectApi.md#selectFacebookPageWithHttpInfo) | **POST** /v1/connect/facebook/select-page | Select Facebook page
-*ConnectApi* | [**selectGoogleBusinessLocation**](docs/ConnectApi.md#selectGoogleBusinessLocation) | **POST** /v1/connect/googlebusiness/select-location | Select Google Business location
-*ConnectApi* | [**selectGoogleBusinessLocationWithHttpInfo**](docs/ConnectApi.md#selectGoogleBusinessLocationWithHttpInfo) | **POST** /v1/connect/googlebusiness/select-location | Select Google Business location
+*ConnectApi* | [**selectGoogleBusinessLocation**](docs/ConnectApi.md#selectGoogleBusinessLocation) | **POST** /v1/connect/googlebusiness/select-location | Select GBP location
+*ConnectApi* | [**selectGoogleBusinessLocationWithHttpInfo**](docs/ConnectApi.md#selectGoogleBusinessLocationWithHttpInfo) | **POST** /v1/connect/googlebusiness/select-location | Select GBP location
 *ConnectApi* | [**selectLinkedInOrganization**](docs/ConnectApi.md#selectLinkedInOrganization) | **POST** /v1/connect/linkedin/select-organization | Select LinkedIn org
 *ConnectApi* | [**selectLinkedInOrganizationWithHttpInfo**](docs/ConnectApi.md#selectLinkedInOrganizationWithHttpInfo) | **POST** /v1/connect/linkedin/select-organization | Select LinkedIn org
 *ConnectApi* | [**selectPinterestBoard**](docs/ConnectApi.md#selectPinterestBoard) | **POST** /v1/connect/pinterest/select-board | Select Pinterest board
@@ -232,8 +232,8 @@ Class | Method | HTTP request | Description
 *ConnectApi* | [**selectSnapchatProfileWithHttpInfo**](docs/ConnectApi.md#selectSnapchatProfileWithHttpInfo) | **POST** /v1/connect/snapchat/select-profile | Select Snapchat profile
 *ConnectApi* | [**updateFacebookPage**](docs/ConnectApi.md#updateFacebookPage) | **PUT** /v1/accounts/{accountId}/facebook-page | Update Facebook page
 *ConnectApi* | [**updateFacebookPageWithHttpInfo**](docs/ConnectApi.md#updateFacebookPageWithHttpInfo) | **PUT** /v1/accounts/{accountId}/facebook-page | Update Facebook page
-*ConnectApi* | [**updateGmbLocation**](docs/ConnectApi.md#updateGmbLocation) | **PUT** /v1/accounts/{accountId}/gmb-locations | Update Google Business location
-*ConnectApi* | [**updateGmbLocationWithHttpInfo**](docs/ConnectApi.md#updateGmbLocationWithHttpInfo) | **PUT** /v1/accounts/{accountId}/gmb-locations | Update Google Business location
+*ConnectApi* | [**updateGmbLocation**](docs/ConnectApi.md#updateGmbLocation) | **PUT** /v1/accounts/{accountId}/gmb-locations | Update GBP location
+*ConnectApi* | [**updateGmbLocationWithHttpInfo**](docs/ConnectApi.md#updateGmbLocationWithHttpInfo) | **PUT** /v1/accounts/{accountId}/gmb-locations | Update GBP location
 *ConnectApi* | [**updateLinkedInOrganization**](docs/ConnectApi.md#updateLinkedInOrganization) | **PUT** /v1/accounts/{accountId}/linkedin-organization | Switch LinkedIn account type
 *ConnectApi* | [**updateLinkedInOrganizationWithHttpInfo**](docs/ConnectApi.md#updateLinkedInOrganizationWithHttpInfo) | **PUT** /v1/accounts/{accountId}/linkedin-organization | Switch LinkedIn account type
 *ConnectApi* | [**updatePinterestBoards**](docs/ConnectApi.md#updatePinterestBoards) | **PUT** /v1/accounts/{accountId}/pinterest-boards | Set default Pinterest board
@@ -270,14 +270,10 @@ Class | Method | HTTP request | Description
 *InvitesApi* | [**createInviteTokenWithHttpInfo**](docs/InvitesApi.md#createInviteTokenWithHttpInfo) | **POST** /v1/invite/tokens | Create invite token
 *LinkedInMentionsApi* | [**getLinkedInMentions**](docs/LinkedInMentionsApi.md#getLinkedInMentions) | **GET** /v1/accounts/{accountId}/linkedin-mentions | Resolve LinkedIn mention
 *LinkedInMentionsApi* | [**getLinkedInMentionsWithHttpInfo**](docs/LinkedInMentionsApi.md#getLinkedInMentionsWithHttpInfo) | **GET** /v1/accounts/{accountId}/linkedin-mentions | Resolve LinkedIn mention
-*LogsApi* | [**getLog**](docs/LogsApi.md#getLog) | **GET** /v1/logs/{logId} | Get log entry
-*LogsApi* | [**getLogWithHttpInfo**](docs/LogsApi.md#getLogWithHttpInfo) | **GET** /v1/logs/{logId} | Get log entry
 *LogsApi* | [**getPostLogs**](docs/LogsApi.md#getPostLogs) | **GET** /v1/posts/{postId}/logs | Get post logs
 *LogsApi* | [**getPostLogsWithHttpInfo**](docs/LogsApi.md#getPostLogsWithHttpInfo) | **GET** /v1/posts/{postId}/logs | Get post logs
 *LogsApi* | [**listConnectionLogs**](docs/LogsApi.md#listConnectionLogs) | **GET** /v1/connections/logs | List connection logs
 *LogsApi* | [**listConnectionLogsWithHttpInfo**](docs/LogsApi.md#listConnectionLogsWithHttpInfo) | **GET** /v1/connections/logs | List connection logs
-*LogsApi* | [**listLogs**](docs/LogsApi.md#listLogs) | **GET** /v1/logs | List publishing logs (deprecated)
-*LogsApi* | [**listLogsWithHttpInfo**](docs/LogsApi.md#listLogsWithHttpInfo) | **GET** /v1/logs | List publishing logs (deprecated)
 *LogsApi* | [**listPostsLogs**](docs/LogsApi.md#listPostsLogs) | **GET** /v1/posts/logs | List publishing logs
 *LogsApi* | [**listPostsLogsWithHttpInfo**](docs/LogsApi.md#listPostsLogsWithHttpInfo) | **GET** /v1/posts/logs | List publishing logs
 *MediaApi* | [**getMediaPresignedUrl**](docs/MediaApi.md#getMediaPresignedUrl) | **POST** /v1/media/presign | Get presigned upload URL
@@ -342,8 +338,8 @@ Class | Method | HTTP request | Description
 *ReviewsApi* | [**listInboxReviewsWithHttpInfo**](docs/ReviewsApi.md#listInboxReviewsWithHttpInfo) | **GET** /v1/inbox/reviews | List reviews
 *ReviewsApi* | [**replyToInboxReview**](docs/ReviewsApi.md#replyToInboxReview) | **POST** /v1/inbox/reviews/{reviewId}/reply | Reply to review
 *ReviewsApi* | [**replyToInboxReviewWithHttpInfo**](docs/ReviewsApi.md#replyToInboxReviewWithHttpInfo) | **POST** /v1/inbox/reviews/{reviewId}/reply | Reply to review
-*ToolsApi* | [**checkInstagramHashtags**](docs/ToolsApi.md#checkInstagramHashtags) | **POST** /v1/tools/instagram/hashtag-checker | Check Instagram hashtag bans
-*ToolsApi* | [**checkInstagramHashtagsWithHttpInfo**](docs/ToolsApi.md#checkInstagramHashtagsWithHttpInfo) | **POST** /v1/tools/instagram/hashtag-checker | Check Instagram hashtag bans
+*ToolsApi* | [**checkInstagramHashtags**](docs/ToolsApi.md#checkInstagramHashtags) | **POST** /v1/tools/instagram/hashtag-checker | Check IG hashtag bans
+*ToolsApi* | [**checkInstagramHashtagsWithHttpInfo**](docs/ToolsApi.md#checkInstagramHashtagsWithHttpInfo) | **POST** /v1/tools/instagram/hashtag-checker | Check IG hashtag bans
 *ToolsApi* | [**downloadBlueskyMedia**](docs/ToolsApi.md#downloadBlueskyMedia) | **GET** /v1/tools/bluesky/download | Download Bluesky media
 *ToolsApi* | [**downloadBlueskyMediaWithHttpInfo**](docs/ToolsApi.md#downloadBlueskyMediaWithHttpInfo) | **GET** /v1/tools/bluesky/download | Download Bluesky media
 *ToolsApi* | [**downloadFacebookVideo**](docs/ToolsApi.md#downloadFacebookVideo) | **GET** /v1/tools/facebook/download | Download Facebook video
@@ -515,7 +511,6 @@ Class | Method | HTTP request | Description
  - [GetLinkedInPostAnalytics200ResponseAnalytics](docs/GetLinkedInPostAnalytics200ResponseAnalytics.md)
  - [GetLinkedInPostAnalytics400Response](docs/GetLinkedInPostAnalytics400Response.md)
  - [GetLinkedInPostAnalytics403Response](docs/GetLinkedInPostAnalytics403Response.md)
- - [GetLog200Response](docs/GetLog200Response.md)
  - [GetMediaPresignedUrl200Response](docs/GetMediaPresignedUrl200Response.md)
  - [GetMediaPresignedUrlRequest](docs/GetMediaPresignedUrlRequest.md)
  - [GetMessengerMenu200Response](docs/GetMessengerMenu200Response.md)
@@ -596,10 +591,10 @@ Class | Method | HTTP request | Description
  - [ListInboxReviews200ResponseSummary](docs/ListInboxReviews200ResponseSummary.md)
  - [ListLinkedInOrganizations200Response](docs/ListLinkedInOrganizations200Response.md)
  - [ListLinkedInOrganizations200ResponseOrganizationsInner](docs/ListLinkedInOrganizations200ResponseOrganizationsInner.md)
- - [ListLogs200Response](docs/ListLogs200Response.md)
- - [ListLogs200ResponsePagination](docs/ListLogs200ResponsePagination.md)
  - [ListPinterestBoardsForSelection200Response](docs/ListPinterestBoardsForSelection200Response.md)
  - [ListPinterestBoardsForSelection200ResponseBoardsInner](docs/ListPinterestBoardsForSelection200ResponseBoardsInner.md)
+ - [ListPostsLogs200Response](docs/ListPostsLogs200Response.md)
+ - [ListPostsLogs200ResponsePagination](docs/ListPostsLogs200ResponsePagination.md)
  - [ListQueueSlots200Response](docs/ListQueueSlots200Response.md)
  - [ListQueueSlots200ResponseOneOf](docs/ListQueueSlots200ResponseOneOf.md)
  - [ListQueueSlots200ResponseOneOf1](docs/ListQueueSlots200ResponseOneOf1.md)
@@ -624,9 +619,6 @@ Class | Method | HTTP request | Description
  - [PostDeleteResponse](docs/PostDeleteResponse.md)
  - [PostGetResponse](docs/PostGetResponse.md)
  - [PostLog](docs/PostLog.md)
- - [PostLogDetail](docs/PostLogDetail.md)
- - [PostLogDetailAllOfAccountId](docs/PostLogDetailAllOfAccountId.md)
- - [PostLogDetailAllOfPostId](docs/PostLogDetailAllOfPostId.md)
  - [PostLogPostId](docs/PostLogPostId.md)
  - [PostLogPostIdOneOf](docs/PostLogPostIdOneOf.md)
  - [PostLogRequest](docs/PostLogRequest.md)
@@ -702,7 +694,6 @@ Class | Method | HTTP request | Description
  - [TestWebhookRequest](docs/TestWebhookRequest.md)
  - [ThreadsPlatformData](docs/ThreadsPlatformData.md)
  - [TikTokPlatformData](docs/TikTokPlatformData.md)
- - [TikTokSettings](docs/TikTokSettings.md)
  - [TranscriptResponse](docs/TranscriptResponse.md)
  - [TranscriptSegment](docs/TranscriptSegment.md)
  - [TwitterPlatformData](docs/TwitterPlatformData.md)

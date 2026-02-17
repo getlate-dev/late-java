@@ -49,7 +49,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GmbMediaApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -168,7 +168,7 @@ public class GmbMediaApi {
 
   /**
    * Upload photo
-   * Creates a media item (photo) for a location from a publicly accessible URL.  Categories determine where the photo appears: - &#x60;COVER&#x60; - Cover photo - &#x60;PROFILE&#x60; - Profile photo - &#x60;LOGO&#x60; - Business logo - &#x60;EXTERIOR&#x60; - Exterior shots - &#x60;INTERIOR&#x60; - Interior shots - &#x60;FOOD_AND_DRINK&#x60; - Food and drink photos - &#x60;MENU&#x60; - Menu photos - &#x60;PRODUCT&#x60; - Product photos - &#x60;TEAMS&#x60; - Team/staff photos - &#x60;ADDITIONAL&#x60; - Other photos 
+   * Creates a media item (photo) for a location from a publicly accessible URL.  Categories determine where the photo appears: COVER, PROFILE, LOGO, EXTERIOR, INTERIOR, FOOD_AND_DRINK, MENU, PRODUCT, TEAMS, ADDITIONAL. 
    * @param accountId  (required)
    * @param createGoogleBusinessMediaRequest  (required)
    * @return CreateGoogleBusinessMedia200Response
@@ -180,7 +180,7 @@ public class GmbMediaApi {
 
   /**
    * Upload photo
-   * Creates a media item (photo) for a location from a publicly accessible URL.  Categories determine where the photo appears: - &#x60;COVER&#x60; - Cover photo - &#x60;PROFILE&#x60; - Profile photo - &#x60;LOGO&#x60; - Business logo - &#x60;EXTERIOR&#x60; - Exterior shots - &#x60;INTERIOR&#x60; - Interior shots - &#x60;FOOD_AND_DRINK&#x60; - Food and drink photos - &#x60;MENU&#x60; - Menu photos - &#x60;PRODUCT&#x60; - Product photos - &#x60;TEAMS&#x60; - Team/staff photos - &#x60;ADDITIONAL&#x60; - Other photos 
+   * Creates a media item (photo) for a location from a publicly accessible URL.  Categories determine where the photo appears: COVER, PROFILE, LOGO, EXTERIOR, INTERIOR, FOOD_AND_DRINK, MENU, PRODUCT, TEAMS, ADDITIONAL. 
    * @param accountId  (required)
    * @param createGoogleBusinessMediaRequest  (required)
    * @param headers Optional headers to include in the request
@@ -194,7 +194,7 @@ public class GmbMediaApi {
 
   /**
    * Upload photo
-   * Creates a media item (photo) for a location from a publicly accessible URL.  Categories determine where the photo appears: - &#x60;COVER&#x60; - Cover photo - &#x60;PROFILE&#x60; - Profile photo - &#x60;LOGO&#x60; - Business logo - &#x60;EXTERIOR&#x60; - Exterior shots - &#x60;INTERIOR&#x60; - Interior shots - &#x60;FOOD_AND_DRINK&#x60; - Food and drink photos - &#x60;MENU&#x60; - Menu photos - &#x60;PRODUCT&#x60; - Product photos - &#x60;TEAMS&#x60; - Team/staff photos - &#x60;ADDITIONAL&#x60; - Other photos 
+   * Creates a media item (photo) for a location from a publicly accessible URL.  Categories determine where the photo appears: COVER, PROFILE, LOGO, EXTERIOR, INTERIOR, FOOD_AND_DRINK, MENU, PRODUCT, TEAMS, ADDITIONAL. 
    * @param accountId  (required)
    * @param createGoogleBusinessMediaRequest  (required)
    * @return ApiResponse&lt;CreateGoogleBusinessMedia200Response&gt;
@@ -206,7 +206,7 @@ public class GmbMediaApi {
 
   /**
    * Upload photo
-   * Creates a media item (photo) for a location from a publicly accessible URL.  Categories determine where the photo appears: - &#x60;COVER&#x60; - Cover photo - &#x60;PROFILE&#x60; - Profile photo - &#x60;LOGO&#x60; - Business logo - &#x60;EXTERIOR&#x60; - Exterior shots - &#x60;INTERIOR&#x60; - Interior shots - &#x60;FOOD_AND_DRINK&#x60; - Food and drink photos - &#x60;MENU&#x60; - Menu photos - &#x60;PRODUCT&#x60; - Product photos - &#x60;TEAMS&#x60; - Team/staff photos - &#x60;ADDITIONAL&#x60; - Other photos 
+   * Creates a media item (photo) for a location from a publicly accessible URL.  Categories determine where the photo appears: COVER, PROFILE, LOGO, EXTERIOR, INTERIOR, FOOD_AND_DRINK, MENU, PRODUCT, TEAMS, ADDITIONAL. 
    * @param accountId  (required)
    * @param createGoogleBusinessMediaRequest  (required)
    * @param headers Optional headers to include in the request

@@ -18,12 +18,11 @@ import dev.getlate.ApiResponse;
 import dev.getlate.Configuration;
 import dev.getlate.Pair;
 
-import dev.getlate.model.GetLog200Response;
 import dev.getlate.model.GetPostLogs200Response;
 import dev.getlate.model.InlineObject;
 import dev.getlate.model.InlineObject1;
 import dev.getlate.model.ListConnectionLogs200Response;
-import dev.getlate.model.ListLogs200Response;
+import dev.getlate.model.ListPostsLogs200Response;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -50,7 +49,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class LogsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -165,124 +164,6 @@ public class LogsApi {
       file.deleteOnExit(); // best effort cleanup
     }
     return file;
-  }
-
-  /**
-   * Get log entry
-   * Retrieve detailed information about a specific log entry, including full request and response bodies for debugging. 
-   * @param logId The log entry ID (required)
-   * @return GetLog200Response
-   * @throws ApiException if fails to make API call
-   */
-  public GetLog200Response getLog(@javax.annotation.Nonnull String logId) throws ApiException {
-    return getLog(logId, null);
-  }
-
-  /**
-   * Get log entry
-   * Retrieve detailed information about a specific log entry, including full request and response bodies for debugging. 
-   * @param logId The log entry ID (required)
-   * @param headers Optional headers to include in the request
-   * @return GetLog200Response
-   * @throws ApiException if fails to make API call
-   */
-  public GetLog200Response getLog(@javax.annotation.Nonnull String logId, Map<String, String> headers) throws ApiException {
-    ApiResponse<GetLog200Response> localVarResponse = getLogWithHttpInfo(logId, headers);
-    return localVarResponse.getData();
-  }
-
-  /**
-   * Get log entry
-   * Retrieve detailed information about a specific log entry, including full request and response bodies for debugging. 
-   * @param logId The log entry ID (required)
-   * @return ApiResponse&lt;GetLog200Response&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<GetLog200Response> getLogWithHttpInfo(@javax.annotation.Nonnull String logId) throws ApiException {
-    return getLogWithHttpInfo(logId, null);
-  }
-
-  /**
-   * Get log entry
-   * Retrieve detailed information about a specific log entry, including full request and response bodies for debugging. 
-   * @param logId The log entry ID (required)
-   * @param headers Optional headers to include in the request
-   * @return ApiResponse&lt;GetLog200Response&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<GetLog200Response> getLogWithHttpInfo(@javax.annotation.Nonnull String logId, Map<String, String> headers) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getLogRequestBuilder(logId, headers);
-    try {
-      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
-      if (memberVarResponseInterceptor != null) {
-        memberVarResponseInterceptor.accept(localVarResponse);
-      }
-      InputStream localVarResponseBody = null;
-      try {
-        if (localVarResponse.statusCode()/ 100 != 2) {
-          throw getApiException("getLog", localVarResponse);
-        }
-        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
-        if (localVarResponseBody == null) {
-          return new ApiResponse<GetLog200Response>(
-              localVarResponse.statusCode(),
-              localVarResponse.headers().map(),
-              null
-          );
-        }
-
-        
-        
-        String responseBody = new String(localVarResponseBody.readAllBytes());
-        GetLog200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<GetLog200Response>() {});
-        
-
-        return new ApiResponse<GetLog200Response>(
-            localVarResponse.statusCode(),
-            localVarResponse.headers().map(),
-            responseValue
-        );
-      } finally {
-        if (localVarResponseBody != null) {
-          localVarResponseBody.close();
-        }
-      }
-    } catch (IOException e) {
-      throw new ApiException(e);
-    }
-    catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-      throw new ApiException(e);
-    }
-  }
-
-  private HttpRequest.Builder getLogRequestBuilder(@javax.annotation.Nonnull String logId, Map<String, String> headers) throws ApiException {
-    // verify the required parameter 'logId' is set
-    if (logId == null) {
-      throw new ApiException(400, "Missing the required parameter 'logId' when calling getLog");
-    }
-
-    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
-
-    String localVarPath = "/v1/logs/{logId}"
-        .replace("{logId}", ApiClient.urlEncode(logId.toString()));
-
-    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
-
-    localVarRequestBuilder.header("Accept", "application/json");
-
-    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
-    if (memberVarReadTimeout != null) {
-      localVarRequestBuilder.timeout(memberVarReadTimeout);
-    }
-    // Add custom headers if provided
-    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
-    if (memberVarInterceptor != null) {
-      memberVarInterceptor.accept(localVarRequestBuilder);
-    }
-    return localVarRequestBuilder;
   }
 
   /**
@@ -424,7 +305,7 @@ public class LogsApi {
 
   /**
    * List connection logs
-   * Retrieve connection event logs showing account connection and disconnection history. Useful for debugging OAuth issues and tracking account lifecycle.  **Event Types:** - &#x60;connect_success&#x60; - New account connected successfully - &#x60;connect_failed&#x60; - Connection attempt failed - &#x60;disconnect&#x60; - Account was disconnected - &#x60;reconnect_success&#x60; - Existing account reconnected - &#x60;reconnect_failed&#x60; - Reconnection attempt failed  **Retention:** Logs are automatically deleted after 7 days. 
+   * Retrieve connection event logs showing account connection and disconnection history. Event types: connect_success, connect_failed, disconnect, reconnect_success, reconnect_failed. Logs are automatically deleted after 7 days. 
    * @param platform Filter by platform (optional)
    * @param eventType Filter by event type (optional)
    * @param status Filter by status (shorthand for event types) (optional)
@@ -440,7 +321,7 @@ public class LogsApi {
 
   /**
    * List connection logs
-   * Retrieve connection event logs showing account connection and disconnection history. Useful for debugging OAuth issues and tracking account lifecycle.  **Event Types:** - &#x60;connect_success&#x60; - New account connected successfully - &#x60;connect_failed&#x60; - Connection attempt failed - &#x60;disconnect&#x60; - Account was disconnected - &#x60;reconnect_success&#x60; - Existing account reconnected - &#x60;reconnect_failed&#x60; - Reconnection attempt failed  **Retention:** Logs are automatically deleted after 7 days. 
+   * Retrieve connection event logs showing account connection and disconnection history. Event types: connect_success, connect_failed, disconnect, reconnect_success, reconnect_failed. Logs are automatically deleted after 7 days. 
    * @param platform Filter by platform (optional)
    * @param eventType Filter by event type (optional)
    * @param status Filter by status (shorthand for event types) (optional)
@@ -458,7 +339,7 @@ public class LogsApi {
 
   /**
    * List connection logs
-   * Retrieve connection event logs showing account connection and disconnection history. Useful for debugging OAuth issues and tracking account lifecycle.  **Event Types:** - &#x60;connect_success&#x60; - New account connected successfully - &#x60;connect_failed&#x60; - Connection attempt failed - &#x60;disconnect&#x60; - Account was disconnected - &#x60;reconnect_success&#x60; - Existing account reconnected - &#x60;reconnect_failed&#x60; - Reconnection attempt failed  **Retention:** Logs are automatically deleted after 7 days. 
+   * Retrieve connection event logs showing account connection and disconnection history. Event types: connect_success, connect_failed, disconnect, reconnect_success, reconnect_failed. Logs are automatically deleted after 7 days. 
    * @param platform Filter by platform (optional)
    * @param eventType Filter by event type (optional)
    * @param status Filter by status (shorthand for event types) (optional)
@@ -474,7 +355,7 @@ public class LogsApi {
 
   /**
    * List connection logs
-   * Retrieve connection event logs showing account connection and disconnection history. Useful for debugging OAuth issues and tracking account lifecycle.  **Event Types:** - &#x60;connect_success&#x60; - New account connected successfully - &#x60;connect_failed&#x60; - Connection attempt failed - &#x60;disconnect&#x60; - Account was disconnected - &#x60;reconnect_success&#x60; - Existing account reconnected - &#x60;reconnect_failed&#x60; - Reconnection attempt failed  **Retention:** Logs are automatically deleted after 7 days. 
+   * Retrieve connection event logs showing account connection and disconnection history. Event types: connect_success, connect_failed, disconnect, reconnect_success, reconnect_failed. Logs are automatically deleted after 7 days. 
    * @param platform Filter by platform (optional)
    * @param eventType Filter by event type (optional)
    * @param status Filter by status (shorthand for event types) (optional)
@@ -581,190 +462,24 @@ public class LogsApi {
   }
 
   /**
-   * List publishing logs (deprecated)
-   * **Deprecated:** Use &#x60;/v1/posts/logs&#x60; instead. This endpoint is maintained for backwards compatibility.  Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
-   * @param status Filter by log status (optional)
-   * @param platform Filter by platform (optional)
-   * @param action Filter by action type (optional)
-   * @param days Number of days to look back (max 7) (optional, default to 7)
-   * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
-   * @param skip Number of logs to skip (for pagination) (optional, default to 0)
-   * @return ListLogs200Response
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public ListLogs200Response listLogs(@javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String action, @javax.annotation.Nullable Integer days, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip) throws ApiException {
-    return listLogs(status, platform, action, days, limit, skip, null);
-  }
-
-  /**
-   * List publishing logs (deprecated)
-   * **Deprecated:** Use &#x60;/v1/posts/logs&#x60; instead. This endpoint is maintained for backwards compatibility.  Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
-   * @param status Filter by log status (optional)
-   * @param platform Filter by platform (optional)
-   * @param action Filter by action type (optional)
-   * @param days Number of days to look back (max 7) (optional, default to 7)
-   * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
-   * @param skip Number of logs to skip (for pagination) (optional, default to 0)
-   * @param headers Optional headers to include in the request
-   * @return ListLogs200Response
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public ListLogs200Response listLogs(@javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String action, @javax.annotation.Nullable Integer days, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, Map<String, String> headers) throws ApiException {
-    ApiResponse<ListLogs200Response> localVarResponse = listLogsWithHttpInfo(status, platform, action, days, limit, skip, headers);
-    return localVarResponse.getData();
-  }
-
-  /**
-   * List publishing logs (deprecated)
-   * **Deprecated:** Use &#x60;/v1/posts/logs&#x60; instead. This endpoint is maintained for backwards compatibility.  Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
-   * @param status Filter by log status (optional)
-   * @param platform Filter by platform (optional)
-   * @param action Filter by action type (optional)
-   * @param days Number of days to look back (max 7) (optional, default to 7)
-   * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
-   * @param skip Number of logs to skip (for pagination) (optional, default to 0)
-   * @return ApiResponse&lt;ListLogs200Response&gt;
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public ApiResponse<ListLogs200Response> listLogsWithHttpInfo(@javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String action, @javax.annotation.Nullable Integer days, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip) throws ApiException {
-    return listLogsWithHttpInfo(status, platform, action, days, limit, skip, null);
-  }
-
-  /**
-   * List publishing logs (deprecated)
-   * **Deprecated:** Use &#x60;/v1/posts/logs&#x60; instead. This endpoint is maintained for backwards compatibility.  Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
-   * @param status Filter by log status (optional)
-   * @param platform Filter by platform (optional)
-   * @param action Filter by action type (optional)
-   * @param days Number of days to look back (max 7) (optional, default to 7)
-   * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
-   * @param skip Number of logs to skip (for pagination) (optional, default to 0)
-   * @param headers Optional headers to include in the request
-   * @return ApiResponse&lt;ListLogs200Response&gt;
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public ApiResponse<ListLogs200Response> listLogsWithHttpInfo(@javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String action, @javax.annotation.Nullable Integer days, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, Map<String, String> headers) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = listLogsRequestBuilder(status, platform, action, days, limit, skip, headers);
-    try {
-      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
-      if (memberVarResponseInterceptor != null) {
-        memberVarResponseInterceptor.accept(localVarResponse);
-      }
-      InputStream localVarResponseBody = null;
-      try {
-        if (localVarResponse.statusCode()/ 100 != 2) {
-          throw getApiException("listLogs", localVarResponse);
-        }
-        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
-        if (localVarResponseBody == null) {
-          return new ApiResponse<ListLogs200Response>(
-              localVarResponse.statusCode(),
-              localVarResponse.headers().map(),
-              null
-          );
-        }
-
-        
-        
-        String responseBody = new String(localVarResponseBody.readAllBytes());
-        ListLogs200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<ListLogs200Response>() {});
-        
-
-        return new ApiResponse<ListLogs200Response>(
-            localVarResponse.statusCode(),
-            localVarResponse.headers().map(),
-            responseValue
-        );
-      } finally {
-        if (localVarResponseBody != null) {
-          localVarResponseBody.close();
-        }
-      }
-    } catch (IOException e) {
-      throw new ApiException(e);
-    }
-    catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-      throw new ApiException(e);
-    }
-  }
-
-  private HttpRequest.Builder listLogsRequestBuilder(@javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String action, @javax.annotation.Nullable Integer days, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, Map<String, String> headers) throws ApiException {
-
-    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
-
-    String localVarPath = "/v1/logs";
-
-    List<Pair> localVarQueryParams = new ArrayList<>();
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    localVarQueryParameterBaseName = "status";
-    localVarQueryParams.addAll(ApiClient.parameterToPairs("status", status));
-    localVarQueryParameterBaseName = "platform";
-    localVarQueryParams.addAll(ApiClient.parameterToPairs("platform", platform));
-    localVarQueryParameterBaseName = "action";
-    localVarQueryParams.addAll(ApiClient.parameterToPairs("action", action));
-    localVarQueryParameterBaseName = "days";
-    localVarQueryParams.addAll(ApiClient.parameterToPairs("days", days));
-    localVarQueryParameterBaseName = "limit";
-    localVarQueryParams.addAll(ApiClient.parameterToPairs("limit", limit));
-    localVarQueryParameterBaseName = "skip";
-    localVarQueryParams.addAll(ApiClient.parameterToPairs("skip", skip));
-
-    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
-      StringJoiner queryJoiner = new StringJoiner("&");
-      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
-      if (localVarQueryStringJoiner.length() != 0) {
-        queryJoiner.add(localVarQueryStringJoiner.toString());
-      }
-      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
-    } else {
-      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
-    }
-
-    localVarRequestBuilder.header("Accept", "application/json");
-
-    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
-    if (memberVarReadTimeout != null) {
-      localVarRequestBuilder.timeout(memberVarReadTimeout);
-    }
-    // Add custom headers if provided
-    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
-    if (memberVarInterceptor != null) {
-      memberVarInterceptor.accept(localVarRequestBuilder);
-    }
-    return localVarRequestBuilder;
-  }
-
-  /**
    * List publishing logs
-   * Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
+   * Retrieve publishing logs for all posts with detailed information about each publishing attempt. Filter by status, platform, or action. Logs are automatically deleted after 7 days. 
    * @param status Filter by log status (optional)
    * @param platform Filter by platform (optional)
    * @param action Filter by action type (optional)
    * @param days Number of days to look back (max 7) (optional, default to 7)
    * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
    * @param skip Number of logs to skip (for pagination) (optional, default to 0)
-   * @return ListLogs200Response
+   * @return ListPostsLogs200Response
    * @throws ApiException if fails to make API call
    */
-  public ListLogs200Response listPostsLogs(@javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String action, @javax.annotation.Nullable Integer days, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip) throws ApiException {
+  public ListPostsLogs200Response listPostsLogs(@javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String action, @javax.annotation.Nullable Integer days, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip) throws ApiException {
     return listPostsLogs(status, platform, action, days, limit, skip, null);
   }
 
   /**
    * List publishing logs
-   * Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
+   * Retrieve publishing logs for all posts with detailed information about each publishing attempt. Filter by status, platform, or action. Logs are automatically deleted after 7 days. 
    * @param status Filter by log status (optional)
    * @param platform Filter by platform (optional)
    * @param action Filter by action type (optional)
@@ -772,33 +487,33 @@ public class LogsApi {
    * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
    * @param skip Number of logs to skip (for pagination) (optional, default to 0)
    * @param headers Optional headers to include in the request
-   * @return ListLogs200Response
+   * @return ListPostsLogs200Response
    * @throws ApiException if fails to make API call
    */
-  public ListLogs200Response listPostsLogs(@javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String action, @javax.annotation.Nullable Integer days, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, Map<String, String> headers) throws ApiException {
-    ApiResponse<ListLogs200Response> localVarResponse = listPostsLogsWithHttpInfo(status, platform, action, days, limit, skip, headers);
+  public ListPostsLogs200Response listPostsLogs(@javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String action, @javax.annotation.Nullable Integer days, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, Map<String, String> headers) throws ApiException {
+    ApiResponse<ListPostsLogs200Response> localVarResponse = listPostsLogsWithHttpInfo(status, platform, action, days, limit, skip, headers);
     return localVarResponse.getData();
   }
 
   /**
    * List publishing logs
-   * Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
+   * Retrieve publishing logs for all posts with detailed information about each publishing attempt. Filter by status, platform, or action. Logs are automatically deleted after 7 days. 
    * @param status Filter by log status (optional)
    * @param platform Filter by platform (optional)
    * @param action Filter by action type (optional)
    * @param days Number of days to look back (max 7) (optional, default to 7)
    * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
    * @param skip Number of logs to skip (for pagination) (optional, default to 0)
-   * @return ApiResponse&lt;ListLogs200Response&gt;
+   * @return ApiResponse&lt;ListPostsLogs200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListLogs200Response> listPostsLogsWithHttpInfo(@javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String action, @javax.annotation.Nullable Integer days, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip) throws ApiException {
+  public ApiResponse<ListPostsLogs200Response> listPostsLogsWithHttpInfo(@javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String action, @javax.annotation.Nullable Integer days, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip) throws ApiException {
     return listPostsLogsWithHttpInfo(status, platform, action, days, limit, skip, null);
   }
 
   /**
    * List publishing logs
-   * Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
+   * Retrieve publishing logs for all posts with detailed information about each publishing attempt. Filter by status, platform, or action. Logs are automatically deleted after 7 days. 
    * @param status Filter by log status (optional)
    * @param platform Filter by platform (optional)
    * @param action Filter by action type (optional)
@@ -806,10 +521,10 @@ public class LogsApi {
    * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
    * @param skip Number of logs to skip (for pagination) (optional, default to 0)
    * @param headers Optional headers to include in the request
-   * @return ApiResponse&lt;ListLogs200Response&gt;
+   * @return ApiResponse&lt;ListPostsLogs200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListLogs200Response> listPostsLogsWithHttpInfo(@javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String action, @javax.annotation.Nullable Integer days, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, Map<String, String> headers) throws ApiException {
+  public ApiResponse<ListPostsLogs200Response> listPostsLogsWithHttpInfo(@javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String action, @javax.annotation.Nullable Integer days, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listPostsLogsRequestBuilder(status, platform, action, days, limit, skip, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -825,7 +540,7 @@ public class LogsApi {
         }
         localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
         if (localVarResponseBody == null) {
-          return new ApiResponse<ListLogs200Response>(
+          return new ApiResponse<ListPostsLogs200Response>(
               localVarResponse.statusCode(),
               localVarResponse.headers().map(),
               null
@@ -835,10 +550,10 @@ public class LogsApi {
         
         
         String responseBody = new String(localVarResponseBody.readAllBytes());
-        ListLogs200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<ListLogs200Response>() {});
+        ListPostsLogs200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<ListPostsLogs200Response>() {});
         
 
-        return new ApiResponse<ListLogs200Response>(
+        return new ApiResponse<ListPostsLogs200Response>(
             localVarResponse.statusCode(),
             localVarResponse.headers().map(),
             responseValue

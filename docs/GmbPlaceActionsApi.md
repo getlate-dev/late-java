@@ -19,7 +19,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 Create action link
 
-Creates a place action link for a location.  Available action types: - &#x60;APPOINTMENT&#x60; - Booking an appointment - &#x60;ONLINE_APPOINTMENT&#x60; - Booking an online appointment - &#x60;DINING_RESERVATION&#x60; - Making a dining reservation (OpenTable, Resy, etc.) - &#x60;FOOD_ORDERING&#x60; - Ordering food for delivery and/or takeout (DoorDash, Uber Eats, etc.) - &#x60;FOOD_DELIVERY&#x60; - Ordering food for delivery only - &#x60;FOOD_TAKEOUT&#x60; - Ordering food for takeout only - &#x60;SHOP_ONLINE&#x60; - Shopping with delivery and/or pickup 
+Creates a place action link for a location.  Available action types: APPOINTMENT, ONLINE_APPOINTMENT, DINING_RESERVATION, FOOD_ORDERING, FOOD_DELIVERY, FOOD_TAKEOUT, SHOP_ONLINE. 
 
 ### Example
 
@@ -93,7 +93,7 @@ public class Example {
 
 Create action link
 
-Creates a place action link for a location.  Available action types: - &#x60;APPOINTMENT&#x60; - Booking an appointment - &#x60;ONLINE_APPOINTMENT&#x60; - Booking an online appointment - &#x60;DINING_RESERVATION&#x60; - Making a dining reservation (OpenTable, Resy, etc.) - &#x60;FOOD_ORDERING&#x60; - Ordering food for delivery and/or takeout (DoorDash, Uber Eats, etc.) - &#x60;FOOD_DELIVERY&#x60; - Ordering food for delivery only - &#x60;FOOD_TAKEOUT&#x60; - Ordering food for takeout only - &#x60;SHOP_ONLINE&#x60; - Shopping with delivery and/or pickup 
+Creates a place action link for a location.  Available action types: APPOINTMENT, ONLINE_APPOINTMENT, DINING_RESERVATION, FOOD_ORDERING, FOOD_DELIVERY, FOOD_TAKEOUT, SHOP_ONLINE. 
 
 ### Example
 

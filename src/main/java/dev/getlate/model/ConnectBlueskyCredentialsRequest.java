@@ -39,7 +39,7 @@ import dev.getlate.ApiClient;
   ConnectBlueskyCredentialsRequest.JSON_PROPERTY_STATE,
   ConnectBlueskyCredentialsRequest.JSON_PROPERTY_REDIRECT_URI
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ConnectBlueskyCredentialsRequest {
   public static final String JSON_PROPERTY_IDENTIFIER = "identifier";
   @javax.annotation.Nonnull
@@ -114,7 +114,7 @@ public class ConnectBlueskyCredentialsRequest {
   }
 
   /**
-   * Required state parameter formatted as &#x60;{userId}-{profileId}&#x60;. - &#x60;userId&#x60;: Your Late user ID (get from &#x60;GET /v1/users&#x60; → &#x60;currentUserId&#x60;) - &#x60;profileId&#x60;: The profile ID to connect the account to (get from &#x60;GET /v1/profiles&#x60;) 
+   * Required state parameter formatted as {userId}-{profileId}. userId is your Late user ID (from GET /v1/users, currentUserId field), profileId is the profile to connect the account to (from GET /v1/profiles). 
    * @return state
    */
   @javax.annotation.Nonnull

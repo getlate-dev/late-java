@@ -37,10 +37,10 @@ import dev.getlate.ApiClient;
   GoogleBusinessPlatformDataCallToAction.JSON_PROPERTY_TYPE,
   GoogleBusinessPlatformDataCallToAction.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GoogleBusinessPlatformDataCallToAction {
   /**
-   * Button action type: - LEARN_MORE: Link to more information - BOOK: Booking/reservation link - ORDER: Online ordering link - SHOP: E-commerce/shopping link - SIGN_UP: Registration/signup link - CALL: Phone call action 
+   * Button action type: LEARN_MORE, BOOK, ORDER, SHOP, SIGN_UP, CALL
    */
   public enum TypeEnum {
     LEARN_MORE(String.valueOf("LEARN_MORE")),
@@ -99,7 +99,7 @@ public class GoogleBusinessPlatformDataCallToAction {
   }
 
   /**
-   * Button action type: - LEARN_MORE: Link to more information - BOOK: Booking/reservation link - ORDER: Online ordering link - SHOP: E-commerce/shopping link - SIGN_UP: Registration/signup link - CALL: Phone call action 
+   * Button action type: LEARN_MORE, BOOK, ORDER, SHOP, SIGN_UP, CALL
    * @return type
    */
   @javax.annotation.Nonnull

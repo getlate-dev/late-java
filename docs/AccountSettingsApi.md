@@ -4,24 +4,24 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**deleteInstagramIceBreakers**](AccountSettingsApi.md#deleteInstagramIceBreakers) | **DELETE** /v1/accounts/{accountId}/instagram-ice-breakers | Delete Instagram ice breakers |
-| [**deleteInstagramIceBreakersWithHttpInfo**](AccountSettingsApi.md#deleteInstagramIceBreakersWithHttpInfo) | **DELETE** /v1/accounts/{accountId}/instagram-ice-breakers | Delete Instagram ice breakers |
-| [**deleteMessengerMenu**](AccountSettingsApi.md#deleteMessengerMenu) | **DELETE** /v1/accounts/{accountId}/messenger-menu | Delete Facebook persistent menu |
-| [**deleteMessengerMenuWithHttpInfo**](AccountSettingsApi.md#deleteMessengerMenuWithHttpInfo) | **DELETE** /v1/accounts/{accountId}/messenger-menu | Delete Facebook persistent menu |
-| [**deleteTelegramCommands**](AccountSettingsApi.md#deleteTelegramCommands) | **DELETE** /v1/accounts/{accountId}/telegram-commands | Delete Telegram bot commands |
-| [**deleteTelegramCommandsWithHttpInfo**](AccountSettingsApi.md#deleteTelegramCommandsWithHttpInfo) | **DELETE** /v1/accounts/{accountId}/telegram-commands | Delete Telegram bot commands |
-| [**getInstagramIceBreakers**](AccountSettingsApi.md#getInstagramIceBreakers) | **GET** /v1/accounts/{accountId}/instagram-ice-breakers | Get Instagram ice breakers |
-| [**getInstagramIceBreakersWithHttpInfo**](AccountSettingsApi.md#getInstagramIceBreakersWithHttpInfo) | **GET** /v1/accounts/{accountId}/instagram-ice-breakers | Get Instagram ice breakers |
-| [**getMessengerMenu**](AccountSettingsApi.md#getMessengerMenu) | **GET** /v1/accounts/{accountId}/messenger-menu | Get Facebook persistent menu |
-| [**getMessengerMenuWithHttpInfo**](AccountSettingsApi.md#getMessengerMenuWithHttpInfo) | **GET** /v1/accounts/{accountId}/messenger-menu | Get Facebook persistent menu |
-| [**getTelegramCommands**](AccountSettingsApi.md#getTelegramCommands) | **GET** /v1/accounts/{accountId}/telegram-commands | Get Telegram bot commands |
-| [**getTelegramCommandsWithHttpInfo**](AccountSettingsApi.md#getTelegramCommandsWithHttpInfo) | **GET** /v1/accounts/{accountId}/telegram-commands | Get Telegram bot commands |
-| [**setInstagramIceBreakers**](AccountSettingsApi.md#setInstagramIceBreakers) | **PUT** /v1/accounts/{accountId}/instagram-ice-breakers | Set Instagram ice breakers |
-| [**setInstagramIceBreakersWithHttpInfo**](AccountSettingsApi.md#setInstagramIceBreakersWithHttpInfo) | **PUT** /v1/accounts/{accountId}/instagram-ice-breakers | Set Instagram ice breakers |
-| [**setMessengerMenu**](AccountSettingsApi.md#setMessengerMenu) | **PUT** /v1/accounts/{accountId}/messenger-menu | Set Facebook persistent menu |
-| [**setMessengerMenuWithHttpInfo**](AccountSettingsApi.md#setMessengerMenuWithHttpInfo) | **PUT** /v1/accounts/{accountId}/messenger-menu | Set Facebook persistent menu |
-| [**setTelegramCommands**](AccountSettingsApi.md#setTelegramCommands) | **PUT** /v1/accounts/{accountId}/telegram-commands | Set Telegram bot commands |
-| [**setTelegramCommandsWithHttpInfo**](AccountSettingsApi.md#setTelegramCommandsWithHttpInfo) | **PUT** /v1/accounts/{accountId}/telegram-commands | Set Telegram bot commands |
+| [**deleteInstagramIceBreakers**](AccountSettingsApi.md#deleteInstagramIceBreakers) | **DELETE** /v1/accounts/{accountId}/instagram-ice-breakers | Delete IG ice breakers |
+| [**deleteInstagramIceBreakersWithHttpInfo**](AccountSettingsApi.md#deleteInstagramIceBreakersWithHttpInfo) | **DELETE** /v1/accounts/{accountId}/instagram-ice-breakers | Delete IG ice breakers |
+| [**deleteMessengerMenu**](AccountSettingsApi.md#deleteMessengerMenu) | **DELETE** /v1/accounts/{accountId}/messenger-menu | Delete FB persistent menu |
+| [**deleteMessengerMenuWithHttpInfo**](AccountSettingsApi.md#deleteMessengerMenuWithHttpInfo) | **DELETE** /v1/accounts/{accountId}/messenger-menu | Delete FB persistent menu |
+| [**deleteTelegramCommands**](AccountSettingsApi.md#deleteTelegramCommands) | **DELETE** /v1/accounts/{accountId}/telegram-commands | Delete TG bot commands |
+| [**deleteTelegramCommandsWithHttpInfo**](AccountSettingsApi.md#deleteTelegramCommandsWithHttpInfo) | **DELETE** /v1/accounts/{accountId}/telegram-commands | Delete TG bot commands |
+| [**getInstagramIceBreakers**](AccountSettingsApi.md#getInstagramIceBreakers) | **GET** /v1/accounts/{accountId}/instagram-ice-breakers | Get IG ice breakers |
+| [**getInstagramIceBreakersWithHttpInfo**](AccountSettingsApi.md#getInstagramIceBreakersWithHttpInfo) | **GET** /v1/accounts/{accountId}/instagram-ice-breakers | Get IG ice breakers |
+| [**getMessengerMenu**](AccountSettingsApi.md#getMessengerMenu) | **GET** /v1/accounts/{accountId}/messenger-menu | Get FB persistent menu |
+| [**getMessengerMenuWithHttpInfo**](AccountSettingsApi.md#getMessengerMenuWithHttpInfo) | **GET** /v1/accounts/{accountId}/messenger-menu | Get FB persistent menu |
+| [**getTelegramCommands**](AccountSettingsApi.md#getTelegramCommands) | **GET** /v1/accounts/{accountId}/telegram-commands | Get TG bot commands |
+| [**getTelegramCommandsWithHttpInfo**](AccountSettingsApi.md#getTelegramCommandsWithHttpInfo) | **GET** /v1/accounts/{accountId}/telegram-commands | Get TG bot commands |
+| [**setInstagramIceBreakers**](AccountSettingsApi.md#setInstagramIceBreakers) | **PUT** /v1/accounts/{accountId}/instagram-ice-breakers | Set IG ice breakers |
+| [**setInstagramIceBreakersWithHttpInfo**](AccountSettingsApi.md#setInstagramIceBreakersWithHttpInfo) | **PUT** /v1/accounts/{accountId}/instagram-ice-breakers | Set IG ice breakers |
+| [**setMessengerMenu**](AccountSettingsApi.md#setMessengerMenu) | **PUT** /v1/accounts/{accountId}/messenger-menu | Set FB persistent menu |
+| [**setMessengerMenuWithHttpInfo**](AccountSettingsApi.md#setMessengerMenuWithHttpInfo) | **PUT** /v1/accounts/{accountId}/messenger-menu | Set FB persistent menu |
+| [**setTelegramCommands**](AccountSettingsApi.md#setTelegramCommands) | **PUT** /v1/accounts/{accountId}/telegram-commands | Set TG bot commands |
+| [**setTelegramCommandsWithHttpInfo**](AccountSettingsApi.md#setTelegramCommandsWithHttpInfo) | **PUT** /v1/accounts/{accountId}/telegram-commands | Set TG bot commands |
 
 
 
@@ -29,7 +29,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 > void deleteInstagramIceBreakers(accountId)
 
-Delete Instagram ice breakers
+Delete IG ice breakers
 
 ### Example
 
@@ -97,7 +97,7 @@ null (empty response body)
 
 > ApiResponse<Void> deleteInstagramIceBreakers deleteInstagramIceBreakersWithHttpInfo(accountId)
 
-Delete Instagram ice breakers
+Delete IG ice breakers
 
 ### Example
 
@@ -169,7 +169,7 @@ ApiResponse<Void>
 
 > void deleteMessengerMenu(accountId)
 
-Delete Facebook persistent menu
+Delete FB persistent menu
 
 ### Example
 
@@ -237,7 +237,7 @@ null (empty response body)
 
 > ApiResponse<Void> deleteMessengerMenu deleteMessengerMenuWithHttpInfo(accountId)
 
-Delete Facebook persistent menu
+Delete FB persistent menu
 
 ### Example
 
@@ -309,7 +309,7 @@ ApiResponse<Void>
 
 > void deleteTelegramCommands(accountId)
 
-Delete Telegram bot commands
+Delete TG bot commands
 
 ### Example
 
@@ -377,7 +377,7 @@ null (empty response body)
 
 > ApiResponse<Void> deleteTelegramCommands deleteTelegramCommandsWithHttpInfo(accountId)
 
-Delete Telegram bot commands
+Delete TG bot commands
 
 ### Example
 
@@ -449,7 +449,7 @@ ApiResponse<Void>
 
 > GetMessengerMenu200Response getInstagramIceBreakers(accountId)
 
-Get Instagram ice breakers
+Get IG ice breakers
 
 Get the ice breaker configuration for an Instagram account.
 
@@ -521,7 +521,7 @@ public class Example {
 
 > ApiResponse<GetMessengerMenu200Response> getInstagramIceBreakers getInstagramIceBreakersWithHttpInfo(accountId)
 
-Get Instagram ice breakers
+Get IG ice breakers
 
 Get the ice breaker configuration for an Instagram account.
 
@@ -597,7 +597,7 @@ ApiResponse<[**GetMessengerMenu200Response**](GetMessengerMenu200Response.md)>
 
 > GetMessengerMenu200Response getMessengerMenu(accountId)
 
-Get Facebook persistent menu
+Get FB persistent menu
 
 Get the persistent menu configuration for a Facebook Messenger account.
 
@@ -669,7 +669,7 @@ public class Example {
 
 > ApiResponse<GetMessengerMenu200Response> getMessengerMenu getMessengerMenuWithHttpInfo(accountId)
 
-Get Facebook persistent menu
+Get FB persistent menu
 
 Get the persistent menu configuration for a Facebook Messenger account.
 
@@ -745,7 +745,7 @@ ApiResponse<[**GetMessengerMenu200Response**](GetMessengerMenu200Response.md)>
 
 > GetTelegramCommands200Response getTelegramCommands(accountId)
 
-Get Telegram bot commands
+Get TG bot commands
 
 Get the bot commands configuration for a Telegram account.
 
@@ -817,7 +817,7 @@ public class Example {
 
 > ApiResponse<GetTelegramCommands200Response> getTelegramCommands getTelegramCommandsWithHttpInfo(accountId)
 
-Get Telegram bot commands
+Get TG bot commands
 
 Get the bot commands configuration for a Telegram account.
 
@@ -893,7 +893,7 @@ ApiResponse<[**GetTelegramCommands200Response**](GetTelegramCommands200Response.
 
 > void setInstagramIceBreakers(accountId, setInstagramIceBreakersRequest)
 
-Set Instagram ice breakers
+Set IG ice breakers
 
 Set ice breakers for an Instagram account. Max 4 ice breakers, question max 80 chars.
 
@@ -966,7 +966,7 @@ null (empty response body)
 
 > ApiResponse<Void> setInstagramIceBreakers setInstagramIceBreakersWithHttpInfo(accountId, setInstagramIceBreakersRequest)
 
-Set Instagram ice breakers
+Set IG ice breakers
 
 Set ice breakers for an Instagram account. Max 4 ice breakers, question max 80 chars.
 
@@ -1043,7 +1043,7 @@ ApiResponse<Void>
 
 > void setMessengerMenu(accountId, setMessengerMenuRequest)
 
-Set Facebook persistent menu
+Set FB persistent menu
 
 Set the persistent menu for a Facebook Messenger account. Max 3 top-level items, max 5 nested items.
 
@@ -1116,7 +1116,7 @@ null (empty response body)
 
 > ApiResponse<Void> setMessengerMenu setMessengerMenuWithHttpInfo(accountId, setMessengerMenuRequest)
 
-Set Facebook persistent menu
+Set FB persistent menu
 
 Set the persistent menu for a Facebook Messenger account. Max 3 top-level items, max 5 nested items.
 
@@ -1193,7 +1193,7 @@ ApiResponse<Void>
 
 > void setTelegramCommands(accountId, setTelegramCommandsRequest)
 
-Set Telegram bot commands
+Set TG bot commands
 
 Set bot commands for a Telegram account.
 
@@ -1266,7 +1266,7 @@ null (empty response body)
 
 > ApiResponse<Void> setTelegramCommands setTelegramCommandsWithHttpInfo(accountId, setTelegramCommandsRequest)
 
-Set Telegram bot commands
+Set TG bot commands
 
 Set bot commands for a Telegram account.
 

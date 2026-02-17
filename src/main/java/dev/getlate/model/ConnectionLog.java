@@ -51,7 +51,7 @@ import dev.getlate.ApiClient;
   ConnectionLog.JSON_PROPERTY_METADATA,
   ConnectionLog.JSON_PROPERTY_CREATED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ConnectionLog {
   public static final String JSON_PROPERTY_ID = "_id";
   @javax.annotation.Nullable
@@ -131,7 +131,7 @@ public class ConnectionLog {
   private PlatformEnum platform;
 
   /**
-   * Type of connection event: - &#x60;connect_success&#x60; - New account connected successfully - &#x60;connect_failed&#x60; - Connection attempt failed - &#x60;disconnect&#x60; - Account was disconnected - &#x60;reconnect_success&#x60; - Existing account reconnected successfully - &#x60;reconnect_failed&#x60; - Reconnection attempt failed 
+   * Type of connection event: connect_success, connect_failed, disconnect, reconnect_success, reconnect_failed
    */
   public enum EventTypeEnum {
     CONNECT_SUCCESS(String.valueOf("connect_success")),
@@ -369,7 +369,7 @@ public class ConnectionLog {
   }
 
   /**
-   * Type of connection event: - &#x60;connect_success&#x60; - New account connected successfully - &#x60;connect_failed&#x60; - Connection attempt failed - &#x60;disconnect&#x60; - Account was disconnected - &#x60;reconnect_success&#x60; - Existing account reconnected successfully - &#x60;reconnect_failed&#x60; - Reconnection attempt failed 
+   * Type of connection event: connect_success, connect_failed, disconnect, reconnect_success, reconnect_failed
    * @return eventType
    */
   @javax.annotation.Nullable

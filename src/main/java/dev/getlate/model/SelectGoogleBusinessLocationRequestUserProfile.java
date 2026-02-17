@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.getlate.ApiClient;
 /**
- * Decoded user profile object from the OAuth callback. **Important:** This contains  the refresh token needed for token refresh. Always include this field. 
+ * Decoded user profile object from the OAuth callback. Contains the refresh token needed for token refresh. Always include this field. 
  */
 @JsonPropertyOrder({
   SelectGoogleBusinessLocationRequestUserProfile.JSON_PROPERTY_ID,
@@ -39,7 +39,7 @@ import dev.getlate.ApiClient;
   SelectGoogleBusinessLocationRequestUserProfile.JSON_PROPERTY_TOKEN_EXPIRES_IN,
   SelectGoogleBusinessLocationRequestUserProfile.JSON_PROPERTY_SCOPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class SelectGoogleBusinessLocationRequestUserProfile {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable

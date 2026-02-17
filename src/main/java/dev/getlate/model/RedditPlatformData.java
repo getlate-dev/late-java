@@ -31,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.getlate.ApiClient;
 /**
- * Reddit post settings: - Posts are either \&quot;link\&quot; (with URL/media) or \&quot;self\&quot; (text-only) - If media is provided, the first media item&#39;s URL is used as the link - Use forceSelf to override and create a text post with the URL in the body - Subreddit defaults to the account&#39;s configured subreddit if omitted - Use the same accountId multiple times with different subreddit values in platformSpecificData to post to multiple subreddits - Images are automatically compressed if they exceed Reddit&#39;s 20MB limit - Some subreddits require a flair; if not provided, the API will attempt to use the first available flair as fallback 
+ * Posts are either link (with URL/media) or self (text-only). If media is provided, the first item URL is used as the link; use forceSelf to override. Subreddit defaults to the account&#39;s configured one. Images over 20 MB are auto-compressed. Some subreddits require a flair; if missing, the first available flair is used as fallback.
  */
 @JsonPropertyOrder({
   RedditPlatformData.JSON_PROPERTY_SUBREDDIT,
@@ -40,7 +40,7 @@ import dev.getlate.ApiClient;
   RedditPlatformData.JSON_PROPERTY_FORCE_SELF,
   RedditPlatformData.JSON_PROPERTY_FLAIR_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class RedditPlatformData {
   public static final String JSON_PROPERTY_SUBREDDIT = "subreddit";
   @javax.annotation.Nullable

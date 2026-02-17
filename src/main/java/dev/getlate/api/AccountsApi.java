@@ -55,7 +55,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AccountsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -550,7 +550,7 @@ public class AccountsApi {
 
   /**
    * Get follower stats
-   * Returns follower count history and growth metrics for connected social accounts. **Requires analytics add-on subscription.**  **Data Freshness:** Follower counts are automatically refreshed once per day. 
+   * Returns follower count history and growth metrics for connected social accounts. Requires analytics add-on subscription. Follower counts are refreshed once per day. 
    * @param accountIds Comma-separated list of account IDs (optional, defaults to all user&#39;s accounts) (optional)
    * @param profileId Filter by profile ID (optional)
    * @param fromDate Start date in YYYY-MM-DD format (defaults to 30 days ago) (optional)
@@ -565,7 +565,7 @@ public class AccountsApi {
 
   /**
    * Get follower stats
-   * Returns follower count history and growth metrics for connected social accounts. **Requires analytics add-on subscription.**  **Data Freshness:** Follower counts are automatically refreshed once per day. 
+   * Returns follower count history and growth metrics for connected social accounts. Requires analytics add-on subscription. Follower counts are refreshed once per day. 
    * @param accountIds Comma-separated list of account IDs (optional, defaults to all user&#39;s accounts) (optional)
    * @param profileId Filter by profile ID (optional)
    * @param fromDate Start date in YYYY-MM-DD format (defaults to 30 days ago) (optional)
@@ -582,7 +582,7 @@ public class AccountsApi {
 
   /**
    * Get follower stats
-   * Returns follower count history and growth metrics for connected social accounts. **Requires analytics add-on subscription.**  **Data Freshness:** Follower counts are automatically refreshed once per day. 
+   * Returns follower count history and growth metrics for connected social accounts. Requires analytics add-on subscription. Follower counts are refreshed once per day. 
    * @param accountIds Comma-separated list of account IDs (optional, defaults to all user&#39;s accounts) (optional)
    * @param profileId Filter by profile ID (optional)
    * @param fromDate Start date in YYYY-MM-DD format (defaults to 30 days ago) (optional)
@@ -597,7 +597,7 @@ public class AccountsApi {
 
   /**
    * Get follower stats
-   * Returns follower count history and growth metrics for connected social accounts. **Requires analytics add-on subscription.**  **Data Freshness:** Follower counts are automatically refreshed once per day. 
+   * Returns follower count history and growth metrics for connected social accounts. Requires analytics add-on subscription. Follower counts are refreshed once per day. 
    * @param accountIds Comma-separated list of account IDs (optional, defaults to all user&#39;s accounts) (optional)
    * @param profileId Filter by profile ID (optional)
    * @param fromDate Start date in YYYY-MM-DD format (defaults to 30 days ago) (optional)

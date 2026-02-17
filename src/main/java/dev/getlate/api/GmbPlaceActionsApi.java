@@ -49,7 +49,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GmbPlaceActionsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -168,7 +168,7 @@ public class GmbPlaceActionsApi {
 
   /**
    * Create action link
-   * Creates a place action link for a location.  Available action types: - &#x60;APPOINTMENT&#x60; - Booking an appointment - &#x60;ONLINE_APPOINTMENT&#x60; - Booking an online appointment - &#x60;DINING_RESERVATION&#x60; - Making a dining reservation (OpenTable, Resy, etc.) - &#x60;FOOD_ORDERING&#x60; - Ordering food for delivery and/or takeout (DoorDash, Uber Eats, etc.) - &#x60;FOOD_DELIVERY&#x60; - Ordering food for delivery only - &#x60;FOOD_TAKEOUT&#x60; - Ordering food for takeout only - &#x60;SHOP_ONLINE&#x60; - Shopping with delivery and/or pickup 
+   * Creates a place action link for a location.  Available action types: APPOINTMENT, ONLINE_APPOINTMENT, DINING_RESERVATION, FOOD_ORDERING, FOOD_DELIVERY, FOOD_TAKEOUT, SHOP_ONLINE. 
    * @param accountId  (required)
    * @param createGoogleBusinessPlaceActionRequest  (required)
    * @return CreateGoogleBusinessPlaceAction200Response
@@ -180,7 +180,7 @@ public class GmbPlaceActionsApi {
 
   /**
    * Create action link
-   * Creates a place action link for a location.  Available action types: - &#x60;APPOINTMENT&#x60; - Booking an appointment - &#x60;ONLINE_APPOINTMENT&#x60; - Booking an online appointment - &#x60;DINING_RESERVATION&#x60; - Making a dining reservation (OpenTable, Resy, etc.) - &#x60;FOOD_ORDERING&#x60; - Ordering food for delivery and/or takeout (DoorDash, Uber Eats, etc.) - &#x60;FOOD_DELIVERY&#x60; - Ordering food for delivery only - &#x60;FOOD_TAKEOUT&#x60; - Ordering food for takeout only - &#x60;SHOP_ONLINE&#x60; - Shopping with delivery and/or pickup 
+   * Creates a place action link for a location.  Available action types: APPOINTMENT, ONLINE_APPOINTMENT, DINING_RESERVATION, FOOD_ORDERING, FOOD_DELIVERY, FOOD_TAKEOUT, SHOP_ONLINE. 
    * @param accountId  (required)
    * @param createGoogleBusinessPlaceActionRequest  (required)
    * @param headers Optional headers to include in the request
@@ -194,7 +194,7 @@ public class GmbPlaceActionsApi {
 
   /**
    * Create action link
-   * Creates a place action link for a location.  Available action types: - &#x60;APPOINTMENT&#x60; - Booking an appointment - &#x60;ONLINE_APPOINTMENT&#x60; - Booking an online appointment - &#x60;DINING_RESERVATION&#x60; - Making a dining reservation (OpenTable, Resy, etc.) - &#x60;FOOD_ORDERING&#x60; - Ordering food for delivery and/or takeout (DoorDash, Uber Eats, etc.) - &#x60;FOOD_DELIVERY&#x60; - Ordering food for delivery only - &#x60;FOOD_TAKEOUT&#x60; - Ordering food for takeout only - &#x60;SHOP_ONLINE&#x60; - Shopping with delivery and/or pickup 
+   * Creates a place action link for a location.  Available action types: APPOINTMENT, ONLINE_APPOINTMENT, DINING_RESERVATION, FOOD_ORDERING, FOOD_DELIVERY, FOOD_TAKEOUT, SHOP_ONLINE. 
    * @param accountId  (required)
    * @param createGoogleBusinessPlaceActionRequest  (required)
    * @return ApiResponse&lt;CreateGoogleBusinessPlaceAction200Response&gt;
@@ -206,7 +206,7 @@ public class GmbPlaceActionsApi {
 
   /**
    * Create action link
-   * Creates a place action link for a location.  Available action types: - &#x60;APPOINTMENT&#x60; - Booking an appointment - &#x60;ONLINE_APPOINTMENT&#x60; - Booking an online appointment - &#x60;DINING_RESERVATION&#x60; - Making a dining reservation (OpenTable, Resy, etc.) - &#x60;FOOD_ORDERING&#x60; - Ordering food for delivery and/or takeout (DoorDash, Uber Eats, etc.) - &#x60;FOOD_DELIVERY&#x60; - Ordering food for delivery only - &#x60;FOOD_TAKEOUT&#x60; - Ordering food for takeout only - &#x60;SHOP_ONLINE&#x60; - Shopping with delivery and/or pickup 
+   * Creates a place action link for a location.  Available action types: APPOINTMENT, ONLINE_APPOINTMENT, DINING_RESERVATION, FOOD_ORDERING, FOOD_DELIVERY, FOOD_TAKEOUT, SHOP_ONLINE. 
    * @param accountId  (required)
    * @param createGoogleBusinessPlaceActionRequest  (required)
    * @param headers Optional headers to include in the request

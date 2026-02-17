@@ -54,7 +54,7 @@ import dev.getlate.ApiClient;
   PlatformTarget.JSON_PROPERTY_ERROR_CATEGORY,
   PlatformTarget.JSON_PROPERTY_ERROR_SOURCE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class PlatformTarget {
   public static final String JSON_PROPERTY_PLATFORM = "platform";
   @javax.annotation.Nullable
@@ -101,7 +101,7 @@ public class PlatformTarget {
   private String errorMessage;
 
   /**
-   * Error category for programmatic handling: - auth_expired: Token expired or revoked, account needs reconnection - user_content: Content doesn&#39;t meet platform requirements (too long, wrong format, etc.) - user_abuse: Rate limits, spam detection, excessive posting - account_issue: Account configuration problems (missing board, inactive account) - platform_rejected: Platform rules violated (banned, suspended, policy violation) - platform_error: Platform-side issues (5xx errors, maintenance) - system_error: Late infrastructure issues (timeouts, network errors) - unknown: Unclassified error 
+   * Error category for programmatic handling: auth_expired (token expired/revoked), user_content (wrong format/too long), user_abuse (rate limits/spam), account_issue (config problems), platform_rejected (policy violation), platform_error (5xx/maintenance), system_error (Late infra), unknown
    */
   public enum ErrorCategoryEnum {
     AUTH_EXPIRED(String.valueOf("auth_expired")),
@@ -152,7 +152,7 @@ public class PlatformTarget {
   private ErrorCategoryEnum errorCategory;
 
   /**
-   * Who/what caused the error: - user: User action required (fix content, reconnect account) - platform: Platform-side issue (outage, API change) - system: Late system issue (rare) 
+   * Who caused the error: user (fix content/reconnect), platform (outage/API change), system (Late issue, rare)
    */
   public enum ErrorSourceEnum {
     USER(String.valueOf("user")),
@@ -449,7 +449,7 @@ public class PlatformTarget {
   }
 
   /**
-   * Human-readable error message when status is &#39;failed&#39;. Contains platform-specific error details explaining why the publish failed. Examples: - \&quot;Instagram access token has expired. Please reconnect your account.\&quot; - \&quot;Post text exceeds the 500 character limit for Threads.\&quot; - \&quot;You do not have enough karma to post in this subreddit.\&quot; - \&quot;Video is too long for Reels. Facebook Reels must be 90 seconds or less.\&quot; 
+   * Human-readable error message when status is failed. Contains platform-specific error details explaining why the publish failed.
    * @return errorMessage
    */
   @javax.annotation.Nullable
@@ -473,7 +473,7 @@ public class PlatformTarget {
   }
 
   /**
-   * Error category for programmatic handling: - auth_expired: Token expired or revoked, account needs reconnection - user_content: Content doesn&#39;t meet platform requirements (too long, wrong format, etc.) - user_abuse: Rate limits, spam detection, excessive posting - account_issue: Account configuration problems (missing board, inactive account) - platform_rejected: Platform rules violated (banned, suspended, policy violation) - platform_error: Platform-side issues (5xx errors, maintenance) - system_error: Late infrastructure issues (timeouts, network errors) - unknown: Unclassified error 
+   * Error category for programmatic handling: auth_expired (token expired/revoked), user_content (wrong format/too long), user_abuse (rate limits/spam), account_issue (config problems), platform_rejected (policy violation), platform_error (5xx/maintenance), system_error (Late infra), unknown
    * @return errorCategory
    */
   @javax.annotation.Nullable
@@ -497,7 +497,7 @@ public class PlatformTarget {
   }
 
   /**
-   * Who/what caused the error: - user: User action required (fix content, reconnect account) - platform: Platform-side issue (outage, API change) - system: Late system issue (rare) 
+   * Who caused the error: user (fix content/reconnect), platform (outage/API change), system (Late issue, rare)
    * @return errorSource
    */
   @javax.annotation.Nullable

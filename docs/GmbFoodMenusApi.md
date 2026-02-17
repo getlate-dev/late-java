@@ -17,7 +17,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 Get food menus
 
-Fetches food menus for a connected Google Business Profile location.  Returns the full menu structure including: - Menu names and descriptions - Sections (e.g. Appetizers, Entrees, Drinks) - Items with labels, pricing, dietary info, and allergens - Item options/variants  Only available for locations with food menu support (restaurants, cafes, etc.). 
+Fetches food menus for a connected Google Business Profile location. Returns the full menu structure including sections, items with pricing, dietary info, allergens, and variants. Only available for locations with food menu support (restaurants, cafes, etc.). 
 
 ### Example
 
@@ -92,7 +92,7 @@ public class Example {
 
 Get food menus
 
-Fetches food menus for a connected Google Business Profile location.  Returns the full menu structure including: - Menu names and descriptions - Sections (e.g. Appetizers, Entrees, Drinks) - Items with labels, pricing, dietary info, and allergens - Item options/variants  Only available for locations with food menu support (restaurants, cafes, etc.). 
+Fetches food menus for a connected Google Business Profile location. Returns the full menu structure including sections, items with pricing, dietary info, allergens, and variants. Only available for locations with food menu support (restaurants, cafes, etc.). 
 
 ### Example
 
@@ -171,7 +171,7 @@ ApiResponse<[**GetGoogleBusinessFoodMenus200Response**](GetGoogleBusinessFoodMen
 
 Update food menus
 
-Updates the food menus for a connected Google Business Profile location.  Send the full menus array. Use &#x60;updateMask&#x60; for partial updates (e.g. &#x60;\&quot;menus\&quot;&#x60; to only update the menus field).  Each menu can contain sections, and each section can contain items with pricing, dietary restrictions, allergens, and more. 
+Updates the food menus for a connected Google Business Profile location.  Send the full menus array. Use updateMask for partial updates (e.g. \&quot;menus\&quot; to only update the menus field).  Each menu can contain sections, and each section can contain items with pricing, dietary restrictions, allergens, and more. 
 
 ### Example
 
@@ -248,7 +248,7 @@ public class Example {
 
 Update food menus
 
-Updates the food menus for a connected Google Business Profile location.  Send the full menus array. Use &#x60;updateMask&#x60; for partial updates (e.g. &#x60;\&quot;menus\&quot;&#x60; to only update the menus field).  Each menu can contain sections, and each section can contain items with pricing, dietary restrictions, allergens, and more. 
+Updates the food menus for a connected Google Business Profile location.  Send the full menus array. Use updateMask for partial updates (e.g. \&quot;menus\&quot; to only update the menus field).  Each menu can contain sections, and each section can contain items with pricing, dietary restrictions, allergens, and more. 
 
 ### Example
 

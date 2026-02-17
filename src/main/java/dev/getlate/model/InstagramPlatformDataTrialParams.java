@@ -30,15 +30,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.getlate.ApiClient;
 /**
- * Trial Reels configuration. Trial reels are only shared to non-followers initially. They can later be \&quot;graduated\&quot; (converted to regular reels visible to followers) either manually in the Instagram app or automatically based on performance. Only applies to Reels (video posts). 
+ * Trial Reels configuration. Trial reels are shared to non-followers first and can later be graduated to regular reels manually or automatically based on performance. Only applies to Reels.
  */
 @JsonPropertyOrder({
   InstagramPlatformDataTrialParams.JSON_PROPERTY_GRADUATION_STRATEGY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class InstagramPlatformDataTrialParams {
   /**
-   * The graduation strategy specifies when a trial reel becomes a regular reel: - MANUAL: The trial reel can only be manually graduated from the native Instagram app. - SS_PERFORMANCE: The trial reel will be automatically graduated if it performs well with non-followers. 
+   * MANUAL (graduate from Instagram app) or SS_PERFORMANCE (auto-graduate if performs well with non-followers)
    */
   public enum GraduationStrategyEnum {
     MANUAL(String.valueOf("MANUAL")),
@@ -85,7 +85,7 @@ public class InstagramPlatformDataTrialParams {
   }
 
   /**
-   * The graduation strategy specifies when a trial reel becomes a regular reel: - MANUAL: The trial reel can only be manually graduated from the native Instagram app. - SS_PERFORMANCE: The trial reel will be automatically graduated if it performs well with non-followers. 
+   * MANUAL (graduate from Instagram app) or SS_PERFORMANCE (auto-graduate if performs well with non-followers)
    * @return graduationStrategy
    */
   @javax.annotation.Nullable

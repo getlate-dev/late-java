@@ -145,7 +145,6 @@ docs/GetLinkedInPostAnalytics200Response.md
 docs/GetLinkedInPostAnalytics200ResponseAnalytics.md
 docs/GetLinkedInPostAnalytics400Response.md
 docs/GetLinkedInPostAnalytics403Response.md
-docs/GetLog200Response.md
 docs/GetMediaPresignedUrl200Response.md
 docs/GetMediaPresignedUrlRequest.md
 docs/GetMessengerMenu200Response.md
@@ -234,10 +233,10 @@ docs/ListInboxReviews200ResponseDataInnerReviewer.md
 docs/ListInboxReviews200ResponseSummary.md
 docs/ListLinkedInOrganizations200Response.md
 docs/ListLinkedInOrganizations200ResponseOrganizationsInner.md
-docs/ListLogs200Response.md
-docs/ListLogs200ResponsePagination.md
 docs/ListPinterestBoardsForSelection200Response.md
 docs/ListPinterestBoardsForSelection200ResponseBoardsInner.md
+docs/ListPostsLogs200Response.md
+docs/ListPostsLogs200ResponsePagination.md
 docs/ListQueueSlots200Response.md
 docs/ListQueueSlots200ResponseOneOf.md
 docs/ListQueueSlots200ResponseOneOf1.md
@@ -265,9 +264,6 @@ docs/PostCreateResponse.md
 docs/PostDeleteResponse.md
 docs/PostGetResponse.md
 docs/PostLog.md
-docs/PostLogDetail.md
-docs/PostLogDetailAllOfAccountId.md
-docs/PostLogDetailAllOfPostId.md
 docs/PostLogPostId.md
 docs/PostLogPostIdOneOf.md
 docs/PostLogRequest.md
@@ -348,7 +344,6 @@ docs/TelegramPlatformData.md
 docs/TestWebhookRequest.md
 docs/ThreadsPlatformData.md
 docs/TikTokPlatformData.md
-docs/TikTokSettings.md
 docs/ToolsApi.md
 docs/TranscriptResponse.md
 docs/TranscriptSegment.md
@@ -607,7 +602,6 @@ src/main/java/dev/getlate/model/GetLinkedInPostAnalytics200Response.java
 src/main/java/dev/getlate/model/GetLinkedInPostAnalytics200ResponseAnalytics.java
 src/main/java/dev/getlate/model/GetLinkedInPostAnalytics400Response.java
 src/main/java/dev/getlate/model/GetLinkedInPostAnalytics403Response.java
-src/main/java/dev/getlate/model/GetLog200Response.java
 src/main/java/dev/getlate/model/GetMediaPresignedUrl200Response.java
 src/main/java/dev/getlate/model/GetMediaPresignedUrlRequest.java
 src/main/java/dev/getlate/model/GetMessengerMenu200Response.java
@@ -688,10 +682,10 @@ src/main/java/dev/getlate/model/ListInboxReviews200ResponseDataInnerReviewer.jav
 src/main/java/dev/getlate/model/ListInboxReviews200ResponseSummary.java
 src/main/java/dev/getlate/model/ListLinkedInOrganizations200Response.java
 src/main/java/dev/getlate/model/ListLinkedInOrganizations200ResponseOrganizationsInner.java
-src/main/java/dev/getlate/model/ListLogs200Response.java
-src/main/java/dev/getlate/model/ListLogs200ResponsePagination.java
 src/main/java/dev/getlate/model/ListPinterestBoardsForSelection200Response.java
 src/main/java/dev/getlate/model/ListPinterestBoardsForSelection200ResponseBoardsInner.java
+src/main/java/dev/getlate/model/ListPostsLogs200Response.java
+src/main/java/dev/getlate/model/ListPostsLogs200ResponsePagination.java
 src/main/java/dev/getlate/model/ListQueueSlots200Response.java
 src/main/java/dev/getlate/model/ListQueueSlots200ResponseOneOf.java
 src/main/java/dev/getlate/model/ListQueueSlots200ResponseOneOf1.java
@@ -716,9 +710,6 @@ src/main/java/dev/getlate/model/PostCreateResponse.java
 src/main/java/dev/getlate/model/PostDeleteResponse.java
 src/main/java/dev/getlate/model/PostGetResponse.java
 src/main/java/dev/getlate/model/PostLog.java
-src/main/java/dev/getlate/model/PostLogDetail.java
-src/main/java/dev/getlate/model/PostLogDetailAllOfAccountId.java
-src/main/java/dev/getlate/model/PostLogDetailAllOfPostId.java
 src/main/java/dev/getlate/model/PostLogPostId.java
 src/main/java/dev/getlate/model/PostLogPostIdOneOf.java
 src/main/java/dev/getlate/model/PostLogRequest.java
@@ -794,7 +785,6 @@ src/main/java/dev/getlate/model/TelegramPlatformData.java
 src/main/java/dev/getlate/model/TestWebhookRequest.java
 src/main/java/dev/getlate/model/ThreadsPlatformData.java
 src/main/java/dev/getlate/model/TikTokPlatformData.java
-src/main/java/dev/getlate/model/TikTokSettings.java
 src/main/java/dev/getlate/model/TranscriptResponse.java
 src/main/java/dev/getlate/model/TranscriptSegment.java
 src/main/java/dev/getlate/model/TwitterPlatformData.java
@@ -868,3 +858,5 @@ src/main/java/dev/getlate/model/YouTubeDailyViewsResponseScopeStatus.java
 src/main/java/dev/getlate/model/YouTubePlatformData.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponseScopeStatus.java
+src/test/java/dev/getlate/model/ListPostsLogs200ResponsePaginationTest.java
+src/test/java/dev/getlate/model/ListPostsLogs200ResponseTest.java

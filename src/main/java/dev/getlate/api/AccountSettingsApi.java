@@ -50,7 +50,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AccountSettingsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -168,7 +168,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Delete Instagram ice breakers
+   * Delete IG ice breakers
    * 
    * @param accountId  (required)
    * @throws ApiException if fails to make API call
@@ -178,7 +178,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Delete Instagram ice breakers
+   * Delete IG ice breakers
    * 
    * @param accountId  (required)
    * @param headers Optional headers to include in the request
@@ -189,7 +189,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Delete Instagram ice breakers
+   * Delete IG ice breakers
    * 
    * @param accountId  (required)
    * @return ApiResponse&lt;Void&gt;
@@ -200,7 +200,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Delete Instagram ice breakers
+   * Delete IG ice breakers
    * 
    * @param accountId  (required)
    * @param headers Optional headers to include in the request
@@ -272,7 +272,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Delete Facebook persistent menu
+   * Delete FB persistent menu
    * 
    * @param accountId  (required)
    * @throws ApiException if fails to make API call
@@ -282,7 +282,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Delete Facebook persistent menu
+   * Delete FB persistent menu
    * 
    * @param accountId  (required)
    * @param headers Optional headers to include in the request
@@ -293,7 +293,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Delete Facebook persistent menu
+   * Delete FB persistent menu
    * 
    * @param accountId  (required)
    * @return ApiResponse&lt;Void&gt;
@@ -304,7 +304,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Delete Facebook persistent menu
+   * Delete FB persistent menu
    * 
    * @param accountId  (required)
    * @param headers Optional headers to include in the request
@@ -376,7 +376,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Delete Telegram bot commands
+   * Delete TG bot commands
    * 
    * @param accountId  (required)
    * @throws ApiException if fails to make API call
@@ -386,7 +386,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Delete Telegram bot commands
+   * Delete TG bot commands
    * 
    * @param accountId  (required)
    * @param headers Optional headers to include in the request
@@ -397,7 +397,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Delete Telegram bot commands
+   * Delete TG bot commands
    * 
    * @param accountId  (required)
    * @return ApiResponse&lt;Void&gt;
@@ -408,7 +408,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Delete Telegram bot commands
+   * Delete TG bot commands
    * 
    * @param accountId  (required)
    * @param headers Optional headers to include in the request
@@ -480,7 +480,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Get Instagram ice breakers
+   * Get IG ice breakers
    * Get the ice breaker configuration for an Instagram account.
    * @param accountId  (required)
    * @return GetMessengerMenu200Response
@@ -491,7 +491,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Get Instagram ice breakers
+   * Get IG ice breakers
    * Get the ice breaker configuration for an Instagram account.
    * @param accountId  (required)
    * @param headers Optional headers to include in the request
@@ -504,7 +504,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Get Instagram ice breakers
+   * Get IG ice breakers
    * Get the ice breaker configuration for an Instagram account.
    * @param accountId  (required)
    * @return ApiResponse&lt;GetMessengerMenu200Response&gt;
@@ -515,7 +515,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Get Instagram ice breakers
+   * Get IG ice breakers
    * Get the ice breaker configuration for an Instagram account.
    * @param accountId  (required)
    * @param headers Optional headers to include in the request
@@ -598,7 +598,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Get Facebook persistent menu
+   * Get FB persistent menu
    * Get the persistent menu configuration for a Facebook Messenger account.
    * @param accountId  (required)
    * @return GetMessengerMenu200Response
@@ -609,7 +609,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Get Facebook persistent menu
+   * Get FB persistent menu
    * Get the persistent menu configuration for a Facebook Messenger account.
    * @param accountId  (required)
    * @param headers Optional headers to include in the request
@@ -622,7 +622,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Get Facebook persistent menu
+   * Get FB persistent menu
    * Get the persistent menu configuration for a Facebook Messenger account.
    * @param accountId  (required)
    * @return ApiResponse&lt;GetMessengerMenu200Response&gt;
@@ -633,7 +633,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Get Facebook persistent menu
+   * Get FB persistent menu
    * Get the persistent menu configuration for a Facebook Messenger account.
    * @param accountId  (required)
    * @param headers Optional headers to include in the request
@@ -716,7 +716,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Get Telegram bot commands
+   * Get TG bot commands
    * Get the bot commands configuration for a Telegram account.
    * @param accountId  (required)
    * @return GetTelegramCommands200Response
@@ -727,7 +727,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Get Telegram bot commands
+   * Get TG bot commands
    * Get the bot commands configuration for a Telegram account.
    * @param accountId  (required)
    * @param headers Optional headers to include in the request
@@ -740,7 +740,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Get Telegram bot commands
+   * Get TG bot commands
    * Get the bot commands configuration for a Telegram account.
    * @param accountId  (required)
    * @return ApiResponse&lt;GetTelegramCommands200Response&gt;
@@ -751,7 +751,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Get Telegram bot commands
+   * Get TG bot commands
    * Get the bot commands configuration for a Telegram account.
    * @param accountId  (required)
    * @param headers Optional headers to include in the request
@@ -834,7 +834,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Set Instagram ice breakers
+   * Set IG ice breakers
    * Set ice breakers for an Instagram account. Max 4 ice breakers, question max 80 chars.
    * @param accountId  (required)
    * @param setInstagramIceBreakersRequest  (required)
@@ -845,7 +845,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Set Instagram ice breakers
+   * Set IG ice breakers
    * Set ice breakers for an Instagram account. Max 4 ice breakers, question max 80 chars.
    * @param accountId  (required)
    * @param setInstagramIceBreakersRequest  (required)
@@ -857,7 +857,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Set Instagram ice breakers
+   * Set IG ice breakers
    * Set ice breakers for an Instagram account. Max 4 ice breakers, question max 80 chars.
    * @param accountId  (required)
    * @param setInstagramIceBreakersRequest  (required)
@@ -869,7 +869,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Set Instagram ice breakers
+   * Set IG ice breakers
    * Set ice breakers for an Instagram account. Max 4 ice breakers, question max 80 chars.
    * @param accountId  (required)
    * @param setInstagramIceBreakersRequest  (required)
@@ -952,7 +952,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Set Facebook persistent menu
+   * Set FB persistent menu
    * Set the persistent menu for a Facebook Messenger account. Max 3 top-level items, max 5 nested items.
    * @param accountId  (required)
    * @param setMessengerMenuRequest  (required)
@@ -963,7 +963,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Set Facebook persistent menu
+   * Set FB persistent menu
    * Set the persistent menu for a Facebook Messenger account. Max 3 top-level items, max 5 nested items.
    * @param accountId  (required)
    * @param setMessengerMenuRequest  (required)
@@ -975,7 +975,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Set Facebook persistent menu
+   * Set FB persistent menu
    * Set the persistent menu for a Facebook Messenger account. Max 3 top-level items, max 5 nested items.
    * @param accountId  (required)
    * @param setMessengerMenuRequest  (required)
@@ -987,7 +987,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Set Facebook persistent menu
+   * Set FB persistent menu
    * Set the persistent menu for a Facebook Messenger account. Max 3 top-level items, max 5 nested items.
    * @param accountId  (required)
    * @param setMessengerMenuRequest  (required)
@@ -1070,7 +1070,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Set Telegram bot commands
+   * Set TG bot commands
    * Set bot commands for a Telegram account.
    * @param accountId  (required)
    * @param setTelegramCommandsRequest  (required)
@@ -1081,7 +1081,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Set Telegram bot commands
+   * Set TG bot commands
    * Set bot commands for a Telegram account.
    * @param accountId  (required)
    * @param setTelegramCommandsRequest  (required)
@@ -1093,7 +1093,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Set Telegram bot commands
+   * Set TG bot commands
    * Set bot commands for a Telegram account.
    * @param accountId  (required)
    * @param setTelegramCommandsRequest  (required)
@@ -1105,7 +1105,7 @@ public class AccountSettingsApi {
   }
 
   /**
-   * Set Telegram bot commands
+   * Set TG bot commands
    * Set bot commands for a Telegram account.
    * @param accountId  (required)
    * @param setTelegramCommandsRequest  (required)

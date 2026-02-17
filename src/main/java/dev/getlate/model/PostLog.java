@@ -54,7 +54,7 @@ import dev.getlate.ApiClient;
   PostLog.JSON_PROPERTY_ATTEMPT_NUMBER,
   PostLog.JSON_PROPERTY_CREATED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class PostLog {
   public static final String JSON_PROPERTY_ID = "_id";
   @javax.annotation.Nullable
@@ -142,7 +142,7 @@ public class PostLog {
   private String accountUsername;
 
   /**
-   * Type of action logged: - &#x60;publish&#x60; - Initial publish attempt - &#x60;retry&#x60; - Retry after failure - &#x60;media_upload&#x60; - Media upload step - &#x60;rate_limit_pause&#x60; - Account paused due to rate limits - &#x60;token_refresh&#x60; - Token was refreshed - &#x60;cancelled&#x60; - Post was cancelled 
+   * Type of action logged: publish (initial attempt), retry (after failure), media_upload, rate_limit_pause, token_refresh, cancelled
    */
   public enum ActionEnum {
     PUBLISH(String.valueOf("publish")),
@@ -436,7 +436,7 @@ public class PostLog {
   }
 
   /**
-   * Type of action logged: - &#x60;publish&#x60; - Initial publish attempt - &#x60;retry&#x60; - Retry after failure - &#x60;media_upload&#x60; - Media upload step - &#x60;rate_limit_pause&#x60; - Account paused due to rate limits - &#x60;token_refresh&#x60; - Token was refreshed - &#x60;cancelled&#x60; - Post was cancelled 
+   * Type of action logged: publish (initial attempt), retry (after failure), media_upload, rate_limit_pause, token_refresh, cancelled
    * @return action
    */
   @javax.annotation.Nullable

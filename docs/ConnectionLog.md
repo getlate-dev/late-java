@@ -13,7 +13,7 @@ Connection event log showing account connection/disconnection history
 |**profileId** | **String** |  |  [optional] |
 |**accountId** | **String** | The social account ID (present on successful connections and disconnects) |  [optional] |
 |**platform** | [**PlatformEnum**](#PlatformEnum) |  |  [optional] |
-|**eventType** | [**EventTypeEnum**](#EventTypeEnum) | Type of connection event: - &#x60;connect_success&#x60; - New account connected successfully - &#x60;connect_failed&#x60; - Connection attempt failed - &#x60;disconnect&#x60; - Account was disconnected - &#x60;reconnect_success&#x60; - Existing account reconnected successfully - &#x60;reconnect_failed&#x60; - Reconnection attempt failed  |  [optional] |
+|**eventType** | [**EventTypeEnum**](#EventTypeEnum) | Type of connection event: connect_success, connect_failed, disconnect, reconnect_success, reconnect_failed |  [optional] |
 |**connectionMethod** | [**ConnectionMethodEnum**](#ConnectionMethodEnum) | How the connection was initiated |  [optional] |
 |**error** | [**ConnectionLogError**](ConnectionLogError.md) |  |  [optional] |
 |**success** | [**ConnectionLogSuccess**](ConnectionLogSuccess.md) |  |  [optional] |

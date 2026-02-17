@@ -33,12 +33,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.getlate.ApiClient;
 /**
- * Bluesky post settings: - Supports text posts with up to 4 images per post - Videos supported (single video per post) - threadItems creates a reply chain (Bluesky thread) - Images exceeding Bluesky&#39;s 1MB limit are automatically compressed - Alt text for images is supported via mediaItem properties 
+ * Bluesky post settings. Supports text posts with up to 4 images or a single video. threadItems creates a reply chain (Bluesky thread). Images exceeding 1MB are automatically compressed. Alt text supported via mediaItem properties. 
  */
 @JsonPropertyOrder({
   BlueskyPlatformData.JSON_PROPERTY_THREAD_ITEMS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class BlueskyPlatformData {
   public static final String JSON_PROPERTY_THREAD_ITEMS = "threadItems";
   @javax.annotation.Nullable

@@ -48,7 +48,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GmbAttributesApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -167,7 +167,7 @@ public class GmbAttributesApi {
 
   /**
    * Get attributes
-   * Fetches location attributes such as amenities, services, and accessibility features.  Common attributes for restaurants include: - Dining options: has_dine_in, has_takeout, has_delivery - Amenities: has_outdoor_seating, has_wifi, has_parking - Accessibility: has_wheelchair_accessible_entrance - Payments: pay_credit_card_types_accepted  Available attributes vary by business category. 
+   * Fetches location attributes such as amenities, services, and accessibility features. Common attributes include dining options (has_dine_in, has_takeout, has_delivery), amenities (has_outdoor_seating, has_wifi), accessibility, and payment types. Available attributes vary by business category. 
    * @param accountId  (required)
    * @return GetGoogleBusinessAttributes200Response
    * @throws ApiException if fails to make API call
@@ -178,7 +178,7 @@ public class GmbAttributesApi {
 
   /**
    * Get attributes
-   * Fetches location attributes such as amenities, services, and accessibility features.  Common attributes for restaurants include: - Dining options: has_dine_in, has_takeout, has_delivery - Amenities: has_outdoor_seating, has_wifi, has_parking - Accessibility: has_wheelchair_accessible_entrance - Payments: pay_credit_card_types_accepted  Available attributes vary by business category. 
+   * Fetches location attributes such as amenities, services, and accessibility features. Common attributes include dining options (has_dine_in, has_takeout, has_delivery), amenities (has_outdoor_seating, has_wifi), accessibility, and payment types. Available attributes vary by business category. 
    * @param accountId  (required)
    * @param headers Optional headers to include in the request
    * @return GetGoogleBusinessAttributes200Response
@@ -191,7 +191,7 @@ public class GmbAttributesApi {
 
   /**
    * Get attributes
-   * Fetches location attributes such as amenities, services, and accessibility features.  Common attributes for restaurants include: - Dining options: has_dine_in, has_takeout, has_delivery - Amenities: has_outdoor_seating, has_wifi, has_parking - Accessibility: has_wheelchair_accessible_entrance - Payments: pay_credit_card_types_accepted  Available attributes vary by business category. 
+   * Fetches location attributes such as amenities, services, and accessibility features. Common attributes include dining options (has_dine_in, has_takeout, has_delivery), amenities (has_outdoor_seating, has_wifi), accessibility, and payment types. Available attributes vary by business category. 
    * @param accountId  (required)
    * @return ApiResponse&lt;GetGoogleBusinessAttributes200Response&gt;
    * @throws ApiException if fails to make API call
@@ -202,7 +202,7 @@ public class GmbAttributesApi {
 
   /**
    * Get attributes
-   * Fetches location attributes such as amenities, services, and accessibility features.  Common attributes for restaurants include: - Dining options: has_dine_in, has_takeout, has_delivery - Amenities: has_outdoor_seating, has_wifi, has_parking - Accessibility: has_wheelchair_accessible_entrance - Payments: pay_credit_card_types_accepted  Available attributes vary by business category. 
+   * Fetches location attributes such as amenities, services, and accessibility features. Common attributes include dining options (has_dine_in, has_takeout, has_delivery), amenities (has_outdoor_seating, has_wifi), accessibility, and payment types. Available attributes vary by business category. 
    * @param accountId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetGoogleBusinessAttributes200Response&gt;
@@ -285,7 +285,7 @@ public class GmbAttributesApi {
 
   /**
    * Update attributes
-   * Updates location attributes (amenities, services, etc.).  The &#x60;attributeMask&#x60; specifies which attributes to update (comma-separated). 
+   * Updates location attributes (amenities, services, etc.).  The attributeMask specifies which attributes to update (comma-separated). 
    * @param accountId  (required)
    * @param updateGoogleBusinessAttributesRequest  (required)
    * @return UpdateGoogleBusinessAttributes200Response
@@ -297,7 +297,7 @@ public class GmbAttributesApi {
 
   /**
    * Update attributes
-   * Updates location attributes (amenities, services, etc.).  The &#x60;attributeMask&#x60; specifies which attributes to update (comma-separated). 
+   * Updates location attributes (amenities, services, etc.).  The attributeMask specifies which attributes to update (comma-separated). 
    * @param accountId  (required)
    * @param updateGoogleBusinessAttributesRequest  (required)
    * @param headers Optional headers to include in the request
@@ -311,7 +311,7 @@ public class GmbAttributesApi {
 
   /**
    * Update attributes
-   * Updates location attributes (amenities, services, etc.).  The &#x60;attributeMask&#x60; specifies which attributes to update (comma-separated). 
+   * Updates location attributes (amenities, services, etc.).  The attributeMask specifies which attributes to update (comma-separated). 
    * @param accountId  (required)
    * @param updateGoogleBusinessAttributesRequest  (required)
    * @return ApiResponse&lt;UpdateGoogleBusinessAttributes200Response&gt;
@@ -323,7 +323,7 @@ public class GmbAttributesApi {
 
   /**
    * Update attributes
-   * Updates location attributes (amenities, services, etc.).  The &#x60;attributeMask&#x60; specifies which attributes to update (comma-separated). 
+   * Updates location attributes (amenities, services, etc.).  The attributeMask specifies which attributes to update (comma-separated). 
    * @param accountId  (required)
    * @param updateGoogleBusinessAttributesRequest  (required)
    * @param headers Optional headers to include in the request

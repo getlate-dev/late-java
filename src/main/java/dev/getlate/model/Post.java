@@ -60,7 +60,7 @@ import dev.getlate.ApiClient;
   Post.JSON_PROPERTY_CREATED_AT,
   Post.JSON_PROPERTY_UPDATED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class Post {
   public static final String JSON_PROPERTY_ID = "_id";
   @javax.annotation.Nullable
@@ -463,7 +463,7 @@ public class Post {
   }
 
   /**
-   * YouTube tag constraints when targeting YouTube: - No count cap; duplicates removed. - Each tag must be ≤ 100 chars. - Combined characters across all tags ≤ 500. 
+   * YouTube constraints: each tag max 100 chars, combined max 500 chars, duplicates removed.
    * @return tags
    */
   @javax.annotation.Nullable

@@ -4,8 +4,8 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**checkInstagramHashtags**](ToolsApi.md#checkInstagramHashtags) | **POST** /v1/tools/instagram/hashtag-checker | Check Instagram hashtag bans |
-| [**checkInstagramHashtagsWithHttpInfo**](ToolsApi.md#checkInstagramHashtagsWithHttpInfo) | **POST** /v1/tools/instagram/hashtag-checker | Check Instagram hashtag bans |
+| [**checkInstagramHashtags**](ToolsApi.md#checkInstagramHashtags) | **POST** /v1/tools/instagram/hashtag-checker | Check IG hashtag bans |
+| [**checkInstagramHashtagsWithHttpInfo**](ToolsApi.md#checkInstagramHashtagsWithHttpInfo) | **POST** /v1/tools/instagram/hashtag-checker | Check IG hashtag bans |
 | [**downloadBlueskyMedia**](ToolsApi.md#downloadBlueskyMedia) | **GET** /v1/tools/bluesky/download | Download Bluesky media |
 | [**downloadBlueskyMediaWithHttpInfo**](ToolsApi.md#downloadBlueskyMediaWithHttpInfo) | **GET** /v1/tools/bluesky/download | Download Bluesky media |
 | [**downloadFacebookVideo**](ToolsApi.md#downloadFacebookVideo) | **GET** /v1/tools/facebook/download | Download Facebook video |
@@ -29,9 +29,9 @@ All URIs are relative to *https://getlate.dev/api*
 
 > CheckInstagramHashtags200Response checkInstagramHashtags(checkInstagramHashtagsRequest)
 
-Check Instagram hashtag bans
+Check IG hashtag bans
 
-Check if Instagram hashtags are banned, restricted, or safe to use.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Check if Instagram hashtags are banned, restricted, or safe to use.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Example
 
@@ -99,9 +99,9 @@ public class Example {
 
 > ApiResponse<CheckInstagramHashtags200Response> checkInstagramHashtags checkInstagramHashtagsWithHttpInfo(checkInstagramHashtagsRequest)
 
-Check Instagram hashtag bans
+Check IG hashtag bans
 
-Check if Instagram hashtags are banned, restricted, or safe to use.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Check if Instagram hashtags are banned, restricted, or safe to use.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Example
 
@@ -175,7 +175,7 @@ ApiResponse<[**CheckInstagramHashtags200Response**](CheckInstagramHashtags200Res
 
 Download Bluesky media
 
-Download videos from Bluesky posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Download videos from Bluesky posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Example
 
@@ -245,7 +245,7 @@ public class Example {
 
 Download Bluesky media
 
-Download videos from Bluesky posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Download videos from Bluesky posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Example
 
@@ -319,7 +319,7 @@ ApiResponse<[**DownloadBlueskyMedia200Response**](DownloadBlueskyMedia200Respons
 
 Download Facebook video
 
-Download videos and reels from Facebook.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Download videos and reels from Facebook.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Example
 
@@ -389,7 +389,7 @@ public class Example {
 
 Download Facebook video
 
-Download videos and reels from Facebook.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Download videos and reels from Facebook.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Example
 
@@ -463,7 +463,7 @@ ApiResponse<[**DownloadFacebookVideo200Response**](DownloadFacebookVideo200Respo
 
 Download Instagram media
 
-Download Instagram reels, posts, or photos.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Download Instagram reels, posts, or photos.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Example
 
@@ -533,7 +533,7 @@ public class Example {
 
 Download Instagram media
 
-Download Instagram reels, posts, or photos.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Download Instagram reels, posts, or photos.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Example
 
@@ -607,7 +607,7 @@ ApiResponse<[**DownloadInstagramMedia200Response**](DownloadInstagramMedia200Res
 
 Download LinkedIn video
 
-Download videos from LinkedIn posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Download videos from LinkedIn posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Example
 
@@ -677,7 +677,7 @@ public class Example {
 
 Download LinkedIn video
 
-Download videos from LinkedIn posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Download videos from LinkedIn posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Example
 
@@ -751,7 +751,7 @@ ApiResponse<[**DownloadInstagramMedia200Response**](DownloadInstagramMedia200Res
 
 Download TikTok video
 
-Download TikTok videos with or without watermark.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Download TikTok videos with or without watermark.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Example
 
@@ -825,7 +825,7 @@ public class Example {
 
 Download TikTok video
 
-Download TikTok videos with or without watermark.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Download TikTok videos with or without watermark.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Example
 
@@ -903,7 +903,7 @@ ApiResponse<[**DownloadTikTokVideo200Response**](DownloadTikTokVideo200Response.
 
 Download Twitter/X media
 
-Download videos from Twitter/X posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Download videos from Twitter/X posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Example
 
@@ -977,7 +977,7 @@ public class Example {
 
 Download Twitter/X media
 
-Download videos from Twitter/X posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Download videos from Twitter/X posts.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Example
 
@@ -1055,7 +1055,7 @@ ApiResponse<[**DownloadInstagramMedia200Response**](DownloadInstagramMedia200Res
 
 Download YouTube video
 
-Download YouTube videos or audio. Returns available formats or direct download URL.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Download YouTube videos or audio. Returns available formats or direct download URL.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Example
 
@@ -1136,7 +1136,7 @@ public class Example {
 
 Download YouTube video
 
-Download YouTube videos or audio. Returns available formats or direct download URL.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Download YouTube videos or audio. Returns available formats or direct download URL.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Example
 
@@ -1221,7 +1221,7 @@ ApiResponse<[**DownloadYouTubeVideo200Response**](DownloadYouTubeVideo200Respons
 
 Get YouTube transcript
 
-Extract transcript/captions from a YouTube video.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Extract transcript/captions from a YouTube video.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Example
 
@@ -1294,7 +1294,7 @@ public class Example {
 
 Get YouTube transcript
 
-Extract transcript/captions from a YouTube video.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
+Extract transcript/captions from a YouTube video.  Rate limits: Build (50/day), Accelerate (500/day), Unlimited (unlimited). 
 
 ### Example
 

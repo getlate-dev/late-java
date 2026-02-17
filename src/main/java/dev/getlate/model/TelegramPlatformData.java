@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.getlate.ApiClient;
 /**
- * Telegram channel/group posting settings: - Supports text, images (up to 10), videos (up to 10), and mixed media albums - Posts to channels display the channel name and logo as author - Posts to groups display the bot name (Late) as author - Message IDs are returned for analytics tracking - Captions support up to 1024 characters for media posts, 4096 for text-only  **Analytics:** - **Not available via API.** The Telegram Bot API does not expose message analytics (views, forwards, reactions). - View counts are only visible to channel admins directly in the Telegram app. - This is a Telegram platform limitation that affects all third-party tools. 
+ * Supports text, images (up to 10), videos (up to 10), and mixed media albums. Captions up to 1024 chars for media posts, 4096 for text-only. Channel posts show channel name as author; group posts show bot name. Analytics not available via Telegram Bot API.
  */
 @JsonPropertyOrder({
   TelegramPlatformData.JSON_PROPERTY_PARSE_MODE,
@@ -38,7 +38,7 @@ import dev.getlate.ApiClient;
   TelegramPlatformData.JSON_PROPERTY_DISABLE_NOTIFICATION,
   TelegramPlatformData.JSON_PROPERTY_PROTECT_CONTENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class TelegramPlatformData {
   /**
    * Text formatting mode for the message (default is HTML)

@@ -25,7 +25,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 Create webhook
 
-Create a new webhook configuration. Maximum 10 webhooks per user.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
+Create a new webhook configuration. Maximum 10 webhooks per user.  Webhooks are automatically disabled after 10 consecutive delivery failures. 
 
 ### Example
 
@@ -97,7 +97,7 @@ public class Example {
 
 Create webhook
 
-Create a new webhook configuration. Maximum 10 webhooks per user.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
+Create a new webhook configuration. Maximum 10 webhooks per user.  Webhooks are automatically disabled after 10 consecutive delivery failures. 
 
 ### Example
 
@@ -617,7 +617,7 @@ ApiResponse<[**GetWebhookSettings200Response**](GetWebhookSettings200Response.md
 
 Send test webhook
 
-Send a test webhook to verify your endpoint is configured correctly. The test payload includes &#x60;event: \&quot;webhook.test\&quot;&#x60; to distinguish it from real events. 
+Send a test webhook to verify your endpoint is configured correctly. The test payload includes event: \&quot;webhook.test\&quot; to distinguish it from real events. 
 
 ### Example
 
@@ -690,7 +690,7 @@ public class Example {
 
 Send test webhook
 
-Send a test webhook to verify your endpoint is configured correctly. The test payload includes &#x60;event: \&quot;webhook.test\&quot;&#x60; to distinguish it from real events. 
+Send a test webhook to verify your endpoint is configured correctly. The test payload includes event: \&quot;webhook.test\&quot; to distinguish it from real events. 
 
 ### Example
 
@@ -767,7 +767,7 @@ ApiResponse<[**UnpublishPost200Response**](UnpublishPost200Response.md)>
 
 Update webhook
 
-Update an existing webhook configuration. All fields except &#x60;_id&#x60; are optional - only provided fields will be updated.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
+Update an existing webhook configuration. All fields except _id are optional; only provided fields will be updated.  Webhooks are automatically disabled after 10 consecutive delivery failures. 
 
 ### Example
 
@@ -840,7 +840,7 @@ public class Example {
 
 Update webhook
 
-Update an existing webhook configuration. All fields except &#x60;_id&#x60; are optional - only provided fields will be updated.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
+Update an existing webhook configuration. All fields except _id are optional; only provided fields will be updated.  Webhooks are automatically disabled after 10 consecutive delivery failures. 
 
 ### Example
 

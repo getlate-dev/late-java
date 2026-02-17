@@ -69,7 +69,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class PostsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -354,7 +354,7 @@ public class PostsApi {
 
   /**
    * Create post
-   * **Getting Post URLs:** - Immediate posts (&#x60;publishNow: true&#x60;): response includes &#x60;platformPostUrl&#x60; in &#x60;post.platforms[]&#x60;. - Scheduled posts: fetch via &#x60;GET /v1/posts/{postId}&#x60; after publish time for &#x60;platformPostUrl&#x60;.  **Content requirements:** - &#x60;content&#x60; is optional when media is attached, all platforms have &#x60;customContent&#x60;, or posting to YouTube only. - Text-only posts require &#x60;content&#x60;. Stories ignore captions.  **Platform constraints:** - YouTube: video required, optional thumbnail via &#x60;MediaItem.thumbnail&#x60; - Instagram/TikTok: media required; TikTok cannot mix videos and images - Instagram carousels: up to 10 items; Threads carousels: up to 10 images only - Facebook Stories: single image or video, set &#x60;contentType: &#39;story&#39;&#x60; - LinkedIn: up to 20 images or a single PDF (max 100MB) - Pinterest: single image or video, &#x60;boardId&#x60; required - Bluesky: up to 4 images, auto-recompressed to ~1MB - Snapchat: single image or video, set &#x60;contentType&#x60; in platformSpecificData 
+   * Immediate posts (publishNow: true) include platformPostUrl in the response. Scheduled posts: fetch via GET /v1/posts/{postId} after publish time. content is optional when media is attached, all platforms have customContent, or posting to YouTube only. Text-only posts require content. Stories ignore captions. Platform constraints: YouTube requires video. Instagram/TikTok require media (TikTok cannot mix videos and images). Instagram carousels up to 10 items, Threads up to 10 images. Facebook Stories need single image/video with contentType story. LinkedIn up to 20 images or single PDF. Pinterest single image/video with boardId. Bluesky up to 4 images. Snapchat single image/video. 
    * @param createPostRequest  (required)
    * @return PostCreateResponse
    * @throws ApiException if fails to make API call
@@ -365,7 +365,7 @@ public class PostsApi {
 
   /**
    * Create post
-   * **Getting Post URLs:** - Immediate posts (&#x60;publishNow: true&#x60;): response includes &#x60;platformPostUrl&#x60; in &#x60;post.platforms[]&#x60;. - Scheduled posts: fetch via &#x60;GET /v1/posts/{postId}&#x60; after publish time for &#x60;platformPostUrl&#x60;.  **Content requirements:** - &#x60;content&#x60; is optional when media is attached, all platforms have &#x60;customContent&#x60;, or posting to YouTube only. - Text-only posts require &#x60;content&#x60;. Stories ignore captions.  **Platform constraints:** - YouTube: video required, optional thumbnail via &#x60;MediaItem.thumbnail&#x60; - Instagram/TikTok: media required; TikTok cannot mix videos and images - Instagram carousels: up to 10 items; Threads carousels: up to 10 images only - Facebook Stories: single image or video, set &#x60;contentType: &#39;story&#39;&#x60; - LinkedIn: up to 20 images or a single PDF (max 100MB) - Pinterest: single image or video, &#x60;boardId&#x60; required - Bluesky: up to 4 images, auto-recompressed to ~1MB - Snapchat: single image or video, set &#x60;contentType&#x60; in platformSpecificData 
+   * Immediate posts (publishNow: true) include platformPostUrl in the response. Scheduled posts: fetch via GET /v1/posts/{postId} after publish time. content is optional when media is attached, all platforms have customContent, or posting to YouTube only. Text-only posts require content. Stories ignore captions. Platform constraints: YouTube requires video. Instagram/TikTok require media (TikTok cannot mix videos and images). Instagram carousels up to 10 items, Threads up to 10 images. Facebook Stories need single image/video with contentType story. LinkedIn up to 20 images or single PDF. Pinterest single image/video with boardId. Bluesky up to 4 images. Snapchat single image/video. 
    * @param createPostRequest  (required)
    * @param headers Optional headers to include in the request
    * @return PostCreateResponse
@@ -378,7 +378,7 @@ public class PostsApi {
 
   /**
    * Create post
-   * **Getting Post URLs:** - Immediate posts (&#x60;publishNow: true&#x60;): response includes &#x60;platformPostUrl&#x60; in &#x60;post.platforms[]&#x60;. - Scheduled posts: fetch via &#x60;GET /v1/posts/{postId}&#x60; after publish time for &#x60;platformPostUrl&#x60;.  **Content requirements:** - &#x60;content&#x60; is optional when media is attached, all platforms have &#x60;customContent&#x60;, or posting to YouTube only. - Text-only posts require &#x60;content&#x60;. Stories ignore captions.  **Platform constraints:** - YouTube: video required, optional thumbnail via &#x60;MediaItem.thumbnail&#x60; - Instagram/TikTok: media required; TikTok cannot mix videos and images - Instagram carousels: up to 10 items; Threads carousels: up to 10 images only - Facebook Stories: single image or video, set &#x60;contentType: &#39;story&#39;&#x60; - LinkedIn: up to 20 images or a single PDF (max 100MB) - Pinterest: single image or video, &#x60;boardId&#x60; required - Bluesky: up to 4 images, auto-recompressed to ~1MB - Snapchat: single image or video, set &#x60;contentType&#x60; in platformSpecificData 
+   * Immediate posts (publishNow: true) include platformPostUrl in the response. Scheduled posts: fetch via GET /v1/posts/{postId} after publish time. content is optional when media is attached, all platforms have customContent, or posting to YouTube only. Text-only posts require content. Stories ignore captions. Platform constraints: YouTube requires video. Instagram/TikTok require media (TikTok cannot mix videos and images). Instagram carousels up to 10 items, Threads up to 10 images. Facebook Stories need single image/video with contentType story. LinkedIn up to 20 images or single PDF. Pinterest single image/video with boardId. Bluesky up to 4 images. Snapchat single image/video. 
    * @param createPostRequest  (required)
    * @return ApiResponse&lt;PostCreateResponse&gt;
    * @throws ApiException if fails to make API call
@@ -389,7 +389,7 @@ public class PostsApi {
 
   /**
    * Create post
-   * **Getting Post URLs:** - Immediate posts (&#x60;publishNow: true&#x60;): response includes &#x60;platformPostUrl&#x60; in &#x60;post.platforms[]&#x60;. - Scheduled posts: fetch via &#x60;GET /v1/posts/{postId}&#x60; after publish time for &#x60;platformPostUrl&#x60;.  **Content requirements:** - &#x60;content&#x60; is optional when media is attached, all platforms have &#x60;customContent&#x60;, or posting to YouTube only. - Text-only posts require &#x60;content&#x60;. Stories ignore captions.  **Platform constraints:** - YouTube: video required, optional thumbnail via &#x60;MediaItem.thumbnail&#x60; - Instagram/TikTok: media required; TikTok cannot mix videos and images - Instagram carousels: up to 10 items; Threads carousels: up to 10 images only - Facebook Stories: single image or video, set &#x60;contentType: &#39;story&#39;&#x60; - LinkedIn: up to 20 images or a single PDF (max 100MB) - Pinterest: single image or video, &#x60;boardId&#x60; required - Bluesky: up to 4 images, auto-recompressed to ~1MB - Snapchat: single image or video, set &#x60;contentType&#x60; in platformSpecificData 
+   * Immediate posts (publishNow: true) include platformPostUrl in the response. Scheduled posts: fetch via GET /v1/posts/{postId} after publish time. content is optional when media is attached, all platforms have customContent, or posting to YouTube only. Text-only posts require content. Stories ignore captions. Platform constraints: YouTube requires video. Instagram/TikTok require media (TikTok cannot mix videos and images). Instagram carousels up to 10 items, Threads up to 10 images. Facebook Stories need single image/video with contentType story. LinkedIn up to 20 images or single PDF. Pinterest single image/video with boardId. Bluesky up to 4 images. Snapchat single image/video. 
    * @param createPostRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;PostCreateResponse&gt;
@@ -595,7 +595,7 @@ public class PostsApi {
 
   /**
    * Get post
-   * Fetch a single post by ID. For published posts, this returns &#x60;platformPostUrl&#x60;  for each platform - useful for retrieving post URLs after scheduled posts publish. 
+   * Fetch a single post by ID. For published posts, this returns platformPostUrl for each platform. 
    * @param postId  (required)
    * @return PostGetResponse
    * @throws ApiException if fails to make API call
@@ -606,7 +606,7 @@ public class PostsApi {
 
   /**
    * Get post
-   * Fetch a single post by ID. For published posts, this returns &#x60;platformPostUrl&#x60;  for each platform - useful for retrieving post URLs after scheduled posts publish. 
+   * Fetch a single post by ID. For published posts, this returns platformPostUrl for each platform. 
    * @param postId  (required)
    * @param headers Optional headers to include in the request
    * @return PostGetResponse
@@ -619,7 +619,7 @@ public class PostsApi {
 
   /**
    * Get post
-   * Fetch a single post by ID. For published posts, this returns &#x60;platformPostUrl&#x60;  for each platform - useful for retrieving post URLs after scheduled posts publish. 
+   * Fetch a single post by ID. For published posts, this returns platformPostUrl for each platform. 
    * @param postId  (required)
    * @return ApiResponse&lt;PostGetResponse&gt;
    * @throws ApiException if fails to make API call
@@ -630,7 +630,7 @@ public class PostsApi {
 
   /**
    * Get post
-   * Fetch a single post by ID. For published posts, this returns &#x60;platformPostUrl&#x60;  for each platform - useful for retrieving post URLs after scheduled posts publish. 
+   * Fetch a single post by ID. For published posts, this returns platformPostUrl for each platform. 
    * @param postId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;PostGetResponse&gt;
@@ -713,7 +713,7 @@ public class PostsApi {
 
   /**
    * List posts
-   * **Getting Post URLs:** For published posts, each platform entry includes &#x60;platformPostUrl&#x60; with the public URL. Use &#x60;status&#x3D;published&#x60; filter to fetch only published posts with their URLs.  Notes and constraints by platform when interpreting the response: - YouTube: posts always include at least one video in mediaItems. - Instagram/TikTok: posts always include media; drafts may omit media until finalized in client. - TikTok: mediaItems will not mix photos and videos in the same post. 
+   * For published posts, each platform entry includes platformPostUrl with the public URL. Use status&#x3D;published to fetch only published posts with their URLs.  Platform notes: YouTube posts always include at least one video. Instagram/TikTok posts always include media (drafts may omit media). TikTok does not mix photos and videos in the same post. 
    * @param page Page number (1-based) (optional, default to 1)
    * @param limit Page size (optional, default to 10)
    * @param status  (optional)
@@ -732,7 +732,7 @@ public class PostsApi {
 
   /**
    * List posts
-   * **Getting Post URLs:** For published posts, each platform entry includes &#x60;platformPostUrl&#x60; with the public URL. Use &#x60;status&#x3D;published&#x60; filter to fetch only published posts with their URLs.  Notes and constraints by platform when interpreting the response: - YouTube: posts always include at least one video in mediaItems. - Instagram/TikTok: posts always include media; drafts may omit media until finalized in client. - TikTok: mediaItems will not mix photos and videos in the same post. 
+   * For published posts, each platform entry includes platformPostUrl with the public URL. Use status&#x3D;published to fetch only published posts with their URLs.  Platform notes: YouTube posts always include at least one video. Instagram/TikTok posts always include media (drafts may omit media). TikTok does not mix photos and videos in the same post. 
    * @param page Page number (1-based) (optional, default to 1)
    * @param limit Page size (optional, default to 10)
    * @param status  (optional)
@@ -753,7 +753,7 @@ public class PostsApi {
 
   /**
    * List posts
-   * **Getting Post URLs:** For published posts, each platform entry includes &#x60;platformPostUrl&#x60; with the public URL. Use &#x60;status&#x3D;published&#x60; filter to fetch only published posts with their URLs.  Notes and constraints by platform when interpreting the response: - YouTube: posts always include at least one video in mediaItems. - Instagram/TikTok: posts always include media; drafts may omit media until finalized in client. - TikTok: mediaItems will not mix photos and videos in the same post. 
+   * For published posts, each platform entry includes platformPostUrl with the public URL. Use status&#x3D;published to fetch only published posts with their URLs.  Platform notes: YouTube posts always include at least one video. Instagram/TikTok posts always include media (drafts may omit media). TikTok does not mix photos and videos in the same post. 
    * @param page Page number (1-based) (optional, default to 1)
    * @param limit Page size (optional, default to 10)
    * @param status  (optional)
@@ -772,7 +772,7 @@ public class PostsApi {
 
   /**
    * List posts
-   * **Getting Post URLs:** For published posts, each platform entry includes &#x60;platformPostUrl&#x60; with the public URL. Use &#x60;status&#x3D;published&#x60; filter to fetch only published posts with their URLs.  Notes and constraints by platform when interpreting the response: - YouTube: posts always include at least one video in mediaItems. - Instagram/TikTok: posts always include media; drafts may omit media until finalized in client. - TikTok: mediaItems will not mix photos and videos in the same post. 
+   * For published posts, each platform entry includes platformPostUrl with the public URL. Use status&#x3D;published to fetch only published posts with their URLs.  Platform notes: YouTube posts always include at least one video. Instagram/TikTok posts always include media (drafts may omit media). TikTok does not mix photos and videos in the same post. 
    * @param page Page number (1-based) (optional, default to 1)
    * @param limit Page size (optional, default to 10)
    * @param status  (optional)
@@ -1007,7 +1007,7 @@ public class PostsApi {
 
   /**
    * Unpublish post
-   * Permanently deletes a published post from the specified social media platform. The post record in Late is kept but its platform status is updated to \&quot;cancelled\&quot;. This does not delete the post from Late, only from the platform.  **Supported platforms:** Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram.  **Not supported:** - **Instagram:** No deletion API available. Posts must be deleted manually. - **TikTok:** No deletion API available. Posts must be deleted manually. - **Snapchat:** No deletion API available. Posts must be deleted manually.  **Platform notes:** - **Threaded posts (Twitter, Threads, Bluesky):** If the post was published as a thread, all items in the thread are deleted (not just the first one). Posts published before this feature was added will only have the first item deleted. - **Telegram:** Messages older than 48 hours may fail to delete (Telegram Bot API limitation). - **YouTube:** This permanently deletes the video from YouTube. 
+   * Deletes a published post from the specified platform. The post record in Late is kept but its platform status is updated to cancelled. Supported: Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram. Not supported: Instagram, TikTok, Snapchat (must be deleted manually). Threaded posts (Twitter, Threads, Bluesky) delete all items in the thread. Telegram messages older than 48h may fail to delete. YouTube deletion is permanent. 
    * @param postId  (required)
    * @param unpublishPostRequest  (required)
    * @return UnpublishPost200Response
@@ -1019,7 +1019,7 @@ public class PostsApi {
 
   /**
    * Unpublish post
-   * Permanently deletes a published post from the specified social media platform. The post record in Late is kept but its platform status is updated to \&quot;cancelled\&quot;. This does not delete the post from Late, only from the platform.  **Supported platforms:** Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram.  **Not supported:** - **Instagram:** No deletion API available. Posts must be deleted manually. - **TikTok:** No deletion API available. Posts must be deleted manually. - **Snapchat:** No deletion API available. Posts must be deleted manually.  **Platform notes:** - **Threaded posts (Twitter, Threads, Bluesky):** If the post was published as a thread, all items in the thread are deleted (not just the first one). Posts published before this feature was added will only have the first item deleted. - **Telegram:** Messages older than 48 hours may fail to delete (Telegram Bot API limitation). - **YouTube:** This permanently deletes the video from YouTube. 
+   * Deletes a published post from the specified platform. The post record in Late is kept but its platform status is updated to cancelled. Supported: Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram. Not supported: Instagram, TikTok, Snapchat (must be deleted manually). Threaded posts (Twitter, Threads, Bluesky) delete all items in the thread. Telegram messages older than 48h may fail to delete. YouTube deletion is permanent. 
    * @param postId  (required)
    * @param unpublishPostRequest  (required)
    * @param headers Optional headers to include in the request
@@ -1033,7 +1033,7 @@ public class PostsApi {
 
   /**
    * Unpublish post
-   * Permanently deletes a published post from the specified social media platform. The post record in Late is kept but its platform status is updated to \&quot;cancelled\&quot;. This does not delete the post from Late, only from the platform.  **Supported platforms:** Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram.  **Not supported:** - **Instagram:** No deletion API available. Posts must be deleted manually. - **TikTok:** No deletion API available. Posts must be deleted manually. - **Snapchat:** No deletion API available. Posts must be deleted manually.  **Platform notes:** - **Threaded posts (Twitter, Threads, Bluesky):** If the post was published as a thread, all items in the thread are deleted (not just the first one). Posts published before this feature was added will only have the first item deleted. - **Telegram:** Messages older than 48 hours may fail to delete (Telegram Bot API limitation). - **YouTube:** This permanently deletes the video from YouTube. 
+   * Deletes a published post from the specified platform. The post record in Late is kept but its platform status is updated to cancelled. Supported: Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram. Not supported: Instagram, TikTok, Snapchat (must be deleted manually). Threaded posts (Twitter, Threads, Bluesky) delete all items in the thread. Telegram messages older than 48h may fail to delete. YouTube deletion is permanent. 
    * @param postId  (required)
    * @param unpublishPostRequest  (required)
    * @return ApiResponse&lt;UnpublishPost200Response&gt;
@@ -1045,7 +1045,7 @@ public class PostsApi {
 
   /**
    * Unpublish post
-   * Permanently deletes a published post from the specified social media platform. The post record in Late is kept but its platform status is updated to \&quot;cancelled\&quot;. This does not delete the post from Late, only from the platform.  **Supported platforms:** Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram.  **Not supported:** - **Instagram:** No deletion API available. Posts must be deleted manually. - **TikTok:** No deletion API available. Posts must be deleted manually. - **Snapchat:** No deletion API available. Posts must be deleted manually.  **Platform notes:** - **Threaded posts (Twitter, Threads, Bluesky):** If the post was published as a thread, all items in the thread are deleted (not just the first one). Posts published before this feature was added will only have the first item deleted. - **Telegram:** Messages older than 48 hours may fail to delete (Telegram Bot API limitation). - **YouTube:** This permanently deletes the video from YouTube. 
+   * Deletes a published post from the specified platform. The post record in Late is kept but its platform status is updated to cancelled. Supported: Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram. Not supported: Instagram, TikTok, Snapchat (must be deleted manually). Threaded posts (Twitter, Threads, Bluesky) delete all items in the thread. Telegram messages older than 48h may fail to delete. YouTube deletion is permanent. 
    * @param postId  (required)
    * @param unpublishPostRequest  (required)
    * @param headers Optional headers to include in the request

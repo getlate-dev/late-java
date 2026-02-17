@@ -461,7 +461,7 @@ ApiResponse<[**GetProfile200Response**](GetProfile200Response.md)>
 
 List profiles
 
-Returns profiles within the user&#39;s plan limit. Profiles are sorted by creation date (oldest first). Use &#x60;includeOverLimit&#x3D;true&#x60; to include profiles that exceed the plan limit (for management/deletion purposes). 
+Returns profiles within the user&#39;s plan limit, sorted by creation date (oldest first). Use includeOverLimit&#x3D;true to include profiles that exceed the plan limit (for management/deletion purposes). 
 
 ### Example
 
@@ -484,7 +484,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ProfilesApi apiInstance = new ProfilesApi(defaultClient);
-        Boolean includeOverLimit = false; // Boolean | When true, includes profiles that exceed the user's plan limit. Over-limit profiles will have `isOverLimit: true` in the response. Useful for managing/deleting profiles after a plan downgrade. 
+        Boolean includeOverLimit = false; // Boolean | When true, includes profiles that exceed the user's plan limit. Over-limit profiles will have isOverLimit: true in the response. Useful for managing/deleting profiles after a plan downgrade. 
         try {
             ProfilesListResponse result = apiInstance.listProfiles(includeOverLimit);
             System.out.println(result);
@@ -504,7 +504,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **includeOverLimit** | **Boolean**| When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have &#x60;isOverLimit: true&#x60; in the response. Useful for managing/deleting profiles after a plan downgrade.  | [optional] [default to false] |
+| **includeOverLimit** | **Boolean**| When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have isOverLimit: true in the response. Useful for managing/deleting profiles after a plan downgrade.  | [optional] [default to false] |
 
 ### Return type
 
@@ -532,7 +532,7 @@ public class Example {
 
 List profiles
 
-Returns profiles within the user&#39;s plan limit. Profiles are sorted by creation date (oldest first). Use &#x60;includeOverLimit&#x3D;true&#x60; to include profiles that exceed the plan limit (for management/deletion purposes). 
+Returns profiles within the user&#39;s plan limit, sorted by creation date (oldest first). Use includeOverLimit&#x3D;true to include profiles that exceed the plan limit (for management/deletion purposes). 
 
 ### Example
 
@@ -556,7 +556,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ProfilesApi apiInstance = new ProfilesApi(defaultClient);
-        Boolean includeOverLimit = false; // Boolean | When true, includes profiles that exceed the user's plan limit. Over-limit profiles will have `isOverLimit: true` in the response. Useful for managing/deleting profiles after a plan downgrade. 
+        Boolean includeOverLimit = false; // Boolean | When true, includes profiles that exceed the user's plan limit. Over-limit profiles will have isOverLimit: true in the response. Useful for managing/deleting profiles after a plan downgrade. 
         try {
             ApiResponse<ProfilesListResponse> response = apiInstance.listProfilesWithHttpInfo(includeOverLimit);
             System.out.println("Status code: " + response.getStatusCode());
@@ -578,7 +578,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **includeOverLimit** | **Boolean**| When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have &#x60;isOverLimit: true&#x60; in the response. Useful for managing/deleting profiles after a plan downgrade.  | [optional] [default to false] |
+| **includeOverLimit** | **Boolean**| When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have isOverLimit: true in the response. Useful for managing/deleting profiles after a plan downgrade.  | [optional] [default to false] |
 
 ### Return type
 

@@ -59,7 +59,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WebhooksApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -178,7 +178,7 @@ public class WebhooksApi {
 
   /**
    * Create webhook
-   * Create a new webhook configuration. Maximum 10 webhooks per user.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
+   * Create a new webhook configuration. Maximum 10 webhooks per user.  Webhooks are automatically disabled after 10 consecutive delivery failures. 
    * @param createWebhookSettingsRequest  (required)
    * @return UpdateWebhookSettings200Response
    * @throws ApiException if fails to make API call
@@ -189,7 +189,7 @@ public class WebhooksApi {
 
   /**
    * Create webhook
-   * Create a new webhook configuration. Maximum 10 webhooks per user.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
+   * Create a new webhook configuration. Maximum 10 webhooks per user.  Webhooks are automatically disabled after 10 consecutive delivery failures. 
    * @param createWebhookSettingsRequest  (required)
    * @param headers Optional headers to include in the request
    * @return UpdateWebhookSettings200Response
@@ -202,7 +202,7 @@ public class WebhooksApi {
 
   /**
    * Create webhook
-   * Create a new webhook configuration. Maximum 10 webhooks per user.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
+   * Create a new webhook configuration. Maximum 10 webhooks per user.  Webhooks are automatically disabled after 10 consecutive delivery failures. 
    * @param createWebhookSettingsRequest  (required)
    * @return ApiResponse&lt;UpdateWebhookSettings200Response&gt;
    * @throws ApiException if fails to make API call
@@ -213,7 +213,7 @@ public class WebhooksApi {
 
   /**
    * Create webhook
-   * Create a new webhook configuration. Maximum 10 webhooks per user.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
+   * Create a new webhook configuration. Maximum 10 webhooks per user.  Webhooks are automatically disabled after 10 consecutive delivery failures. 
    * @param createWebhookSettingsRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;UpdateWebhookSettings200Response&gt;
@@ -688,7 +688,7 @@ public class WebhooksApi {
 
   /**
    * Send test webhook
-   * Send a test webhook to verify your endpoint is configured correctly. The test payload includes &#x60;event: \&quot;webhook.test\&quot;&#x60; to distinguish it from real events. 
+   * Send a test webhook to verify your endpoint is configured correctly. The test payload includes event: \&quot;webhook.test\&quot; to distinguish it from real events. 
    * @param testWebhookRequest  (required)
    * @return UnpublishPost200Response
    * @throws ApiException if fails to make API call
@@ -699,7 +699,7 @@ public class WebhooksApi {
 
   /**
    * Send test webhook
-   * Send a test webhook to verify your endpoint is configured correctly. The test payload includes &#x60;event: \&quot;webhook.test\&quot;&#x60; to distinguish it from real events. 
+   * Send a test webhook to verify your endpoint is configured correctly. The test payload includes event: \&quot;webhook.test\&quot; to distinguish it from real events. 
    * @param testWebhookRequest  (required)
    * @param headers Optional headers to include in the request
    * @return UnpublishPost200Response
@@ -712,7 +712,7 @@ public class WebhooksApi {
 
   /**
    * Send test webhook
-   * Send a test webhook to verify your endpoint is configured correctly. The test payload includes &#x60;event: \&quot;webhook.test\&quot;&#x60; to distinguish it from real events. 
+   * Send a test webhook to verify your endpoint is configured correctly. The test payload includes event: \&quot;webhook.test\&quot; to distinguish it from real events. 
    * @param testWebhookRequest  (required)
    * @return ApiResponse&lt;UnpublishPost200Response&gt;
    * @throws ApiException if fails to make API call
@@ -723,7 +723,7 @@ public class WebhooksApi {
 
   /**
    * Send test webhook
-   * Send a test webhook to verify your endpoint is configured correctly. The test payload includes &#x60;event: \&quot;webhook.test\&quot;&#x60; to distinguish it from real events. 
+   * Send a test webhook to verify your endpoint is configured correctly. The test payload includes event: \&quot;webhook.test\&quot; to distinguish it from real events. 
    * @param testWebhookRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;UnpublishPost200Response&gt;
@@ -811,7 +811,7 @@ public class WebhooksApi {
 
   /**
    * Update webhook
-   * Update an existing webhook configuration. All fields except &#x60;_id&#x60; are optional - only provided fields will be updated.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
+   * Update an existing webhook configuration. All fields except _id are optional; only provided fields will be updated.  Webhooks are automatically disabled after 10 consecutive delivery failures. 
    * @param updateWebhookSettingsRequest  (required)
    * @return UpdateWebhookSettings200Response
    * @throws ApiException if fails to make API call
@@ -822,7 +822,7 @@ public class WebhooksApi {
 
   /**
    * Update webhook
-   * Update an existing webhook configuration. All fields except &#x60;_id&#x60; are optional - only provided fields will be updated.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
+   * Update an existing webhook configuration. All fields except _id are optional; only provided fields will be updated.  Webhooks are automatically disabled after 10 consecutive delivery failures. 
    * @param updateWebhookSettingsRequest  (required)
    * @param headers Optional headers to include in the request
    * @return UpdateWebhookSettings200Response
@@ -835,7 +835,7 @@ public class WebhooksApi {
 
   /**
    * Update webhook
-   * Update an existing webhook configuration. All fields except &#x60;_id&#x60; are optional - only provided fields will be updated.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
+   * Update an existing webhook configuration. All fields except _id are optional; only provided fields will be updated.  Webhooks are automatically disabled after 10 consecutive delivery failures. 
    * @param updateWebhookSettingsRequest  (required)
    * @return ApiResponse&lt;UpdateWebhookSettings200Response&gt;
    * @throws ApiException if fails to make API call
@@ -846,7 +846,7 @@ public class WebhooksApi {
 
   /**
    * Update webhook
-   * Update an existing webhook configuration. All fields except &#x60;_id&#x60; are optional - only provided fields will be updated.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
+   * Update an existing webhook configuration. All fields except _id are optional; only provided fields will be updated.  Webhooks are automatically disabled after 10 consecutive delivery failures. 
    * @param updateWebhookSettingsRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;UpdateWebhookSettings200Response&gt;

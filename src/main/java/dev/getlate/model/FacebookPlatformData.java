@@ -30,14 +30,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.getlate.ApiClient;
 /**
- * Constraints: - Posts cannot mix videos and images. - Multiple images supported via attached_media (up to 10 images for feed posts). - Multiple videos in the same post are not supported. - Stories require media (single image or video); text captions are not displayed with stories. - Stories are ephemeral (disappear after 24 hours). - Use pageId to post to multiple pages from the same account connection. 
+ * Cannot mix videos and images. Up to 10 images for feed posts. Stories require single image or video (no captions, ephemeral 24h). Use pageId for multi-page posting.
  */
 @JsonPropertyOrder({
   FacebookPlatformData.JSON_PROPERTY_CONTENT_TYPE,
   FacebookPlatformData.JSON_PROPERTY_FIRST_COMMENT,
   FacebookPlatformData.JSON_PROPERTY_PAGE_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class FacebookPlatformData {
   /**
    * Set to &#39;story&#39; to publish as a Facebook Page Story (24-hour ephemeral content). Requires media.

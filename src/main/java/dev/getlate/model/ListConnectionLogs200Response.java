@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import dev.getlate.model.ConnectionLog;
-import dev.getlate.model.ListLogs200ResponsePagination;
+import dev.getlate.model.ListPostsLogs200ResponsePagination;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -40,7 +40,7 @@ import dev.getlate.ApiClient;
   ListConnectionLogs200Response.JSON_PROPERTY_LOGS,
   ListConnectionLogs200Response.JSON_PROPERTY_PAGINATION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ListConnectionLogs200Response {
   public static final String JSON_PROPERTY_LOGS = "logs";
   @javax.annotation.Nullable
@@ -48,7 +48,7 @@ public class ListConnectionLogs200Response {
 
   public static final String JSON_PROPERTY_PAGINATION = "pagination";
   @javax.annotation.Nullable
-  private ListLogs200ResponsePagination pagination;
+  private ListPostsLogs200ResponsePagination pagination;
 
   public ListConnectionLogs200Response() { 
   }
@@ -85,7 +85,7 @@ public class ListConnectionLogs200Response {
   }
 
 
-  public ListConnectionLogs200Response pagination(@javax.annotation.Nullable ListLogs200ResponsePagination pagination) {
+  public ListConnectionLogs200Response pagination(@javax.annotation.Nullable ListPostsLogs200ResponsePagination pagination) {
     this.pagination = pagination;
     return this;
   }
@@ -97,14 +97,14 @@ public class ListConnectionLogs200Response {
   @javax.annotation.Nullable
   @JsonProperty(value = JSON_PROPERTY_PAGINATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ListLogs200ResponsePagination getPagination() {
+  public ListPostsLogs200ResponsePagination getPagination() {
     return pagination;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_PAGINATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPagination(@javax.annotation.Nullable ListLogs200ResponsePagination pagination) {
+  public void setPagination(@javax.annotation.Nullable ListPostsLogs200ResponsePagination pagination) {
     this.pagination = pagination;
   }
 

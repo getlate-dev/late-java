@@ -39,7 +39,7 @@ import dev.getlate.ApiClient;
   InstagramPlatformDataUserTagsInner.JSON_PROPERTY_Y,
   InstagramPlatformDataUserTagsInner.JSON_PROPERTY_MEDIA_INDEX
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:43:04.808571241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class InstagramPlatformDataUserTagsInner {
   public static final String JSON_PROPERTY_USERNAME = "username";
   @javax.annotation.Nonnull
@@ -142,7 +142,7 @@ public class InstagramPlatformDataUserTagsInner {
   }
 
   /**
-   * Zero-based index of the carousel item to tag. Defaults to 0 (first image) if omitted. Only relevant for carousel posts. Tags targeting video items or out-of-range indices are ignored. 
+   * Zero-based index of the carousel item to tag. Defaults to 0. Tags on video items or out-of-range indices are ignored.
    * minimum: 0
    * @return mediaIndex
    */
