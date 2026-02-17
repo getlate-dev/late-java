@@ -59,7 +59,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T07:51:32.891397159Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CommentsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -177,7 +177,7 @@ public class CommentsApi {
   }
 
   /**
-   * Delete a comment
+   * Delete comment
    * Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, YouTube, LinkedIn, and TikTok. Requires accountId and commentId query parameters. 
    * @param postId The post identifier. Accepts a Late post ID or a platform-specific post ID.  **LinkedIn:** For third-party posts, pass the full activity URN (e.g., &#x60;urn:li:activity:7422459067685855232&#x60;) or the raw numeric activity ID from the URL.  (required)
    * @param accountId  (required)
@@ -190,7 +190,7 @@ public class CommentsApi {
   }
 
   /**
-   * Delete a comment
+   * Delete comment
    * Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, YouTube, LinkedIn, and TikTok. Requires accountId and commentId query parameters. 
    * @param postId The post identifier. Accepts a Late post ID or a platform-specific post ID.  **LinkedIn:** For third-party posts, pass the full activity URN (e.g., &#x60;urn:li:activity:7422459067685855232&#x60;) or the raw numeric activity ID from the URL.  (required)
    * @param accountId  (required)
@@ -205,7 +205,7 @@ public class CommentsApi {
   }
 
   /**
-   * Delete a comment
+   * Delete comment
    * Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, YouTube, LinkedIn, and TikTok. Requires accountId and commentId query parameters. 
    * @param postId The post identifier. Accepts a Late post ID or a platform-specific post ID.  **LinkedIn:** For third-party posts, pass the full activity URN (e.g., &#x60;urn:li:activity:7422459067685855232&#x60;) or the raw numeric activity ID from the URL.  (required)
    * @param accountId  (required)
@@ -218,7 +218,7 @@ public class CommentsApi {
   }
 
   /**
-   * Delete a comment
+   * Delete comment
    * Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, YouTube, LinkedIn, and TikTok. Requires accountId and commentId query parameters. 
    * @param postId The post identifier. Accepts a Late post ID or a platform-specific post ID.  **LinkedIn:** For third-party posts, pass the full activity URN (e.g., &#x60;urn:li:activity:7422459067685855232&#x60;) or the raw numeric activity ID from the URL.  (required)
    * @param accountId  (required)
@@ -328,7 +328,7 @@ public class CommentsApi {
   }
 
   /**
-   * Get comments for a post
+   * Get post comments
    * Fetch comments for a specific post. Requires accountId query parameter.
    * @param postId The post identifier. Accepts a Late post ID (MongoDB ObjectId) which is automatically resolved to the platform-specific post ID, or a platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID, YouTube video ID).  **LinkedIn:** For your own posts, the full URN stored in Late (e.g., &#x60;urn:li:share:7429218977714745345&#x60;) is used automatically. For third-party posts, pass either the full activity URN (e.g., &#x60;urn:li:activity:7422459067685855232&#x60;) or the raw numeric activity ID from the LinkedIn URL (automatically wrapped as &#x60;urn:li:activity:&#x60;). Note: LinkedIn post URLs use activity IDs (&#x60;linkedin.com/feed/update/urn:li:activity:XXXX&#x60;).  (required)
    * @param accountId  (required)
@@ -344,7 +344,7 @@ public class CommentsApi {
   }
 
   /**
-   * Get comments for a post
+   * Get post comments
    * Fetch comments for a specific post. Requires accountId query parameter.
    * @param postId The post identifier. Accepts a Late post ID (MongoDB ObjectId) which is automatically resolved to the platform-specific post ID, or a platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID, YouTube video ID).  **LinkedIn:** For your own posts, the full URN stored in Late (e.g., &#x60;urn:li:share:7429218977714745345&#x60;) is used automatically. For third-party posts, pass either the full activity URN (e.g., &#x60;urn:li:activity:7422459067685855232&#x60;) or the raw numeric activity ID from the LinkedIn URL (automatically wrapped as &#x60;urn:li:activity:&#x60;). Note: LinkedIn post URLs use activity IDs (&#x60;linkedin.com/feed/update/urn:li:activity:XXXX&#x60;).  (required)
    * @param accountId  (required)
@@ -362,7 +362,7 @@ public class CommentsApi {
   }
 
   /**
-   * Get comments for a post
+   * Get post comments
    * Fetch comments for a specific post. Requires accountId query parameter.
    * @param postId The post identifier. Accepts a Late post ID (MongoDB ObjectId) which is automatically resolved to the platform-specific post ID, or a platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID, YouTube video ID).  **LinkedIn:** For your own posts, the full URN stored in Late (e.g., &#x60;urn:li:share:7429218977714745345&#x60;) is used automatically. For third-party posts, pass either the full activity URN (e.g., &#x60;urn:li:activity:7422459067685855232&#x60;) or the raw numeric activity ID from the LinkedIn URL (automatically wrapped as &#x60;urn:li:activity:&#x60;). Note: LinkedIn post URLs use activity IDs (&#x60;linkedin.com/feed/update/urn:li:activity:XXXX&#x60;).  (required)
    * @param accountId  (required)
@@ -378,7 +378,7 @@ public class CommentsApi {
   }
 
   /**
-   * Get comments for a post
+   * Get post comments
    * Fetch comments for a specific post. Requires accountId query parameter.
    * @param postId The post identifier. Accepts a Late post ID (MongoDB ObjectId) which is automatically resolved to the platform-specific post ID, or a platform-specific post ID directly (e.g. tweet ID, Facebook Graph ID, YouTube video ID).  **LinkedIn:** For your own posts, the full URN stored in Late (e.g., &#x60;urn:li:share:7429218977714745345&#x60;) is used automatically. For third-party posts, pass either the full activity URN (e.g., &#x60;urn:li:activity:7422459067685855232&#x60;) or the raw numeric activity ID from the LinkedIn URL (automatically wrapped as &#x60;urn:li:activity:&#x60;). Note: LinkedIn post URLs use activity IDs (&#x60;linkedin.com/feed/update/urn:li:activity:XXXX&#x60;).  (required)
    * @param accountId  (required)
@@ -493,7 +493,7 @@ public class CommentsApi {
   }
 
   /**
-   * Hide a comment
+   * Hide comment
    * Hide a comment on a post. Supported by Facebook, Instagram, and Threads. Hidden comments are only visible to the commenter and page admin. 
    * @param postId  (required)
    * @param commentId  (required)
@@ -506,7 +506,7 @@ public class CommentsApi {
   }
 
   /**
-   * Hide a comment
+   * Hide comment
    * Hide a comment on a post. Supported by Facebook, Instagram, and Threads. Hidden comments are only visible to the commenter and page admin. 
    * @param postId  (required)
    * @param commentId  (required)
@@ -521,7 +521,7 @@ public class CommentsApi {
   }
 
   /**
-   * Hide a comment
+   * Hide comment
    * Hide a comment on a post. Supported by Facebook, Instagram, and Threads. Hidden comments are only visible to the commenter and page admin. 
    * @param postId  (required)
    * @param commentId  (required)
@@ -534,7 +534,7 @@ public class CommentsApi {
   }
 
   /**
-   * Hide a comment
+   * Hide comment
    * Hide a comment on a post. Supported by Facebook, Instagram, and Threads. Hidden comments are only visible to the commenter and page admin. 
    * @param postId  (required)
    * @param commentId  (required)
@@ -634,7 +634,7 @@ public class CommentsApi {
   }
 
   /**
-   * Like a comment
+   * Like comment
    * Like or upvote a comment on a post.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;cid&#x60; (content identifier) is required in the request body. 
    * @param postId  (required)
    * @param commentId  (required)
@@ -647,7 +647,7 @@ public class CommentsApi {
   }
 
   /**
-   * Like a comment
+   * Like comment
    * Like or upvote a comment on a post.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;cid&#x60; (content identifier) is required in the request body. 
    * @param postId  (required)
    * @param commentId  (required)
@@ -662,7 +662,7 @@ public class CommentsApi {
   }
 
   /**
-   * Like a comment
+   * Like comment
    * Like or upvote a comment on a post.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;cid&#x60; (content identifier) is required in the request body. 
    * @param postId  (required)
    * @param commentId  (required)
@@ -675,7 +675,7 @@ public class CommentsApi {
   }
 
   /**
-   * Like a comment
+   * Like comment
    * Like or upvote a comment on a post.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;cid&#x60; (content identifier) is required in the request body. 
    * @param postId  (required)
    * @param commentId  (required)
@@ -775,7 +775,7 @@ public class CommentsApi {
   }
 
   /**
-   * List posts with comments across all accounts
+   * List commented posts
    * Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Threads, YouTube, LinkedIn, Reddit, TikTok (write-only) 
    * @param profileId Filter by profile ID (optional)
    * @param platform Filter by platform (optional)
@@ -794,7 +794,7 @@ public class CommentsApi {
   }
 
   /**
-   * List posts with comments across all accounts
+   * List commented posts
    * Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Threads, YouTube, LinkedIn, Reddit, TikTok (write-only) 
    * @param profileId Filter by profile ID (optional)
    * @param platform Filter by platform (optional)
@@ -815,7 +815,7 @@ public class CommentsApi {
   }
 
   /**
-   * List posts with comments across all accounts
+   * List commented posts
    * Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Threads, YouTube, LinkedIn, Reddit, TikTok (write-only) 
    * @param profileId Filter by profile ID (optional)
    * @param platform Filter by platform (optional)
@@ -834,7 +834,7 @@ public class CommentsApi {
   }
 
   /**
-   * List posts with comments across all accounts
+   * List commented posts
    * Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Threads, YouTube, LinkedIn, Reddit, TikTok (write-only) 
    * @param profileId Filter by profile ID (optional)
    * @param platform Filter by platform (optional)
@@ -951,7 +951,7 @@ public class CommentsApi {
   }
 
   /**
-   * Reply to a post or comment
+   * Reply to comment
    * Post a reply to a post or specific comment. Requires accountId in request body.
    * @param postId The post identifier. Accepts a Late post ID or a platform-specific post ID.  **LinkedIn:** For third-party posts, pass the full activity URN (e.g., &#x60;urn:li:activity:7422459067685855232&#x60;) or the raw numeric activity ID from the URL.  (required)
    * @param replyToInboxPostRequest  (required)
@@ -963,7 +963,7 @@ public class CommentsApi {
   }
 
   /**
-   * Reply to a post or comment
+   * Reply to comment
    * Post a reply to a post or specific comment. Requires accountId in request body.
    * @param postId The post identifier. Accepts a Late post ID or a platform-specific post ID.  **LinkedIn:** For third-party posts, pass the full activity URN (e.g., &#x60;urn:li:activity:7422459067685855232&#x60;) or the raw numeric activity ID from the URL.  (required)
    * @param replyToInboxPostRequest  (required)
@@ -977,7 +977,7 @@ public class CommentsApi {
   }
 
   /**
-   * Reply to a post or comment
+   * Reply to comment
    * Post a reply to a post or specific comment. Requires accountId in request body.
    * @param postId The post identifier. Accepts a Late post ID or a platform-specific post ID.  **LinkedIn:** For third-party posts, pass the full activity URN (e.g., &#x60;urn:li:activity:7422459067685855232&#x60;) or the raw numeric activity ID from the URL.  (required)
    * @param replyToInboxPostRequest  (required)
@@ -989,7 +989,7 @@ public class CommentsApi {
   }
 
   /**
-   * Reply to a post or comment
+   * Reply to comment
    * Post a reply to a post or specific comment. Requires accountId in request body.
    * @param postId The post identifier. Accepts a Late post ID or a platform-specific post ID.  **LinkedIn:** For third-party posts, pass the full activity URN (e.g., &#x60;urn:li:activity:7422459067685855232&#x60;) or the raw numeric activity ID from the URL.  (required)
    * @param replyToInboxPostRequest  (required)
@@ -1083,7 +1083,7 @@ public class CommentsApi {
   }
 
   /**
-   * Send private reply to comment author
+   * Send private reply
    * Send a private direct message to the author of a comment on your post. This is useful for handling customer inquiries or sensitive matters privately.  **Supported platforms:** Instagram, Facebook  **Limitations:** - Only ONE private reply per comment (platform API restriction) - Must be sent within 7 days of the comment being posted - Only works for comments on posts owned by the connected account - Text only (no media attachments) - Instagram: message goes to the user&#39;s Inbox (if they follow you) or Message Requests (if they don&#39;t). Requires &#x60;instagram_business_manage_messages&#x60; permission. - Facebook: message opens a Messenger conversation with the commenter. Requires &#x60;pages_messaging&#x60; permission.  **Note:** Both permissions are already included in Late&#39;s OAuth flow. This does not create a conversation thread until the user replies back. 
    * @param postId The media/post ID (Instagram media ID or Facebook post ID) (required)
    * @param commentId The comment ID to send a private reply to (required)
@@ -1096,7 +1096,7 @@ public class CommentsApi {
   }
 
   /**
-   * Send private reply to comment author
+   * Send private reply
    * Send a private direct message to the author of a comment on your post. This is useful for handling customer inquiries or sensitive matters privately.  **Supported platforms:** Instagram, Facebook  **Limitations:** - Only ONE private reply per comment (platform API restriction) - Must be sent within 7 days of the comment being posted - Only works for comments on posts owned by the connected account - Text only (no media attachments) - Instagram: message goes to the user&#39;s Inbox (if they follow you) or Message Requests (if they don&#39;t). Requires &#x60;instagram_business_manage_messages&#x60; permission. - Facebook: message opens a Messenger conversation with the commenter. Requires &#x60;pages_messaging&#x60; permission.  **Note:** Both permissions are already included in Late&#39;s OAuth flow. This does not create a conversation thread until the user replies back. 
    * @param postId The media/post ID (Instagram media ID or Facebook post ID) (required)
    * @param commentId The comment ID to send a private reply to (required)
@@ -1111,7 +1111,7 @@ public class CommentsApi {
   }
 
   /**
-   * Send private reply to comment author
+   * Send private reply
    * Send a private direct message to the author of a comment on your post. This is useful for handling customer inquiries or sensitive matters privately.  **Supported platforms:** Instagram, Facebook  **Limitations:** - Only ONE private reply per comment (platform API restriction) - Must be sent within 7 days of the comment being posted - Only works for comments on posts owned by the connected account - Text only (no media attachments) - Instagram: message goes to the user&#39;s Inbox (if they follow you) or Message Requests (if they don&#39;t). Requires &#x60;instagram_business_manage_messages&#x60; permission. - Facebook: message opens a Messenger conversation with the commenter. Requires &#x60;pages_messaging&#x60; permission.  **Note:** Both permissions are already included in Late&#39;s OAuth flow. This does not create a conversation thread until the user replies back. 
    * @param postId The media/post ID (Instagram media ID or Facebook post ID) (required)
    * @param commentId The comment ID to send a private reply to (required)
@@ -1124,7 +1124,7 @@ public class CommentsApi {
   }
 
   /**
-   * Send private reply to comment author
+   * Send private reply
    * Send a private direct message to the author of a comment on your post. This is useful for handling customer inquiries or sensitive matters privately.  **Supported platforms:** Instagram, Facebook  **Limitations:** - Only ONE private reply per comment (platform API restriction) - Must be sent within 7 days of the comment being posted - Only works for comments on posts owned by the connected account - Text only (no media attachments) - Instagram: message goes to the user&#39;s Inbox (if they follow you) or Message Requests (if they don&#39;t). Requires &#x60;instagram_business_manage_messages&#x60; permission. - Facebook: message opens a Messenger conversation with the commenter. Requires &#x60;pages_messaging&#x60; permission.  **Note:** Both permissions are already included in Late&#39;s OAuth flow. This does not create a conversation thread until the user replies back. 
    * @param postId The media/post ID (Instagram media ID or Facebook post ID) (required)
    * @param commentId The comment ID to send a private reply to (required)
@@ -1224,7 +1224,7 @@ public class CommentsApi {
   }
 
   /**
-   * Unhide a comment
+   * Unhide comment
    * Unhide a previously hidden comment. Supported by Facebook, Instagram, and Threads. 
    * @param postId  (required)
    * @param commentId  (required)
@@ -1237,7 +1237,7 @@ public class CommentsApi {
   }
 
   /**
-   * Unhide a comment
+   * Unhide comment
    * Unhide a previously hidden comment. Supported by Facebook, Instagram, and Threads. 
    * @param postId  (required)
    * @param commentId  (required)
@@ -1252,7 +1252,7 @@ public class CommentsApi {
   }
 
   /**
-   * Unhide a comment
+   * Unhide comment
    * Unhide a previously hidden comment. Supported by Facebook, Instagram, and Threads. 
    * @param postId  (required)
    * @param commentId  (required)
@@ -1265,7 +1265,7 @@ public class CommentsApi {
   }
 
   /**
-   * Unhide a comment
+   * Unhide comment
    * Unhide a previously hidden comment. Supported by Facebook, Instagram, and Threads. 
    * @param postId  (required)
    * @param commentId  (required)
@@ -1374,7 +1374,7 @@ public class CommentsApi {
   }
 
   /**
-   * Unlike a comment
+   * Unlike comment
    * Remove a like from a comment.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;likeUri&#x60; query parameter is required. 
    * @param postId  (required)
    * @param commentId  (required)
@@ -1388,7 +1388,7 @@ public class CommentsApi {
   }
 
   /**
-   * Unlike a comment
+   * Unlike comment
    * Remove a like from a comment.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;likeUri&#x60; query parameter is required. 
    * @param postId  (required)
    * @param commentId  (required)
@@ -1404,7 +1404,7 @@ public class CommentsApi {
   }
 
   /**
-   * Unlike a comment
+   * Unlike comment
    * Remove a like from a comment.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;likeUri&#x60; query parameter is required. 
    * @param postId  (required)
    * @param commentId  (required)
@@ -1418,7 +1418,7 @@ public class CommentsApi {
   }
 
   /**
-   * Unlike a comment
+   * Unlike comment
    * Remove a like from a comment.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;likeUri&#x60; query parameter is required. 
    * @param postId  (required)
    * @param commentId  (required)

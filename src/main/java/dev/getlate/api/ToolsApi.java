@@ -59,7 +59,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T07:51:32.891397159Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ToolsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -177,7 +177,7 @@ public class ToolsApi {
   }
 
   /**
-   * Check Instagram hashtags for bans
+   * Check Instagram hashtag bans
    * Check if Instagram hashtags are banned, restricted, or safe to use.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
    * @param checkInstagramHashtagsRequest  (required)
    * @return CheckInstagramHashtags200Response
@@ -188,7 +188,7 @@ public class ToolsApi {
   }
 
   /**
-   * Check Instagram hashtags for bans
+   * Check Instagram hashtag bans
    * Check if Instagram hashtags are banned, restricted, or safe to use.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
    * @param checkInstagramHashtagsRequest  (required)
    * @param headers Optional headers to include in the request
@@ -201,7 +201,7 @@ public class ToolsApi {
   }
 
   /**
-   * Check Instagram hashtags for bans
+   * Check Instagram hashtag bans
    * Check if Instagram hashtags are banned, restricted, or safe to use.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
    * @param checkInstagramHashtagsRequest  (required)
    * @return ApiResponse&lt;CheckInstagramHashtags200Response&gt;
@@ -212,7 +212,7 @@ public class ToolsApi {
   }
 
   /**
-   * Check Instagram hashtags for bans
+   * Check Instagram hashtag bans
    * Check if Instagram hashtags are banned, restricted, or safe to use.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
    * @param checkInstagramHashtagsRequest  (required)
    * @param headers Optional headers to include in the request
@@ -300,7 +300,7 @@ public class ToolsApi {
   }
 
   /**
-   * Download Bluesky video
+   * Download Bluesky media
    * Download videos from Bluesky posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
    * @param url Bluesky post URL (required)
    * @return DownloadBlueskyMedia200Response
@@ -311,7 +311,7 @@ public class ToolsApi {
   }
 
   /**
-   * Download Bluesky video
+   * Download Bluesky media
    * Download videos from Bluesky posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
    * @param url Bluesky post URL (required)
    * @param headers Optional headers to include in the request
@@ -324,7 +324,7 @@ public class ToolsApi {
   }
 
   /**
-   * Download Bluesky video
+   * Download Bluesky media
    * Download videos from Bluesky posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
    * @param url Bluesky post URL (required)
    * @return ApiResponse&lt;DownloadBlueskyMedia200Response&gt;
@@ -335,7 +335,7 @@ public class ToolsApi {
   }
 
   /**
-   * Download Bluesky video
+   * Download Bluesky media
    * Download videos from Bluesky posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
    * @param url Bluesky post URL (required)
    * @param headers Optional headers to include in the request
@@ -564,7 +564,7 @@ public class ToolsApi {
   }
 
   /**
-   * Download Instagram reel or post
+   * Download Instagram media
    * Download Instagram reels, posts, or photos.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
    * @param url Instagram reel or post URL (required)
    * @return DownloadInstagramMedia200Response
@@ -575,7 +575,7 @@ public class ToolsApi {
   }
 
   /**
-   * Download Instagram reel or post
+   * Download Instagram media
    * Download Instagram reels, posts, or photos.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
    * @param url Instagram reel or post URL (required)
    * @param headers Optional headers to include in the request
@@ -588,7 +588,7 @@ public class ToolsApi {
   }
 
   /**
-   * Download Instagram reel or post
+   * Download Instagram media
    * Download Instagram reels, posts, or photos.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
    * @param url Instagram reel or post URL (required)
    * @return ApiResponse&lt;DownloadInstagramMedia200Response&gt;
@@ -599,7 +599,7 @@ public class ToolsApi {
   }
 
   /**
-   * Download Instagram reel or post
+   * Download Instagram media
    * Download Instagram reels, posts, or photos.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
    * @param url Instagram reel or post URL (required)
    * @param headers Optional headers to include in the request
@@ -972,7 +972,7 @@ public class ToolsApi {
   }
 
   /**
-   * Download Twitter/X video
+   * Download Twitter/X media
    * Download videos from Twitter/X posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
    * @param url Twitter/X post URL (required)
    * @param action  (optional, default to download)
@@ -985,7 +985,7 @@ public class ToolsApi {
   }
 
   /**
-   * Download Twitter/X video
+   * Download Twitter/X media
    * Download videos from Twitter/X posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
    * @param url Twitter/X post URL (required)
    * @param action  (optional, default to download)
@@ -1000,7 +1000,7 @@ public class ToolsApi {
   }
 
   /**
-   * Download Twitter/X video
+   * Download Twitter/X media
    * Download videos from Twitter/X posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
    * @param url Twitter/X post URL (required)
    * @param action  (optional, default to download)
@@ -1013,7 +1013,7 @@ public class ToolsApi {
   }
 
   /**
-   * Download Twitter/X video
+   * Download Twitter/X media
    * Download videos from Twitter/X posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
    * @param url Twitter/X post URL (required)
    * @param action  (optional, default to download)
@@ -1116,7 +1116,7 @@ public class ToolsApi {
   }
 
   /**
-   * Download YouTube video or audio
+   * Download YouTube video
    * Download YouTube videos or audio. Returns available formats or direct download URL.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
    * @param url YouTube video URL or video ID (required)
    * @param action Action to perform: &#39;download&#39; returns download URL, &#39;formats&#39; lists available formats (optional, default to download)
@@ -1131,7 +1131,7 @@ public class ToolsApi {
   }
 
   /**
-   * Download YouTube video or audio
+   * Download YouTube video
    * Download YouTube videos or audio. Returns available formats or direct download URL.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
    * @param url YouTube video URL or video ID (required)
    * @param action Action to perform: &#39;download&#39; returns download URL, &#39;formats&#39; lists available formats (optional, default to download)
@@ -1148,7 +1148,7 @@ public class ToolsApi {
   }
 
   /**
-   * Download YouTube video or audio
+   * Download YouTube video
    * Download YouTube videos or audio. Returns available formats or direct download URL.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
    * @param url YouTube video URL or video ID (required)
    * @param action Action to perform: &#39;download&#39; returns download URL, &#39;formats&#39; lists available formats (optional, default to download)
@@ -1163,7 +1163,7 @@ public class ToolsApi {
   }
 
   /**
-   * Download YouTube video or audio
+   * Download YouTube video
    * Download YouTube videos or audio. Returns available formats or direct download URL.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
    * @param url YouTube video URL or video ID (required)
    * @param action Action to perform: &#39;download&#39; returns download URL, &#39;formats&#39; lists available formats (optional, default to download)
@@ -1272,7 +1272,7 @@ public class ToolsApi {
   }
 
   /**
-   * Get YouTube video transcript
+   * Get YouTube transcript
    * Extract transcript/captions from a YouTube video.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
    * @param url YouTube video URL or video ID (required)
    * @param lang Language code for transcript (optional, default to en)
@@ -1284,7 +1284,7 @@ public class ToolsApi {
   }
 
   /**
-   * Get YouTube video transcript
+   * Get YouTube transcript
    * Extract transcript/captions from a YouTube video.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
    * @param url YouTube video URL or video ID (required)
    * @param lang Language code for transcript (optional, default to en)
@@ -1298,7 +1298,7 @@ public class ToolsApi {
   }
 
   /**
-   * Get YouTube video transcript
+   * Get YouTube transcript
    * Extract transcript/captions from a YouTube video.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
    * @param url YouTube video URL or video ID (required)
    * @param lang Language code for transcript (optional, default to en)
@@ -1310,7 +1310,7 @@ public class ToolsApi {
   }
 
   /**
-   * Get YouTube video transcript
+   * Get YouTube transcript
    * Extract transcript/captions from a YouTube video.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
    * @param url YouTube video URL or video ID (required)
    * @param lang Language code for transcript (optional, default to en)

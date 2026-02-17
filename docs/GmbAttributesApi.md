@@ -4,10 +4,10 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**getGoogleBusinessAttributes**](GmbAttributesApi.md#getGoogleBusinessAttributes) | **GET** /v1/accounts/{accountId}/gmb-attributes | Get Google Business Profile location attributes |
-| [**getGoogleBusinessAttributesWithHttpInfo**](GmbAttributesApi.md#getGoogleBusinessAttributesWithHttpInfo) | **GET** /v1/accounts/{accountId}/gmb-attributes | Get Google Business Profile location attributes |
-| [**updateGoogleBusinessAttributes**](GmbAttributesApi.md#updateGoogleBusinessAttributes) | **PUT** /v1/accounts/{accountId}/gmb-attributes | Update Google Business Profile location attributes |
-| [**updateGoogleBusinessAttributesWithHttpInfo**](GmbAttributesApi.md#updateGoogleBusinessAttributesWithHttpInfo) | **PUT** /v1/accounts/{accountId}/gmb-attributes | Update Google Business Profile location attributes |
+| [**getGoogleBusinessAttributes**](GmbAttributesApi.md#getGoogleBusinessAttributes) | **GET** /v1/accounts/{accountId}/gmb-attributes | Get attributes |
+| [**getGoogleBusinessAttributesWithHttpInfo**](GmbAttributesApi.md#getGoogleBusinessAttributesWithHttpInfo) | **GET** /v1/accounts/{accountId}/gmb-attributes | Get attributes |
+| [**updateGoogleBusinessAttributes**](GmbAttributesApi.md#updateGoogleBusinessAttributes) | **PUT** /v1/accounts/{accountId}/gmb-attributes | Update attributes |
+| [**updateGoogleBusinessAttributesWithHttpInfo**](GmbAttributesApi.md#updateGoogleBusinessAttributesWithHttpInfo) | **PUT** /v1/accounts/{accountId}/gmb-attributes | Update attributes |
 
 
 
@@ -15,7 +15,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 > GetGoogleBusinessAttributes200Response getGoogleBusinessAttributes(accountId)
 
-Get Google Business Profile location attributes
+Get attributes
 
 Fetches location attributes such as amenities, services, and accessibility features.  Common attributes for restaurants include: - Dining options: has_dine_in, has_takeout, has_delivery - Amenities: has_outdoor_seating, has_wifi, has_parking - Accessibility: has_wheelchair_accessible_entrance - Payments: pay_credit_card_types_accepted  Available attributes vary by business category. 
 
@@ -87,7 +87,7 @@ public class Example {
 
 > ApiResponse<GetGoogleBusinessAttributes200Response> getGoogleBusinessAttributes getGoogleBusinessAttributesWithHttpInfo(accountId)
 
-Get Google Business Profile location attributes
+Get attributes
 
 Fetches location attributes such as amenities, services, and accessibility features.  Common attributes for restaurants include: - Dining options: has_dine_in, has_takeout, has_delivery - Amenities: has_outdoor_seating, has_wifi, has_parking - Accessibility: has_wheelchair_accessible_entrance - Payments: pay_credit_card_types_accepted  Available attributes vary by business category. 
 
@@ -163,7 +163,7 @@ ApiResponse<[**GetGoogleBusinessAttributes200Response**](GetGoogleBusinessAttrib
 
 > UpdateGoogleBusinessAttributes200Response updateGoogleBusinessAttributes(accountId, updateGoogleBusinessAttributesRequest)
 
-Update Google Business Profile location attributes
+Update attributes
 
 Updates location attributes (amenities, services, etc.).  The &#x60;attributeMask&#x60; specifies which attributes to update (comma-separated). 
 
@@ -237,7 +237,7 @@ public class Example {
 
 > ApiResponse<UpdateGoogleBusinessAttributes200Response> updateGoogleBusinessAttributes updateGoogleBusinessAttributesWithHttpInfo(accountId, updateGoogleBusinessAttributesRequest)
 
-Update Google Business Profile location attributes
+Update attributes
 
 Updates location attributes (amenities, services, etc.).  The &#x60;attributeMask&#x60; specifies which attributes to update (comma-separated). 
 

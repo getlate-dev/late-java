@@ -52,7 +52,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T07:51:32.891397159Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AccountGroupsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -170,7 +170,7 @@ public class AccountGroupsApi {
   }
 
   /**
-   * Create a new account group
+   * Create group
    * 
    * @param createAccountGroupRequest  (required)
    * @return CreateAccountGroup201Response
@@ -181,7 +181,7 @@ public class AccountGroupsApi {
   }
 
   /**
-   * Create a new account group
+   * Create group
    * 
    * @param createAccountGroupRequest  (required)
    * @param headers Optional headers to include in the request
@@ -194,7 +194,7 @@ public class AccountGroupsApi {
   }
 
   /**
-   * Create a new account group
+   * Create group
    * 
    * @param createAccountGroupRequest  (required)
    * @return ApiResponse&lt;CreateAccountGroup201Response&gt;
@@ -205,7 +205,7 @@ public class AccountGroupsApi {
   }
 
   /**
-   * Create a new account group
+   * Create group
    * 
    * @param createAccountGroupRequest  (required)
    * @param headers Optional headers to include in the request
@@ -293,7 +293,7 @@ public class AccountGroupsApi {
   }
 
   /**
-   * Delete an account group
+   * Delete group
    * 
    * @param groupId  (required)
    * @return DeleteAccountGroup200Response
@@ -304,7 +304,7 @@ public class AccountGroupsApi {
   }
 
   /**
-   * Delete an account group
+   * Delete group
    * 
    * @param groupId  (required)
    * @param headers Optional headers to include in the request
@@ -317,7 +317,7 @@ public class AccountGroupsApi {
   }
 
   /**
-   * Delete an account group
+   * Delete group
    * 
    * @param groupId  (required)
    * @return ApiResponse&lt;DeleteAccountGroup200Response&gt;
@@ -328,7 +328,7 @@ public class AccountGroupsApi {
   }
 
   /**
-   * Delete an account group
+   * Delete group
    * 
    * @param groupId  (required)
    * @param headers Optional headers to include in the request
@@ -411,7 +411,7 @@ public class AccountGroupsApi {
   }
 
   /**
-   * List account groups for the authenticated user
+   * List groups
    * 
    * @return ListAccountGroups200Response
    * @throws ApiException if fails to make API call
@@ -421,7 +421,7 @@ public class AccountGroupsApi {
   }
 
   /**
-   * List account groups for the authenticated user
+   * List groups
    * 
    * @param headers Optional headers to include in the request
    * @return ListAccountGroups200Response
@@ -433,7 +433,7 @@ public class AccountGroupsApi {
   }
 
   /**
-   * List account groups for the authenticated user
+   * List groups
    * 
    * @return ApiResponse&lt;ListAccountGroups200Response&gt;
    * @throws ApiException if fails to make API call
@@ -443,7 +443,7 @@ public class AccountGroupsApi {
   }
 
   /**
-   * List account groups for the authenticated user
+   * List groups
    * 
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;ListAccountGroups200Response&gt;
@@ -520,7 +520,7 @@ public class AccountGroupsApi {
   }
 
   /**
-   * Update an account group
+   * Update group
    * 
    * @param groupId  (required)
    * @param updateAccountGroupRequest  (required)
@@ -532,7 +532,7 @@ public class AccountGroupsApi {
   }
 
   /**
-   * Update an account group
+   * Update group
    * 
    * @param groupId  (required)
    * @param updateAccountGroupRequest  (required)
@@ -546,7 +546,7 @@ public class AccountGroupsApi {
   }
 
   /**
-   * Update an account group
+   * Update group
    * 
    * @param groupId  (required)
    * @param updateAccountGroupRequest  (required)
@@ -558,7 +558,7 @@ public class AccountGroupsApi {
   }
 
   /**
-   * Update an account group
+   * Update group
    * 
    * @param groupId  (required)
    * @param updateAccountGroupRequest  (required)

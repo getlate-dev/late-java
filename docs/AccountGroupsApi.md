@@ -4,14 +4,14 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createAccountGroup**](AccountGroupsApi.md#createAccountGroup) | **POST** /v1/account-groups | Create a new account group |
-| [**createAccountGroupWithHttpInfo**](AccountGroupsApi.md#createAccountGroupWithHttpInfo) | **POST** /v1/account-groups | Create a new account group |
-| [**deleteAccountGroup**](AccountGroupsApi.md#deleteAccountGroup) | **DELETE** /v1/account-groups/{groupId} | Delete an account group |
-| [**deleteAccountGroupWithHttpInfo**](AccountGroupsApi.md#deleteAccountGroupWithHttpInfo) | **DELETE** /v1/account-groups/{groupId} | Delete an account group |
-| [**listAccountGroups**](AccountGroupsApi.md#listAccountGroups) | **GET** /v1/account-groups | List account groups for the authenticated user |
-| [**listAccountGroupsWithHttpInfo**](AccountGroupsApi.md#listAccountGroupsWithHttpInfo) | **GET** /v1/account-groups | List account groups for the authenticated user |
-| [**updateAccountGroup**](AccountGroupsApi.md#updateAccountGroup) | **PUT** /v1/account-groups/{groupId} | Update an account group |
-| [**updateAccountGroupWithHttpInfo**](AccountGroupsApi.md#updateAccountGroupWithHttpInfo) | **PUT** /v1/account-groups/{groupId} | Update an account group |
+| [**createAccountGroup**](AccountGroupsApi.md#createAccountGroup) | **POST** /v1/account-groups | Create group |
+| [**createAccountGroupWithHttpInfo**](AccountGroupsApi.md#createAccountGroupWithHttpInfo) | **POST** /v1/account-groups | Create group |
+| [**deleteAccountGroup**](AccountGroupsApi.md#deleteAccountGroup) | **DELETE** /v1/account-groups/{groupId} | Delete group |
+| [**deleteAccountGroupWithHttpInfo**](AccountGroupsApi.md#deleteAccountGroupWithHttpInfo) | **DELETE** /v1/account-groups/{groupId} | Delete group |
+| [**listAccountGroups**](AccountGroupsApi.md#listAccountGroups) | **GET** /v1/account-groups | List groups |
+| [**listAccountGroupsWithHttpInfo**](AccountGroupsApi.md#listAccountGroupsWithHttpInfo) | **GET** /v1/account-groups | List groups |
+| [**updateAccountGroup**](AccountGroupsApi.md#updateAccountGroup) | **PUT** /v1/account-groups/{groupId} | Update group |
+| [**updateAccountGroupWithHttpInfo**](AccountGroupsApi.md#updateAccountGroupWithHttpInfo) | **PUT** /v1/account-groups/{groupId} | Update group |
 
 
 
@@ -19,7 +19,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 > CreateAccountGroup201Response createAccountGroup(createAccountGroupRequest)
 
-Create a new account group
+Create group
 
 ### Example
 
@@ -90,7 +90,7 @@ public class Example {
 
 > ApiResponse<CreateAccountGroup201Response> createAccountGroup createAccountGroupWithHttpInfo(createAccountGroupRequest)
 
-Create a new account group
+Create group
 
 ### Example
 
@@ -165,7 +165,7 @@ ApiResponse<[**CreateAccountGroup201Response**](CreateAccountGroup201Response.md
 
 > DeleteAccountGroup200Response deleteAccountGroup(groupId)
 
-Delete an account group
+Delete group
 
 ### Example
 
@@ -235,7 +235,7 @@ public class Example {
 
 > ApiResponse<DeleteAccountGroup200Response> deleteAccountGroup deleteAccountGroupWithHttpInfo(groupId)
 
-Delete an account group
+Delete group
 
 ### Example
 
@@ -309,7 +309,7 @@ ApiResponse<[**DeleteAccountGroup200Response**](DeleteAccountGroup200Response.md
 
 > ListAccountGroups200Response listAccountGroups()
 
-List account groups for the authenticated user
+List groups
 
 ### Example
 
@@ -374,7 +374,7 @@ This endpoint does not need any parameter.
 
 > ApiResponse<ListAccountGroups200Response> listAccountGroups listAccountGroupsWithHttpInfo()
 
-List account groups for the authenticated user
+List groups
 
 ### Example
 
@@ -443,7 +443,7 @@ ApiResponse<[**ListAccountGroups200Response**](ListAccountGroups200Response.md)>
 
 > UpdateAccountGroup200Response updateAccountGroup(groupId, updateAccountGroupRequest)
 
-Update an account group
+Update group
 
 ### Example
 
@@ -516,7 +516,7 @@ public class Example {
 
 > ApiResponse<UpdateAccountGroup200Response> updateAccountGroup updateAccountGroupWithHttpInfo(groupId, updateAccountGroupRequest)
 
-Update an account group
+Update group
 
 ### Example
 

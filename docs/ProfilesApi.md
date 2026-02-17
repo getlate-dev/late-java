@@ -4,16 +4,16 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createProfile**](ProfilesApi.md#createProfile) | **POST** /v1/profiles | Create a new profile |
-| [**createProfileWithHttpInfo**](ProfilesApi.md#createProfileWithHttpInfo) | **POST** /v1/profiles | Create a new profile |
-| [**deleteProfile**](ProfilesApi.md#deleteProfile) | **DELETE** /v1/profiles/{profileId} | Delete a profile (must have no connected accounts) |
-| [**deleteProfileWithHttpInfo**](ProfilesApi.md#deleteProfileWithHttpInfo) | **DELETE** /v1/profiles/{profileId} | Delete a profile (must have no connected accounts) |
-| [**getProfile**](ProfilesApi.md#getProfile) | **GET** /v1/profiles/{profileId} | Get a profile by id |
-| [**getProfileWithHttpInfo**](ProfilesApi.md#getProfileWithHttpInfo) | **GET** /v1/profiles/{profileId} | Get a profile by id |
-| [**listProfiles**](ProfilesApi.md#listProfiles) | **GET** /v1/profiles | List profiles visible to the authenticated user |
-| [**listProfilesWithHttpInfo**](ProfilesApi.md#listProfilesWithHttpInfo) | **GET** /v1/profiles | List profiles visible to the authenticated user |
-| [**updateProfile**](ProfilesApi.md#updateProfile) | **PUT** /v1/profiles/{profileId} | Update a profile |
-| [**updateProfileWithHttpInfo**](ProfilesApi.md#updateProfileWithHttpInfo) | **PUT** /v1/profiles/{profileId} | Update a profile |
+| [**createProfile**](ProfilesApi.md#createProfile) | **POST** /v1/profiles | Create profile |
+| [**createProfileWithHttpInfo**](ProfilesApi.md#createProfileWithHttpInfo) | **POST** /v1/profiles | Create profile |
+| [**deleteProfile**](ProfilesApi.md#deleteProfile) | **DELETE** /v1/profiles/{profileId} | Delete profile |
+| [**deleteProfileWithHttpInfo**](ProfilesApi.md#deleteProfileWithHttpInfo) | **DELETE** /v1/profiles/{profileId} | Delete profile |
+| [**getProfile**](ProfilesApi.md#getProfile) | **GET** /v1/profiles/{profileId} | Get profile |
+| [**getProfileWithHttpInfo**](ProfilesApi.md#getProfileWithHttpInfo) | **GET** /v1/profiles/{profileId} | Get profile |
+| [**listProfiles**](ProfilesApi.md#listProfiles) | **GET** /v1/profiles | List profiles |
+| [**listProfilesWithHttpInfo**](ProfilesApi.md#listProfilesWithHttpInfo) | **GET** /v1/profiles | List profiles |
+| [**updateProfile**](ProfilesApi.md#updateProfile) | **PUT** /v1/profiles/{profileId} | Update profile |
+| [**updateProfileWithHttpInfo**](ProfilesApi.md#updateProfileWithHttpInfo) | **PUT** /v1/profiles/{profileId} | Update profile |
 
 
 
@@ -21,7 +21,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 > ProfileCreateResponse createProfile(createProfileRequest)
 
-Create a new profile
+Create profile
 
 ### Example
 
@@ -92,7 +92,7 @@ public class Example {
 
 > ApiResponse<ProfileCreateResponse> createProfile createProfileWithHttpInfo(createProfileRequest)
 
-Create a new profile
+Create profile
 
 ### Example
 
@@ -167,7 +167,7 @@ ApiResponse<[**ProfileCreateResponse**](ProfileCreateResponse.md)>
 
 > DeleteAccountGroup200Response deleteProfile(profileId)
 
-Delete a profile (must have no connected accounts)
+Delete profile
 
 ### Example
 
@@ -239,7 +239,7 @@ public class Example {
 
 > ApiResponse<DeleteAccountGroup200Response> deleteProfile deleteProfileWithHttpInfo(profileId)
 
-Delete a profile (must have no connected accounts)
+Delete profile
 
 ### Example
 
@@ -315,7 +315,7 @@ ApiResponse<[**DeleteAccountGroup200Response**](DeleteAccountGroup200Response.md
 
 > GetProfile200Response getProfile(profileId)
 
-Get a profile by id
+Get profile
 
 ### Example
 
@@ -385,7 +385,7 @@ public class Example {
 
 > ApiResponse<GetProfile200Response> getProfile getProfileWithHttpInfo(profileId)
 
-Get a profile by id
+Get profile
 
 ### Example
 
@@ -459,7 +459,7 @@ ApiResponse<[**GetProfile200Response**](GetProfile200Response.md)>
 
 > ProfilesListResponse listProfiles(includeOverLimit)
 
-List profiles visible to the authenticated user
+List profiles
 
 Returns profiles within the user&#39;s plan limit. Profiles are sorted by creation date (oldest first). Use &#x60;includeOverLimit&#x3D;true&#x60; to include profiles that exceed the plan limit (for management/deletion purposes). 
 
@@ -530,7 +530,7 @@ public class Example {
 
 > ApiResponse<ProfilesListResponse> listProfiles listProfilesWithHttpInfo(includeOverLimit)
 
-List profiles visible to the authenticated user
+List profiles
 
 Returns profiles within the user&#39;s plan limit. Profiles are sorted by creation date (oldest first). Use &#x60;includeOverLimit&#x3D;true&#x60; to include profiles that exceed the plan limit (for management/deletion purposes). 
 
@@ -605,7 +605,7 @@ ApiResponse<[**ProfilesListResponse**](ProfilesListResponse.md)>
 
 > UpdateProfile200Response updateProfile(profileId, updateProfileRequest)
 
-Update a profile
+Update profile
 
 ### Example
 
@@ -677,7 +677,7 @@ public class Example {
 
 > ApiResponse<UpdateProfile200Response> updateProfile updateProfileWithHttpInfo(profileId, updateProfileRequest)
 
-Update a profile
+Update profile
 
 ### Example
 

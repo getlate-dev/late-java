@@ -4,24 +4,24 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**checkInstagramHashtags**](ToolsApi.md#checkInstagramHashtags) | **POST** /v1/tools/instagram/hashtag-checker | Check Instagram hashtags for bans |
-| [**checkInstagramHashtagsWithHttpInfo**](ToolsApi.md#checkInstagramHashtagsWithHttpInfo) | **POST** /v1/tools/instagram/hashtag-checker | Check Instagram hashtags for bans |
-| [**downloadBlueskyMedia**](ToolsApi.md#downloadBlueskyMedia) | **GET** /v1/tools/bluesky/download | Download Bluesky video |
-| [**downloadBlueskyMediaWithHttpInfo**](ToolsApi.md#downloadBlueskyMediaWithHttpInfo) | **GET** /v1/tools/bluesky/download | Download Bluesky video |
+| [**checkInstagramHashtags**](ToolsApi.md#checkInstagramHashtags) | **POST** /v1/tools/instagram/hashtag-checker | Check Instagram hashtag bans |
+| [**checkInstagramHashtagsWithHttpInfo**](ToolsApi.md#checkInstagramHashtagsWithHttpInfo) | **POST** /v1/tools/instagram/hashtag-checker | Check Instagram hashtag bans |
+| [**downloadBlueskyMedia**](ToolsApi.md#downloadBlueskyMedia) | **GET** /v1/tools/bluesky/download | Download Bluesky media |
+| [**downloadBlueskyMediaWithHttpInfo**](ToolsApi.md#downloadBlueskyMediaWithHttpInfo) | **GET** /v1/tools/bluesky/download | Download Bluesky media |
 | [**downloadFacebookVideo**](ToolsApi.md#downloadFacebookVideo) | **GET** /v1/tools/facebook/download | Download Facebook video |
 | [**downloadFacebookVideoWithHttpInfo**](ToolsApi.md#downloadFacebookVideoWithHttpInfo) | **GET** /v1/tools/facebook/download | Download Facebook video |
-| [**downloadInstagramMedia**](ToolsApi.md#downloadInstagramMedia) | **GET** /v1/tools/instagram/download | Download Instagram reel or post |
-| [**downloadInstagramMediaWithHttpInfo**](ToolsApi.md#downloadInstagramMediaWithHttpInfo) | **GET** /v1/tools/instagram/download | Download Instagram reel or post |
+| [**downloadInstagramMedia**](ToolsApi.md#downloadInstagramMedia) | **GET** /v1/tools/instagram/download | Download Instagram media |
+| [**downloadInstagramMediaWithHttpInfo**](ToolsApi.md#downloadInstagramMediaWithHttpInfo) | **GET** /v1/tools/instagram/download | Download Instagram media |
 | [**downloadLinkedInVideo**](ToolsApi.md#downloadLinkedInVideo) | **GET** /v1/tools/linkedin/download | Download LinkedIn video |
 | [**downloadLinkedInVideoWithHttpInfo**](ToolsApi.md#downloadLinkedInVideoWithHttpInfo) | **GET** /v1/tools/linkedin/download | Download LinkedIn video |
 | [**downloadTikTokVideo**](ToolsApi.md#downloadTikTokVideo) | **GET** /v1/tools/tiktok/download | Download TikTok video |
 | [**downloadTikTokVideoWithHttpInfo**](ToolsApi.md#downloadTikTokVideoWithHttpInfo) | **GET** /v1/tools/tiktok/download | Download TikTok video |
-| [**downloadTwitterMedia**](ToolsApi.md#downloadTwitterMedia) | **GET** /v1/tools/twitter/download | Download Twitter/X video |
-| [**downloadTwitterMediaWithHttpInfo**](ToolsApi.md#downloadTwitterMediaWithHttpInfo) | **GET** /v1/tools/twitter/download | Download Twitter/X video |
-| [**downloadYouTubeVideo**](ToolsApi.md#downloadYouTubeVideo) | **GET** /v1/tools/youtube/download | Download YouTube video or audio |
-| [**downloadYouTubeVideoWithHttpInfo**](ToolsApi.md#downloadYouTubeVideoWithHttpInfo) | **GET** /v1/tools/youtube/download | Download YouTube video or audio |
-| [**getYouTubeTranscript**](ToolsApi.md#getYouTubeTranscript) | **GET** /v1/tools/youtube/transcript | Get YouTube video transcript |
-| [**getYouTubeTranscriptWithHttpInfo**](ToolsApi.md#getYouTubeTranscriptWithHttpInfo) | **GET** /v1/tools/youtube/transcript | Get YouTube video transcript |
+| [**downloadTwitterMedia**](ToolsApi.md#downloadTwitterMedia) | **GET** /v1/tools/twitter/download | Download Twitter/X media |
+| [**downloadTwitterMediaWithHttpInfo**](ToolsApi.md#downloadTwitterMediaWithHttpInfo) | **GET** /v1/tools/twitter/download | Download Twitter/X media |
+| [**downloadYouTubeVideo**](ToolsApi.md#downloadYouTubeVideo) | **GET** /v1/tools/youtube/download | Download YouTube video |
+| [**downloadYouTubeVideoWithHttpInfo**](ToolsApi.md#downloadYouTubeVideoWithHttpInfo) | **GET** /v1/tools/youtube/download | Download YouTube video |
+| [**getYouTubeTranscript**](ToolsApi.md#getYouTubeTranscript) | **GET** /v1/tools/youtube/transcript | Get YouTube transcript |
+| [**getYouTubeTranscriptWithHttpInfo**](ToolsApi.md#getYouTubeTranscriptWithHttpInfo) | **GET** /v1/tools/youtube/transcript | Get YouTube transcript |
 
 
 
@@ -29,7 +29,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 > CheckInstagramHashtags200Response checkInstagramHashtags(checkInstagramHashtagsRequest)
 
-Check Instagram hashtags for bans
+Check Instagram hashtag bans
 
 Check if Instagram hashtags are banned, restricted, or safe to use.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
 
@@ -99,7 +99,7 @@ public class Example {
 
 > ApiResponse<CheckInstagramHashtags200Response> checkInstagramHashtags checkInstagramHashtagsWithHttpInfo(checkInstagramHashtagsRequest)
 
-Check Instagram hashtags for bans
+Check Instagram hashtag bans
 
 Check if Instagram hashtags are banned, restricted, or safe to use.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
 
@@ -173,7 +173,7 @@ ApiResponse<[**CheckInstagramHashtags200Response**](CheckInstagramHashtags200Res
 
 > DownloadBlueskyMedia200Response downloadBlueskyMedia(url)
 
-Download Bluesky video
+Download Bluesky media
 
 Download videos from Bluesky posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
 
@@ -243,7 +243,7 @@ public class Example {
 
 > ApiResponse<DownloadBlueskyMedia200Response> downloadBlueskyMedia downloadBlueskyMediaWithHttpInfo(url)
 
-Download Bluesky video
+Download Bluesky media
 
 Download videos from Bluesky posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
 
@@ -461,7 +461,7 @@ ApiResponse<[**DownloadFacebookVideo200Response**](DownloadFacebookVideo200Respo
 
 > DownloadInstagramMedia200Response downloadInstagramMedia(url)
 
-Download Instagram reel or post
+Download Instagram media
 
 Download Instagram reels, posts, or photos.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
 
@@ -531,7 +531,7 @@ public class Example {
 
 > ApiResponse<DownloadInstagramMedia200Response> downloadInstagramMedia downloadInstagramMediaWithHttpInfo(url)
 
-Download Instagram reel or post
+Download Instagram media
 
 Download Instagram reels, posts, or photos.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
 
@@ -901,7 +901,7 @@ ApiResponse<[**DownloadTikTokVideo200Response**](DownloadTikTokVideo200Response.
 
 > DownloadInstagramMedia200Response downloadTwitterMedia(url, action, formatId)
 
-Download Twitter/X video
+Download Twitter/X media
 
 Download videos from Twitter/X posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
 
@@ -975,7 +975,7 @@ public class Example {
 
 > ApiResponse<DownloadInstagramMedia200Response> downloadTwitterMedia downloadTwitterMediaWithHttpInfo(url, action, formatId)
 
-Download Twitter/X video
+Download Twitter/X media
 
 Download videos from Twitter/X posts.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
 
@@ -1053,7 +1053,7 @@ ApiResponse<[**DownloadInstagramMedia200Response**](DownloadInstagramMedia200Res
 
 > DownloadYouTubeVideo200Response downloadYouTubeVideo(url, action, format, quality, formatId)
 
-Download YouTube video or audio
+Download YouTube video
 
 Download YouTube videos or audio. Returns available formats or direct download URL.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
 
@@ -1134,7 +1134,7 @@ public class Example {
 
 > ApiResponse<DownloadYouTubeVideo200Response> downloadYouTubeVideo downloadYouTubeVideoWithHttpInfo(url, action, format, quality, formatId)
 
-Download YouTube video or audio
+Download YouTube video
 
 Download YouTube videos or audio. Returns available formats or direct download URL.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
 
@@ -1219,7 +1219,7 @@ ApiResponse<[**DownloadYouTubeVideo200Response**](DownloadYouTubeVideo200Respons
 
 > GetYouTubeTranscript200Response getYouTubeTranscript(url, lang)
 
-Get YouTube video transcript
+Get YouTube transcript
 
 Extract transcript/captions from a YouTube video.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
 
@@ -1292,7 +1292,7 @@ public class Example {
 
 > ApiResponse<GetYouTubeTranscript200Response> getYouTubeTranscript getYouTubeTranscriptWithHttpInfo(url, lang)
 
-Get YouTube video transcript
+Get YouTube transcript
 
 Extract transcript/captions from a YouTube video.  **Rate Limits:** Build (50/day), Accelerate (500/day), Unlimited (unlimited) 
 

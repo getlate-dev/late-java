@@ -49,7 +49,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T07:51:32.891397159Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GmbPlaceActionsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -167,7 +167,7 @@ public class GmbPlaceActionsApi {
   }
 
   /**
-   * Create a place action link (booking, ordering, reservation)
+   * Create action link
    * Creates a place action link for a location.  Available action types: - &#x60;APPOINTMENT&#x60; - Booking an appointment - &#x60;ONLINE_APPOINTMENT&#x60; - Booking an online appointment - &#x60;DINING_RESERVATION&#x60; - Making a dining reservation (OpenTable, Resy, etc.) - &#x60;FOOD_ORDERING&#x60; - Ordering food for delivery and/or takeout (DoorDash, Uber Eats, etc.) - &#x60;FOOD_DELIVERY&#x60; - Ordering food for delivery only - &#x60;FOOD_TAKEOUT&#x60; - Ordering food for takeout only - &#x60;SHOP_ONLINE&#x60; - Shopping with delivery and/or pickup 
    * @param accountId  (required)
    * @param createGoogleBusinessPlaceActionRequest  (required)
@@ -179,7 +179,7 @@ public class GmbPlaceActionsApi {
   }
 
   /**
-   * Create a place action link (booking, ordering, reservation)
+   * Create action link
    * Creates a place action link for a location.  Available action types: - &#x60;APPOINTMENT&#x60; - Booking an appointment - &#x60;ONLINE_APPOINTMENT&#x60; - Booking an online appointment - &#x60;DINING_RESERVATION&#x60; - Making a dining reservation (OpenTable, Resy, etc.) - &#x60;FOOD_ORDERING&#x60; - Ordering food for delivery and/or takeout (DoorDash, Uber Eats, etc.) - &#x60;FOOD_DELIVERY&#x60; - Ordering food for delivery only - &#x60;FOOD_TAKEOUT&#x60; - Ordering food for takeout only - &#x60;SHOP_ONLINE&#x60; - Shopping with delivery and/or pickup 
    * @param accountId  (required)
    * @param createGoogleBusinessPlaceActionRequest  (required)
@@ -193,7 +193,7 @@ public class GmbPlaceActionsApi {
   }
 
   /**
-   * Create a place action link (booking, ordering, reservation)
+   * Create action link
    * Creates a place action link for a location.  Available action types: - &#x60;APPOINTMENT&#x60; - Booking an appointment - &#x60;ONLINE_APPOINTMENT&#x60; - Booking an online appointment - &#x60;DINING_RESERVATION&#x60; - Making a dining reservation (OpenTable, Resy, etc.) - &#x60;FOOD_ORDERING&#x60; - Ordering food for delivery and/or takeout (DoorDash, Uber Eats, etc.) - &#x60;FOOD_DELIVERY&#x60; - Ordering food for delivery only - &#x60;FOOD_TAKEOUT&#x60; - Ordering food for takeout only - &#x60;SHOP_ONLINE&#x60; - Shopping with delivery and/or pickup 
    * @param accountId  (required)
    * @param createGoogleBusinessPlaceActionRequest  (required)
@@ -205,7 +205,7 @@ public class GmbPlaceActionsApi {
   }
 
   /**
-   * Create a place action link (booking, ordering, reservation)
+   * Create action link
    * Creates a place action link for a location.  Available action types: - &#x60;APPOINTMENT&#x60; - Booking an appointment - &#x60;ONLINE_APPOINTMENT&#x60; - Booking an online appointment - &#x60;DINING_RESERVATION&#x60; - Making a dining reservation (OpenTable, Resy, etc.) - &#x60;FOOD_ORDERING&#x60; - Ordering food for delivery and/or takeout (DoorDash, Uber Eats, etc.) - &#x60;FOOD_DELIVERY&#x60; - Ordering food for delivery only - &#x60;FOOD_TAKEOUT&#x60; - Ordering food for takeout only - &#x60;SHOP_ONLINE&#x60; - Shopping with delivery and/or pickup 
    * @param accountId  (required)
    * @param createGoogleBusinessPlaceActionRequest  (required)
@@ -299,7 +299,7 @@ public class GmbPlaceActionsApi {
   }
 
   /**
-   * Delete a place action link
+   * Delete action link
    * 
    * @param accountId  (required)
    * @param name The resource name of the place action link (e.g. locations/123/placeActionLinks/456) (required)
@@ -311,7 +311,7 @@ public class GmbPlaceActionsApi {
   }
 
   /**
-   * Delete a place action link
+   * Delete action link
    * 
    * @param accountId  (required)
    * @param name The resource name of the place action link (e.g. locations/123/placeActionLinks/456) (required)
@@ -325,7 +325,7 @@ public class GmbPlaceActionsApi {
   }
 
   /**
-   * Delete a place action link
+   * Delete action link
    * 
    * @param accountId  (required)
    * @param name The resource name of the place action link (e.g. locations/123/placeActionLinks/456) (required)
@@ -337,7 +337,7 @@ public class GmbPlaceActionsApi {
   }
 
   /**
-   * Delete a place action link
+   * Delete action link
    * 
    * @param accountId  (required)
    * @param name The resource name of the place action link (e.g. locations/123/placeActionLinks/456) (required)
@@ -440,7 +440,7 @@ public class GmbPlaceActionsApi {
   }
 
   /**
-   * List place action links (booking, ordering, reservations)
+   * List action links
    * Lists place action links for a Google Business Profile location.  Place actions are the booking, ordering, and reservation buttons that appear on your listing. 
    * @param accountId  (required)
    * @param pageSize  (optional, default to 100)
@@ -453,7 +453,7 @@ public class GmbPlaceActionsApi {
   }
 
   /**
-   * List place action links (booking, ordering, reservations)
+   * List action links
    * Lists place action links for a Google Business Profile location.  Place actions are the booking, ordering, and reservation buttons that appear on your listing. 
    * @param accountId  (required)
    * @param pageSize  (optional, default to 100)
@@ -468,7 +468,7 @@ public class GmbPlaceActionsApi {
   }
 
   /**
-   * List place action links (booking, ordering, reservations)
+   * List action links
    * Lists place action links for a Google Business Profile location.  Place actions are the booking, ordering, and reservation buttons that appear on your listing. 
    * @param accountId  (required)
    * @param pageSize  (optional, default to 100)
@@ -481,7 +481,7 @@ public class GmbPlaceActionsApi {
   }
 
   /**
-   * List place action links (booking, ordering, reservations)
+   * List action links
    * Lists place action links for a Google Business Profile location.  Place actions are the booking, ordering, and reservation buttons that appear on your listing. 
    * @param accountId  (required)
    * @param pageSize  (optional, default to 100)

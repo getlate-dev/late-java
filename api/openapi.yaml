@@ -237,7 +237,7 @@ paths:
           description: Daily rate limit exceeded
       security:
       - bearerAuth: []
-      summary: Download YouTube video or audio
+      summary: Download YouTube video
       tags:
       - Tools
       x-accepts:
@@ -278,7 +278,7 @@ paths:
           description: No transcript available
       security:
       - bearerAuth: []
-      summary: Get YouTube video transcript
+      summary: Get YouTube transcript
       tags:
       - Tools
       x-accepts:
@@ -309,7 +309,7 @@ paths:
           description: Success
       security:
       - bearerAuth: []
-      summary: Download Instagram reel or post
+      summary: Download Instagram media
       tags:
       - Tools
       x-accepts:
@@ -336,7 +336,7 @@ paths:
           description: Success
       security:
       - bearerAuth: []
-      summary: Check Instagram hashtags for bans
+      summary: Check Instagram hashtag bans
       tags:
       - Tools
       x-content-type: application/json
@@ -436,7 +436,7 @@ paths:
           description: Success
       security:
       - bearerAuth: []
-      summary: Download Twitter/X video
+      summary: Download Twitter/X media
       tags:
       - Tools
       x-accepts:
@@ -527,7 +527,7 @@ paths:
           description: Success
       security:
       - bearerAuth: []
-      summary: Download Bluesky video
+      summary: Download Bluesky media
       tags:
       - Tools
       x-accepts:
@@ -535,42 +535,19 @@ paths:
   /v1/analytics:
     get:
       description: |
-        Returns analytics for posts. If postId is provided, returns analytics for a single post.
-        Otherwise returns a paginated list of posts with overview stats.
+        Returns analytics for posts. With `postId`, returns a single post's analytics. Without it, returns a paginated list with overview stats.
 
-        **Important: Understanding Post IDs**
+        **Post ID types:** This endpoint returns External Post IDs by default. The `postId` parameter accepts both Late Post IDs (from `POST /v1/posts`) and External Post IDs. Late Post IDs are automatically resolved to External Post analytics. Use `latePostId` in responses to link analytics back to your original Late post, or `platformPostUrl` as a stable identifier.
 
-        This endpoint uses two types of posts:
-        - **Late Posts** - Posts scheduled/created via the Late API (e.g., via `POST /v1/posts`)
-        - **External Posts** - Posts synced from social platforms for analytics tracking
+        **List response:** Use `isExternal` to identify post origin. `isExternal: true` means synced from platform, `isExternal: false` means queried by Late post ID.
 
-        When you schedule a post via Late and it gets published, **both** records exist:
-        1. The original Late Post (returned when you created the post)
-        2. An External Post (created when we sync analytics from the platform)
+        For follower stats, use `/v1/accounts/follower-stats` instead.
 
-        **List endpoint behavior:**
-        - Returns External Post IDs (`_id` field)
-        - Use the `isExternal` field to identify post origin:
-          - `isExternal: true` - Synced from platform (may have been originally scheduled via Late)
-          - `isExternal: false` - Late-scheduled post (shown when querying by Late post ID)
+        **Platform notes:**
+        - LinkedIn personal accounts: per-post analytics only for posts published through Late (API restriction).
+        - Telegram: analytics not available (Bot API limitation).
 
-        **Single post behavior (`postId` parameter):**
-        - Accepts **both** Late Post IDs and External Post IDs
-        - If you pass a Late Post ID, the API automatically resolves it to the corresponding External Post analytics
-        - Both return the same analytics data for the same underlying social media post
-
-        **Correlating posts:** Use `latePostId` to link analytics entries back to the original post created via `POST /v1/posts`. This field contains the Late Post ID when the external post originated from Late. Alternatively, use `platformPostUrl` (e.g., `https://www.instagram.com/reel/ABC123/`) as a stable identifier.
-
-        **Note:** For follower count history and growth metrics, use the dedicated `/v1/accounts/follower-stats` endpoint.
-
-        **LinkedIn Analytics:**
-        - **Personal Accounts:** Per-post analytics available for posts published through Late. External posts cannot be synced due to LinkedIn API restrictions.
-        - **Organization Accounts:** Full analytics support including external post syncing.
-
-        **Telegram Analytics:**
-        - **Not available.** The Telegram Bot API does not provide message view counts, forwards, or engagement metrics. This is a Telegram platform limitation, not a Late limitation. View counts are only visible to channel admins in the Telegram app.
-
-        **Data Freshness:** Analytics data is cached and refreshed at most once per hour. When you call this endpoint, if the cache is older than 60 minutes, a background refresh is triggered and you'll see updated data on subsequent requests. There is no rate limit on API requests.
+        **Data freshness:** Cached and refreshed at most once per hour. Stale caches trigger a background refresh.
       operationId: getAnalytics
       parameters:
       - description: "Returns analytics for a single post. Accepts both Late Post\
@@ -790,7 +767,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
           description: Internal server error
-      summary: Unified analytics for posts
+      summary: Get post analytics
       tags:
       - Analytics
       x-accepts:
@@ -936,7 +913,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/getYouTubeDailyViews_500_response"
           description: Internal server error
-      summary: YouTube daily views breakdown
+      summary: Get YouTube daily views
       tags:
       - Analytics
       x-accepts:
@@ -966,7 +943,7 @@ paths:
           description: Groups
         "401":
           $ref: "#/components/responses/Unauthorized"
-      summary: List account groups for the authenticated user
+      summary: List groups
       tags:
       - Account Groups
       x-accepts:
@@ -1005,7 +982,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "409":
           description: Group name already exists
-      summary: Create a new account group
+      summary: Create group
       tags:
       - Account Groups
       x-content-type: application/json
@@ -1035,7 +1012,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Delete an account group
+      summary: Delete group
       tags:
       - Account Groups
       x-accepts:
@@ -1084,7 +1061,7 @@ paths:
           $ref: "#/components/responses/NotFound"
         "409":
           description: Group name already exists
-      summary: Update an account group
+      summary: Update group
       tags:
       - Account Groups
       x-content-type: application/json
@@ -1093,45 +1070,13 @@ paths:
   /v1/media/presign:
     post:
       description: |
-        Get a presigned URL to upload files directly to cloud storage. This is the recommended method for uploading files of any size, especially files larger than ~4MB.
+        Get a presigned URL to upload files directly to cloud storage. Supports files up to 5GB.
 
         **How it works:**
         1. Call this endpoint with the filename and content type
         2. Receive an `uploadUrl` (presigned) and `publicUrl`
         3. PUT your file directly to the `uploadUrl`
         4. Use the `publicUrl` in your posts
-
-        **Benefits:**
-        - Supports files up to 5GB
-        - Files upload directly to storage (faster, no server bottleneck)
-        - No 413 errors from server body size limits
-
-        **Example:**
-        ```javascript
-        // Step 1: Get presigned URL
-        const response = await fetch('https://getlate.dev/api/v1/media/presign', {
-          method: 'POST',
-          headers: {
-            'Authorization': 'Bearer YOUR_API_KEY',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            filename: 'my-video.mp4',
-            contentType: 'video/mp4'
-          })
-        });
-        const { uploadUrl, publicUrl } = await response.json();
-
-        // Step 2: Upload file directly to storage
-        await fetch(uploadUrl, {
-          method: 'PUT',
-          body: file,
-          headers: { 'Content-Type': 'video/mp4' }
-        });
-
-        // Step 3: Use publicUrl when creating your post
-        // The publicUrl is ready to use immediately after upload completes
-        ```
       operationId: getMediaPresignedUrl
       requestBody:
         content:
@@ -1170,7 +1115,7 @@ paths:
             \ content type)"
         "401":
           $ref: "#/components/responses/Unauthorized"
-      summary: Get a presigned URL for direct file upload (up to 5GB)
+      summary: Get presigned upload URL
       tags:
       - Media
       x-content-type: application/json
@@ -1266,7 +1211,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           description: Account not found
-      summary: Search Reddit posts via a connected account
+      summary: Search posts
       tags:
       - Reddit Search
       x-accepts:
@@ -1364,7 +1309,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           description: Account not found
-      summary: Fetch subreddit feed via a connected account
+      summary: Get subreddit feed
       tags:
       - Reddit Search
       x-accepts:
@@ -1394,7 +1339,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Get plan and usage stats for current account
+      summary: Get plan and usage stats
       tags:
       - Usage
       x-accepts:
@@ -1553,7 +1498,7 @@ paths:
           description: Paginated posts
         "401":
           $ref: "#/components/responses/Unauthorized"
-      summary: List posts visible to the authenticated user
+      summary: List posts
       tags:
       - Posts
       x-accepts:
@@ -1561,36 +1506,22 @@ paths:
     post:
       description: |
         **Getting Post URLs:**
-        - For immediate posts (`publishNow: true`): The response includes `platformPostUrl` in each platform entry under `post.platforms[]`.
-        - For scheduled posts: Fetch the post via `GET /v1/posts/{postId}` after the scheduled time; `platformPostUrl` will be populated once published.
+        - Immediate posts (`publishNow: true`): response includes `platformPostUrl` in `post.platforms[]`.
+        - Scheduled posts: fetch via `GET /v1/posts/{postId}` after publish time for `platformPostUrl`.
 
-        **Content/Caption requirements:**
-        - `content` (caption/description) is optional when:
-          - Media is attached (`mediaItems` or per-platform `customMedia`)
-          - All platforms have `customContent` set
-          - Posting only to YouTube (title is used instead)
-        - Text-only posts (no media) require `content`
-        - Stories do not use captions (content is ignored)
-        - Reels, feed posts, and other media posts can have optional captions
+        **Content requirements:**
+        - `content` is optional when media is attached, all platforms have `customContent`, or posting to YouTube only.
+        - Text-only posts require `content`. Stories ignore captions.
 
-        Platform constraints:
-        - YouTube requires a video in mediaItems; optional custom thumbnail via MediaItem.thumbnail.
-        - Instagram and TikTok require media; do not mix videos and images for TikTok.
-        - Instagram carousels support up to 10 items; Stories publish as 'story'.
-        - Threads carousels support up to 10 images (no videos in carousels); single posts support one image or video.
-        - Facebook Stories require media (single image or video); set contentType to 'story' in platformSpecificData.
-        - LinkedIn multi-image supports up to 20 images; single PDF documents supported (max 100MB, ~300 pages, cannot mix with other media).
-        - Pinterest supports single image via image_url or a single video per Pin; boardId is required.
-        - Bluesky supports up to 4 images per post. Images may be automatically recompressed to ≤ ~1MB to satisfy Bluesky's blob limit. When no media is attached, a link preview may be generated for URLs in the text.
-        - Snapchat requires media (single image or video); set contentType to 'story', 'saved_story', or 'spotlight' in platformSpecificData. Stories are ephemeral (24h), Saved Stories are permanent, Spotlight is for video content.
-
-        **Multi-page/multi-location posting:**
-        Some platforms allow posting to multiple pages, organizations, or locations from a single account connection.
-        Use the same accountId multiple times with different targets in platformSpecificData:
-        - Facebook: `pageId` - post to multiple Facebook Pages (list via GET /v1/accounts/{id}/facebook-page)
-        - LinkedIn: `organizationUrn` - post to multiple organizations (list via GET /v1/accounts/{id}/linkedin-organizations)
-        - Google Business: `locationId` - post to multiple locations (list via GET /v1/accounts/{id}/gmb-locations)
-        - Reddit: `subreddit` - post to multiple subreddits from the same account
+        **Platform constraints:**
+        - YouTube: video required, optional thumbnail via `MediaItem.thumbnail`
+        - Instagram/TikTok: media required; TikTok cannot mix videos and images
+        - Instagram carousels: up to 10 items; Threads carousels: up to 10 images only
+        - Facebook Stories: single image or video, set `contentType: 'story'`
+        - LinkedIn: up to 20 images or a single PDF (max 100MB)
+        - Pinterest: single image or video, `boardId` required
+        - Bluesky: up to 4 images, auto-recompressed to ~1MB
+        - Snapchat: single image or video, set `contentType` in platformSpecificData
       operationId: createPost
       requestBody:
         content:
@@ -1782,7 +1713,7 @@ paths:
               schema:
                 type: integer
               style: simple
-      summary: "Create a draft, scheduled, or immediate post"
+      summary: Create post
       tags:
       - Posts
       x-content-type: application/json
@@ -1790,9 +1721,10 @@ paths:
       - application/json
   /v1/posts/{postId}:
     delete:
-      description: "Delete a post. Published posts cannot be deleted. \nWhen deleting\
-        \ a scheduled or draft post that consumed upload quota, the quota will be\
-        \ automatically refunded.\n"
+      description: |
+        Delete a draft or scheduled post from Late. Only posts that have not been published can be deleted.
+        To remove a published post from a social media platform, use the [Unpublish endpoint](#tag/Posts/operation/unpublishPost) instead.
+        When deleting a scheduled or draft post that consumed upload quota, the quota will be automatically refunded.
       operationId: deletePost
       parameters:
       - explode: false
@@ -1819,7 +1751,7 @@ paths:
           description: Forbidden
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Delete a post
+      summary: Delete post
       tags:
       - Posts
       x-accepts:
@@ -1949,7 +1881,7 @@ paths:
           description: Forbidden
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Get a single post
+      summary: Get post
       tags:
       - Posts
       x-accepts:
@@ -2000,7 +1932,7 @@ paths:
           description: Forbidden
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Update a post
+      summary: Update post
       tags:
       - Posts
       x-content-type: application/json
@@ -2061,7 +1993,7 @@ paths:
             Rate limit exceeded. Can be triggered by:
             - **API rate limit**: Requests per minute exceeded
             - **Account cooldown**: One or more accounts are temporarily rate-limited
-      summary: Validate and schedule multiple posts from CSV
+      summary: Bulk upload from CSV
       tags:
       - Posts
       x-content-type: multipart/form-data
@@ -2125,7 +2057,7 @@ paths:
             - **API rate limit**: Requests per minute exceeded
             - **Velocity limit**: 15 posts per hour per account exceeded
             - **Account cooldown**: Account temporarily rate-limited due to repeated errors
-      summary: Retry publishing a failed or partial post
+      summary: Retry failed post
       tags:
       - Posts
       x-accepts:
@@ -2134,7 +2066,8 @@ paths:
     post:
       description: |
         Permanently deletes a published post from the specified social media platform.
-        The post record in Late is kept but its platform status is set to "cancelled".
+        The post record in Late is kept but its platform status is updated to "cancelled".
+        This does not delete the post from Late, only from the platform.
 
         **Supported platforms:** Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram.
 
@@ -2190,7 +2123,7 @@ paths:
           $ref: "#/components/responses/NotFound"
         "500":
           description: Platform API deletion failed
-      summary: Delete a published post from a social media platform
+      summary: Unpublish post
       tags:
       - Posts
       x-content-type: application/json
@@ -2228,7 +2161,7 @@ paths:
           description: Users
         "401":
           $ref: "#/components/responses/Unauthorized"
-      summary: List team users (root + invited)
+      summary: List users
       tags:
       - Users
       x-accepts:
@@ -2266,7 +2199,7 @@ paths:
           description: Forbidden
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Get user by id (self or invited)
+      summary: Get user
       tags:
       - Users
       x-accepts:
@@ -2307,7 +2240,7 @@ paths:
           description: Profiles
         "401":
           $ref: "#/components/responses/Unauthorized"
-      summary: List profiles visible to the authenticated user
+      summary: List profiles
       tags:
       - Profiles
       x-accepts:
@@ -2347,7 +2280,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "403":
           description: Profile limit exceeded
-      summary: Create a new profile
+      summary: Create profile
       tags:
       - Profiles
       x-content-type: application/json
@@ -2381,7 +2314,7 @@ paths:
           description: Forbidden
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Delete a profile (must have no connected accounts)
+      summary: Delete profile
       tags:
       - Profiles
       x-accepts:
@@ -2416,7 +2349,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Get a profile by id
+      summary: Get profile
       tags:
       - Profiles
       x-accepts:
@@ -2462,7 +2395,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Update a profile
+      summary: Update profile
       tags:
       - Profiles
       x-content-type: application/json
@@ -2519,7 +2452,7 @@ paths:
           description: Accounts
         "401":
           $ref: "#/components/responses/Unauthorized"
-      summary: List connected social accounts
+      summary: List accounts
       tags:
       - Accounts
       x-accepts:
@@ -2617,7 +2550,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/getFollowerStats_403_response"
           description: Analytics add-on required
-      summary: Get follower stats and growth metrics
+      summary: Get follower stats
       tags:
       - Accounts
       - Analytics
@@ -2647,7 +2580,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Disconnect a social account
+      summary: Disconnect account
       tags:
       - Accounts
       x-accepts:
@@ -2687,7 +2620,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Update a social account
+      summary: Update account
       tags:
       - Accounts
       x-content-type: application/json
@@ -2780,7 +2713,7 @@ paths:
           description: Account health summary
         "401":
           $ref: "#/components/responses/Unauthorized"
-      summary: Check health of all connected accounts
+      summary: Check accounts health
       tags:
       - Accounts
       x-accepts:
@@ -2840,7 +2773,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Check health of a specific account
+      summary: Check account health
       tags:
       - Accounts
       x-accepts:
@@ -2869,7 +2802,7 @@ paths:
           description: API keys
         "401":
           $ref: "#/components/responses/Unauthorized"
-      summary: List API keys for the current user
+      summary: List keys
       tags:
       - API Keys
       x-accepts:
@@ -2905,7 +2838,7 @@ paths:
           description: Invalid request
         "401":
           $ref: "#/components/responses/Unauthorized"
-      summary: Create a new API key
+      summary: Create key
       tags:
       - API Keys
       x-content-type: application/json
@@ -2935,7 +2868,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Delete an API key
+      summary: Delete key
       tags:
       - API Keys
       x-accepts:
@@ -2978,7 +2911,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "403":
           description: One or more profiles not found or not owned
-      summary: Create a team member invite token
+      summary: Create invite token
       tags:
       - Invites
       x-content-type: application/json
@@ -2986,69 +2919,28 @@ paths:
       - application/json
   /v1/connect/{platform}:
     get:
-      description: "Initiate an OAuth connection flow for any supported social media\
-        \ platform.\n\n**Standard Flow (Hosted UI):**\nFor Facebook connections, Late\
-        \ hosts the page selection UI:\n\n1. Call this endpoint with your API key\
-        \ and `redirect_url` (optional)\n2. Redirect your user to the returned `authUrl`\n\
-        3. After OAuth, the user is redirected to Late’s hosted page selector at \
-        \ \n   `/connect/facebook/select-page?profileId=X&tempToken=Y&userProfile=Z&redirect_url=YOUR_URL&connect_token=CT`\n\
-        4. After they pick a page, Late saves the connection and finally redirects\
-        \ to your `redirect_url` (if provided)\n\n**Headless/Whitelabel Mode (Facebook,\
-        \ LinkedIn, Pinterest & Google Business Profile):**\nBuild your own fully\
-        \ branded selection UI while Late handles OAuth:\n\n**Facebook:**\n1. Call\
-        \ this endpoint with your API key and add `&headless=true`, e.g.  \n   `GET\
-        \ /v1/connect/facebook?profileId=PROFILE_ID&redirect_url=https://yourapp.com/callback&headless=true`\n\
-        2. Redirect your user to the returned `authUrl`\n3. After OAuth, the user\
-        \ is redirected directly to **your** `redirect_url` with:\n   - `profileId`\
-        \ – your Late profile ID  \n   - `tempToken` – temporary Facebook access token\
-        \  \n   - `userProfile` – URL‑encoded JSON user profile  \n   - `connect_token`\
-        \ – short‑lived connect token (for API auth)  \n   - `platform=facebook` \
-        \ \n   - `step=select_page`\n4. Use `tempToken`, `userProfile`, and the `X-Connect-Token`\
-        \ header with:\n   - `GET /v1/connect/facebook/select-page` to fetch pages\n\
-        \   - `POST /v1/connect/facebook/select-page` to save the selected page\n\
-        5. In this mode, users never see Late's hosted page selector – only your UI.\n\
-        \n**LinkedIn:**\n1. Call this endpoint with `&headless=true`, e.g.\n   `GET\
-        \ /v1/connect/linkedin?profileId=PROFILE_ID&redirect_url=https://yourapp.com/callback&headless=true`\n\
-        2. Redirect your user to the returned `authUrl`\n3. After OAuth, the user\
-        \ is redirected directly to **your** `redirect_url` with:\n   - `profileId`\
-        \ – your Late profile ID\n   - `pendingDataToken` – token to fetch OAuth data\
-        \ via API (see step 4)\n   - `connect_token` – short-lived connect token (for\
-        \ API auth)\n   - `platform=linkedin`\n   - `step=select_organization`\n4.\
-        \ Call `GET /v1/connect/pending-data?token=PENDING_DATA_TOKEN` to fetch the\
-        \ OAuth data:\n   - `tempToken` – temporary LinkedIn access token\n   - `userProfile`\
-        \ – JSON object with `id`, `username`, `displayName`, `profilePicture`\n \
-        \  - `organizations` – JSON array with `id`, `urn`, `name`, `vanityName` for\
-        \ each org\n   - `refreshToken` / `expiresIn` – token metadata\n   This endpoint\
-        \ is one-time use and data expires after 10 minutes.\n5. **Optional:** To\
-        \ fetch full organization details (logos, website, industry, description),\
-        \ call `GET /v1/connect/linkedin/organizations?tempToken=X&orgIds=id1,id2,...`\n\
-        6. Call `POST /v1/connect/linkedin/select-organization` with the `X-Connect-Token`\
-        \ header to save the selection.\n7. In this mode, users never see Late's hosted\
-        \ organization selector – only your UI.\n8. Note: If the user has no organization\
-        \ admin access, `step=select_organization` will NOT be present,\n   and the\
-        \ account will be connected directly as a personal account.\n\n**Pinterest:**\n\
-        1. Call this endpoint with `&headless=true`, e.g.\n   `GET /v1/connect/pinterest?profileId=PROFILE_ID&redirect_url=https://yourapp.com/callback&headless=true`\n\
-        2. Redirect your user to the returned `authUrl`\n3. After OAuth, the user\
-        \ is redirected directly to **your** `redirect_url` with:\n   - `profileId`\
-        \ – your Late profile ID\n   - `tempToken` – temporary Pinterest access token\n\
-        \   - `userProfile` – URL‑encoded JSON user profile\n   - `connect_token`\
-        \ – short‑lived connect token (for API auth)\n   - `platform=pinterest`\n\
-        \   - `step=select_board`\n4. Use `tempToken`, `userProfile`, and the `X-Connect-Token`\
-        \ header with:\n   - `GET /v1/connect/pinterest/select-board` to fetch boards\n\
-        \   - `POST /v1/connect/pinterest/select-board` to save the selected board\n\
-        5. In this mode, users never see Late's hosted board selector – only your\
-        \ UI.\n\n**Google Business Profile:**\n1. Call this endpoint with `&headless=true`,\
-        \ e.g.\n   `GET /v1/connect/googlebusiness?profileId=PROFILE_ID&redirect_url=https://yourapp.com/callback&headless=true`\n\
-        2. Redirect your user to the returned `authUrl`\n3. After OAuth, the user\
-        \ is redirected directly to **your** `redirect_url` with:\n   - `profileId`\
-        \ – your Late profile ID\n   - `tempToken` – temporary Google access token\n\
-        \   - `userProfile` – URL‑encoded JSON user profile (includes refresh token\
-        \ info)\n   - `connect_token` – short‑lived connect token (for API auth)\n\
-        \   - `platform=googlebusiness`\n   - `step=select_location`\n4. Use `tempToken`,\
-        \ `userProfile`, and the `X-Connect-Token` header with:\n   - `GET /v1/connect/googlebusiness/locations`\
-        \ to fetch business locations\n   - `POST /v1/connect/googlebusiness/select-location`\
-        \ to save the selected location\n5. In this mode, users never see Late's hosted\
-        \ location selector – only your UI.\n"
+      description: |
+        Initiate an OAuth connection flow for any supported social media platform.
+
+        **Standard Flow (Hosted UI):**
+        1. Call this endpoint with your API key and `redirect_url` (optional)
+        2. Redirect your user to the returned `authUrl`
+        3. After OAuth, Late hosts the page/account selection UI
+        4. Once the user picks, Late saves the connection and redirects to your `redirect_url` (if provided)
+
+        **Headless Mode (Facebook, LinkedIn, Pinterest, Google Business, Snapchat):**
+        Build your own branded selection UI while Late handles OAuth. Add `&headless=true` to this endpoint:
+
+        `GET /v1/connect/{platform}?profileId=PROFILE_ID&redirect_url=https://yourapp.com/callback&headless=true`
+
+        After OAuth, the user is redirected to your `redirect_url` with OAuth data including `profileId`, `tempToken`, `userProfile`, `connect_token`, `platform`, and a `step` parameter indicating what selection is needed.
+
+        **Facebook example:**
+        1. Redirect params include `step=select_page`
+        2. Use `GET /v1/connect/facebook/select-page` to fetch pages
+        3. Use `POST /v1/connect/facebook/select-page` to save the selected page
+
+        LinkedIn, Pinterest, Google Business, and Snapchat follow the same pattern with their respective selection endpoints. LinkedIn uses `pendingDataToken` instead of `tempToken` in redirect params; call `GET /v1/connect/pending-data?token=TOKEN` to retrieve the OAuth data (one-time use, expires in 10 minutes).
       operationId: getConnectUrl
       parameters:
       - description: Social media platform to connect
@@ -3081,33 +2973,14 @@ paths:
         schema:
           type: string
         style: form
-      - description: "Optional: Your custom redirect URL after connection completes.\n\
-          \n**Standard Mode:** Omit `headless=true` to use our hosted page selection\
-          \ UI.  \nAfter the user selects a Facebook Page, Late redirects here with:\
-          \  \n`?connected=facebook&profileId=X&username=Y`\n\n**Headless Mode (Facebook,\
-          \ LinkedIn, Pinterest, Google Business Profile & Snapchat):**\nPass `headless=true`\
-          \ as a query parameter on this endpoint (not inside `redirect_url`), e.g.:\n\
-          `GET /v1/connect/facebook?profileId=PROFILE_ID&redirect_url=https://yourapp.com/callback&headless=true`\n\
-          `GET /v1/connect/linkedin?profileId=PROFILE_ID&redirect_url=https://yourapp.com/callback&headless=true`\n\
-          `GET /v1/connect/pinterest?profileId=PROFILE_ID&redirect_url=https://yourapp.com/callback&headless=true`\n\
-          `GET /v1/connect/googlebusiness?profileId=PROFILE_ID&redirect_url=https://yourapp.com/callback&headless=true`\n\
-          `GET /v1/connect/snapchat?profileId=PROFILE_ID&redirect_url=https://yourapp.com/callback&headless=true`\n\
-          \nAfter OAuth, the user is redirected directly to your `redirect_url` with\
-          \ OAuth data:\n- **Facebook:** `?profileId=X&tempToken=Y&userProfile=Z&connect_token=CT&platform=facebook&step=select_page`\n\
-          - **LinkedIn:** `?profileId=X&pendingDataToken=TOKEN&connect_token=CT&platform=linkedin&step=select_organization`\n\
-          \  Use `GET /v1/connect/pending-data?token=TOKEN` to fetch tempToken, userProfile,\
-          \ organizations, refreshToken.\n- **Pinterest:** `?profileId=X&tempToken=Y&userProfile=Z&connect_token=CT&platform=pinterest&step=select_board`\n\
-          - **Google Business:** `?profileId=X&tempToken=Y&userProfile=Z&connect_token=CT&platform=googlebusiness&step=select_location`\n\
-          - **Snapchat:** `?profileId=X&tempToken=Y&userProfile=Z&publicProfiles=PROFILES&connect_token=CT&platform=snapchat&step=select_public_profile`\n\
-          \  (publicProfiles contains `id`, `display_name`, `username`, `profile_image_url`,\
-          \ `subscriber_count`)\n\nThen use the respective endpoints to build your\
-          \ custom UI:\n- Facebook: `/v1/connect/facebook/select-page` (GET to fetch,\
-          \ POST to save)\n- LinkedIn: `/v1/connect/linkedin/organizations` (GET to\
-          \ fetch logos), `/v1/connect/linkedin/select-organization` (POST to save)\n\
-          - Pinterest: `/v1/connect/pinterest/select-board` (GET to fetch, POST to\
-          \ save)\n- Google Business: `/v1/connect/googlebusiness/locations` (GET)\
-          \ and `/v1/connect/googlebusiness/select-location` (POST)\n- Snapchat: `/v1/connect/snapchat/select-profile`\
-          \ (POST to save selected public profile)\n\nExample: `https://yourdomain.com/integrations/callback`\n"
+      - description: |
+          Your custom redirect URL after connection completes.
+
+          **Standard Mode:** After the user selects an account, Late redirects here with `?connected={platform}&profileId=X&username=Y`.
+
+          **Headless Mode:** Pass `headless=true` as a query parameter on this endpoint. After OAuth, the user is redirected to your URL with OAuth data (`profileId`, `tempToken`, `userProfile`, `connect_token`, `platform`, `step`). See the main endpoint description for details.
+
+          Example: `https://yourdomain.com/integrations/callback`
         explode: true
         in: query
         name: redirect_url
@@ -3136,7 +3009,7 @@ paths:
           description: Profile not found
       security:
       - bearerAuth: []
-      summary: Start OAuth connection for a platform
+      summary: Get OAuth connect URL
       tags:
       - Connect
       x-accepts:
@@ -3168,7 +3041,7 @@ paths:
           description: BYOK required for AppSumo Twitter
         "500":
           description: Failed to connect account
-      summary: Complete OAuth token exchange manually (for server-side flows)
+      summary: Complete OAuth callback
       tags:
       - Connect
       x-content-type: application/json
@@ -3231,7 +3104,7 @@ paths:
       security:
       - bearerAuth: []
       - connectToken: []
-      summary: List Facebook Pages after OAuth (Headless Mode)
+      summary: List Facebook pages
       tags:
       - Connect
       x-accepts:
@@ -3290,7 +3163,7 @@ paths:
       security:
       - bearerAuth: []
       - connectToken: []
-      summary: Select a Facebook Page to complete the connection (Headless Mode)
+      summary: Select Facebook page
       tags:
       - Connect
       x-content-type: application/json
@@ -3353,7 +3226,7 @@ paths:
       security:
       - bearerAuth: []
       - connectToken: []
-      summary: List Google Business Locations after OAuth (Headless Mode)
+      summary: List Google Business locations
       tags:
       - Connect
       x-accepts:
@@ -3417,8 +3290,7 @@ paths:
       security:
       - bearerAuth: []
       - connectToken: []
-      summary: Select a Google Business location to complete the connection (Headless
-        Mode)
+      summary: Select Google Business location
       tags:
       - Connect
       x-content-type: application/json
@@ -3544,7 +3416,7 @@ paths:
           description: Failed to fetch reviews
       security:
       - bearerAuth: []
-      summary: Get Google Business Profile reviews
+      summary: Get reviews
       tags:
       - GMB Reviews
       x-accepts:
@@ -3638,7 +3510,7 @@ paths:
           description: Failed to fetch food menus
       security:
       - bearerAuth: []
-      summary: Get Google Business Profile food menus
+      summary: Get food menus
       tags:
       - GMB Food Menus
       x-accepts:
@@ -3722,7 +3594,7 @@ paths:
           description: Failed to update food menus
       security:
       - bearerAuth: []
-      summary: Update Google Business Profile food menus
+      summary: Update food menus
       tags:
       - GMB Food Menus
       x-content-type: application/json
@@ -3804,7 +3676,7 @@ paths:
           $ref: "#/components/responses/NotFound"
       security:
       - bearerAuth: []
-      summary: Get Google Business Profile location details
+      summary: Get location details
       tags:
       - GMB Location Details
       x-accepts:
@@ -3886,7 +3758,7 @@ paths:
           $ref: "#/components/responses/NotFound"
       security:
       - bearerAuth: []
-      summary: Update Google Business Profile location details
+      summary: Update location details
       tags:
       - GMB Location Details
       x-content-type: application/json
@@ -3932,7 +3804,7 @@ paths:
           description: Unauthorized
       security:
       - bearerAuth: []
-      summary: Delete a photo from Google Business Profile
+      summary: Delete photo
       tags:
       - GMB Media
       x-accepts:
@@ -3989,7 +3861,7 @@ paths:
           description: Unauthorized
       security:
       - bearerAuth: []
-      summary: List Google Business Profile media (photos)
+      summary: List media
       tags:
       - GMB Media
       x-accepts:
@@ -4049,7 +3921,7 @@ paths:
           description: Unauthorized
       security:
       - bearerAuth: []
-      summary: Upload a photo to Google Business Profile
+      summary: Upload photo
       tags:
       - GMB Media
       x-content-type: application/json
@@ -4119,7 +3991,7 @@ paths:
           description: Unauthorized
       security:
       - bearerAuth: []
-      summary: Get Google Business Profile location attributes
+      summary: Get attributes
       tags:
       - GMB Attributes
       x-accepts:
@@ -4177,7 +4049,7 @@ paths:
           description: Unauthorized
       security:
       - bearerAuth: []
-      summary: Update Google Business Profile location attributes
+      summary: Update attributes
       tags:
       - GMB Attributes
       x-content-type: application/json
@@ -4223,7 +4095,7 @@ paths:
           description: Unauthorized
       security:
       - bearerAuth: []
-      summary: Delete a place action link
+      summary: Delete action link
       tags:
       - GMB Place Actions
       x-accepts:
@@ -4288,7 +4160,7 @@ paths:
           description: Unauthorized
       security:
       - bearerAuth: []
-      summary: "List place action links (booking, ordering, reservations)"
+      summary: List action links
       tags:
       - GMB Place Actions
       x-accepts:
@@ -4344,7 +4216,7 @@ paths:
           description: Unauthorized
       security:
       - bearerAuth: []
-      summary: "Create a place action link (booking, ordering, reservation)"
+      summary: Create action link
       tags:
       - GMB Place Actions
       x-content-type: application/json
@@ -4416,7 +4288,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
           description: Token not found or expired
-      summary: Fetch pending OAuth selection data (Headless Mode)
+      summary: Get pending OAuth data
       tags:
       - Connect
       x-accepts:
@@ -4484,7 +4356,7 @@ paths:
           description: Missing required parameters or too many organization IDs
         "500":
           description: Failed to fetch organization details
-      summary: Fetch full LinkedIn organization details (Headless Mode)
+      summary: List LinkedIn orgs
       tags:
       - Connect
       x-accepts:
@@ -4523,7 +4395,7 @@ paths:
               organizationAccount:
                 description: "For organization pages, include the selectedOrganization\
                   \ object"
-                summary: Connect as organization/company page
+                summary: Connect as org/company page
                 value:
                   profileId: 64f0a1b2c3d4e5f6a7b8c9d0
                   tempToken: AQX...
@@ -4559,7 +4431,7 @@ paths:
                       isActive: true
                       accountType: personal
                 organizationWithRedirect:
-                  summary: Organization account with redirect URL
+                  summary: Org account with redirect URL
                   value:
                     message: LinkedIn account connected successfully
                     redirect_url: https://yourapp.com/callback?connected=linkedin&profileId=507f1f77bcf86cd799439011&accountId=64e1f0a9e2b5af0012ab34cd&username=Acme+Corporation
@@ -4583,7 +4455,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "500":
           description: Failed to connect LinkedIn account
-      summary: Select LinkedIn organization or personal account after OAuth
+      summary: Select LinkedIn org
       tags:
       - Connect
       x-content-type: application/json
@@ -4653,7 +4525,7 @@ paths:
           description: No access to profile
         "500":
           description: Failed to fetch boards
-      summary: List Pinterest Boards after OAuth (Headless Mode)
+      summary: List Pinterest boards
       tags:
       - Connect
       x-accepts:
@@ -4724,7 +4596,7 @@ paths:
           description: No access to profile or profile limit exceeded
         "500":
           description: Failed to save Pinterest connection
-      summary: Select a Pinterest Board to complete the connection (Headless Mode)
+      summary: Select Pinterest board
       tags:
       - Connect
       x-content-type: application/json
@@ -4796,7 +4668,7 @@ paths:
           description: No access to profile
         "500":
           description: Failed to fetch public profiles
-      summary: List Snapchat Public Profiles after OAuth (Headless Mode)
+      summary: List Snapchat profiles
       tags:
       - Connect
       x-accepts:
@@ -4892,8 +4764,7 @@ paths:
           description: No access to profile or profile limit exceeded
         "500":
           description: Failed to connect Snapchat account
-      summary: Select a Snapchat Public Profile to complete the connection (Headless
-        Mode)
+      summary: Select Snapchat profile
       tags:
       - Connect
       x-content-type: application/json
@@ -4938,7 +4809,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "500":
           description: Internal error
-      summary: Connect Bluesky using app password
+      summary: Connect Bluesky account
       tags:
       - Connect
       x-content-type: application/json
@@ -4997,7 +4868,7 @@ paths:
           description: Profile not found
         "500":
           description: Internal error
-      summary: Generate Telegram access code
+      summary: Generate Telegram code
       tags:
       - Connect
       x-accepts:
@@ -5060,7 +4931,7 @@ paths:
           description: Code not found
         "500":
           description: Internal error
-      summary: Check Telegram connection status
+      summary: Check Telegram status
       tags:
       - Connect
       x-accepts:
@@ -5107,7 +4978,7 @@ paths:
           description: Profile not found
         "500":
           description: Internal error
-      summary: Direct Telegram connection (power users)
+      summary: Connect Telegram directly
       tags:
       - Connect
       x-content-type: application/json
@@ -5151,7 +5022,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           description: Account not found
-      summary: List available Facebook pages for a connected account
+      summary: List Facebook pages
       tags:
       - Connect
       x-accepts:
@@ -5192,7 +5063,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           description: Account not found
-      summary: Update selected Facebook page for a connected account
+      summary: Update Facebook page
       tags:
       - Connect
       x-content-type: application/json
@@ -5230,7 +5101,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           description: Account not found
-      summary: Get available LinkedIn organizations for a connected account
+      summary: List LinkedIn orgs
       tags:
       - Connect
       x-accepts:
@@ -5238,31 +5109,11 @@ paths:
   /v1/accounts/{accountId}/linkedin-aggregate-analytics:
     get:
       description: |
-        Returns aggregate analytics across ALL posts for a LinkedIn personal account.
-        Uses LinkedIn's `memberCreatorPostAnalytics` API with `q=me` finder.
+        Returns aggregate analytics across all posts for a LinkedIn personal account. Organization accounts should use `/v1/analytics` instead.
 
-        **Important:** This endpoint only works for LinkedIn **personal** accounts. Organization accounts should use the standard `/v1/analytics` endpoint for per-post analytics.
+        **Required scope:** `r_member_postAnalytics`. Missing scope returns 403 with reconnect instructions.
 
-        **Required Scope:** `r_member_postAnalytics`
-
-        If the connected account doesn't have this scope, you'll receive a 403 error with instructions to reconnect.
-
-        **Aggregation Options:**
-        - `TOTAL` (default): Returns lifetime totals for all metrics
-        - `DAILY`: Returns daily breakdown of metrics over time
-
-        **Available Metrics:**
-        - `IMPRESSION`: Number of times posts were displayed
-        - `MEMBERS_REACHED`: Unique members who saw posts (NOT available with DAILY aggregation)
-        - `REACTION`: Total reactions (likes, celebrates, etc.)
-        - `COMMENT`: Total comments
-        - `RESHARE`: Total reshares/reposts
-
-        **Date Range Filtering:**
-        Use `startDate` and `endDate` parameters to filter analytics to a specific time period.
-        If omitted, returns lifetime analytics.
-
-        **LinkedIn API Limitation:** The combination of `MEMBERS_REACHED` + `DAILY` aggregation is not supported by LinkedIn's API.
+        **Aggregation:** `TOTAL` (default, lifetime totals) or `DAILY` (time series). Use `startDate`/`endDate` to filter by date range. Note: `MEMBERS_REACHED` is not available with `DAILY` aggregation.
       operationId: getLinkedInAggregateAnalytics
       parameters:
       - description: The ID of the LinkedIn personal account
@@ -5420,7 +5271,7 @@ paths:
                     error: This endpoint only supports LinkedIn accounts
                     code: invalid_platform
                 organization:
-                  summary: Organization account not supported
+                  summary: Org account not supported
                   value:
                     error: Aggregate analytics only available for LinkedIn personal
                       accounts. Organization accounts can use per-post analytics via
@@ -5479,7 +5330,7 @@ paths:
           description: Missing required LinkedIn scope
         "404":
           description: Account not found
-      summary: Get aggregate analytics for a LinkedIn personal account
+      summary: Get LinkedIn aggregate stats
       tags:
       - Analytics
       x-accepts:
@@ -5588,7 +5439,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/getLinkedInAggregateAnalytics_402_response"
           description: Account or post not found
-      summary: Get analytics for a specific LinkedIn post by URN
+      summary: Get LinkedIn post stats
       tags:
       - Analytics
       x-accepts:
@@ -5637,7 +5488,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           description: Account not found
-      summary: Switch LinkedIn account type (personal/organization)
+      summary: Switch LinkedIn account type
       tags:
       - Connect
       x-content-type: application/json
@@ -5646,27 +5497,13 @@ paths:
   /v1/accounts/{accountId}/linkedin-mentions:
     get:
       description: |
-        Converts a LinkedIn profile URL (person) or company page URL (organization) to a URN that can be used to @mention them in posts.
+        Converts a LinkedIn profile or company URL to a URN for @mentions in posts. Supports person mentions (`linkedin.com/in/username` or just `username`) and organization mentions (`linkedin.com/company/name` or `company/name`).
 
-        **Supports both:**
-        - **Person mentions:** `linkedin.com/in/username` or just `username`
-        - **Organization mentions:** `linkedin.com/company/company-name` or `company/company-name`
+        Person mentions require the connected account to have admin access to at least one LinkedIn Organization. Organization mentions work with any account.
 
-        **⚠️ Organization Admin Required for Person Mentions Only:**
-        Person mentions require the connected LinkedIn account to have admin access to at least one LinkedIn Organization (Company Page).
-        Organization mentions do NOT have this requirement - any LinkedIn account can tag companies.
+        For person mentions to be clickable, provide the `displayName` parameter matching the exact name on their LinkedIn profile. Organization names are fetched automatically.
 
-        **IMPORTANT - Display Name Requirement:**
-        For **person mentions** to be clickable, the display name must **exactly match** what appears on their LinkedIn profile.
-        - Organization mentions automatically retrieve the company name from LinkedIn API
-        - Person mentions require the exact name, so provide the `displayName` parameter
-
-        **Mention Format:**
-        Use the returned `mentionFormat` value directly in your post content:
-        ```
-        Great insights from @[Miquel Palet](urn:li:person:4qj5ox-agD) on this topic!
-        Excited to partner with @[Microsoft](urn:li:organization:1035)!
-        ```
+        Use the returned `mentionFormat` value directly in your post content.
       operationId: getLinkedInMentions
       parameters:
       - description: The LinkedIn account ID
@@ -5689,10 +5526,10 @@ paths:
             summary: Person - full LinkedIn URL
             value: https://www.linkedin.com/in/miquelpalet
           orgShortUrl:
-            summary: Organization - short format
+            summary: Org - short format
             value: company/microsoft
           orgFullUrl:
-            summary: Organization - full LinkedIn URL
+            summary: Org - full LinkedIn URL
             value: https://www.linkedin.com/company/microsoft
         explode: true
         in: query
@@ -5741,7 +5578,7 @@ paths:
                     warning: "For clickable person mentions, provide the displayName\
                       \ parameter with the exact name as shown on their LinkedIn profile."
                 organization:
-                  summary: Organization mention
+                  summary: Org mention
                   value:
                     urn: urn:li:organization:1035
                     type: organization
@@ -5782,7 +5619,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/getYouTubeDailyViews_400_response"
           description: Person or organization not found
-      summary: Resolve a LinkedIn profile or company URL to a URN for @mentions
+      summary: Resolve LinkedIn mention
       tags:
       - LinkedIn Mentions
       x-accepts:
@@ -5821,7 +5658,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           description: Account not found
-      summary: List Pinterest boards for a connected account
+      summary: List Pinterest boards
       tags:
       - Connect
       x-accepts:
@@ -5866,7 +5703,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           description: Account not found
-      summary: Set default Pinterest board on the connection
+      summary: Set default Pinterest board
       tags:
       - Connect
       x-content-type: application/json
@@ -5907,7 +5744,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           description: Account not found
-      summary: List available Google Business Profile locations for a connected account
+      summary: List Google Business locations
       tags:
       - Connect
       x-accepts:
@@ -5948,7 +5785,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           description: Account not found
-      summary: Update selected Google Business Profile location for a connected account
+      summary: Update Google Business location
       tags:
       - Connect
       x-content-type: application/json
@@ -5991,7 +5828,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           description: Account not found
-      summary: List Reddit subreddits for a connected account
+      summary: List Reddit subreddits
       tags:
       - Connect
       x-accepts:
@@ -6029,7 +5866,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           description: Account not found
-      summary: Set default subreddit on the connection
+      summary: Set default subreddit
       tags:
       - Connect
       x-content-type: application/json
@@ -6077,7 +5914,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           description: Account not found
-      summary: List available post flairs for a Reddit subreddit
+      summary: List subreddit flairs
       tags:
       - Connect
       x-accepts:
@@ -6118,7 +5955,7 @@ paths:
           description: Missing profileId or queueId
         "401":
           $ref: "#/components/responses/Unauthorized"
-      summary: Delete a queue schedule
+      summary: Delete schedule
       tags:
       - Queue
       x-accepts:
@@ -6212,7 +6049,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           description: Profile not found
-      summary: Get queue schedules for a profile
+      summary: List schedules
       tags:
       - Queue
       x-accepts:
@@ -6253,7 +6090,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           description: Profile not found
-      summary: Create a new queue for a profile
+      summary: Create schedule
       tags:
       - Queue
       x-content-type: application/json
@@ -6319,7 +6156,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           description: Profile not found
-      summary: Create or update a queue schedule
+      summary: Update schedule
       tags:
       - Queue
       x-content-type: application/json
@@ -6373,7 +6210,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           description: Profile or queue schedule not found
-      summary: Preview upcoming queue slots for a profile
+      summary: Preview upcoming slots
       tags:
       - Queue
       x-accepts:
@@ -6432,7 +6269,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           description: "Profile or queue schedule not found, or no available slots"
-      summary: Preview the next available queue slot (informational only)
+      summary: Get next available slot
       tags:
       - Queue
       x-accepts:
@@ -6463,7 +6300,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
       security:
       - bearerAuth: []
-      summary: Delete a webhook
+      summary: Delete webhook
       tags:
       - Webhooks
       x-accepts:
@@ -6502,7 +6339,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
       security:
       - bearerAuth: []
-      summary: List all webhooks
+      summary: List webhooks
       tags:
       - Webhooks
       x-accepts:
@@ -6548,7 +6385,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
       security:
       - bearerAuth: []
-      summary: Create a new webhook
+      summary: Create webhook
       tags:
       - Webhooks
       x-content-type: application/json
@@ -6595,7 +6432,7 @@ paths:
           description: Webhook not found
       security:
       - bearerAuth: []
-      summary: Update a webhook
+      summary: Update webhook
       tags:
       - Webhooks
       x-content-type: application/json
@@ -6710,7 +6547,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
       security:
       - bearerAuth: []
-      summary: Get webhook delivery logs
+      summary: Get delivery logs
       tags:
       - Webhooks
       x-accepts:
@@ -6862,7 +6699,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
       security:
       - bearerAuth: []
-      summary: Get publishing logs (deprecated)
+      summary: List publishing logs (deprecated)
       tags:
       - Logs
       x-accepts:
@@ -6936,7 +6773,7 @@ paths:
           $ref: "#/components/responses/NotFound"
       security:
       - bearerAuth: []
-      summary: Get a single log entry
+      summary: Get log entry
       tags:
       - Logs
       x-accepts:
@@ -7085,7 +6922,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
       security:
       - bearerAuth: []
-      summary: Get publishing logs
+      summary: List publishing logs
       tags:
       - Logs
       x-accepts:
@@ -7240,7 +7077,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
       security:
       - bearerAuth: []
-      summary: Get connection logs
+      summary: List connection logs
       tags:
       - Logs
       x-accepts:
@@ -7314,7 +7151,7 @@ paths:
           $ref: "#/components/responses/NotFound"
       security:
       - bearerAuth: []
-      summary: Get logs for a specific post
+      summary: Get post logs
       tags:
       - Logs
       x-accepts:
@@ -7414,7 +7251,7 @@ paths:
           description: Inbox addon required
       security:
       - bearerAuth: []
-      summary: List conversations across all accounts
+      summary: List conversations
       tags:
       - Messages
       x-accepts:
@@ -7458,7 +7295,7 @@ paths:
           description: Conversation not found
       security:
       - bearerAuth: []
-      summary: Get conversation details
+      summary: Get conversation
       tags:
       - Messages
       x-accepts:
@@ -7540,7 +7377,7 @@ paths:
           description: Inbox addon required
       security:
       - bearerAuth: []
-      summary: Get messages in a conversation
+      summary: List messages
       tags:
       - Messages
       x-accepts:
@@ -7554,21 +7391,9 @@ paths:
         - Facebook Messenger: Images, videos, audio, files
         - Instagram: Images, videos, audio via URL (8MB images, 25MB video/audio)
         - Twitter/X: Images, videos (requires media upload)
-        - Bluesky: Not supported
-        - Reddit: Not supported
+        - Bluesky/Reddit: Not supported
 
-        **Interactive message support:**
-        | Field | Instagram | Facebook | Telegram |
-        |---|---|---|---|
-        | quickReplies | Meta quick_replies (13 max) | Meta quick_replies (13 max) | ReplyKeyboardMarkup (one_time) |
-        | buttons | Generic template | Generic template | Inline keyboard |
-        | template | Generic template (carousel) | Generic template (carousel) | Ignored |
-        | replyMarkup | Ignored | Ignored | InlineKeyboardMarkup / ReplyKeyboardMarkup |
-        | messagingType | Ignored | RESPONSE / UPDATE / MESSAGE_TAG | Ignored |
-        | messageTag | HUMAN_AGENT only | 4 tag types | Ignored |
-        | replyTo | Ignored | Ignored | reply_parameters |
-
-        Platform-specific fields are silently ignored on unsupported platforms.
+        **Interactive messages:** Supports quick replies, buttons, templates, and reply markup. Feature availability varies by platform (Instagram, Facebook, Telegram). Unsupported fields are silently ignored.
       operationId: sendInboxMessage
       parameters:
       - description: "The conversation ID (id field from list conversations endpoint).\
@@ -7610,7 +7435,7 @@ paths:
           description: Inbox addon required
       security:
       - bearerAuth: []
-      summary: Send a message
+      summary: Send message
       tags:
       - Messages
       x-content-type: application/json
@@ -7660,7 +7485,7 @@ paths:
           description: Inbox addon required
       security:
       - bearerAuth: []
-      summary: Edit a message (Telegram only)
+      summary: Edit message
       tags:
       - Messages
       x-content-type: application/json
@@ -8036,7 +7861,7 @@ paths:
           description: Inbox addon required
       security:
       - bearerAuth: []
-      summary: List posts with comments across all accounts
+      summary: List commented posts
       tags:
       - Comments
       x-accepts:
@@ -8086,7 +7911,7 @@ paths:
           description: Inbox addon required
       security:
       - bearerAuth: []
-      summary: Delete a comment
+      summary: Delete comment
       tags:
       - Comments
       x-accepts:
@@ -8163,7 +7988,7 @@ paths:
           description: Inbox addon required
       security:
       - bearerAuth: []
-      summary: Get comments for a post
+      summary: Get post comments
       tags:
       - Comments
       x-accepts:
@@ -8203,7 +8028,7 @@ paths:
           description: Inbox addon required
       security:
       - bearerAuth: []
-      summary: Reply to a post or comment
+      summary: Reply to comment
       tags:
       - Comments
       x-content-type: application/json
@@ -8251,7 +8076,7 @@ paths:
           description: Inbox addon required
       security:
       - bearerAuth: []
-      summary: Unhide a comment
+      summary: Unhide comment
       tags:
       - Comments
       x-accepts:
@@ -8297,7 +8122,7 @@ paths:
           description: Inbox addon required
       security:
       - bearerAuth: []
-      summary: Hide a comment
+      summary: Hide comment
       tags:
       - Comments
       x-content-type: application/json
@@ -8357,7 +8182,7 @@ paths:
           description: Inbox addon required
       security:
       - bearerAuth: []
-      summary: Unlike a comment
+      summary: Unlike comment
       tags:
       - Comments
       x-accepts:
@@ -8406,7 +8231,7 @@ paths:
           description: Inbox addon required
       security:
       - bearerAuth: []
-      summary: Like a comment
+      summary: Like comment
       tags:
       - Comments
       x-content-type: application/json
@@ -8500,7 +8325,7 @@ paths:
           description: Account not found
       security:
       - bearerAuth: []
-      summary: Send private reply to comment author
+      summary: Send private reply
       tags:
       - Comments
       x-content-type: application/json
@@ -8618,7 +8443,7 @@ paths:
           description: Inbox addon required
       security:
       - bearerAuth: []
-      summary: List reviews across all accounts
+      summary: List reviews
       tags:
       - Reviews
       x-accepts:
@@ -8655,7 +8480,7 @@ paths:
           description: Inbox addon required
       security:
       - bearerAuth: []
-      summary: Delete a review reply
+      summary: Delete review reply
       tags:
       - Reviews
       x-content-type: application/json
@@ -8692,7 +8517,7 @@ paths:
           description: Inbox addon required
       security:
       - bearerAuth: []
-      summary: Reply to a review
+      summary: Reply to review
       tags:
       - Reviews
       x-content-type: application/json
@@ -9994,42 +9819,14 @@ components:
     MediaItem:
       description: |
         Media referenced in posts. URLs must be publicly reachable over HTTPS by the destination platforms.
-        When using third‑party storage, ensure signed links remain valid until upload completes.
+        When using third-party storage, ensure signed links remain valid until upload completes.
 
         **Uploading Media:**
         Use `POST /v1/media/presign` to get a presigned URL, then upload your file directly to cloud storage.
         Supports files up to 5GB. See the `/v1/media/presign` endpoint documentation for details.
 
         **Automatic Media Compression:**
-        Late automatically compresses media that exceeds platform limits, so you don't need to worry about file size restrictions. Compression happens server-side during publishing.
-
-        **Image compression by platform:**
-        - Twitter/X: >5 MB
-        - Instagram: >8 MB
-        - Threads: >8 MB
-        - Facebook: >10 MB
-        - LinkedIn: >8 MB
-        - TikTok: >20 MB
-        - Pinterest: >32 MB
-        - Reddit: >20 MB
-        - Snapchat: >20 MB
-        - Telegram: >10 MB
-        - Bluesky: >1 MB
-        - YouTube (thumbnails): >2 MB
-        - Google Business: >5 MB
-
-        **Video compression by platform:**
-        - Twitter/X: >512 MB
-        - Instagram Stories: >100 MB
-        - Instagram Reels: >300 MB
-        - Facebook: >4 GB
-        - LinkedIn: >5 GB
-        - TikTok: >4 GB
-        - Pinterest: >2 GB
-        - Snapchat: >500 MB
-        - Telegram: >50 MB
-
-        Note: Videos larger than 200 MB may not be compressed due to server timeout constraints. For best results, compress very large videos before uploading.
+        Late automatically compresses images and videos that exceed platform limits. Compression happens server-side during publishing. Videos larger than 200 MB may not be compressed due to server timeout constraints.
       example:
         thumbnail: https://openapi-generator.tech
         filename: filename
@@ -10909,27 +10706,11 @@ components:
           type: boolean
     SnapchatPlatformData:
       description: |
-        Snapchat Public Profile API constraints:
+        Snapchat requires a Public Profile. Media is required for all content types (single item only, auto-encrypted before upload).
 
-        **General Requirements:**
-        - Snapchat requires a Public Profile to publish content
-        - Media is required for all content types (no text-only posts)
-        - Only one media item per post is supported
-        - Media is automatically encrypted using AES-256-CBC before upload
+        **Content types:** Story (ephemeral 24h, no caption), Saved Story (permanent, title max 45 chars), Spotlight (video, description max 160 chars).
 
-        **Content Types:**
-        - **Story** (default): Ephemeral content visible for 24 hours. No caption/text supported.
-        - **Saved Story**: Permanent story on your Public Profile. Uses post content as title (max 45 chars).
-        - **Spotlight**: Video content for Snapchat's entertainment feed. Supports description (max 160 chars) with hashtags.
-
-        **Media Constraints:**
-        - Images: max 20 MB, JPEG/PNG format
-        - Videos: max 500 MB, MP4 format, 5-60 seconds duration, minimum 540x960px resolution
-        - Aspect ratio: 9:16 recommended
-
-        **Analytics:**
-        - Views, screenshots, shares, unique viewers, completion rate available
-        - Analytics are fetched per content type (story/saved_story/spotlight)
+        **Media limits:** Images max 20 MB (JPEG/PNG), videos max 500 MB (MP4, 5-60s, min 540x960px, 9:16 recommended).
       properties:
         contentType:
           default: story

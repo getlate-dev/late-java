@@ -4,8 +4,8 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**getUsageStats**](UsageApi.md#getUsageStats) | **GET** /v1/usage-stats | Get plan and usage stats for current account |
-| [**getUsageStatsWithHttpInfo**](UsageApi.md#getUsageStatsWithHttpInfo) | **GET** /v1/usage-stats | Get plan and usage stats for current account |
+| [**getUsageStats**](UsageApi.md#getUsageStats) | **GET** /v1/usage-stats | Get plan and usage stats |
+| [**getUsageStatsWithHttpInfo**](UsageApi.md#getUsageStatsWithHttpInfo) | **GET** /v1/usage-stats | Get plan and usage stats |
 
 
 
@@ -13,7 +13,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 > UsageStats getUsageStats()
 
-Get plan and usage stats for current account
+Get plan and usage stats
 
 ### Example
 
@@ -79,7 +79,7 @@ This endpoint does not need any parameter.
 
 > ApiResponse<UsageStats> getUsageStats getUsageStatsWithHttpInfo()
 
-Get plan and usage stats for current account
+Get plan and usage stats
 
 ### Example
 

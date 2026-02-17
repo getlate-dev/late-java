@@ -4,10 +4,10 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**getUser**](UsersApi.md#getUser) | **GET** /v1/users/{userId} | Get user by id (self or invited) |
-| [**getUserWithHttpInfo**](UsersApi.md#getUserWithHttpInfo) | **GET** /v1/users/{userId} | Get user by id (self or invited) |
-| [**listUsers**](UsersApi.md#listUsers) | **GET** /v1/users | List team users (root + invited) |
-| [**listUsersWithHttpInfo**](UsersApi.md#listUsersWithHttpInfo) | **GET** /v1/users | List team users (root + invited) |
+| [**getUser**](UsersApi.md#getUser) | **GET** /v1/users/{userId} | Get user |
+| [**getUserWithHttpInfo**](UsersApi.md#getUserWithHttpInfo) | **GET** /v1/users/{userId} | Get user |
+| [**listUsers**](UsersApi.md#listUsers) | **GET** /v1/users | List users |
+| [**listUsersWithHttpInfo**](UsersApi.md#listUsersWithHttpInfo) | **GET** /v1/users | List users |
 
 
 
@@ -15,7 +15,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 > GetUser200Response getUser(userId)
 
-Get user by id (self or invited)
+Get user
 
 ### Example
 
@@ -86,7 +86,7 @@ public class Example {
 
 > ApiResponse<GetUser200Response> getUser getUserWithHttpInfo(userId)
 
-Get user by id (self or invited)
+Get user
 
 ### Example
 
@@ -161,7 +161,7 @@ ApiResponse<[**GetUser200Response**](GetUser200Response.md)>
 
 > ListUsers200Response listUsers()
 
-List team users (root + invited)
+List users
 
 ### Example
 
@@ -226,7 +226,7 @@ This endpoint does not need any parameter.
 
 > ApiResponse<ListUsers200Response> listUsers listUsersWithHttpInfo()
 
-List team users (root + invited)
+List users
 
 ### Example
 

@@ -59,7 +59,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T07:51:32.891397159Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ProfilesApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -177,7 +177,7 @@ public class ProfilesApi {
   }
 
   /**
-   * Create a new profile
+   * Create profile
    * 
    * @param createProfileRequest  (required)
    * @return ProfileCreateResponse
@@ -188,7 +188,7 @@ public class ProfilesApi {
   }
 
   /**
-   * Create a new profile
+   * Create profile
    * 
    * @param createProfileRequest  (required)
    * @param headers Optional headers to include in the request
@@ -201,7 +201,7 @@ public class ProfilesApi {
   }
 
   /**
-   * Create a new profile
+   * Create profile
    * 
    * @param createProfileRequest  (required)
    * @return ApiResponse&lt;ProfileCreateResponse&gt;
@@ -212,7 +212,7 @@ public class ProfilesApi {
   }
 
   /**
-   * Create a new profile
+   * Create profile
    * 
    * @param createProfileRequest  (required)
    * @param headers Optional headers to include in the request
@@ -300,7 +300,7 @@ public class ProfilesApi {
   }
 
   /**
-   * Delete a profile (must have no connected accounts)
+   * Delete profile
    * 
    * @param profileId  (required)
    * @return DeleteAccountGroup200Response
@@ -311,7 +311,7 @@ public class ProfilesApi {
   }
 
   /**
-   * Delete a profile (must have no connected accounts)
+   * Delete profile
    * 
    * @param profileId  (required)
    * @param headers Optional headers to include in the request
@@ -324,7 +324,7 @@ public class ProfilesApi {
   }
 
   /**
-   * Delete a profile (must have no connected accounts)
+   * Delete profile
    * 
    * @param profileId  (required)
    * @return ApiResponse&lt;DeleteAccountGroup200Response&gt;
@@ -335,7 +335,7 @@ public class ProfilesApi {
   }
 
   /**
-   * Delete a profile (must have no connected accounts)
+   * Delete profile
    * 
    * @param profileId  (required)
    * @param headers Optional headers to include in the request
@@ -418,7 +418,7 @@ public class ProfilesApi {
   }
 
   /**
-   * Get a profile by id
+   * Get profile
    * 
    * @param profileId  (required)
    * @return GetProfile200Response
@@ -429,7 +429,7 @@ public class ProfilesApi {
   }
 
   /**
-   * Get a profile by id
+   * Get profile
    * 
    * @param profileId  (required)
    * @param headers Optional headers to include in the request
@@ -442,7 +442,7 @@ public class ProfilesApi {
   }
 
   /**
-   * Get a profile by id
+   * Get profile
    * 
    * @param profileId  (required)
    * @return ApiResponse&lt;GetProfile200Response&gt;
@@ -453,7 +453,7 @@ public class ProfilesApi {
   }
 
   /**
-   * Get a profile by id
+   * Get profile
    * 
    * @param profileId  (required)
    * @param headers Optional headers to include in the request
@@ -536,7 +536,7 @@ public class ProfilesApi {
   }
 
   /**
-   * List profiles visible to the authenticated user
+   * List profiles
    * Returns profiles within the user&#39;s plan limit. Profiles are sorted by creation date (oldest first). Use &#x60;includeOverLimit&#x3D;true&#x60; to include profiles that exceed the plan limit (for management/deletion purposes). 
    * @param includeOverLimit When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have &#x60;isOverLimit: true&#x60; in the response. Useful for managing/deleting profiles after a plan downgrade.  (optional, default to false)
    * @return ProfilesListResponse
@@ -547,7 +547,7 @@ public class ProfilesApi {
   }
 
   /**
-   * List profiles visible to the authenticated user
+   * List profiles
    * Returns profiles within the user&#39;s plan limit. Profiles are sorted by creation date (oldest first). Use &#x60;includeOverLimit&#x3D;true&#x60; to include profiles that exceed the plan limit (for management/deletion purposes). 
    * @param includeOverLimit When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have &#x60;isOverLimit: true&#x60; in the response. Useful for managing/deleting profiles after a plan downgrade.  (optional, default to false)
    * @param headers Optional headers to include in the request
@@ -560,7 +560,7 @@ public class ProfilesApi {
   }
 
   /**
-   * List profiles visible to the authenticated user
+   * List profiles
    * Returns profiles within the user&#39;s plan limit. Profiles are sorted by creation date (oldest first). Use &#x60;includeOverLimit&#x3D;true&#x60; to include profiles that exceed the plan limit (for management/deletion purposes). 
    * @param includeOverLimit When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have &#x60;isOverLimit: true&#x60; in the response. Useful for managing/deleting profiles after a plan downgrade.  (optional, default to false)
    * @return ApiResponse&lt;ProfilesListResponse&gt;
@@ -571,7 +571,7 @@ public class ProfilesApi {
   }
 
   /**
-   * List profiles visible to the authenticated user
+   * List profiles
    * Returns profiles within the user&#39;s plan limit. Profiles are sorted by creation date (oldest first). Use &#x60;includeOverLimit&#x3D;true&#x60; to include profiles that exceed the plan limit (for management/deletion purposes). 
    * @param includeOverLimit When true, includes profiles that exceed the user&#39;s plan limit. Over-limit profiles will have &#x60;isOverLimit: true&#x60; in the response. Useful for managing/deleting profiles after a plan downgrade.  (optional, default to false)
    * @param headers Optional headers to include in the request
@@ -664,7 +664,7 @@ public class ProfilesApi {
   }
 
   /**
-   * Update a profile
+   * Update profile
    * 
    * @param profileId  (required)
    * @param updateProfileRequest  (required)
@@ -676,7 +676,7 @@ public class ProfilesApi {
   }
 
   /**
-   * Update a profile
+   * Update profile
    * 
    * @param profileId  (required)
    * @param updateProfileRequest  (required)
@@ -690,7 +690,7 @@ public class ProfilesApi {
   }
 
   /**
-   * Update a profile
+   * Update profile
    * 
    * @param profileId  (required)
    * @param updateProfileRequest  (required)
@@ -702,7 +702,7 @@ public class ProfilesApi {
   }
 
   /**
-   * Update a profile
+   * Update profile
    * 
    * @param profileId  (required)
    * @param updateProfileRequest  (required)

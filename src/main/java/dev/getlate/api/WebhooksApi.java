@@ -59,7 +59,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T07:51:32.891397159Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WebhooksApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -177,7 +177,7 @@ public class WebhooksApi {
   }
 
   /**
-   * Create a new webhook
+   * Create webhook
    * Create a new webhook configuration. Maximum 10 webhooks per user.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
    * @param createWebhookSettingsRequest  (required)
    * @return UpdateWebhookSettings200Response
@@ -188,7 +188,7 @@ public class WebhooksApi {
   }
 
   /**
-   * Create a new webhook
+   * Create webhook
    * Create a new webhook configuration. Maximum 10 webhooks per user.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
    * @param createWebhookSettingsRequest  (required)
    * @param headers Optional headers to include in the request
@@ -201,7 +201,7 @@ public class WebhooksApi {
   }
 
   /**
-   * Create a new webhook
+   * Create webhook
    * Create a new webhook configuration. Maximum 10 webhooks per user.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
    * @param createWebhookSettingsRequest  (required)
    * @return ApiResponse&lt;UpdateWebhookSettings200Response&gt;
@@ -212,7 +212,7 @@ public class WebhooksApi {
   }
 
   /**
-   * Create a new webhook
+   * Create webhook
    * Create a new webhook configuration. Maximum 10 webhooks per user.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
    * @param createWebhookSettingsRequest  (required)
    * @param headers Optional headers to include in the request
@@ -300,7 +300,7 @@ public class WebhooksApi {
   }
 
   /**
-   * Delete a webhook
+   * Delete webhook
    * Permanently delete a webhook configuration.
    * @param id Webhook ID to delete (required)
    * @return UpdateRedditSubreddits200Response
@@ -311,7 +311,7 @@ public class WebhooksApi {
   }
 
   /**
-   * Delete a webhook
+   * Delete webhook
    * Permanently delete a webhook configuration.
    * @param id Webhook ID to delete (required)
    * @param headers Optional headers to include in the request
@@ -324,7 +324,7 @@ public class WebhooksApi {
   }
 
   /**
-   * Delete a webhook
+   * Delete webhook
    * Permanently delete a webhook configuration.
    * @param id Webhook ID to delete (required)
    * @return ApiResponse&lt;UpdateRedditSubreddits200Response&gt;
@@ -335,7 +335,7 @@ public class WebhooksApi {
   }
 
   /**
-   * Delete a webhook
+   * Delete webhook
    * Permanently delete a webhook configuration.
    * @param id Webhook ID to delete (required)
    * @param headers Optional headers to include in the request
@@ -432,7 +432,7 @@ public class WebhooksApi {
   }
 
   /**
-   * Get webhook delivery logs
+   * Get delivery logs
    * Retrieve webhook delivery history. Logs are automatically deleted after 7 days. 
    * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
    * @param status Filter by delivery status (optional)
@@ -446,7 +446,7 @@ public class WebhooksApi {
   }
 
   /**
-   * Get webhook delivery logs
+   * Get delivery logs
    * Retrieve webhook delivery history. Logs are automatically deleted after 7 days. 
    * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
    * @param status Filter by delivery status (optional)
@@ -462,7 +462,7 @@ public class WebhooksApi {
   }
 
   /**
-   * Get webhook delivery logs
+   * Get delivery logs
    * Retrieve webhook delivery history. Logs are automatically deleted after 7 days. 
    * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
    * @param status Filter by delivery status (optional)
@@ -476,7 +476,7 @@ public class WebhooksApi {
   }
 
   /**
-   * Get webhook delivery logs
+   * Get delivery logs
    * Retrieve webhook delivery history. Logs are automatically deleted after 7 days. 
    * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
    * @param status Filter by delivery status (optional)
@@ -578,7 +578,7 @@ public class WebhooksApi {
   }
 
   /**
-   * List all webhooks
+   * List webhooks
    * Retrieve all configured webhooks for the authenticated user. Supports up to 10 webhooks per user.
    * @return GetWebhookSettings200Response
    * @throws ApiException if fails to make API call
@@ -588,7 +588,7 @@ public class WebhooksApi {
   }
 
   /**
-   * List all webhooks
+   * List webhooks
    * Retrieve all configured webhooks for the authenticated user. Supports up to 10 webhooks per user.
    * @param headers Optional headers to include in the request
    * @return GetWebhookSettings200Response
@@ -600,7 +600,7 @@ public class WebhooksApi {
   }
 
   /**
-   * List all webhooks
+   * List webhooks
    * Retrieve all configured webhooks for the authenticated user. Supports up to 10 webhooks per user.
    * @return ApiResponse&lt;GetWebhookSettings200Response&gt;
    * @throws ApiException if fails to make API call
@@ -610,7 +610,7 @@ public class WebhooksApi {
   }
 
   /**
-   * List all webhooks
+   * List webhooks
    * Retrieve all configured webhooks for the authenticated user. Supports up to 10 webhooks per user.
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetWebhookSettings200Response&gt;
@@ -810,7 +810,7 @@ public class WebhooksApi {
   }
 
   /**
-   * Update a webhook
+   * Update webhook
    * Update an existing webhook configuration. All fields except &#x60;_id&#x60; are optional - only provided fields will be updated.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
    * @param updateWebhookSettingsRequest  (required)
    * @return UpdateWebhookSettings200Response
@@ -821,7 +821,7 @@ public class WebhooksApi {
   }
 
   /**
-   * Update a webhook
+   * Update webhook
    * Update an existing webhook configuration. All fields except &#x60;_id&#x60; are optional - only provided fields will be updated.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
    * @param updateWebhookSettingsRequest  (required)
    * @param headers Optional headers to include in the request
@@ -834,7 +834,7 @@ public class WebhooksApi {
   }
 
   /**
-   * Update a webhook
+   * Update webhook
    * Update an existing webhook configuration. All fields except &#x60;_id&#x60; are optional - only provided fields will be updated.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
    * @param updateWebhookSettingsRequest  (required)
    * @return ApiResponse&lt;UpdateWebhookSettings200Response&gt;
@@ -845,7 +845,7 @@ public class WebhooksApi {
   }
 
   /**
-   * Update a webhook
+   * Update webhook
    * Update an existing webhook configuration. All fields except &#x60;_id&#x60; are optional - only provided fields will be updated.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
    * @param updateWebhookSettingsRequest  (required)
    * @param headers Optional headers to include in the request

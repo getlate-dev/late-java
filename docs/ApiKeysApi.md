@@ -4,12 +4,12 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createApiKey**](ApiKeysApi.md#createApiKey) | **POST** /v1/api-keys | Create a new API key |
-| [**createApiKeyWithHttpInfo**](ApiKeysApi.md#createApiKeyWithHttpInfo) | **POST** /v1/api-keys | Create a new API key |
-| [**deleteApiKey**](ApiKeysApi.md#deleteApiKey) | **DELETE** /v1/api-keys/{keyId} | Delete an API key |
-| [**deleteApiKeyWithHttpInfo**](ApiKeysApi.md#deleteApiKeyWithHttpInfo) | **DELETE** /v1/api-keys/{keyId} | Delete an API key |
-| [**listApiKeys**](ApiKeysApi.md#listApiKeys) | **GET** /v1/api-keys | List API keys for the current user |
-| [**listApiKeysWithHttpInfo**](ApiKeysApi.md#listApiKeysWithHttpInfo) | **GET** /v1/api-keys | List API keys for the current user |
+| [**createApiKey**](ApiKeysApi.md#createApiKey) | **POST** /v1/api-keys | Create key |
+| [**createApiKeyWithHttpInfo**](ApiKeysApi.md#createApiKeyWithHttpInfo) | **POST** /v1/api-keys | Create key |
+| [**deleteApiKey**](ApiKeysApi.md#deleteApiKey) | **DELETE** /v1/api-keys/{keyId} | Delete key |
+| [**deleteApiKeyWithHttpInfo**](ApiKeysApi.md#deleteApiKeyWithHttpInfo) | **DELETE** /v1/api-keys/{keyId} | Delete key |
+| [**listApiKeys**](ApiKeysApi.md#listApiKeys) | **GET** /v1/api-keys | List keys |
+| [**listApiKeysWithHttpInfo**](ApiKeysApi.md#listApiKeysWithHttpInfo) | **GET** /v1/api-keys | List keys |
 
 
 
@@ -17,7 +17,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 > CreateApiKey201Response createApiKey(createApiKeyRequest)
 
-Create a new API key
+Create key
 
 ### Example
 
@@ -87,7 +87,7 @@ public class Example {
 
 > ApiResponse<CreateApiKey201Response> createApiKey createApiKeyWithHttpInfo(createApiKeyRequest)
 
-Create a new API key
+Create key
 
 ### Example
 
@@ -161,7 +161,7 @@ ApiResponse<[**CreateApiKey201Response**](CreateApiKey201Response.md)>
 
 > DeleteAccountGroup200Response deleteApiKey(keyId)
 
-Delete an API key
+Delete key
 
 ### Example
 
@@ -231,7 +231,7 @@ public class Example {
 
 > ApiResponse<DeleteAccountGroup200Response> deleteApiKey deleteApiKeyWithHttpInfo(keyId)
 
-Delete an API key
+Delete key
 
 ### Example
 
@@ -305,7 +305,7 @@ ApiResponse<[**DeleteAccountGroup200Response**](DeleteAccountGroup200Response.md
 
 > ListApiKeys200Response listApiKeys()
 
-List API keys for the current user
+List keys
 
 ### Example
 
@@ -370,7 +370,7 @@ This endpoint does not need any parameter.
 
 > ApiResponse<ListApiKeys200Response> listApiKeys listApiKeysWithHttpInfo()
 
-List API keys for the current user
+List keys
 
 ### Example
 

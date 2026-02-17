@@ -54,7 +54,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T07:51:32.891397159Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UsersApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -172,7 +172,7 @@ public class UsersApi {
   }
 
   /**
-   * Get user by id (self or invited)
+   * Get user
    * 
    * @param userId  (required)
    * @return GetUser200Response
@@ -183,7 +183,7 @@ public class UsersApi {
   }
 
   /**
-   * Get user by id (self or invited)
+   * Get user
    * 
    * @param userId  (required)
    * @param headers Optional headers to include in the request
@@ -196,7 +196,7 @@ public class UsersApi {
   }
 
   /**
-   * Get user by id (self or invited)
+   * Get user
    * 
    * @param userId  (required)
    * @return ApiResponse&lt;GetUser200Response&gt;
@@ -207,7 +207,7 @@ public class UsersApi {
   }
 
   /**
-   * Get user by id (self or invited)
+   * Get user
    * 
    * @param userId  (required)
    * @param headers Optional headers to include in the request
@@ -290,7 +290,7 @@ public class UsersApi {
   }
 
   /**
-   * List team users (root + invited)
+   * List users
    * 
    * @return ListUsers200Response
    * @throws ApiException if fails to make API call
@@ -300,7 +300,7 @@ public class UsersApi {
   }
 
   /**
-   * List team users (root + invited)
+   * List users
    * 
    * @param headers Optional headers to include in the request
    * @return ListUsers200Response
@@ -312,7 +312,7 @@ public class UsersApi {
   }
 
   /**
-   * List team users (root + invited)
+   * List users
    * 
    * @return ApiResponse&lt;ListUsers200Response&gt;
    * @throws ApiException if fails to make API call
@@ -322,7 +322,7 @@ public class UsersApi {
   }
 
   /**
-   * List team users (root + invited)
+   * List users
    * 
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;ListUsers200Response&gt;

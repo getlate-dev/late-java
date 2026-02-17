@@ -4,12 +4,12 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createGoogleBusinessPlaceAction**](GmbPlaceActionsApi.md#createGoogleBusinessPlaceAction) | **POST** /v1/accounts/{accountId}/gmb-place-actions | Create a place action link (booking, ordering, reservation) |
-| [**createGoogleBusinessPlaceActionWithHttpInfo**](GmbPlaceActionsApi.md#createGoogleBusinessPlaceActionWithHttpInfo) | **POST** /v1/accounts/{accountId}/gmb-place-actions | Create a place action link (booking, ordering, reservation) |
-| [**deleteGoogleBusinessPlaceAction**](GmbPlaceActionsApi.md#deleteGoogleBusinessPlaceAction) | **DELETE** /v1/accounts/{accountId}/gmb-place-actions | Delete a place action link |
-| [**deleteGoogleBusinessPlaceActionWithHttpInfo**](GmbPlaceActionsApi.md#deleteGoogleBusinessPlaceActionWithHttpInfo) | **DELETE** /v1/accounts/{accountId}/gmb-place-actions | Delete a place action link |
-| [**listGoogleBusinessPlaceActions**](GmbPlaceActionsApi.md#listGoogleBusinessPlaceActions) | **GET** /v1/accounts/{accountId}/gmb-place-actions | List place action links (booking, ordering, reservations) |
-| [**listGoogleBusinessPlaceActionsWithHttpInfo**](GmbPlaceActionsApi.md#listGoogleBusinessPlaceActionsWithHttpInfo) | **GET** /v1/accounts/{accountId}/gmb-place-actions | List place action links (booking, ordering, reservations) |
+| [**createGoogleBusinessPlaceAction**](GmbPlaceActionsApi.md#createGoogleBusinessPlaceAction) | **POST** /v1/accounts/{accountId}/gmb-place-actions | Create action link |
+| [**createGoogleBusinessPlaceActionWithHttpInfo**](GmbPlaceActionsApi.md#createGoogleBusinessPlaceActionWithHttpInfo) | **POST** /v1/accounts/{accountId}/gmb-place-actions | Create action link |
+| [**deleteGoogleBusinessPlaceAction**](GmbPlaceActionsApi.md#deleteGoogleBusinessPlaceAction) | **DELETE** /v1/accounts/{accountId}/gmb-place-actions | Delete action link |
+| [**deleteGoogleBusinessPlaceActionWithHttpInfo**](GmbPlaceActionsApi.md#deleteGoogleBusinessPlaceActionWithHttpInfo) | **DELETE** /v1/accounts/{accountId}/gmb-place-actions | Delete action link |
+| [**listGoogleBusinessPlaceActions**](GmbPlaceActionsApi.md#listGoogleBusinessPlaceActions) | **GET** /v1/accounts/{accountId}/gmb-place-actions | List action links |
+| [**listGoogleBusinessPlaceActionsWithHttpInfo**](GmbPlaceActionsApi.md#listGoogleBusinessPlaceActionsWithHttpInfo) | **GET** /v1/accounts/{accountId}/gmb-place-actions | List action links |
 
 
 
@@ -17,7 +17,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 > CreateGoogleBusinessPlaceAction200Response createGoogleBusinessPlaceAction(accountId, createGoogleBusinessPlaceActionRequest)
 
-Create a place action link (booking, ordering, reservation)
+Create action link
 
 Creates a place action link for a location.  Available action types: - &#x60;APPOINTMENT&#x60; - Booking an appointment - &#x60;ONLINE_APPOINTMENT&#x60; - Booking an online appointment - &#x60;DINING_RESERVATION&#x60; - Making a dining reservation (OpenTable, Resy, etc.) - &#x60;FOOD_ORDERING&#x60; - Ordering food for delivery and/or takeout (DoorDash, Uber Eats, etc.) - &#x60;FOOD_DELIVERY&#x60; - Ordering food for delivery only - &#x60;FOOD_TAKEOUT&#x60; - Ordering food for takeout only - &#x60;SHOP_ONLINE&#x60; - Shopping with delivery and/or pickup 
 
@@ -91,7 +91,7 @@ public class Example {
 
 > ApiResponse<CreateGoogleBusinessPlaceAction200Response> createGoogleBusinessPlaceAction createGoogleBusinessPlaceActionWithHttpInfo(accountId, createGoogleBusinessPlaceActionRequest)
 
-Create a place action link (booking, ordering, reservation)
+Create action link
 
 Creates a place action link for a location.  Available action types: - &#x60;APPOINTMENT&#x60; - Booking an appointment - &#x60;ONLINE_APPOINTMENT&#x60; - Booking an online appointment - &#x60;DINING_RESERVATION&#x60; - Making a dining reservation (OpenTable, Resy, etc.) - &#x60;FOOD_ORDERING&#x60; - Ordering food for delivery and/or takeout (DoorDash, Uber Eats, etc.) - &#x60;FOOD_DELIVERY&#x60; - Ordering food for delivery only - &#x60;FOOD_TAKEOUT&#x60; - Ordering food for takeout only - &#x60;SHOP_ONLINE&#x60; - Shopping with delivery and/or pickup 
 
@@ -169,7 +169,7 @@ ApiResponse<[**CreateGoogleBusinessPlaceAction200Response**](CreateGoogleBusines
 
 > DeleteGoogleBusinessPlaceAction200Response deleteGoogleBusinessPlaceAction(accountId, name)
 
-Delete a place action link
+Delete action link
 
 ### Example
 
@@ -241,7 +241,7 @@ public class Example {
 
 > ApiResponse<DeleteGoogleBusinessPlaceAction200Response> deleteGoogleBusinessPlaceAction deleteGoogleBusinessPlaceActionWithHttpInfo(accountId, name)
 
-Delete a place action link
+Delete action link
 
 ### Example
 
@@ -317,7 +317,7 @@ ApiResponse<[**DeleteGoogleBusinessPlaceAction200Response**](DeleteGoogleBusines
 
 > ListGoogleBusinessPlaceActions200Response listGoogleBusinessPlaceActions(accountId, pageSize, pageToken)
 
-List place action links (booking, ordering, reservations)
+List action links
 
 Lists place action links for a Google Business Profile location.  Place actions are the booking, ordering, and reservation buttons that appear on your listing. 
 
@@ -393,7 +393,7 @@ public class Example {
 
 > ApiResponse<ListGoogleBusinessPlaceActions200Response> listGoogleBusinessPlaceActions listGoogleBusinessPlaceActionsWithHttpInfo(accountId, pageSize, pageToken)
 
-List place action links (booking, ordering, reservations)
+List action links
 
 Lists place action links for a Google Business Profile location.  Place actions are the booking, ordering, and reservation buttons that appear on your listing. 
 

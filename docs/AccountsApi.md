@@ -4,18 +4,18 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**deleteAccount**](AccountsApi.md#deleteAccount) | **DELETE** /v1/accounts/{accountId} | Disconnect a social account |
-| [**deleteAccountWithHttpInfo**](AccountsApi.md#deleteAccountWithHttpInfo) | **DELETE** /v1/accounts/{accountId} | Disconnect a social account |
-| [**getAccountHealth**](AccountsApi.md#getAccountHealth) | **GET** /v1/accounts/{accountId}/health | Check health of a specific account |
-| [**getAccountHealthWithHttpInfo**](AccountsApi.md#getAccountHealthWithHttpInfo) | **GET** /v1/accounts/{accountId}/health | Check health of a specific account |
-| [**getAllAccountsHealth**](AccountsApi.md#getAllAccountsHealth) | **GET** /v1/accounts/health | Check health of all connected accounts |
-| [**getAllAccountsHealthWithHttpInfo**](AccountsApi.md#getAllAccountsHealthWithHttpInfo) | **GET** /v1/accounts/health | Check health of all connected accounts |
-| [**getFollowerStats**](AccountsApi.md#getFollowerStats) | **GET** /v1/accounts/follower-stats | Get follower stats and growth metrics |
-| [**getFollowerStatsWithHttpInfo**](AccountsApi.md#getFollowerStatsWithHttpInfo) | **GET** /v1/accounts/follower-stats | Get follower stats and growth metrics |
-| [**listAccounts**](AccountsApi.md#listAccounts) | **GET** /v1/accounts | List connected social accounts |
-| [**listAccountsWithHttpInfo**](AccountsApi.md#listAccountsWithHttpInfo) | **GET** /v1/accounts | List connected social accounts |
-| [**updateAccount**](AccountsApi.md#updateAccount) | **PUT** /v1/accounts/{accountId} | Update a social account |
-| [**updateAccountWithHttpInfo**](AccountsApi.md#updateAccountWithHttpInfo) | **PUT** /v1/accounts/{accountId} | Update a social account |
+| [**deleteAccount**](AccountsApi.md#deleteAccount) | **DELETE** /v1/accounts/{accountId} | Disconnect account |
+| [**deleteAccountWithHttpInfo**](AccountsApi.md#deleteAccountWithHttpInfo) | **DELETE** /v1/accounts/{accountId} | Disconnect account |
+| [**getAccountHealth**](AccountsApi.md#getAccountHealth) | **GET** /v1/accounts/{accountId}/health | Check account health |
+| [**getAccountHealthWithHttpInfo**](AccountsApi.md#getAccountHealthWithHttpInfo) | **GET** /v1/accounts/{accountId}/health | Check account health |
+| [**getAllAccountsHealth**](AccountsApi.md#getAllAccountsHealth) | **GET** /v1/accounts/health | Check accounts health |
+| [**getAllAccountsHealthWithHttpInfo**](AccountsApi.md#getAllAccountsHealthWithHttpInfo) | **GET** /v1/accounts/health | Check accounts health |
+| [**getFollowerStats**](AccountsApi.md#getFollowerStats) | **GET** /v1/accounts/follower-stats | Get follower stats |
+| [**getFollowerStatsWithHttpInfo**](AccountsApi.md#getFollowerStatsWithHttpInfo) | **GET** /v1/accounts/follower-stats | Get follower stats |
+| [**listAccounts**](AccountsApi.md#listAccounts) | **GET** /v1/accounts | List accounts |
+| [**listAccountsWithHttpInfo**](AccountsApi.md#listAccountsWithHttpInfo) | **GET** /v1/accounts | List accounts |
+| [**updateAccount**](AccountsApi.md#updateAccount) | **PUT** /v1/accounts/{accountId} | Update account |
+| [**updateAccountWithHttpInfo**](AccountsApi.md#updateAccountWithHttpInfo) | **PUT** /v1/accounts/{accountId} | Update account |
 
 
 
@@ -23,7 +23,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 > DeleteAccountGroup200Response deleteAccount(accountId)
 
-Disconnect a social account
+Disconnect account
 
 ### Example
 
@@ -93,7 +93,7 @@ public class Example {
 
 > ApiResponse<DeleteAccountGroup200Response> deleteAccount deleteAccountWithHttpInfo(accountId)
 
-Disconnect a social account
+Disconnect account
 
 ### Example
 
@@ -167,7 +167,7 @@ ApiResponse<[**DeleteAccountGroup200Response**](DeleteAccountGroup200Response.md
 
 > GetAccountHealth200Response getAccountHealth(accountId)
 
-Check health of a specific account
+Check account health
 
 Returns detailed health information for a specific social account, including token status, granted permissions, missing permissions, and actionable recommendations. 
 
@@ -239,7 +239,7 @@ public class Example {
 
 > ApiResponse<GetAccountHealth200Response> getAccountHealth getAccountHealthWithHttpInfo(accountId)
 
-Check health of a specific account
+Check account health
 
 Returns detailed health information for a specific social account, including token status, granted permissions, missing permissions, and actionable recommendations. 
 
@@ -315,7 +315,7 @@ ApiResponse<[**GetAccountHealth200Response**](GetAccountHealth200Response.md)>
 
 > GetAllAccountsHealth200Response getAllAccountsHealth(profileId, platform, status)
 
-Check health of all connected accounts
+Check accounts health
 
 Returns the health status of all connected social accounts, including token validity, permissions status, and any issues that need attention. Useful for monitoring account connections and identifying accounts that need reconnection. 
 
@@ -390,7 +390,7 @@ public class Example {
 
 > ApiResponse<GetAllAccountsHealth200Response> getAllAccountsHealth getAllAccountsHealthWithHttpInfo(profileId, platform, status)
 
-Check health of all connected accounts
+Check accounts health
 
 Returns the health status of all connected social accounts, including token validity, permissions status, and any issues that need attention. Useful for monitoring account connections and identifying accounts that need reconnection. 
 
@@ -469,7 +469,7 @@ ApiResponse<[**GetAllAccountsHealth200Response**](GetAllAccountsHealth200Respons
 
 > GetFollowerStats200Response getFollowerStats(accountIds, profileId, fromDate, toDate, granularity)
 
-Get follower stats and growth metrics
+Get follower stats
 
 Returns follower count history and growth metrics for connected social accounts. **Requires analytics add-on subscription.**  **Data Freshness:** Follower counts are automatically refreshed once per day. 
 
@@ -549,7 +549,7 @@ public class Example {
 
 > ApiResponse<GetFollowerStats200Response> getFollowerStats getFollowerStatsWithHttpInfo(accountIds, profileId, fromDate, toDate, granularity)
 
-Get follower stats and growth metrics
+Get follower stats
 
 Returns follower count history and growth metrics for connected social accounts. **Requires analytics add-on subscription.**  **Data Freshness:** Follower counts are automatically refreshed once per day. 
 
@@ -633,7 +633,7 @@ ApiResponse<[**GetFollowerStats200Response**](GetFollowerStats200Response.md)>
 
 > ListAccounts200Response listAccounts(profileId, includeOverLimit)
 
-List connected social accounts
+List accounts
 
 Returns list of connected social accounts. By default, only returns accounts from profiles within the user&#39;s plan limit. Follower count data (followersCount, followersLastUpdated) is only included if user has analytics add-on. 
 
@@ -706,7 +706,7 @@ public class Example {
 
 > ApiResponse<ListAccounts200Response> listAccounts listAccountsWithHttpInfo(profileId, includeOverLimit)
 
-List connected social accounts
+List accounts
 
 Returns list of connected social accounts. By default, only returns accounts from profiles within the user&#39;s plan limit. Follower count data (followersCount, followersLastUpdated) is only included if user has analytics add-on. 
 
@@ -783,7 +783,7 @@ ApiResponse<[**ListAccounts200Response**](ListAccounts200Response.md)>
 
 > UpdateAccount200Response updateAccount(accountId, updateAccountRequest)
 
-Update a social account
+Update account
 
 ### Example
 
@@ -856,7 +856,7 @@ public class Example {
 
 > ApiResponse<UpdateAccount200Response> updateAccount updateAccountWithHttpInfo(accountId, updateAccountRequest)
 
-Update a social account
+Update account
 
 ### Example
 

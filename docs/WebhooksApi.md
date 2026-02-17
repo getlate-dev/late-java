@@ -4,18 +4,18 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createWebhookSettings**](WebhooksApi.md#createWebhookSettings) | **POST** /v1/webhooks/settings | Create a new webhook |
-| [**createWebhookSettingsWithHttpInfo**](WebhooksApi.md#createWebhookSettingsWithHttpInfo) | **POST** /v1/webhooks/settings | Create a new webhook |
-| [**deleteWebhookSettings**](WebhooksApi.md#deleteWebhookSettings) | **DELETE** /v1/webhooks/settings | Delete a webhook |
-| [**deleteWebhookSettingsWithHttpInfo**](WebhooksApi.md#deleteWebhookSettingsWithHttpInfo) | **DELETE** /v1/webhooks/settings | Delete a webhook |
-| [**getWebhookLogs**](WebhooksApi.md#getWebhookLogs) | **GET** /v1/webhooks/logs | Get webhook delivery logs |
-| [**getWebhookLogsWithHttpInfo**](WebhooksApi.md#getWebhookLogsWithHttpInfo) | **GET** /v1/webhooks/logs | Get webhook delivery logs |
-| [**getWebhookSettings**](WebhooksApi.md#getWebhookSettings) | **GET** /v1/webhooks/settings | List all webhooks |
-| [**getWebhookSettingsWithHttpInfo**](WebhooksApi.md#getWebhookSettingsWithHttpInfo) | **GET** /v1/webhooks/settings | List all webhooks |
+| [**createWebhookSettings**](WebhooksApi.md#createWebhookSettings) | **POST** /v1/webhooks/settings | Create webhook |
+| [**createWebhookSettingsWithHttpInfo**](WebhooksApi.md#createWebhookSettingsWithHttpInfo) | **POST** /v1/webhooks/settings | Create webhook |
+| [**deleteWebhookSettings**](WebhooksApi.md#deleteWebhookSettings) | **DELETE** /v1/webhooks/settings | Delete webhook |
+| [**deleteWebhookSettingsWithHttpInfo**](WebhooksApi.md#deleteWebhookSettingsWithHttpInfo) | **DELETE** /v1/webhooks/settings | Delete webhook |
+| [**getWebhookLogs**](WebhooksApi.md#getWebhookLogs) | **GET** /v1/webhooks/logs | Get delivery logs |
+| [**getWebhookLogsWithHttpInfo**](WebhooksApi.md#getWebhookLogsWithHttpInfo) | **GET** /v1/webhooks/logs | Get delivery logs |
+| [**getWebhookSettings**](WebhooksApi.md#getWebhookSettings) | **GET** /v1/webhooks/settings | List webhooks |
+| [**getWebhookSettingsWithHttpInfo**](WebhooksApi.md#getWebhookSettingsWithHttpInfo) | **GET** /v1/webhooks/settings | List webhooks |
 | [**testWebhook**](WebhooksApi.md#testWebhook) | **POST** /v1/webhooks/test | Send test webhook |
 | [**testWebhookWithHttpInfo**](WebhooksApi.md#testWebhookWithHttpInfo) | **POST** /v1/webhooks/test | Send test webhook |
-| [**updateWebhookSettings**](WebhooksApi.md#updateWebhookSettings) | **PUT** /v1/webhooks/settings | Update a webhook |
-| [**updateWebhookSettingsWithHttpInfo**](WebhooksApi.md#updateWebhookSettingsWithHttpInfo) | **PUT** /v1/webhooks/settings | Update a webhook |
+| [**updateWebhookSettings**](WebhooksApi.md#updateWebhookSettings) | **PUT** /v1/webhooks/settings | Update webhook |
+| [**updateWebhookSettingsWithHttpInfo**](WebhooksApi.md#updateWebhookSettingsWithHttpInfo) | **PUT** /v1/webhooks/settings | Update webhook |
 
 
 
@@ -23,7 +23,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 > UpdateWebhookSettings200Response createWebhookSettings(createWebhookSettingsRequest)
 
-Create a new webhook
+Create webhook
 
 Create a new webhook configuration. Maximum 10 webhooks per user.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
 
@@ -95,7 +95,7 @@ public class Example {
 
 > ApiResponse<UpdateWebhookSettings200Response> createWebhookSettings createWebhookSettingsWithHttpInfo(createWebhookSettingsRequest)
 
-Create a new webhook
+Create webhook
 
 Create a new webhook configuration. Maximum 10 webhooks per user.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
 
@@ -171,7 +171,7 @@ ApiResponse<[**UpdateWebhookSettings200Response**](UpdateWebhookSettings200Respo
 
 > UpdateRedditSubreddits200Response deleteWebhookSettings(id)
 
-Delete a webhook
+Delete webhook
 
 Permanently delete a webhook configuration.
 
@@ -243,7 +243,7 @@ public class Example {
 
 > ApiResponse<UpdateRedditSubreddits200Response> deleteWebhookSettings deleteWebhookSettingsWithHttpInfo(id)
 
-Delete a webhook
+Delete webhook
 
 Permanently delete a webhook configuration.
 
@@ -319,7 +319,7 @@ ApiResponse<[**UpdateRedditSubreddits200Response**](UpdateRedditSubreddits200Res
 
 > GetWebhookLogs200Response getWebhookLogs(limit, status, event, webhookId)
 
-Get webhook delivery logs
+Get delivery logs
 
 Retrieve webhook delivery history. Logs are automatically deleted after 7 days. 
 
@@ -396,7 +396,7 @@ public class Example {
 
 > ApiResponse<GetWebhookLogs200Response> getWebhookLogs getWebhookLogsWithHttpInfo(limit, status, event, webhookId)
 
-Get webhook delivery logs
+Get delivery logs
 
 Retrieve webhook delivery history. Logs are automatically deleted after 7 days. 
 
@@ -477,7 +477,7 @@ ApiResponse<[**GetWebhookLogs200Response**](GetWebhookLogs200Response.md)>
 
 > GetWebhookSettings200Response getWebhookSettings()
 
-List all webhooks
+List webhooks
 
 Retrieve all configured webhooks for the authenticated user. Supports up to 10 webhooks per user.
 
@@ -544,7 +544,7 @@ This endpoint does not need any parameter.
 
 > ApiResponse<GetWebhookSettings200Response> getWebhookSettings getWebhookSettingsWithHttpInfo()
 
-List all webhooks
+List webhooks
 
 Retrieve all configured webhooks for the authenticated user. Supports up to 10 webhooks per user.
 
@@ -765,7 +765,7 @@ ApiResponse<[**UnpublishPost200Response**](UnpublishPost200Response.md)>
 
 > UpdateWebhookSettings200Response updateWebhookSettings(updateWebhookSettingsRequest)
 
-Update a webhook
+Update webhook
 
 Update an existing webhook configuration. All fields except &#x60;_id&#x60; are optional - only provided fields will be updated.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
 
@@ -838,7 +838,7 @@ public class Example {
 
 > ApiResponse<UpdateWebhookSettings200Response> updateWebhookSettings updateWebhookSettingsWithHttpInfo(updateWebhookSettingsRequest)
 
-Update a webhook
+Update webhook
 
 Update an existing webhook configuration. All fields except &#x60;_id&#x60; are optional - only provided fields will be updated.  **Note:** Webhooks are automatically disabled after 10 consecutive delivery failures. 
 

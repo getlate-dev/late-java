@@ -4,18 +4,18 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createQueueSlot**](QueueApi.md#createQueueSlot) | **POST** /v1/queue/slots | Create a new queue for a profile |
-| [**createQueueSlotWithHttpInfo**](QueueApi.md#createQueueSlotWithHttpInfo) | **POST** /v1/queue/slots | Create a new queue for a profile |
-| [**deleteQueueSlot**](QueueApi.md#deleteQueueSlot) | **DELETE** /v1/queue/slots | Delete a queue schedule |
-| [**deleteQueueSlotWithHttpInfo**](QueueApi.md#deleteQueueSlotWithHttpInfo) | **DELETE** /v1/queue/slots | Delete a queue schedule |
-| [**getNextQueueSlot**](QueueApi.md#getNextQueueSlot) | **GET** /v1/queue/next-slot | Preview the next available queue slot (informational only) |
-| [**getNextQueueSlotWithHttpInfo**](QueueApi.md#getNextQueueSlotWithHttpInfo) | **GET** /v1/queue/next-slot | Preview the next available queue slot (informational only) |
-| [**listQueueSlots**](QueueApi.md#listQueueSlots) | **GET** /v1/queue/slots | Get queue schedules for a profile |
-| [**listQueueSlotsWithHttpInfo**](QueueApi.md#listQueueSlotsWithHttpInfo) | **GET** /v1/queue/slots | Get queue schedules for a profile |
-| [**previewQueue**](QueueApi.md#previewQueue) | **GET** /v1/queue/preview | Preview upcoming queue slots for a profile |
-| [**previewQueueWithHttpInfo**](QueueApi.md#previewQueueWithHttpInfo) | **GET** /v1/queue/preview | Preview upcoming queue slots for a profile |
-| [**updateQueueSlot**](QueueApi.md#updateQueueSlot) | **PUT** /v1/queue/slots | Create or update a queue schedule |
-| [**updateQueueSlotWithHttpInfo**](QueueApi.md#updateQueueSlotWithHttpInfo) | **PUT** /v1/queue/slots | Create or update a queue schedule |
+| [**createQueueSlot**](QueueApi.md#createQueueSlot) | **POST** /v1/queue/slots | Create schedule |
+| [**createQueueSlotWithHttpInfo**](QueueApi.md#createQueueSlotWithHttpInfo) | **POST** /v1/queue/slots | Create schedule |
+| [**deleteQueueSlot**](QueueApi.md#deleteQueueSlot) | **DELETE** /v1/queue/slots | Delete schedule |
+| [**deleteQueueSlotWithHttpInfo**](QueueApi.md#deleteQueueSlotWithHttpInfo) | **DELETE** /v1/queue/slots | Delete schedule |
+| [**getNextQueueSlot**](QueueApi.md#getNextQueueSlot) | **GET** /v1/queue/next-slot | Get next available slot |
+| [**getNextQueueSlotWithHttpInfo**](QueueApi.md#getNextQueueSlotWithHttpInfo) | **GET** /v1/queue/next-slot | Get next available slot |
+| [**listQueueSlots**](QueueApi.md#listQueueSlots) | **GET** /v1/queue/slots | List schedules |
+| [**listQueueSlotsWithHttpInfo**](QueueApi.md#listQueueSlotsWithHttpInfo) | **GET** /v1/queue/slots | List schedules |
+| [**previewQueue**](QueueApi.md#previewQueue) | **GET** /v1/queue/preview | Preview upcoming slots |
+| [**previewQueueWithHttpInfo**](QueueApi.md#previewQueueWithHttpInfo) | **GET** /v1/queue/preview | Preview upcoming slots |
+| [**updateQueueSlot**](QueueApi.md#updateQueueSlot) | **PUT** /v1/queue/slots | Update schedule |
+| [**updateQueueSlotWithHttpInfo**](QueueApi.md#updateQueueSlotWithHttpInfo) | **PUT** /v1/queue/slots | Update schedule |
 
 
 
@@ -23,7 +23,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 > CreateQueueSlot201Response createQueueSlot(createQueueSlotRequest)
 
-Create a new queue for a profile
+Create schedule
 
 Create an additional queue for a profile. The first queue created becomes the default. Subsequent queues are non-default unless explicitly set. 
 
@@ -96,7 +96,7 @@ public class Example {
 
 > ApiResponse<CreateQueueSlot201Response> createQueueSlot createQueueSlotWithHttpInfo(createQueueSlotRequest)
 
-Create a new queue for a profile
+Create schedule
 
 Create an additional queue for a profile. The first queue created becomes the default. Subsequent queues are non-default unless explicitly set. 
 
@@ -173,7 +173,7 @@ ApiResponse<[**CreateQueueSlot201Response**](CreateQueueSlot201Response.md)>
 
 > DeleteQueueSlot200Response deleteQueueSlot(profileId, queueId)
 
-Delete a queue schedule
+Delete schedule
 
 Delete a queue from a profile. Requires queueId to specify which queue to delete. If deleting the default queue, another queue will be promoted to default. 
 
@@ -247,7 +247,7 @@ public class Example {
 
 > ApiResponse<DeleteQueueSlot200Response> deleteQueueSlot deleteQueueSlotWithHttpInfo(profileId, queueId)
 
-Delete a queue schedule
+Delete schedule
 
 Delete a queue from a profile. Requires queueId to specify which queue to delete. If deleting the default queue, another queue will be promoted to default. 
 
@@ -325,7 +325,7 @@ ApiResponse<[**DeleteQueueSlot200Response**](DeleteQueueSlot200Response.md)>
 
 > GetNextQueueSlot200Response getNextQueueSlot(profileId, queueId)
 
-Preview the next available queue slot (informational only)
+Get next available slot
 
 Returns the next available queue slot for preview/informational purposes.  **Important: To schedule a post to the queue, do NOT use this endpoint&#39;s response with &#x60;scheduledFor&#x60;.** That creates a manual post, not a queue post.  Instead, use &#x60;POST /v1/posts&#x60; with &#x60;queuedFromProfile&#x60; (and optionally &#x60;queueId&#x60;). The system will automatically assign the next available slot with proper locking to prevent race conditions.  This endpoint is useful for: - Showing users when their next post will go out before they commit - Debugging/verifying queue configuration - Building UI previews  If no queueId is specified, uses the profile&#39;s default queue. 
 
@@ -400,7 +400,7 @@ public class Example {
 
 > ApiResponse<GetNextQueueSlot200Response> getNextQueueSlot getNextQueueSlotWithHttpInfo(profileId, queueId)
 
-Preview the next available queue slot (informational only)
+Get next available slot
 
 Returns the next available queue slot for preview/informational purposes.  **Important: To schedule a post to the queue, do NOT use this endpoint&#39;s response with &#x60;scheduledFor&#x60;.** That creates a manual post, not a queue post.  Instead, use &#x60;POST /v1/posts&#x60; with &#x60;queuedFromProfile&#x60; (and optionally &#x60;queueId&#x60;). The system will automatically assign the next available slot with proper locking to prevent race conditions.  This endpoint is useful for: - Showing users when their next post will go out before they commit - Debugging/verifying queue configuration - Building UI previews  If no queueId is specified, uses the profile&#39;s default queue. 
 
@@ -479,7 +479,7 @@ ApiResponse<[**GetNextQueueSlot200Response**](GetNextQueueSlot200Response.md)>
 
 > ListQueueSlots200Response listQueueSlots(profileId, queueId, all)
 
-Get queue schedules for a profile
+List schedules
 
 Retrieve queue schedules for a profile. Each profile can have multiple queues. - Without &#x60;all&#x3D;true&#x60;: Returns the default queue (or specific queue if queueId provided) - With &#x60;all&#x3D;true&#x60;: Returns all queues for the profile 
 
@@ -556,7 +556,7 @@ public class Example {
 
 > ApiResponse<ListQueueSlots200Response> listQueueSlots listQueueSlotsWithHttpInfo(profileId, queueId, all)
 
-Get queue schedules for a profile
+List schedules
 
 Retrieve queue schedules for a profile. Each profile can have multiple queues. - Without &#x60;all&#x3D;true&#x60;: Returns the default queue (or specific queue if queueId provided) - With &#x60;all&#x3D;true&#x60;: Returns all queues for the profile 
 
@@ -637,7 +637,7 @@ ApiResponse<[**ListQueueSlots200Response**](ListQueueSlots200Response.md)>
 
 > PreviewQueue200Response previewQueue(profileId, count)
 
-Preview upcoming queue slots for a profile
+Preview upcoming slots
 
 ### Example
 
@@ -710,7 +710,7 @@ public class Example {
 
 > ApiResponse<PreviewQueue200Response> previewQueue previewQueueWithHttpInfo(profileId, count)
 
-Preview upcoming queue slots for a profile
+Preview upcoming slots
 
 ### Example
 
@@ -787,7 +787,7 @@ ApiResponse<[**PreviewQueue200Response**](PreviewQueue200Response.md)>
 
 > UpdateQueueSlot200Response updateQueueSlot(updateQueueSlotRequest)
 
-Create or update a queue schedule
+Update schedule
 
 Create a new queue or update an existing one. - Without queueId: Creates or updates the default queue - With queueId: Updates the specific queue - With setAsDefault&#x3D;true: Makes this queue the default for the profile 
 
@@ -860,7 +860,7 @@ public class Example {
 
 > ApiResponse<UpdateQueueSlot200Response> updateQueueSlot updateQueueSlotWithHttpInfo(updateQueueSlotRequest)
 
-Create or update a queue schedule
+Update schedule
 
 Create a new queue or update an existing one. - Without queueId: Creates or updates the default queue - With queueId: Updates the specific queue - With setAsDefault&#x3D;true: Makes this queue the default for the profile 
 

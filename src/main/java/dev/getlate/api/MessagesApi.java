@@ -56,7 +56,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T07:51:32.891397159Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class MessagesApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -174,7 +174,7 @@ public class MessagesApi {
   }
 
   /**
-   * Edit a message (Telegram only)
+   * Edit message
    * Edit the text and/or reply markup of a previously sent Telegram message. Only supported for Telegram. Returns 400 for other platforms. 
    * @param conversationId The conversation ID (required)
    * @param messageId The Telegram message ID to edit (required)
@@ -187,7 +187,7 @@ public class MessagesApi {
   }
 
   /**
-   * Edit a message (Telegram only)
+   * Edit message
    * Edit the text and/or reply markup of a previously sent Telegram message. Only supported for Telegram. Returns 400 for other platforms. 
    * @param conversationId The conversation ID (required)
    * @param messageId The Telegram message ID to edit (required)
@@ -202,7 +202,7 @@ public class MessagesApi {
   }
 
   /**
-   * Edit a message (Telegram only)
+   * Edit message
    * Edit the text and/or reply markup of a previously sent Telegram message. Only supported for Telegram. Returns 400 for other platforms. 
    * @param conversationId The conversation ID (required)
    * @param messageId The Telegram message ID to edit (required)
@@ -215,7 +215,7 @@ public class MessagesApi {
   }
 
   /**
-   * Edit a message (Telegram only)
+   * Edit message
    * Edit the text and/or reply markup of a previously sent Telegram message. Only supported for Telegram. Returns 400 for other platforms. 
    * @param conversationId The conversation ID (required)
    * @param messageId The Telegram message ID to edit (required)
@@ -315,7 +315,7 @@ public class MessagesApi {
   }
 
   /**
-   * Get conversation details
+   * Get conversation
    * Retrieve details and metadata for a specific conversation. Requires accountId query parameter.
    * @param conversationId The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID. (required)
    * @param accountId The social account ID (required)
@@ -327,7 +327,7 @@ public class MessagesApi {
   }
 
   /**
-   * Get conversation details
+   * Get conversation
    * Retrieve details and metadata for a specific conversation. Requires accountId query parameter.
    * @param conversationId The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID. (required)
    * @param accountId The social account ID (required)
@@ -341,7 +341,7 @@ public class MessagesApi {
   }
 
   /**
-   * Get conversation details
+   * Get conversation
    * Retrieve details and metadata for a specific conversation. Requires accountId query parameter.
    * @param conversationId The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID. (required)
    * @param accountId The social account ID (required)
@@ -353,7 +353,7 @@ public class MessagesApi {
   }
 
   /**
-   * Get conversation details
+   * Get conversation
    * Retrieve details and metadata for a specific conversation. Requires accountId query parameter.
    * @param conversationId The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID. (required)
    * @param accountId The social account ID (required)
@@ -456,7 +456,7 @@ public class MessagesApi {
   }
 
   /**
-   * Get messages in a conversation
+   * List messages
    * Fetch messages for a specific conversation. Requires accountId query parameter.
    * @param conversationId The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID. (required)
    * @param accountId Social account ID (required)
@@ -468,7 +468,7 @@ public class MessagesApi {
   }
 
   /**
-   * Get messages in a conversation
+   * List messages
    * Fetch messages for a specific conversation. Requires accountId query parameter.
    * @param conversationId The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID. (required)
    * @param accountId Social account ID (required)
@@ -482,7 +482,7 @@ public class MessagesApi {
   }
 
   /**
-   * Get messages in a conversation
+   * List messages
    * Fetch messages for a specific conversation. Requires accountId query parameter.
    * @param conversationId The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID. (required)
    * @param accountId Social account ID (required)
@@ -494,7 +494,7 @@ public class MessagesApi {
   }
 
   /**
-   * Get messages in a conversation
+   * List messages
    * Fetch messages for a specific conversation. Requires accountId query parameter.
    * @param conversationId The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID. (required)
    * @param accountId Social account ID (required)
@@ -597,7 +597,7 @@ public class MessagesApi {
   }
 
   /**
-   * List conversations across all accounts
+   * List conversations
    * Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Reddit, Telegram 
    * @param profileId Filter by profile ID (optional)
    * @param platform Filter by platform (optional)
@@ -614,7 +614,7 @@ public class MessagesApi {
   }
 
   /**
-   * List conversations across all accounts
+   * List conversations
    * Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Reddit, Telegram 
    * @param profileId Filter by profile ID (optional)
    * @param platform Filter by platform (optional)
@@ -633,7 +633,7 @@ public class MessagesApi {
   }
 
   /**
-   * List conversations across all accounts
+   * List conversations
    * Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Reddit, Telegram 
    * @param profileId Filter by profile ID (optional)
    * @param platform Filter by platform (optional)
@@ -650,7 +650,7 @@ public class MessagesApi {
   }
 
   /**
-   * List conversations across all accounts
+   * List conversations
    * Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Reddit, Telegram 
    * @param profileId Filter by profile ID (optional)
    * @param platform Filter by platform (optional)
@@ -761,8 +761,8 @@ public class MessagesApi {
   }
 
   /**
-   * Send a message
-   * Send a message in a conversation. Supports text, attachments, quick replies, buttons, carousels, and message tags.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Instagram: Images, videos, audio via URL (8MB images, 25MB video/audio) - Twitter/X: Images, videos (requires media upload) - Bluesky: Not supported - Reddit: Not supported  **Interactive message support:** | Field | Instagram | Facebook | Telegram | |---|---|---|---| | quickReplies | Meta quick_replies (13 max) | Meta quick_replies (13 max) | ReplyKeyboardMarkup (one_time) | | buttons | Generic template | Generic template | Inline keyboard | | template | Generic template (carousel) | Generic template (carousel) | Ignored | | replyMarkup | Ignored | Ignored | InlineKeyboardMarkup / ReplyKeyboardMarkup | | messagingType | Ignored | RESPONSE / UPDATE / MESSAGE_TAG | Ignored | | messageTag | HUMAN_AGENT only | 4 tag types | Ignored | | replyTo | Ignored | Ignored | reply_parameters |  Platform-specific fields are silently ignored on unsupported platforms. 
+   * Send message
+   * Send a message in a conversation. Supports text, attachments, quick replies, buttons, carousels, and message tags.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Instagram: Images, videos, audio via URL (8MB images, 25MB video/audio) - Twitter/X: Images, videos (requires media upload) - Bluesky/Reddit: Not supported  **Interactive messages:** Supports quick replies, buttons, templates, and reply markup. Feature availability varies by platform (Instagram, Facebook, Telegram). Unsupported fields are silently ignored. 
    * @param conversationId The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID. (required)
    * @param sendInboxMessageRequest  (required)
    * @return SendInboxMessage200Response
@@ -773,8 +773,8 @@ public class MessagesApi {
   }
 
   /**
-   * Send a message
-   * Send a message in a conversation. Supports text, attachments, quick replies, buttons, carousels, and message tags.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Instagram: Images, videos, audio via URL (8MB images, 25MB video/audio) - Twitter/X: Images, videos (requires media upload) - Bluesky: Not supported - Reddit: Not supported  **Interactive message support:** | Field | Instagram | Facebook | Telegram | |---|---|---|---| | quickReplies | Meta quick_replies (13 max) | Meta quick_replies (13 max) | ReplyKeyboardMarkup (one_time) | | buttons | Generic template | Generic template | Inline keyboard | | template | Generic template (carousel) | Generic template (carousel) | Ignored | | replyMarkup | Ignored | Ignored | InlineKeyboardMarkup / ReplyKeyboardMarkup | | messagingType | Ignored | RESPONSE / UPDATE / MESSAGE_TAG | Ignored | | messageTag | HUMAN_AGENT only | 4 tag types | Ignored | | replyTo | Ignored | Ignored | reply_parameters |  Platform-specific fields are silently ignored on unsupported platforms. 
+   * Send message
+   * Send a message in a conversation. Supports text, attachments, quick replies, buttons, carousels, and message tags.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Instagram: Images, videos, audio via URL (8MB images, 25MB video/audio) - Twitter/X: Images, videos (requires media upload) - Bluesky/Reddit: Not supported  **Interactive messages:** Supports quick replies, buttons, templates, and reply markup. Feature availability varies by platform (Instagram, Facebook, Telegram). Unsupported fields are silently ignored. 
    * @param conversationId The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID. (required)
    * @param sendInboxMessageRequest  (required)
    * @param headers Optional headers to include in the request
@@ -787,8 +787,8 @@ public class MessagesApi {
   }
 
   /**
-   * Send a message
-   * Send a message in a conversation. Supports text, attachments, quick replies, buttons, carousels, and message tags.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Instagram: Images, videos, audio via URL (8MB images, 25MB video/audio) - Twitter/X: Images, videos (requires media upload) - Bluesky: Not supported - Reddit: Not supported  **Interactive message support:** | Field | Instagram | Facebook | Telegram | |---|---|---|---| | quickReplies | Meta quick_replies (13 max) | Meta quick_replies (13 max) | ReplyKeyboardMarkup (one_time) | | buttons | Generic template | Generic template | Inline keyboard | | template | Generic template (carousel) | Generic template (carousel) | Ignored | | replyMarkup | Ignored | Ignored | InlineKeyboardMarkup / ReplyKeyboardMarkup | | messagingType | Ignored | RESPONSE / UPDATE / MESSAGE_TAG | Ignored | | messageTag | HUMAN_AGENT only | 4 tag types | Ignored | | replyTo | Ignored | Ignored | reply_parameters |  Platform-specific fields are silently ignored on unsupported platforms. 
+   * Send message
+   * Send a message in a conversation. Supports text, attachments, quick replies, buttons, carousels, and message tags.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Instagram: Images, videos, audio via URL (8MB images, 25MB video/audio) - Twitter/X: Images, videos (requires media upload) - Bluesky/Reddit: Not supported  **Interactive messages:** Supports quick replies, buttons, templates, and reply markup. Feature availability varies by platform (Instagram, Facebook, Telegram). Unsupported fields are silently ignored. 
    * @param conversationId The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID. (required)
    * @param sendInboxMessageRequest  (required)
    * @return ApiResponse&lt;SendInboxMessage200Response&gt;
@@ -799,8 +799,8 @@ public class MessagesApi {
   }
 
   /**
-   * Send a message
-   * Send a message in a conversation. Supports text, attachments, quick replies, buttons, carousels, and message tags.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Instagram: Images, videos, audio via URL (8MB images, 25MB video/audio) - Twitter/X: Images, videos (requires media upload) - Bluesky: Not supported - Reddit: Not supported  **Interactive message support:** | Field | Instagram | Facebook | Telegram | |---|---|---|---| | quickReplies | Meta quick_replies (13 max) | Meta quick_replies (13 max) | ReplyKeyboardMarkup (one_time) | | buttons | Generic template | Generic template | Inline keyboard | | template | Generic template (carousel) | Generic template (carousel) | Ignored | | replyMarkup | Ignored | Ignored | InlineKeyboardMarkup / ReplyKeyboardMarkup | | messagingType | Ignored | RESPONSE / UPDATE / MESSAGE_TAG | Ignored | | messageTag | HUMAN_AGENT only | 4 tag types | Ignored | | replyTo | Ignored | Ignored | reply_parameters |  Platform-specific fields are silently ignored on unsupported platforms. 
+   * Send message
+   * Send a message in a conversation. Supports text, attachments, quick replies, buttons, carousels, and message tags.  **Attachment support by platform:** - Telegram: Images, videos, documents (up to 50MB) - Facebook Messenger: Images, videos, audio, files - Instagram: Images, videos, audio via URL (8MB images, 25MB video/audio) - Twitter/X: Images, videos (requires media upload) - Bluesky/Reddit: Not supported  **Interactive messages:** Supports quick replies, buttons, templates, and reply markup. Feature availability varies by platform (Instagram, Facebook, Telegram). Unsupported fields are silently ignored. 
    * @param conversationId The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID. (required)
    * @param sendInboxMessageRequest  (required)
    * @param headers Optional headers to include in the request

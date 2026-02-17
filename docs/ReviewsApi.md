@@ -4,12 +4,12 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**deleteInboxReviewReply**](ReviewsApi.md#deleteInboxReviewReply) | **DELETE** /v1/inbox/reviews/{reviewId}/reply | Delete a review reply |
-| [**deleteInboxReviewReplyWithHttpInfo**](ReviewsApi.md#deleteInboxReviewReplyWithHttpInfo) | **DELETE** /v1/inbox/reviews/{reviewId}/reply | Delete a review reply |
-| [**listInboxReviews**](ReviewsApi.md#listInboxReviews) | **GET** /v1/inbox/reviews | List reviews across all accounts |
-| [**listInboxReviewsWithHttpInfo**](ReviewsApi.md#listInboxReviewsWithHttpInfo) | **GET** /v1/inbox/reviews | List reviews across all accounts |
-| [**replyToInboxReview**](ReviewsApi.md#replyToInboxReview) | **POST** /v1/inbox/reviews/{reviewId}/reply | Reply to a review |
-| [**replyToInboxReviewWithHttpInfo**](ReviewsApi.md#replyToInboxReviewWithHttpInfo) | **POST** /v1/inbox/reviews/{reviewId}/reply | Reply to a review |
+| [**deleteInboxReviewReply**](ReviewsApi.md#deleteInboxReviewReply) | **DELETE** /v1/inbox/reviews/{reviewId}/reply | Delete review reply |
+| [**deleteInboxReviewReplyWithHttpInfo**](ReviewsApi.md#deleteInboxReviewReplyWithHttpInfo) | **DELETE** /v1/inbox/reviews/{reviewId}/reply | Delete review reply |
+| [**listInboxReviews**](ReviewsApi.md#listInboxReviews) | **GET** /v1/inbox/reviews | List reviews |
+| [**listInboxReviewsWithHttpInfo**](ReviewsApi.md#listInboxReviewsWithHttpInfo) | **GET** /v1/inbox/reviews | List reviews |
+| [**replyToInboxReview**](ReviewsApi.md#replyToInboxReview) | **POST** /v1/inbox/reviews/{reviewId}/reply | Reply to review |
+| [**replyToInboxReviewWithHttpInfo**](ReviewsApi.md#replyToInboxReviewWithHttpInfo) | **POST** /v1/inbox/reviews/{reviewId}/reply | Reply to review |
 
 
 
@@ -17,7 +17,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 > DeleteInboxReviewReply200Response deleteInboxReviewReply(reviewId, deleteInboxReviewReplyRequest)
 
-Delete a review reply
+Delete review reply
 
 Delete a reply to a review (Google Business only). Requires accountId in request body.
 
@@ -91,7 +91,7 @@ public class Example {
 
 > ApiResponse<DeleteInboxReviewReply200Response> deleteInboxReviewReply deleteInboxReviewReplyWithHttpInfo(reviewId, deleteInboxReviewReplyRequest)
 
-Delete a review reply
+Delete review reply
 
 Delete a reply to a review (Google Business only). Requires accountId in request body.
 
@@ -169,7 +169,7 @@ ApiResponse<[**DeleteInboxReviewReply200Response**](DeleteInboxReviewReply200Res
 
 > ListInboxReviews200Response listInboxReviews(profileId, platform, minRating, maxRating, hasReply, sortBy, sortOrder, limit, cursor, accountId)
 
-List reviews across all accounts
+List reviews
 
 Fetch reviews from all connected Facebook Pages and Google Business accounts. Aggregates data with filtering and sorting options.  **Supported platforms:** Facebook, Google Business 
 
@@ -259,7 +259,7 @@ public class Example {
 
 > ApiResponse<ListInboxReviews200Response> listInboxReviews listInboxReviewsWithHttpInfo(profileId, platform, minRating, maxRating, hasReply, sortBy, sortOrder, limit, cursor, accountId)
 
-List reviews across all accounts
+List reviews
 
 Fetch reviews from all connected Facebook Pages and Google Business accounts. Aggregates data with filtering and sorting options.  **Supported platforms:** Facebook, Google Business 
 
@@ -353,7 +353,7 @@ ApiResponse<[**ListInboxReviews200Response**](ListInboxReviews200Response.md)>
 
 > ReplyToInboxReview200Response replyToInboxReview(reviewId, replyToInboxReviewRequest)
 
-Reply to a review
+Reply to review
 
 Post a reply to a review. Requires accountId in request body.
 
@@ -427,7 +427,7 @@ public class Example {
 
 > ApiResponse<ReplyToInboxReview200Response> replyToInboxReview replyToInboxReviewWithHttpInfo(reviewId, replyToInboxReviewRequest)
 
-Reply to a review
+Reply to review
 
 Post a reply to a review. Requires accountId in request body.
 

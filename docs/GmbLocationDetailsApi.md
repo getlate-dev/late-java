@@ -4,10 +4,10 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**getGoogleBusinessLocationDetails**](GmbLocationDetailsApi.md#getGoogleBusinessLocationDetails) | **GET** /v1/accounts/{accountId}/gmb-location-details | Get Google Business Profile location details |
-| [**getGoogleBusinessLocationDetailsWithHttpInfo**](GmbLocationDetailsApi.md#getGoogleBusinessLocationDetailsWithHttpInfo) | **GET** /v1/accounts/{accountId}/gmb-location-details | Get Google Business Profile location details |
-| [**updateGoogleBusinessLocationDetails**](GmbLocationDetailsApi.md#updateGoogleBusinessLocationDetails) | **PUT** /v1/accounts/{accountId}/gmb-location-details | Update Google Business Profile location details |
-| [**updateGoogleBusinessLocationDetailsWithHttpInfo**](GmbLocationDetailsApi.md#updateGoogleBusinessLocationDetailsWithHttpInfo) | **PUT** /v1/accounts/{accountId}/gmb-location-details | Update Google Business Profile location details |
+| [**getGoogleBusinessLocationDetails**](GmbLocationDetailsApi.md#getGoogleBusinessLocationDetails) | **GET** /v1/accounts/{accountId}/gmb-location-details | Get location details |
+| [**getGoogleBusinessLocationDetailsWithHttpInfo**](GmbLocationDetailsApi.md#getGoogleBusinessLocationDetailsWithHttpInfo) | **GET** /v1/accounts/{accountId}/gmb-location-details | Get location details |
+| [**updateGoogleBusinessLocationDetails**](GmbLocationDetailsApi.md#updateGoogleBusinessLocationDetails) | **PUT** /v1/accounts/{accountId}/gmb-location-details | Update location details |
+| [**updateGoogleBusinessLocationDetailsWithHttpInfo**](GmbLocationDetailsApi.md#updateGoogleBusinessLocationDetailsWithHttpInfo) | **PUT** /v1/accounts/{accountId}/gmb-location-details | Update location details |
 
 
 
@@ -15,7 +15,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 > GetGoogleBusinessLocationDetails200Response getGoogleBusinessLocationDetails(accountId, readMask)
 
-Get Google Business Profile location details
+Get location details
 
 Fetches detailed location information including opening hours, special hours, business description, phone numbers, website, categories, and more.  Use the &#x60;readMask&#x60; query parameter to request specific fields. 
 
@@ -90,7 +90,7 @@ public class Example {
 
 > ApiResponse<GetGoogleBusinessLocationDetails200Response> getGoogleBusinessLocationDetails getGoogleBusinessLocationDetailsWithHttpInfo(accountId, readMask)
 
-Get Google Business Profile location details
+Get location details
 
 Fetches detailed location information including opening hours, special hours, business description, phone numbers, website, categories, and more.  Use the &#x60;readMask&#x60; query parameter to request specific fields. 
 
@@ -169,7 +169,7 @@ ApiResponse<[**GetGoogleBusinessLocationDetails200Response**](GetGoogleBusinessL
 
 > UpdateGoogleBusinessLocationDetails200Response updateGoogleBusinessLocationDetails(accountId, updateGoogleBusinessLocationDetailsRequest)
 
-Update Google Business Profile location details
+Update location details
 
 Updates location details such as opening hours, special hours, business description, phone, and website.  The &#x60;updateMask&#x60; field is required and specifies which fields to update.  Common update masks: - &#x60;regularHours&#x60; - Update opening hours - &#x60;specialHours&#x60; - Update holiday/special hours - &#x60;profile.description&#x60; - Update business description - &#x60;websiteUri&#x60; - Update website URL - &#x60;phoneNumbers&#x60; - Update phone numbers - &#x60;regularHours,specialHours&#x60; - Update both at once 
 
@@ -244,7 +244,7 @@ public class Example {
 
 > ApiResponse<UpdateGoogleBusinessLocationDetails200Response> updateGoogleBusinessLocationDetails updateGoogleBusinessLocationDetailsWithHttpInfo(accountId, updateGoogleBusinessLocationDetailsRequest)
 
-Update Google Business Profile location details
+Update location details
 
 Updates location details such as opening hours, special hours, business description, phone, and website.  The &#x60;updateMask&#x60; field is required and specifies which fields to update.  Common update masks: - &#x60;regularHours&#x60; - Update opening hours - &#x60;specialHours&#x60; - Update holiday/special hours - &#x60;profile.description&#x60; - Update business description - &#x60;websiteUri&#x60; - Update website URL - &#x60;phoneNumbers&#x60; - Update phone numbers - &#x60;regularHours,specialHours&#x60; - Update both at once 
 

@@ -4,12 +4,12 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createGoogleBusinessMedia**](GmbMediaApi.md#createGoogleBusinessMedia) | **POST** /v1/accounts/{accountId}/gmb-media | Upload a photo to Google Business Profile |
-| [**createGoogleBusinessMediaWithHttpInfo**](GmbMediaApi.md#createGoogleBusinessMediaWithHttpInfo) | **POST** /v1/accounts/{accountId}/gmb-media | Upload a photo to Google Business Profile |
-| [**deleteGoogleBusinessMedia**](GmbMediaApi.md#deleteGoogleBusinessMedia) | **DELETE** /v1/accounts/{accountId}/gmb-media | Delete a photo from Google Business Profile |
-| [**deleteGoogleBusinessMediaWithHttpInfo**](GmbMediaApi.md#deleteGoogleBusinessMediaWithHttpInfo) | **DELETE** /v1/accounts/{accountId}/gmb-media | Delete a photo from Google Business Profile |
-| [**listGoogleBusinessMedia**](GmbMediaApi.md#listGoogleBusinessMedia) | **GET** /v1/accounts/{accountId}/gmb-media | List Google Business Profile media (photos) |
-| [**listGoogleBusinessMediaWithHttpInfo**](GmbMediaApi.md#listGoogleBusinessMediaWithHttpInfo) | **GET** /v1/accounts/{accountId}/gmb-media | List Google Business Profile media (photos) |
+| [**createGoogleBusinessMedia**](GmbMediaApi.md#createGoogleBusinessMedia) | **POST** /v1/accounts/{accountId}/gmb-media | Upload photo |
+| [**createGoogleBusinessMediaWithHttpInfo**](GmbMediaApi.md#createGoogleBusinessMediaWithHttpInfo) | **POST** /v1/accounts/{accountId}/gmb-media | Upload photo |
+| [**deleteGoogleBusinessMedia**](GmbMediaApi.md#deleteGoogleBusinessMedia) | **DELETE** /v1/accounts/{accountId}/gmb-media | Delete photo |
+| [**deleteGoogleBusinessMediaWithHttpInfo**](GmbMediaApi.md#deleteGoogleBusinessMediaWithHttpInfo) | **DELETE** /v1/accounts/{accountId}/gmb-media | Delete photo |
+| [**listGoogleBusinessMedia**](GmbMediaApi.md#listGoogleBusinessMedia) | **GET** /v1/accounts/{accountId}/gmb-media | List media |
+| [**listGoogleBusinessMediaWithHttpInfo**](GmbMediaApi.md#listGoogleBusinessMediaWithHttpInfo) | **GET** /v1/accounts/{accountId}/gmb-media | List media |
 
 
 
@@ -17,7 +17,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 > CreateGoogleBusinessMedia200Response createGoogleBusinessMedia(accountId, createGoogleBusinessMediaRequest)
 
-Upload a photo to Google Business Profile
+Upload photo
 
 Creates a media item (photo) for a location from a publicly accessible URL.  Categories determine where the photo appears: - &#x60;COVER&#x60; - Cover photo - &#x60;PROFILE&#x60; - Profile photo - &#x60;LOGO&#x60; - Business logo - &#x60;EXTERIOR&#x60; - Exterior shots - &#x60;INTERIOR&#x60; - Interior shots - &#x60;FOOD_AND_DRINK&#x60; - Food and drink photos - &#x60;MENU&#x60; - Menu photos - &#x60;PRODUCT&#x60; - Product photos - &#x60;TEAMS&#x60; - Team/staff photos - &#x60;ADDITIONAL&#x60; - Other photos 
 
@@ -91,7 +91,7 @@ public class Example {
 
 > ApiResponse<CreateGoogleBusinessMedia200Response> createGoogleBusinessMedia createGoogleBusinessMediaWithHttpInfo(accountId, createGoogleBusinessMediaRequest)
 
-Upload a photo to Google Business Profile
+Upload photo
 
 Creates a media item (photo) for a location from a publicly accessible URL.  Categories determine where the photo appears: - &#x60;COVER&#x60; - Cover photo - &#x60;PROFILE&#x60; - Profile photo - &#x60;LOGO&#x60; - Business logo - &#x60;EXTERIOR&#x60; - Exterior shots - &#x60;INTERIOR&#x60; - Interior shots - &#x60;FOOD_AND_DRINK&#x60; - Food and drink photos - &#x60;MENU&#x60; - Menu photos - &#x60;PRODUCT&#x60; - Product photos - &#x60;TEAMS&#x60; - Team/staff photos - &#x60;ADDITIONAL&#x60; - Other photos 
 
@@ -169,7 +169,7 @@ ApiResponse<[**CreateGoogleBusinessMedia200Response**](CreateGoogleBusinessMedia
 
 > DeleteGoogleBusinessMedia200Response deleteGoogleBusinessMedia(accountId, mediaId)
 
-Delete a photo from Google Business Profile
+Delete photo
 
 ### Example
 
@@ -241,7 +241,7 @@ public class Example {
 
 > ApiResponse<DeleteGoogleBusinessMedia200Response> deleteGoogleBusinessMedia deleteGoogleBusinessMediaWithHttpInfo(accountId, mediaId)
 
-Delete a photo from Google Business Profile
+Delete photo
 
 ### Example
 
@@ -317,7 +317,7 @@ ApiResponse<[**DeleteGoogleBusinessMedia200Response**](DeleteGoogleBusinessMedia
 
 > ListGoogleBusinessMedia200Response listGoogleBusinessMedia(accountId, pageSize, pageToken)
 
-List Google Business Profile media (photos)
+List media
 
 Lists media items (photos) for a Google Business Profile location. Returns photo URLs, descriptions, categories, and metadata. 
 
@@ -393,7 +393,7 @@ public class Example {
 
 > ApiResponse<ListGoogleBusinessMedia200Response> listGoogleBusinessMedia listGoogleBusinessMediaWithHttpInfo(accountId, pageSize, pageToken)
 
-List Google Business Profile media (photos)
+List media
 
 Lists media items (photos) for a Google Business Profile location. Returns photo URLs, descriptions, categories, and metadata. 
 

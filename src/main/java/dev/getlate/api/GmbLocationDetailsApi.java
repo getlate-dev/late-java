@@ -49,7 +49,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T07:51:32.891397159Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GmbLocationDetailsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -167,7 +167,7 @@ public class GmbLocationDetailsApi {
   }
 
   /**
-   * Get Google Business Profile location details
+   * Get location details
    * Fetches detailed location information including opening hours, special hours, business description, phone numbers, website, categories, and more.  Use the &#x60;readMask&#x60; query parameter to request specific fields. 
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param readMask Comma-separated fields to return. Defaults to common fields. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, profile, openInfo, metadata, moreHours  (optional)
@@ -179,7 +179,7 @@ public class GmbLocationDetailsApi {
   }
 
   /**
-   * Get Google Business Profile location details
+   * Get location details
    * Fetches detailed location information including opening hours, special hours, business description, phone numbers, website, categories, and more.  Use the &#x60;readMask&#x60; query parameter to request specific fields. 
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param readMask Comma-separated fields to return. Defaults to common fields. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, profile, openInfo, metadata, moreHours  (optional)
@@ -193,7 +193,7 @@ public class GmbLocationDetailsApi {
   }
 
   /**
-   * Get Google Business Profile location details
+   * Get location details
    * Fetches detailed location information including opening hours, special hours, business description, phone numbers, website, categories, and more.  Use the &#x60;readMask&#x60; query parameter to request specific fields. 
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param readMask Comma-separated fields to return. Defaults to common fields. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, profile, openInfo, metadata, moreHours  (optional)
@@ -205,7 +205,7 @@ public class GmbLocationDetailsApi {
   }
 
   /**
-   * Get Google Business Profile location details
+   * Get location details
    * Fetches detailed location information including opening hours, special hours, business description, phone numbers, website, categories, and more.  Use the &#x60;readMask&#x60; query parameter to request specific fields. 
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param readMask Comma-separated fields to return. Defaults to common fields. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, profile, openInfo, metadata, moreHours  (optional)
@@ -304,7 +304,7 @@ public class GmbLocationDetailsApi {
   }
 
   /**
-   * Update Google Business Profile location details
+   * Update location details
    * Updates location details such as opening hours, special hours, business description, phone, and website.  The &#x60;updateMask&#x60; field is required and specifies which fields to update.  Common update masks: - &#x60;regularHours&#x60; - Update opening hours - &#x60;specialHours&#x60; - Update holiday/special hours - &#x60;profile.description&#x60; - Update business description - &#x60;websiteUri&#x60; - Update website URL - &#x60;phoneNumbers&#x60; - Update phone numbers - &#x60;regularHours,specialHours&#x60; - Update both at once 
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param updateGoogleBusinessLocationDetailsRequest  (required)
@@ -316,7 +316,7 @@ public class GmbLocationDetailsApi {
   }
 
   /**
-   * Update Google Business Profile location details
+   * Update location details
    * Updates location details such as opening hours, special hours, business description, phone, and website.  The &#x60;updateMask&#x60; field is required and specifies which fields to update.  Common update masks: - &#x60;regularHours&#x60; - Update opening hours - &#x60;specialHours&#x60; - Update holiday/special hours - &#x60;profile.description&#x60; - Update business description - &#x60;websiteUri&#x60; - Update website URL - &#x60;phoneNumbers&#x60; - Update phone numbers - &#x60;regularHours,specialHours&#x60; - Update both at once 
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param updateGoogleBusinessLocationDetailsRequest  (required)
@@ -330,7 +330,7 @@ public class GmbLocationDetailsApi {
   }
 
   /**
-   * Update Google Business Profile location details
+   * Update location details
    * Updates location details such as opening hours, special hours, business description, phone, and website.  The &#x60;updateMask&#x60; field is required and specifies which fields to update.  Common update masks: - &#x60;regularHours&#x60; - Update opening hours - &#x60;specialHours&#x60; - Update holiday/special hours - &#x60;profile.description&#x60; - Update business description - &#x60;websiteUri&#x60; - Update website URL - &#x60;phoneNumbers&#x60; - Update phone numbers - &#x60;regularHours,specialHours&#x60; - Update both at once 
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param updateGoogleBusinessLocationDetailsRequest  (required)
@@ -342,7 +342,7 @@ public class GmbLocationDetailsApi {
   }
 
   /**
-   * Update Google Business Profile location details
+   * Update location details
    * Updates location details such as opening hours, special hours, business description, phone, and website.  The &#x60;updateMask&#x60; field is required and specifies which fields to update.  Common update masks: - &#x60;regularHours&#x60; - Update opening hours - &#x60;specialHours&#x60; - Update holiday/special hours - &#x60;profile.description&#x60; - Update business description - &#x60;websiteUri&#x60; - Update website URL - &#x60;phoneNumbers&#x60; - Update phone numbers - &#x60;regularHours,specialHours&#x60; - Update both at once 
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param updateGoogleBusinessLocationDetailsRequest  (required)

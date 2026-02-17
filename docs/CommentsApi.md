@@ -4,24 +4,24 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**deleteInboxComment**](CommentsApi.md#deleteInboxComment) | **DELETE** /v1/inbox/comments/{postId} | Delete a comment |
-| [**deleteInboxCommentWithHttpInfo**](CommentsApi.md#deleteInboxCommentWithHttpInfo) | **DELETE** /v1/inbox/comments/{postId} | Delete a comment |
-| [**getInboxPostComments**](CommentsApi.md#getInboxPostComments) | **GET** /v1/inbox/comments/{postId} | Get comments for a post |
-| [**getInboxPostCommentsWithHttpInfo**](CommentsApi.md#getInboxPostCommentsWithHttpInfo) | **GET** /v1/inbox/comments/{postId} | Get comments for a post |
-| [**hideInboxComment**](CommentsApi.md#hideInboxComment) | **POST** /v1/inbox/comments/{postId}/{commentId}/hide | Hide a comment |
-| [**hideInboxCommentWithHttpInfo**](CommentsApi.md#hideInboxCommentWithHttpInfo) | **POST** /v1/inbox/comments/{postId}/{commentId}/hide | Hide a comment |
-| [**likeInboxComment**](CommentsApi.md#likeInboxComment) | **POST** /v1/inbox/comments/{postId}/{commentId}/like | Like a comment |
-| [**likeInboxCommentWithHttpInfo**](CommentsApi.md#likeInboxCommentWithHttpInfo) | **POST** /v1/inbox/comments/{postId}/{commentId}/like | Like a comment |
-| [**listInboxComments**](CommentsApi.md#listInboxComments) | **GET** /v1/inbox/comments | List posts with comments across all accounts |
-| [**listInboxCommentsWithHttpInfo**](CommentsApi.md#listInboxCommentsWithHttpInfo) | **GET** /v1/inbox/comments | List posts with comments across all accounts |
-| [**replyToInboxPost**](CommentsApi.md#replyToInboxPost) | **POST** /v1/inbox/comments/{postId} | Reply to a post or comment |
-| [**replyToInboxPostWithHttpInfo**](CommentsApi.md#replyToInboxPostWithHttpInfo) | **POST** /v1/inbox/comments/{postId} | Reply to a post or comment |
-| [**sendPrivateReplyToComment**](CommentsApi.md#sendPrivateReplyToComment) | **POST** /v1/inbox/comments/{postId}/{commentId}/private-reply | Send private reply to comment author |
-| [**sendPrivateReplyToCommentWithHttpInfo**](CommentsApi.md#sendPrivateReplyToCommentWithHttpInfo) | **POST** /v1/inbox/comments/{postId}/{commentId}/private-reply | Send private reply to comment author |
-| [**unhideInboxComment**](CommentsApi.md#unhideInboxComment) | **DELETE** /v1/inbox/comments/{postId}/{commentId}/hide | Unhide a comment |
-| [**unhideInboxCommentWithHttpInfo**](CommentsApi.md#unhideInboxCommentWithHttpInfo) | **DELETE** /v1/inbox/comments/{postId}/{commentId}/hide | Unhide a comment |
-| [**unlikeInboxComment**](CommentsApi.md#unlikeInboxComment) | **DELETE** /v1/inbox/comments/{postId}/{commentId}/like | Unlike a comment |
-| [**unlikeInboxCommentWithHttpInfo**](CommentsApi.md#unlikeInboxCommentWithHttpInfo) | **DELETE** /v1/inbox/comments/{postId}/{commentId}/like | Unlike a comment |
+| [**deleteInboxComment**](CommentsApi.md#deleteInboxComment) | **DELETE** /v1/inbox/comments/{postId} | Delete comment |
+| [**deleteInboxCommentWithHttpInfo**](CommentsApi.md#deleteInboxCommentWithHttpInfo) | **DELETE** /v1/inbox/comments/{postId} | Delete comment |
+| [**getInboxPostComments**](CommentsApi.md#getInboxPostComments) | **GET** /v1/inbox/comments/{postId} | Get post comments |
+| [**getInboxPostCommentsWithHttpInfo**](CommentsApi.md#getInboxPostCommentsWithHttpInfo) | **GET** /v1/inbox/comments/{postId} | Get post comments |
+| [**hideInboxComment**](CommentsApi.md#hideInboxComment) | **POST** /v1/inbox/comments/{postId}/{commentId}/hide | Hide comment |
+| [**hideInboxCommentWithHttpInfo**](CommentsApi.md#hideInboxCommentWithHttpInfo) | **POST** /v1/inbox/comments/{postId}/{commentId}/hide | Hide comment |
+| [**likeInboxComment**](CommentsApi.md#likeInboxComment) | **POST** /v1/inbox/comments/{postId}/{commentId}/like | Like comment |
+| [**likeInboxCommentWithHttpInfo**](CommentsApi.md#likeInboxCommentWithHttpInfo) | **POST** /v1/inbox/comments/{postId}/{commentId}/like | Like comment |
+| [**listInboxComments**](CommentsApi.md#listInboxComments) | **GET** /v1/inbox/comments | List commented posts |
+| [**listInboxCommentsWithHttpInfo**](CommentsApi.md#listInboxCommentsWithHttpInfo) | **GET** /v1/inbox/comments | List commented posts |
+| [**replyToInboxPost**](CommentsApi.md#replyToInboxPost) | **POST** /v1/inbox/comments/{postId} | Reply to comment |
+| [**replyToInboxPostWithHttpInfo**](CommentsApi.md#replyToInboxPostWithHttpInfo) | **POST** /v1/inbox/comments/{postId} | Reply to comment |
+| [**sendPrivateReplyToComment**](CommentsApi.md#sendPrivateReplyToComment) | **POST** /v1/inbox/comments/{postId}/{commentId}/private-reply | Send private reply |
+| [**sendPrivateReplyToCommentWithHttpInfo**](CommentsApi.md#sendPrivateReplyToCommentWithHttpInfo) | **POST** /v1/inbox/comments/{postId}/{commentId}/private-reply | Send private reply |
+| [**unhideInboxComment**](CommentsApi.md#unhideInboxComment) | **DELETE** /v1/inbox/comments/{postId}/{commentId}/hide | Unhide comment |
+| [**unhideInboxCommentWithHttpInfo**](CommentsApi.md#unhideInboxCommentWithHttpInfo) | **DELETE** /v1/inbox/comments/{postId}/{commentId}/hide | Unhide comment |
+| [**unlikeInboxComment**](CommentsApi.md#unlikeInboxComment) | **DELETE** /v1/inbox/comments/{postId}/{commentId}/like | Unlike comment |
+| [**unlikeInboxCommentWithHttpInfo**](CommentsApi.md#unlikeInboxCommentWithHttpInfo) | **DELETE** /v1/inbox/comments/{postId}/{commentId}/like | Unlike comment |
 
 
 
@@ -29,7 +29,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 > DeleteInboxComment200Response deleteInboxComment(postId, accountId, commentId)
 
-Delete a comment
+Delete comment
 
 Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, YouTube, LinkedIn, and TikTok. Requires accountId and commentId query parameters. 
 
@@ -105,7 +105,7 @@ public class Example {
 
 > ApiResponse<DeleteInboxComment200Response> deleteInboxComment deleteInboxCommentWithHttpInfo(postId, accountId, commentId)
 
-Delete a comment
+Delete comment
 
 Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, YouTube, LinkedIn, and TikTok. Requires accountId and commentId query parameters. 
 
@@ -185,7 +185,7 @@ ApiResponse<[**DeleteInboxComment200Response**](DeleteInboxComment200Response.md
 
 > GetInboxPostComments200Response getInboxPostComments(postId, accountId, subreddit, limit, cursor, commentId)
 
-Get comments for a post
+Get post comments
 
 Fetch comments for a specific post. Requires accountId query parameter.
 
@@ -267,7 +267,7 @@ public class Example {
 
 > ApiResponse<GetInboxPostComments200Response> getInboxPostComments getInboxPostCommentsWithHttpInfo(postId, accountId, subreddit, limit, cursor, commentId)
 
-Get comments for a post
+Get post comments
 
 Fetch comments for a specific post. Requires accountId query parameter.
 
@@ -353,7 +353,7 @@ ApiResponse<[**GetInboxPostComments200Response**](GetInboxPostComments200Respons
 
 > HideInboxComment200Response hideInboxComment(postId, commentId, hideInboxCommentRequest)
 
-Hide a comment
+Hide comment
 
 Hide a comment on a post. Supported by Facebook, Instagram, and Threads. Hidden comments are only visible to the commenter and page admin. 
 
@@ -430,7 +430,7 @@ public class Example {
 
 > ApiResponse<HideInboxComment200Response> hideInboxComment hideInboxCommentWithHttpInfo(postId, commentId, hideInboxCommentRequest)
 
-Hide a comment
+Hide comment
 
 Hide a comment on a post. Supported by Facebook, Instagram, and Threads. Hidden comments are only visible to the commenter and page admin. 
 
@@ -511,7 +511,7 @@ ApiResponse<[**HideInboxComment200Response**](HideInboxComment200Response.md)>
 
 > LikeInboxComment200Response likeInboxComment(postId, commentId, likeInboxCommentRequest)
 
-Like a comment
+Like comment
 
 Like or upvote a comment on a post.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;cid&#x60; (content identifier) is required in the request body. 
 
@@ -588,7 +588,7 @@ public class Example {
 
 > ApiResponse<LikeInboxComment200Response> likeInboxComment likeInboxCommentWithHttpInfo(postId, commentId, likeInboxCommentRequest)
 
-Like a comment
+Like comment
 
 Like or upvote a comment on a post.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;cid&#x60; (content identifier) is required in the request body. 
 
@@ -669,7 +669,7 @@ ApiResponse<[**LikeInboxComment200Response**](LikeInboxComment200Response.md)>
 
 > ListInboxComments200Response listInboxComments(profileId, platform, minComments, since, sortBy, sortOrder, limit, cursor, accountId)
 
-List posts with comments across all accounts
+List commented posts
 
 Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Threads, YouTube, LinkedIn, Reddit, TikTok (write-only) 
 
@@ -757,7 +757,7 @@ public class Example {
 
 > ApiResponse<ListInboxComments200Response> listInboxComments listInboxCommentsWithHttpInfo(profileId, platform, minComments, since, sortBy, sortOrder, limit, cursor, accountId)
 
-List posts with comments across all accounts
+List commented posts
 
 Fetch posts with their comment counts from all connected accounts. Aggregates data from multiple accounts in a single API call.  **Supported platforms:** Facebook, Instagram, Twitter/X, Bluesky, Threads, YouTube, LinkedIn, Reddit, TikTok (write-only) 
 
@@ -849,7 +849,7 @@ ApiResponse<[**ListInboxComments200Response**](ListInboxComments200Response.md)>
 
 > ReplyToInboxPost200Response replyToInboxPost(postId, replyToInboxPostRequest)
 
-Reply to a post or comment
+Reply to comment
 
 Post a reply to a post or specific comment. Requires accountId in request body.
 
@@ -923,7 +923,7 @@ public class Example {
 
 > ApiResponse<ReplyToInboxPost200Response> replyToInboxPost replyToInboxPostWithHttpInfo(postId, replyToInboxPostRequest)
 
-Reply to a post or comment
+Reply to comment
 
 Post a reply to a post or specific comment. Requires accountId in request body.
 
@@ -1001,7 +1001,7 @@ ApiResponse<[**ReplyToInboxPost200Response**](ReplyToInboxPost200Response.md)>
 
 > SendPrivateReplyToComment200Response sendPrivateReplyToComment(postId, commentId, sendPrivateReplyToCommentRequest)
 
-Send private reply to comment author
+Send private reply
 
 Send a private direct message to the author of a comment on your post. This is useful for handling customer inquiries or sensitive matters privately.  **Supported platforms:** Instagram, Facebook  **Limitations:** - Only ONE private reply per comment (platform API restriction) - Must be sent within 7 days of the comment being posted - Only works for comments on posts owned by the connected account - Text only (no media attachments) - Instagram: message goes to the user&#39;s Inbox (if they follow you) or Message Requests (if they don&#39;t). Requires &#x60;instagram_business_manage_messages&#x60; permission. - Facebook: message opens a Messenger conversation with the commenter. Requires &#x60;pages_messaging&#x60; permission.  **Note:** Both permissions are already included in Late&#39;s OAuth flow. This does not create a conversation thread until the user replies back. 
 
@@ -1079,7 +1079,7 @@ public class Example {
 
 > ApiResponse<SendPrivateReplyToComment200Response> sendPrivateReplyToComment sendPrivateReplyToCommentWithHttpInfo(postId, commentId, sendPrivateReplyToCommentRequest)
 
-Send private reply to comment author
+Send private reply
 
 Send a private direct message to the author of a comment on your post. This is useful for handling customer inquiries or sensitive matters privately.  **Supported platforms:** Instagram, Facebook  **Limitations:** - Only ONE private reply per comment (platform API restriction) - Must be sent within 7 days of the comment being posted - Only works for comments on posts owned by the connected account - Text only (no media attachments) - Instagram: message goes to the user&#39;s Inbox (if they follow you) or Message Requests (if they don&#39;t). Requires &#x60;instagram_business_manage_messages&#x60; permission. - Facebook: message opens a Messenger conversation with the commenter. Requires &#x60;pages_messaging&#x60; permission.  **Note:** Both permissions are already included in Late&#39;s OAuth flow. This does not create a conversation thread until the user replies back. 
 
@@ -1161,7 +1161,7 @@ ApiResponse<[**SendPrivateReplyToComment200Response**](SendPrivateReplyToComment
 
 > HideInboxComment200Response unhideInboxComment(postId, commentId, accountId)
 
-Unhide a comment
+Unhide comment
 
 Unhide a previously hidden comment. Supported by Facebook, Instagram, and Threads. 
 
@@ -1238,7 +1238,7 @@ public class Example {
 
 > ApiResponse<HideInboxComment200Response> unhideInboxComment unhideInboxCommentWithHttpInfo(postId, commentId, accountId)
 
-Unhide a comment
+Unhide comment
 
 Unhide a previously hidden comment. Supported by Facebook, Instagram, and Threads. 
 
@@ -1319,7 +1319,7 @@ ApiResponse<[**HideInboxComment200Response**](HideInboxComment200Response.md)>
 
 > UnlikeInboxComment200Response unlikeInboxComment(postId, commentId, accountId, likeUri)
 
-Unlike a comment
+Unlike comment
 
 Remove a like from a comment.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;likeUri&#x60; query parameter is required. 
 
@@ -1398,7 +1398,7 @@ public class Example {
 
 > ApiResponse<UnlikeInboxComment200Response> unlikeInboxComment unlikeInboxCommentWithHttpInfo(postId, commentId, accountId, likeUri)
 
-Unlike a comment
+Unlike comment
 
 Remove a like from a comment.  **Supported platforms:** Facebook, Twitter/X, Bluesky, Reddit  For Bluesky, the &#x60;likeUri&#x60; query parameter is required. 
 

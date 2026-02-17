@@ -4,10 +4,10 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**getGoogleBusinessFoodMenus**](GmbFoodMenusApi.md#getGoogleBusinessFoodMenus) | **GET** /v1/accounts/{accountId}/gmb-food-menus | Get Google Business Profile food menus |
-| [**getGoogleBusinessFoodMenusWithHttpInfo**](GmbFoodMenusApi.md#getGoogleBusinessFoodMenusWithHttpInfo) | **GET** /v1/accounts/{accountId}/gmb-food-menus | Get Google Business Profile food menus |
-| [**updateGoogleBusinessFoodMenus**](GmbFoodMenusApi.md#updateGoogleBusinessFoodMenus) | **PUT** /v1/accounts/{accountId}/gmb-food-menus | Update Google Business Profile food menus |
-| [**updateGoogleBusinessFoodMenusWithHttpInfo**](GmbFoodMenusApi.md#updateGoogleBusinessFoodMenusWithHttpInfo) | **PUT** /v1/accounts/{accountId}/gmb-food-menus | Update Google Business Profile food menus |
+| [**getGoogleBusinessFoodMenus**](GmbFoodMenusApi.md#getGoogleBusinessFoodMenus) | **GET** /v1/accounts/{accountId}/gmb-food-menus | Get food menus |
+| [**getGoogleBusinessFoodMenusWithHttpInfo**](GmbFoodMenusApi.md#getGoogleBusinessFoodMenusWithHttpInfo) | **GET** /v1/accounts/{accountId}/gmb-food-menus | Get food menus |
+| [**updateGoogleBusinessFoodMenus**](GmbFoodMenusApi.md#updateGoogleBusinessFoodMenus) | **PUT** /v1/accounts/{accountId}/gmb-food-menus | Update food menus |
+| [**updateGoogleBusinessFoodMenusWithHttpInfo**](GmbFoodMenusApi.md#updateGoogleBusinessFoodMenusWithHttpInfo) | **PUT** /v1/accounts/{accountId}/gmb-food-menus | Update food menus |
 
 
 
@@ -15,7 +15,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 > GetGoogleBusinessFoodMenus200Response getGoogleBusinessFoodMenus(accountId)
 
-Get Google Business Profile food menus
+Get food menus
 
 Fetches food menus for a connected Google Business Profile location.  Returns the full menu structure including: - Menu names and descriptions - Sections (e.g. Appetizers, Entrees, Drinks) - Items with labels, pricing, dietary info, and allergens - Item options/variants  Only available for locations with food menu support (restaurants, cafes, etc.). 
 
@@ -90,7 +90,7 @@ public class Example {
 
 > ApiResponse<GetGoogleBusinessFoodMenus200Response> getGoogleBusinessFoodMenus getGoogleBusinessFoodMenusWithHttpInfo(accountId)
 
-Get Google Business Profile food menus
+Get food menus
 
 Fetches food menus for a connected Google Business Profile location.  Returns the full menu structure including: - Menu names and descriptions - Sections (e.g. Appetizers, Entrees, Drinks) - Items with labels, pricing, dietary info, and allergens - Item options/variants  Only available for locations with food menu support (restaurants, cafes, etc.). 
 
@@ -169,7 +169,7 @@ ApiResponse<[**GetGoogleBusinessFoodMenus200Response**](GetGoogleBusinessFoodMen
 
 > UpdateGoogleBusinessFoodMenus200Response updateGoogleBusinessFoodMenus(accountId, updateGoogleBusinessFoodMenusRequest)
 
-Update Google Business Profile food menus
+Update food menus
 
 Updates the food menus for a connected Google Business Profile location.  Send the full menus array. Use &#x60;updateMask&#x60; for partial updates (e.g. &#x60;\&quot;menus\&quot;&#x60; to only update the menus field).  Each menu can contain sections, and each section can contain items with pricing, dietary restrictions, allergens, and more. 
 
@@ -246,7 +246,7 @@ public class Example {
 
 > ApiResponse<UpdateGoogleBusinessFoodMenus200Response> updateGoogleBusinessFoodMenus updateGoogleBusinessFoodMenusWithHttpInfo(accountId, updateGoogleBusinessFoodMenusRequest)
 
-Update Google Business Profile food menus
+Update food menus
 
 Updates the food menus for a connected Google Business Profile location.  Send the full menus array. Use &#x60;updateMask&#x60; for partial updates (e.g. &#x60;\&quot;menus\&quot;&#x60; to only update the menus field).  Each menu can contain sections, and each section can contain items with pricing, dietary restrictions, allergens, and more. 
 

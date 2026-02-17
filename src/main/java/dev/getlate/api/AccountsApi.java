@@ -55,7 +55,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T07:51:32.891397159Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AccountsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -173,7 +173,7 @@ public class AccountsApi {
   }
 
   /**
-   * Disconnect a social account
+   * Disconnect account
    * 
    * @param accountId  (required)
    * @return DeleteAccountGroup200Response
@@ -184,7 +184,7 @@ public class AccountsApi {
   }
 
   /**
-   * Disconnect a social account
+   * Disconnect account
    * 
    * @param accountId  (required)
    * @param headers Optional headers to include in the request
@@ -197,7 +197,7 @@ public class AccountsApi {
   }
 
   /**
-   * Disconnect a social account
+   * Disconnect account
    * 
    * @param accountId  (required)
    * @return ApiResponse&lt;DeleteAccountGroup200Response&gt;
@@ -208,7 +208,7 @@ public class AccountsApi {
   }
 
   /**
-   * Disconnect a social account
+   * Disconnect account
    * 
    * @param accountId  (required)
    * @param headers Optional headers to include in the request
@@ -291,7 +291,7 @@ public class AccountsApi {
   }
 
   /**
-   * Check health of a specific account
+   * Check account health
    * Returns detailed health information for a specific social account, including token status, granted permissions, missing permissions, and actionable recommendations. 
    * @param accountId The account ID to check (required)
    * @return GetAccountHealth200Response
@@ -302,7 +302,7 @@ public class AccountsApi {
   }
 
   /**
-   * Check health of a specific account
+   * Check account health
    * Returns detailed health information for a specific social account, including token status, granted permissions, missing permissions, and actionable recommendations. 
    * @param accountId The account ID to check (required)
    * @param headers Optional headers to include in the request
@@ -315,7 +315,7 @@ public class AccountsApi {
   }
 
   /**
-   * Check health of a specific account
+   * Check account health
    * Returns detailed health information for a specific social account, including token status, granted permissions, missing permissions, and actionable recommendations. 
    * @param accountId The account ID to check (required)
    * @return ApiResponse&lt;GetAccountHealth200Response&gt;
@@ -326,7 +326,7 @@ public class AccountsApi {
   }
 
   /**
-   * Check health of a specific account
+   * Check account health
    * Returns detailed health information for a specific social account, including token status, granted permissions, missing permissions, and actionable recommendations. 
    * @param accountId The account ID to check (required)
    * @param headers Optional headers to include in the request
@@ -409,7 +409,7 @@ public class AccountsApi {
   }
 
   /**
-   * Check health of all connected accounts
+   * Check accounts health
    * Returns the health status of all connected social accounts, including token validity, permissions status, and any issues that need attention. Useful for monitoring account connections and identifying accounts that need reconnection. 
    * @param profileId Filter by profile ID (optional)
    * @param platform Filter by platform (optional)
@@ -422,7 +422,7 @@ public class AccountsApi {
   }
 
   /**
-   * Check health of all connected accounts
+   * Check accounts health
    * Returns the health status of all connected social accounts, including token validity, permissions status, and any issues that need attention. Useful for monitoring account connections and identifying accounts that need reconnection. 
    * @param profileId Filter by profile ID (optional)
    * @param platform Filter by platform (optional)
@@ -437,7 +437,7 @@ public class AccountsApi {
   }
 
   /**
-   * Check health of all connected accounts
+   * Check accounts health
    * Returns the health status of all connected social accounts, including token validity, permissions status, and any issues that need attention. Useful for monitoring account connections and identifying accounts that need reconnection. 
    * @param profileId Filter by profile ID (optional)
    * @param platform Filter by platform (optional)
@@ -450,7 +450,7 @@ public class AccountsApi {
   }
 
   /**
-   * Check health of all connected accounts
+   * Check accounts health
    * Returns the health status of all connected social accounts, including token validity, permissions status, and any issues that need attention. Useful for monitoring account connections and identifying accounts that need reconnection. 
    * @param profileId Filter by profile ID (optional)
    * @param platform Filter by platform (optional)
@@ -549,7 +549,7 @@ public class AccountsApi {
   }
 
   /**
-   * Get follower stats and growth metrics
+   * Get follower stats
    * Returns follower count history and growth metrics for connected social accounts. **Requires analytics add-on subscription.**  **Data Freshness:** Follower counts are automatically refreshed once per day. 
    * @param accountIds Comma-separated list of account IDs (optional, defaults to all user&#39;s accounts) (optional)
    * @param profileId Filter by profile ID (optional)
@@ -564,7 +564,7 @@ public class AccountsApi {
   }
 
   /**
-   * Get follower stats and growth metrics
+   * Get follower stats
    * Returns follower count history and growth metrics for connected social accounts. **Requires analytics add-on subscription.**  **Data Freshness:** Follower counts are automatically refreshed once per day. 
    * @param accountIds Comma-separated list of account IDs (optional, defaults to all user&#39;s accounts) (optional)
    * @param profileId Filter by profile ID (optional)
@@ -581,7 +581,7 @@ public class AccountsApi {
   }
 
   /**
-   * Get follower stats and growth metrics
+   * Get follower stats
    * Returns follower count history and growth metrics for connected social accounts. **Requires analytics add-on subscription.**  **Data Freshness:** Follower counts are automatically refreshed once per day. 
    * @param accountIds Comma-separated list of account IDs (optional, defaults to all user&#39;s accounts) (optional)
    * @param profileId Filter by profile ID (optional)
@@ -596,7 +596,7 @@ public class AccountsApi {
   }
 
   /**
-   * Get follower stats and growth metrics
+   * Get follower stats
    * Returns follower count history and growth metrics for connected social accounts. **Requires analytics add-on subscription.**  **Data Freshness:** Follower counts are automatically refreshed once per day. 
    * @param accountIds Comma-separated list of account IDs (optional, defaults to all user&#39;s accounts) (optional)
    * @param profileId Filter by profile ID (optional)
@@ -701,7 +701,7 @@ public class AccountsApi {
   }
 
   /**
-   * List connected social accounts
+   * List accounts
    * Returns list of connected social accounts. By default, only returns accounts from profiles within the user&#39;s plan limit. Follower count data (followersCount, followersLastUpdated) is only included if user has analytics add-on. 
    * @param profileId Filter accounts by profile ID (optional)
    * @param includeOverLimit When true, includes accounts from profiles that exceed the user&#39;s plan limit. Useful for disconnecting accounts from over-limit profiles so they can be deleted.  (optional, default to false)
@@ -713,7 +713,7 @@ public class AccountsApi {
   }
 
   /**
-   * List connected social accounts
+   * List accounts
    * Returns list of connected social accounts. By default, only returns accounts from profiles within the user&#39;s plan limit. Follower count data (followersCount, followersLastUpdated) is only included if user has analytics add-on. 
    * @param profileId Filter accounts by profile ID (optional)
    * @param includeOverLimit When true, includes accounts from profiles that exceed the user&#39;s plan limit. Useful for disconnecting accounts from over-limit profiles so they can be deleted.  (optional, default to false)
@@ -727,7 +727,7 @@ public class AccountsApi {
   }
 
   /**
-   * List connected social accounts
+   * List accounts
    * Returns list of connected social accounts. By default, only returns accounts from profiles within the user&#39;s plan limit. Follower count data (followersCount, followersLastUpdated) is only included if user has analytics add-on. 
    * @param profileId Filter accounts by profile ID (optional)
    * @param includeOverLimit When true, includes accounts from profiles that exceed the user&#39;s plan limit. Useful for disconnecting accounts from over-limit profiles so they can be deleted.  (optional, default to false)
@@ -739,7 +739,7 @@ public class AccountsApi {
   }
 
   /**
-   * List connected social accounts
+   * List accounts
    * Returns list of connected social accounts. By default, only returns accounts from profiles within the user&#39;s plan limit. Follower count data (followersCount, followersLastUpdated) is only included if user has analytics add-on. 
    * @param profileId Filter accounts by profile ID (optional)
    * @param includeOverLimit When true, includes accounts from profiles that exceed the user&#39;s plan limit. Useful for disconnecting accounts from over-limit profiles so they can be deleted.  (optional, default to false)
@@ -835,7 +835,7 @@ public class AccountsApi {
   }
 
   /**
-   * Update a social account
+   * Update account
    * 
    * @param accountId  (required)
    * @param updateAccountRequest  (required)
@@ -847,7 +847,7 @@ public class AccountsApi {
   }
 
   /**
-   * Update a social account
+   * Update account
    * 
    * @param accountId  (required)
    * @param updateAccountRequest  (required)
@@ -861,7 +861,7 @@ public class AccountsApi {
   }
 
   /**
-   * Update a social account
+   * Update account
    * 
    * @param accountId  (required)
    * @param updateAccountRequest  (required)
@@ -873,7 +873,7 @@ public class AccountsApi {
   }
 
   /**
-   * Update a social account
+   * Update account
    * 
    * @param accountId  (required)
    * @param updateAccountRequest  (required)

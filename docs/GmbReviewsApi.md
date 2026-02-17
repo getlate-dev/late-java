@@ -4,8 +4,8 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**getGoogleBusinessReviews**](GmbReviewsApi.md#getGoogleBusinessReviews) | **GET** /v1/accounts/{accountId}/gmb-reviews | Get Google Business Profile reviews |
-| [**getGoogleBusinessReviewsWithHttpInfo**](GmbReviewsApi.md#getGoogleBusinessReviewsWithHttpInfo) | **GET** /v1/accounts/{accountId}/gmb-reviews | Get Google Business Profile reviews |
+| [**getGoogleBusinessReviews**](GmbReviewsApi.md#getGoogleBusinessReviews) | **GET** /v1/accounts/{accountId}/gmb-reviews | Get reviews |
+| [**getGoogleBusinessReviewsWithHttpInfo**](GmbReviewsApi.md#getGoogleBusinessReviewsWithHttpInfo) | **GET** /v1/accounts/{accountId}/gmb-reviews | Get reviews |
 
 
 
@@ -13,7 +13,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 > GetGoogleBusinessReviews200Response getGoogleBusinessReviews(accountId, pageSize, pageToken)
 
-Get Google Business Profile reviews
+Get reviews
 
 Fetches reviews for a connected Google Business Profile account.  Returns all reviews for the business location, including: - Reviewer information (name, profile photo) - Star rating (1-5) - Review comment/text - Business owner&#39;s reply (if any) - Review timestamps  Use pagination via &#x60;nextPageToken&#x60; to fetch all reviews for locations with many reviews. 
 
@@ -92,7 +92,7 @@ public class Example {
 
 > ApiResponse<GetGoogleBusinessReviews200Response> getGoogleBusinessReviews getGoogleBusinessReviewsWithHttpInfo(accountId, pageSize, pageToken)
 
-Get Google Business Profile reviews
+Get reviews
 
 Fetches reviews for a connected Google Business Profile account.  Returns all reviews for the business location, including: - Reviewer information (name, profile photo) - Star rating (1-5) - Review comment/text - Business owner&#39;s reply (if any) - Review timestamps  Use pagination via &#x60;nextPageToken&#x60; to fetch all reviews for locations with many reviews. 
 

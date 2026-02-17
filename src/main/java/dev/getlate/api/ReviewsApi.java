@@ -56,7 +56,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T07:51:32.891397159Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ReviewsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -174,7 +174,7 @@ public class ReviewsApi {
   }
 
   /**
-   * Delete a review reply
+   * Delete review reply
    * Delete a reply to a review (Google Business only). Requires accountId in request body.
    * @param reviewId  (required)
    * @param deleteInboxReviewReplyRequest  (required)
@@ -186,7 +186,7 @@ public class ReviewsApi {
   }
 
   /**
-   * Delete a review reply
+   * Delete review reply
    * Delete a reply to a review (Google Business only). Requires accountId in request body.
    * @param reviewId  (required)
    * @param deleteInboxReviewReplyRequest  (required)
@@ -200,7 +200,7 @@ public class ReviewsApi {
   }
 
   /**
-   * Delete a review reply
+   * Delete review reply
    * Delete a reply to a review (Google Business only). Requires accountId in request body.
    * @param reviewId  (required)
    * @param deleteInboxReviewReplyRequest  (required)
@@ -212,7 +212,7 @@ public class ReviewsApi {
   }
 
   /**
-   * Delete a review reply
+   * Delete review reply
    * Delete a reply to a review (Google Business only). Requires accountId in request body.
    * @param reviewId  (required)
    * @param deleteInboxReviewReplyRequest  (required)
@@ -306,7 +306,7 @@ public class ReviewsApi {
   }
 
   /**
-   * List reviews across all accounts
+   * List reviews
    * Fetch reviews from all connected Facebook Pages and Google Business accounts. Aggregates data with filtering and sorting options.  **Supported platforms:** Facebook, Google Business 
    * @param profileId  (optional)
    * @param platform  (optional)
@@ -326,7 +326,7 @@ public class ReviewsApi {
   }
 
   /**
-   * List reviews across all accounts
+   * List reviews
    * Fetch reviews from all connected Facebook Pages and Google Business accounts. Aggregates data with filtering and sorting options.  **Supported platforms:** Facebook, Google Business 
    * @param profileId  (optional)
    * @param platform  (optional)
@@ -348,7 +348,7 @@ public class ReviewsApi {
   }
 
   /**
-   * List reviews across all accounts
+   * List reviews
    * Fetch reviews from all connected Facebook Pages and Google Business accounts. Aggregates data with filtering and sorting options.  **Supported platforms:** Facebook, Google Business 
    * @param profileId  (optional)
    * @param platform  (optional)
@@ -368,7 +368,7 @@ public class ReviewsApi {
   }
 
   /**
-   * List reviews across all accounts
+   * List reviews
    * Fetch reviews from all connected Facebook Pages and Google Business accounts. Aggregates data with filtering and sorting options.  **Supported platforms:** Facebook, Google Business 
    * @param profileId  (optional)
    * @param platform  (optional)
@@ -488,7 +488,7 @@ public class ReviewsApi {
   }
 
   /**
-   * Reply to a review
+   * Reply to review
    * Post a reply to a review. Requires accountId in request body.
    * @param reviewId Review ID (URL-encoded for Google Business) (required)
    * @param replyToInboxReviewRequest  (required)
@@ -500,7 +500,7 @@ public class ReviewsApi {
   }
 
   /**
-   * Reply to a review
+   * Reply to review
    * Post a reply to a review. Requires accountId in request body.
    * @param reviewId Review ID (URL-encoded for Google Business) (required)
    * @param replyToInboxReviewRequest  (required)
@@ -514,7 +514,7 @@ public class ReviewsApi {
   }
 
   /**
-   * Reply to a review
+   * Reply to review
    * Post a reply to a review. Requires accountId in request body.
    * @param reviewId Review ID (URL-encoded for Google Business) (required)
    * @param replyToInboxReviewRequest  (required)
@@ -526,7 +526,7 @@ public class ReviewsApi {
   }
 
   /**
-   * Reply to a review
+   * Reply to review
    * Post a reply to a review. Requires accountId in request body.
    * @param reviewId Review ID (URL-encoded for Google Business) (required)
    * @param replyToInboxReviewRequest  (required)

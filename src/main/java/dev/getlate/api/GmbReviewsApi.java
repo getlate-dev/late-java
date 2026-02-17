@@ -47,7 +47,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T07:51:32.891397159Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GmbReviewsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -165,7 +165,7 @@ public class GmbReviewsApi {
   }
 
   /**
-   * Get Google Business Profile reviews
+   * Get reviews
    * Fetches reviews for a connected Google Business Profile account.  Returns all reviews for the business location, including: - Reviewer information (name, profile photo) - Star rating (1-5) - Review comment/text - Business owner&#39;s reply (if any) - Review timestamps  Use pagination via &#x60;nextPageToken&#x60; to fetch all reviews for locations with many reviews. 
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param pageSize Number of reviews to fetch per page (max 50) (optional, default to 50)
@@ -178,7 +178,7 @@ public class GmbReviewsApi {
   }
 
   /**
-   * Get Google Business Profile reviews
+   * Get reviews
    * Fetches reviews for a connected Google Business Profile account.  Returns all reviews for the business location, including: - Reviewer information (name, profile photo) - Star rating (1-5) - Review comment/text - Business owner&#39;s reply (if any) - Review timestamps  Use pagination via &#x60;nextPageToken&#x60; to fetch all reviews for locations with many reviews. 
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param pageSize Number of reviews to fetch per page (max 50) (optional, default to 50)
@@ -193,7 +193,7 @@ public class GmbReviewsApi {
   }
 
   /**
-   * Get Google Business Profile reviews
+   * Get reviews
    * Fetches reviews for a connected Google Business Profile account.  Returns all reviews for the business location, including: - Reviewer information (name, profile photo) - Star rating (1-5) - Review comment/text - Business owner&#39;s reply (if any) - Review timestamps  Use pagination via &#x60;nextPageToken&#x60; to fetch all reviews for locations with many reviews. 
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param pageSize Number of reviews to fetch per page (max 50) (optional, default to 50)
@@ -206,7 +206,7 @@ public class GmbReviewsApi {
   }
 
   /**
-   * Get Google Business Profile reviews
+   * Get reviews
    * Fetches reviews for a connected Google Business Profile account.  Returns all reviews for the business location, including: - Reviewer information (name, profile photo) - Star rating (1-5) - Review comment/text - Business owner&#39;s reply (if any) - Review timestamps  Use pagination via &#x60;nextPageToken&#x60; to fetch all reviews for locations with many reviews. 
    * @param accountId The Late account ID (from /v1/accounts) (required)
    * @param pageSize Number of reviews to fetch per page (max 50) (optional, default to 50)

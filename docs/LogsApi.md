@@ -4,16 +4,16 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**getLog**](LogsApi.md#getLog) | **GET** /v1/logs/{logId} | Get a single log entry |
-| [**getLogWithHttpInfo**](LogsApi.md#getLogWithHttpInfo) | **GET** /v1/logs/{logId} | Get a single log entry |
-| [**getPostLogs**](LogsApi.md#getPostLogs) | **GET** /v1/posts/{postId}/logs | Get logs for a specific post |
-| [**getPostLogsWithHttpInfo**](LogsApi.md#getPostLogsWithHttpInfo) | **GET** /v1/posts/{postId}/logs | Get logs for a specific post |
-| [**listConnectionLogs**](LogsApi.md#listConnectionLogs) | **GET** /v1/connections/logs | Get connection logs |
-| [**listConnectionLogsWithHttpInfo**](LogsApi.md#listConnectionLogsWithHttpInfo) | **GET** /v1/connections/logs | Get connection logs |
-| [**listLogs**](LogsApi.md#listLogs) | **GET** /v1/logs | Get publishing logs (deprecated) |
-| [**listLogsWithHttpInfo**](LogsApi.md#listLogsWithHttpInfo) | **GET** /v1/logs | Get publishing logs (deprecated) |
-| [**listPostsLogs**](LogsApi.md#listPostsLogs) | **GET** /v1/posts/logs | Get publishing logs |
-| [**listPostsLogsWithHttpInfo**](LogsApi.md#listPostsLogsWithHttpInfo) | **GET** /v1/posts/logs | Get publishing logs |
+| [**getLog**](LogsApi.md#getLog) | **GET** /v1/logs/{logId} | Get log entry |
+| [**getLogWithHttpInfo**](LogsApi.md#getLogWithHttpInfo) | **GET** /v1/logs/{logId} | Get log entry |
+| [**getPostLogs**](LogsApi.md#getPostLogs) | **GET** /v1/posts/{postId}/logs | Get post logs |
+| [**getPostLogsWithHttpInfo**](LogsApi.md#getPostLogsWithHttpInfo) | **GET** /v1/posts/{postId}/logs | Get post logs |
+| [**listConnectionLogs**](LogsApi.md#listConnectionLogs) | **GET** /v1/connections/logs | List connection logs |
+| [**listConnectionLogsWithHttpInfo**](LogsApi.md#listConnectionLogsWithHttpInfo) | **GET** /v1/connections/logs | List connection logs |
+| [**listLogs**](LogsApi.md#listLogs) | **GET** /v1/logs | List publishing logs (deprecated) |
+| [**listLogsWithHttpInfo**](LogsApi.md#listLogsWithHttpInfo) | **GET** /v1/logs | List publishing logs (deprecated) |
+| [**listPostsLogs**](LogsApi.md#listPostsLogs) | **GET** /v1/posts/logs | List publishing logs |
+| [**listPostsLogsWithHttpInfo**](LogsApi.md#listPostsLogsWithHttpInfo) | **GET** /v1/posts/logs | List publishing logs |
 
 
 
@@ -21,7 +21,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 > GetLog200Response getLog(logId)
 
-Get a single log entry
+Get log entry
 
 Retrieve detailed information about a specific log entry, including full request and response bodies for debugging. 
 
@@ -94,7 +94,7 @@ public class Example {
 
 > ApiResponse<GetLog200Response> getLog getLogWithHttpInfo(logId)
 
-Get a single log entry
+Get log entry
 
 Retrieve detailed information about a specific log entry, including full request and response bodies for debugging. 
 
@@ -171,7 +171,7 @@ ApiResponse<[**GetLog200Response**](GetLog200Response.md)>
 
 > GetPostLogs200Response getPostLogs(postId, limit)
 
-Get logs for a specific post
+Get post logs
 
 Retrieve all publishing logs for a specific post. Shows the complete history of publishing attempts for that post across all platforms. 
 
@@ -246,7 +246,7 @@ public class Example {
 
 > ApiResponse<GetPostLogs200Response> getPostLogs getPostLogsWithHttpInfo(postId, limit)
 
-Get logs for a specific post
+Get post logs
 
 Retrieve all publishing logs for a specific post. Shows the complete history of publishing attempts for that post across all platforms. 
 
@@ -325,7 +325,7 @@ ApiResponse<[**GetPostLogs200Response**](GetPostLogs200Response.md)>
 
 > ListConnectionLogs200Response listConnectionLogs(platform, eventType, status, days, limit, skip)
 
-Get connection logs
+List connection logs
 
 Retrieve connection event logs showing account connection and disconnection history. Useful for debugging OAuth issues and tracking account lifecycle.  **Event Types:** - &#x60;connect_success&#x60; - New account connected successfully - &#x60;connect_failed&#x60; - Connection attempt failed - &#x60;disconnect&#x60; - Account was disconnected - &#x60;reconnect_success&#x60; - Existing account reconnected - &#x60;reconnect_failed&#x60; - Reconnection attempt failed  **Retention:** Logs are automatically deleted after 7 days. 
 
@@ -406,7 +406,7 @@ public class Example {
 
 > ApiResponse<ListConnectionLogs200Response> listConnectionLogs listConnectionLogsWithHttpInfo(platform, eventType, status, days, limit, skip)
 
-Get connection logs
+List connection logs
 
 Retrieve connection event logs showing account connection and disconnection history. Useful for debugging OAuth issues and tracking account lifecycle.  **Event Types:** - &#x60;connect_success&#x60; - New account connected successfully - &#x60;connect_failed&#x60; - Connection attempt failed - &#x60;disconnect&#x60; - Account was disconnected - &#x60;reconnect_success&#x60; - Existing account reconnected - &#x60;reconnect_failed&#x60; - Reconnection attempt failed  **Retention:** Logs are automatically deleted after 7 days. 
 
@@ -491,7 +491,7 @@ ApiResponse<[**ListConnectionLogs200Response**](ListConnectionLogs200Response.md
 
 > ListLogs200Response listLogs(status, platform, action, days, limit, skip)
 
-Get publishing logs (deprecated)
+List publishing logs (deprecated)
 
 **Deprecated:** Use &#x60;/v1/posts/logs&#x60; instead. This endpoint is maintained for backwards compatibility.  Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
 
@@ -572,7 +572,7 @@ public class Example {
 
 > ApiResponse<ListLogs200Response> listLogs listLogsWithHttpInfo(status, platform, action, days, limit, skip)
 
-Get publishing logs (deprecated)
+List publishing logs (deprecated)
 
 **Deprecated:** Use &#x60;/v1/posts/logs&#x60; instead. This endpoint is maintained for backwards compatibility.  Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
 
@@ -657,7 +657,7 @@ ApiResponse<[**ListLogs200Response**](ListLogs200Response.md)>
 
 > ListLogs200Response listPostsLogs(status, platform, action, days, limit, skip)
 
-Get publishing logs
+List publishing logs
 
 Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
 
@@ -738,7 +738,7 @@ public class Example {
 
 > ApiResponse<ListLogs200Response> listPostsLogs listPostsLogsWithHttpInfo(status, platform, action, days, limit, skip)
 
-Get publishing logs
+List publishing logs
 
 Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
 

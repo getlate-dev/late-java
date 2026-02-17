@@ -53,7 +53,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T07:51:32.891397159Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UsageApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -171,7 +171,7 @@ public class UsageApi {
   }
 
   /**
-   * Get plan and usage stats for current account
+   * Get plan and usage stats
    * 
    * @return UsageStats
    * @throws ApiException if fails to make API call
@@ -181,7 +181,7 @@ public class UsageApi {
   }
 
   /**
-   * Get plan and usage stats for current account
+   * Get plan and usage stats
    * 
    * @param headers Optional headers to include in the request
    * @return UsageStats
@@ -193,7 +193,7 @@ public class UsageApi {
   }
 
   /**
-   * Get plan and usage stats for current account
+   * Get plan and usage stats
    * 
    * @return ApiResponse&lt;UsageStats&gt;
    * @throws ApiException if fails to make API call
@@ -203,7 +203,7 @@ public class UsageApi {
   }
 
   /**
-   * Get plan and usage stats for current account
+   * Get plan and usage stats
    * 
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;UsageStats&gt;

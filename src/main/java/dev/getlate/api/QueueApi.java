@@ -59,7 +59,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T07:51:32.891397159Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class QueueApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -177,7 +177,7 @@ public class QueueApi {
   }
 
   /**
-   * Create a new queue for a profile
+   * Create schedule
    * Create an additional queue for a profile. The first queue created becomes the default. Subsequent queues are non-default unless explicitly set. 
    * @param createQueueSlotRequest  (required)
    * @return CreateQueueSlot201Response
@@ -188,7 +188,7 @@ public class QueueApi {
   }
 
   /**
-   * Create a new queue for a profile
+   * Create schedule
    * Create an additional queue for a profile. The first queue created becomes the default. Subsequent queues are non-default unless explicitly set. 
    * @param createQueueSlotRequest  (required)
    * @param headers Optional headers to include in the request
@@ -201,7 +201,7 @@ public class QueueApi {
   }
 
   /**
-   * Create a new queue for a profile
+   * Create schedule
    * Create an additional queue for a profile. The first queue created becomes the default. Subsequent queues are non-default unless explicitly set. 
    * @param createQueueSlotRequest  (required)
    * @return ApiResponse&lt;CreateQueueSlot201Response&gt;
@@ -212,7 +212,7 @@ public class QueueApi {
   }
 
   /**
-   * Create a new queue for a profile
+   * Create schedule
    * Create an additional queue for a profile. The first queue created becomes the default. Subsequent queues are non-default unless explicitly set. 
    * @param createQueueSlotRequest  (required)
    * @param headers Optional headers to include in the request
@@ -300,7 +300,7 @@ public class QueueApi {
   }
 
   /**
-   * Delete a queue schedule
+   * Delete schedule
    * Delete a queue from a profile. Requires queueId to specify which queue to delete. If deleting the default queue, another queue will be promoted to default. 
    * @param profileId  (required)
    * @param queueId Queue ID to delete (required)
@@ -312,7 +312,7 @@ public class QueueApi {
   }
 
   /**
-   * Delete a queue schedule
+   * Delete schedule
    * Delete a queue from a profile. Requires queueId to specify which queue to delete. If deleting the default queue, another queue will be promoted to default. 
    * @param profileId  (required)
    * @param queueId Queue ID to delete (required)
@@ -326,7 +326,7 @@ public class QueueApi {
   }
 
   /**
-   * Delete a queue schedule
+   * Delete schedule
    * Delete a queue from a profile. Requires queueId to specify which queue to delete. If deleting the default queue, another queue will be promoted to default. 
    * @param profileId  (required)
    * @param queueId Queue ID to delete (required)
@@ -338,7 +338,7 @@ public class QueueApi {
   }
 
   /**
-   * Delete a queue schedule
+   * Delete schedule
    * Delete a queue from a profile. Requires queueId to specify which queue to delete. If deleting the default queue, another queue will be promoted to default. 
    * @param profileId  (required)
    * @param queueId Queue ID to delete (required)
@@ -442,7 +442,7 @@ public class QueueApi {
   }
 
   /**
-   * Preview the next available queue slot (informational only)
+   * Get next available slot
    * Returns the next available queue slot for preview/informational purposes.  **Important: To schedule a post to the queue, do NOT use this endpoint&#39;s response with &#x60;scheduledFor&#x60;.** That creates a manual post, not a queue post.  Instead, use &#x60;POST /v1/posts&#x60; with &#x60;queuedFromProfile&#x60; (and optionally &#x60;queueId&#x60;). The system will automatically assign the next available slot with proper locking to prevent race conditions.  This endpoint is useful for: - Showing users when their next post will go out before they commit - Debugging/verifying queue configuration - Building UI previews  If no queueId is specified, uses the profile&#39;s default queue. 
    * @param profileId  (required)
    * @param queueId Specific queue ID (optional, defaults to profile&#39;s default queue) (optional)
@@ -454,7 +454,7 @@ public class QueueApi {
   }
 
   /**
-   * Preview the next available queue slot (informational only)
+   * Get next available slot
    * Returns the next available queue slot for preview/informational purposes.  **Important: To schedule a post to the queue, do NOT use this endpoint&#39;s response with &#x60;scheduledFor&#x60;.** That creates a manual post, not a queue post.  Instead, use &#x60;POST /v1/posts&#x60; with &#x60;queuedFromProfile&#x60; (and optionally &#x60;queueId&#x60;). The system will automatically assign the next available slot with proper locking to prevent race conditions.  This endpoint is useful for: - Showing users when their next post will go out before they commit - Debugging/verifying queue configuration - Building UI previews  If no queueId is specified, uses the profile&#39;s default queue. 
    * @param profileId  (required)
    * @param queueId Specific queue ID (optional, defaults to profile&#39;s default queue) (optional)
@@ -468,7 +468,7 @@ public class QueueApi {
   }
 
   /**
-   * Preview the next available queue slot (informational only)
+   * Get next available slot
    * Returns the next available queue slot for preview/informational purposes.  **Important: To schedule a post to the queue, do NOT use this endpoint&#39;s response with &#x60;scheduledFor&#x60;.** That creates a manual post, not a queue post.  Instead, use &#x60;POST /v1/posts&#x60; with &#x60;queuedFromProfile&#x60; (and optionally &#x60;queueId&#x60;). The system will automatically assign the next available slot with proper locking to prevent race conditions.  This endpoint is useful for: - Showing users when their next post will go out before they commit - Debugging/verifying queue configuration - Building UI previews  If no queueId is specified, uses the profile&#39;s default queue. 
    * @param profileId  (required)
    * @param queueId Specific queue ID (optional, defaults to profile&#39;s default queue) (optional)
@@ -480,7 +480,7 @@ public class QueueApi {
   }
 
   /**
-   * Preview the next available queue slot (informational only)
+   * Get next available slot
    * Returns the next available queue slot for preview/informational purposes.  **Important: To schedule a post to the queue, do NOT use this endpoint&#39;s response with &#x60;scheduledFor&#x60;.** That creates a manual post, not a queue post.  Instead, use &#x60;POST /v1/posts&#x60; with &#x60;queuedFromProfile&#x60; (and optionally &#x60;queueId&#x60;). The system will automatically assign the next available slot with proper locking to prevent race conditions.  This endpoint is useful for: - Showing users when their next post will go out before they commit - Debugging/verifying queue configuration - Building UI previews  If no queueId is specified, uses the profile&#39;s default queue. 
    * @param profileId  (required)
    * @param queueId Specific queue ID (optional, defaults to profile&#39;s default queue) (optional)
@@ -580,7 +580,7 @@ public class QueueApi {
   }
 
   /**
-   * Get queue schedules for a profile
+   * List schedules
    * Retrieve queue schedules for a profile. Each profile can have multiple queues. - Without &#x60;all&#x3D;true&#x60;: Returns the default queue (or specific queue if queueId provided) - With &#x60;all&#x3D;true&#x60;: Returns all queues for the profile 
    * @param profileId Profile ID to get queues for (required)
    * @param queueId Specific queue ID to retrieve (optional) (optional)
@@ -593,7 +593,7 @@ public class QueueApi {
   }
 
   /**
-   * Get queue schedules for a profile
+   * List schedules
    * Retrieve queue schedules for a profile. Each profile can have multiple queues. - Without &#x60;all&#x3D;true&#x60;: Returns the default queue (or specific queue if queueId provided) - With &#x60;all&#x3D;true&#x60;: Returns all queues for the profile 
    * @param profileId Profile ID to get queues for (required)
    * @param queueId Specific queue ID to retrieve (optional) (optional)
@@ -608,7 +608,7 @@ public class QueueApi {
   }
 
   /**
-   * Get queue schedules for a profile
+   * List schedules
    * Retrieve queue schedules for a profile. Each profile can have multiple queues. - Without &#x60;all&#x3D;true&#x60;: Returns the default queue (or specific queue if queueId provided) - With &#x60;all&#x3D;true&#x60;: Returns all queues for the profile 
    * @param profileId Profile ID to get queues for (required)
    * @param queueId Specific queue ID to retrieve (optional) (optional)
@@ -621,7 +621,7 @@ public class QueueApi {
   }
 
   /**
-   * Get queue schedules for a profile
+   * List schedules
    * Retrieve queue schedules for a profile. Each profile can have multiple queues. - Without &#x60;all&#x3D;true&#x60;: Returns the default queue (or specific queue if queueId provided) - With &#x60;all&#x3D;true&#x60;: Returns all queues for the profile 
    * @param profileId Profile ID to get queues for (required)
    * @param queueId Specific queue ID to retrieve (optional) (optional)
@@ -724,7 +724,7 @@ public class QueueApi {
   }
 
   /**
-   * Preview upcoming queue slots for a profile
+   * Preview upcoming slots
    * 
    * @param profileId  (required)
    * @param count  (optional, default to 20)
@@ -736,7 +736,7 @@ public class QueueApi {
   }
 
   /**
-   * Preview upcoming queue slots for a profile
+   * Preview upcoming slots
    * 
    * @param profileId  (required)
    * @param count  (optional, default to 20)
@@ -750,7 +750,7 @@ public class QueueApi {
   }
 
   /**
-   * Preview upcoming queue slots for a profile
+   * Preview upcoming slots
    * 
    * @param profileId  (required)
    * @param count  (optional, default to 20)
@@ -762,7 +762,7 @@ public class QueueApi {
   }
 
   /**
-   * Preview upcoming queue slots for a profile
+   * Preview upcoming slots
    * 
    * @param profileId  (required)
    * @param count  (optional, default to 20)
@@ -862,7 +862,7 @@ public class QueueApi {
   }
 
   /**
-   * Create or update a queue schedule
+   * Update schedule
    * Create a new queue or update an existing one. - Without queueId: Creates or updates the default queue - With queueId: Updates the specific queue - With setAsDefault&#x3D;true: Makes this queue the default for the profile 
    * @param updateQueueSlotRequest  (required)
    * @return UpdateQueueSlot200Response
@@ -873,7 +873,7 @@ public class QueueApi {
   }
 
   /**
-   * Create or update a queue schedule
+   * Update schedule
    * Create a new queue or update an existing one. - Without queueId: Creates or updates the default queue - With queueId: Updates the specific queue - With setAsDefault&#x3D;true: Makes this queue the default for the profile 
    * @param updateQueueSlotRequest  (required)
    * @param headers Optional headers to include in the request
@@ -886,7 +886,7 @@ public class QueueApi {
   }
 
   /**
-   * Create or update a queue schedule
+   * Update schedule
    * Create a new queue or update an existing one. - Without queueId: Creates or updates the default queue - With queueId: Updates the specific queue - With setAsDefault&#x3D;true: Makes this queue the default for the profile 
    * @param updateQueueSlotRequest  (required)
    * @return ApiResponse&lt;UpdateQueueSlot200Response&gt;
@@ -897,7 +897,7 @@ public class QueueApi {
   }
 
   /**
-   * Create or update a queue schedule
+   * Update schedule
    * Create a new queue or update an existing one. - Without queueId: Creates or updates the default queue - With queueId: Updates the specific queue - With setAsDefault&#x3D;true: Makes this queue the default for the profile 
    * @param updateQueueSlotRequest  (required)
    * @param headers Optional headers to include in the request

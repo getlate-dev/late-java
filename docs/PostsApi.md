@@ -4,22 +4,22 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**bulkUploadPosts**](PostsApi.md#bulkUploadPosts) | **POST** /v1/posts/bulk-upload | Validate and schedule multiple posts from CSV |
-| [**bulkUploadPostsWithHttpInfo**](PostsApi.md#bulkUploadPostsWithHttpInfo) | **POST** /v1/posts/bulk-upload | Validate and schedule multiple posts from CSV |
-| [**createPost**](PostsApi.md#createPost) | **POST** /v1/posts | Create a draft, scheduled, or immediate post |
-| [**createPostWithHttpInfo**](PostsApi.md#createPostWithHttpInfo) | **POST** /v1/posts | Create a draft, scheduled, or immediate post |
-| [**deletePost**](PostsApi.md#deletePost) | **DELETE** /v1/posts/{postId} | Delete a post |
-| [**deletePostWithHttpInfo**](PostsApi.md#deletePostWithHttpInfo) | **DELETE** /v1/posts/{postId} | Delete a post |
-| [**getPost**](PostsApi.md#getPost) | **GET** /v1/posts/{postId} | Get a single post |
-| [**getPostWithHttpInfo**](PostsApi.md#getPostWithHttpInfo) | **GET** /v1/posts/{postId} | Get a single post |
-| [**listPosts**](PostsApi.md#listPosts) | **GET** /v1/posts | List posts visible to the authenticated user |
-| [**listPostsWithHttpInfo**](PostsApi.md#listPostsWithHttpInfo) | **GET** /v1/posts | List posts visible to the authenticated user |
-| [**retryPost**](PostsApi.md#retryPost) | **POST** /v1/posts/{postId}/retry | Retry publishing a failed or partial post |
-| [**retryPostWithHttpInfo**](PostsApi.md#retryPostWithHttpInfo) | **POST** /v1/posts/{postId}/retry | Retry publishing a failed or partial post |
-| [**unpublishPost**](PostsApi.md#unpublishPost) | **POST** /v1/posts/{postId}/unpublish | Delete a published post from a social media platform |
-| [**unpublishPostWithHttpInfo**](PostsApi.md#unpublishPostWithHttpInfo) | **POST** /v1/posts/{postId}/unpublish | Delete a published post from a social media platform |
-| [**updatePost**](PostsApi.md#updatePost) | **PUT** /v1/posts/{postId} | Update a post |
-| [**updatePostWithHttpInfo**](PostsApi.md#updatePostWithHttpInfo) | **PUT** /v1/posts/{postId} | Update a post |
+| [**bulkUploadPosts**](PostsApi.md#bulkUploadPosts) | **POST** /v1/posts/bulk-upload | Bulk upload from CSV |
+| [**bulkUploadPostsWithHttpInfo**](PostsApi.md#bulkUploadPostsWithHttpInfo) | **POST** /v1/posts/bulk-upload | Bulk upload from CSV |
+| [**createPost**](PostsApi.md#createPost) | **POST** /v1/posts | Create post |
+| [**createPostWithHttpInfo**](PostsApi.md#createPostWithHttpInfo) | **POST** /v1/posts | Create post |
+| [**deletePost**](PostsApi.md#deletePost) | **DELETE** /v1/posts/{postId} | Delete post |
+| [**deletePostWithHttpInfo**](PostsApi.md#deletePostWithHttpInfo) | **DELETE** /v1/posts/{postId} | Delete post |
+| [**getPost**](PostsApi.md#getPost) | **GET** /v1/posts/{postId} | Get post |
+| [**getPostWithHttpInfo**](PostsApi.md#getPostWithHttpInfo) | **GET** /v1/posts/{postId} | Get post |
+| [**listPosts**](PostsApi.md#listPosts) | **GET** /v1/posts | List posts |
+| [**listPostsWithHttpInfo**](PostsApi.md#listPostsWithHttpInfo) | **GET** /v1/posts | List posts |
+| [**retryPost**](PostsApi.md#retryPost) | **POST** /v1/posts/{postId}/retry | Retry failed post |
+| [**retryPostWithHttpInfo**](PostsApi.md#retryPostWithHttpInfo) | **POST** /v1/posts/{postId}/retry | Retry failed post |
+| [**unpublishPost**](PostsApi.md#unpublishPost) | **POST** /v1/posts/{postId}/unpublish | Unpublish post |
+| [**unpublishPostWithHttpInfo**](PostsApi.md#unpublishPostWithHttpInfo) | **POST** /v1/posts/{postId}/unpublish | Unpublish post |
+| [**updatePost**](PostsApi.md#updatePost) | **PUT** /v1/posts/{postId} | Update post |
+| [**updatePostWithHttpInfo**](PostsApi.md#updatePostWithHttpInfo) | **PUT** /v1/posts/{postId} | Update post |
 
 
 
@@ -27,7 +27,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 > BulkUploadPosts200Response bulkUploadPosts(dryRun, _file)
 
-Validate and schedule multiple posts from CSV
+Bulk upload from CSV
 
 ### Example
 
@@ -101,7 +101,7 @@ public class Example {
 
 > ApiResponse<BulkUploadPosts200Response> bulkUploadPosts bulkUploadPostsWithHttpInfo(dryRun, _file)
 
-Validate and schedule multiple posts from CSV
+Bulk upload from CSV
 
 ### Example
 
@@ -179,9 +179,9 @@ ApiResponse<[**BulkUploadPosts200Response**](BulkUploadPosts200Response.md)>
 
 > PostCreateResponse createPost(createPostRequest)
 
-Create a draft, scheduled, or immediate post
+Create post
 
-**Getting Post URLs:** - For immediate posts (&#x60;publishNow: true&#x60;): The response includes &#x60;platformPostUrl&#x60; in each platform entry under &#x60;post.platforms[]&#x60;. - For scheduled posts: Fetch the post via &#x60;GET /v1/posts/{postId}&#x60; after the scheduled time; &#x60;platformPostUrl&#x60; will be populated once published.  **Content/Caption requirements:** - &#x60;content&#x60; (caption/description) is optional when:   - Media is attached (&#x60;mediaItems&#x60; or per-platform &#x60;customMedia&#x60;)   - All platforms have &#x60;customContent&#x60; set   - Posting only to YouTube (title is used instead) - Text-only posts (no media) require &#x60;content&#x60; - Stories do not use captions (content is ignored) - Reels, feed posts, and other media posts can have optional captions  Platform constraints: - YouTube requires a video in mediaItems; optional custom thumbnail via MediaItem.thumbnail. - Instagram and TikTok require media; do not mix videos and images for TikTok. - Instagram carousels support up to 10 items; Stories publish as &#39;story&#39;. - Threads carousels support up to 10 images (no videos in carousels); single posts support one image or video. - Facebook Stories require media (single image or video); set contentType to &#39;story&#39; in platformSpecificData. - LinkedIn multi-image supports up to 20 images; single PDF documents supported (max 100MB, ~300 pages, cannot mix with other media). - Pinterest supports single image via image_url or a single video per Pin; boardId is required. - Bluesky supports up to 4 images per post. Images may be automatically recompressed to ≤ ~1MB to satisfy Bluesky&#39;s blob limit. When no media is attached, a link preview may be generated for URLs in the text. - Snapchat requires media (single image or video); set contentType to &#39;story&#39;, &#39;saved_story&#39;, or &#39;spotlight&#39; in platformSpecificData. Stories are ephemeral (24h), Saved Stories are permanent, Spotlight is for video content.  **Multi-page/multi-location posting:** Some platforms allow posting to multiple pages, organizations, or locations from a single account connection. Use the same accountId multiple times with different targets in platformSpecificData: - Facebook: &#x60;pageId&#x60; - post to multiple Facebook Pages (list via GET /v1/accounts/{id}/facebook-page) - LinkedIn: &#x60;organizationUrn&#x60; - post to multiple organizations (list via GET /v1/accounts/{id}/linkedin-organizations) - Google Business: &#x60;locationId&#x60; - post to multiple locations (list via GET /v1/accounts/{id}/gmb-locations) - Reddit: &#x60;subreddit&#x60; - post to multiple subreddits from the same account 
+**Getting Post URLs:** - Immediate posts (&#x60;publishNow: true&#x60;): response includes &#x60;platformPostUrl&#x60; in &#x60;post.platforms[]&#x60;. - Scheduled posts: fetch via &#x60;GET /v1/posts/{postId}&#x60; after publish time for &#x60;platformPostUrl&#x60;.  **Content requirements:** - &#x60;content&#x60; is optional when media is attached, all platforms have &#x60;customContent&#x60;, or posting to YouTube only. - Text-only posts require &#x60;content&#x60;. Stories ignore captions.  **Platform constraints:** - YouTube: video required, optional thumbnail via &#x60;MediaItem.thumbnail&#x60; - Instagram/TikTok: media required; TikTok cannot mix videos and images - Instagram carousels: up to 10 items; Threads carousels: up to 10 images only - Facebook Stories: single image or video, set &#x60;contentType: &#39;story&#39;&#x60; - LinkedIn: up to 20 images or a single PDF (max 100MB) - Pinterest: single image or video, &#x60;boardId&#x60; required - Bluesky: up to 4 images, auto-recompressed to ~1MB - Snapchat: single image or video, set &#x60;contentType&#x60; in platformSpecificData 
 
 ### Example
 
@@ -254,9 +254,9 @@ public class Example {
 
 > ApiResponse<PostCreateResponse> createPost createPostWithHttpInfo(createPostRequest)
 
-Create a draft, scheduled, or immediate post
+Create post
 
-**Getting Post URLs:** - For immediate posts (&#x60;publishNow: true&#x60;): The response includes &#x60;platformPostUrl&#x60; in each platform entry under &#x60;post.platforms[]&#x60;. - For scheduled posts: Fetch the post via &#x60;GET /v1/posts/{postId}&#x60; after the scheduled time; &#x60;platformPostUrl&#x60; will be populated once published.  **Content/Caption requirements:** - &#x60;content&#x60; (caption/description) is optional when:   - Media is attached (&#x60;mediaItems&#x60; or per-platform &#x60;customMedia&#x60;)   - All platforms have &#x60;customContent&#x60; set   - Posting only to YouTube (title is used instead) - Text-only posts (no media) require &#x60;content&#x60; - Stories do not use captions (content is ignored) - Reels, feed posts, and other media posts can have optional captions  Platform constraints: - YouTube requires a video in mediaItems; optional custom thumbnail via MediaItem.thumbnail. - Instagram and TikTok require media; do not mix videos and images for TikTok. - Instagram carousels support up to 10 items; Stories publish as &#39;story&#39;. - Threads carousels support up to 10 images (no videos in carousels); single posts support one image or video. - Facebook Stories require media (single image or video); set contentType to &#39;story&#39; in platformSpecificData. - LinkedIn multi-image supports up to 20 images; single PDF documents supported (max 100MB, ~300 pages, cannot mix with other media). - Pinterest supports single image via image_url or a single video per Pin; boardId is required. - Bluesky supports up to 4 images per post. Images may be automatically recompressed to ≤ ~1MB to satisfy Bluesky&#39;s blob limit. When no media is attached, a link preview may be generated for URLs in the text. - Snapchat requires media (single image or video); set contentType to &#39;story&#39;, &#39;saved_story&#39;, or &#39;spotlight&#39; in platformSpecificData. Stories are ephemeral (24h), Saved Stories are permanent, Spotlight is for video content.  **Multi-page/multi-location posting:** Some platforms allow posting to multiple pages, organizations, or locations from a single account connection. Use the same accountId multiple times with different targets in platformSpecificData: - Facebook: &#x60;pageId&#x60; - post to multiple Facebook Pages (list via GET /v1/accounts/{id}/facebook-page) - LinkedIn: &#x60;organizationUrn&#x60; - post to multiple organizations (list via GET /v1/accounts/{id}/linkedin-organizations) - Google Business: &#x60;locationId&#x60; - post to multiple locations (list via GET /v1/accounts/{id}/gmb-locations) - Reddit: &#x60;subreddit&#x60; - post to multiple subreddits from the same account 
+**Getting Post URLs:** - Immediate posts (&#x60;publishNow: true&#x60;): response includes &#x60;platformPostUrl&#x60; in &#x60;post.platforms[]&#x60;. - Scheduled posts: fetch via &#x60;GET /v1/posts/{postId}&#x60; after publish time for &#x60;platformPostUrl&#x60;.  **Content requirements:** - &#x60;content&#x60; is optional when media is attached, all platforms have &#x60;customContent&#x60;, or posting to YouTube only. - Text-only posts require &#x60;content&#x60;. Stories ignore captions.  **Platform constraints:** - YouTube: video required, optional thumbnail via &#x60;MediaItem.thumbnail&#x60; - Instagram/TikTok: media required; TikTok cannot mix videos and images - Instagram carousels: up to 10 items; Threads carousels: up to 10 images only - Facebook Stories: single image or video, set &#x60;contentType: &#39;story&#39;&#x60; - LinkedIn: up to 20 images or a single PDF (max 100MB) - Pinterest: single image or video, &#x60;boardId&#x60; required - Bluesky: up to 4 images, auto-recompressed to ~1MB - Snapchat: single image or video, set &#x60;contentType&#x60; in platformSpecificData 
 
 ### Example
 
@@ -333,9 +333,9 @@ ApiResponse<[**PostCreateResponse**](PostCreateResponse.md)>
 
 > PostDeleteResponse deletePost(postId)
 
-Delete a post
+Delete post
 
-Delete a post. Published posts cannot be deleted.  When deleting a scheduled or draft post that consumed upload quota, the quota will be automatically refunded. 
+Delete a draft or scheduled post from Late. Only posts that have not been published can be deleted. To remove a published post from a social media platform, use the [Unpublish endpoint](#tag/Posts/operation/unpublishPost) instead. When deleting a scheduled or draft post that consumed upload quota, the quota will be automatically refunded. 
 
 ### Example
 
@@ -407,9 +407,9 @@ public class Example {
 
 > ApiResponse<PostDeleteResponse> deletePost deletePostWithHttpInfo(postId)
 
-Delete a post
+Delete post
 
-Delete a post. Published posts cannot be deleted.  When deleting a scheduled or draft post that consumed upload quota, the quota will be automatically refunded. 
+Delete a draft or scheduled post from Late. Only posts that have not been published can be deleted. To remove a published post from a social media platform, use the [Unpublish endpoint](#tag/Posts/operation/unpublishPost) instead. When deleting a scheduled or draft post that consumed upload quota, the quota will be automatically refunded. 
 
 ### Example
 
@@ -485,7 +485,7 @@ ApiResponse<[**PostDeleteResponse**](PostDeleteResponse.md)>
 
 > PostGetResponse getPost(postId)
 
-Get a single post
+Get post
 
 Fetch a single post by ID. For published posts, this returns &#x60;platformPostUrl&#x60;  for each platform - useful for retrieving post URLs after scheduled posts publish. 
 
@@ -558,7 +558,7 @@ public class Example {
 
 > ApiResponse<PostGetResponse> getPost getPostWithHttpInfo(postId)
 
-Get a single post
+Get post
 
 Fetch a single post by ID. For published posts, this returns &#x60;platformPostUrl&#x60;  for each platform - useful for retrieving post URLs after scheduled posts publish. 
 
@@ -635,7 +635,7 @@ ApiResponse<[**PostGetResponse**](PostGetResponse.md)>
 
 > PostsListResponse listPosts(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden)
 
-List posts visible to the authenticated user
+List posts
 
 **Getting Post URLs:** For published posts, each platform entry includes &#x60;platformPostUrl&#x60; with the public URL. Use &#x60;status&#x3D;published&#x60; filter to fetch only published posts with their URLs.  Notes and constraints by platform when interpreting the response: - YouTube: posts always include at least one video in mediaItems. - Instagram/TikTok: posts always include media; drafts may omit media until finalized in client. - TikTok: mediaItems will not mix photos and videos in the same post. 
 
@@ -722,7 +722,7 @@ public class Example {
 
 > ApiResponse<PostsListResponse> listPosts listPostsWithHttpInfo(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden)
 
-List posts visible to the authenticated user
+List posts
 
 **Getting Post URLs:** For published posts, each platform entry includes &#x60;platformPostUrl&#x60; with the public URL. Use &#x60;status&#x3D;published&#x60; filter to fetch only published posts with their URLs.  Notes and constraints by platform when interpreting the response: - YouTube: posts always include at least one video in mediaItems. - Instagram/TikTok: posts always include media; drafts may omit media until finalized in client. - TikTok: mediaItems will not mix photos and videos in the same post. 
 
@@ -813,7 +813,7 @@ ApiResponse<[**PostsListResponse**](PostsListResponse.md)>
 
 > PostRetryResponse retryPost(postId)
 
-Retry publishing a failed or partial post
+Retry failed post
 
 ### Example
 
@@ -888,7 +888,7 @@ public class Example {
 
 > ApiResponse<PostRetryResponse> retryPost retryPostWithHttpInfo(postId)
 
-Retry publishing a failed or partial post
+Retry failed post
 
 ### Example
 
@@ -967,9 +967,9 @@ ApiResponse<[**PostRetryResponse**](PostRetryResponse.md)>
 
 > UnpublishPost200Response unpublishPost(postId, unpublishPostRequest)
 
-Delete a published post from a social media platform
+Unpublish post
 
-Permanently deletes a published post from the specified social media platform. The post record in Late is kept but its platform status is set to \&quot;cancelled\&quot;.  **Supported platforms:** Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram.  **Not supported:** - **Instagram:** No deletion API available. Posts must be deleted manually. - **TikTok:** No deletion API available. Posts must be deleted manually. - **Snapchat:** No deletion API available. Posts must be deleted manually.  **Platform notes:** - **Threaded posts (Twitter, Threads, Bluesky):** If the post was published as a thread, all items in the thread are deleted (not just the first one). Posts published before this feature was added will only have the first item deleted. - **Telegram:** Messages older than 48 hours may fail to delete (Telegram Bot API limitation). - **YouTube:** This permanently deletes the video from YouTube. 
+Permanently deletes a published post from the specified social media platform. The post record in Late is kept but its platform status is updated to \&quot;cancelled\&quot;. This does not delete the post from Late, only from the platform.  **Supported platforms:** Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram.  **Not supported:** - **Instagram:** No deletion API available. Posts must be deleted manually. - **TikTok:** No deletion API available. Posts must be deleted manually. - **Snapchat:** No deletion API available. Posts must be deleted manually.  **Platform notes:** - **Threaded posts (Twitter, Threads, Bluesky):** If the post was published as a thread, all items in the thread are deleted (not just the first one). Posts published before this feature was added will only have the first item deleted. - **Telegram:** Messages older than 48 hours may fail to delete (Telegram Bot API limitation). - **YouTube:** This permanently deletes the video from YouTube. 
 
 ### Example
 
@@ -1044,9 +1044,9 @@ public class Example {
 
 > ApiResponse<UnpublishPost200Response> unpublishPost unpublishPostWithHttpInfo(postId, unpublishPostRequest)
 
-Delete a published post from a social media platform
+Unpublish post
 
-Permanently deletes a published post from the specified social media platform. The post record in Late is kept but its platform status is set to \&quot;cancelled\&quot;.  **Supported platforms:** Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram.  **Not supported:** - **Instagram:** No deletion API available. Posts must be deleted manually. - **TikTok:** No deletion API available. Posts must be deleted manually. - **Snapchat:** No deletion API available. Posts must be deleted manually.  **Platform notes:** - **Threaded posts (Twitter, Threads, Bluesky):** If the post was published as a thread, all items in the thread are deleted (not just the first one). Posts published before this feature was added will only have the first item deleted. - **Telegram:** Messages older than 48 hours may fail to delete (Telegram Bot API limitation). - **YouTube:** This permanently deletes the video from YouTube. 
+Permanently deletes a published post from the specified social media platform. The post record in Late is kept but its platform status is updated to \&quot;cancelled\&quot;. This does not delete the post from Late, only from the platform.  **Supported platforms:** Threads, Facebook, Twitter/X, LinkedIn, YouTube, Pinterest, Reddit, Bluesky, Google Business, Telegram.  **Not supported:** - **Instagram:** No deletion API available. Posts must be deleted manually. - **TikTok:** No deletion API available. Posts must be deleted manually. - **Snapchat:** No deletion API available. Posts must be deleted manually.  **Platform notes:** - **Threaded posts (Twitter, Threads, Bluesky):** If the post was published as a thread, all items in the thread are deleted (not just the first one). Posts published before this feature was added will only have the first item deleted. - **Telegram:** Messages older than 48 hours may fail to delete (Telegram Bot API limitation). - **YouTube:** This permanently deletes the video from YouTube. 
 
 ### Example
 
@@ -1125,7 +1125,7 @@ ApiResponse<[**UnpublishPost200Response**](UnpublishPost200Response.md)>
 
 > PostUpdateResponse updatePost(postId, updatePostRequest)
 
-Update a post
+Update post
 
 Update an existing post. Only draft, scheduled, failed, and partial posts can be edited. Published, publishing, and cancelled posts cannot be modified. 
 
@@ -1202,7 +1202,7 @@ public class Example {
 
 > ApiResponse<PostUpdateResponse> updatePost updatePostWithHttpInfo(postId, updatePostRequest)
 
-Update a post
+Update post
 
 Update an existing post. Only draft, scheduled, failed, and partial posts can be edited. Published, publishing, and cancelled posts cannot be modified. 
 

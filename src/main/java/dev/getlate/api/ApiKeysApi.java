@@ -50,7 +50,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T07:51:32.891397159Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ApiKeysApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -168,7 +168,7 @@ public class ApiKeysApi {
   }
 
   /**
-   * Create a new API key
+   * Create key
    * 
    * @param createApiKeyRequest  (required)
    * @return CreateApiKey201Response
@@ -179,7 +179,7 @@ public class ApiKeysApi {
   }
 
   /**
-   * Create a new API key
+   * Create key
    * 
    * @param createApiKeyRequest  (required)
    * @param headers Optional headers to include in the request
@@ -192,7 +192,7 @@ public class ApiKeysApi {
   }
 
   /**
-   * Create a new API key
+   * Create key
    * 
    * @param createApiKeyRequest  (required)
    * @return ApiResponse&lt;CreateApiKey201Response&gt;
@@ -203,7 +203,7 @@ public class ApiKeysApi {
   }
 
   /**
-   * Create a new API key
+   * Create key
    * 
    * @param createApiKeyRequest  (required)
    * @param headers Optional headers to include in the request
@@ -291,7 +291,7 @@ public class ApiKeysApi {
   }
 
   /**
-   * Delete an API key
+   * Delete key
    * 
    * @param keyId  (required)
    * @return DeleteAccountGroup200Response
@@ -302,7 +302,7 @@ public class ApiKeysApi {
   }
 
   /**
-   * Delete an API key
+   * Delete key
    * 
    * @param keyId  (required)
    * @param headers Optional headers to include in the request
@@ -315,7 +315,7 @@ public class ApiKeysApi {
   }
 
   /**
-   * Delete an API key
+   * Delete key
    * 
    * @param keyId  (required)
    * @return ApiResponse&lt;DeleteAccountGroup200Response&gt;
@@ -326,7 +326,7 @@ public class ApiKeysApi {
   }
 
   /**
-   * Delete an API key
+   * Delete key
    * 
    * @param keyId  (required)
    * @param headers Optional headers to include in the request
@@ -409,7 +409,7 @@ public class ApiKeysApi {
   }
 
   /**
-   * List API keys for the current user
+   * List keys
    * 
    * @return ListApiKeys200Response
    * @throws ApiException if fails to make API call
@@ -419,7 +419,7 @@ public class ApiKeysApi {
   }
 
   /**
-   * List API keys for the current user
+   * List keys
    * 
    * @param headers Optional headers to include in the request
    * @return ListApiKeys200Response
@@ -431,7 +431,7 @@ public class ApiKeysApi {
   }
 
   /**
-   * List API keys for the current user
+   * List keys
    * 
    * @return ApiResponse&lt;ListApiKeys200Response&gt;
    * @throws ApiException if fails to make API call
@@ -441,7 +441,7 @@ public class ApiKeysApi {
   }
 
   /**
-   * List API keys for the current user
+   * List keys
    * 
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;ListApiKeys200Response&gt;

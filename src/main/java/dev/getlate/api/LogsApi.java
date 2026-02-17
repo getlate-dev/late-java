@@ -50,7 +50,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T07:51:32.891397159Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T12:06:49.388083070Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class LogsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -168,7 +168,7 @@ public class LogsApi {
   }
 
   /**
-   * Get a single log entry
+   * Get log entry
    * Retrieve detailed information about a specific log entry, including full request and response bodies for debugging. 
    * @param logId The log entry ID (required)
    * @return GetLog200Response
@@ -179,7 +179,7 @@ public class LogsApi {
   }
 
   /**
-   * Get a single log entry
+   * Get log entry
    * Retrieve detailed information about a specific log entry, including full request and response bodies for debugging. 
    * @param logId The log entry ID (required)
    * @param headers Optional headers to include in the request
@@ -192,7 +192,7 @@ public class LogsApi {
   }
 
   /**
-   * Get a single log entry
+   * Get log entry
    * Retrieve detailed information about a specific log entry, including full request and response bodies for debugging. 
    * @param logId The log entry ID (required)
    * @return ApiResponse&lt;GetLog200Response&gt;
@@ -203,7 +203,7 @@ public class LogsApi {
   }
 
   /**
-   * Get a single log entry
+   * Get log entry
    * Retrieve detailed information about a specific log entry, including full request and response bodies for debugging. 
    * @param logId The log entry ID (required)
    * @param headers Optional headers to include in the request
@@ -286,7 +286,7 @@ public class LogsApi {
   }
 
   /**
-   * Get logs for a specific post
+   * Get post logs
    * Retrieve all publishing logs for a specific post. Shows the complete history of publishing attempts for that post across all platforms. 
    * @param postId The post ID (required)
    * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
@@ -298,7 +298,7 @@ public class LogsApi {
   }
 
   /**
-   * Get logs for a specific post
+   * Get post logs
    * Retrieve all publishing logs for a specific post. Shows the complete history of publishing attempts for that post across all platforms. 
    * @param postId The post ID (required)
    * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
@@ -312,7 +312,7 @@ public class LogsApi {
   }
 
   /**
-   * Get logs for a specific post
+   * Get post logs
    * Retrieve all publishing logs for a specific post. Shows the complete history of publishing attempts for that post across all platforms. 
    * @param postId The post ID (required)
    * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
@@ -324,7 +324,7 @@ public class LogsApi {
   }
 
   /**
-   * Get logs for a specific post
+   * Get post logs
    * Retrieve all publishing logs for a specific post. Shows the complete history of publishing attempts for that post across all platforms. 
    * @param postId The post ID (required)
    * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
@@ -423,7 +423,7 @@ public class LogsApi {
   }
 
   /**
-   * Get connection logs
+   * List connection logs
    * Retrieve connection event logs showing account connection and disconnection history. Useful for debugging OAuth issues and tracking account lifecycle.  **Event Types:** - &#x60;connect_success&#x60; - New account connected successfully - &#x60;connect_failed&#x60; - Connection attempt failed - &#x60;disconnect&#x60; - Account was disconnected - &#x60;reconnect_success&#x60; - Existing account reconnected - &#x60;reconnect_failed&#x60; - Reconnection attempt failed  **Retention:** Logs are automatically deleted after 7 days. 
    * @param platform Filter by platform (optional)
    * @param eventType Filter by event type (optional)
@@ -439,7 +439,7 @@ public class LogsApi {
   }
 
   /**
-   * Get connection logs
+   * List connection logs
    * Retrieve connection event logs showing account connection and disconnection history. Useful for debugging OAuth issues and tracking account lifecycle.  **Event Types:** - &#x60;connect_success&#x60; - New account connected successfully - &#x60;connect_failed&#x60; - Connection attempt failed - &#x60;disconnect&#x60; - Account was disconnected - &#x60;reconnect_success&#x60; - Existing account reconnected - &#x60;reconnect_failed&#x60; - Reconnection attempt failed  **Retention:** Logs are automatically deleted after 7 days. 
    * @param platform Filter by platform (optional)
    * @param eventType Filter by event type (optional)
@@ -457,7 +457,7 @@ public class LogsApi {
   }
 
   /**
-   * Get connection logs
+   * List connection logs
    * Retrieve connection event logs showing account connection and disconnection history. Useful for debugging OAuth issues and tracking account lifecycle.  **Event Types:** - &#x60;connect_success&#x60; - New account connected successfully - &#x60;connect_failed&#x60; - Connection attempt failed - &#x60;disconnect&#x60; - Account was disconnected - &#x60;reconnect_success&#x60; - Existing account reconnected - &#x60;reconnect_failed&#x60; - Reconnection attempt failed  **Retention:** Logs are automatically deleted after 7 days. 
    * @param platform Filter by platform (optional)
    * @param eventType Filter by event type (optional)
@@ -473,7 +473,7 @@ public class LogsApi {
   }
 
   /**
-   * Get connection logs
+   * List connection logs
    * Retrieve connection event logs showing account connection and disconnection history. Useful for debugging OAuth issues and tracking account lifecycle.  **Event Types:** - &#x60;connect_success&#x60; - New account connected successfully - &#x60;connect_failed&#x60; - Connection attempt failed - &#x60;disconnect&#x60; - Account was disconnected - &#x60;reconnect_success&#x60; - Existing account reconnected - &#x60;reconnect_failed&#x60; - Reconnection attempt failed  **Retention:** Logs are automatically deleted after 7 days. 
    * @param platform Filter by platform (optional)
    * @param eventType Filter by event type (optional)
@@ -581,7 +581,7 @@ public class LogsApi {
   }
 
   /**
-   * Get publishing logs (deprecated)
+   * List publishing logs (deprecated)
    * **Deprecated:** Use &#x60;/v1/posts/logs&#x60; instead. This endpoint is maintained for backwards compatibility.  Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
    * @param status Filter by log status (optional)
    * @param platform Filter by platform (optional)
@@ -599,7 +599,7 @@ public class LogsApi {
   }
 
   /**
-   * Get publishing logs (deprecated)
+   * List publishing logs (deprecated)
    * **Deprecated:** Use &#x60;/v1/posts/logs&#x60; instead. This endpoint is maintained for backwards compatibility.  Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
    * @param status Filter by log status (optional)
    * @param platform Filter by platform (optional)
@@ -619,7 +619,7 @@ public class LogsApi {
   }
 
   /**
-   * Get publishing logs (deprecated)
+   * List publishing logs (deprecated)
    * **Deprecated:** Use &#x60;/v1/posts/logs&#x60; instead. This endpoint is maintained for backwards compatibility.  Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
    * @param status Filter by log status (optional)
    * @param platform Filter by platform (optional)
@@ -637,7 +637,7 @@ public class LogsApi {
   }
 
   /**
-   * Get publishing logs (deprecated)
+   * List publishing logs (deprecated)
    * **Deprecated:** Use &#x60;/v1/posts/logs&#x60; instead. This endpoint is maintained for backwards compatibility.  Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
    * @param status Filter by log status (optional)
    * @param platform Filter by platform (optional)
@@ -747,7 +747,7 @@ public class LogsApi {
   }
 
   /**
-   * Get publishing logs
+   * List publishing logs
    * Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
    * @param status Filter by log status (optional)
    * @param platform Filter by platform (optional)
@@ -763,7 +763,7 @@ public class LogsApi {
   }
 
   /**
-   * Get publishing logs
+   * List publishing logs
    * Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
    * @param status Filter by log status (optional)
    * @param platform Filter by platform (optional)
@@ -781,7 +781,7 @@ public class LogsApi {
   }
 
   /**
-   * Get publishing logs
+   * List publishing logs
    * Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
    * @param status Filter by log status (optional)
    * @param platform Filter by platform (optional)
@@ -797,7 +797,7 @@ public class LogsApi {
   }
 
   /**
-   * Get publishing logs
+   * List publishing logs
    * Retrieve publishing logs for all posts. Logs show detailed information about each publishing attempt including API requests, responses, and timing data.  **Filtering:** - Filter by status (success, failed, pending, skipped) - Filter by platform (instagram, twitter, linkedin, etc.) - Filter by action (publish, retry, rate_limit_pause, etc.)  **Retention:** Logs are automatically deleted after 7 days. 
    * @param status Filter by log status (optional)
    * @param platform Filter by platform (optional)

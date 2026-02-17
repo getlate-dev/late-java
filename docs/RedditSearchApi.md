@@ -4,10 +4,10 @@ All URIs are relative to *https://getlate.dev/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**getRedditFeed**](RedditSearchApi.md#getRedditFeed) | **GET** /v1/reddit/feed | Fetch subreddit feed via a connected account |
-| [**getRedditFeedWithHttpInfo**](RedditSearchApi.md#getRedditFeedWithHttpInfo) | **GET** /v1/reddit/feed | Fetch subreddit feed via a connected account |
-| [**searchReddit**](RedditSearchApi.md#searchReddit) | **GET** /v1/reddit/search | Search Reddit posts via a connected account |
-| [**searchRedditWithHttpInfo**](RedditSearchApi.md#searchRedditWithHttpInfo) | **GET** /v1/reddit/search | Search Reddit posts via a connected account |
+| [**getRedditFeed**](RedditSearchApi.md#getRedditFeed) | **GET** /v1/reddit/feed | Get subreddit feed |
+| [**getRedditFeedWithHttpInfo**](RedditSearchApi.md#getRedditFeedWithHttpInfo) | **GET** /v1/reddit/feed | Get subreddit feed |
+| [**searchReddit**](RedditSearchApi.md#searchReddit) | **GET** /v1/reddit/search | Search posts |
+| [**searchRedditWithHttpInfo**](RedditSearchApi.md#searchRedditWithHttpInfo) | **GET** /v1/reddit/search | Search posts |
 
 
 
@@ -15,7 +15,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 > GetRedditFeed200Response getRedditFeed(accountId, subreddit, sort, limit, after, t)
 
-Fetch subreddit feed via a connected account
+Get subreddit feed
 
 ### Example
 
@@ -96,7 +96,7 @@ public class Example {
 
 > ApiResponse<GetRedditFeed200Response> getRedditFeed getRedditFeedWithHttpInfo(accountId, subreddit, sort, limit, after, t)
 
-Fetch subreddit feed via a connected account
+Get subreddit feed
 
 ### Example
 
@@ -181,7 +181,7 @@ ApiResponse<[**GetRedditFeed200Response**](GetRedditFeed200Response.md)>
 
 > SearchReddit200Response searchReddit(accountId, q, subreddit, restrictSr, sort, limit, after)
 
-Search Reddit posts via a connected account
+Search posts
 
 ### Example
 
@@ -264,7 +264,7 @@ public class Example {
 
 > ApiResponse<SearchReddit200Response> searchReddit searchRedditWithHttpInfo(accountId, q, subreddit, restrictSr, sort, limit, after)
 
-Search Reddit posts via a connected account
+Search posts
 
 ### Example
 
