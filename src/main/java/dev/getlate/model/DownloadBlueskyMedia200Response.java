@@ -40,7 +40,7 @@ import dev.getlate.ApiClient;
   DownloadBlueskyMedia200Response.JSON_PROPERTY_DOWNLOAD_URL,
   DownloadBlueskyMedia200Response.JSON_PROPERTY_THUMBNAIL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-18T08:38:58.970835633Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class DownloadBlueskyMedia200Response {
   public static final String JSON_PROPERTY_SUCCESS = "success";
   @javax.annotation.Nullable

@@ -9647,19 +9647,24 @@ components:
             $ref: "#/components/schemas/TwitterPlatformData_threadItems_inner"
           type: array
     FacebookPlatformData:
-      description: "Up to 10 images for feed posts, cannot mix videos and images.\
-        \ Stories require single image or video (ephemeral 24h, no captions). Use\
-        \ pageId for multi-page posting."
+      description: "Feed posts support up to 10 images (no mixed video+image). Stories\
+        \ require single media (24h, no captions). Reels require single vertical video\
+        \ (9:16, 3-60s)."
       properties:
         contentType:
-          description: Set to 'story' to publish as a Facebook Page Story (24-hour
-            ephemeral content). Requires media.
+          description: Set to 'story' for Page Stories (24h ephemeral) or 'reel' for
+            Reels (short vertical video). Defaults to feed post if omitted.
           enum:
           - story
+          - reel
+          type: string
+        title:
+          description: Reel title (only for contentType=reel). Separate from the caption/content
+            field.
           type: string
         firstComment:
           description: "Optional first comment to post immediately after publishing\
-            \ (feed posts only, not stories)"
+            \ (feed posts only, not stories or reels)"
           type: string
         pageId:
           description: "Target Facebook Page ID for multi-page posting. If omitted,\

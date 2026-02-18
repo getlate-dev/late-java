@@ -40,7 +40,7 @@ import dev.getlate.ApiClient;
   UpdateInboxConversation200ResponseData.JSON_PROPERTY_PLATFORM,
   UpdateInboxConversation200ResponseData.JSON_PROPERTY_UPDATED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-18T08:38:58.970835633Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UpdateInboxConversation200ResponseData {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable

@@ -30,20 +30,23 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.getlate.ApiClient;
 /**
- * Up to 10 images for feed posts, cannot mix videos and images. Stories require single image or video (ephemeral 24h, no captions). Use pageId for multi-page posting.
+ * Feed posts support up to 10 images (no mixed video+image). Stories require single media (24h, no captions). Reels require single vertical video (9:16, 3-60s).
  */
 @JsonPropertyOrder({
   FacebookPlatformData.JSON_PROPERTY_CONTENT_TYPE,
+  FacebookPlatformData.JSON_PROPERTY_TITLE,
   FacebookPlatformData.JSON_PROPERTY_FIRST_COMMENT,
   FacebookPlatformData.JSON_PROPERTY_PAGE_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-18T08:38:58.970835633Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class FacebookPlatformData {
   /**
-   * Set to &#39;story&#39; to publish as a Facebook Page Story (24-hour ephemeral content). Requires media.
+   * Set to &#39;story&#39; for Page Stories (24h ephemeral) or &#39;reel&#39; for Reels (short vertical video). Defaults to feed post if omitted.
    */
   public enum ContentTypeEnum {
-    STORY(String.valueOf("story"));
+    STORY(String.valueOf("story")),
+    
+    REEL(String.valueOf("reel"));
 
     private String value;
 
@@ -76,6 +79,10 @@ public class FacebookPlatformData {
   @javax.annotation.Nullable
   private ContentTypeEnum contentType;
 
+  public static final String JSON_PROPERTY_TITLE = "title";
+  @javax.annotation.Nullable
+  private String title;
+
   public static final String JSON_PROPERTY_FIRST_COMMENT = "firstComment";
   @javax.annotation.Nullable
   private String firstComment;
@@ -93,7 +100,7 @@ public class FacebookPlatformData {
   }
 
   /**
-   * Set to &#39;story&#39; to publish as a Facebook Page Story (24-hour ephemeral content). Requires media.
+   * Set to &#39;story&#39; for Page Stories (24h ephemeral) or &#39;reel&#39; for Reels (short vertical video). Defaults to feed post if omitted.
    * @return contentType
    */
   @javax.annotation.Nullable
@@ -111,13 +118,37 @@ public class FacebookPlatformData {
   }
 
 
+  public FacebookPlatformData title(@javax.annotation.Nullable String title) {
+    this.title = title;
+    return this;
+  }
+
+  /**
+   * Reel title (only for contentType&#x3D;reel). Separate from the caption/content field.
+   * @return title
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitle() {
+    return title;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTitle(@javax.annotation.Nullable String title) {
+    this.title = title;
+  }
+
+
   public FacebookPlatformData firstComment(@javax.annotation.Nullable String firstComment) {
     this.firstComment = firstComment;
     return this;
   }
 
   /**
-   * Optional first comment to post immediately after publishing (feed posts only, not stories)
+   * Optional first comment to post immediately after publishing (feed posts only, not stories or reels)
    * @return firstComment
    */
   @javax.annotation.Nullable
@@ -172,13 +203,14 @@ public class FacebookPlatformData {
     }
     FacebookPlatformData facebookPlatformData = (FacebookPlatformData) o;
     return Objects.equals(this.contentType, facebookPlatformData.contentType) &&
+        Objects.equals(this.title, facebookPlatformData.title) &&
         Objects.equals(this.firstComment, facebookPlatformData.firstComment) &&
         Objects.equals(this.pageId, facebookPlatformData.pageId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contentType, firstComment, pageId);
+    return Objects.hash(contentType, title, firstComment, pageId);
   }
 
   @Override
@@ -186,6 +218,7 @@ public class FacebookPlatformData {
     StringBuilder sb = new StringBuilder();
     sb.append("class FacebookPlatformData {\n");
     sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    firstComment: ").append(toIndentedString(firstComment)).append("\n");
     sb.append("    pageId: ").append(toIndentedString(pageId)).append("\n");
     sb.append("}");
@@ -238,6 +271,11 @@ public class FacebookPlatformData {
     // add `contentType` to the URL query string
     if (getContentType() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%scontentType%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getContentType()))));
+    }
+
+    // add `title` to the URL query string
+    if (getTitle() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%stitle%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getTitle()))));
     }
 
     // add `firstComment` to the URL query string

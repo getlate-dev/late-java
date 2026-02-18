@@ -44,7 +44,7 @@ import dev.getlate.ApiClient;
   ListUsers200ResponseUsersInner.JSON_PROPERTY_PROFILE_ACCESS,
   ListUsers200ResponseUsersInner.JSON_PROPERTY_CREATED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T13:13:20.839364865Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-18T08:38:58.970835633Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ListUsers200ResponseUsersInner {
   public static final String JSON_PROPERTY_ID = "_id";
   @javax.annotation.Nullable
