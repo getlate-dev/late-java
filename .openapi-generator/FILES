@@ -17,6 +17,7 @@ docs/AnalyticsListResponsePostsInner.md
 docs/AnalyticsOverview.md
 docs/AnalyticsSinglePostResponse.md
 docs/ApiKey.md
+docs/ApiKeyProfileIdsInner.md
 docs/ApiKeysApi.md
 docs/BlueskyPlatformData.md
 docs/BulkUploadPosts200Response.md
@@ -477,6 +478,7 @@ src/main/java/dev/getlate/model/AnalyticsListResponsePostsInner.java
 src/main/java/dev/getlate/model/AnalyticsOverview.java
 src/main/java/dev/getlate/model/AnalyticsSinglePostResponse.java
 src/main/java/dev/getlate/model/ApiKey.java
+src/main/java/dev/getlate/model/ApiKeyProfileIdsInner.java
 src/main/java/dev/getlate/model/BlueskyPlatformData.java
 src/main/java/dev/getlate/model/BulkUploadPosts200Response.java
 src/main/java/dev/getlate/model/BulkUploadPosts200ResponseErrorsInner.java
@@ -858,3 +860,4 @@ src/main/java/dev/getlate/model/YouTubeDailyViewsResponseScopeStatus.java
 src/main/java/dev/getlate/model/YouTubePlatformData.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponseScopeStatus.java
+src/test/java/dev/getlate/model/ApiKeyProfileIdsInnerTest.java

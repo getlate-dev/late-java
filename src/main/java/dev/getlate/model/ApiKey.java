@@ -24,8 +24,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import dev.getlate.model.ApiKeyProfileIdsInner;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -39,9 +42,12 @@ import dev.getlate.ApiClient;
   ApiKey.JSON_PROPERTY_KEY_PREVIEW,
   ApiKey.JSON_PROPERTY_EXPIRES_AT,
   ApiKey.JSON_PROPERTY_CREATED_AT,
-  ApiKey.JSON_PROPERTY_KEY
+  ApiKey.JSON_PROPERTY_KEY,
+  ApiKey.JSON_PROPERTY_SCOPE,
+  ApiKey.JSON_PROPERTY_PROFILE_IDS,
+  ApiKey.JSON_PROPERTY_PERMISSION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-18T08:38:58.970835633Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-18T13:53:02.997955305Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ApiKey {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable
@@ -66,6 +72,88 @@ public class ApiKey {
   public static final String JSON_PROPERTY_KEY = "key";
   @javax.annotation.Nullable
   private String key;
+
+  /**
+   * &#39;full&#39; grants access to all profiles, &#39;profiles&#39; restricts to specific profiles
+   */
+  public enum ScopeEnum {
+    FULL(String.valueOf("full")),
+    
+    PROFILES(String.valueOf("profiles"));
+
+    private String value;
+
+    ScopeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static ScopeEnum fromValue(String value) {
+      for (ScopeEnum b : ScopeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_SCOPE = "scope";
+  @javax.annotation.Nullable
+  private ScopeEnum scope = ScopeEnum.FULL;
+
+  public static final String JSON_PROPERTY_PROFILE_IDS = "profileIds";
+  @javax.annotation.Nullable
+  private List<ApiKeyProfileIdsInner> profileIds = new ArrayList<>();
+
+  /**
+   * &#39;read-write&#39; allows all operations, &#39;read&#39; restricts to GET requests only
+   */
+  public enum PermissionEnum {
+    READ_WRITE(String.valueOf("read-write")),
+    
+    READ(String.valueOf("read"));
+
+    private String value;
+
+    PermissionEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static PermissionEnum fromValue(String value) {
+      for (PermissionEnum b : PermissionEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_PERMISSION = "permission";
+  @javax.annotation.Nullable
+  private PermissionEnum permission = PermissionEnum.READ_WRITE;
 
   public ApiKey() { 
   }
@@ -214,6 +302,86 @@ public class ApiKey {
   }
 
 
+  public ApiKey scope(@javax.annotation.Nullable ScopeEnum scope) {
+    this.scope = scope;
+    return this;
+  }
+
+  /**
+   * &#39;full&#39; grants access to all profiles, &#39;profiles&#39; restricts to specific profiles
+   * @return scope
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_SCOPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ScopeEnum getScope() {
+    return scope;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SCOPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setScope(@javax.annotation.Nullable ScopeEnum scope) {
+    this.scope = scope;
+  }
+
+
+  public ApiKey profileIds(@javax.annotation.Nullable List<ApiKeyProfileIdsInner> profileIds) {
+    this.profileIds = profileIds;
+    return this;
+  }
+
+  public ApiKey addProfileIdsItem(ApiKeyProfileIdsInner profileIdsItem) {
+    if (this.profileIds == null) {
+      this.profileIds = new ArrayList<>();
+    }
+    this.profileIds.add(profileIdsItem);
+    return this;
+  }
+
+  /**
+   * Profiles this key can access (populated with name and color). Only present when scope is &#39;profiles&#39;.
+   * @return profileIds
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_PROFILE_IDS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ApiKeyProfileIdsInner> getProfileIds() {
+    return profileIds;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PROFILE_IDS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setProfileIds(@javax.annotation.Nullable List<ApiKeyProfileIdsInner> profileIds) {
+    this.profileIds = profileIds;
+  }
+
+
+  public ApiKey permission(@javax.annotation.Nullable PermissionEnum permission) {
+    this.permission = permission;
+    return this;
+  }
+
+  /**
+   * &#39;read-write&#39; allows all operations, &#39;read&#39; restricts to GET requests only
+   * @return permission
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_PERMISSION, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public PermissionEnum getPermission() {
+    return permission;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PERMISSION, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPermission(@javax.annotation.Nullable PermissionEnum permission) {
+    this.permission = permission;
+  }
+
+
   /**
    * Return true if this ApiKey object is equal to o.
    */
@@ -231,12 +399,15 @@ public class ApiKey {
         Objects.equals(this.keyPreview, apiKey.keyPreview) &&
         Objects.equals(this.expiresAt, apiKey.expiresAt) &&
         Objects.equals(this.createdAt, apiKey.createdAt) &&
-        Objects.equals(this.key, apiKey.key);
+        Objects.equals(this.key, apiKey.key) &&
+        Objects.equals(this.scope, apiKey.scope) &&
+        Objects.equals(this.profileIds, apiKey.profileIds) &&
+        Objects.equals(this.permission, apiKey.permission);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, keyPreview, expiresAt, createdAt, key);
+    return Objects.hash(id, name, keyPreview, expiresAt, createdAt, key, scope, profileIds, permission);
   }
 
   @Override
@@ -249,6 +420,9 @@ public class ApiKey {
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
+    sb.append("    profileIds: ").append(toIndentedString(profileIds)).append("\n");
+    sb.append("    permission: ").append(toIndentedString(permission)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -324,6 +498,26 @@ public class ApiKey {
     // add `key` to the URL query string
     if (getKey() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%skey%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getKey()))));
+    }
+
+    // add `scope` to the URL query string
+    if (getScope() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sscope%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getScope()))));
+    }
+
+    // add `profileIds` to the URL query string
+    if (getProfileIds() != null) {
+      for (int i = 0; i < getProfileIds().size(); i++) {
+        if (getProfileIds().get(i) != null) {
+          joiner.add(getProfileIds().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%sprofileIds%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `permission` to the URL query string
+    if (getPermission() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%spermission%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getPermission()))));
     }
 
     return joiner.toString();
