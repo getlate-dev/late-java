@@ -35,7 +35,7 @@ import dev.getlate.ApiClient;
 @JsonPropertyOrder({
   InlineObject1.JSON_PROPERTY_ERROR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-20T12:35:08.562538947Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-20T16:08:46.942036278Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class InlineObject1 {
   public static final String JSON_PROPERTY_ERROR = "error";
   @javax.annotation.Nullable

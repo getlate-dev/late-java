@@ -37,7 +37,7 @@ import dev.getlate.ApiClient;
 @JsonPropertyOrder({
   SetMessengerMenuRequest.JSON_PROPERTY_PERSISTENT_MENU
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-20T12:35:08.562538947Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-20T16:08:46.942036278Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class SetMessengerMenuRequest {
   public static final String JSON_PROPERTY_PERSISTENT_MENU = "persistent_menu";
   @javax.annotation.Nonnull

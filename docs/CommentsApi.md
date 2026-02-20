@@ -31,7 +31,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 Delete comment
 
-Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, YouTube, LinkedIn, and TikTok. Requires accountId and commentId query parameters. 
+Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, YouTube, and LinkedIn. Requires accountId and commentId query parameters. 
 
 ### Example
 
@@ -107,7 +107,7 @@ public class Example {
 
 Delete comment
 
-Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, YouTube, LinkedIn, and TikTok. Requires accountId and commentId query parameters. 
+Delete a comment on a post. Supported by Facebook, Instagram, Bluesky, Reddit, YouTube, and LinkedIn. Requires accountId and commentId query parameters. 
 
 ### Example
 
@@ -723,7 +723,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **profileId** | **String**| Filter by profile ID | [optional] |
-| **platform** | **String**| Filter by platform | [optional] [enum: facebook, instagram, twitter, bluesky, threads, youtube, linkedin, reddit, tiktok] |
+| **platform** | **String**| Filter by platform | [optional] [enum: facebook, instagram, twitter, bluesky, threads, youtube, linkedin, reddit] |
 | **minComments** | **Integer**| Minimum comment count | [optional] |
 | **since** | **OffsetDateTime**| Posts created after this date | [optional] |
 | **sortBy** | **String**| Sort field | [optional] [default to date] [enum: date, comments] |
@@ -814,7 +814,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **profileId** | **String**| Filter by profile ID | [optional] |
-| **platform** | **String**| Filter by platform | [optional] [enum: facebook, instagram, twitter, bluesky, threads, youtube, linkedin, reddit, tiktok] |
+| **platform** | **String**| Filter by platform | [optional] [enum: facebook, instagram, twitter, bluesky, threads, youtube, linkedin, reddit] |
 | **minComments** | **Integer**| Minimum comment count | [optional] |
 | **since** | **OffsetDateTime**| Posts created after this date | [optional] |
 | **sortBy** | **String**| Sort field | [optional] [default to date] [enum: date, comments] |
