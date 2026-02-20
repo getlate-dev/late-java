@@ -42,7 +42,7 @@ import dev.getlate.ApiClient;
   DownloadYouTubeVideo200Response.JSON_PROPERTY_DOWNLOAD_URL,
   DownloadYouTubeVideo200Response.JSON_PROPERTY_FORMATS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-18T13:53:02.997955305Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-20T12:35:08.562538947Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class DownloadYouTubeVideo200Response {
   public static final String JSON_PROPERTY_SUCCESS = "success";
   @javax.annotation.Nullable

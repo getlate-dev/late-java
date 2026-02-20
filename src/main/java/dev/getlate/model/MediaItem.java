@@ -36,6 +36,7 @@ import dev.getlate.ApiClient;
 @JsonPropertyOrder({
   MediaItem.JSON_PROPERTY_TYPE,
   MediaItem.JSON_PROPERTY_URL,
+  MediaItem.JSON_PROPERTY_TITLE,
   MediaItem.JSON_PROPERTY_FILENAME,
   MediaItem.JSON_PROPERTY_SIZE,
   MediaItem.JSON_PROPERTY_MIME_TYPE,
@@ -43,7 +44,7 @@ import dev.getlate.ApiClient;
   MediaItem.JSON_PROPERTY_INSTAGRAM_THUMBNAIL,
   MediaItem.JSON_PROPERTY_TIKTOK_PROCESSED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-18T13:53:02.997955305Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-20T12:35:08.562538947Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class MediaItem {
   /**
    * Gets or Sets type
@@ -91,6 +92,10 @@ public class MediaItem {
   public static final String JSON_PROPERTY_URL = "url";
   @javax.annotation.Nullable
   private URI url;
+
+  public static final String JSON_PROPERTY_TITLE = "title";
+  @javax.annotation.Nullable
+  private String title;
 
   public static final String JSON_PROPERTY_FILENAME = "filename";
   @javax.annotation.Nullable
@@ -164,6 +169,30 @@ public class MediaItem {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(@javax.annotation.Nullable URI url) {
     this.url = url;
+  }
+
+
+  public MediaItem title(@javax.annotation.Nullable String title) {
+    this.title = title;
+    return this;
+  }
+
+  /**
+   * Optional title for the media item. Used as the document title for LinkedIn PDF/carousel posts. If omitted, falls back to the post title, then the filename.
+   * @return title
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitle() {
+    return title;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTitle(@javax.annotation.Nullable String title) {
+    this.title = title;
   }
 
 
@@ -325,6 +354,7 @@ public class MediaItem {
     MediaItem mediaItem = (MediaItem) o;
     return Objects.equals(this.type, mediaItem.type) &&
         Objects.equals(this.url, mediaItem.url) &&
+        Objects.equals(this.title, mediaItem.title) &&
         Objects.equals(this.filename, mediaItem.filename) &&
         Objects.equals(this.size, mediaItem.size) &&
         Objects.equals(this.mimeType, mediaItem.mimeType) &&
@@ -335,7 +365,7 @@ public class MediaItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, url, filename, size, mimeType, thumbnail, instagramThumbnail, tiktokProcessed);
+    return Objects.hash(type, url, title, filename, size, mimeType, thumbnail, instagramThumbnail, tiktokProcessed);
   }
 
   @Override
@@ -344,6 +374,7 @@ public class MediaItem {
     sb.append("class MediaItem {\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
@@ -405,6 +436,11 @@ public class MediaItem {
     // add `url` to the URL query string
     if (getUrl() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%surl%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getUrl()))));
+    }
+
+    // add `title` to the URL query string
+    if (getTitle() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%stitle%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getTitle()))));
     }
 
     // add `filename` to the URL query string

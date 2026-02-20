@@ -38,7 +38,7 @@ import dev.getlate.ApiClient;
   SelectFacebookPage200Response.JSON_PROPERTY_REDIRECT_URL,
   SelectFacebookPage200Response.JSON_PROPERTY_ACCOUNT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-18T13:53:02.997955305Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-20T12:35:08.562538947Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class SelectFacebookPage200Response {
   public static final String JSON_PROPERTY_MESSAGE = "message";
   @javax.annotation.Nullable

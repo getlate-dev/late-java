@@ -10,6 +10,7 @@ Media referenced in posts. URLs must be publicly reachable over HTTPS. Use POST 
 |------------ | ------------- | ------------- | -------------|
 |**type** | [**TypeEnum**](#TypeEnum) |  |  [optional] |
 |**url** | **URI** |  |  [optional] |
+|**title** | **String** | Optional title for the media item. Used as the document title for LinkedIn PDF/carousel posts. If omitted, falls back to the post title, then the filename. |  [optional] |
 |**filename** | **String** |  |  [optional] |
 |**size** | **Integer** | Optional file size in bytes |  [optional] |
 |**mimeType** | **String** | Optional MIME type (e.g. image/jpeg, video/mp4) |  [optional] |

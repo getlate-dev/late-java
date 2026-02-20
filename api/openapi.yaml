@@ -9194,6 +9194,7 @@ components:
         tiktokProcessed: true
         mimeType: mimeType
         type: image
+        title: title
         url: https://openapi-generator.tech
       properties:
         type:
@@ -9205,6 +9206,11 @@ components:
           type: string
         url:
           format: uri
+          type: string
+        title:
+          description: "Optional title for the media item. Used as the document title\
+            \ for LinkedIn PDF/carousel posts. If omitted, falls back to the post\
+            \ title, then the filename."
           type: string
         filename:
           type: string
@@ -9237,6 +9243,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             - thumbnail: https://openapi-generator.tech
               filename: filename
@@ -9245,6 +9252,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             content: content
           - mediaItems:
@@ -9255,6 +9263,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             - thumbnail: https://openapi-generator.tech
               filename: filename
@@ -9263,6 +9272,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             content: content
         publishedAt: 2000-01-23T04:56:07.000+00:00
@@ -9282,6 +9292,7 @@ components:
           tiktokProcessed: true
           mimeType: mimeType
           type: image
+          title: title
           url: https://openapi-generator.tech
         - thumbnail: https://openapi-generator.tech
           filename: filename
@@ -9290,6 +9301,7 @@ components:
           tiktokProcessed: true
           mimeType: mimeType
           type: image
+          title: title
           url: https://openapi-generator.tech
         status: pending
         platformPostId: "1234567890123456789"
@@ -9390,6 +9402,7 @@ components:
                 tiktokProcessed: true
                 mimeType: mimeType
                 type: image
+                title: title
                 url: https://openapi-generator.tech
               - thumbnail: https://openapi-generator.tech
                 filename: filename
@@ -9398,6 +9411,7 @@ components:
                 tiktokProcessed: true
                 mimeType: mimeType
                 type: image
+                title: title
                 url: https://openapi-generator.tech
               content: content
             - mediaItems:
@@ -9408,6 +9422,7 @@ components:
                 tiktokProcessed: true
                 mimeType: mimeType
                 type: image
+                title: title
                 url: https://openapi-generator.tech
               - thumbnail: https://openapi-generator.tech
                 filename: filename
@@ -9416,6 +9431,7 @@ components:
                 tiktokProcessed: true
                 mimeType: mimeType
                 type: image
+                title: title
                 url: https://openapi-generator.tech
               content: content
           publishedAt: 2000-01-23T04:56:07.000+00:00
@@ -9435,6 +9451,7 @@ components:
             tiktokProcessed: true
             mimeType: mimeType
             type: image
+            title: title
             url: https://openapi-generator.tech
           - thumbnail: https://openapi-generator.tech
             filename: filename
@@ -9443,6 +9460,7 @@ components:
             tiktokProcessed: true
             mimeType: mimeType
             type: image
+            title: title
             url: https://openapi-generator.tech
           status: pending
           platformPostId: "1234567890123456789"
@@ -9456,6 +9474,7 @@ components:
                 tiktokProcessed: true
                 mimeType: mimeType
                 type: image
+                title: title
                 url: https://openapi-generator.tech
               - thumbnail: https://openapi-generator.tech
                 filename: filename
@@ -9464,6 +9483,7 @@ components:
                 tiktokProcessed: true
                 mimeType: mimeType
                 type: image
+                title: title
                 url: https://openapi-generator.tech
               content: content
             - mediaItems:
@@ -9474,6 +9494,7 @@ components:
                 tiktokProcessed: true
                 mimeType: mimeType
                 type: image
+                title: title
                 url: https://openapi-generator.tech
               - thumbnail: https://openapi-generator.tech
                 filename: filename
@@ -9482,6 +9503,7 @@ components:
                 tiktokProcessed: true
                 mimeType: mimeType
                 type: image
+                title: title
                 url: https://openapi-generator.tech
               content: content
           publishedAt: 2000-01-23T04:56:07.000+00:00
@@ -9501,6 +9523,7 @@ components:
             tiktokProcessed: true
             mimeType: mimeType
             type: image
+            title: title
             url: https://openapi-generator.tech
           - thumbnail: https://openapi-generator.tech
             filename: filename
@@ -9509,6 +9532,7 @@ components:
             tiktokProcessed: true
             mimeType: mimeType
             type: image
+            title: title
             url: https://openapi-generator.tech
           status: pending
           platformPostId: "1234567890123456789"
@@ -9524,6 +9548,7 @@ components:
           tiktokProcessed: true
           mimeType: mimeType
           type: image
+          title: title
           url: https://openapi-generator.tech
         - thumbnail: https://openapi-generator.tech
           filename: filename
@@ -9532,6 +9557,7 @@ components:
           tiktokProcessed: true
           mimeType: mimeType
           type: image
+          title: title
           url: https://openapi-generator.tech
         queuedFromProfile: queuedFromProfile
         scheduledFor: 2000-01-23T04:56:07.000+00:00
@@ -9620,6 +9646,7 @@ components:
             tiktokProcessed: true
             mimeType: mimeType
             type: image
+            title: title
             url: https://openapi-generator.tech
           - thumbnail: https://openapi-generator.tech
             filename: filename
@@ -9628,6 +9655,7 @@ components:
             tiktokProcessed: true
             mimeType: mimeType
             type: image
+            title: title
             url: https://openapi-generator.tech
           content: content
         - mediaItems:
@@ -9638,6 +9666,7 @@ components:
             tiktokProcessed: true
             mimeType: mimeType
             type: image
+            title: title
             url: https://openapi-generator.tech
           - thumbnail: https://openapi-generator.tech
             filename: filename
@@ -9646,6 +9675,7 @@ components:
             tiktokProcessed: true
             mimeType: mimeType
             type: image
+            title: title
             url: https://openapi-generator.tech
           content: content
       properties:
@@ -9741,6 +9771,11 @@ components:
         \ Link previews auto-generated when no media attached. Use organizationUrn\
         \ for multi-org posting."
       properties:
+        documentTitle:
+          description: "Title displayed on LinkedIn document (PDF/carousel) posts.\
+            \ Required by LinkedIn for document posts. If omitted, falls back to the\
+            \ media item title, then the filename."
+          type: string
         organizationUrn:
           description: "Target LinkedIn Organization URN (e.g. \"urn:li:organization:123456789\"\
             ). If omitted, uses the default org. Use GET /v1/accounts/{id}/linkedin-organizations\
@@ -10533,6 +10568,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -10541,6 +10577,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
               - mediaItems:
@@ -10551,6 +10588,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -10559,6 +10597,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
             publishedAt: 2000-01-23T04:56:07.000+00:00
@@ -10578,6 +10617,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             - thumbnail: https://openapi-generator.tech
               filename: filename
@@ -10586,6 +10626,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             status: pending
             platformPostId: "1234567890123456789"
@@ -10599,6 +10640,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -10607,6 +10649,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
               - mediaItems:
@@ -10617,6 +10660,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -10625,6 +10669,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
             publishedAt: 2000-01-23T04:56:07.000+00:00
@@ -10644,6 +10689,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             - thumbnail: https://openapi-generator.tech
               filename: filename
@@ -10652,6 +10698,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             status: pending
             platformPostId: "1234567890123456789"
@@ -10667,6 +10714,7 @@ components:
             tiktokProcessed: true
             mimeType: mimeType
             type: image
+            title: title
             url: https://openapi-generator.tech
           - thumbnail: https://openapi-generator.tech
             filename: filename
@@ -10675,6 +10723,7 @@ components:
             tiktokProcessed: true
             mimeType: mimeType
             type: image
+            title: title
             url: https://openapi-generator.tech
           queuedFromProfile: queuedFromProfile
           scheduledFor: 2000-01-23T04:56:07.000+00:00
@@ -10706,6 +10755,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -10714,6 +10764,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
               - mediaItems:
@@ -10724,6 +10775,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -10732,6 +10784,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
             publishedAt: 2000-01-23T04:56:07.000+00:00
@@ -10751,6 +10804,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             - thumbnail: https://openapi-generator.tech
               filename: filename
@@ -10759,6 +10813,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             status: pending
             platformPostId: "1234567890123456789"
@@ -10772,6 +10827,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -10780,6 +10836,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
               - mediaItems:
@@ -10790,6 +10847,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -10798,6 +10856,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
             publishedAt: 2000-01-23T04:56:07.000+00:00
@@ -10817,6 +10876,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             - thumbnail: https://openapi-generator.tech
               filename: filename
@@ -10825,6 +10885,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             status: pending
             platformPostId: "1234567890123456789"
@@ -10840,6 +10901,7 @@ components:
             tiktokProcessed: true
             mimeType: mimeType
             type: image
+            title: title
             url: https://openapi-generator.tech
           - thumbnail: https://openapi-generator.tech
             filename: filename
@@ -10848,6 +10910,7 @@ components:
             tiktokProcessed: true
             mimeType: mimeType
             type: image
+            title: title
             url: https://openapi-generator.tech
           queuedFromProfile: queuedFromProfile
           scheduledFor: 2000-01-23T04:56:07.000+00:00
@@ -10889,6 +10952,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -10897,6 +10961,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
               - mediaItems:
@@ -10907,6 +10972,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -10915,6 +10981,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
             publishedAt: 2000-01-23T04:56:07.000+00:00
@@ -10934,6 +11001,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             - thumbnail: https://openapi-generator.tech
               filename: filename
@@ -10942,6 +11010,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             status: pending
             platformPostId: "1234567890123456789"
@@ -10955,6 +11024,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -10963,6 +11033,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
               - mediaItems:
@@ -10973,6 +11044,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -10981,6 +11053,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
             publishedAt: 2000-01-23T04:56:07.000+00:00
@@ -11000,6 +11073,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             - thumbnail: https://openapi-generator.tech
               filename: filename
@@ -11008,6 +11082,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             status: pending
             platformPostId: "1234567890123456789"
@@ -11023,6 +11098,7 @@ components:
             tiktokProcessed: true
             mimeType: mimeType
             type: image
+            title: title
             url: https://openapi-generator.tech
           - thumbnail: https://openapi-generator.tech
             filename: filename
@@ -11031,6 +11107,7 @@ components:
             tiktokProcessed: true
             mimeType: mimeType
             type: image
+            title: title
             url: https://openapi-generator.tech
           queuedFromProfile: queuedFromProfile
           scheduledFor: 2000-01-23T04:56:07.000+00:00
@@ -11068,6 +11145,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -11076,6 +11154,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
               - mediaItems:
@@ -11086,6 +11165,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -11094,6 +11174,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
             publishedAt: 2000-01-23T04:56:07.000+00:00
@@ -11113,6 +11194,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             - thumbnail: https://openapi-generator.tech
               filename: filename
@@ -11121,6 +11203,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             status: pending
             platformPostId: "1234567890123456789"
@@ -11134,6 +11217,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -11142,6 +11226,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
               - mediaItems:
@@ -11152,6 +11237,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -11160,6 +11246,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
             publishedAt: 2000-01-23T04:56:07.000+00:00
@@ -11179,6 +11266,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             - thumbnail: https://openapi-generator.tech
               filename: filename
@@ -11187,6 +11275,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             status: pending
             platformPostId: "1234567890123456789"
@@ -11202,6 +11291,7 @@ components:
             tiktokProcessed: true
             mimeType: mimeType
             type: image
+            title: title
             url: https://openapi-generator.tech
           - thumbnail: https://openapi-generator.tech
             filename: filename
@@ -11210,6 +11300,7 @@ components:
             tiktokProcessed: true
             mimeType: mimeType
             type: image
+            title: title
             url: https://openapi-generator.tech
           queuedFromProfile: queuedFromProfile
           scheduledFor: 2000-01-23T04:56:07.000+00:00
@@ -11250,6 +11341,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -11258,6 +11350,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
               - mediaItems:
@@ -11268,6 +11361,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -11276,6 +11370,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
             publishedAt: 2000-01-23T04:56:07.000+00:00
@@ -11295,6 +11390,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             - thumbnail: https://openapi-generator.tech
               filename: filename
@@ -11303,6 +11399,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             status: pending
             platformPostId: "1234567890123456789"
@@ -11316,6 +11413,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -11324,6 +11422,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
               - mediaItems:
@@ -11334,6 +11433,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -11342,6 +11442,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
             publishedAt: 2000-01-23T04:56:07.000+00:00
@@ -11361,6 +11462,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             - thumbnail: https://openapi-generator.tech
               filename: filename
@@ -11369,6 +11471,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             status: pending
             platformPostId: "1234567890123456789"
@@ -11384,6 +11487,7 @@ components:
             tiktokProcessed: true
             mimeType: mimeType
             type: image
+            title: title
             url: https://openapi-generator.tech
           - thumbnail: https://openapi-generator.tech
             filename: filename
@@ -11392,6 +11496,7 @@ components:
             tiktokProcessed: true
             mimeType: mimeType
             type: image
+            title: title
             url: https://openapi-generator.tech
           queuedFromProfile: queuedFromProfile
           scheduledFor: 2000-01-23T04:56:07.000+00:00
@@ -11438,6 +11543,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -11446,6 +11552,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
               - mediaItems:
@@ -11456,6 +11563,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -11464,6 +11572,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
             publishedAt: 2000-01-23T04:56:07.000+00:00
@@ -11483,6 +11592,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             - thumbnail: https://openapi-generator.tech
               filename: filename
@@ -11491,6 +11601,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             status: pending
             platformPostId: "1234567890123456789"
@@ -11504,6 +11615,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -11512,6 +11624,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
               - mediaItems:
@@ -11522,6 +11635,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -11530,6 +11644,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
             publishedAt: 2000-01-23T04:56:07.000+00:00
@@ -11549,6 +11664,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             - thumbnail: https://openapi-generator.tech
               filename: filename
@@ -11557,6 +11673,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             status: pending
             platformPostId: "1234567890123456789"
@@ -11572,6 +11689,7 @@ components:
             tiktokProcessed: true
             mimeType: mimeType
             type: image
+            title: title
             url: https://openapi-generator.tech
           - thumbnail: https://openapi-generator.tech
             filename: filename
@@ -11580,6 +11698,7 @@ components:
             tiktokProcessed: true
             mimeType: mimeType
             type: image
+            title: title
             url: https://openapi-generator.tech
           queuedFromProfile: queuedFromProfile
           scheduledFor: 2000-01-23T04:56:07.000+00:00
@@ -12596,6 +12715,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -12604,6 +12724,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
               - mediaItems:
@@ -12614,6 +12735,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -12622,6 +12744,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
             publishedAt: 2000-01-23T04:56:07.000+00:00
@@ -12641,6 +12764,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             - thumbnail: https://openapi-generator.tech
               filename: filename
@@ -12649,6 +12773,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             status: pending
             platformPostId: "1234567890123456789"
@@ -12662,6 +12787,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -12670,6 +12796,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
               - mediaItems:
@@ -12680,6 +12807,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -12688,6 +12816,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
             publishedAt: 2000-01-23T04:56:07.000+00:00
@@ -12707,6 +12836,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             - thumbnail: https://openapi-generator.tech
               filename: filename
@@ -12715,6 +12845,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             status: pending
             platformPostId: "1234567890123456789"
@@ -12730,6 +12861,7 @@ components:
             tiktokProcessed: true
             mimeType: mimeType
             type: image
+            title: title
             url: https://openapi-generator.tech
           - thumbnail: https://openapi-generator.tech
             filename: filename
@@ -12738,6 +12870,7 @@ components:
             tiktokProcessed: true
             mimeType: mimeType
             type: image
+            title: title
             url: https://openapi-generator.tech
           queuedFromProfile: queuedFromProfile
           scheduledFor: 2000-01-23T04:56:07.000+00:00
@@ -12769,6 +12902,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -12777,6 +12911,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
               - mediaItems:
@@ -12787,6 +12922,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -12795,6 +12931,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
             publishedAt: 2000-01-23T04:56:07.000+00:00
@@ -12814,6 +12951,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             - thumbnail: https://openapi-generator.tech
               filename: filename
@@ -12822,6 +12960,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             status: pending
             platformPostId: "1234567890123456789"
@@ -12835,6 +12974,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -12843,6 +12983,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
               - mediaItems:
@@ -12853,6 +12994,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 - thumbnail: https://openapi-generator.tech
                   filename: filename
@@ -12861,6 +13003,7 @@ components:
                   tiktokProcessed: true
                   mimeType: mimeType
                   type: image
+                  title: title
                   url: https://openapi-generator.tech
                 content: content
             publishedAt: 2000-01-23T04:56:07.000+00:00
@@ -12880,6 +13023,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             - thumbnail: https://openapi-generator.tech
               filename: filename
@@ -12888,6 +13032,7 @@ components:
               tiktokProcessed: true
               mimeType: mimeType
               type: image
+              title: title
               url: https://openapi-generator.tech
             status: pending
             platformPostId: "1234567890123456789"
@@ -12903,6 +13048,7 @@ components:
             tiktokProcessed: true
             mimeType: mimeType
             type: image
+            title: title
             url: https://openapi-generator.tech
           - thumbnail: https://openapi-generator.tech
             filename: filename
@@ -12911,6 +13057,7 @@ components:
             tiktokProcessed: true
             mimeType: mimeType
             type: image
+            title: title
             url: https://openapi-generator.tech
           queuedFromProfile: queuedFromProfile
           scheduledFor: 2000-01-23T04:56:07.000+00:00
@@ -19927,6 +20074,7 @@ components:
           tiktokProcessed: true
           mimeType: mimeType
           type: image
+          title: title
           url: https://openapi-generator.tech
         - thumbnail: https://openapi-generator.tech
           filename: filename
@@ -19935,6 +20083,7 @@ components:
           tiktokProcessed: true
           mimeType: mimeType
           type: image
+          title: title
           url: https://openapi-generator.tech
         content: content
       properties:

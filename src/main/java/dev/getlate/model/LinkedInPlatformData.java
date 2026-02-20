@@ -33,12 +33,17 @@ import dev.getlate.ApiClient;
  * Up to 20 images, no multi-video. Single PDF supported (max 100MB). Link previews auto-generated when no media attached. Use organizationUrn for multi-org posting.
  */
 @JsonPropertyOrder({
+  LinkedInPlatformData.JSON_PROPERTY_DOCUMENT_TITLE,
   LinkedInPlatformData.JSON_PROPERTY_ORGANIZATION_URN,
   LinkedInPlatformData.JSON_PROPERTY_FIRST_COMMENT,
   LinkedInPlatformData.JSON_PROPERTY_DISABLE_LINK_PREVIEW
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-18T13:53:02.997955305Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-20T12:35:08.562538947Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class LinkedInPlatformData {
+  public static final String JSON_PROPERTY_DOCUMENT_TITLE = "documentTitle";
+  @javax.annotation.Nullable
+  private String documentTitle;
+
   public static final String JSON_PROPERTY_ORGANIZATION_URN = "organizationUrn";
   @javax.annotation.Nullable
   private String organizationUrn;
@@ -53,6 +58,30 @@ public class LinkedInPlatformData {
 
   public LinkedInPlatformData() { 
   }
+
+  public LinkedInPlatformData documentTitle(@javax.annotation.Nullable String documentTitle) {
+    this.documentTitle = documentTitle;
+    return this;
+  }
+
+  /**
+   * Title displayed on LinkedIn document (PDF/carousel) posts. Required by LinkedIn for document posts. If omitted, falls back to the media item title, then the filename.
+   * @return documentTitle
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_DOCUMENT_TITLE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDocumentTitle() {
+    return documentTitle;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_DOCUMENT_TITLE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDocumentTitle(@javax.annotation.Nullable String documentTitle) {
+    this.documentTitle = documentTitle;
+  }
+
 
   public LinkedInPlatformData organizationUrn(@javax.annotation.Nullable String organizationUrn) {
     this.organizationUrn = organizationUrn;
@@ -138,20 +167,22 @@ public class LinkedInPlatformData {
       return false;
     }
     LinkedInPlatformData linkedInPlatformData = (LinkedInPlatformData) o;
-    return Objects.equals(this.organizationUrn, linkedInPlatformData.organizationUrn) &&
+    return Objects.equals(this.documentTitle, linkedInPlatformData.documentTitle) &&
+        Objects.equals(this.organizationUrn, linkedInPlatformData.organizationUrn) &&
         Objects.equals(this.firstComment, linkedInPlatformData.firstComment) &&
         Objects.equals(this.disableLinkPreview, linkedInPlatformData.disableLinkPreview);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(organizationUrn, firstComment, disableLinkPreview);
+    return Objects.hash(documentTitle, organizationUrn, firstComment, disableLinkPreview);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LinkedInPlatformData {\n");
+    sb.append("    documentTitle: ").append(toIndentedString(documentTitle)).append("\n");
     sb.append("    organizationUrn: ").append(toIndentedString(organizationUrn)).append("\n");
     sb.append("    firstComment: ").append(toIndentedString(firstComment)).append("\n");
     sb.append("    disableLinkPreview: ").append(toIndentedString(disableLinkPreview)).append("\n");
@@ -201,6 +232,11 @@ public class LinkedInPlatformData {
     }
 
     StringJoiner joiner = new StringJoiner("&");
+
+    // add `documentTitle` to the URL query string
+    if (getDocumentTitle() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sdocumentTitle%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDocumentTitle()))));
+    }
 
     // add `organizationUrn` to the URL query string
     if (getOrganizationUrn() != null) {
