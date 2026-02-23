@@ -44,7 +44,7 @@ import dev.getlate.ApiClient;
   UploadTokenStatusResponse.JSON_PROPERTY_EXPIRES_AT,
   UploadTokenStatusResponse.JSON_PROPERTY_COMPLETED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-20T16:08:46.942036278Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-23T10:15:56.349988862Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UploadTokenStatusResponse {
   public static final String JSON_PROPERTY_TOKEN = "token";
   @javax.annotation.Nullable
