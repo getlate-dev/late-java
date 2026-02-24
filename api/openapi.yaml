@@ -105,7 +105,7 @@ tags:
     Platform-specific account settings: Facebook persistent menu, Instagram ice breakers, and Telegram bot commands.
   name: Account Settings
 - description: |
-    Configure webhooks for real-time notifications. Events: post.scheduled, post.published, post.failed, post.partial, account.connected, account.disconnected, message.received.
+    Configure webhooks for real-time notifications. Events: post.scheduled, post.published, post.failed, post.partial, account.connected, account.disconnected, message.received, comment.received.
     Security: optional HMAC-SHA256 signature in X-Late-Signature header. Configure a secret key to enable verification. Custom headers supported.
   name: Webhooks
 - description: |
@@ -1919,7 +1919,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/bulkUploadPosts_429_response"
           description: |
-            Rate limit exceeded. Possible causes: API rate limit (requests per minute) or account cooldown (one or more accounts temporarily rate-limited).
+            Rate limit exceeded. Possible causes: API rate limit (requests per minute) or account cooldown (one or more accounts for platforms specified in the CSV are temporarily rate-limited).
       summary: Bulk upload from CSV
       tags:
       - Posts
@@ -6082,6 +6082,7 @@ paths:
                   - account.connected
                   - account.disconnected
                   - message.received
+                  - comment.received
                   isActive: true
             schema:
               $ref: "#/components/schemas/createWebhookSettings_request"
@@ -6238,6 +6239,7 @@ paths:
           - account.connected
           - account.disconnected
           - message.received
+          - comment.received
           - webhook.test
           type: string
         style: form
@@ -8847,6 +8849,7 @@ components:
             - account.connected
             - account.disconnected
             - message.received
+            - comment.received
             type: string
           type: array
         isActive:
@@ -8898,6 +8901,7 @@ components:
           - account.connected
           - account.disconnected
           - message.received
+          - comment.received
           - webhook.test
           type: string
         url:
@@ -8968,9 +8972,26 @@ components:
         timestamp:
           format: date-time
           type: string
+    WebhookPayloadComment:
+      description: "Webhook payload for comment received events (Instagram, Facebook,\
+        \ Twitter/X, YouTube, LinkedIn, Bluesky, Reddit)"
+      properties:
+        event:
+          enum:
+          - comment.received
+          type: string
+        comment:
+          $ref: "#/components/schemas/WebhookPayloadComment_comment"
+        post:
+          $ref: "#/components/schemas/WebhookPayloadComment_post"
+        account:
+          $ref: "#/components/schemas/WebhookPayloadComment_account"
+        timestamp:
+          format: date-time
+          type: string
     WebhookPayloadMessage:
       description: "Webhook payload for message received events (DMs from Instagram,\
-        \ Telegram)"
+        \ Facebook, Telegram, Bluesky, Reddit)"
       properties:
         event:
           enum:
@@ -17675,6 +17696,7 @@ components:
             - account.connected
             - account.disconnected
             - message.received
+            - comment.received
             type: string
           type: array
         isActive:
@@ -17731,6 +17753,7 @@ components:
             - account.connected
             - account.disconnected
             - message.received
+            - comment.received
             type: string
           type: array
         isActive:
@@ -19774,6 +19797,71 @@ components:
         reason:
           description: Human-readable reason for the disconnection
           type: string
+    WebhookPayloadComment_comment_author:
+      properties:
+        id:
+          description: Author's platform ID
+          type: string
+        username:
+          type: string
+        name:
+          type: string
+        picture:
+          type: string
+          nullable: true
+    WebhookPayloadComment_comment:
+      properties:
+        id:
+          description: Platform comment ID
+          type: string
+        postId:
+          description: Internal post ID
+          type: string
+        platformPostId:
+          description: Platform's post ID
+          type: string
+        platform:
+          enum:
+          - instagram
+          - facebook
+          - twitter
+          - youtube
+          - linkedin
+          - bluesky
+          - reddit
+          type: string
+        text:
+          description: Comment text content
+          type: string
+        author:
+          $ref: "#/components/schemas/WebhookPayloadComment_comment_author"
+        createdAt:
+          format: date-time
+          type: string
+        isReply:
+          description: Whether this is a reply to another comment
+          type: boolean
+        parentCommentId:
+          description: Parent comment ID if this is a reply
+          type: string
+          nullable: true
+    WebhookPayloadComment_post:
+      properties:
+        id:
+          description: Internal post ID
+          type: string
+        platformPostId:
+          description: Platform's post ID
+          type: string
+    WebhookPayloadComment_account:
+      properties:
+        id:
+          description: Social account ID
+          type: string
+        platform:
+          type: string
+        username:
+          type: string
     WebhookPayloadMessage_message_attachments_inner:
       properties:
         type:
@@ -19831,6 +19919,8 @@ components:
           - instagram
           - facebook
           - telegram
+          - bluesky
+          - reddit
           type: string
         platformMessageId:
           description: Platform's message ID
@@ -20432,6 +20522,7 @@ x-documentation:
     - `account.connected` - Social account connected
     - `account.disconnected` - Social account disconnected (token expired)
     - `message.received` - New DM received
+    - `comment.received` - New comment received on a post
 
     Webhook payloads are signed with HMAC-SHA256 via the `X-Late-Signature` header.
 

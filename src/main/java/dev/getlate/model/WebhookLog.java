@@ -49,7 +49,7 @@ import dev.getlate.ApiClient;
   WebhookLog.JSON_PROPERTY_RESPONSE_TIME,
   WebhookLog.JSON_PROPERTY_CREATED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-23T10:15:56.349988862Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-24T16:38:24.870379591Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WebhookLog {
   public static final String JSON_PROPERTY_ID = "_id";
   @javax.annotation.Nullable
@@ -80,6 +80,8 @@ public class WebhookLog {
     ACCOUNT_DISCONNECTED(String.valueOf("account.disconnected")),
     
     MESSAGE_RECEIVED(String.valueOf("message.received")),
+    
+    COMMENT_RECEIVED(String.valueOf("comment.received")),
     
     WEBHOOK_TEST(String.valueOf("webhook.test"));
 

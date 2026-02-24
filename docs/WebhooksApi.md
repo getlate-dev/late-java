@@ -369,7 +369,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **limit** | **Integer**| Maximum number of logs to return (max 100) | [optional] [default to 50] |
 | **status** | **String**| Filter by delivery status | [optional] [enum: success, failed] |
-| **event** | **String**| Filter by event type | [optional] [enum: post.scheduled, post.published, post.failed, post.partial, account.connected, account.disconnected, message.received, webhook.test] |
+| **event** | **String**| Filter by event type | [optional] [enum: post.scheduled, post.published, post.failed, post.partial, account.connected, account.disconnected, message.received, comment.received, webhook.test] |
 | **webhookId** | **String**| Filter by webhook ID | [optional] |
 
 ### Return type
@@ -449,7 +449,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **limit** | **Integer**| Maximum number of logs to return (max 100) | [optional] [default to 50] |
 | **status** | **String**| Filter by delivery status | [optional] [enum: success, failed] |
-| **event** | **String**| Filter by event type | [optional] [enum: post.scheduled, post.published, post.failed, post.partial, account.connected, account.disconnected, message.received, webhook.test] |
+| **event** | **String**| Filter by event type | [optional] [enum: post.scheduled, post.published, post.failed, post.partial, account.connected, account.disconnected, message.received, comment.received, webhook.test] |
 | **webhookId** | **String**| Filter by webhook ID | [optional] |
 
 ### Return type

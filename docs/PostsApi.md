@@ -97,7 +97,7 @@ public class Example {
 | **207** | Partial success |  -  |
 | **400** | Invalid CSV or validation errors |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Rate limit exceeded. Possible causes: API rate limit (requests per minute) or account cooldown (one or more accounts temporarily rate-limited).  |  -  |
+| **429** | Rate limit exceeded. Possible causes: API rate limit (requests per minute) or account cooldown (one or more accounts for platforms specified in the CSV are temporarily rate-limited).  |  -  |
 
 ## bulkUploadPostsWithHttpInfo
 
@@ -176,7 +176,7 @@ ApiResponse<[**BulkUploadPosts200Response**](BulkUploadPosts200Response.md)>
 | **207** | Partial success |  -  |
 | **400** | Invalid CSV or validation errors |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Rate limit exceeded. Possible causes: API rate limit (requests per minute) or account cooldown (one or more accounts temporarily rate-limited).  |  -  |
+| **429** | Rate limit exceeded. Possible causes: API rate limit (requests per minute) or account cooldown (one or more accounts for platforms specified in the CSV are temporarily rate-limited).  |  -  |
 
 
 ## createPost

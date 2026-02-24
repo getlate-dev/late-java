@@ -49,7 +49,7 @@ import dev.getlate.ApiClient;
   Webhook.JSON_PROPERTY_FAILURE_COUNT,
   Webhook.JSON_PROPERTY_CUSTOM_HEADERS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-23T10:15:56.349988862Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-24T16:38:24.870379591Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class Webhook {
   public static final String JSON_PROPERTY_ID = "_id";
   @javax.annotation.Nullable
@@ -83,7 +83,9 @@ public class Webhook {
     
     ACCOUNT_DISCONNECTED(String.valueOf("account.disconnected")),
     
-    MESSAGE_RECEIVED(String.valueOf("message.received"));
+    MESSAGE_RECEIVED(String.valueOf("message.received")),
+    
+    COMMENT_RECEIVED(String.valueOf("comment.received"));
 
     private String value;
 

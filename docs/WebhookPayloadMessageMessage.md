@@ -27,6 +27,8 @@
 | INSTAGRAM | &quot;instagram&quot; |
 | FACEBOOK | &quot;facebook&quot; |
 | TELEGRAM | &quot;telegram&quot; |
+| BLUESKY | &quot;bluesky&quot; |
+| REDDIT | &quot;reddit&quot; |
 
 
 

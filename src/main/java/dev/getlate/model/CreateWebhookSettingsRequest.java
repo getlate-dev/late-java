@@ -45,7 +45,7 @@ import dev.getlate.ApiClient;
   CreateWebhookSettingsRequest.JSON_PROPERTY_IS_ACTIVE,
   CreateWebhookSettingsRequest.JSON_PROPERTY_CUSTOM_HEADERS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-23T10:15:56.349988862Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-24T16:38:24.870379591Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateWebhookSettingsRequest {
   public static final String JSON_PROPERTY_NAME = "name";
   @javax.annotation.Nullable
@@ -75,7 +75,9 @@ public class CreateWebhookSettingsRequest {
     
     ACCOUNT_DISCONNECTED(String.valueOf("account.disconnected")),
     
-    MESSAGE_RECEIVED(String.valueOf("message.received"));
+    MESSAGE_RECEIVED(String.valueOf("message.received")),
+    
+    COMMENT_RECEIVED(String.valueOf("comment.received"));
 
     private String value;
 

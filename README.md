@@ -4,7 +4,7 @@ Late API
 
 - API version: 1.0.1
 
-- Build date: 2026-02-23T10:15:56.349988862Z[Etc/UTC]
+- Build date: 2026-02-24T16:38:24.870379591Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -750,6 +750,11 @@ Class | Method | HTTP request | Description
  - [WebhookPayloadAccountConnectedAccount](docs/WebhookPayloadAccountConnectedAccount.md)
  - [WebhookPayloadAccountDisconnected](docs/WebhookPayloadAccountDisconnected.md)
  - [WebhookPayloadAccountDisconnectedAccount](docs/WebhookPayloadAccountDisconnectedAccount.md)
+ - [WebhookPayloadComment](docs/WebhookPayloadComment.md)
+ - [WebhookPayloadCommentAccount](docs/WebhookPayloadCommentAccount.md)
+ - [WebhookPayloadCommentComment](docs/WebhookPayloadCommentComment.md)
+ - [WebhookPayloadCommentCommentAuthor](docs/WebhookPayloadCommentCommentAuthor.md)
+ - [WebhookPayloadCommentPost](docs/WebhookPayloadCommentPost.md)
  - [WebhookPayloadMessage](docs/WebhookPayloadMessage.md)
  - [WebhookPayloadMessageAccount](docs/WebhookPayloadMessageAccount.md)
  - [WebhookPayloadMessageConversation](docs/WebhookPayloadMessageConversation.md)

@@ -31,6 +31,7 @@ Individual webhook configuration for receiving real-time notifications
 | ACCOUNT_CONNECTED | &quot;account.connected&quot; |
 | ACCOUNT_DISCONNECTED | &quot;account.disconnected&quot; |
 | MESSAGE_RECEIVED | &quot;message.received&quot; |
+| COMMENT_RECEIVED | &quot;comment.received&quot; |
 
 
 
