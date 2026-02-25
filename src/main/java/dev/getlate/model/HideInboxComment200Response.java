@@ -38,7 +38,7 @@ import dev.getlate.ApiClient;
   HideInboxComment200Response.JSON_PROPERTY_HIDDEN,
   HideInboxComment200Response.JSON_PROPERTY_PLATFORM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-24T16:38:24.870379591Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-25T16:39:19.930877055Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class HideInboxComment200Response {
   public static final String JSON_PROPERTY_STATUS = "status";
   @javax.annotation.Nullable

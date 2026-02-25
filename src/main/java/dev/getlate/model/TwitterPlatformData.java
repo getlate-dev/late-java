@@ -36,16 +36,82 @@ import dev.getlate.ApiClient;
  * TwitterPlatformData
  */
 @JsonPropertyOrder({
+  TwitterPlatformData.JSON_PROPERTY_REPLY_SETTINGS,
   TwitterPlatformData.JSON_PROPERTY_THREAD_ITEMS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-24T16:38:24.870379591Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-25T16:39:19.930877055Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class TwitterPlatformData {
+  /**
+   * Controls who can reply to the tweet. \&quot;following\&quot; allows only people you follow, \&quot;mentionedUsers\&quot; allows only mentioned users, \&quot;subscribers\&quot; allows only subscribers. Omit for default (everyone can reply). For threads, applies to the first tweet only.
+   */
+  public enum ReplySettingsEnum {
+    FOLLOWING(String.valueOf("following")),
+    
+    MENTIONED_USERS(String.valueOf("mentionedUsers")),
+    
+    SUBSCRIBERS(String.valueOf("subscribers"));
+
+    private String value;
+
+    ReplySettingsEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static ReplySettingsEnum fromValue(String value) {
+      for (ReplySettingsEnum b : ReplySettingsEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_REPLY_SETTINGS = "replySettings";
+  @javax.annotation.Nullable
+  private ReplySettingsEnum replySettings;
+
   public static final String JSON_PROPERTY_THREAD_ITEMS = "threadItems";
   @javax.annotation.Nullable
   private List<TwitterPlatformDataThreadItemsInner> threadItems = new ArrayList<>();
 
   public TwitterPlatformData() { 
   }
+
+  public TwitterPlatformData replySettings(@javax.annotation.Nullable ReplySettingsEnum replySettings) {
+    this.replySettings = replySettings;
+    return this;
+  }
+
+  /**
+   * Controls who can reply to the tweet. \&quot;following\&quot; allows only people you follow, \&quot;mentionedUsers\&quot; allows only mentioned users, \&quot;subscribers\&quot; allows only subscribers. Omit for default (everyone can reply). For threads, applies to the first tweet only.
+   * @return replySettings
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_REPLY_SETTINGS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ReplySettingsEnum getReplySettings() {
+    return replySettings;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_REPLY_SETTINGS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReplySettings(@javax.annotation.Nullable ReplySettingsEnum replySettings) {
+    this.replySettings = replySettings;
+  }
+
 
   public TwitterPlatformData threadItems(@javax.annotation.Nullable List<TwitterPlatformDataThreadItemsInner> threadItems) {
     this.threadItems = threadItems;
@@ -91,18 +157,20 @@ public class TwitterPlatformData {
       return false;
     }
     TwitterPlatformData twitterPlatformData = (TwitterPlatformData) o;
-    return Objects.equals(this.threadItems, twitterPlatformData.threadItems);
+    return Objects.equals(this.replySettings, twitterPlatformData.replySettings) &&
+        Objects.equals(this.threadItems, twitterPlatformData.threadItems);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(threadItems);
+    return Objects.hash(replySettings, threadItems);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TwitterPlatformData {\n");
+    sb.append("    replySettings: ").append(toIndentedString(replySettings)).append("\n");
     sb.append("    threadItems: ").append(toIndentedString(threadItems)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -150,6 +218,11 @@ public class TwitterPlatformData {
     }
 
     StringJoiner joiner = new StringJoiner("&");
+
+    // add `replySettings` to the URL query string
+    if (getReplySettings() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sreplySettings%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getReplySettings()))));
+    }
 
     // add `threadItems` to the URL query string
     if (getThreadItems() != null) {

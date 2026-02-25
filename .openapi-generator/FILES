@@ -870,8 +870,3 @@ src/main/java/dev/getlate/model/YouTubeDailyViewsResponseScopeStatus.java
 src/main/java/dev/getlate/model/YouTubePlatformData.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponseScopeStatus.java
-src/test/java/dev/getlate/model/WebhookPayloadCommentAccountTest.java
-src/test/java/dev/getlate/model/WebhookPayloadCommentCommentAuthorTest.java
-src/test/java/dev/getlate/model/WebhookPayloadCommentCommentTest.java
-src/test/java/dev/getlate/model/WebhookPayloadCommentPostTest.java
-src/test/java/dev/getlate/model/WebhookPayloadCommentTest.java
