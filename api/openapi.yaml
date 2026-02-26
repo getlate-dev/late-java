@@ -863,6 +863,302 @@ paths:
       - Analytics
       x-accepts:
       - application/json
+  /v1/analytics/daily-metrics:
+    get:
+      description: |
+        Returns daily aggregated analytics metrics and a per-platform breakdown.
+        Each day includes post count, platform distribution, and summed metrics (impressions, reach, likes, comments, shares, saves, clicks, views).
+        Defaults to the last 180 days. Requires the Analytics add-on.
+      operationId: getDailyMetrics
+      parameters:
+      - description: "Filter by platform (e.g. \"instagram\", \"tiktok\"). Omit for\
+          \ all platforms."
+        explode: true
+        in: query
+        name: platform
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter by profile ID. Omit for all profiles.
+        explode: true
+        in: query
+        name: profileId
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Inclusive start date (ISO 8601). Defaults to 180 days ago.
+        explode: true
+        in: query
+        name: fromDate
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - description: Inclusive end date (ISO 8601). Defaults to now.
+        explode: true
+        in: query
+        name: toDate
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    dailyData:
+                    - date: 2025-12-01
+                      postCount: 3
+                      platforms:
+                        instagram: 2
+                        twitter: 1
+                      metrics:
+                        impressions: 4520
+                        reach: 3200
+                        likes: 312
+                        comments: 45
+                        shares: 28
+                        saves: 67
+                        clicks: 89
+                        views: 1560
+                    platformBreakdown:
+                    - platform: instagram
+                      postCount: 142
+                      impressions: 89400
+                      reach: 62100
+                      likes: 8930
+                      comments: 1204
+                      shares: 567
+                      saves: 2103
+                      clicks: 3402
+                      views: 45200
+              schema:
+                $ref: "#/components/schemas/getDailyMetrics_200_response"
+          description: Daily metrics and platform breakdown
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "402":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getAnalytics_402_response"
+          description: Analytics add-on required
+      summary: Get daily aggregated metrics
+      tags:
+      - Analytics
+      x-accepts:
+      - application/json
+  /v1/analytics/best-time:
+    get:
+      description: |
+        Returns the best times to post based on historical engagement data.
+        Groups all published posts by day of week and hour (UTC), calculating average engagement per slot.
+        Use this to auto-schedule posts at optimal times. Requires the Analytics add-on.
+      operationId: getBestTimeToPost
+      parameters:
+      - description: "Filter by platform (e.g. \"instagram\", \"tiktok\"). Omit for\
+          \ all platforms."
+        explode: true
+        in: query
+        name: platform
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter by profile ID. Omit for all profiles.
+        explode: true
+        in: query
+        name: profileId
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    slots:
+                    - day_of_week: 2
+                      hour: 18
+                      avg_engagement: 510.3
+                      post_count: 15
+                    - day_of_week: 0
+                      hour: 9
+                      avg_engagement: 342.5
+                      post_count: 12
+                    - day_of_week: 4
+                      hour: 12
+                      avg_engagement: 289.1
+                      post_count: 8
+              schema:
+                $ref: "#/components/schemas/getBestTimeToPost_200_response"
+          description: Best time slots
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getBestTimeToPost_403_response"
+          description: Analytics add-on required
+      summary: Get best times to post
+      tags:
+      - Analytics
+      x-accepts:
+      - application/json
+  /v1/analytics/content-decay:
+    get:
+      description: |
+        Returns how engagement accumulates over time after a post is published.
+        Each bucket shows what percentage of the post's total engagement had been reached by that time window.
+        Useful for understanding content lifespan (e.g. "posts reach 78% of total engagement within 24 hours").
+        Requires the Analytics add-on.
+      operationId: getContentDecay
+      parameters:
+      - description: "Filter by platform (e.g. \"instagram\", \"tiktok\"). Omit for\
+          \ all platforms."
+        explode: true
+        in: query
+        name: platform
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter by profile ID. Omit for all profiles.
+        explode: true
+        in: query
+        name: profileId
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    buckets:
+                    - bucket_order: 0
+                      bucket_label: 0-6h
+                      avg_pct_of_final: 45.2
+                      post_count: 89
+                    - bucket_order: 1
+                      bucket_label: 6-12h
+                      avg_pct_of_final: 18.7
+                      post_count: 89
+                    - bucket_order: 2
+                      bucket_label: 12-24h
+                      avg_pct_of_final: 14.1
+                      post_count: 85
+                    - bucket_order: 3
+                      bucket_label: 1-2d
+                      avg_pct_of_final: 9.3
+                      post_count: 82
+                    - bucket_order: 4
+                      bucket_label: 2-7d
+                      avg_pct_of_final: 8.1
+                      post_count: 78
+                    - bucket_order: 5
+                      bucket_label: 7-30d
+                      avg_pct_of_final: 3.8
+                      post_count: 64
+                    - bucket_order: 6
+                      bucket_label: 30d+
+                      avg_pct_of_final: 0.8
+                      post_count: 41
+              schema:
+                $ref: "#/components/schemas/getContentDecay_200_response"
+          description: Content decay buckets
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getBestTimeToPost_403_response"
+          description: Analytics add-on required
+      summary: Get content performance decay
+      tags:
+      - Analytics
+      x-accepts:
+      - application/json
+  /v1/analytics/posting-frequency:
+    get:
+      description: |
+        Returns the correlation between posting frequency (posts per week) and engagement rate, broken down by platform.
+        Helps find the optimal posting cadence for each platform. Each row represents a specific (platform, posts_per_week) combination
+        with the average engagement rate observed across all weeks matching that frequency.
+        Requires the Analytics add-on.
+      operationId: getPostingFrequency
+      parameters:
+      - description: "Filter by platform (e.g. \"instagram\", \"tiktok\"). Omit for\
+          \ all platforms."
+        explode: true
+        in: query
+        name: platform
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter by profile ID. Omit for all profiles.
+        explode: true
+        in: query
+        name: profileId
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    frequency:
+                    - platform: instagram
+                      posts_per_week: 2
+                      avg_engagement_rate: 44.4
+                      avg_engagement: 512
+                      weeks_count: 18
+                    - platform: instagram
+                      posts_per_week: 4
+                      avg_engagement_rate: 5.9
+                      avg_engagement: 203
+                      weeks_count: 6
+                    - platform: facebook
+                      posts_per_week: 3
+                      avg_engagement_rate: 12.5
+                      avg_engagement: 87
+                      weeks_count: 10
+              schema:
+                $ref: "#/components/schemas/getPostingFrequency_200_response"
+          description: Posting frequency data
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getBestTimeToPost_403_response"
+          description: Analytics add-on required
+      summary: Get posting frequency vs engagement
+      tags:
+      - Analytics
+      x-accepts:
+      - application/json
   /v1/account-groups:
     get:
       description: "Returns all account groups for the authenticated user, including\
@@ -12342,6 +12638,286 @@ components:
           type: boolean
         error:
           type: string
+    getDailyMetrics_200_response_dailyData_inner_metrics:
+      example:
+        shares: 5
+        comments: 5
+        saves: 2
+        reach: 6
+        clicks: 7
+        impressions: 0
+        views: 9
+        likes: 1
+      properties:
+        impressions:
+          type: integer
+        reach:
+          type: integer
+        likes:
+          type: integer
+        comments:
+          type: integer
+        shares:
+          type: integer
+        saves:
+          type: integer
+        clicks:
+          type: integer
+        views:
+          type: integer
+    getDailyMetrics_200_response_dailyData_inner:
+      example:
+        date: 2025-12-01
+        postCount: 3
+        metrics:
+          shares: 5
+          comments: 5
+          saves: 2
+          reach: 6
+          clicks: 7
+          impressions: 0
+          views: 9
+          likes: 1
+        platforms:
+          instagram: 2
+          twitter: 1
+      properties:
+        date:
+          example: 2025-12-01
+          type: string
+        postCount:
+          example: 3
+          type: integer
+        platforms:
+          additionalProperties:
+            type: integer
+          example:
+            instagram: 2
+            twitter: 1
+        metrics:
+          $ref: "#/components/schemas/getDailyMetrics_200_response_dailyData_inner_metrics"
+    getDailyMetrics_200_response_platformBreakdown_inner:
+      example:
+        shares: 1
+        comments: 7
+        saves: 1
+        reach: 2
+        postCount: 142
+        clicks: 1
+        impressions: 3
+        platform: instagram
+        views: 6
+        likes: 4
+      properties:
+        platform:
+          example: instagram
+          type: string
+        postCount:
+          example: 142
+          type: integer
+        impressions:
+          type: integer
+        reach:
+          type: integer
+        likes:
+          type: integer
+        comments:
+          type: integer
+        shares:
+          type: integer
+        saves:
+          type: integer
+        clicks:
+          type: integer
+        views:
+          type: integer
+    getDailyMetrics_200_response:
+      example:
+        platformBreakdown:
+        - shares: 1
+          comments: 7
+          saves: 1
+          reach: 2
+          postCount: 142
+          clicks: 1
+          impressions: 3
+          platform: instagram
+          views: 6
+          likes: 4
+        - shares: 1
+          comments: 7
+          saves: 1
+          reach: 2
+          postCount: 142
+          clicks: 1
+          impressions: 3
+          platform: instagram
+          views: 6
+          likes: 4
+        dailyData:
+        - date: 2025-12-01
+          postCount: 3
+          metrics:
+            shares: 5
+            comments: 5
+            saves: 2
+            reach: 6
+            clicks: 7
+            impressions: 0
+            views: 9
+            likes: 1
+          platforms:
+            instagram: 2
+            twitter: 1
+        - date: 2025-12-01
+          postCount: 3
+          metrics:
+            shares: 5
+            comments: 5
+            saves: 2
+            reach: 6
+            clicks: 7
+            impressions: 0
+            views: 9
+            likes: 1
+          platforms:
+            instagram: 2
+            twitter: 1
+      properties:
+        dailyData:
+          items:
+            $ref: "#/components/schemas/getDailyMetrics_200_response_dailyData_inner"
+          type: array
+        platformBreakdown:
+          items:
+            $ref: "#/components/schemas/getDailyMetrics_200_response_platformBreakdown_inner"
+          type: array
+    getBestTimeToPost_200_response_slots_inner:
+      example:
+        hour: 13
+        post_count: 5
+        avg_engagement: 1.4658129805029452
+        day_of_week: 0
+      properties:
+        day_of_week:
+          description: "0=Monday, 6=Sunday"
+          maximum: 6
+          minimum: 0
+          type: integer
+        hour:
+          description: Hour in UTC (0-23)
+          maximum: 23
+          minimum: 0
+          type: integer
+        avg_engagement:
+          description: Average engagement (likes + comments + shares + saves)
+          type: number
+        post_count:
+          description: Number of posts in this slot
+          type: integer
+    getBestTimeToPost_200_response:
+      example:
+        slots:
+        - hour: 13
+          post_count: 5
+          avg_engagement: 1.4658129805029452
+          day_of_week: 0
+        - hour: 13
+          post_count: 5
+          avg_engagement: 1.4658129805029452
+          day_of_week: 0
+      properties:
+        slots:
+          items:
+            $ref: "#/components/schemas/getBestTimeToPost_200_response_slots_inner"
+          type: array
+    getBestTimeToPost_403_response:
+      example:
+        error: Analytics add-on required
+        requiresAddon: true
+      properties:
+        error:
+          example: Analytics add-on required
+          type: string
+        requiresAddon:
+          example: true
+          type: boolean
+    getContentDecay_200_response_buckets_inner:
+      example:
+        bucket_label: bucket_label
+        bucket_order: 0
+        avg_pct_of_final: 6.027456183070403
+        post_count: 1
+      properties:
+        bucket_order:
+          description: "Sort order (0 = earliest, 6 = latest)"
+          type: integer
+        bucket_label:
+          description: Human-readable label
+          type: string
+        avg_pct_of_final:
+          description: Average % of final engagement reached (0-100)
+          type: number
+        post_count:
+          description: Number of posts with data in this bucket
+          type: integer
+    getContentDecay_200_response:
+      example:
+        buckets:
+        - bucket_label: bucket_label
+          bucket_order: 0
+          avg_pct_of_final: 6.027456183070403
+          post_count: 1
+        - bucket_label: bucket_label
+          bucket_order: 0
+          avg_pct_of_final: 6.027456183070403
+          post_count: 1
+      properties:
+        buckets:
+          items:
+            $ref: "#/components/schemas/getContentDecay_200_response_buckets_inner"
+          type: array
+    getPostingFrequency_200_response_frequency_inner:
+      example:
+        avg_engagement_rate: 6.027456183070403
+        weeks_count: 5
+        platform: instagram
+        avg_engagement: 1.4658129805029452
+        posts_per_week: 0
+      properties:
+        platform:
+          example: instagram
+          type: string
+        posts_per_week:
+          description: Number of posts published that week
+          type: integer
+        avg_engagement_rate:
+          description: Average engagement rate as percentage (0-100)
+          type: number
+        avg_engagement:
+          description: Average raw engagement (likes+comments+shares+saves)
+          type: number
+        weeks_count:
+          description: Number of calendar weeks observed at this frequency
+          type: integer
+    getPostingFrequency_200_response:
+      example:
+        frequency:
+        - avg_engagement_rate: 6.027456183070403
+          weeks_count: 5
+          platform: instagram
+          avg_engagement: 1.4658129805029452
+          posts_per_week: 0
+        - avg_engagement_rate: 6.027456183070403
+          weeks_count: 5
+          platform: instagram
+          avg_engagement: 1.4658129805029452
+          posts_per_week: 0
+      properties:
+        frequency:
+          items:
+            $ref: "#/components/schemas/getPostingFrequency_200_response_frequency_inner"
+          type: array
     listAccountGroups_200_response_groups_inner:
       example:
         accountIds:

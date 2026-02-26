@@ -39,7 +39,7 @@ import dev.getlate.ApiClient;
   PostLogResponse.JSON_PROPERTY_ERROR_CODE,
   PostLogResponse.JSON_PROPERTY_RAW_BODY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-25T16:39:19.930877055Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-26T15:36:18.865644172Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class PostLogResponse {
   public static final String JSON_PROPERTY_PLATFORM_POST_ID = "platformPostId";
   @javax.annotation.Nullable
