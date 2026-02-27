@@ -42,7 +42,7 @@ import dev.getlate.ApiClient;
   DownloadTikTokVideo200Response.JSON_PROPERTY_DOWNLOAD_URL,
   DownloadTikTokVideo200Response.JSON_PROPERTY_FORMATS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-26T15:36:18.865644172Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-27T10:18:22.328067190Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class DownloadTikTokVideo200Response {
   public static final String JSON_PROPERTY_SUCCESS = "success";
   @javax.annotation.Nullable

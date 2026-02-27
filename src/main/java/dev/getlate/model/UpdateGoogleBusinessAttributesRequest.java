@@ -39,7 +39,7 @@ import dev.getlate.ApiClient;
   UpdateGoogleBusinessAttributesRequest.JSON_PROPERTY_ATTRIBUTES,
   UpdateGoogleBusinessAttributesRequest.JSON_PROPERTY_ATTRIBUTE_MASK
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-26T15:36:18.865644172Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-27T10:18:22.328067190Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UpdateGoogleBusinessAttributesRequest {
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   @javax.annotation.Nonnull

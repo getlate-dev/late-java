@@ -51,7 +51,7 @@ import dev.getlate.ApiClient;
   ConnectionLog.JSON_PROPERTY_METADATA,
   ConnectionLog.JSON_PROPERTY_CREATED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-26T15:36:18.865644172Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-27T10:18:22.328067190Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ConnectionLog {
   public static final String JSON_PROPERTY_ID = "_id";
   @javax.annotation.Nullable

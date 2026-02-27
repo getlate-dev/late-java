@@ -4,7 +4,7 @@ Late API
 
 - API version: 1.0.1
 
-- Build date: 2026-02-26T15:36:18.865644172Z[Etc/UTC]
+- Build date: 2026-02-27T10:18:22.328067190Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -370,6 +370,14 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**getUserWithHttpInfo**](docs/UsersApi.md#getUserWithHttpInfo) | **GET** /v1/users/{userId} | Get user
 *UsersApi* | [**listUsers**](docs/UsersApi.md#listUsers) | **GET** /v1/users | List users
 *UsersApi* | [**listUsersWithHttpInfo**](docs/UsersApi.md#listUsersWithHttpInfo) | **GET** /v1/users | List users
+*ValidateApi* | [**validateMedia**](docs/ValidateApi.md#validateMedia) | **POST** /v1/tools/validate/media | Validate media URL
+*ValidateApi* | [**validateMediaWithHttpInfo**](docs/ValidateApi.md#validateMediaWithHttpInfo) | **POST** /v1/tools/validate/media | Validate media URL
+*ValidateApi* | [**validatePost**](docs/ValidateApi.md#validatePost) | **POST** /v1/tools/validate/post | Validate post content
+*ValidateApi* | [**validatePostWithHttpInfo**](docs/ValidateApi.md#validatePostWithHttpInfo) | **POST** /v1/tools/validate/post | Validate post content
+*ValidateApi* | [**validatePostLength**](docs/ValidateApi.md#validatePostLength) | **POST** /v1/tools/validate/post-length | Validate post character count
+*ValidateApi* | [**validatePostLengthWithHttpInfo**](docs/ValidateApi.md#validatePostLengthWithHttpInfo) | **POST** /v1/tools/validate/post-length | Validate post character count
+*ValidateApi* | [**validateSubreddit**](docs/ValidateApi.md#validateSubreddit) | **GET** /v1/tools/validate/subreddit | Check subreddit existence
+*ValidateApi* | [**validateSubredditWithHttpInfo**](docs/ValidateApi.md#validateSubredditWithHttpInfo) | **GET** /v1/tools/validate/subreddit | Check subreddit existence
 *WebhooksApi* | [**createWebhookSettings**](docs/WebhooksApi.md#createWebhookSettings) | **POST** /v1/webhooks/settings | Create webhook
 *WebhooksApi* | [**createWebhookSettingsWithHttpInfo**](docs/WebhooksApi.md#createWebhookSettingsWithHttpInfo) | **POST** /v1/webhooks/settings | Create webhook
 *WebhooksApi* | [**deleteWebhookSettings**](docs/WebhooksApi.md#deleteWebhookSettings) | **DELETE** /v1/webhooks/settings | Delete webhook
@@ -763,6 +771,25 @@ Class | Method | HTTP request | Description
  - [User](docs/User.md)
  - [UserGetResponse](docs/UserGetResponse.md)
  - [UsersListResponse](docs/UsersListResponse.md)
+ - [ValidateMedia200Response](docs/ValidateMedia200Response.md)
+ - [ValidateMedia200ResponsePlatformLimitsValue](docs/ValidateMedia200ResponsePlatformLimitsValue.md)
+ - [ValidateMediaRequest](docs/ValidateMediaRequest.md)
+ - [ValidatePost200Response](docs/ValidatePost200Response.md)
+ - [ValidatePost200ResponseOneOf](docs/ValidatePost200ResponseOneOf.md)
+ - [ValidatePost200ResponseOneOf1](docs/ValidatePost200ResponseOneOf1.md)
+ - [ValidatePost200ResponseOneOf1ErrorsInner](docs/ValidatePost200ResponseOneOf1ErrorsInner.md)
+ - [ValidatePost200ResponseOneOfWarningsInner](docs/ValidatePost200ResponseOneOfWarningsInner.md)
+ - [ValidatePostLength200Response](docs/ValidatePostLength200Response.md)
+ - [ValidatePostLength200ResponsePlatformsValue](docs/ValidatePostLength200ResponsePlatformsValue.md)
+ - [ValidatePostLengthRequest](docs/ValidatePostLengthRequest.md)
+ - [ValidatePostRequest](docs/ValidatePostRequest.md)
+ - [ValidatePostRequestMediaItemsInner](docs/ValidatePostRequestMediaItemsInner.md)
+ - [ValidatePostRequestPlatformsInner](docs/ValidatePostRequestPlatformsInner.md)
+ - [ValidatePostRequestPlatformsInnerCustomMediaInner](docs/ValidatePostRequestPlatformsInnerCustomMediaInner.md)
+ - [ValidateSubreddit200Response](docs/ValidateSubreddit200Response.md)
+ - [ValidateSubreddit200ResponseOneOf](docs/ValidateSubreddit200ResponseOneOf.md)
+ - [ValidateSubreddit200ResponseOneOf1](docs/ValidateSubreddit200ResponseOneOf1.md)
+ - [ValidateSubreddit200ResponseOneOfSubreddit](docs/ValidateSubreddit200ResponseOneOfSubreddit.md)
  - [Webhook](docs/Webhook.md)
  - [WebhookLog](docs/WebhookLog.md)
  - [WebhookPayloadAccountConnected](docs/WebhookPayloadAccountConnected.md)

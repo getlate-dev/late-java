@@ -36,7 +36,7 @@ import dev.getlate.ApiClient;
   QueueSlot.JSON_PROPERTY_DAY_OF_WEEK,
   QueueSlot.JSON_PROPERTY_TIME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-26T15:36:18.865644172Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-27T10:18:22.328067190Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class QueueSlot {
   public static final String JSON_PROPERTY_DAY_OF_WEEK = "dayOfWeek";
   @javax.annotation.Nullable
