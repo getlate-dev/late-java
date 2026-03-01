@@ -8,16 +8,8 @@ Subreddit not found
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**exists** | [**ExistsEnum**](#ExistsEnum) |  |  [optional] |
+|**exists** | **Boolean** |  |  [optional] |
 |**error** | **String** |  |  [optional] |
-
-
-
-## Enum: ExistsEnum
-
-| Name | Value |
-|---- | -----|
-| FALSE | &quot;false&quot; |
 
 
 

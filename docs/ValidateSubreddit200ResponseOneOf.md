@@ -8,16 +8,8 @@ Subreddit exists
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**exists** | [**ExistsEnum**](#ExistsEnum) |  |  [optional] |
+|**exists** | **Boolean** |  |  [optional] |
 |**subreddit** | [**ValidateSubreddit200ResponseOneOfSubreddit**](ValidateSubreddit200ResponseOneOfSubreddit.md) |  |  [optional] |
-
-
-
-## Enum: ExistsEnum
-
-| Name | Value |
-|---- | -----|
-| TRUE | &quot;true&quot; |
 
 
 

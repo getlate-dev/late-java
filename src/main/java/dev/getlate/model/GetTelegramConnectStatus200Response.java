@@ -42,7 +42,7 @@ import dev.getlate.ApiClient;
   GetTelegramConnectStatus200Response.JSON_PROPERTY_BOT_USERNAME,
   GetTelegramConnectStatus200Response.JSON_PROPERTY_INSTRUCTIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-01T19:06:08.198220224Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-01T19:26:48.315462900Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetTelegramConnectStatus200Response {
   public static final String JSON_PROPERTY_CODE = "code";
   @javax.annotation.Nullable

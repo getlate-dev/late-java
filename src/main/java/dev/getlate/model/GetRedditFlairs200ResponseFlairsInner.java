@@ -38,7 +38,7 @@ import dev.getlate.ApiClient;
   GetRedditFlairs200ResponseFlairsInner.JSON_PROPERTY_TEXT_COLOR,
   GetRedditFlairs200ResponseFlairsInner.JSON_PROPERTY_BACKGROUND_COLOR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-01T19:06:08.198220224Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-01T19:26:48.315462900Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetRedditFlairs200ResponseFlairsInner {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable

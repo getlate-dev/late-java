@@ -41,44 +41,11 @@ import dev.getlate.ApiClient;
   ValidatePost200ResponseOneOf1.JSON_PROPERTY_ERRORS,
   ValidatePost200ResponseOneOf1.JSON_PROPERTY_WARNINGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-01T19:06:08.198220224Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-01T19:26:48.315462900Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ValidatePost200ResponseOneOf1 {
-  /**
-   * Gets or Sets valid
-   */
-  public enum ValidEnum {
-    FALSE(Boolean.valueOf("false"));
-
-    private Boolean value;
-
-    ValidEnum(Boolean value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public Boolean getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static ValidEnum fromValue(Boolean value) {
-      for (ValidEnum b : ValidEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_VALID = "valid";
   @javax.annotation.Nullable
-  private ValidEnum valid;
+  private Boolean valid;
 
   public static final String JSON_PROPERTY_ERRORS = "errors";
   @javax.annotation.Nullable
@@ -91,7 +58,7 @@ public class ValidatePost200ResponseOneOf1 {
   public ValidatePost200ResponseOneOf1() { 
   }
 
-  public ValidatePost200ResponseOneOf1 valid(@javax.annotation.Nullable ValidEnum valid) {
+  public ValidatePost200ResponseOneOf1 valid(@javax.annotation.Nullable Boolean valid) {
     this.valid = valid;
     return this;
   }
@@ -103,14 +70,14 @@ public class ValidatePost200ResponseOneOf1 {
   @javax.annotation.Nullable
   @JsonProperty(value = JSON_PROPERTY_VALID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ValidEnum getValid() {
+  public Boolean getValid() {
     return valid;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_VALID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValid(@javax.annotation.Nullable ValidEnum valid) {
+  public void setValid(@javax.annotation.Nullable Boolean valid) {
     this.valid = valid;
   }
 

@@ -37,44 +37,11 @@ import dev.getlate.ApiClient;
   ValidateSubreddit200ResponseOneOf.JSON_PROPERTY_EXISTS,
   ValidateSubreddit200ResponseOneOf.JSON_PROPERTY_SUBREDDIT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-01T19:06:08.198220224Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-01T19:26:48.315462900Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ValidateSubreddit200ResponseOneOf {
-  /**
-   * Gets or Sets exists
-   */
-  public enum ExistsEnum {
-    TRUE(Boolean.valueOf("true"));
-
-    private Boolean value;
-
-    ExistsEnum(Boolean value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public Boolean getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static ExistsEnum fromValue(Boolean value) {
-      for (ExistsEnum b : ExistsEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_EXISTS = "exists";
   @javax.annotation.Nullable
-  private ExistsEnum exists;
+  private Boolean exists;
 
   public static final String JSON_PROPERTY_SUBREDDIT = "subreddit";
   @javax.annotation.Nullable
@@ -83,7 +50,7 @@ public class ValidateSubreddit200ResponseOneOf {
   public ValidateSubreddit200ResponseOneOf() { 
   }
 
-  public ValidateSubreddit200ResponseOneOf exists(@javax.annotation.Nullable ExistsEnum exists) {
+  public ValidateSubreddit200ResponseOneOf exists(@javax.annotation.Nullable Boolean exists) {
     this.exists = exists;
     return this;
   }
@@ -95,14 +62,14 @@ public class ValidateSubreddit200ResponseOneOf {
   @javax.annotation.Nullable
   @JsonProperty(value = JSON_PROPERTY_EXISTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ExistsEnum getExists() {
+  public Boolean getExists() {
     return exists;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_EXISTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExists(@javax.annotation.Nullable ExistsEnum exists) {
+  public void setExists(@javax.annotation.Nullable Boolean exists) {
     this.exists = exists;
   }
 
