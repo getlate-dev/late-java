@@ -36,12 +36,11 @@ import dev.getlate.ApiClient;
   ReplyToInboxPostRequest.JSON_PROPERTY_ACCOUNT_ID,
   ReplyToInboxPostRequest.JSON_PROPERTY_MESSAGE,
   ReplyToInboxPostRequest.JSON_PROPERTY_COMMENT_ID,
-  ReplyToInboxPostRequest.JSON_PROPERTY_SUBREDDIT,
   ReplyToInboxPostRequest.JSON_PROPERTY_PARENT_CID,
   ReplyToInboxPostRequest.JSON_PROPERTY_ROOT_URI,
   ReplyToInboxPostRequest.JSON_PROPERTY_ROOT_CID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-27T10:18:22.328067190Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-01T19:06:08.198220224Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ReplyToInboxPostRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nonnull
@@ -54,10 +53,6 @@ public class ReplyToInboxPostRequest {
   public static final String JSON_PROPERTY_COMMENT_ID = "commentId";
   @javax.annotation.Nullable
   private String commentId;
-
-  public static final String JSON_PROPERTY_SUBREDDIT = "subreddit";
-  @javax.annotation.Nullable
-  private String subreddit;
 
   public static final String JSON_PROPERTY_PARENT_CID = "parentCid";
   @javax.annotation.Nullable
@@ -143,30 +138,6 @@ public class ReplyToInboxPostRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCommentId(@javax.annotation.Nullable String commentId) {
     this.commentId = commentId;
-  }
-
-
-  public ReplyToInboxPostRequest subreddit(@javax.annotation.Nullable String subreddit) {
-    this.subreddit = subreddit;
-    return this;
-  }
-
-  /**
-   * (Reddit only) Subreddit name for replies
-   * @return subreddit
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(value = JSON_PROPERTY_SUBREDDIT, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSubreddit() {
-    return subreddit;
-  }
-
-
-  @JsonProperty(value = JSON_PROPERTY_SUBREDDIT, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSubreddit(@javax.annotation.Nullable String subreddit) {
-    this.subreddit = subreddit;
   }
 
 
@@ -257,7 +228,6 @@ public class ReplyToInboxPostRequest {
     return Objects.equals(this.accountId, replyToInboxPostRequest.accountId) &&
         Objects.equals(this.message, replyToInboxPostRequest.message) &&
         Objects.equals(this.commentId, replyToInboxPostRequest.commentId) &&
-        Objects.equals(this.subreddit, replyToInboxPostRequest.subreddit) &&
         Objects.equals(this.parentCid, replyToInboxPostRequest.parentCid) &&
         Objects.equals(this.rootUri, replyToInboxPostRequest.rootUri) &&
         Objects.equals(this.rootCid, replyToInboxPostRequest.rootCid);
@@ -265,7 +235,7 @@ public class ReplyToInboxPostRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, message, commentId, subreddit, parentCid, rootUri, rootCid);
+    return Objects.hash(accountId, message, commentId, parentCid, rootUri, rootCid);
   }
 
   @Override
@@ -275,7 +245,6 @@ public class ReplyToInboxPostRequest {
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    commentId: ").append(toIndentedString(commentId)).append("\n");
-    sb.append("    subreddit: ").append(toIndentedString(subreddit)).append("\n");
     sb.append("    parentCid: ").append(toIndentedString(parentCid)).append("\n");
     sb.append("    rootUri: ").append(toIndentedString(rootUri)).append("\n");
     sb.append("    rootCid: ").append(toIndentedString(rootCid)).append("\n");
@@ -339,11 +308,6 @@ public class ReplyToInboxPostRequest {
     // add `commentId` to the URL query string
     if (getCommentId() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%scommentId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getCommentId()))));
-    }
-
-    // add `subreddit` to the URL query string
-    if (getSubreddit() != null) {
-      joiner.add(String.format(java.util.Locale.ROOT, "%ssubreddit%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getSubreddit()))));
     }
 
     // add `parentCid` to the URL query string

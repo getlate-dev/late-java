@@ -20346,9 +20346,6 @@ components:
         commentId:
           description: Reply to specific comment (optional)
           type: string
-        subreddit:
-          description: (Reddit only) Subreddit name for replies
-          type: string
         parentCid:
           description: (Bluesky only) Parent content identifier
           type: string
