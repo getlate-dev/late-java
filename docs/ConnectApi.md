@@ -365,7 +365,7 @@ ApiResponse<[**ConnectBlueskyCredentials200Response**](ConnectBlueskyCredentials
 
 ## getConnectUrl
 
-> GetConnectUrl200Response getConnectUrl(platform, profileId, redirectUrl)
+> GetConnectUrl200Response getConnectUrl(platform, profileId, redirectUrl, headless)
 
 Get OAuth connect URL
 
@@ -395,8 +395,9 @@ public class Example {
         String platform = "facebook"; // String | Social media platform to connect
         String profileId = "profileId_example"; // String | Your Late profile ID (get from /v1/profiles)
         URI redirectUrl = new URI(); // URI | Your custom redirect URL after connection completes. Standard mode appends ?connected={platform}&profileId=X&username=Y. Headless mode appends OAuth data params.
+        Boolean headless = false; // Boolean | When true, the user is redirected to your redirect_url with raw OAuth data (code, state) instead of Late's default account selection UI. Use this to build a custom connect experience.
         try {
-            GetConnectUrl200Response result = apiInstance.getConnectUrl(platform, profileId, redirectUrl);
+            GetConnectUrl200Response result = apiInstance.getConnectUrl(platform, profileId, redirectUrl, headless);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ConnectApi#getConnectUrl");
@@ -417,6 +418,7 @@ public class Example {
 | **platform** | **String**| Social media platform to connect | [enum: facebook, instagram, linkedin, twitter, tiktok, youtube, threads, reddit, pinterest, bluesky, googlebusiness, telegram, snapchat] |
 | **profileId** | **String**| Your Late profile ID (get from /v1/profiles) | |
 | **redirectUrl** | **URI**| Your custom redirect URL after connection completes. Standard mode appends ?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;username&#x3D;Y. Headless mode appends OAuth data params. | [optional] |
+| **headless** | **Boolean**| When true, the user is redirected to your redirect_url with raw OAuth data (code, state) instead of Late&#39;s default account selection UI. Use this to build a custom connect experience. | [optional] [default to false] |
 
 ### Return type
 
@@ -443,7 +445,7 @@ public class Example {
 
 ## getConnectUrlWithHttpInfo
 
-> ApiResponse<GetConnectUrl200Response> getConnectUrl getConnectUrlWithHttpInfo(platform, profileId, redirectUrl)
+> ApiResponse<GetConnectUrl200Response> getConnectUrl getConnectUrlWithHttpInfo(platform, profileId, redirectUrl, headless)
 
 Get OAuth connect URL
 
@@ -474,8 +476,9 @@ public class Example {
         String platform = "facebook"; // String | Social media platform to connect
         String profileId = "profileId_example"; // String | Your Late profile ID (get from /v1/profiles)
         URI redirectUrl = new URI(); // URI | Your custom redirect URL after connection completes. Standard mode appends ?connected={platform}&profileId=X&username=Y. Headless mode appends OAuth data params.
+        Boolean headless = false; // Boolean | When true, the user is redirected to your redirect_url with raw OAuth data (code, state) instead of Late's default account selection UI. Use this to build a custom connect experience.
         try {
-            ApiResponse<GetConnectUrl200Response> response = apiInstance.getConnectUrlWithHttpInfo(platform, profileId, redirectUrl);
+            ApiResponse<GetConnectUrl200Response> response = apiInstance.getConnectUrlWithHttpInfo(platform, profileId, redirectUrl, headless);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
             System.out.println("Response body: " + response.getData());
@@ -498,6 +501,7 @@ public class Example {
 | **platform** | **String**| Social media platform to connect | [enum: facebook, instagram, linkedin, twitter, tiktok, youtube, threads, reddit, pinterest, bluesky, googlebusiness, telegram, snapchat] |
 | **profileId** | **String**| Your Late profile ID (get from /v1/profiles) | |
 | **redirectUrl** | **URI**| Your custom redirect URL after connection completes. Standard mode appends ?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;username&#x3D;Y. Headless mode appends OAuth data params. | [optional] |
+| **headless** | **Boolean**| When true, the user is redirected to your redirect_url with raw OAuth data (code, state) instead of Late&#39;s default account selection UI. Use this to build a custom connect experience. | [optional] [default to false] |
 
 ### Return type
 

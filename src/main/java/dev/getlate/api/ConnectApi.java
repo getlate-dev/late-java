@@ -86,7 +86,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-01T19:26:48.315462900Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-02T18:20:42.371956268Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ConnectApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -464,11 +464,12 @@ public class ConnectApi {
    * @param platform Social media platform to connect (required)
    * @param profileId Your Late profile ID (get from /v1/profiles) (required)
    * @param redirectUrl Your custom redirect URL after connection completes. Standard mode appends ?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;username&#x3D;Y. Headless mode appends OAuth data params. (optional)
+   * @param headless When true, the user is redirected to your redirect_url with raw OAuth data (code, state) instead of Late&#39;s default account selection UI. Use this to build a custom connect experience. (optional, default to false)
    * @return GetConnectUrl200Response
    * @throws ApiException if fails to make API call
    */
-  public GetConnectUrl200Response getConnectUrl(@javax.annotation.Nonnull String platform, @javax.annotation.Nonnull String profileId, @javax.annotation.Nullable URI redirectUrl) throws ApiException {
-    return getConnectUrl(platform, profileId, redirectUrl, null);
+  public GetConnectUrl200Response getConnectUrl(@javax.annotation.Nonnull String platform, @javax.annotation.Nonnull String profileId, @javax.annotation.Nullable URI redirectUrl, @javax.annotation.Nullable Boolean headless) throws ApiException {
+    return getConnectUrl(platform, profileId, redirectUrl, headless, null);
   }
 
   /**
@@ -477,12 +478,13 @@ public class ConnectApi {
    * @param platform Social media platform to connect (required)
    * @param profileId Your Late profile ID (get from /v1/profiles) (required)
    * @param redirectUrl Your custom redirect URL after connection completes. Standard mode appends ?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;username&#x3D;Y. Headless mode appends OAuth data params. (optional)
+   * @param headless When true, the user is redirected to your redirect_url with raw OAuth data (code, state) instead of Late&#39;s default account selection UI. Use this to build a custom connect experience. (optional, default to false)
    * @param headers Optional headers to include in the request
    * @return GetConnectUrl200Response
    * @throws ApiException if fails to make API call
    */
-  public GetConnectUrl200Response getConnectUrl(@javax.annotation.Nonnull String platform, @javax.annotation.Nonnull String profileId, @javax.annotation.Nullable URI redirectUrl, Map<String, String> headers) throws ApiException {
-    ApiResponse<GetConnectUrl200Response> localVarResponse = getConnectUrlWithHttpInfo(platform, profileId, redirectUrl, headers);
+  public GetConnectUrl200Response getConnectUrl(@javax.annotation.Nonnull String platform, @javax.annotation.Nonnull String profileId, @javax.annotation.Nullable URI redirectUrl, @javax.annotation.Nullable Boolean headless, Map<String, String> headers) throws ApiException {
+    ApiResponse<GetConnectUrl200Response> localVarResponse = getConnectUrlWithHttpInfo(platform, profileId, redirectUrl, headless, headers);
     return localVarResponse.getData();
   }
 
@@ -492,11 +494,12 @@ public class ConnectApi {
    * @param platform Social media platform to connect (required)
    * @param profileId Your Late profile ID (get from /v1/profiles) (required)
    * @param redirectUrl Your custom redirect URL after connection completes. Standard mode appends ?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;username&#x3D;Y. Headless mode appends OAuth data params. (optional)
+   * @param headless When true, the user is redirected to your redirect_url with raw OAuth data (code, state) instead of Late&#39;s default account selection UI. Use this to build a custom connect experience. (optional, default to false)
    * @return ApiResponse&lt;GetConnectUrl200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GetConnectUrl200Response> getConnectUrlWithHttpInfo(@javax.annotation.Nonnull String platform, @javax.annotation.Nonnull String profileId, @javax.annotation.Nullable URI redirectUrl) throws ApiException {
-    return getConnectUrlWithHttpInfo(platform, profileId, redirectUrl, null);
+  public ApiResponse<GetConnectUrl200Response> getConnectUrlWithHttpInfo(@javax.annotation.Nonnull String platform, @javax.annotation.Nonnull String profileId, @javax.annotation.Nullable URI redirectUrl, @javax.annotation.Nullable Boolean headless) throws ApiException {
+    return getConnectUrlWithHttpInfo(platform, profileId, redirectUrl, headless, null);
   }
 
   /**
@@ -505,12 +508,13 @@ public class ConnectApi {
    * @param platform Social media platform to connect (required)
    * @param profileId Your Late profile ID (get from /v1/profiles) (required)
    * @param redirectUrl Your custom redirect URL after connection completes. Standard mode appends ?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;username&#x3D;Y. Headless mode appends OAuth data params. (optional)
+   * @param headless When true, the user is redirected to your redirect_url with raw OAuth data (code, state) instead of Late&#39;s default account selection UI. Use this to build a custom connect experience. (optional, default to false)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetConnectUrl200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GetConnectUrl200Response> getConnectUrlWithHttpInfo(@javax.annotation.Nonnull String platform, @javax.annotation.Nonnull String profileId, @javax.annotation.Nullable URI redirectUrl, Map<String, String> headers) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getConnectUrlRequestBuilder(platform, profileId, redirectUrl, headers);
+  public ApiResponse<GetConnectUrl200Response> getConnectUrlWithHttpInfo(@javax.annotation.Nonnull String platform, @javax.annotation.Nonnull String profileId, @javax.annotation.Nullable URI redirectUrl, @javax.annotation.Nullable Boolean headless, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getConnectUrlRequestBuilder(platform, profileId, redirectUrl, headless, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -557,7 +561,7 @@ public class ConnectApi {
     }
   }
 
-  private HttpRequest.Builder getConnectUrlRequestBuilder(@javax.annotation.Nonnull String platform, @javax.annotation.Nonnull String profileId, @javax.annotation.Nullable URI redirectUrl, Map<String, String> headers) throws ApiException {
+  private HttpRequest.Builder getConnectUrlRequestBuilder(@javax.annotation.Nonnull String platform, @javax.annotation.Nonnull String profileId, @javax.annotation.Nullable URI redirectUrl, @javax.annotation.Nullable Boolean headless, Map<String, String> headers) throws ApiException {
     // verify the required parameter 'platform' is set
     if (platform == null) {
       throw new ApiException(400, "Missing the required parameter 'platform' when calling getConnectUrl");
@@ -579,6 +583,8 @@ public class ConnectApi {
     localVarQueryParams.addAll(ApiClient.parameterToPairs("profileId", profileId));
     localVarQueryParameterBaseName = "redirect_url";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("redirect_url", redirectUrl));
+    localVarQueryParameterBaseName = "headless";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("headless", headless));
 
     if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
       StringJoiner queryJoiner = new StringJoiner("&");

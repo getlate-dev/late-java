@@ -4,7 +4,7 @@ Late API
 
 - API version: 1.0.1
 
-- Build date: 2026-03-01T19:26:48.315462900Z[Etc/UTC]
+- Build date: 2026-03-02T18:20:42.371956268Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -407,6 +407,7 @@ Class | Method | HTTP request | Description
  - [BulkUploadPosts200Response](docs/BulkUploadPosts200Response.md)
  - [BulkUploadPosts200ResponseErrorsInner](docs/BulkUploadPosts200ResponseErrorsInner.md)
  - [BulkUploadPosts429Response](docs/BulkUploadPosts429Response.md)
+ - [BulkUploadPostsRequest](docs/BulkUploadPostsRequest.md)
  - [CaptionResponse](docs/CaptionResponse.md)
  - [CheckInstagramHashtags200Response](docs/CheckInstagramHashtags200Response.md)
  - [CheckInstagramHashtags200ResponseResultsInner](docs/CheckInstagramHashtags200ResponseResultsInner.md)
@@ -701,6 +702,7 @@ Class | Method | HTTP request | Description
  - [SendInboxMessage200ResponseData](docs/SendInboxMessage200ResponseData.md)
  - [SendInboxMessage400Response](docs/SendInboxMessage400Response.md)
  - [SendInboxMessageRequest](docs/SendInboxMessageRequest.md)
+ - [SendInboxMessageRequest1](docs/SendInboxMessageRequest1.md)
  - [SendInboxMessageRequestButtonsInner](docs/SendInboxMessageRequestButtonsInner.md)
  - [SendInboxMessageRequestQuickRepliesInner](docs/SendInboxMessageRequestQuickRepliesInner.md)
  - [SendInboxMessageRequestReplyMarkup](docs/SendInboxMessageRequestReplyMarkup.md)

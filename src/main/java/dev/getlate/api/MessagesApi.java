@@ -27,6 +27,7 @@ import dev.getlate.model.ListInboxConversations200Response;
 import dev.getlate.model.SendInboxMessage200Response;
 import dev.getlate.model.SendInboxMessage400Response;
 import dev.getlate.model.SendInboxMessageRequest;
+import dev.getlate.model.SendInboxMessageRequest1;
 import dev.getlate.model.UpdateInboxConversation200Response;
 import dev.getlate.model.UpdateInboxConversationRequest;
 
@@ -55,7 +56,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-01T19:26:48.315462900Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-02T18:20:42.371956268Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class MessagesApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.

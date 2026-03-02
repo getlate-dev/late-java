@@ -635,7 +635,7 @@ ApiResponse<[**ListQueueSlots200Response**](ListQueueSlots200Response.md)>
 
 ## previewQueue
 
-> PreviewQueue200Response previewQueue(profileId, count)
+> PreviewQueue200Response previewQueue(profileId, queueId, count)
 
 Preview upcoming slots
 
@@ -663,9 +663,10 @@ public class Example {
 
         QueueApi apiInstance = new QueueApi(defaultClient);
         String profileId = "profileId_example"; // String | 
+        String queueId = "queueId_example"; // String | Filter by specific queue ID. Omit to use the default queue.
         Integer count = 20; // Integer | 
         try {
-            PreviewQueue200Response result = apiInstance.previewQueue(profileId, count);
+            PreviewQueue200Response result = apiInstance.previewQueue(profileId, queueId, count);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling QueueApi#previewQueue");
@@ -684,6 +685,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **profileId** | **String**|  | |
+| **queueId** | **String**| Filter by specific queue ID. Omit to use the default queue. | [optional] |
 | **count** | **Integer**|  | [optional] [default to 20] |
 
 ### Return type
@@ -710,7 +712,7 @@ public class Example {
 
 ## previewQueueWithHttpInfo
 
-> ApiResponse<PreviewQueue200Response> previewQueue previewQueueWithHttpInfo(profileId, count)
+> ApiResponse<PreviewQueue200Response> previewQueue previewQueueWithHttpInfo(profileId, queueId, count)
 
 Preview upcoming slots
 
@@ -739,9 +741,10 @@ public class Example {
 
         QueueApi apiInstance = new QueueApi(defaultClient);
         String profileId = "profileId_example"; // String | 
+        String queueId = "queueId_example"; // String | Filter by specific queue ID. Omit to use the default queue.
         Integer count = 20; // Integer | 
         try {
-            ApiResponse<PreviewQueue200Response> response = apiInstance.previewQueueWithHttpInfo(profileId, count);
+            ApiResponse<PreviewQueue200Response> response = apiInstance.previewQueueWithHttpInfo(profileId, queueId, count);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
             System.out.println("Response body: " + response.getData());
@@ -762,6 +765,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **profileId** | **String**|  | |
+| **queueId** | **String**| Filter by specific queue ID. Omit to use the default queue. | [optional] |
 | **count** | **Integer**|  | [optional] [default to 20] |
 
 ### Return type

@@ -637,7 +637,7 @@ ApiResponse<[**PostGetResponse**](PostGetResponse.md)>
 
 ## listPosts
 
-> PostsListResponse listPosts(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden)
+> PostsListResponse listPosts(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden, search, sortBy)
 
 List posts
 
@@ -673,8 +673,10 @@ public class Example {
         LocalDate dateFrom = LocalDate.now(); // LocalDate | 
         LocalDate dateTo = LocalDate.now(); // LocalDate | 
         Boolean includeHidden = false; // Boolean | 
+        String search = "search_example"; // String | Search posts by text content.
+        String sortBy = "scheduled-desc"; // String | Sort order for results.
         try {
-            PostsListResponse result = apiInstance.listPosts(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden);
+            PostsListResponse result = apiInstance.listPosts(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden, search, sortBy);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling PostsApi#listPosts");
@@ -701,6 +703,8 @@ public class Example {
 | **dateFrom** | **LocalDate**|  | [optional] |
 | **dateTo** | **LocalDate**|  | [optional] |
 | **includeHidden** | **Boolean**|  | [optional] [default to false] |
+| **search** | **String**| Search posts by text content. | [optional] |
+| **sortBy** | **String**| Sort order for results. | [optional] [default to scheduled-desc] [enum: scheduled-desc, scheduled-asc, created-desc, created-asc, status, platform] |
 
 ### Return type
 
@@ -724,7 +728,7 @@ public class Example {
 
 ## listPostsWithHttpInfo
 
-> ApiResponse<PostsListResponse> listPosts listPostsWithHttpInfo(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden)
+> ApiResponse<PostsListResponse> listPosts listPostsWithHttpInfo(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden, search, sortBy)
 
 List posts
 
@@ -761,8 +765,10 @@ public class Example {
         LocalDate dateFrom = LocalDate.now(); // LocalDate | 
         LocalDate dateTo = LocalDate.now(); // LocalDate | 
         Boolean includeHidden = false; // Boolean | 
+        String search = "search_example"; // String | Search posts by text content.
+        String sortBy = "scheduled-desc"; // String | Sort order for results.
         try {
-            ApiResponse<PostsListResponse> response = apiInstance.listPostsWithHttpInfo(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden);
+            ApiResponse<PostsListResponse> response = apiInstance.listPostsWithHttpInfo(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden, search, sortBy);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
             System.out.println("Response body: " + response.getData());
@@ -791,6 +797,8 @@ public class Example {
 | **dateFrom** | **LocalDate**|  | [optional] |
 | **dateTo** | **LocalDate**|  | [optional] |
 | **includeHidden** | **Boolean**|  | [optional] [default to false] |
+| **search** | **String**| Search posts by text content. | [optional] |
+| **sortBy** | **String**| Sort order for results. | [optional] [default to scheduled-desc] [enum: scheduled-desc, scheduled-asc, created-desc, created-asc, status, platform] |
 
 ### Return type
 

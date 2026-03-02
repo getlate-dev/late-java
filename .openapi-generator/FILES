@@ -23,6 +23,7 @@ docs/BlueskyPlatformData.md
 docs/BulkUploadPosts200Response.md
 docs/BulkUploadPosts200ResponseErrorsInner.md
 docs/BulkUploadPosts429Response.md
+docs/BulkUploadPostsRequest.md
 docs/CaptionResponse.md
 docs/CheckInstagramHashtags200Response.md
 docs/CheckInstagramHashtags200ResponseResultsInner.md
@@ -335,6 +336,7 @@ docs/SendInboxMessage200Response.md
 docs/SendInboxMessage200ResponseData.md
 docs/SendInboxMessage400Response.md
 docs/SendInboxMessageRequest.md
+docs/SendInboxMessageRequest1.md
 docs/SendInboxMessageRequestButtonsInner.md
 docs/SendInboxMessageRequestQuickRepliesInner.md
 docs/SendInboxMessageRequestReplyMarkup.md
@@ -520,6 +522,7 @@ src/main/java/dev/getlate/model/BlueskyPlatformData.java
 src/main/java/dev/getlate/model/BulkUploadPosts200Response.java
 src/main/java/dev/getlate/model/BulkUploadPosts200ResponseErrorsInner.java
 src/main/java/dev/getlate/model/BulkUploadPosts429Response.java
+src/main/java/dev/getlate/model/BulkUploadPostsRequest.java
 src/main/java/dev/getlate/model/CaptionResponse.java
 src/main/java/dev/getlate/model/CheckInstagramHashtags200Response.java
 src/main/java/dev/getlate/model/CheckInstagramHashtags200ResponseResultsInner.java
@@ -814,6 +817,7 @@ src/main/java/dev/getlate/model/SendInboxMessage200Response.java
 src/main/java/dev/getlate/model/SendInboxMessage200ResponseData.java
 src/main/java/dev/getlate/model/SendInboxMessage400Response.java
 src/main/java/dev/getlate/model/SendInboxMessageRequest.java
+src/main/java/dev/getlate/model/SendInboxMessageRequest1.java
 src/main/java/dev/getlate/model/SendInboxMessageRequestButtonsInner.java
 src/main/java/dev/getlate/model/SendInboxMessageRequestQuickRepliesInner.java
 src/main/java/dev/getlate/model/SendInboxMessageRequestReplyMarkup.java
@@ -932,3 +936,5 @@ src/main/java/dev/getlate/model/YouTubeDailyViewsResponseScopeStatus.java
 src/main/java/dev/getlate/model/YouTubePlatformData.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponseScopeStatus.java
+src/test/java/dev/getlate/model/BulkUploadPostsRequestTest.java
+src/test/java/dev/getlate/model/SendInboxMessageRequest1Test.java

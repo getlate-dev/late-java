@@ -335,7 +335,7 @@ ApiResponse<[**ListConnectionLogs200Response**](ListConnectionLogs200Response.md
 
 ## listPostsLogs
 
-> ListPostsLogs200Response listPostsLogs(status, platform, action, days, limit, skip)
+> ListPostsLogs200Response listPostsLogs(status, platform, action, days, limit, skip, search)
 
 List publishing logs
 
@@ -368,8 +368,9 @@ public class Example {
         Integer days = 7; // Integer | Number of days to look back (max 7)
         Integer limit = 50; // Integer | Maximum number of logs to return (max 100)
         Integer skip = 0; // Integer | Number of logs to skip (for pagination)
+        String search = "search_example"; // String | Search through log entries by text content.
         try {
-            ListPostsLogs200Response result = apiInstance.listPostsLogs(status, platform, action, days, limit, skip);
+            ListPostsLogs200Response result = apiInstance.listPostsLogs(status, platform, action, days, limit, skip, search);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsApi#listPostsLogs");
@@ -393,6 +394,7 @@ public class Example {
 | **days** | **Integer**| Number of days to look back (max 7) | [optional] [default to 7] |
 | **limit** | **Integer**| Maximum number of logs to return (max 100) | [optional] [default to 50] |
 | **skip** | **Integer**| Number of logs to skip (for pagination) | [optional] [default to 0] |
+| **search** | **String**| Search through log entries by text content. | [optional] |
 
 ### Return type
 
@@ -416,7 +418,7 @@ public class Example {
 
 ## listPostsLogsWithHttpInfo
 
-> ApiResponse<ListPostsLogs200Response> listPostsLogs listPostsLogsWithHttpInfo(status, platform, action, days, limit, skip)
+> ApiResponse<ListPostsLogs200Response> listPostsLogs listPostsLogsWithHttpInfo(status, platform, action, days, limit, skip, search)
 
 List publishing logs
 
@@ -450,8 +452,9 @@ public class Example {
         Integer days = 7; // Integer | Number of days to look back (max 7)
         Integer limit = 50; // Integer | Maximum number of logs to return (max 100)
         Integer skip = 0; // Integer | Number of logs to skip (for pagination)
+        String search = "search_example"; // String | Search through log entries by text content.
         try {
-            ApiResponse<ListPostsLogs200Response> response = apiInstance.listPostsLogsWithHttpInfo(status, platform, action, days, limit, skip);
+            ApiResponse<ListPostsLogs200Response> response = apiInstance.listPostsLogsWithHttpInfo(status, platform, action, days, limit, skip, search);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
             System.out.println("Response body: " + response.getData());
@@ -477,6 +480,7 @@ public class Example {
 | **days** | **Integer**| Number of days to look back (max 7) | [optional] [default to 7] |
 | **limit** | **Integer**| Maximum number of logs to return (max 100) | [optional] [default to 50] |
 | **skip** | **Integer**| Number of logs to skip (for pagination) | [optional] [default to 0] |
+| **search** | **String**| Search through log entries by text content. | [optional] |
 
 ### Return type
 

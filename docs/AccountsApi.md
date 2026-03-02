@@ -635,7 +635,7 @@ ApiResponse<[**GetFollowerStats200Response**](GetFollowerStats200Response.md)>
 
 ## listAccounts
 
-> ListAccounts200Response listAccounts(profileId, includeOverLimit)
+> ListAccounts200Response listAccounts(profileId, platform, includeOverLimit)
 
 List accounts
 
@@ -663,9 +663,10 @@ public class Example {
 
         AccountsApi apiInstance = new AccountsApi(defaultClient);
         String profileId = "profileId_example"; // String | Filter accounts by profile ID
+        String platform = "platform_example"; // String | Filter accounts by platform (e.g. \"instagram\", \"twitter\").
         Boolean includeOverLimit = false; // Boolean | When true, includes accounts from over-limit profiles.
         try {
-            ListAccounts200Response result = apiInstance.listAccounts(profileId, includeOverLimit);
+            ListAccounts200Response result = apiInstance.listAccounts(profileId, platform, includeOverLimit);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountsApi#listAccounts");
@@ -684,6 +685,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **profileId** | **String**| Filter accounts by profile ID | [optional] |
+| **platform** | **String**| Filter accounts by platform (e.g. \&quot;instagram\&quot;, \&quot;twitter\&quot;). | [optional] |
 | **includeOverLimit** | **Boolean**| When true, includes accounts from over-limit profiles. | [optional] [default to false] |
 
 ### Return type
@@ -708,7 +710,7 @@ public class Example {
 
 ## listAccountsWithHttpInfo
 
-> ApiResponse<ListAccounts200Response> listAccounts listAccountsWithHttpInfo(profileId, includeOverLimit)
+> ApiResponse<ListAccounts200Response> listAccounts listAccountsWithHttpInfo(profileId, platform, includeOverLimit)
 
 List accounts
 
@@ -737,9 +739,10 @@ public class Example {
 
         AccountsApi apiInstance = new AccountsApi(defaultClient);
         String profileId = "profileId_example"; // String | Filter accounts by profile ID
+        String platform = "platform_example"; // String | Filter accounts by platform (e.g. \"instagram\", \"twitter\").
         Boolean includeOverLimit = false; // Boolean | When true, includes accounts from over-limit profiles.
         try {
-            ApiResponse<ListAccounts200Response> response = apiInstance.listAccountsWithHttpInfo(profileId, includeOverLimit);
+            ApiResponse<ListAccounts200Response> response = apiInstance.listAccountsWithHttpInfo(profileId, platform, includeOverLimit);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
             System.out.println("Response body: " + response.getData());
@@ -760,6 +763,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **profileId** | **String**| Filter accounts by profile ID | [optional] |
+| **platform** | **String**| Filter accounts by platform (e.g. \&quot;instagram\&quot;, \&quot;twitter\&quot;). | [optional] |
 | **includeOverLimit** | **Boolean**| When true, includes accounts from over-limit profiles. | [optional] [default to false] |
 
 ### Return type

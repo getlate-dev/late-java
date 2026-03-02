@@ -70,7 +70,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-01T19:26:48.315462900Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-02T18:20:42.371956268Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AnalyticsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -374,11 +374,12 @@ public class AnalyticsApi {
    * Returns the best times to post based on historical engagement data. Groups all published posts by day of week and hour (UTC), calculating average engagement per slot. Use this to auto-schedule posts at optimal times. Requires the Analytics add-on. 
    * @param platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms. (optional)
    * @param profileId Filter by profile ID. Omit for all profiles. (optional)
+   * @param source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. (optional, default to all)
    * @return GetBestTimeToPost200Response
    * @throws ApiException if fails to make API call
    */
-  public GetBestTimeToPost200Response getBestTimeToPost(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId) throws ApiException {
-    return getBestTimeToPost(platform, profileId, null);
+  public GetBestTimeToPost200Response getBestTimeToPost(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String source) throws ApiException {
+    return getBestTimeToPost(platform, profileId, source, null);
   }
 
   /**
@@ -386,12 +387,13 @@ public class AnalyticsApi {
    * Returns the best times to post based on historical engagement data. Groups all published posts by day of week and hour (UTC), calculating average engagement per slot. Use this to auto-schedule posts at optimal times. Requires the Analytics add-on. 
    * @param platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms. (optional)
    * @param profileId Filter by profile ID. Omit for all profiles. (optional)
+   * @param source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. (optional, default to all)
    * @param headers Optional headers to include in the request
    * @return GetBestTimeToPost200Response
    * @throws ApiException if fails to make API call
    */
-  public GetBestTimeToPost200Response getBestTimeToPost(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, Map<String, String> headers) throws ApiException {
-    ApiResponse<GetBestTimeToPost200Response> localVarResponse = getBestTimeToPostWithHttpInfo(platform, profileId, headers);
+  public GetBestTimeToPost200Response getBestTimeToPost(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String source, Map<String, String> headers) throws ApiException {
+    ApiResponse<GetBestTimeToPost200Response> localVarResponse = getBestTimeToPostWithHttpInfo(platform, profileId, source, headers);
     return localVarResponse.getData();
   }
 
@@ -400,11 +402,12 @@ public class AnalyticsApi {
    * Returns the best times to post based on historical engagement data. Groups all published posts by day of week and hour (UTC), calculating average engagement per slot. Use this to auto-schedule posts at optimal times. Requires the Analytics add-on. 
    * @param platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms. (optional)
    * @param profileId Filter by profile ID. Omit for all profiles. (optional)
+   * @param source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. (optional, default to all)
    * @return ApiResponse&lt;GetBestTimeToPost200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GetBestTimeToPost200Response> getBestTimeToPostWithHttpInfo(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId) throws ApiException {
-    return getBestTimeToPostWithHttpInfo(platform, profileId, null);
+  public ApiResponse<GetBestTimeToPost200Response> getBestTimeToPostWithHttpInfo(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String source) throws ApiException {
+    return getBestTimeToPostWithHttpInfo(platform, profileId, source, null);
   }
 
   /**
@@ -412,12 +415,13 @@ public class AnalyticsApi {
    * Returns the best times to post based on historical engagement data. Groups all published posts by day of week and hour (UTC), calculating average engagement per slot. Use this to auto-schedule posts at optimal times. Requires the Analytics add-on. 
    * @param platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms. (optional)
    * @param profileId Filter by profile ID. Omit for all profiles. (optional)
+   * @param source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. (optional, default to all)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetBestTimeToPost200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GetBestTimeToPost200Response> getBestTimeToPostWithHttpInfo(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, Map<String, String> headers) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getBestTimeToPostRequestBuilder(platform, profileId, headers);
+  public ApiResponse<GetBestTimeToPost200Response> getBestTimeToPostWithHttpInfo(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String source, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getBestTimeToPostRequestBuilder(platform, profileId, source, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -464,7 +468,7 @@ public class AnalyticsApi {
     }
   }
 
-  private HttpRequest.Builder getBestTimeToPostRequestBuilder(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, Map<String, String> headers) throws ApiException {
+  private HttpRequest.Builder getBestTimeToPostRequestBuilder(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String source, Map<String, String> headers) throws ApiException {
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
@@ -477,6 +481,8 @@ public class AnalyticsApi {
     localVarQueryParams.addAll(ApiClient.parameterToPairs("platform", platform));
     localVarQueryParameterBaseName = "profileId";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("profileId", profileId));
+    localVarQueryParameterBaseName = "source";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("source", source));
 
     if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
       StringJoiner queryJoiner = new StringJoiner("&");
@@ -508,11 +514,12 @@ public class AnalyticsApi {
    * Returns how engagement accumulates over time after a post is published. Each bucket shows what percentage of the post&#39;s total engagement had been reached by that time window. Useful for understanding content lifespan (e.g. \&quot;posts reach 78% of total engagement within 24 hours\&quot;). Requires the Analytics add-on. 
    * @param platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms. (optional)
    * @param profileId Filter by profile ID. Omit for all profiles. (optional)
+   * @param source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. (optional, default to all)
    * @return GetContentDecay200Response
    * @throws ApiException if fails to make API call
    */
-  public GetContentDecay200Response getContentDecay(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId) throws ApiException {
-    return getContentDecay(platform, profileId, null);
+  public GetContentDecay200Response getContentDecay(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String source) throws ApiException {
+    return getContentDecay(platform, profileId, source, null);
   }
 
   /**
@@ -520,12 +527,13 @@ public class AnalyticsApi {
    * Returns how engagement accumulates over time after a post is published. Each bucket shows what percentage of the post&#39;s total engagement had been reached by that time window. Useful for understanding content lifespan (e.g. \&quot;posts reach 78% of total engagement within 24 hours\&quot;). Requires the Analytics add-on. 
    * @param platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms. (optional)
    * @param profileId Filter by profile ID. Omit for all profiles. (optional)
+   * @param source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. (optional, default to all)
    * @param headers Optional headers to include in the request
    * @return GetContentDecay200Response
    * @throws ApiException if fails to make API call
    */
-  public GetContentDecay200Response getContentDecay(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, Map<String, String> headers) throws ApiException {
-    ApiResponse<GetContentDecay200Response> localVarResponse = getContentDecayWithHttpInfo(platform, profileId, headers);
+  public GetContentDecay200Response getContentDecay(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String source, Map<String, String> headers) throws ApiException {
+    ApiResponse<GetContentDecay200Response> localVarResponse = getContentDecayWithHttpInfo(platform, profileId, source, headers);
     return localVarResponse.getData();
   }
 
@@ -534,11 +542,12 @@ public class AnalyticsApi {
    * Returns how engagement accumulates over time after a post is published. Each bucket shows what percentage of the post&#39;s total engagement had been reached by that time window. Useful for understanding content lifespan (e.g. \&quot;posts reach 78% of total engagement within 24 hours\&quot;). Requires the Analytics add-on. 
    * @param platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms. (optional)
    * @param profileId Filter by profile ID. Omit for all profiles. (optional)
+   * @param source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. (optional, default to all)
    * @return ApiResponse&lt;GetContentDecay200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GetContentDecay200Response> getContentDecayWithHttpInfo(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId) throws ApiException {
-    return getContentDecayWithHttpInfo(platform, profileId, null);
+  public ApiResponse<GetContentDecay200Response> getContentDecayWithHttpInfo(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String source) throws ApiException {
+    return getContentDecayWithHttpInfo(platform, profileId, source, null);
   }
 
   /**
@@ -546,12 +555,13 @@ public class AnalyticsApi {
    * Returns how engagement accumulates over time after a post is published. Each bucket shows what percentage of the post&#39;s total engagement had been reached by that time window. Useful for understanding content lifespan (e.g. \&quot;posts reach 78% of total engagement within 24 hours\&quot;). Requires the Analytics add-on. 
    * @param platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms. (optional)
    * @param profileId Filter by profile ID. Omit for all profiles. (optional)
+   * @param source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. (optional, default to all)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetContentDecay200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GetContentDecay200Response> getContentDecayWithHttpInfo(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, Map<String, String> headers) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getContentDecayRequestBuilder(platform, profileId, headers);
+  public ApiResponse<GetContentDecay200Response> getContentDecayWithHttpInfo(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String source, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getContentDecayRequestBuilder(platform, profileId, source, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -598,7 +608,7 @@ public class AnalyticsApi {
     }
   }
 
-  private HttpRequest.Builder getContentDecayRequestBuilder(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, Map<String, String> headers) throws ApiException {
+  private HttpRequest.Builder getContentDecayRequestBuilder(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String source, Map<String, String> headers) throws ApiException {
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
@@ -611,6 +621,8 @@ public class AnalyticsApi {
     localVarQueryParams.addAll(ApiClient.parameterToPairs("platform", platform));
     localVarQueryParameterBaseName = "profileId";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("profileId", profileId));
+    localVarQueryParameterBaseName = "source";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("source", source));
 
     if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
       StringJoiner queryJoiner = new StringJoiner("&");
@@ -644,11 +656,12 @@ public class AnalyticsApi {
    * @param profileId Filter by profile ID. Omit for all profiles. (optional)
    * @param fromDate Inclusive start date (ISO 8601). Defaults to 180 days ago. (optional)
    * @param toDate Inclusive end date (ISO 8601). Defaults to now. (optional)
+   * @param source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. (optional, default to all)
    * @return GetDailyMetrics200Response
    * @throws ApiException if fails to make API call
    */
-  public GetDailyMetrics200Response getDailyMetrics(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable OffsetDateTime fromDate, @javax.annotation.Nullable OffsetDateTime toDate) throws ApiException {
-    return getDailyMetrics(platform, profileId, fromDate, toDate, null);
+  public GetDailyMetrics200Response getDailyMetrics(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable OffsetDateTime fromDate, @javax.annotation.Nullable OffsetDateTime toDate, @javax.annotation.Nullable String source) throws ApiException {
+    return getDailyMetrics(platform, profileId, fromDate, toDate, source, null);
   }
 
   /**
@@ -658,12 +671,13 @@ public class AnalyticsApi {
    * @param profileId Filter by profile ID. Omit for all profiles. (optional)
    * @param fromDate Inclusive start date (ISO 8601). Defaults to 180 days ago. (optional)
    * @param toDate Inclusive end date (ISO 8601). Defaults to now. (optional)
+   * @param source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. (optional, default to all)
    * @param headers Optional headers to include in the request
    * @return GetDailyMetrics200Response
    * @throws ApiException if fails to make API call
    */
-  public GetDailyMetrics200Response getDailyMetrics(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable OffsetDateTime fromDate, @javax.annotation.Nullable OffsetDateTime toDate, Map<String, String> headers) throws ApiException {
-    ApiResponse<GetDailyMetrics200Response> localVarResponse = getDailyMetricsWithHttpInfo(platform, profileId, fromDate, toDate, headers);
+  public GetDailyMetrics200Response getDailyMetrics(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable OffsetDateTime fromDate, @javax.annotation.Nullable OffsetDateTime toDate, @javax.annotation.Nullable String source, Map<String, String> headers) throws ApiException {
+    ApiResponse<GetDailyMetrics200Response> localVarResponse = getDailyMetricsWithHttpInfo(platform, profileId, fromDate, toDate, source, headers);
     return localVarResponse.getData();
   }
 
@@ -674,11 +688,12 @@ public class AnalyticsApi {
    * @param profileId Filter by profile ID. Omit for all profiles. (optional)
    * @param fromDate Inclusive start date (ISO 8601). Defaults to 180 days ago. (optional)
    * @param toDate Inclusive end date (ISO 8601). Defaults to now. (optional)
+   * @param source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. (optional, default to all)
    * @return ApiResponse&lt;GetDailyMetrics200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GetDailyMetrics200Response> getDailyMetricsWithHttpInfo(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable OffsetDateTime fromDate, @javax.annotation.Nullable OffsetDateTime toDate) throws ApiException {
-    return getDailyMetricsWithHttpInfo(platform, profileId, fromDate, toDate, null);
+  public ApiResponse<GetDailyMetrics200Response> getDailyMetricsWithHttpInfo(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable OffsetDateTime fromDate, @javax.annotation.Nullable OffsetDateTime toDate, @javax.annotation.Nullable String source) throws ApiException {
+    return getDailyMetricsWithHttpInfo(platform, profileId, fromDate, toDate, source, null);
   }
 
   /**
@@ -688,12 +703,13 @@ public class AnalyticsApi {
    * @param profileId Filter by profile ID. Omit for all profiles. (optional)
    * @param fromDate Inclusive start date (ISO 8601). Defaults to 180 days ago. (optional)
    * @param toDate Inclusive end date (ISO 8601). Defaults to now. (optional)
+   * @param source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. (optional, default to all)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetDailyMetrics200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GetDailyMetrics200Response> getDailyMetricsWithHttpInfo(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable OffsetDateTime fromDate, @javax.annotation.Nullable OffsetDateTime toDate, Map<String, String> headers) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getDailyMetricsRequestBuilder(platform, profileId, fromDate, toDate, headers);
+  public ApiResponse<GetDailyMetrics200Response> getDailyMetricsWithHttpInfo(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable OffsetDateTime fromDate, @javax.annotation.Nullable OffsetDateTime toDate, @javax.annotation.Nullable String source, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getDailyMetricsRequestBuilder(platform, profileId, fromDate, toDate, source, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -740,7 +756,7 @@ public class AnalyticsApi {
     }
   }
 
-  private HttpRequest.Builder getDailyMetricsRequestBuilder(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable OffsetDateTime fromDate, @javax.annotation.Nullable OffsetDateTime toDate, Map<String, String> headers) throws ApiException {
+  private HttpRequest.Builder getDailyMetricsRequestBuilder(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable OffsetDateTime fromDate, @javax.annotation.Nullable OffsetDateTime toDate, @javax.annotation.Nullable String source, Map<String, String> headers) throws ApiException {
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
@@ -757,6 +773,8 @@ public class AnalyticsApi {
     localVarQueryParams.addAll(ApiClient.parameterToPairs("fromDate", fromDate));
     localVarQueryParameterBaseName = "toDate";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("toDate", toDate));
+    localVarQueryParameterBaseName = "source";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("source", source));
 
     if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
       StringJoiner queryJoiner = new StringJoiner("&");
@@ -1236,11 +1254,12 @@ public class AnalyticsApi {
    * Returns the correlation between posting frequency (posts per week) and engagement rate, broken down by platform. Helps find the optimal posting cadence for each platform. Each row represents a specific (platform, posts_per_week) combination with the average engagement rate observed across all weeks matching that frequency. Requires the Analytics add-on. 
    * @param platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms. (optional)
    * @param profileId Filter by profile ID. Omit for all profiles. (optional)
+   * @param source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. (optional, default to all)
    * @return GetPostingFrequency200Response
    * @throws ApiException if fails to make API call
    */
-  public GetPostingFrequency200Response getPostingFrequency(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId) throws ApiException {
-    return getPostingFrequency(platform, profileId, null);
+  public GetPostingFrequency200Response getPostingFrequency(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String source) throws ApiException {
+    return getPostingFrequency(platform, profileId, source, null);
   }
 
   /**
@@ -1248,12 +1267,13 @@ public class AnalyticsApi {
    * Returns the correlation between posting frequency (posts per week) and engagement rate, broken down by platform. Helps find the optimal posting cadence for each platform. Each row represents a specific (platform, posts_per_week) combination with the average engagement rate observed across all weeks matching that frequency. Requires the Analytics add-on. 
    * @param platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms. (optional)
    * @param profileId Filter by profile ID. Omit for all profiles. (optional)
+   * @param source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. (optional, default to all)
    * @param headers Optional headers to include in the request
    * @return GetPostingFrequency200Response
    * @throws ApiException if fails to make API call
    */
-  public GetPostingFrequency200Response getPostingFrequency(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, Map<String, String> headers) throws ApiException {
-    ApiResponse<GetPostingFrequency200Response> localVarResponse = getPostingFrequencyWithHttpInfo(platform, profileId, headers);
+  public GetPostingFrequency200Response getPostingFrequency(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String source, Map<String, String> headers) throws ApiException {
+    ApiResponse<GetPostingFrequency200Response> localVarResponse = getPostingFrequencyWithHttpInfo(platform, profileId, source, headers);
     return localVarResponse.getData();
   }
 
@@ -1262,11 +1282,12 @@ public class AnalyticsApi {
    * Returns the correlation between posting frequency (posts per week) and engagement rate, broken down by platform. Helps find the optimal posting cadence for each platform. Each row represents a specific (platform, posts_per_week) combination with the average engagement rate observed across all weeks matching that frequency. Requires the Analytics add-on. 
    * @param platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms. (optional)
    * @param profileId Filter by profile ID. Omit for all profiles. (optional)
+   * @param source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. (optional, default to all)
    * @return ApiResponse&lt;GetPostingFrequency200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GetPostingFrequency200Response> getPostingFrequencyWithHttpInfo(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId) throws ApiException {
-    return getPostingFrequencyWithHttpInfo(platform, profileId, null);
+  public ApiResponse<GetPostingFrequency200Response> getPostingFrequencyWithHttpInfo(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String source) throws ApiException {
+    return getPostingFrequencyWithHttpInfo(platform, profileId, source, null);
   }
 
   /**
@@ -1274,12 +1295,13 @@ public class AnalyticsApi {
    * Returns the correlation between posting frequency (posts per week) and engagement rate, broken down by platform. Helps find the optimal posting cadence for each platform. Each row represents a specific (platform, posts_per_week) combination with the average engagement rate observed across all weeks matching that frequency. Requires the Analytics add-on. 
    * @param platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms. (optional)
    * @param profileId Filter by profile ID. Omit for all profiles. (optional)
+   * @param source Filter by post origin. \&quot;late\&quot; for posts published via Late, \&quot;external\&quot; for posts imported from platforms. (optional, default to all)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetPostingFrequency200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GetPostingFrequency200Response> getPostingFrequencyWithHttpInfo(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, Map<String, String> headers) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getPostingFrequencyRequestBuilder(platform, profileId, headers);
+  public ApiResponse<GetPostingFrequency200Response> getPostingFrequencyWithHttpInfo(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String source, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getPostingFrequencyRequestBuilder(platform, profileId, source, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -1326,7 +1348,7 @@ public class AnalyticsApi {
     }
   }
 
-  private HttpRequest.Builder getPostingFrequencyRequestBuilder(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, Map<String, String> headers) throws ApiException {
+  private HttpRequest.Builder getPostingFrequencyRequestBuilder(@javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String source, Map<String, String> headers) throws ApiException {
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
@@ -1339,6 +1361,8 @@ public class AnalyticsApi {
     localVarQueryParams.addAll(ApiClient.parameterToPairs("platform", platform));
     localVarQueryParameterBaseName = "profileId";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("profileId", profileId));
+    localVarQueryParameterBaseName = "source";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("source", source));
 
     if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
       StringJoiner queryJoiner = new StringJoiner("&");

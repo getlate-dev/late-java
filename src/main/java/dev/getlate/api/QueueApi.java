@@ -59,7 +59,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-01T19:26:48.315462900Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-02T18:20:42.371956268Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class QueueApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -727,25 +727,27 @@ public class QueueApi {
    * Preview upcoming slots
    * Returns the next N upcoming queue slot times for a profile as ISO datetime strings.
    * @param profileId  (required)
+   * @param queueId Filter by specific queue ID. Omit to use the default queue. (optional)
    * @param count  (optional, default to 20)
    * @return PreviewQueue200Response
    * @throws ApiException if fails to make API call
    */
-  public PreviewQueue200Response previewQueue(@javax.annotation.Nonnull String profileId, @javax.annotation.Nullable Integer count) throws ApiException {
-    return previewQueue(profileId, count, null);
+  public PreviewQueue200Response previewQueue(@javax.annotation.Nonnull String profileId, @javax.annotation.Nullable String queueId, @javax.annotation.Nullable Integer count) throws ApiException {
+    return previewQueue(profileId, queueId, count, null);
   }
 
   /**
    * Preview upcoming slots
    * Returns the next N upcoming queue slot times for a profile as ISO datetime strings.
    * @param profileId  (required)
+   * @param queueId Filter by specific queue ID. Omit to use the default queue. (optional)
    * @param count  (optional, default to 20)
    * @param headers Optional headers to include in the request
    * @return PreviewQueue200Response
    * @throws ApiException if fails to make API call
    */
-  public PreviewQueue200Response previewQueue(@javax.annotation.Nonnull String profileId, @javax.annotation.Nullable Integer count, Map<String, String> headers) throws ApiException {
-    ApiResponse<PreviewQueue200Response> localVarResponse = previewQueueWithHttpInfo(profileId, count, headers);
+  public PreviewQueue200Response previewQueue(@javax.annotation.Nonnull String profileId, @javax.annotation.Nullable String queueId, @javax.annotation.Nullable Integer count, Map<String, String> headers) throws ApiException {
+    ApiResponse<PreviewQueue200Response> localVarResponse = previewQueueWithHttpInfo(profileId, queueId, count, headers);
     return localVarResponse.getData();
   }
 
@@ -753,25 +755,27 @@ public class QueueApi {
    * Preview upcoming slots
    * Returns the next N upcoming queue slot times for a profile as ISO datetime strings.
    * @param profileId  (required)
+   * @param queueId Filter by specific queue ID. Omit to use the default queue. (optional)
    * @param count  (optional, default to 20)
    * @return ApiResponse&lt;PreviewQueue200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<PreviewQueue200Response> previewQueueWithHttpInfo(@javax.annotation.Nonnull String profileId, @javax.annotation.Nullable Integer count) throws ApiException {
-    return previewQueueWithHttpInfo(profileId, count, null);
+  public ApiResponse<PreviewQueue200Response> previewQueueWithHttpInfo(@javax.annotation.Nonnull String profileId, @javax.annotation.Nullable String queueId, @javax.annotation.Nullable Integer count) throws ApiException {
+    return previewQueueWithHttpInfo(profileId, queueId, count, null);
   }
 
   /**
    * Preview upcoming slots
    * Returns the next N upcoming queue slot times for a profile as ISO datetime strings.
    * @param profileId  (required)
+   * @param queueId Filter by specific queue ID. Omit to use the default queue. (optional)
    * @param count  (optional, default to 20)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;PreviewQueue200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<PreviewQueue200Response> previewQueueWithHttpInfo(@javax.annotation.Nonnull String profileId, @javax.annotation.Nullable Integer count, Map<String, String> headers) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = previewQueueRequestBuilder(profileId, count, headers);
+  public ApiResponse<PreviewQueue200Response> previewQueueWithHttpInfo(@javax.annotation.Nonnull String profileId, @javax.annotation.Nullable String queueId, @javax.annotation.Nullable Integer count, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = previewQueueRequestBuilder(profileId, queueId, count, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -818,7 +822,7 @@ public class QueueApi {
     }
   }
 
-  private HttpRequest.Builder previewQueueRequestBuilder(@javax.annotation.Nonnull String profileId, @javax.annotation.Nullable Integer count, Map<String, String> headers) throws ApiException {
+  private HttpRequest.Builder previewQueueRequestBuilder(@javax.annotation.Nonnull String profileId, @javax.annotation.Nullable String queueId, @javax.annotation.Nullable Integer count, Map<String, String> headers) throws ApiException {
     // verify the required parameter 'profileId' is set
     if (profileId == null) {
       throw new ApiException(400, "Missing the required parameter 'profileId' when calling previewQueue");
@@ -833,6 +837,8 @@ public class QueueApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "profileId";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("profileId", profileId));
+    localVarQueryParameterBaseName = "queueId";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("queueId", queueId));
     localVarQueryParameterBaseName = "count";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("count", count));
 

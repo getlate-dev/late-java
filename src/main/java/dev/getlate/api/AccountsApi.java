@@ -55,7 +55,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-01T19:26:48.315462900Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-02T18:20:42.371956268Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AccountsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -704,25 +704,27 @@ public class AccountsApi {
    * List accounts
    * Returns connected social accounts. Only includes accounts within the plan limit by default. Follower data requires analytics add-on.
    * @param profileId Filter accounts by profile ID (optional)
+   * @param platform Filter accounts by platform (e.g. \&quot;instagram\&quot;, \&quot;twitter\&quot;). (optional)
    * @param includeOverLimit When true, includes accounts from over-limit profiles. (optional, default to false)
    * @return ListAccounts200Response
    * @throws ApiException if fails to make API call
    */
-  public ListAccounts200Response listAccounts(@javax.annotation.Nullable String profileId, @javax.annotation.Nullable Boolean includeOverLimit) throws ApiException {
-    return listAccounts(profileId, includeOverLimit, null);
+  public ListAccounts200Response listAccounts(@javax.annotation.Nullable String profileId, @javax.annotation.Nullable String platform, @javax.annotation.Nullable Boolean includeOverLimit) throws ApiException {
+    return listAccounts(profileId, platform, includeOverLimit, null);
   }
 
   /**
    * List accounts
    * Returns connected social accounts. Only includes accounts within the plan limit by default. Follower data requires analytics add-on.
    * @param profileId Filter accounts by profile ID (optional)
+   * @param platform Filter accounts by platform (e.g. \&quot;instagram\&quot;, \&quot;twitter\&quot;). (optional)
    * @param includeOverLimit When true, includes accounts from over-limit profiles. (optional, default to false)
    * @param headers Optional headers to include in the request
    * @return ListAccounts200Response
    * @throws ApiException if fails to make API call
    */
-  public ListAccounts200Response listAccounts(@javax.annotation.Nullable String profileId, @javax.annotation.Nullable Boolean includeOverLimit, Map<String, String> headers) throws ApiException {
-    ApiResponse<ListAccounts200Response> localVarResponse = listAccountsWithHttpInfo(profileId, includeOverLimit, headers);
+  public ListAccounts200Response listAccounts(@javax.annotation.Nullable String profileId, @javax.annotation.Nullable String platform, @javax.annotation.Nullable Boolean includeOverLimit, Map<String, String> headers) throws ApiException {
+    ApiResponse<ListAccounts200Response> localVarResponse = listAccountsWithHttpInfo(profileId, platform, includeOverLimit, headers);
     return localVarResponse.getData();
   }
 
@@ -730,25 +732,27 @@ public class AccountsApi {
    * List accounts
    * Returns connected social accounts. Only includes accounts within the plan limit by default. Follower data requires analytics add-on.
    * @param profileId Filter accounts by profile ID (optional)
+   * @param platform Filter accounts by platform (e.g. \&quot;instagram\&quot;, \&quot;twitter\&quot;). (optional)
    * @param includeOverLimit When true, includes accounts from over-limit profiles. (optional, default to false)
    * @return ApiResponse&lt;ListAccounts200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListAccounts200Response> listAccountsWithHttpInfo(@javax.annotation.Nullable String profileId, @javax.annotation.Nullable Boolean includeOverLimit) throws ApiException {
-    return listAccountsWithHttpInfo(profileId, includeOverLimit, null);
+  public ApiResponse<ListAccounts200Response> listAccountsWithHttpInfo(@javax.annotation.Nullable String profileId, @javax.annotation.Nullable String platform, @javax.annotation.Nullable Boolean includeOverLimit) throws ApiException {
+    return listAccountsWithHttpInfo(profileId, platform, includeOverLimit, null);
   }
 
   /**
    * List accounts
    * Returns connected social accounts. Only includes accounts within the plan limit by default. Follower data requires analytics add-on.
    * @param profileId Filter accounts by profile ID (optional)
+   * @param platform Filter accounts by platform (e.g. \&quot;instagram\&quot;, \&quot;twitter\&quot;). (optional)
    * @param includeOverLimit When true, includes accounts from over-limit profiles. (optional, default to false)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;ListAccounts200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListAccounts200Response> listAccountsWithHttpInfo(@javax.annotation.Nullable String profileId, @javax.annotation.Nullable Boolean includeOverLimit, Map<String, String> headers) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = listAccountsRequestBuilder(profileId, includeOverLimit, headers);
+  public ApiResponse<ListAccounts200Response> listAccountsWithHttpInfo(@javax.annotation.Nullable String profileId, @javax.annotation.Nullable String platform, @javax.annotation.Nullable Boolean includeOverLimit, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listAccountsRequestBuilder(profileId, platform, includeOverLimit, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -795,7 +799,7 @@ public class AccountsApi {
     }
   }
 
-  private HttpRequest.Builder listAccountsRequestBuilder(@javax.annotation.Nullable String profileId, @javax.annotation.Nullable Boolean includeOverLimit, Map<String, String> headers) throws ApiException {
+  private HttpRequest.Builder listAccountsRequestBuilder(@javax.annotation.Nullable String profileId, @javax.annotation.Nullable String platform, @javax.annotation.Nullable Boolean includeOverLimit, Map<String, String> headers) throws ApiException {
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
@@ -806,6 +810,8 @@ public class AccountsApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "profileId";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("profileId", profileId));
+    localVarQueryParameterBaseName = "platform";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("platform", platform));
     localVarQueryParameterBaseName = "includeOverLimit";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("includeOverLimit", includeOverLimit));
 

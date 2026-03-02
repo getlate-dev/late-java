@@ -49,7 +49,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-01T19:26:48.315462900Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-02T18:20:42.371956268Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class LogsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -470,11 +470,12 @@ public class LogsApi {
    * @param days Number of days to look back (max 7) (optional, default to 7)
    * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
    * @param skip Number of logs to skip (for pagination) (optional, default to 0)
+   * @param search Search through log entries by text content. (optional)
    * @return ListPostsLogs200Response
    * @throws ApiException if fails to make API call
    */
-  public ListPostsLogs200Response listPostsLogs(@javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String action, @javax.annotation.Nullable Integer days, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip) throws ApiException {
-    return listPostsLogs(status, platform, action, days, limit, skip, null);
+  public ListPostsLogs200Response listPostsLogs(@javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String action, @javax.annotation.Nullable Integer days, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, @javax.annotation.Nullable String search) throws ApiException {
+    return listPostsLogs(status, platform, action, days, limit, skip, search, null);
   }
 
   /**
@@ -486,12 +487,13 @@ public class LogsApi {
    * @param days Number of days to look back (max 7) (optional, default to 7)
    * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
    * @param skip Number of logs to skip (for pagination) (optional, default to 0)
+   * @param search Search through log entries by text content. (optional)
    * @param headers Optional headers to include in the request
    * @return ListPostsLogs200Response
    * @throws ApiException if fails to make API call
    */
-  public ListPostsLogs200Response listPostsLogs(@javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String action, @javax.annotation.Nullable Integer days, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, Map<String, String> headers) throws ApiException {
-    ApiResponse<ListPostsLogs200Response> localVarResponse = listPostsLogsWithHttpInfo(status, platform, action, days, limit, skip, headers);
+  public ListPostsLogs200Response listPostsLogs(@javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String action, @javax.annotation.Nullable Integer days, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, @javax.annotation.Nullable String search, Map<String, String> headers) throws ApiException {
+    ApiResponse<ListPostsLogs200Response> localVarResponse = listPostsLogsWithHttpInfo(status, platform, action, days, limit, skip, search, headers);
     return localVarResponse.getData();
   }
 
@@ -504,11 +506,12 @@ public class LogsApi {
    * @param days Number of days to look back (max 7) (optional, default to 7)
    * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
    * @param skip Number of logs to skip (for pagination) (optional, default to 0)
+   * @param search Search through log entries by text content. (optional)
    * @return ApiResponse&lt;ListPostsLogs200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListPostsLogs200Response> listPostsLogsWithHttpInfo(@javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String action, @javax.annotation.Nullable Integer days, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip) throws ApiException {
-    return listPostsLogsWithHttpInfo(status, platform, action, days, limit, skip, null);
+  public ApiResponse<ListPostsLogs200Response> listPostsLogsWithHttpInfo(@javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String action, @javax.annotation.Nullable Integer days, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, @javax.annotation.Nullable String search) throws ApiException {
+    return listPostsLogsWithHttpInfo(status, platform, action, days, limit, skip, search, null);
   }
 
   /**
@@ -520,12 +523,13 @@ public class LogsApi {
    * @param days Number of days to look back (max 7) (optional, default to 7)
    * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
    * @param skip Number of logs to skip (for pagination) (optional, default to 0)
+   * @param search Search through log entries by text content. (optional)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;ListPostsLogs200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListPostsLogs200Response> listPostsLogsWithHttpInfo(@javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String action, @javax.annotation.Nullable Integer days, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, Map<String, String> headers) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = listPostsLogsRequestBuilder(status, platform, action, days, limit, skip, headers);
+  public ApiResponse<ListPostsLogs200Response> listPostsLogsWithHttpInfo(@javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String action, @javax.annotation.Nullable Integer days, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, @javax.annotation.Nullable String search, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listPostsLogsRequestBuilder(status, platform, action, days, limit, skip, search, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -572,7 +576,7 @@ public class LogsApi {
     }
   }
 
-  private HttpRequest.Builder listPostsLogsRequestBuilder(@javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String action, @javax.annotation.Nullable Integer days, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, Map<String, String> headers) throws ApiException {
+  private HttpRequest.Builder listPostsLogsRequestBuilder(@javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String action, @javax.annotation.Nullable Integer days, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, @javax.annotation.Nullable String search, Map<String, String> headers) throws ApiException {
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
@@ -593,6 +597,8 @@ public class LogsApi {
     localVarQueryParams.addAll(ApiClient.parameterToPairs("limit", limit));
     localVarQueryParameterBaseName = "skip";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("skip", skip));
+    localVarQueryParameterBaseName = "search";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("search", search));
 
     if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
       StringJoiner queryJoiner = new StringJoiner("&");
