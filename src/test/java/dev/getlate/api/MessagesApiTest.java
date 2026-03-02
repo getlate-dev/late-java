@@ -21,7 +21,7 @@ import dev.getlate.model.ListInboxConversations200Response;
 import dev.getlate.model.SendInboxMessage200Response;
 import dev.getlate.model.SendInboxMessage400Response;
 import dev.getlate.model.SendInboxMessageRequest;
-import dev.getlate.model.SendInboxMessageRequest1;
+
 import dev.getlate.model.UpdateInboxConversation200Response;
 import dev.getlate.model.UpdateInboxConversationRequest;
 import org.junit.jupiter.api.Disabled;
