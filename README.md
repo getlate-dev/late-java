@@ -4,7 +4,7 @@ Late API
 
 - API version: 1.0.1
 
-- Build date: 2026-03-02T18:20:42.371956268Z[Etc/UTC]
+- Build date: 2026-03-03T09:32:56.199546376Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -164,6 +164,8 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**getLinkedInAggregateAnalyticsWithHttpInfo**](docs/AnalyticsApi.md#getLinkedInAggregateAnalyticsWithHttpInfo) | **GET** /v1/accounts/{accountId}/linkedin-aggregate-analytics | Get LinkedIn aggregate stats
 *AnalyticsApi* | [**getLinkedInPostAnalytics**](docs/AnalyticsApi.md#getLinkedInPostAnalytics) | **GET** /v1/accounts/{accountId}/linkedin-post-analytics | Get LinkedIn post stats
 *AnalyticsApi* | [**getLinkedInPostAnalyticsWithHttpInfo**](docs/AnalyticsApi.md#getLinkedInPostAnalyticsWithHttpInfo) | **GET** /v1/accounts/{accountId}/linkedin-post-analytics | Get LinkedIn post stats
+*AnalyticsApi* | [**getPostTimeline**](docs/AnalyticsApi.md#getPostTimeline) | **GET** /v1/analytics/post-timeline | Get post analytics timeline
+*AnalyticsApi* | [**getPostTimelineWithHttpInfo**](docs/AnalyticsApi.md#getPostTimelineWithHttpInfo) | **GET** /v1/analytics/post-timeline | Get post analytics timeline
 *AnalyticsApi* | [**getPostingFrequency**](docs/AnalyticsApi.md#getPostingFrequency) | **GET** /v1/analytics/posting-frequency | Get posting frequency vs engagement
 *AnalyticsApi* | [**getPostingFrequencyWithHttpInfo**](docs/AnalyticsApi.md#getPostingFrequencyWithHttpInfo) | **GET** /v1/analytics/posting-frequency | Get posting frequency vs engagement
 *AnalyticsApi* | [**getYouTubeDailyViews**](docs/AnalyticsApi.md#getYouTubeDailyViews) | **GET** /v1/analytics/youtube/daily-views | Get YouTube daily views
@@ -547,6 +549,11 @@ Class | Method | HTTP request | Description
  - [GetPinterestBoards200Response](docs/GetPinterestBoards200Response.md)
  - [GetPinterestBoards200ResponseBoardsInner](docs/GetPinterestBoards200ResponseBoardsInner.md)
  - [GetPostLogs200Response](docs/GetPostLogs200Response.md)
+ - [GetPostTimeline200Response](docs/GetPostTimeline200Response.md)
+ - [GetPostTimeline200ResponseTimelineInner](docs/GetPostTimeline200ResponseTimelineInner.md)
+ - [GetPostTimeline400Response](docs/GetPostTimeline400Response.md)
+ - [GetPostTimeline403Response](docs/GetPostTimeline403Response.md)
+ - [GetPostTimeline404Response](docs/GetPostTimeline404Response.md)
  - [GetPostingFrequency200Response](docs/GetPostingFrequency200Response.md)
  - [GetPostingFrequency200ResponseFrequencyInner](docs/GetPostingFrequency200ResponseFrequencyInner.md)
  - [GetProfile200Response](docs/GetProfile200Response.md)

@@ -165,6 +165,11 @@ docs/GetPendingOAuthData200ResponseOrganizationsInner.md
 docs/GetPinterestBoards200Response.md
 docs/GetPinterestBoards200ResponseBoardsInner.md
 docs/GetPostLogs200Response.md
+docs/GetPostTimeline200Response.md
+docs/GetPostTimeline200ResponseTimelineInner.md
+docs/GetPostTimeline400Response.md
+docs/GetPostTimeline403Response.md
+docs/GetPostTimeline404Response.md
 docs/GetPostingFrequency200Response.md
 docs/GetPostingFrequency200ResponseFrequencyInner.md
 docs/GetProfile200Response.md
@@ -662,6 +667,11 @@ src/main/java/dev/getlate/model/GetPendingOAuthData200ResponseOrganizationsInner
 src/main/java/dev/getlate/model/GetPinterestBoards200Response.java
 src/main/java/dev/getlate/model/GetPinterestBoards200ResponseBoardsInner.java
 src/main/java/dev/getlate/model/GetPostLogs200Response.java
+src/main/java/dev/getlate/model/GetPostTimeline200Response.java
+src/main/java/dev/getlate/model/GetPostTimeline200ResponseTimelineInner.java
+src/main/java/dev/getlate/model/GetPostTimeline400Response.java
+src/main/java/dev/getlate/model/GetPostTimeline403Response.java
+src/main/java/dev/getlate/model/GetPostTimeline404Response.java
 src/main/java/dev/getlate/model/GetPostingFrequency200Response.java
 src/main/java/dev/getlate/model/GetPostingFrequency200ResponseFrequencyInner.java
 src/main/java/dev/getlate/model/GetProfile200Response.java
@@ -936,5 +946,8 @@ src/main/java/dev/getlate/model/YouTubeDailyViewsResponseScopeStatus.java
 src/main/java/dev/getlate/model/YouTubePlatformData.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponseScopeStatus.java
-src/test/java/dev/getlate/model/BulkUploadPostsRequestTest.java
-src/test/java/dev/getlate/model/SendInboxMessageRequest1Test.java
+src/test/java/dev/getlate/model/GetPostTimeline200ResponseTest.java
+src/test/java/dev/getlate/model/GetPostTimeline200ResponseTimelineInnerTest.java
+src/test/java/dev/getlate/model/GetPostTimeline400ResponseTest.java
+src/test/java/dev/getlate/model/GetPostTimeline403ResponseTest.java
+src/test/java/dev/getlate/model/GetPostTimeline404ResponseTest.java

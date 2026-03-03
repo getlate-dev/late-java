@@ -18,6 +18,8 @@ All URIs are relative to *https://getlate.dev/api*
 | [**getLinkedInAggregateAnalyticsWithHttpInfo**](AnalyticsApi.md#getLinkedInAggregateAnalyticsWithHttpInfo) | **GET** /v1/accounts/{accountId}/linkedin-aggregate-analytics | Get LinkedIn aggregate stats |
 | [**getLinkedInPostAnalytics**](AnalyticsApi.md#getLinkedInPostAnalytics) | **GET** /v1/accounts/{accountId}/linkedin-post-analytics | Get LinkedIn post stats |
 | [**getLinkedInPostAnalyticsWithHttpInfo**](AnalyticsApi.md#getLinkedInPostAnalyticsWithHttpInfo) | **GET** /v1/accounts/{accountId}/linkedin-post-analytics | Get LinkedIn post stats |
+| [**getPostTimeline**](AnalyticsApi.md#getPostTimeline) | **GET** /v1/analytics/post-timeline | Get post analytics timeline |
+| [**getPostTimelineWithHttpInfo**](AnalyticsApi.md#getPostTimelineWithHttpInfo) | **GET** /v1/analytics/post-timeline | Get post analytics timeline |
 | [**getPostingFrequency**](AnalyticsApi.md#getPostingFrequency) | **GET** /v1/analytics/posting-frequency | Get posting frequency vs engagement |
 | [**getPostingFrequencyWithHttpInfo**](AnalyticsApi.md#getPostingFrequencyWithHttpInfo) | **GET** /v1/analytics/posting-frequency | Get posting frequency vs engagement |
 | [**getYouTubeDailyViews**](AnalyticsApi.md#getYouTubeDailyViews) | **GET** /v1/analytics/youtube/daily-views | Get YouTube daily views |
@@ -1179,6 +1181,168 @@ ApiResponse<[**GetLinkedInPostAnalytics200Response**](GetLinkedInPostAnalytics20
 | **402** | Analytics add-on required |  -  |
 | **403** | Missing required LinkedIn scope |  -  |
 | **404** | Account or post not found |  -  |
+
+
+## getPostTimeline
+
+> GetPostTimeline200Response getPostTimeline(postId, fromDate, toDate)
+
+Get post analytics timeline
+
+Returns a daily timeline of analytics metrics for a specific post, showing how impressions, likes, and other metrics evolved day-by-day since publishing. Each row represents one day of data per platform. For multi-platform Late posts, returns separate rows for each platform. Requires the Analytics add-on. 
+
+### Example
+
+```java
+// Import classes:
+import dev.getlate.ApiClient;
+import dev.getlate.ApiException;
+import dev.getlate.Configuration;
+import dev.getlate.auth.*;
+import dev.getlate.models.*;
+import dev.getlate.api.AnalyticsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://getlate.dev/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        AnalyticsApi apiInstance = new AnalyticsApi(defaultClient);
+        String postId = "postId_example"; // String | The post to fetch timeline for. Accepts an ExternalPost ID, a platformPostId, or a Late Post ID. 
+        OffsetDateTime fromDate = OffsetDateTime.now(); // OffsetDateTime | Start of date range (ISO 8601). Defaults to 90 days ago.
+        OffsetDateTime toDate = OffsetDateTime.now(); // OffsetDateTime | End of date range (ISO 8601). Defaults to now.
+        try {
+            GetPostTimeline200Response result = apiInstance.getPostTimeline(postId, fromDate, toDate);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AnalyticsApi#getPostTimeline");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **postId** | **String**| The post to fetch timeline for. Accepts an ExternalPost ID, a platformPostId, or a Late Post ID.  | |
+| **fromDate** | **OffsetDateTime**| Start of date range (ISO 8601). Defaults to 90 days ago. | [optional] |
+| **toDate** | **OffsetDateTime**| End of date range (ISO 8601). Defaults to now. | [optional] |
+
+### Return type
+
+[**GetPostTimeline200Response**](GetPostTimeline200Response.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Daily analytics timeline |  -  |
+| **400** | Missing required postId parameter |  -  |
+| **401** | Unauthorized |  -  |
+| **402** | Analytics add-on required |  -  |
+| **403** | Forbidden (post belongs to another user or API key scope violation) |  -  |
+| **404** | Post not found |  -  |
+
+## getPostTimelineWithHttpInfo
+
+> ApiResponse<GetPostTimeline200Response> getPostTimeline getPostTimelineWithHttpInfo(postId, fromDate, toDate)
+
+Get post analytics timeline
+
+Returns a daily timeline of analytics metrics for a specific post, showing how impressions, likes, and other metrics evolved day-by-day since publishing. Each row represents one day of data per platform. For multi-platform Late posts, returns separate rows for each platform. Requires the Analytics add-on. 
+
+### Example
+
+```java
+// Import classes:
+import dev.getlate.ApiClient;
+import dev.getlate.ApiException;
+import dev.getlate.ApiResponse;
+import dev.getlate.Configuration;
+import dev.getlate.auth.*;
+import dev.getlate.models.*;
+import dev.getlate.api.AnalyticsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://getlate.dev/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        AnalyticsApi apiInstance = new AnalyticsApi(defaultClient);
+        String postId = "postId_example"; // String | The post to fetch timeline for. Accepts an ExternalPost ID, a platformPostId, or a Late Post ID. 
+        OffsetDateTime fromDate = OffsetDateTime.now(); // OffsetDateTime | Start of date range (ISO 8601). Defaults to 90 days ago.
+        OffsetDateTime toDate = OffsetDateTime.now(); // OffsetDateTime | End of date range (ISO 8601). Defaults to now.
+        try {
+            ApiResponse<GetPostTimeline200Response> response = apiInstance.getPostTimelineWithHttpInfo(postId, fromDate, toDate);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AnalyticsApi#getPostTimeline");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **postId** | **String**| The post to fetch timeline for. Accepts an ExternalPost ID, a platformPostId, or a Late Post ID.  | |
+| **fromDate** | **OffsetDateTime**| Start of date range (ISO 8601). Defaults to 90 days ago. | [optional] |
+| **toDate** | **OffsetDateTime**| End of date range (ISO 8601). Defaults to now. | [optional] |
+
+### Return type
+
+ApiResponse<[**GetPostTimeline200Response**](GetPostTimeline200Response.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Daily analytics timeline |  -  |
+| **400** | Missing required postId parameter |  -  |
+| **401** | Unauthorized |  -  |
+| **402** | Analytics add-on required |  -  |
+| **403** | Forbidden (post belongs to another user or API key scope violation) |  -  |
+| **404** | Post not found |  -  |
 
 
 ## getPostingFrequency

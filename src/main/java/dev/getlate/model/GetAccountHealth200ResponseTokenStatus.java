@@ -39,7 +39,7 @@ import dev.getlate.ApiClient;
   GetAccountHealth200ResponseTokenStatus.JSON_PROPERTY_EXPIRES_IN,
   GetAccountHealth200ResponseTokenStatus.JSON_PROPERTY_NEEDS_REFRESH
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-02T18:20:42.371956268Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T09:32:56.199546376Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetAccountHealth200ResponseTokenStatus {
   public static final String JSON_PROPERTY_VALID = "valid";
   @javax.annotation.Nullable

@@ -34,6 +34,10 @@ import dev.getlate.model.GetLinkedInAggregateAnalytics403Response;
 import dev.getlate.model.GetLinkedInPostAnalytics200Response;
 import dev.getlate.model.GetLinkedInPostAnalytics400Response;
 import dev.getlate.model.GetLinkedInPostAnalytics403Response;
+import dev.getlate.model.GetPostTimeline200Response;
+import dev.getlate.model.GetPostTimeline400Response;
+import dev.getlate.model.GetPostTimeline403Response;
+import dev.getlate.model.GetPostTimeline404Response;
 import dev.getlate.model.GetPostingFrequency200Response;
 import dev.getlate.model.GetYouTubeDailyViews400Response;
 import dev.getlate.model.GetYouTubeDailyViews403Response;
@@ -70,7 +74,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-02T18:20:42.371956268Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T09:32:56.199546376Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AnalyticsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -1223,6 +1227,150 @@ public class AnalyticsApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "urn";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("urn", urn));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Get post analytics timeline
+   * Returns a daily timeline of analytics metrics for a specific post, showing how impressions, likes, and other metrics evolved day-by-day since publishing. Each row represents one day of data per platform. For multi-platform Late posts, returns separate rows for each platform. Requires the Analytics add-on. 
+   * @param postId The post to fetch timeline for. Accepts an ExternalPost ID, a platformPostId, or a Late Post ID.  (required)
+   * @param fromDate Start of date range (ISO 8601). Defaults to 90 days ago. (optional)
+   * @param toDate End of date range (ISO 8601). Defaults to now. (optional)
+   * @return GetPostTimeline200Response
+   * @throws ApiException if fails to make API call
+   */
+  public GetPostTimeline200Response getPostTimeline(@javax.annotation.Nonnull String postId, @javax.annotation.Nullable OffsetDateTime fromDate, @javax.annotation.Nullable OffsetDateTime toDate) throws ApiException {
+    return getPostTimeline(postId, fromDate, toDate, null);
+  }
+
+  /**
+   * Get post analytics timeline
+   * Returns a daily timeline of analytics metrics for a specific post, showing how impressions, likes, and other metrics evolved day-by-day since publishing. Each row represents one day of data per platform. For multi-platform Late posts, returns separate rows for each platform. Requires the Analytics add-on. 
+   * @param postId The post to fetch timeline for. Accepts an ExternalPost ID, a platformPostId, or a Late Post ID.  (required)
+   * @param fromDate Start of date range (ISO 8601). Defaults to 90 days ago. (optional)
+   * @param toDate End of date range (ISO 8601). Defaults to now. (optional)
+   * @param headers Optional headers to include in the request
+   * @return GetPostTimeline200Response
+   * @throws ApiException if fails to make API call
+   */
+  public GetPostTimeline200Response getPostTimeline(@javax.annotation.Nonnull String postId, @javax.annotation.Nullable OffsetDateTime fromDate, @javax.annotation.Nullable OffsetDateTime toDate, Map<String, String> headers) throws ApiException {
+    ApiResponse<GetPostTimeline200Response> localVarResponse = getPostTimelineWithHttpInfo(postId, fromDate, toDate, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Get post analytics timeline
+   * Returns a daily timeline of analytics metrics for a specific post, showing how impressions, likes, and other metrics evolved day-by-day since publishing. Each row represents one day of data per platform. For multi-platform Late posts, returns separate rows for each platform. Requires the Analytics add-on. 
+   * @param postId The post to fetch timeline for. Accepts an ExternalPost ID, a platformPostId, or a Late Post ID.  (required)
+   * @param fromDate Start of date range (ISO 8601). Defaults to 90 days ago. (optional)
+   * @param toDate End of date range (ISO 8601). Defaults to now. (optional)
+   * @return ApiResponse&lt;GetPostTimeline200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<GetPostTimeline200Response> getPostTimelineWithHttpInfo(@javax.annotation.Nonnull String postId, @javax.annotation.Nullable OffsetDateTime fromDate, @javax.annotation.Nullable OffsetDateTime toDate) throws ApiException {
+    return getPostTimelineWithHttpInfo(postId, fromDate, toDate, null);
+  }
+
+  /**
+   * Get post analytics timeline
+   * Returns a daily timeline of analytics metrics for a specific post, showing how impressions, likes, and other metrics evolved day-by-day since publishing. Each row represents one day of data per platform. For multi-platform Late posts, returns separate rows for each platform. Requires the Analytics add-on. 
+   * @param postId The post to fetch timeline for. Accepts an ExternalPost ID, a platformPostId, or a Late Post ID.  (required)
+   * @param fromDate Start of date range (ISO 8601). Defaults to 90 days ago. (optional)
+   * @param toDate End of date range (ISO 8601). Defaults to now. (optional)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;GetPostTimeline200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<GetPostTimeline200Response> getPostTimelineWithHttpInfo(@javax.annotation.Nonnull String postId, @javax.annotation.Nullable OffsetDateTime fromDate, @javax.annotation.Nullable OffsetDateTime toDate, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getPostTimelineRequestBuilder(postId, fromDate, toDate, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getPostTimeline", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<GetPostTimeline200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        GetPostTimeline200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<GetPostTimeline200Response>() {});
+        
+
+        return new ApiResponse<GetPostTimeline200Response>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getPostTimelineRequestBuilder(@javax.annotation.Nonnull String postId, @javax.annotation.Nullable OffsetDateTime fromDate, @javax.annotation.Nullable OffsetDateTime toDate, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'postId' is set
+    if (postId == null) {
+      throw new ApiException(400, "Missing the required parameter 'postId' when calling getPostTimeline");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/analytics/post-timeline";
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "postId";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("postId", postId));
+    localVarQueryParameterBaseName = "fromDate";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("fromDate", fromDate));
+    localVarQueryParameterBaseName = "toDate";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("toDate", toDate));
 
     if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
       StringJoiner queryJoiner = new StringJoiner("&");

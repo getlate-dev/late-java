@@ -1339,6 +1339,107 @@ paths:
       - Analytics
       x-accepts:
       - application/json
+  /v1/analytics/post-timeline:
+    get:
+      description: |
+        Returns a daily timeline of analytics metrics for a specific post, showing how impressions, likes,
+        and other metrics evolved day-by-day since publishing. Each row represents one day of data per platform.
+        For multi-platform Late posts, returns separate rows for each platform. Requires the Analytics add-on.
+      operationId: getPostTimeline
+      parameters:
+      - description: |
+          The post to fetch timeline for. Accepts an ExternalPost ID, a platformPostId, or a Late Post ID.
+        explode: true
+        in: query
+        name: postId
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: Start of date range (ISO 8601). Defaults to 90 days ago.
+        explode: true
+        in: query
+        name: fromDate
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - description: End of date range (ISO 8601). Defaults to now.
+        explode: true
+        in: query
+        name: toDate
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                single_platform:
+                  summary: Single-platform post timeline
+                  value:
+                    postId: 6507a1b2c3d4e5f6a7b8c9d0
+                    timeline:
+                    - date: 2025-01-15
+                      platform: instagram
+                      platformPostId: "17902345678901234"
+                      impressions: 1200
+                      reach: 980
+                      likes: 45
+                      comments: 3
+                      shares: 12
+                      saves: 8
+                      clicks: 25
+                      views: 0
+                    - date: 2025-01-16
+                      platform: instagram
+                      platformPostId: "17902345678901234"
+                      impressions: 2400
+                      reach: 1850
+                      likes: 92
+                      comments: 7
+                      shares: 21
+                      saves: 15
+                      clicks: 48
+                      views: 0
+              schema:
+                $ref: "#/components/schemas/getPostTimeline_200_response"
+          description: Daily analytics timeline
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getPostTimeline_400_response"
+          description: Missing required postId parameter
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "402":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getAnalytics_402_response"
+          description: Analytics add-on required
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getPostTimeline_403_response"
+          description: Forbidden (post belongs to another user or API key scope violation)
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getPostTimeline_404_response"
+          description: Post not found
+      summary: Get post analytics timeline
+      tags:
+      - Analytics
+      x-accepts:
+      - application/json
   /v1/account-groups:
     get:
       description: "Returns all account groups for the authenticated user, including\
@@ -13496,6 +13597,109 @@ components:
           items:
             $ref: "#/components/schemas/getPostingFrequency_200_response_frequency_inner"
           type: array
+    getPostTimeline_200_response_timeline_inner:
+      example:
+        date: 2000-01-23
+        shares: 5
+        comments: 5
+        saves: 2
+        reach: 6
+        clicks: 7
+        impressions: 0
+        platform: platform
+        views: 9
+        platformPostId: platformPostId
+        likes: 1
+      properties:
+        date:
+          description: Date in YYYY-MM-DD format
+          format: date
+          type: string
+        platform:
+          description: "Platform name (e.g. instagram, tiktok)"
+          type: string
+        platformPostId:
+          description: Platform-specific post ID
+          type: string
+        impressions:
+          description: Total impressions on this date
+          type: integer
+        reach:
+          description: Total reach on this date
+          type: integer
+        likes:
+          description: Total likes on this date
+          type: integer
+        comments:
+          description: Total comments on this date
+          type: integer
+        shares:
+          description: Total shares on this date
+          type: integer
+        saves:
+          description: Total saves on this date
+          type: integer
+        clicks:
+          description: Total clicks on this date
+          type: integer
+        views:
+          description: Total views on this date
+          type: integer
+    getPostTimeline_200_response:
+      example:
+        timeline:
+        - date: 2000-01-23
+          shares: 5
+          comments: 5
+          saves: 2
+          reach: 6
+          clicks: 7
+          impressions: 0
+          platform: platform
+          views: 9
+          platformPostId: platformPostId
+          likes: 1
+        - date: 2000-01-23
+          shares: 5
+          comments: 5
+          saves: 2
+          reach: 6
+          clicks: 7
+          impressions: 0
+          platform: platform
+          views: 9
+          platformPostId: platformPostId
+          likes: 1
+        postId: postId
+      properties:
+        postId:
+          description: The postId that was requested
+          type: string
+        timeline:
+          items:
+            $ref: "#/components/schemas/getPostTimeline_200_response_timeline_inner"
+          type: array
+    getPostTimeline_400_response:
+      example:
+        error: "Missing required parameter: postId"
+      properties:
+        error:
+          example: "Missing required parameter: postId"
+          type: string
+    getPostTimeline_403_response:
+      example:
+        error: Forbidden
+      properties:
+        error:
+          example: Forbidden
+          type: string
+    getPostTimeline_404_response:
+      example:
+        error: Post not found
+      properties:
+        error:
+          example: Post not found
+          type: string
     listAccountGroups_200_response_groups_inner:
       example:
         accountIds:
