@@ -36,7 +36,7 @@ import dev.getlate.ApiClient;
   SelectLinkedInOrganization200ResponseBulkRefresh.JSON_PROPERTY_UPDATED_COUNT,
   SelectLinkedInOrganization200ResponseBulkRefresh.JSON_PROPERTY_ERRORS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:49:34.642597589Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:59:47.433285091Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class SelectLinkedInOrganization200ResponseBulkRefresh {
   public static final String JSON_PROPERTY_UPDATED_COUNT = "updatedCount";
   @javax.annotation.Nullable

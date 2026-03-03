@@ -41,7 +41,7 @@ import dev.getlate.ApiClient;
   SelectGoogleBusinessLocation200ResponseAccount.JSON_PROPERTY_SELECTED_LOCATION_NAME,
   SelectGoogleBusinessLocation200ResponseAccount.JSON_PROPERTY_SELECTED_LOCATION_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:49:34.642597589Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:59:47.433285091Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class SelectGoogleBusinessLocation200ResponseAccount {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nullable

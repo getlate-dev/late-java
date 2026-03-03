@@ -38,7 +38,7 @@ import dev.getlate.ApiClient;
   ReplyToInboxReview200ResponseReply.JSON_PROPERTY_TEXT,
   ReplyToInboxReview200ResponseReply.JSON_PROPERTY_CREATED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:49:34.642597589Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:59:47.433285091Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ReplyToInboxReview200ResponseReply {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable

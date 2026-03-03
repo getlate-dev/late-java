@@ -58,7 +58,7 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import dev.getlate.ApiClient;
 import dev.getlate.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:49:34.642597589Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:59:47.433285091Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 @JsonDeserialize(using = ValidatePost200Response.ValidatePost200ResponseDeserializer.class)
 @JsonSerialize(using = ValidatePost200Response.ValidatePost200ResponseSerializer.class)
 public class ValidatePost200Response extends AbstractOpenApiSchema {

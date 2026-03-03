@@ -38,7 +38,7 @@ import dev.getlate.ApiClient;
   FacebookPlatformData.JSON_PROPERTY_FIRST_COMMENT,
   FacebookPlatformData.JSON_PROPERTY_PAGE_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:49:34.642597589Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:59:47.433285091Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class FacebookPlatformData {
   /**
    * Set to &#39;story&#39; for Page Stories (24h ephemeral) or &#39;reel&#39; for Reels (short vertical video). Defaults to feed post if omitted.

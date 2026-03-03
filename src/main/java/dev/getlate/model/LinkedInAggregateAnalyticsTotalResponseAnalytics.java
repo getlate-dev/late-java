@@ -41,7 +41,7 @@ import dev.getlate.ApiClient;
   LinkedInAggregateAnalyticsTotalResponseAnalytics.JSON_PROPERTY_SHARES,
   LinkedInAggregateAnalyticsTotalResponseAnalytics.JSON_PROPERTY_ENGAGEMENT_RATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:49:34.642597589Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:59:47.433285091Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class LinkedInAggregateAnalyticsTotalResponseAnalytics {
   public static final String JSON_PROPERTY_IMPRESSIONS = "impressions";
   @javax.annotation.Nullable

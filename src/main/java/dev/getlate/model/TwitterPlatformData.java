@@ -39,7 +39,7 @@ import dev.getlate.ApiClient;
   TwitterPlatformData.JSON_PROPERTY_REPLY_SETTINGS,
   TwitterPlatformData.JSON_PROPERTY_THREAD_ITEMS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:49:34.642597589Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:59:47.433285091Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class TwitterPlatformData {
   /**
    * Controls who can reply to the tweet. \&quot;following\&quot; allows only people you follow, \&quot;mentionedUsers\&quot; allows only mentioned users, \&quot;subscribers\&quot; allows only subscribers. Omit for default (everyone can reply). For threads, applies to the first tweet only.
