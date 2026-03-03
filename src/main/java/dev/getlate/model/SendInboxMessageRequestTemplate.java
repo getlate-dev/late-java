@@ -39,7 +39,7 @@ import dev.getlate.ApiClient;
   SendInboxMessageRequestTemplate.JSON_PROPERTY_TYPE,
   SendInboxMessageRequestTemplate.JSON_PROPERTY_ELEMENTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:38:05.272739737Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:49:34.642597589Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class SendInboxMessageRequestTemplate {
   /**
    * Template type

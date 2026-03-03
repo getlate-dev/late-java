@@ -42,7 +42,7 @@ import dev.getlate.ApiClient;
   GetDailyMetrics200ResponseDailyDataInnerMetrics.JSON_PROPERTY_CLICKS,
   GetDailyMetrics200ResponseDailyDataInnerMetrics.JSON_PROPERTY_VIEWS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:38:05.272739737Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:49:34.642597589Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetDailyMetrics200ResponseDailyDataInnerMetrics {
   public static final String JSON_PROPERTY_IMPRESSIONS = "impressions";
   @javax.annotation.Nullable

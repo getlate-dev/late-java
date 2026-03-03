@@ -8005,6 +8005,13 @@ paths:
               schema:
                 $ref: "#/components/schemas/deleteInboxComment_200_response"
           description: Comment deleted
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getYouTubeDailyViews_400_response"
+          description: "Platform rejected the operation (e.g., comment already deleted,\
+            \ insufficient permissions on the video)"
         "401":
           $ref: "#/components/responses/Unauthorized"
         "403":
