@@ -21,6 +21,7 @@
 |**crosspostingEnabled** | **Boolean** |  |  [optional] |
 |**metadata** | **Map&lt;String, Object&gt;** |  |  [optional] |
 |**tiktokSettings** | [**TikTokPlatformData**](TikTokPlatformData.md) | Root-level TikTok settings applied to all TikTok platforms. Merged into each platform&#39;s platformSpecificData, with platform-specific settings taking precedence. |  [optional] |
+|**recycling** | [**RecyclingConfig**](RecyclingConfig.md) |  |  [optional] |
 |**queuedFromProfile** | **String** | Profile ID to schedule via queue. When provided without scheduledFor, the post is auto-assigned to the next available slot. Do not call /v1/queue/next-slot and use that time in scheduledFor, as that bypasses queue locking. |  [optional] |
 |**queueId** | **String** | Specific queue ID to use when scheduling via queue. Only used when queuedFromProfile is also provided. If omitted, uses the profile&#39;s default queue.  |  [optional] |
 

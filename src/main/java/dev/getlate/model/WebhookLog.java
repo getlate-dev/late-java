@@ -49,7 +49,7 @@ import dev.getlate.ApiClient;
   WebhookLog.JSON_PROPERTY_RESPONSE_TIME,
   WebhookLog.JSON_PROPERTY_CREATED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:59:47.433285091Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-06T15:45:05.246868673Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WebhookLog {
   public static final String JSON_PROPERTY_ID = "_id";
   @javax.annotation.Nullable
@@ -74,6 +74,8 @@ public class WebhookLog {
     POST_FAILED(String.valueOf("post.failed")),
     
     POST_PARTIAL(String.valueOf("post.partial")),
+    
+    POST_RECYCLED(String.valueOf("post.recycled")),
     
     ACCOUNT_CONNECTED(String.valueOf("account.connected")),
     

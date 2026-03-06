@@ -38,7 +38,7 @@ import dev.getlate.ApiClient;
 @JsonPropertyOrder({
   SetTelegramCommandsRequest.JSON_PROPERTY_COMMANDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:59:47.433285091Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-06T15:45:05.246868673Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class SetTelegramCommandsRequest {
   public static final String JSON_PROPERTY_COMMANDS = "commands";
   @javax.annotation.Nonnull

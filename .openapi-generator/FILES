@@ -307,6 +307,8 @@ docs/QueueSchedule.md
 docs/QueueSlot.md
 docs/QueueSlotsResponse.md
 docs/QueueUpdateResponse.md
+docs/RecyclingConfig.md
+docs/RecyclingState.md
 docs/RedditPlatformData.md
 docs/RedditSearchApi.md
 docs/ReplyToInboxPost200Response.md
@@ -795,6 +797,8 @@ src/main/java/dev/getlate/model/QueueSchedule.java
 src/main/java/dev/getlate/model/QueueSlot.java
 src/main/java/dev/getlate/model/QueueSlotsResponse.java
 src/main/java/dev/getlate/model/QueueUpdateResponse.java
+src/main/java/dev/getlate/model/RecyclingConfig.java
+src/main/java/dev/getlate/model/RecyclingState.java
 src/main/java/dev/getlate/model/RedditPlatformData.java
 src/main/java/dev/getlate/model/ReplyToInboxPost200Response.java
 src/main/java/dev/getlate/model/ReplyToInboxPost200ResponseData.java
@@ -946,3 +950,5 @@ src/main/java/dev/getlate/model/YouTubeDailyViewsResponseScopeStatus.java
 src/main/java/dev/getlate/model/YouTubePlatformData.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponseScopeStatus.java
+src/test/java/dev/getlate/model/RecyclingConfigTest.java
+src/test/java/dev/getlate/model/RecyclingStateTest.java

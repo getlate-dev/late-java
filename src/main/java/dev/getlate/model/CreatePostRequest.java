@@ -26,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import dev.getlate.model.CreatePostRequestMediaItemsInner;
 import dev.getlate.model.CreatePostRequestPlatformsInner;
+import dev.getlate.model.RecyclingConfig;
 import dev.getlate.model.TikTokPlatformData;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -55,10 +56,11 @@ import dev.getlate.ApiClient;
   CreatePostRequest.JSON_PROPERTY_CROSSPOSTING_ENABLED,
   CreatePostRequest.JSON_PROPERTY_METADATA,
   CreatePostRequest.JSON_PROPERTY_TIKTOK_SETTINGS,
+  CreatePostRequest.JSON_PROPERTY_RECYCLING,
   CreatePostRequest.JSON_PROPERTY_QUEUED_FROM_PROFILE,
   CreatePostRequest.JSON_PROPERTY_QUEUE_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:59:47.433285091Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-06T15:45:05.246868673Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreatePostRequest {
   public static final String JSON_PROPERTY_TITLE = "title";
   @javax.annotation.Nullable
@@ -115,6 +117,10 @@ public class CreatePostRequest {
   public static final String JSON_PROPERTY_TIKTOK_SETTINGS = "tiktokSettings";
   @javax.annotation.Nullable
   private TikTokPlatformData tiktokSettings;
+
+  public static final String JSON_PROPERTY_RECYCLING = "recycling";
+  @javax.annotation.Nullable
+  private RecyclingConfig recycling;
 
   public static final String JSON_PROPERTY_QUEUED_FROM_PROFILE = "queuedFromProfile";
   @javax.annotation.Nullable
@@ -511,6 +517,30 @@ public class CreatePostRequest {
   }
 
 
+  public CreatePostRequest recycling(@javax.annotation.Nullable RecyclingConfig recycling) {
+    this.recycling = recycling;
+    return this;
+  }
+
+  /**
+   * Get recycling
+   * @return recycling
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_RECYCLING, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RecyclingConfig getRecycling() {
+    return recycling;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_RECYCLING, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRecycling(@javax.annotation.Nullable RecyclingConfig recycling) {
+    this.recycling = recycling;
+  }
+
+
   public CreatePostRequest queuedFromProfile(@javax.annotation.Nullable String queuedFromProfile) {
     this.queuedFromProfile = queuedFromProfile;
     return this;
@@ -585,13 +615,14 @@ public class CreatePostRequest {
         Objects.equals(this.crosspostingEnabled, createPostRequest.crosspostingEnabled) &&
         Objects.equals(this.metadata, createPostRequest.metadata) &&
         Objects.equals(this.tiktokSettings, createPostRequest.tiktokSettings) &&
+        Objects.equals(this.recycling, createPostRequest.recycling) &&
         Objects.equals(this.queuedFromProfile, createPostRequest.queuedFromProfile) &&
         Objects.equals(this.queueId, createPostRequest.queueId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, content, mediaItems, platforms, scheduledFor, publishNow, isDraft, timezone, tags, hashtags, mentions, crosspostingEnabled, metadata, tiktokSettings, queuedFromProfile, queueId);
+    return Objects.hash(title, content, mediaItems, platforms, scheduledFor, publishNow, isDraft, timezone, tags, hashtags, mentions, crosspostingEnabled, metadata, tiktokSettings, recycling, queuedFromProfile, queueId);
   }
 
   @Override
@@ -612,6 +643,7 @@ public class CreatePostRequest {
     sb.append("    crosspostingEnabled: ").append(toIndentedString(crosspostingEnabled)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    tiktokSettings: ").append(toIndentedString(tiktokSettings)).append("\n");
+    sb.append("    recycling: ").append(toIndentedString(recycling)).append("\n");
     sb.append("    queuedFromProfile: ").append(toIndentedString(queuedFromProfile)).append("\n");
     sb.append("    queueId: ").append(toIndentedString(queueId)).append("\n");
     sb.append("}");
@@ -755,6 +787,11 @@ public class CreatePostRequest {
     // add `tiktokSettings` to the URL query string
     if (getTiktokSettings() != null) {
       joiner.add(getTiktokSettings().toUrlQueryString(prefix + "tiktokSettings" + suffix));
+    }
+
+    // add `recycling` to the URL query string
+    if (getRecycling() != null) {
+      joiner.add(getRecycling().toUrlQueryString(prefix + "recycling" + suffix));
     }
 
     // add `queuedFromProfile` to the URL query string

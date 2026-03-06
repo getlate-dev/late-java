@@ -108,7 +108,7 @@ tags:
     Platform-specific account settings: Facebook persistent menu, Instagram ice breakers, and Telegram bot commands.
   name: Account Settings
 - description: |
-    Configure webhooks for real-time notifications. Events: post.scheduled, post.published, post.failed, post.partial, account.connected, account.disconnected, message.received, comment.received.
+    Configure webhooks for real-time notifications. Events: post.scheduled, post.published, post.failed, post.partial, post.recycled, account.connected, account.disconnected, message.received, comment.received.
     Security: optional HMAC-SHA256 signature in X-Late-Signature header. Configure a secret key to enable verification. Custom headers supported.
   name: Webhooks
 - description: |
@@ -2062,6 +2062,22 @@ paths:
         content:
           application/json:
             examples:
+              recyclingPost:
+                summary: Post with weekly recycling and content variations
+                value:
+                  content: Check out our evergreen guide!
+                  platforms:
+                  - platform: twitter
+                    accountId: 64e1f0a9e2b5af0012ab34cd
+                  scheduledFor: 2025-06-01T10:00:00Z
+                  recycling:
+                    gap: 2
+                    gapFreq: week
+                    expireCount: 6
+                    contentVariations:
+                    - Check out our evergreen guide!
+                    - Don't miss our essential guide!
+                    - "Our most popular guide, updated!"
               tiktokPhotoCarousel:
                 summary: TikTok photo carousel with draft mode
                 value:
@@ -6867,6 +6883,7 @@ paths:
           - post.published
           - post.failed
           - post.partial
+          - post.recycled
           - account.connected
           - account.disconnected
           - message.received
@@ -9492,6 +9509,7 @@ components:
             - post.published
             - post.failed
             - post.partial
+            - post.recycled
             - account.connected
             - account.disconnected
             - message.received
@@ -9544,6 +9562,7 @@ components:
           - post.published
           - post.failed
           - post.partial
+          - post.recycled
           - account.connected
           - account.disconnected
           - message.received
@@ -9588,6 +9607,7 @@ components:
           - post.published
           - post.failed
           - post.partial
+          - post.recycled
           type: string
         post:
           $ref: "#/components/schemas/WebhookPayloadPost_post"
@@ -10055,6 +10075,21 @@ components:
         - hashtags
         visibility: public
         timezone: timezone
+        recycling:
+          recycleCount: 5
+          gap: 6
+          expireCount: 1
+          lastRecycledAt: 2000-01-23T04:56:07.000+00:00
+          expireDate: 2000-01-23T04:56:07.000+00:00
+          nextRecycleAt: 2000-01-23T04:56:07.000+00:00
+          contentVariationIndex: 5
+          gapFreq: week
+          enabled: true
+          startDate: 2000-01-23T04:56:07.000+00:00
+          contentVariations:
+          - contentVariations
+          - contentVariations
+        recycledFromPostId: recycledFromPostId
         title: title
         userId: Post_userId
         content: content
@@ -10292,6 +10327,11 @@ components:
         metadata:
           additionalProperties: true
           type: object
+        recycling:
+          $ref: "#/components/schemas/RecyclingState"
+        recycledFromPostId:
+          description: ID of the original post if this post was created via recycling
+          type: string
         queuedFromProfile:
           description: Profile ID if the post was scheduled via the queue
           type: string
@@ -10302,6 +10342,114 @@ components:
           format: date-time
           type: string
         updatedAt:
+          format: date-time
+          type: string
+    RecyclingConfig:
+      description: |
+        Configure automatic post recycling (reposting at regular intervals).
+        After the post is published, the system creates new scheduled copies at the
+        specified interval until expiration conditions are met. Supports weekly or
+        monthly intervals. Maximum 10 active recycling posts per account.
+        YouTube and TikTok platforms are excluded from recycling.
+        Content variations are recommended for Twitter and Pinterest to avoid duplicate flags.
+      properties:
+        enabled:
+          default: true
+          description: Set to false to disable recycling on this post
+          type: boolean
+        gap:
+          description: Number of interval units between each repost. Required when
+            enabling recycling.
+          example: 2
+          minimum: 1
+          type: integer
+        gapFreq:
+          default: month
+          description: Interval unit for the gap. Defaults to 'month'.
+          enum:
+          - week
+          - month
+          type: string
+        startDate:
+          description: When to start the recycling cycle. Defaults to the post's scheduledFor
+            date.
+          format: date-time
+          type: string
+        expireCount:
+          description: Stop recycling after this many copies have been created
+          example: 5
+          minimum: 1
+          type: integer
+        expireDate:
+          description: "Stop recycling after this date, regardless of count"
+          format: date-time
+          type: string
+        contentVariations:
+          description: |
+            Array of content variations for recycled copies. On each recycle, the next
+            variation is used in round-robin order. Recommended for Twitter and Pinterest
+            to avoid duplicate content flags. If omitted, the original post content is
+            used for all recycled copies. Send an empty array [] to clear existing
+            variations. Must have 2+ entries when setting variations. Platform-level
+            customContent still overrides the base content per platform.
+          items:
+            type: string
+          maxItems: 20
+          type: array
+    RecyclingState:
+      description: Current recycling configuration and state on a post
+      example:
+        recycleCount: 5
+        gap: 6
+        expireCount: 1
+        lastRecycledAt: 2000-01-23T04:56:07.000+00:00
+        expireDate: 2000-01-23T04:56:07.000+00:00
+        nextRecycleAt: 2000-01-23T04:56:07.000+00:00
+        contentVariationIndex: 5
+        gapFreq: week
+        enabled: true
+        startDate: 2000-01-23T04:56:07.000+00:00
+        contentVariations:
+        - contentVariations
+        - contentVariations
+      properties:
+        enabled:
+          description: Whether recycling is currently active
+          type: boolean
+        gap:
+          description: Number of interval units between reposts
+          type: integer
+        gapFreq:
+          description: Interval unit (week or month)
+          enum:
+          - week
+          - month
+          type: string
+        startDate:
+          format: date-time
+          type: string
+        expireCount:
+          type: integer
+        expireDate:
+          format: date-time
+          type: string
+        contentVariations:
+          description: Content variations for recycled copies (if configured)
+          items:
+            type: string
+          type: array
+        contentVariationIndex:
+          description: Current position in the content variations rotation (read-only)
+          type: integer
+        recycleCount:
+          description: How many recycled copies have been created so far (read-only)
+          type: integer
+        nextRecycleAt:
+          description: When the next recycled copy will be created (read-only)
+          format: date-time
+          type: string
+        lastRecycledAt:
+          description: When the last recycled copy was created (read-only)
           format: date-time
           type: string
     TwitterPlatformData:
@@ -10752,10 +10900,10 @@ components:
           type: string
     Pagination:
       example:
-        total: 5
-        pages: 5
-        limit: 1
-        page: 6
+        total: 9
+        pages: 3
+        limit: 7
+        page: 2
       properties:
         page:
           type: integer
@@ -11221,10 +11369,10 @@ components:
     PostsListResponse:
       example:
         pagination:
-          total: 5
-          pages: 5
-          limit: 1
-          page: 6
+          total: 9
+          pages: 3
+          limit: 7
+          page: 2
         posts:
         - queueId: queueId
           metadata:
@@ -11234,6 +11382,21 @@ components:
           - hashtags
           visibility: public
           timezone: timezone
+          recycling:
+            recycleCount: 5
+            gap: 6
+            expireCount: 1
+            lastRecycledAt: 2000-01-23T04:56:07.000+00:00
+            expireDate: 2000-01-23T04:56:07.000+00:00
+            nextRecycleAt: 2000-01-23T04:56:07.000+00:00
+            contentVariationIndex: 5
+            gapFreq: week
+            enabled: true
+            startDate: 2000-01-23T04:56:07.000+00:00
+            contentVariations:
+            - contentVariations
+            - contentVariations
+          recycledFromPostId: recycledFromPostId
           title: title
           userId: Post_userId
           content: content
@@ -11423,6 +11586,21 @@ components:
           - hashtags
           visibility: public
           timezone: timezone
+          recycling:
+            recycleCount: 5
+            gap: 6
+            expireCount: 1
+            lastRecycledAt: 2000-01-23T04:56:07.000+00:00
+            expireDate: 2000-01-23T04:56:07.000+00:00
+            nextRecycleAt: 2000-01-23T04:56:07.000+00:00
+            contentVariationIndex: 5
+            gapFreq: week
+            enabled: true
+            startDate: 2000-01-23T04:56:07.000+00:00
+            contentVariations:
+            - contentVariations
+            - contentVariations
+          recycledFromPostId: recycledFromPostId
           title: title
           userId: Post_userId
           content: content
@@ -11622,6 +11800,21 @@ components:
           - hashtags
           visibility: public
           timezone: timezone
+          recycling:
+            recycleCount: 5
+            gap: 6
+            expireCount: 1
+            lastRecycledAt: 2000-01-23T04:56:07.000+00:00
+            expireDate: 2000-01-23T04:56:07.000+00:00
+            nextRecycleAt: 2000-01-23T04:56:07.000+00:00
+            contentVariationIndex: 5
+            gapFreq: week
+            enabled: true
+            startDate: 2000-01-23T04:56:07.000+00:00
+            contentVariations:
+            - contentVariations
+            - contentVariations
+          recycledFromPostId: recycledFromPostId
           title: title
           userId: Post_userId
           content: content
@@ -11817,6 +12010,21 @@ components:
           - hashtags
           visibility: public
           timezone: timezone
+          recycling:
+            recycleCount: 5
+            gap: 6
+            expireCount: 1
+            lastRecycledAt: 2000-01-23T04:56:07.000+00:00
+            expireDate: 2000-01-23T04:56:07.000+00:00
+            nextRecycleAt: 2000-01-23T04:56:07.000+00:00
+            contentVariationIndex: 5
+            gapFreq: week
+            enabled: true
+            startDate: 2000-01-23T04:56:07.000+00:00
+            contentVariations:
+            - contentVariations
+            - contentVariations
+          recycledFromPostId: recycledFromPostId
           title: title
           userId: Post_userId
           content: content
@@ -12015,6 +12223,21 @@ components:
           - hashtags
           visibility: public
           timezone: timezone
+          recycling:
+            recycleCount: 5
+            gap: 6
+            expireCount: 1
+            lastRecycledAt: 2000-01-23T04:56:07.000+00:00
+            expireDate: 2000-01-23T04:56:07.000+00:00
+            nextRecycleAt: 2000-01-23T04:56:07.000+00:00
+            contentVariationIndex: 5
+            gapFreq: week
+            enabled: true
+            startDate: 2000-01-23T04:56:07.000+00:00
+            contentVariations:
+            - contentVariations
+            - contentVariations
+          recycledFromPostId: recycledFromPostId
           title: title
           userId: Post_userId
           content: content
@@ -12219,6 +12442,21 @@ components:
           - hashtags
           visibility: public
           timezone: timezone
+          recycling:
+            recycleCount: 5
+            gap: 6
+            expireCount: 1
+            lastRecycledAt: 2000-01-23T04:56:07.000+00:00
+            expireDate: 2000-01-23T04:56:07.000+00:00
+            nextRecycleAt: 2000-01-23T04:56:07.000+00:00
+            contentVariationIndex: 5
+            gapFreq: week
+            enabled: true
+            startDate: 2000-01-23T04:56:07.000+00:00
+            contentVariations:
+            - contentVariations
+            - contentVariations
+          recycledFromPostId: recycledFromPostId
           title: title
           userId: Post_userId
           content: content
@@ -14023,6 +14261,8 @@ components:
           description: "Root-level TikTok settings applied to all TikTok platforms.\
             \ Merged into each platform's platformSpecificData, with platform-specific\
             \ settings taking precedence."
+        recycling:
+          $ref: "#/components/schemas/RecyclingConfig"
         queuedFromProfile:
           description: "Profile ID to schedule via queue. When provided without scheduledFor,\
             \ the post is auto-assigned to the next available slot. Do not call /v1/queue/next-slot\
@@ -14085,6 +14325,8 @@ components:
           description: "Root-level TikTok settings applied to all TikTok platforms.\
             \ Merged into each platform's platformSpecificData, with platform-specific\
             \ settings taking precedence."
+        recycling:
+          $ref: "#/components/schemas/RecyclingConfig"
     bulkUploadPosts_request:
       properties:
         file:
@@ -14114,6 +14356,21 @@ components:
           - hashtags
           visibility: public
           timezone: timezone
+          recycling:
+            recycleCount: 5
+            gap: 6
+            expireCount: 1
+            lastRecycledAt: 2000-01-23T04:56:07.000+00:00
+            expireDate: 2000-01-23T04:56:07.000+00:00
+            nextRecycleAt: 2000-01-23T04:56:07.000+00:00
+            contentVariationIndex: 5
+            gapFreq: week
+            enabled: true
+            startDate: 2000-01-23T04:56:07.000+00:00
+            contentVariations:
+            - contentVariations
+            - contentVariations
+          recycledFromPostId: recycledFromPostId
           title: title
           userId: Post_userId
           content: content
@@ -14303,6 +14560,21 @@ components:
           - hashtags
           visibility: public
           timezone: timezone
+          recycling:
+            recycleCount: 5
+            gap: 6
+            expireCount: 1
+            lastRecycledAt: 2000-01-23T04:56:07.000+00:00
+            expireDate: 2000-01-23T04:56:07.000+00:00
+            nextRecycleAt: 2000-01-23T04:56:07.000+00:00
+            contentVariationIndex: 5
+            gapFreq: week
+            enabled: true
+            startDate: 2000-01-23T04:56:07.000+00:00
+            contentVariations:
+            - contentVariations
+            - contentVariations
+          recycledFromPostId: recycledFromPostId
           title: title
           userId: Post_userId
           content: content
@@ -19090,6 +19362,7 @@ components:
             - post.published
             - post.failed
             - post.partial
+            - post.recycled
             - account.connected
             - account.disconnected
             - message.received
@@ -19147,6 +19420,7 @@ components:
             - post.published
             - post.failed
             - post.partial
+            - post.recycled
             - account.connected
             - account.disconnected
             - message.received
@@ -21913,6 +22187,7 @@ x-documentation:
     - `post.published` - Post successfully published
     - `post.failed` - Post failed on all platforms
     - `post.partial` - Post published to some platforms, failed on others
+    - `post.recycled` - A new scheduled copy was created from a recycling post
     - `account.connected` - Social account connected
     - `account.disconnected` - Social account disconnected (token expired)
     - `message.received` - New DM received

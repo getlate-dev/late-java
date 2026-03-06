@@ -49,7 +49,7 @@ import dev.getlate.ApiClient;
   LinkedInAggregateAnalyticsDailyResponse.JSON_PROPERTY_NOTE,
   LinkedInAggregateAnalyticsDailyResponse.JSON_PROPERTY_LAST_UPDATED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:59:47.433285091Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-06T15:45:05.246868673Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class LinkedInAggregateAnalyticsDailyResponse {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nullable

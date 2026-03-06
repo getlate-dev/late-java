@@ -27,6 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import dev.getlate.model.MediaItem;
 import dev.getlate.model.PlatformTarget;
 import dev.getlate.model.PostUserId;
+import dev.getlate.model.RecyclingState;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,12 +56,14 @@ import dev.getlate.ApiClient;
   Post.JSON_PROPERTY_MENTIONS,
   Post.JSON_PROPERTY_VISIBILITY,
   Post.JSON_PROPERTY_METADATA,
+  Post.JSON_PROPERTY_RECYCLING,
+  Post.JSON_PROPERTY_RECYCLED_FROM_POST_ID,
   Post.JSON_PROPERTY_QUEUED_FROM_PROFILE,
   Post.JSON_PROPERTY_QUEUE_ID,
   Post.JSON_PROPERTY_CREATED_AT,
   Post.JSON_PROPERTY_UPDATED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:59:47.433285091Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-06T15:45:05.246868673Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class Post {
   public static final String JSON_PROPERTY_ID = "_id";
   @javax.annotation.Nullable
@@ -197,6 +200,14 @@ public class Post {
   public static final String JSON_PROPERTY_METADATA = "metadata";
   @javax.annotation.Nullable
   private Map<String, Object> metadata = new HashMap<>();
+
+  public static final String JSON_PROPERTY_RECYCLING = "recycling";
+  @javax.annotation.Nullable
+  private RecyclingState recycling;
+
+  public static final String JSON_PROPERTY_RECYCLED_FROM_POST_ID = "recycledFromPostId";
+  @javax.annotation.Nullable
+  private String recycledFromPostId;
 
   public static final String JSON_PROPERTY_QUEUED_FROM_PROFILE = "queuedFromProfile";
   @javax.annotation.Nullable
@@ -601,6 +612,54 @@ public class Post {
   }
 
 
+  public Post recycling(@javax.annotation.Nullable RecyclingState recycling) {
+    this.recycling = recycling;
+    return this;
+  }
+
+  /**
+   * Get recycling
+   * @return recycling
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_RECYCLING, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RecyclingState getRecycling() {
+    return recycling;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_RECYCLING, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRecycling(@javax.annotation.Nullable RecyclingState recycling) {
+    this.recycling = recycling;
+  }
+
+
+  public Post recycledFromPostId(@javax.annotation.Nullable String recycledFromPostId) {
+    this.recycledFromPostId = recycledFromPostId;
+    return this;
+  }
+
+  /**
+   * ID of the original post if this post was created via recycling
+   * @return recycledFromPostId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_RECYCLED_FROM_POST_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRecycledFromPostId() {
+    return recycledFromPostId;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_RECYCLED_FROM_POST_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRecycledFromPostId(@javax.annotation.Nullable String recycledFromPostId) {
+    this.recycledFromPostId = recycledFromPostId;
+  }
+
+
   public Post queuedFromProfile(@javax.annotation.Nullable String queuedFromProfile) {
     this.queuedFromProfile = queuedFromProfile;
     return this;
@@ -723,6 +782,8 @@ public class Post {
         Objects.equals(this.mentions, post.mentions) &&
         Objects.equals(this.visibility, post.visibility) &&
         Objects.equals(this.metadata, post.metadata) &&
+        Objects.equals(this.recycling, post.recycling) &&
+        Objects.equals(this.recycledFromPostId, post.recycledFromPostId) &&
         Objects.equals(this.queuedFromProfile, post.queuedFromProfile) &&
         Objects.equals(this.queueId, post.queueId) &&
         Objects.equals(this.createdAt, post.createdAt) &&
@@ -731,7 +792,7 @@ public class Post {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, userId, title, content, mediaItems, platforms, scheduledFor, timezone, status, tags, hashtags, mentions, visibility, metadata, queuedFromProfile, queueId, createdAt, updatedAt);
+    return Objects.hash(id, userId, title, content, mediaItems, platforms, scheduledFor, timezone, status, tags, hashtags, mentions, visibility, metadata, recycling, recycledFromPostId, queuedFromProfile, queueId, createdAt, updatedAt);
   }
 
   @Override
@@ -752,6 +813,8 @@ public class Post {
     sb.append("    mentions: ").append(toIndentedString(mentions)).append("\n");
     sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    recycling: ").append(toIndentedString(recycling)).append("\n");
+    sb.append("    recycledFromPostId: ").append(toIndentedString(recycledFromPostId)).append("\n");
     sb.append("    queuedFromProfile: ").append(toIndentedString(queuedFromProfile)).append("\n");
     sb.append("    queueId: ").append(toIndentedString(queueId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -897,6 +960,16 @@ public class Post {
             "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, _key, containerSuffix),
             getMetadata().get(_key), ApiClient.urlEncode(ApiClient.valueToString(getMetadata().get(_key)))));
       }
+    }
+
+    // add `recycling` to the URL query string
+    if (getRecycling() != null) {
+      joiner.add(getRecycling().toUrlQueryString(prefix + "recycling" + suffix));
+    }
+
+    // add `recycledFromPostId` to the URL query string
+    if (getRecycledFromPostId() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%srecycledFromPostId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getRecycledFromPostId()))));
     }
 
     // add `queuedFromProfile` to the URL query string

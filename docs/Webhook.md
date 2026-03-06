@@ -28,6 +28,7 @@ Individual webhook configuration for receiving real-time notifications
 | POST_PUBLISHED | &quot;post.published&quot; |
 | POST_FAILED | &quot;post.failed&quot; |
 | POST_PARTIAL | &quot;post.partial&quot; |
+| POST_RECYCLED | &quot;post.recycled&quot; |
 | ACCOUNT_CONNECTED | &quot;account.connected&quot; |
 | ACCOUNT_DISCONNECTED | &quot;account.disconnected&quot; |
 | MESSAGE_RECEIVED | &quot;message.received&quot; |

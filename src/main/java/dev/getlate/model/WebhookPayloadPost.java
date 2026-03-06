@@ -39,7 +39,7 @@ import dev.getlate.ApiClient;
   WebhookPayloadPost.JSON_PROPERTY_POST,
   WebhookPayloadPost.JSON_PROPERTY_TIMESTAMP
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:59:47.433285091Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-06T15:45:05.246868673Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WebhookPayloadPost {
   /**
    * Gets or Sets event
@@ -51,7 +51,9 @@ public class WebhookPayloadPost {
     
     POST_FAILED(String.valueOf("post.failed")),
     
-    POST_PARTIAL(String.valueOf("post.partial"));
+    POST_PARTIAL(String.valueOf("post.partial")),
+    
+    POST_RECYCLED(String.valueOf("post.recycled"));
 
     private String value;
 

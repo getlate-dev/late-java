@@ -4,7 +4,7 @@ Late API
 
 - API version: 1.0.1
 
-- Build date: 2026-03-03T19:59:47.433285091Z[Etc/UTC]
+- Build date: 2026-03-06T15:45:05.246868673Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -677,6 +677,8 @@ Class | Method | HTTP request | Description
  - [QueueSlot](docs/QueueSlot.md)
  - [QueueSlotsResponse](docs/QueueSlotsResponse.md)
  - [QueueUpdateResponse](docs/QueueUpdateResponse.md)
+ - [RecyclingConfig](docs/RecyclingConfig.md)
+ - [RecyclingState](docs/RecyclingState.md)
  - [RedditPlatformData](docs/RedditPlatformData.md)
  - [ReplyToInboxPost200Response](docs/ReplyToInboxPost200Response.md)
  - [ReplyToInboxPost200ResponseData](docs/ReplyToInboxPost200ResponseData.md)

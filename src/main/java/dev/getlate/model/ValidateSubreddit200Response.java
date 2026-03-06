@@ -55,7 +55,7 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import dev.getlate.ApiClient;
 import dev.getlate.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:59:47.433285091Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-06T15:45:05.246868673Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 @JsonDeserialize(using = ValidateSubreddit200Response.ValidateSubreddit200ResponseDeserializer.class)
 @JsonSerialize(using = ValidateSubreddit200Response.ValidateSubreddit200ResponseSerializer.class)
 public class ValidateSubreddit200Response extends AbstractOpenApiSchema {

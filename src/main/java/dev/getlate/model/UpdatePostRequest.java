@@ -28,6 +28,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import dev.getlate.model.RecyclingConfig;
 import dev.getlate.model.TikTokPlatformData;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -41,9 +42,10 @@ import dev.getlate.ApiClient;
 @JsonPropertyOrder({
   UpdatePostRequest.JSON_PROPERTY_CONTENT,
   UpdatePostRequest.JSON_PROPERTY_SCHEDULED_FOR,
-  UpdatePostRequest.JSON_PROPERTY_TIKTOK_SETTINGS
+  UpdatePostRequest.JSON_PROPERTY_TIKTOK_SETTINGS,
+  UpdatePostRequest.JSON_PROPERTY_RECYCLING
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-03T19:59:47.433285091Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-06T15:45:05.246868673Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UpdatePostRequest {
   public static final String JSON_PROPERTY_CONTENT = "content";
   @javax.annotation.Nullable
@@ -56,6 +58,10 @@ public class UpdatePostRequest {
   public static final String JSON_PROPERTY_TIKTOK_SETTINGS = "tiktokSettings";
   @javax.annotation.Nullable
   private TikTokPlatformData tiktokSettings;
+
+  public static final String JSON_PROPERTY_RECYCLING = "recycling";
+  @javax.annotation.Nullable
+  private RecyclingConfig recycling;
 
   public UpdatePostRequest() { 
   }
@@ -131,6 +137,30 @@ public class UpdatePostRequest {
     this.tiktokSettings = tiktokSettings;
   }
 
+
+  public UpdatePostRequest recycling(@javax.annotation.Nullable RecyclingConfig recycling) {
+    this.recycling = recycling;
+    return this;
+  }
+
+  /**
+   * Get recycling
+   * @return recycling
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_RECYCLING, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RecyclingConfig getRecycling() {
+    return recycling;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_RECYCLING, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRecycling(@javax.annotation.Nullable RecyclingConfig recycling) {
+    this.recycling = recycling;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -189,13 +219,14 @@ public class UpdatePostRequest {
     UpdatePostRequest updatePostRequest = (UpdatePostRequest) o;
     return Objects.equals(this.content, updatePostRequest.content) &&
         Objects.equals(this.scheduledFor, updatePostRequest.scheduledFor) &&
-        Objects.equals(this.tiktokSettings, updatePostRequest.tiktokSettings)&&
+        Objects.equals(this.tiktokSettings, updatePostRequest.tiktokSettings) &&
+        Objects.equals(this.recycling, updatePostRequest.recycling)&&
         Objects.equals(this.additionalProperties, updatePostRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, scheduledFor, tiktokSettings, additionalProperties);
+    return Objects.hash(content, scheduledFor, tiktokSettings, recycling, additionalProperties);
   }
 
   @Override
@@ -205,6 +236,7 @@ public class UpdatePostRequest {
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    scheduledFor: ").append(toIndentedString(scheduledFor)).append("\n");
     sb.append("    tiktokSettings: ").append(toIndentedString(tiktokSettings)).append("\n");
+    sb.append("    recycling: ").append(toIndentedString(recycling)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -266,6 +298,11 @@ public class UpdatePostRequest {
     // add `tiktokSettings` to the URL query string
     if (getTiktokSettings() != null) {
       joiner.add(getTiktokSettings().toUrlQueryString(prefix + "tiktokSettings" + suffix));
+    }
+
+    // add `recycling` to the URL query string
+    if (getRecycling() != null) {
+      joiner.add(getRecycling().toUrlQueryString(prefix + "recycling" + suffix));
     }
 
     return joiner.toString();

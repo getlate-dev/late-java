@@ -21,6 +21,8 @@
 |**mentions** | **List&lt;String&gt;** |  |  [optional] |
 |**visibility** | [**VisibilityEnum**](#VisibilityEnum) |  |  [optional] |
 |**metadata** | **Map&lt;String, Object&gt;** |  |  [optional] |
+|**recycling** | [**RecyclingState**](RecyclingState.md) |  |  [optional] |
+|**recycledFromPostId** | **String** | ID of the original post if this post was created via recycling |  [optional] |
 |**queuedFromProfile** | **String** | Profile ID if the post was scheduled via the queue |  [optional] |
 |**queueId** | **String** | Queue ID if the post was scheduled via a specific queue |  [optional] |
 |**createdAt** | **OffsetDateTime** |  |  [optional] |
