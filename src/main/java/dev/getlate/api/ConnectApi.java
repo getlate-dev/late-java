@@ -86,7 +86,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-06T16:07:16.440839824Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-08T08:59:56.425859970Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ConnectApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -463,7 +463,7 @@ public class ConnectApi {
    * Initiate an OAuth connection flow. Returns an authUrl to redirect the user to. Standard flow: Late hosts the selection UI, then redirects to your redirect_url. Headless mode (headless&#x3D;true): user is redirected to your redirect_url with OAuth data for custom UI. Use the platform-specific selection endpoints to complete. 
    * @param platform Social media platform to connect (required)
    * @param profileId Your Late profile ID (get from /v1/profiles) (required)
-   * @param redirectUrl Your custom redirect URL after connection completes. Standard mode appends ?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;username&#x3D;Y. Headless mode appends OAuth data params. (optional)
+   * @param redirectUrl Your custom redirect URL after connection completes. Standard mode appends ?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;accountId&#x3D;Y&amp;username&#x3D;Z. Headless mode appends OAuth data params for platforms requiring selection (e.g. LinkedIn orgs, Facebook pages). If no selection is needed, the account is created directly and the redirect includes accountId. (optional)
    * @param headless When true, the user is redirected to your redirect_url with raw OAuth data (code, state) instead of Late&#39;s default account selection UI. Use this to build a custom connect experience. (optional, default to false)
    * @return GetConnectUrl200Response
    * @throws ApiException if fails to make API call
@@ -477,7 +477,7 @@ public class ConnectApi {
    * Initiate an OAuth connection flow. Returns an authUrl to redirect the user to. Standard flow: Late hosts the selection UI, then redirects to your redirect_url. Headless mode (headless&#x3D;true): user is redirected to your redirect_url with OAuth data for custom UI. Use the platform-specific selection endpoints to complete. 
    * @param platform Social media platform to connect (required)
    * @param profileId Your Late profile ID (get from /v1/profiles) (required)
-   * @param redirectUrl Your custom redirect URL after connection completes. Standard mode appends ?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;username&#x3D;Y. Headless mode appends OAuth data params. (optional)
+   * @param redirectUrl Your custom redirect URL after connection completes. Standard mode appends ?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;accountId&#x3D;Y&amp;username&#x3D;Z. Headless mode appends OAuth data params for platforms requiring selection (e.g. LinkedIn orgs, Facebook pages). If no selection is needed, the account is created directly and the redirect includes accountId. (optional)
    * @param headless When true, the user is redirected to your redirect_url with raw OAuth data (code, state) instead of Late&#39;s default account selection UI. Use this to build a custom connect experience. (optional, default to false)
    * @param headers Optional headers to include in the request
    * @return GetConnectUrl200Response
@@ -493,7 +493,7 @@ public class ConnectApi {
    * Initiate an OAuth connection flow. Returns an authUrl to redirect the user to. Standard flow: Late hosts the selection UI, then redirects to your redirect_url. Headless mode (headless&#x3D;true): user is redirected to your redirect_url with OAuth data for custom UI. Use the platform-specific selection endpoints to complete. 
    * @param platform Social media platform to connect (required)
    * @param profileId Your Late profile ID (get from /v1/profiles) (required)
-   * @param redirectUrl Your custom redirect URL after connection completes. Standard mode appends ?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;username&#x3D;Y. Headless mode appends OAuth data params. (optional)
+   * @param redirectUrl Your custom redirect URL after connection completes. Standard mode appends ?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;accountId&#x3D;Y&amp;username&#x3D;Z. Headless mode appends OAuth data params for platforms requiring selection (e.g. LinkedIn orgs, Facebook pages). If no selection is needed, the account is created directly and the redirect includes accountId. (optional)
    * @param headless When true, the user is redirected to your redirect_url with raw OAuth data (code, state) instead of Late&#39;s default account selection UI. Use this to build a custom connect experience. (optional, default to false)
    * @return ApiResponse&lt;GetConnectUrl200Response&gt;
    * @throws ApiException if fails to make API call
@@ -507,7 +507,7 @@ public class ConnectApi {
    * Initiate an OAuth connection flow. Returns an authUrl to redirect the user to. Standard flow: Late hosts the selection UI, then redirects to your redirect_url. Headless mode (headless&#x3D;true): user is redirected to your redirect_url with OAuth data for custom UI. Use the platform-specific selection endpoints to complete. 
    * @param platform Social media platform to connect (required)
    * @param profileId Your Late profile ID (get from /v1/profiles) (required)
-   * @param redirectUrl Your custom redirect URL after connection completes. Standard mode appends ?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;username&#x3D;Y. Headless mode appends OAuth data params. (optional)
+   * @param redirectUrl Your custom redirect URL after connection completes. Standard mode appends ?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;accountId&#x3D;Y&amp;username&#x3D;Z. Headless mode appends OAuth data params for platforms requiring selection (e.g. LinkedIn orgs, Facebook pages). If no selection is needed, the account is created directly and the redirect includes accountId. (optional)
    * @param headless When true, the user is redirected to your redirect_url with raw OAuth data (code, state) instead of Late&#39;s default account selection UI. Use this to build a custom connect experience. (optional, default to false)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetConnectUrl200Response&gt;

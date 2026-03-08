@@ -394,7 +394,7 @@ public class Example {
         ConnectApi apiInstance = new ConnectApi(defaultClient);
         String platform = "facebook"; // String | Social media platform to connect
         String profileId = "profileId_example"; // String | Your Late profile ID (get from /v1/profiles)
-        URI redirectUrl = new URI(); // URI | Your custom redirect URL after connection completes. Standard mode appends ?connected={platform}&profileId=X&username=Y. Headless mode appends OAuth data params.
+        URI redirectUrl = new URI(); // URI | Your custom redirect URL after connection completes. Standard mode appends ?connected={platform}&profileId=X&accountId=Y&username=Z. Headless mode appends OAuth data params for platforms requiring selection (e.g. LinkedIn orgs, Facebook pages). If no selection is needed, the account is created directly and the redirect includes accountId.
         Boolean headless = false; // Boolean | When true, the user is redirected to your redirect_url with raw OAuth data (code, state) instead of Late's default account selection UI. Use this to build a custom connect experience.
         try {
             GetConnectUrl200Response result = apiInstance.getConnectUrl(platform, profileId, redirectUrl, headless);
@@ -417,7 +417,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **platform** | **String**| Social media platform to connect | [enum: facebook, instagram, linkedin, twitter, tiktok, youtube, threads, reddit, pinterest, bluesky, googlebusiness, telegram, snapchat] |
 | **profileId** | **String**| Your Late profile ID (get from /v1/profiles) | |
-| **redirectUrl** | **URI**| Your custom redirect URL after connection completes. Standard mode appends ?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;username&#x3D;Y. Headless mode appends OAuth data params. | [optional] |
+| **redirectUrl** | **URI**| Your custom redirect URL after connection completes. Standard mode appends ?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;accountId&#x3D;Y&amp;username&#x3D;Z. Headless mode appends OAuth data params for platforms requiring selection (e.g. LinkedIn orgs, Facebook pages). If no selection is needed, the account is created directly and the redirect includes accountId. | [optional] |
 | **headless** | **Boolean**| When true, the user is redirected to your redirect_url with raw OAuth data (code, state) instead of Late&#39;s default account selection UI. Use this to build a custom connect experience. | [optional] [default to false] |
 
 ### Return type
@@ -475,7 +475,7 @@ public class Example {
         ConnectApi apiInstance = new ConnectApi(defaultClient);
         String platform = "facebook"; // String | Social media platform to connect
         String profileId = "profileId_example"; // String | Your Late profile ID (get from /v1/profiles)
-        URI redirectUrl = new URI(); // URI | Your custom redirect URL after connection completes. Standard mode appends ?connected={platform}&profileId=X&username=Y. Headless mode appends OAuth data params.
+        URI redirectUrl = new URI(); // URI | Your custom redirect URL after connection completes. Standard mode appends ?connected={platform}&profileId=X&accountId=Y&username=Z. Headless mode appends OAuth data params for platforms requiring selection (e.g. LinkedIn orgs, Facebook pages). If no selection is needed, the account is created directly and the redirect includes accountId.
         Boolean headless = false; // Boolean | When true, the user is redirected to your redirect_url with raw OAuth data (code, state) instead of Late's default account selection UI. Use this to build a custom connect experience.
         try {
             ApiResponse<GetConnectUrl200Response> response = apiInstance.getConnectUrlWithHttpInfo(platform, profileId, redirectUrl, headless);
@@ -500,7 +500,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **platform** | **String**| Social media platform to connect | [enum: facebook, instagram, linkedin, twitter, tiktok, youtube, threads, reddit, pinterest, bluesky, googlebusiness, telegram, snapchat] |
 | **profileId** | **String**| Your Late profile ID (get from /v1/profiles) | |
-| **redirectUrl** | **URI**| Your custom redirect URL after connection completes. Standard mode appends ?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;username&#x3D;Y. Headless mode appends OAuth data params. | [optional] |
+| **redirectUrl** | **URI**| Your custom redirect URL after connection completes. Standard mode appends ?connected&#x3D;{platform}&amp;profileId&#x3D;X&amp;accountId&#x3D;Y&amp;username&#x3D;Z. Headless mode appends OAuth data params for platforms requiring selection (e.g. LinkedIn orgs, Facebook pages). If no selection is needed, the account is created directly and the redirect includes accountId. | [optional] |
 | **headless** | **Boolean**| When true, the user is redirected to your redirect_url with raw OAuth data (code, state) instead of Late&#39;s default account selection UI. Use this to build a custom connect experience. | [optional] [default to false] |
 
 ### Return type

@@ -39,7 +39,7 @@ import dev.getlate.ApiClient;
   YouTubeScopeMissingResponse.JSON_PROPERTY_CODE,
   YouTubeScopeMissingResponse.JSON_PROPERTY_SCOPE_STATUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-06T16:07:16.440839824Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-08T08:59:56.425859970Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class YouTubeScopeMissingResponse {
   public static final String JSON_PROPERTY_SUCCESS = "success";
   @javax.annotation.Nullable

@@ -40,7 +40,7 @@ import dev.getlate.ApiClient;
   ListConnectionLogs200Response.JSON_PROPERTY_LOGS,
   ListConnectionLogs200Response.JSON_PROPERTY_PAGINATION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-06T16:07:16.440839824Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-08T08:59:56.425859970Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ListConnectionLogs200Response {
   public static final String JSON_PROPERTY_LOGS = "logs";
   @javax.annotation.Nullable
