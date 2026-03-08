@@ -18,6 +18,8 @@ All URIs are relative to *https://getlate.dev/api*
 | [**getLinkedInAggregateAnalyticsWithHttpInfo**](AnalyticsApi.md#getLinkedInAggregateAnalyticsWithHttpInfo) | **GET** /v1/accounts/{accountId}/linkedin-aggregate-analytics | Get LinkedIn aggregate stats |
 | [**getLinkedInPostAnalytics**](AnalyticsApi.md#getLinkedInPostAnalytics) | **GET** /v1/accounts/{accountId}/linkedin-post-analytics | Get LinkedIn post stats |
 | [**getLinkedInPostAnalyticsWithHttpInfo**](AnalyticsApi.md#getLinkedInPostAnalyticsWithHttpInfo) | **GET** /v1/accounts/{accountId}/linkedin-post-analytics | Get LinkedIn post stats |
+| [**getLinkedInPostReactions**](AnalyticsApi.md#getLinkedInPostReactions) | **GET** /v1/accounts/{accountId}/linkedin-post-reactions | Get LinkedIn post reactions (who reacted) |
+| [**getLinkedInPostReactionsWithHttpInfo**](AnalyticsApi.md#getLinkedInPostReactionsWithHttpInfo) | **GET** /v1/accounts/{accountId}/linkedin-post-reactions | Get LinkedIn post reactions (who reacted) |
 | [**getPostTimeline**](AnalyticsApi.md#getPostTimeline) | **GET** /v1/analytics/post-timeline | Get post analytics timeline |
 | [**getPostTimelineWithHttpInfo**](AnalyticsApi.md#getPostTimelineWithHttpInfo) | **GET** /v1/analytics/post-timeline | Get post analytics timeline |
 | [**getPostingFrequency**](AnalyticsApi.md#getPostingFrequency) | **GET** /v1/analytics/posting-frequency | Get posting frequency vs engagement |
@@ -1177,6 +1179,172 @@ ApiResponse<[**GetLinkedInPostAnalytics200Response**](GetLinkedInPostAnalytics20
 |-------------|-------------|------------------|
 | **200** | Post analytics data |  -  |
 | **400** | Invalid request |  -  |
+| **401** | Unauthorized |  -  |
+| **402** | Analytics add-on required |  -  |
+| **403** | Missing required LinkedIn scope |  -  |
+| **404** | Account or post not found |  -  |
+
+
+## getLinkedInPostReactions
+
+> GetLinkedInPostReactions200Response getLinkedInPostReactions(accountId, urn, limit, cursor)
+
+Get LinkedIn post reactions (who reacted)
+
+Returns individual reactions for a specific LinkedIn post, including reactor profiles (name, headline/job title, profile picture, profile URL, reaction type). Only works for **organization/company page** accounts. LinkedIn restricts reaction data for personal profiles (r_member_social_feed is a closed permission). 
+
+### Example
+
+```java
+// Import classes:
+import dev.getlate.ApiClient;
+import dev.getlate.ApiException;
+import dev.getlate.Configuration;
+import dev.getlate.auth.*;
+import dev.getlate.models.*;
+import dev.getlate.api.AnalyticsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://getlate.dev/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        AnalyticsApi apiInstance = new AnalyticsApi(defaultClient);
+        String accountId = "accountId_example"; // String | The ID of the LinkedIn organization account
+        String urn = "urn:li:share:7123456789012345678"; // String | The LinkedIn post URN
+        Integer limit = 25; // Integer | Maximum number of reactions to return per page
+        String cursor = "cursor_example"; // String | Offset-based pagination start index
+        try {
+            GetLinkedInPostReactions200Response result = apiInstance.getLinkedInPostReactions(accountId, urn, limit, cursor);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AnalyticsApi#getLinkedInPostReactions");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountId** | **String**| The ID of the LinkedIn organization account | |
+| **urn** | **String**| The LinkedIn post URN | |
+| **limit** | **Integer**| Maximum number of reactions to return per page | [optional] [default to 25] |
+| **cursor** | **String**| Offset-based pagination start index | [optional] |
+
+### Return type
+
+[**GetLinkedInPostReactions200Response**](GetLinkedInPostReactions200Response.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Reactions with reactor profiles |  -  |
+| **400** | Invalid request or platform limitation |  -  |
+| **401** | Unauthorized |  -  |
+| **402** | Analytics add-on required |  -  |
+| **403** | Missing required LinkedIn scope |  -  |
+| **404** | Account or post not found |  -  |
+
+## getLinkedInPostReactionsWithHttpInfo
+
+> ApiResponse<GetLinkedInPostReactions200Response> getLinkedInPostReactions getLinkedInPostReactionsWithHttpInfo(accountId, urn, limit, cursor)
+
+Get LinkedIn post reactions (who reacted)
+
+Returns individual reactions for a specific LinkedIn post, including reactor profiles (name, headline/job title, profile picture, profile URL, reaction type). Only works for **organization/company page** accounts. LinkedIn restricts reaction data for personal profiles (r_member_social_feed is a closed permission). 
+
+### Example
+
+```java
+// Import classes:
+import dev.getlate.ApiClient;
+import dev.getlate.ApiException;
+import dev.getlate.ApiResponse;
+import dev.getlate.Configuration;
+import dev.getlate.auth.*;
+import dev.getlate.models.*;
+import dev.getlate.api.AnalyticsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://getlate.dev/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        AnalyticsApi apiInstance = new AnalyticsApi(defaultClient);
+        String accountId = "accountId_example"; // String | The ID of the LinkedIn organization account
+        String urn = "urn:li:share:7123456789012345678"; // String | The LinkedIn post URN
+        Integer limit = 25; // Integer | Maximum number of reactions to return per page
+        String cursor = "cursor_example"; // String | Offset-based pagination start index
+        try {
+            ApiResponse<GetLinkedInPostReactions200Response> response = apiInstance.getLinkedInPostReactionsWithHttpInfo(accountId, urn, limit, cursor);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AnalyticsApi#getLinkedInPostReactions");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountId** | **String**| The ID of the LinkedIn organization account | |
+| **urn** | **String**| The LinkedIn post URN | |
+| **limit** | **Integer**| Maximum number of reactions to return per page | [optional] [default to 25] |
+| **cursor** | **String**| Offset-based pagination start index | [optional] |
+
+### Return type
+
+ApiResponse<[**GetLinkedInPostReactions200Response**](GetLinkedInPostReactions200Response.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Reactions with reactor profiles |  -  |
+| **400** | Invalid request or platform limitation |  -  |
 | **401** | Unauthorized |  -  |
 | **402** | Analytics add-on required |  -  |
 | **403** | Missing required LinkedIn scope |  -  |

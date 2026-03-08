@@ -42,7 +42,7 @@ import dev.getlate.ApiClient;
   ValidateSubreddit200ResponseOneOfSubreddit.JSON_PROPERTY_ALLOW_IMAGES,
   ValidateSubreddit200ResponseOneOfSubreddit.JSON_PROPERTY_ALLOW_VIDEOS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-08T09:03:45.072573756Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-08T09:14:50.019868009Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ValidateSubreddit200ResponseOneOfSubreddit {
   public static final String JSON_PROPERTY_NAME = "name";
   @javax.annotation.Nullable

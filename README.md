@@ -4,7 +4,7 @@ Late API
 
 - API version: 1.0.1
 
-- Build date: 2026-03-08T09:03:45.072573756Z[Etc/UTC]
+- Build date: 2026-03-08T09:14:50.019868009Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -164,6 +164,8 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**getLinkedInAggregateAnalyticsWithHttpInfo**](docs/AnalyticsApi.md#getLinkedInAggregateAnalyticsWithHttpInfo) | **GET** /v1/accounts/{accountId}/linkedin-aggregate-analytics | Get LinkedIn aggregate stats
 *AnalyticsApi* | [**getLinkedInPostAnalytics**](docs/AnalyticsApi.md#getLinkedInPostAnalytics) | **GET** /v1/accounts/{accountId}/linkedin-post-analytics | Get LinkedIn post stats
 *AnalyticsApi* | [**getLinkedInPostAnalyticsWithHttpInfo**](docs/AnalyticsApi.md#getLinkedInPostAnalyticsWithHttpInfo) | **GET** /v1/accounts/{accountId}/linkedin-post-analytics | Get LinkedIn post stats
+*AnalyticsApi* | [**getLinkedInPostReactions**](docs/AnalyticsApi.md#getLinkedInPostReactions) | **GET** /v1/accounts/{accountId}/linkedin-post-reactions | Get LinkedIn post reactions (who reacted)
+*AnalyticsApi* | [**getLinkedInPostReactionsWithHttpInfo**](docs/AnalyticsApi.md#getLinkedInPostReactionsWithHttpInfo) | **GET** /v1/accounts/{accountId}/linkedin-post-reactions | Get LinkedIn post reactions (who reacted)
 *AnalyticsApi* | [**getPostTimeline**](docs/AnalyticsApi.md#getPostTimeline) | **GET** /v1/analytics/post-timeline | Get post analytics timeline
 *AnalyticsApi* | [**getPostTimelineWithHttpInfo**](docs/AnalyticsApi.md#getPostTimelineWithHttpInfo) | **GET** /v1/analytics/post-timeline | Get post analytics timeline
 *AnalyticsApi* | [**getPostingFrequency**](docs/AnalyticsApi.md#getPostingFrequency) | **GET** /v1/analytics/posting-frequency | Get posting frequency vs engagement
@@ -180,8 +182,6 @@ Class | Method | HTTP request | Description
 *CommentsApi* | [**deleteInboxCommentWithHttpInfo**](docs/CommentsApi.md#deleteInboxCommentWithHttpInfo) | **DELETE** /v1/inbox/comments/{postId} | Delete comment
 *CommentsApi* | [**getInboxPostComments**](docs/CommentsApi.md#getInboxPostComments) | **GET** /v1/inbox/comments/{postId} | Get post comments
 *CommentsApi* | [**getInboxPostCommentsWithHttpInfo**](docs/CommentsApi.md#getInboxPostCommentsWithHttpInfo) | **GET** /v1/inbox/comments/{postId} | Get post comments
-*CommentsApi* | [**getPostReactions**](docs/CommentsApi.md#getPostReactions) | **GET** /v1/inbox/reactions/{postId} | Get post reactions (who reacted)
-*CommentsApi* | [**getPostReactionsWithHttpInfo**](docs/CommentsApi.md#getPostReactionsWithHttpInfo) | **GET** /v1/inbox/reactions/{postId} | Get post reactions (who reacted)
 *CommentsApi* | [**hideInboxComment**](docs/CommentsApi.md#hideInboxComment) | **POST** /v1/inbox/comments/{postId}/{commentId}/hide | Hide comment
 *CommentsApi* | [**hideInboxCommentWithHttpInfo**](docs/CommentsApi.md#hideInboxCommentWithHttpInfo) | **POST** /v1/inbox/comments/{postId}/{commentId}/hide | Hide comment
 *CommentsApi* | [**likeInboxComment**](docs/CommentsApi.md#likeInboxComment) | **POST** /v1/inbox/comments/{postId}/{commentId}/like | Like comment
@@ -542,6 +542,11 @@ Class | Method | HTTP request | Description
  - [GetLinkedInPostAnalytics200ResponseAnalytics](docs/GetLinkedInPostAnalytics200ResponseAnalytics.md)
  - [GetLinkedInPostAnalytics400Response](docs/GetLinkedInPostAnalytics400Response.md)
  - [GetLinkedInPostAnalytics403Response](docs/GetLinkedInPostAnalytics403Response.md)
+ - [GetLinkedInPostReactions200Response](docs/GetLinkedInPostReactions200Response.md)
+ - [GetLinkedInPostReactions200ResponsePagination](docs/GetLinkedInPostReactions200ResponsePagination.md)
+ - [GetLinkedInPostReactions200ResponseReactionsInner](docs/GetLinkedInPostReactions200ResponseReactionsInner.md)
+ - [GetLinkedInPostReactions200ResponseReactionsInnerFrom](docs/GetLinkedInPostReactions200ResponseReactionsInnerFrom.md)
+ - [GetLinkedInPostReactions400Response](docs/GetLinkedInPostReactions400Response.md)
  - [GetMediaPresignedUrl200Response](docs/GetMediaPresignedUrl200Response.md)
  - [GetMediaPresignedUrlRequest](docs/GetMediaPresignedUrlRequest.md)
  - [GetMessengerMenu200Response](docs/GetMessengerMenu200Response.md)
@@ -551,11 +556,6 @@ Class | Method | HTTP request | Description
  - [GetPinterestBoards200Response](docs/GetPinterestBoards200Response.md)
  - [GetPinterestBoards200ResponseBoardsInner](docs/GetPinterestBoards200ResponseBoardsInner.md)
  - [GetPostLogs200Response](docs/GetPostLogs200Response.md)
- - [GetPostReactions200Response](docs/GetPostReactions200Response.md)
- - [GetPostReactions200ResponseMeta](docs/GetPostReactions200ResponseMeta.md)
- - [GetPostReactions200ResponsePagination](docs/GetPostReactions200ResponsePagination.md)
- - [GetPostReactions200ResponseReactionsInner](docs/GetPostReactions200ResponseReactionsInner.md)
- - [GetPostReactions200ResponseReactionsInnerFrom](docs/GetPostReactions200ResponseReactionsInnerFrom.md)
  - [GetPostTimeline200Response](docs/GetPostTimeline200Response.md)
  - [GetPostTimeline200ResponseTimelineInner](docs/GetPostTimeline200ResponseTimelineInner.md)
  - [GetPostTimeline400Response](docs/GetPostTimeline400Response.md)

@@ -34,6 +34,8 @@ import dev.getlate.model.GetLinkedInAggregateAnalytics403Response;
 import dev.getlate.model.GetLinkedInPostAnalytics200Response;
 import dev.getlate.model.GetLinkedInPostAnalytics400Response;
 import dev.getlate.model.GetLinkedInPostAnalytics403Response;
+import dev.getlate.model.GetLinkedInPostReactions200Response;
+import dev.getlate.model.GetLinkedInPostReactions400Response;
 import dev.getlate.model.GetPostTimeline200Response;
 import dev.getlate.model.GetPostTimeline400Response;
 import dev.getlate.model.GetPostTimeline403Response;
@@ -74,7 +76,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-08T09:03:45.072573756Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-08T09:14:50.019868009Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AnalyticsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -1227,6 +1229,159 @@ public class AnalyticsApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "urn";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("urn", urn));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Get LinkedIn post reactions (who reacted)
+   * Returns individual reactions for a specific LinkedIn post, including reactor profiles (name, headline/job title, profile picture, profile URL, reaction type). Only works for **organization/company page** accounts. LinkedIn restricts reaction data for personal profiles (r_member_social_feed is a closed permission). 
+   * @param accountId The ID of the LinkedIn organization account (required)
+   * @param urn The LinkedIn post URN (required)
+   * @param limit Maximum number of reactions to return per page (optional, default to 25)
+   * @param cursor Offset-based pagination start index (optional)
+   * @return GetLinkedInPostReactions200Response
+   * @throws ApiException if fails to make API call
+   */
+  public GetLinkedInPostReactions200Response getLinkedInPostReactions(@javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull String urn, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String cursor) throws ApiException {
+    return getLinkedInPostReactions(accountId, urn, limit, cursor, null);
+  }
+
+  /**
+   * Get LinkedIn post reactions (who reacted)
+   * Returns individual reactions for a specific LinkedIn post, including reactor profiles (name, headline/job title, profile picture, profile URL, reaction type). Only works for **organization/company page** accounts. LinkedIn restricts reaction data for personal profiles (r_member_social_feed is a closed permission). 
+   * @param accountId The ID of the LinkedIn organization account (required)
+   * @param urn The LinkedIn post URN (required)
+   * @param limit Maximum number of reactions to return per page (optional, default to 25)
+   * @param cursor Offset-based pagination start index (optional)
+   * @param headers Optional headers to include in the request
+   * @return GetLinkedInPostReactions200Response
+   * @throws ApiException if fails to make API call
+   */
+  public GetLinkedInPostReactions200Response getLinkedInPostReactions(@javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull String urn, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String cursor, Map<String, String> headers) throws ApiException {
+    ApiResponse<GetLinkedInPostReactions200Response> localVarResponse = getLinkedInPostReactionsWithHttpInfo(accountId, urn, limit, cursor, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Get LinkedIn post reactions (who reacted)
+   * Returns individual reactions for a specific LinkedIn post, including reactor profiles (name, headline/job title, profile picture, profile URL, reaction type). Only works for **organization/company page** accounts. LinkedIn restricts reaction data for personal profiles (r_member_social_feed is a closed permission). 
+   * @param accountId The ID of the LinkedIn organization account (required)
+   * @param urn The LinkedIn post URN (required)
+   * @param limit Maximum number of reactions to return per page (optional, default to 25)
+   * @param cursor Offset-based pagination start index (optional)
+   * @return ApiResponse&lt;GetLinkedInPostReactions200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<GetLinkedInPostReactions200Response> getLinkedInPostReactionsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull String urn, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String cursor) throws ApiException {
+    return getLinkedInPostReactionsWithHttpInfo(accountId, urn, limit, cursor, null);
+  }
+
+  /**
+   * Get LinkedIn post reactions (who reacted)
+   * Returns individual reactions for a specific LinkedIn post, including reactor profiles (name, headline/job title, profile picture, profile URL, reaction type). Only works for **organization/company page** accounts. LinkedIn restricts reaction data for personal profiles (r_member_social_feed is a closed permission). 
+   * @param accountId The ID of the LinkedIn organization account (required)
+   * @param urn The LinkedIn post URN (required)
+   * @param limit Maximum number of reactions to return per page (optional, default to 25)
+   * @param cursor Offset-based pagination start index (optional)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;GetLinkedInPostReactions200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<GetLinkedInPostReactions200Response> getLinkedInPostReactionsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull String urn, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String cursor, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getLinkedInPostReactionsRequestBuilder(accountId, urn, limit, cursor, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getLinkedInPostReactions", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<GetLinkedInPostReactions200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        GetLinkedInPostReactions200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<GetLinkedInPostReactions200Response>() {});
+        
+
+        return new ApiResponse<GetLinkedInPostReactions200Response>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getLinkedInPostReactionsRequestBuilder(@javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull String urn, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String cursor, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling getLinkedInPostReactions");
+    }
+    // verify the required parameter 'urn' is set
+    if (urn == null) {
+      throw new ApiException(400, "Missing the required parameter 'urn' when calling getLinkedInPostReactions");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/accounts/{accountId}/linkedin-post-reactions"
+        .replace("{accountId}", ApiClient.urlEncode(accountId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "urn";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("urn", urn));
+    localVarQueryParameterBaseName = "limit";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("limit", limit));
+    localVarQueryParameterBaseName = "cursor";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("cursor", cursor));
 
     if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
       StringJoiner queryJoiner = new StringJoiner("&");

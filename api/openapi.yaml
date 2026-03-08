@@ -5813,6 +5813,99 @@ paths:
       - Analytics
       x-accepts:
       - application/json
+  /v1/accounts/{accountId}/linkedin-post-reactions:
+    get:
+      description: |
+        Returns individual reactions for a specific LinkedIn post, including reactor profiles
+        (name, headline/job title, profile picture, profile URL, reaction type).
+        Only works for **organization/company page** accounts. LinkedIn restricts reaction
+        data for personal profiles (r_member_social_feed is a closed permission).
+      operationId: getLinkedInPostReactions
+      parameters:
+      - description: The ID of the LinkedIn organization account
+        explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The LinkedIn post URN
+        example: urn:li:share:7123456789012345678
+        explode: true
+        in: query
+        name: urn
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: Maximum number of reactions to return per page
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 25
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: Offset-based pagination start index
+        explode: true
+        in: query
+        name: cursor
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                accountId: 64abc123def456
+                platform: linkedin
+                accountType: organization
+                username: Acme Corp
+                postUrn: urn:li:share:7123456789012345678
+                reactions:
+                - reactionType: LIKE
+                  reactionLabel: Like
+                  reactedAt: 2026-03-08T12:00:00.000Z
+                  from:
+                    urn: urn:li:person:abc123
+                    name: Jane Smith
+                    headline: Product Manager at Acme Corp
+                    username: janesmith
+                    profilePicture: https://media.licdn.com/...
+                    profileUrl: https://www.linkedin.com/in/janesmith
+                pagination:
+                  hasMore: true
+                  cursor: "25"
+                  total: 156
+                lastUpdated: 2026-03-08T12:00:00.000Z
+              schema:
+                $ref: "#/components/schemas/getLinkedInPostReactions_200_response"
+          description: Reactions with reactor profiles
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getLinkedInPostReactions_400_response"
+          description: Invalid request or platform limitation
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "402":
+          description: Analytics add-on required
+        "403":
+          description: Missing required LinkedIn scope
+        "404":
+          description: Account or post not found
+      summary: Get LinkedIn post reactions (who reacted)
+      tags:
+      - Analytics
+      x-accepts:
+      - application/json
   /v1/accounts/{accountId}/linkedin-organization:
     put:
       description: Switch a LinkedIn account between personal profile and organization
@@ -8152,74 +8245,6 @@ paths:
       tags:
       - Comments
       x-content-type: application/json
-      x-accepts:
-      - application/json
-  /v1/inbox/reactions/{postId}:
-    get:
-      description: |
-        Fetch individual reactions for a post, including reactor profiles (name, headline/title, picture, profile URL).
-        Currently only supported for **LinkedIn organization/company page** posts.
-        LinkedIn restricts reaction data for personal profiles (r_member_social_feed is a closed permission).
-      operationId: getPostReactions
-      parameters:
-      - description: Late post ID or platform-specific post ID (LinkedIn activity
-          URN or numeric ID).
-        explode: false
-        in: path
-        name: postId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: The social account ID (must be a LinkedIn organization account).
-        explode: true
-        in: query
-        name: accountId
-        required: true
-        schema:
-          type: string
-        style: form
-      - description: Maximum number of reactions to return per page.
-        explode: true
-        in: query
-        name: limit
-        required: false
-        schema:
-          default: 25
-          maximum: 100
-          minimum: 1
-          type: integer
-        style: form
-      - description: Offset-based pagination start index.
-        explode: true
-        in: query
-        name: cursor
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/getPostReactions_200_response"
-          description: Reactions for the post with reactor profiles
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/sendInboxMessage_400_response"
-          description: Platform limitation or invalid request
-        "401":
-          $ref: "#/components/responses/Unauthorized"
-        "403":
-          description: Inbox addon required
-      security:
-      - bearerAuth: []
-      summary: Get post reactions (who reacted)
-      tags:
-      - Comments
       x-accepts:
       - application/json
   /v1/inbox/comments/{postId}/{commentId}/hide:
@@ -18919,6 +18944,142 @@ components:
         action:
           example: reconnect
           type: string
+    getLinkedInPostReactions_200_response_reactions_inner_from:
+      example:
+        urn: urn
+        profileUrl: profileUrl
+        profilePicture: profilePicture
+        name: name
+        headline: headline
+        username: username
+      properties:
+        urn:
+          description: LinkedIn person or organization URN
+          type: string
+        name:
+          description: Reactor's display name
+          type: string
+        headline:
+          description: Reactor's headline/job title
+          type: string
+        username:
+          description: LinkedIn vanity name
+          type: string
+        profilePicture:
+          description: Profile picture URL
+          type: string
+        profileUrl:
+          description: Direct link to LinkedIn profile
+          type: string
+    getLinkedInPostReactions_200_response_reactions_inner:
+      example:
+        reactionType: reactionType
+        from:
+          urn: urn
+          profileUrl: profileUrl
+          profilePicture: profilePicture
+          name: name
+          headline: headline
+          username: username
+        reactionLabel: reactionLabel
+        reactedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        reactionType:
+          description: "LinkedIn reaction enum (LIKE, PRAISE, EMPATHY, INTEREST, APPRECIATION,\
+            \ ENTERTAINMENT)"
+          type: string
+        reactionLabel:
+          description: "User-friendly label (Like, Celebrate, Love, Insightful, Support,\
+            \ Funny)"
+          type: string
+        reactedAt:
+          format: date-time
+          type: string
+        from:
+          $ref: "#/components/schemas/getLinkedInPostReactions_200_response_reactions_inner_from"
+    getLinkedInPostReactions_200_response_pagination:
+      example:
+        cursor: cursor
+        total: 0
+        hasMore: true
+      properties:
+        hasMore:
+          type: boolean
+        cursor:
+          description: Offset for next page
+          type: string
+        total:
+          description: Total number of reactions (when available)
+          type: integer
+    getLinkedInPostReactions_200_response:
+      example:
+        accountId: accountId
+        lastUpdated: 2000-01-23T04:56:07.000+00:00
+        pagination:
+          cursor: cursor
+          total: 0
+          hasMore: true
+        accountType: organization
+        reactions:
+        - reactionType: reactionType
+          from:
+            urn: urn
+            profileUrl: profileUrl
+            profilePicture: profilePicture
+            name: name
+            headline: headline
+            username: username
+          reactionLabel: reactionLabel
+          reactedAt: 2000-01-23T04:56:07.000+00:00
+        - reactionType: reactionType
+          from:
+            urn: urn
+            profileUrl: profileUrl
+            profilePicture: profilePicture
+            name: name
+            headline: headline
+            username: username
+          reactionLabel: reactionLabel
+          reactedAt: 2000-01-23T04:56:07.000+00:00
+        platform: linkedin
+        username: username
+        postUrn: postUrn
+      properties:
+        accountId:
+          type: string
+        platform:
+          example: linkedin
+          type: string
+        accountType:
+          example: organization
+          type: string
+        username:
+          type: string
+        postUrn:
+          type: string
+        reactions:
+          items:
+            $ref: "#/components/schemas/getLinkedInPostReactions_200_response_reactions_inner"
+          type: array
+        pagination:
+          $ref: "#/components/schemas/getLinkedInPostReactions_200_response_pagination"
+        lastUpdated:
+          format: date-time
+          type: string
+    getLinkedInPostReactions_400_response:
+      example:
+        code: missing_urn
+        error: error
+      properties:
+        error:
+          type: string
+        code:
+          enum:
+          - missing_urn
+          - invalid_urn
+          - invalid_platform
+          - PLATFORM_LIMITATION
+          type: string
     updateLinkedInOrganization_request:
       properties:
         accountType:
@@ -21059,133 +21220,6 @@ components:
           type: boolean
         data:
           $ref: "#/components/schemas/deleteAccountGroup_200_response"
-    getPostReactions_200_response_reactions_inner_from:
-      example:
-        urn: urn
-        profileUrl: profileUrl
-        profilePicture: profilePicture
-        name: name
-        headline: headline
-        username: username
-      properties:
-        urn:
-          description: LinkedIn person or organization URN
-          type: string
-        name:
-          description: Reactor's display name
-          type: string
-        headline:
-          description: Reactor's headline/job title (LinkedIn only)
-          type: string
-        username:
-          description: LinkedIn vanity name
-          type: string
-        profilePicture:
-          description: Profile picture URL
-          type: string
-        profileUrl:
-          description: Direct link to reactor's LinkedIn profile
-          type: string
-    getPostReactions_200_response_reactions_inner:
-      example:
-        reactionType: reactionType
-        from:
-          urn: urn
-          profileUrl: profileUrl
-          profilePicture: profilePicture
-          name: name
-          headline: headline
-          username: username
-        reactionLabel: reactionLabel
-        reactedAt: 2000-01-23T04:56:07.000+00:00
-      properties:
-        reactionType:
-          description: "LinkedIn reaction enum (LIKE, PRAISE, EMPATHY, INTEREST, APPRECIATION,\
-            \ ENTERTAINMENT)"
-          type: string
-        reactionLabel:
-          description: "User-friendly label (Like, Celebrate, Love, Insightful, Support,\
-            \ Funny)"
-          type: string
-        reactedAt:
-          format: date-time
-          type: string
-        from:
-          $ref: "#/components/schemas/getPostReactions_200_response_reactions_inner_from"
-    getPostReactions_200_response_pagination:
-      example:
-        cursor: cursor
-        total: 0
-        hasMore: true
-      properties:
-        hasMore:
-          type: boolean
-        cursor:
-          description: Offset for next page
-          type: string
-        total:
-          description: Total number of reactions (when available)
-          type: integer
-    getPostReactions_200_response_meta:
-      example:
-        accountId: accountId
-        lastUpdated: 2000-01-23T04:56:07.000+00:00
-        postId: postId
-        platform: platform
-      properties:
-        platform:
-          type: string
-        postId:
-          type: string
-        accountId:
-          type: string
-        lastUpdated:
-          format: date-time
-          type: string
-    getPostReactions_200_response:
-      example:
-        pagination:
-          cursor: cursor
-          total: 0
-          hasMore: true
-        meta:
-          accountId: accountId
-          lastUpdated: 2000-01-23T04:56:07.000+00:00
-          postId: postId
-          platform: platform
-        reactions:
-        - reactionType: reactionType
-          from:
-            urn: urn
-            profileUrl: profileUrl
-            profilePicture: profilePicture
-            name: name
-            headline: headline
-            username: username
-          reactionLabel: reactionLabel
-          reactedAt: 2000-01-23T04:56:07.000+00:00
-        - reactionType: reactionType
-          from:
-            urn: urn
-            profileUrl: profileUrl
-            profilePicture: profilePicture
-            name: name
-            headline: headline
-            username: username
-          reactionLabel: reactionLabel
-          reactedAt: 2000-01-23T04:56:07.000+00:00
-        status: status
-      properties:
-        status:
-          type: string
-        reactions:
-          items:
-            $ref: "#/components/schemas/getPostReactions_200_response_reactions_inner"
-          type: array
-        pagination:
-          $ref: "#/components/schemas/getPostReactions_200_response_pagination"
-        meta:
-          $ref: "#/components/schemas/getPostReactions_200_response_meta"
     hideInboxComment_request:
       properties:
         accountId:
