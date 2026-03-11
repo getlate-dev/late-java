@@ -10057,6 +10057,7 @@ components:
               title: title
               url: https://openapi-generator.tech
             content: content
+          replyToTweetId: replyToTweetId
         publishedAt: 2000-01-23T04:56:07.000+00:00
         errorSource: user
         errorMessage: errorMessage
@@ -10232,6 +10233,7 @@ components:
                 title: title
                 url: https://openapi-generator.tech
               content: content
+            replyToTweetId: replyToTweetId
           publishedAt: 2000-01-23T04:56:07.000+00:00
           errorSource: user
           errorMessage: errorMessage
@@ -10305,6 +10307,7 @@ components:
                 title: title
                 url: https://openapi-generator.tech
               content: content
+            replyToTweetId: replyToTweetId
           publishedAt: 2000-01-23T04:56:07.000+00:00
           errorSource: user
           errorMessage: errorMessage
@@ -10591,16 +10594,24 @@ components:
             title: title
             url: https://openapi-generator.tech
           content: content
+        replyToTweetId: replyToTweetId
       properties:
+        replyToTweetId:
+          description: "ID of an existing tweet to reply to. The published tweet will\
+            \ appear as a reply in that tweet's thread. For threads, only the first\
+            \ tweet replies to the target; subsequent tweets chain normally."
+          type: string
         replySettings:
           description: "Controls who can reply to the tweet. \"following\" allows\
             \ only people you follow, \"mentionedUsers\" allows only mentioned users,\
-            \ \"subscribers\" allows only subscribers. Omit for default (everyone\
-            \ can reply). For threads, applies to the first tweet only."
+            \ \"subscribers\" allows only subscribers, \"verified\" allows only verified\
+            \ users. Omit for default (everyone can reply). For threads, applies to\
+            \ the first tweet only. Cannot be combined with replyToTweetId."
           enum:
           - following
           - mentionedUsers
           - subscribers
+          - verified
           type: string
         threadItems:
           description: Sequence of tweets in a thread. First item is the root tweet.
@@ -11539,6 +11550,7 @@ components:
                   title: title
                   url: https://openapi-generator.tech
                 content: content
+              replyToTweetId: replyToTweetId
             publishedAt: 2000-01-23T04:56:07.000+00:00
             errorSource: user
             errorMessage: errorMessage
@@ -11612,6 +11624,7 @@ components:
                   title: title
                   url: https://openapi-generator.tech
                 content: content
+              replyToTweetId: replyToTweetId
             publishedAt: 2000-01-23T04:56:07.000+00:00
             errorSource: user
             errorMessage: errorMessage
@@ -11743,6 +11756,7 @@ components:
                   title: title
                   url: https://openapi-generator.tech
                 content: content
+              replyToTweetId: replyToTweetId
             publishedAt: 2000-01-23T04:56:07.000+00:00
             errorSource: user
             errorMessage: errorMessage
@@ -11816,6 +11830,7 @@ components:
                   title: title
                   url: https://openapi-generator.tech
                 content: content
+              replyToTweetId: replyToTweetId
             publishedAt: 2000-01-23T04:56:07.000+00:00
             errorSource: user
             errorMessage: errorMessage
@@ -11957,6 +11972,7 @@ components:
                   title: title
                   url: https://openapi-generator.tech
                 content: content
+              replyToTweetId: replyToTweetId
             publishedAt: 2000-01-23T04:56:07.000+00:00
             errorSource: user
             errorMessage: errorMessage
@@ -12030,6 +12046,7 @@ components:
                   title: title
                   url: https://openapi-generator.tech
                 content: content
+              replyToTweetId: replyToTweetId
             publishedAt: 2000-01-23T04:56:07.000+00:00
             errorSource: user
             errorMessage: errorMessage
@@ -12167,6 +12184,7 @@ components:
                   title: title
                   url: https://openapi-generator.tech
                 content: content
+              replyToTweetId: replyToTweetId
             publishedAt: 2000-01-23T04:56:07.000+00:00
             errorSource: user
             errorMessage: errorMessage
@@ -12240,6 +12258,7 @@ components:
                   title: title
                   url: https://openapi-generator.tech
                 content: content
+              replyToTweetId: replyToTweetId
             publishedAt: 2000-01-23T04:56:07.000+00:00
             errorSource: user
             errorMessage: errorMessage
@@ -12380,6 +12399,7 @@ components:
                   title: title
                   url: https://openapi-generator.tech
                 content: content
+              replyToTweetId: replyToTweetId
             publishedAt: 2000-01-23T04:56:07.000+00:00
             errorSource: user
             errorMessage: errorMessage
@@ -12453,6 +12473,7 @@ components:
                   title: title
                   url: https://openapi-generator.tech
                 content: content
+              replyToTweetId: replyToTweetId
             publishedAt: 2000-01-23T04:56:07.000+00:00
             errorSource: user
             errorMessage: errorMessage
@@ -12599,6 +12620,7 @@ components:
                   title: title
                   url: https://openapi-generator.tech
                 content: content
+              replyToTweetId: replyToTweetId
             publishedAt: 2000-01-23T04:56:07.000+00:00
             errorSource: user
             errorMessage: errorMessage
@@ -12672,6 +12694,7 @@ components:
                   title: title
                   url: https://openapi-generator.tech
                 content: content
+              replyToTweetId: replyToTweetId
             publishedAt: 2000-01-23T04:56:07.000+00:00
             errorSource: user
             errorMessage: errorMessage
@@ -14513,6 +14536,7 @@ components:
                   title: title
                   url: https://openapi-generator.tech
                 content: content
+              replyToTweetId: replyToTweetId
             publishedAt: 2000-01-23T04:56:07.000+00:00
             errorSource: user
             errorMessage: errorMessage
@@ -14586,6 +14610,7 @@ components:
                   title: title
                   url: https://openapi-generator.tech
                 content: content
+              replyToTweetId: replyToTweetId
             publishedAt: 2000-01-23T04:56:07.000+00:00
             errorSource: user
             errorMessage: errorMessage
@@ -14717,6 +14742,7 @@ components:
                   title: title
                   url: https://openapi-generator.tech
                 content: content
+              replyToTweetId: replyToTweetId
             publishedAt: 2000-01-23T04:56:07.000+00:00
             errorSource: user
             errorMessage: errorMessage
@@ -14790,6 +14816,7 @@ components:
                   title: title
                   url: https://openapi-generator.tech
                 content: content
+              replyToTweetId: replyToTweetId
             publishedAt: 2000-01-23T04:56:07.000+00:00
             errorSource: user
             errorMessage: errorMessage

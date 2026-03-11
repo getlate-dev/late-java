@@ -36,7 +36,7 @@ import dev.getlate.ApiClient;
   UpdatePinterestBoardsRequest.JSON_PROPERTY_DEFAULT_BOARD_ID,
   UpdatePinterestBoardsRequest.JSON_PROPERTY_DEFAULT_BOARD_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-08T09:17:03.616767449Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-11T07:44:12.671430381Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UpdatePinterestBoardsRequest {
   public static final String JSON_PROPERTY_DEFAULT_BOARD_ID = "defaultBoardId";
   @javax.annotation.Nonnull

@@ -49,7 +49,7 @@ import dev.getlate.ApiClient;
   GetAllAccountsHealth200ResponseAccountsInner.JSON_PROPERTY_NEEDS_RECONNECT,
   GetAllAccountsHealth200ResponseAccountsInner.JSON_PROPERTY_ISSUES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-08T09:17:03.616767449Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-11T07:44:12.671430381Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetAllAccountsHealth200ResponseAccountsInner {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nullable

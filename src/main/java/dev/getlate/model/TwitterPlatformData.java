@@ -36,20 +36,27 @@ import dev.getlate.ApiClient;
  * TwitterPlatformData
  */
 @JsonPropertyOrder({
+  TwitterPlatformData.JSON_PROPERTY_REPLY_TO_TWEET_ID,
   TwitterPlatformData.JSON_PROPERTY_REPLY_SETTINGS,
   TwitterPlatformData.JSON_PROPERTY_THREAD_ITEMS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-08T09:17:03.616767449Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-11T07:44:12.671430381Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class TwitterPlatformData {
+  public static final String JSON_PROPERTY_REPLY_TO_TWEET_ID = "replyToTweetId";
+  @javax.annotation.Nullable
+  private String replyToTweetId;
+
   /**
-   * Controls who can reply to the tweet. \&quot;following\&quot; allows only people you follow, \&quot;mentionedUsers\&quot; allows only mentioned users, \&quot;subscribers\&quot; allows only subscribers. Omit for default (everyone can reply). For threads, applies to the first tweet only.
+   * Controls who can reply to the tweet. \&quot;following\&quot; allows only people you follow, \&quot;mentionedUsers\&quot; allows only mentioned users, \&quot;subscribers\&quot; allows only subscribers, \&quot;verified\&quot; allows only verified users. Omit for default (everyone can reply). For threads, applies to the first tweet only. Cannot be combined with replyToTweetId.
    */
   public enum ReplySettingsEnum {
     FOLLOWING(String.valueOf("following")),
     
     MENTIONED_USERS(String.valueOf("mentionedUsers")),
     
-    SUBSCRIBERS(String.valueOf("subscribers"));
+    SUBSCRIBERS(String.valueOf("subscribers")),
+    
+    VERIFIED(String.valueOf("verified"));
 
     private String value;
 
@@ -89,13 +96,37 @@ public class TwitterPlatformData {
   public TwitterPlatformData() { 
   }
 
+  public TwitterPlatformData replyToTweetId(@javax.annotation.Nullable String replyToTweetId) {
+    this.replyToTweetId = replyToTweetId;
+    return this;
+  }
+
+  /**
+   * ID of an existing tweet to reply to. The published tweet will appear as a reply in that tweet&#39;s thread. For threads, only the first tweet replies to the target; subsequent tweets chain normally.
+   * @return replyToTweetId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_REPLY_TO_TWEET_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getReplyToTweetId() {
+    return replyToTweetId;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_REPLY_TO_TWEET_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReplyToTweetId(@javax.annotation.Nullable String replyToTweetId) {
+    this.replyToTweetId = replyToTweetId;
+  }
+
+
   public TwitterPlatformData replySettings(@javax.annotation.Nullable ReplySettingsEnum replySettings) {
     this.replySettings = replySettings;
     return this;
   }
 
   /**
-   * Controls who can reply to the tweet. \&quot;following\&quot; allows only people you follow, \&quot;mentionedUsers\&quot; allows only mentioned users, \&quot;subscribers\&quot; allows only subscribers. Omit for default (everyone can reply). For threads, applies to the first tweet only.
+   * Controls who can reply to the tweet. \&quot;following\&quot; allows only people you follow, \&quot;mentionedUsers\&quot; allows only mentioned users, \&quot;subscribers\&quot; allows only subscribers, \&quot;verified\&quot; allows only verified users. Omit for default (everyone can reply). For threads, applies to the first tweet only. Cannot be combined with replyToTweetId.
    * @return replySettings
    */
   @javax.annotation.Nullable
@@ -157,19 +188,21 @@ public class TwitterPlatformData {
       return false;
     }
     TwitterPlatformData twitterPlatformData = (TwitterPlatformData) o;
-    return Objects.equals(this.replySettings, twitterPlatformData.replySettings) &&
+    return Objects.equals(this.replyToTweetId, twitterPlatformData.replyToTweetId) &&
+        Objects.equals(this.replySettings, twitterPlatformData.replySettings) &&
         Objects.equals(this.threadItems, twitterPlatformData.threadItems);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(replySettings, threadItems);
+    return Objects.hash(replyToTweetId, replySettings, threadItems);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TwitterPlatformData {\n");
+    sb.append("    replyToTweetId: ").append(toIndentedString(replyToTweetId)).append("\n");
     sb.append("    replySettings: ").append(toIndentedString(replySettings)).append("\n");
     sb.append("    threadItems: ").append(toIndentedString(threadItems)).append("\n");
     sb.append("}");
@@ -218,6 +251,11 @@ public class TwitterPlatformData {
     }
 
     StringJoiner joiner = new StringJoiner("&");
+
+    // add `replyToTweetId` to the URL query string
+    if (getReplyToTweetId() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sreplyToTweetId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getReplyToTweetId()))));
+    }
 
     // add `replySettings` to the URL query string
     if (getReplySettings() != null) {
