@@ -36,7 +36,7 @@ import dev.getlate.ApiClient;
   GetLinkedInPostReactions400Response.JSON_PROPERTY_ERROR,
   GetLinkedInPostReactions400Response.JSON_PROPERTY_CODE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-11T07:44:12.671430381Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-11T08:59:44.740089086Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetLinkedInPostReactions400Response {
   public static final String JSON_PROPERTY_ERROR = "error";
   @javax.annotation.Nullable
