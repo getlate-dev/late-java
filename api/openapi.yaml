@@ -10188,6 +10188,109 @@ paths:
       x-content-type: application/json
       x-accepts:
       - application/json
+  /v1/whatsapp/business-profile/photo:
+    post:
+      description: |
+        Upload a new profile picture for the WhatsApp Business Profile.
+        Uses Meta's resumable upload API under the hood: creates an upload session,
+        uploads the image bytes, then updates the business profile with the resulting handle.
+      operationId: uploadWhatsAppProfilePhoto
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/uploadWhatsAppProfilePhoto_request"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/unpublishPost_200_response"
+          description: Profile picture updated successfully
+        "400":
+          description: Invalid file type
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: WhatsApp account not found
+      security:
+      - bearerAuth: []
+      summary: Upload profile picture
+      tags:
+      - WhatsApp
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
+  /v1/whatsapp/business-profile/display-name:
+    get:
+      description: |
+        Fetch the current display name and its Meta review status for a WhatsApp Business account.
+        Display name changes require Meta approval and can take 1-3 business days.
+      operationId: getWhatsAppDisplayName
+      parameters:
+      - description: WhatsApp social account ID
+        explode: true
+        in: query
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getWhatsAppDisplayName_200_response"
+          description: Display name info retrieved
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: WhatsApp account not found
+      security:
+      - bearerAuth: []
+      summary: Get display name and review status
+      tags:
+      - WhatsApp
+      x-accepts:
+      - application/json
+    post:
+      description: |
+        Submit a display name change request for the WhatsApp Business account.
+        The new name must follow WhatsApp naming guidelines (3-512 characters, must represent your business).
+        Changes require Meta review and approval, which typically takes 1-3 business days.
+      operationId: updateWhatsAppDisplayName
+      requestBody:
+        content:
+          application/json:
+            example:
+              accountId: 507f1f77bcf86cd799439011
+              displayName: My Business Name
+            schema:
+              $ref: "#/components/schemas/updateWhatsAppDisplayName_request"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/updateWhatsAppDisplayName_200_response"
+          description: Display name change submitted for review
+        "400":
+          description: Invalid display name (too short
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: WhatsApp account not found
+      security:
+      - bearerAuth: []
+      summary: Request display name change
+      tags:
+      - WhatsApp
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /v1/whatsapp/phone-numbers:
     get:
       description: |
@@ -12733,6 +12836,8 @@ components:
           dataPoints:
             description: Number of historical snapshots
             type: number
+          accountStats:
+            $ref: "#/components/schemas/AccountWithFollowerStats_allOf_accountStats"
       example:
         profileUrl: profileUrl
         followersLastUpdated: 2000-01-23T04:56:07.000+00:00
@@ -12743,6 +12848,18 @@ components:
         lastUpdated: 2000-01-23T04:56:07.000+00:00
         currentFollowers: 6.027456183070403
         profileId: SocialAccount_profileId
+        accountStats:
+          videoCount: 9.301444243932576
+          pinCount: 4.145608029883936
+          likesCount: 1.2315135367772556
+          monthlyViews: 1.0246457001441578
+          boardCount: 6.84685269835264
+          postsCount: 2.027123023002322
+          tweetCount: 3.616076749251911
+          mediaCount: 7.061401241503109
+          totalViews: 7.386281948385884
+          followingCount: 2.3021358869347655
+          listedCount: 1.4894159098541704
         dataPoints: 5.637376656633329
         growth: 1.4658129805029452
         _id: _id
@@ -16746,7 +16863,7 @@ components:
     getFollowerStats_200_response_stats_value_inner:
       example:
         date: 2000-01-23
-        followers: 2.3021358869347655
+        followers: 7.457744773683766
       properties:
         date:
           format: date
@@ -16769,9 +16886,9 @@ components:
         stats:
           key:
           - date: 2000-01-23
-            followers: 2.3021358869347655
+            followers: 7.457744773683766
           - date: 2000-01-23
-            followers: 2.3021358869347655
+            followers: 7.457744773683766
         dateRange:
           from: 2000-01-23T04:56:07.000+00:00
           to: 2000-01-23T04:56:07.000+00:00
@@ -16786,6 +16903,18 @@ components:
           lastUpdated: 2000-01-23T04:56:07.000+00:00
           currentFollowers: 6.027456183070403
           profileId: SocialAccount_profileId
+          accountStats:
+            videoCount: 9.301444243932576
+            pinCount: 4.145608029883936
+            likesCount: 1.2315135367772556
+            monthlyViews: 1.0246457001441578
+            boardCount: 6.84685269835264
+            postsCount: 2.027123023002322
+            tweetCount: 3.616076749251911
+            mediaCount: 7.061401241503109
+            totalViews: 7.386281948385884
+            followingCount: 2.3021358869347655
+            listedCount: 1.4894159098541704
           dataPoints: 5.637376656633329
           growth: 1.4658129805029452
           _id: _id
@@ -16801,6 +16930,18 @@ components:
           lastUpdated: 2000-01-23T04:56:07.000+00:00
           currentFollowers: 6.027456183070403
           profileId: SocialAccount_profileId
+          accountStats:
+            videoCount: 9.301444243932576
+            pinCount: 4.145608029883936
+            likesCount: 1.2315135367772556
+            monthlyViews: 1.0246457001441578
+            boardCount: 6.84685269835264
+            postsCount: 2.027123023002322
+            tweetCount: 3.616076749251911
+            mediaCount: 7.061401241503109
+            totalViews: 7.386281948385884
+            followingCount: 2.3021358869347655
+            listedCount: 1.4894159098541704
           dataPoints: 5.637376656633329
           growth: 1.4658129805029452
           _id: _id
@@ -24962,6 +25103,88 @@ components:
           type: string
       required:
       - accountId
+    uploadWhatsAppProfilePhoto_request:
+      properties:
+        accountId:
+          description: WhatsApp social account ID
+          type: string
+        file:
+          description: "Image file (JPEG or PNG, max 5MB, recommended 640x640)"
+          format: binary
+          type: string
+      required:
+      - accountId
+      - file
+    getWhatsAppDisplayName_200_response_displayName:
+      example:
+        phoneNumber: phoneNumber
+        name: name
+        status: APPROVED
+      properties:
+        name:
+          description: Current verified display name
+          type: string
+        status:
+          description: Meta review status for the display name
+          enum:
+          - APPROVED
+          - PENDING_REVIEW
+          - DECLINED
+          - NONE
+          type: string
+        phoneNumber:
+          description: Display phone number
+          type: string
+    getWhatsAppDisplayName_200_response:
+      example:
+        success: true
+        displayName:
+          phoneNumber: phoneNumber
+          name: name
+          status: APPROVED
+      properties:
+        success:
+          type: boolean
+        displayName:
+          $ref: "#/components/schemas/getWhatsAppDisplayName_200_response_displayName"
+    updateWhatsAppDisplayName_request:
+      properties:
+        accountId:
+          description: WhatsApp social account ID
+          type: string
+        displayName:
+          description: New display name (must follow WhatsApp naming guidelines)
+          maxLength: 512
+          minLength: 3
+          type: string
+      required:
+      - accountId
+      - displayName
+    updateWhatsAppDisplayName_200_response_displayName:
+      example:
+        name: name
+        status: PENDING_REVIEW
+      properties:
+        name:
+          type: string
+        status:
+          enum:
+          - PENDING_REVIEW
+          type: string
+    updateWhatsAppDisplayName_200_response:
+      example:
+        success: true
+        displayName:
+          name: name
+          status: PENDING_REVIEW
+        message: message
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+        displayName:
+          $ref: "#/components/schemas/updateWhatsAppDisplayName_200_response_displayName"
     getWhatsAppPhoneNumbers_200_response_numbers_inner:
       example:
         metaPreverifiedId: metaPreverifiedId
@@ -25768,6 +25991,56 @@ components:
       oneOf:
       - type: string
       - $ref: "#/components/schemas/Profile"
+    AccountWithFollowerStats_allOf_accountStats:
+      description: |
+        Platform-specific account stats from the latest daily snapshot.
+        Fields vary by platform. Only present if metadata has been captured.
+      example:
+        videoCount: 9.301444243932576
+        pinCount: 4.145608029883936
+        likesCount: 1.2315135367772556
+        monthlyViews: 1.0246457001441578
+        boardCount: 6.84685269835264
+        postsCount: 2.027123023002322
+        tweetCount: 3.616076749251911
+        mediaCount: 7.061401241503109
+        totalViews: 7.386281948385884
+        followingCount: 2.3021358869347655
+        listedCount: 1.4894159098541704
+      properties:
+        followingCount:
+          description: Number of accounts being followed
+          type: number
+        mediaCount:
+          description: Total media posts (Instagram)
+          type: number
+        videoCount:
+          description: Total videos (YouTube
+          type: number
+        tweetCount:
+          description: Total tweets (X/Twitter)
+          type: number
+        postsCount:
+          description: Total posts (Bluesky)
+          type: number
+        pinCount:
+          description: Total pins (Pinterest)
+          type: number
+        totalViews:
+          description: Total channel views (YouTube)
+          type: number
+        likesCount:
+          description: Total likes received (TikTok)
+          type: number
+        monthlyViews:
+          description: Monthly profile views (Pinterest)
+          type: number
+        listedCount:
+          description: Lists the user appears on (X/Twitter)
+          type: number
+        boardCount:
+          description: Total boards (Pinterest)
+          type: number
     ApiKey_profileIds_inner:
       example:
         color: color

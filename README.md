@@ -4,7 +4,7 @@ Late API
 
 - API version: 1.0.1
 
-- Build date: 2026-03-12T09:10:29.751971885Z[Etc/UTC]
+- Build date: 2026-03-12T09:26:22.389496965Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -430,6 +430,8 @@ Class | Method | HTTP request | Description
 *WhatsAppApi* | [**getWhatsAppContactWithHttpInfo**](docs/WhatsAppApi.md#getWhatsAppContactWithHttpInfo) | **GET** /v1/whatsapp/contacts/{contactId} | Get contact
 *WhatsAppApi* | [**getWhatsAppContacts**](docs/WhatsAppApi.md#getWhatsAppContacts) | **GET** /v1/whatsapp/contacts | List contacts
 *WhatsAppApi* | [**getWhatsAppContactsWithHttpInfo**](docs/WhatsAppApi.md#getWhatsAppContactsWithHttpInfo) | **GET** /v1/whatsapp/contacts | List contacts
+*WhatsAppApi* | [**getWhatsAppDisplayName**](docs/WhatsAppApi.md#getWhatsAppDisplayName) | **GET** /v1/whatsapp/business-profile/display-name | Get display name and review status
+*WhatsAppApi* | [**getWhatsAppDisplayNameWithHttpInfo**](docs/WhatsAppApi.md#getWhatsAppDisplayNameWithHttpInfo) | **GET** /v1/whatsapp/business-profile/display-name | Get display name and review status
 *WhatsAppApi* | [**getWhatsAppGroups**](docs/WhatsAppApi.md#getWhatsAppGroups) | **GET** /v1/whatsapp/groups | List contact groups
 *WhatsAppApi* | [**getWhatsAppGroupsWithHttpInfo**](docs/WhatsAppApi.md#getWhatsAppGroupsWithHttpInfo) | **GET** /v1/whatsapp/groups | List contact groups
 *WhatsAppApi* | [**getWhatsAppTemplate**](docs/WhatsAppApi.md#getWhatsAppTemplate) | **GET** /v1/whatsapp/templates/{templateName} | Get template
@@ -452,8 +454,12 @@ Class | Method | HTTP request | Description
 *WhatsAppApi* | [**updateWhatsAppBusinessProfileWithHttpInfo**](docs/WhatsAppApi.md#updateWhatsAppBusinessProfileWithHttpInfo) | **POST** /v1/whatsapp/business-profile | Update business profile
 *WhatsAppApi* | [**updateWhatsAppContact**](docs/WhatsAppApi.md#updateWhatsAppContact) | **PUT** /v1/whatsapp/contacts/{contactId} | Update contact
 *WhatsAppApi* | [**updateWhatsAppContactWithHttpInfo**](docs/WhatsAppApi.md#updateWhatsAppContactWithHttpInfo) | **PUT** /v1/whatsapp/contacts/{contactId} | Update contact
+*WhatsAppApi* | [**updateWhatsAppDisplayName**](docs/WhatsAppApi.md#updateWhatsAppDisplayName) | **POST** /v1/whatsapp/business-profile/display-name | Request display name change
+*WhatsAppApi* | [**updateWhatsAppDisplayNameWithHttpInfo**](docs/WhatsAppApi.md#updateWhatsAppDisplayNameWithHttpInfo) | **POST** /v1/whatsapp/business-profile/display-name | Request display name change
 *WhatsAppApi* | [**updateWhatsAppTemplate**](docs/WhatsAppApi.md#updateWhatsAppTemplate) | **PATCH** /v1/whatsapp/templates/{templateName} | Update template
 *WhatsAppApi* | [**updateWhatsAppTemplateWithHttpInfo**](docs/WhatsAppApi.md#updateWhatsAppTemplateWithHttpInfo) | **PATCH** /v1/whatsapp/templates/{templateName} | Update template
+*WhatsAppApi* | [**uploadWhatsAppProfilePhoto**](docs/WhatsAppApi.md#uploadWhatsAppProfilePhoto) | **POST** /v1/whatsapp/business-profile/photo | Upload profile picture
+*WhatsAppApi* | [**uploadWhatsAppProfilePhotoWithHttpInfo**](docs/WhatsAppApi.md#uploadWhatsAppProfilePhotoWithHttpInfo) | **POST** /v1/whatsapp/business-profile/photo | Upload profile picture
 *WhatsAppPhoneNumbersApi* | [**getWhatsAppPhoneNumber**](docs/WhatsAppPhoneNumbersApi.md#getWhatsAppPhoneNumber) | **GET** /v1/whatsapp/phone-numbers/{phoneNumberId} | Get phone number
 *WhatsAppPhoneNumbersApi* | [**getWhatsAppPhoneNumberWithHttpInfo**](docs/WhatsAppPhoneNumbersApi.md#getWhatsAppPhoneNumberWithHttpInfo) | **GET** /v1/whatsapp/phone-numbers/{phoneNumberId} | Get phone number
 *WhatsAppPhoneNumbersApi* | [**getWhatsAppPhoneNumbers**](docs/WhatsAppPhoneNumbersApi.md#getWhatsAppPhoneNumbers) | **GET** /v1/whatsapp/phone-numbers | List phone numbers
@@ -468,6 +474,7 @@ Class | Method | HTTP request | Description
 
  - [AccountGetResponse](docs/AccountGetResponse.md)
  - [AccountWithFollowerStats](docs/AccountWithFollowerStats.md)
+ - [AccountWithFollowerStatsAllOfAccountStats](docs/AccountWithFollowerStatsAllOfAccountStats.md)
  - [AccountsListResponse](docs/AccountsListResponse.md)
  - [AddWhatsAppBroadcastRecipients200Response](docs/AddWhatsAppBroadcastRecipients200Response.md)
  - [AddWhatsAppBroadcastRecipientsRequest](docs/AddWhatsAppBroadcastRecipientsRequest.md)
@@ -685,6 +692,8 @@ Class | Method | HTTP request | Description
  - [GetWhatsAppContacts200ResponseContactsInner](docs/GetWhatsAppContacts200ResponseContactsInner.md)
  - [GetWhatsAppContacts200ResponseFilters](docs/GetWhatsAppContacts200ResponseFilters.md)
  - [GetWhatsAppContacts200ResponsePagination](docs/GetWhatsAppContacts200ResponsePagination.md)
+ - [GetWhatsAppDisplayName200Response](docs/GetWhatsAppDisplayName200Response.md)
+ - [GetWhatsAppDisplayName200ResponseDisplayName](docs/GetWhatsAppDisplayName200ResponseDisplayName.md)
  - [GetWhatsAppGroups200Response](docs/GetWhatsAppGroups200Response.md)
  - [GetWhatsAppGroups200ResponseGroupsInner](docs/GetWhatsAppGroups200ResponseGroupsInner.md)
  - [GetWhatsAppGroups200ResponseSummary](docs/GetWhatsAppGroups200ResponseSummary.md)
@@ -930,11 +939,15 @@ Class | Method | HTTP request | Description
  - [UpdateWhatsAppContact200Response](docs/UpdateWhatsAppContact200Response.md)
  - [UpdateWhatsAppContact200ResponseContact](docs/UpdateWhatsAppContact200ResponseContact.md)
  - [UpdateWhatsAppContactRequest](docs/UpdateWhatsAppContactRequest.md)
+ - [UpdateWhatsAppDisplayName200Response](docs/UpdateWhatsAppDisplayName200Response.md)
+ - [UpdateWhatsAppDisplayName200ResponseDisplayName](docs/UpdateWhatsAppDisplayName200ResponseDisplayName.md)
+ - [UpdateWhatsAppDisplayNameRequest](docs/UpdateWhatsAppDisplayNameRequest.md)
  - [UpdateWhatsAppTemplate200Response](docs/UpdateWhatsAppTemplate200Response.md)
  - [UpdateWhatsAppTemplate200ResponseTemplate](docs/UpdateWhatsAppTemplate200ResponseTemplate.md)
  - [UpdateWhatsAppTemplateRequest](docs/UpdateWhatsAppTemplateRequest.md)
  - [UploadTokenResponse](docs/UploadTokenResponse.md)
  - [UploadTokenStatusResponse](docs/UploadTokenStatusResponse.md)
+ - [UploadWhatsAppProfilePhotoRequest](docs/UploadWhatsAppProfilePhotoRequest.md)
  - [UploadedFile](docs/UploadedFile.md)
  - [UsageStats](docs/UsageStats.md)
  - [UsageStatsLimits](docs/UsageStatsLimits.md)

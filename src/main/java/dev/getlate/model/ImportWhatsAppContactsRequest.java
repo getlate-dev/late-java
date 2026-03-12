@@ -42,7 +42,7 @@ import dev.getlate.ApiClient;
   ImportWhatsAppContactsRequest.JSON_PROPERTY_DEFAULT_GROUPS,
   ImportWhatsAppContactsRequest.JSON_PROPERTY_SKIP_DUPLICATES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T09:10:29.751971885Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T09:26:22.389496965Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ImportWhatsAppContactsRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nonnull

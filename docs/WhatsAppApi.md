@@ -38,6 +38,8 @@ All URIs are relative to *https://getlate.dev/api*
 | [**getWhatsAppContactWithHttpInfo**](WhatsAppApi.md#getWhatsAppContactWithHttpInfo) | **GET** /v1/whatsapp/contacts/{contactId} | Get contact |
 | [**getWhatsAppContacts**](WhatsAppApi.md#getWhatsAppContacts) | **GET** /v1/whatsapp/contacts | List contacts |
 | [**getWhatsAppContactsWithHttpInfo**](WhatsAppApi.md#getWhatsAppContactsWithHttpInfo) | **GET** /v1/whatsapp/contacts | List contacts |
+| [**getWhatsAppDisplayName**](WhatsAppApi.md#getWhatsAppDisplayName) | **GET** /v1/whatsapp/business-profile/display-name | Get display name and review status |
+| [**getWhatsAppDisplayNameWithHttpInfo**](WhatsAppApi.md#getWhatsAppDisplayNameWithHttpInfo) | **GET** /v1/whatsapp/business-profile/display-name | Get display name and review status |
 | [**getWhatsAppGroups**](WhatsAppApi.md#getWhatsAppGroups) | **GET** /v1/whatsapp/groups | List contact groups |
 | [**getWhatsAppGroupsWithHttpInfo**](WhatsAppApi.md#getWhatsAppGroupsWithHttpInfo) | **GET** /v1/whatsapp/groups | List contact groups |
 | [**getWhatsAppTemplate**](WhatsAppApi.md#getWhatsAppTemplate) | **GET** /v1/whatsapp/templates/{templateName} | Get template |
@@ -60,8 +62,12 @@ All URIs are relative to *https://getlate.dev/api*
 | [**updateWhatsAppBusinessProfileWithHttpInfo**](WhatsAppApi.md#updateWhatsAppBusinessProfileWithHttpInfo) | **POST** /v1/whatsapp/business-profile | Update business profile |
 | [**updateWhatsAppContact**](WhatsAppApi.md#updateWhatsAppContact) | **PUT** /v1/whatsapp/contacts/{contactId} | Update contact |
 | [**updateWhatsAppContactWithHttpInfo**](WhatsAppApi.md#updateWhatsAppContactWithHttpInfo) | **PUT** /v1/whatsapp/contacts/{contactId} | Update contact |
+| [**updateWhatsAppDisplayName**](WhatsAppApi.md#updateWhatsAppDisplayName) | **POST** /v1/whatsapp/business-profile/display-name | Request display name change |
+| [**updateWhatsAppDisplayNameWithHttpInfo**](WhatsAppApi.md#updateWhatsAppDisplayNameWithHttpInfo) | **POST** /v1/whatsapp/business-profile/display-name | Request display name change |
 | [**updateWhatsAppTemplate**](WhatsAppApi.md#updateWhatsAppTemplate) | **PATCH** /v1/whatsapp/templates/{templateName} | Update template |
 | [**updateWhatsAppTemplateWithHttpInfo**](WhatsAppApi.md#updateWhatsAppTemplateWithHttpInfo) | **PATCH** /v1/whatsapp/templates/{templateName} | Update template |
+| [**uploadWhatsAppProfilePhoto**](WhatsAppApi.md#uploadWhatsAppProfilePhoto) | **POST** /v1/whatsapp/business-profile/photo | Upload profile picture |
+| [**uploadWhatsAppProfilePhotoWithHttpInfo**](WhatsAppApi.md#uploadWhatsAppProfilePhotoWithHttpInfo) | **POST** /v1/whatsapp/business-profile/photo | Upload profile picture |
 
 
 
@@ -2661,6 +2667,154 @@ ApiResponse<[**GetWhatsAppContacts200Response**](GetWhatsAppContacts200Response.
 | **404** | WhatsApp account not found |  -  |
 
 
+## getWhatsAppDisplayName
+
+> GetWhatsAppDisplayName200Response getWhatsAppDisplayName(accountId)
+
+Get display name and review status
+
+Fetch the current display name and its Meta review status for a WhatsApp Business account. Display name changes require Meta approval and can take 1-3 business days. 
+
+### Example
+
+```java
+// Import classes:
+import dev.getlate.ApiClient;
+import dev.getlate.ApiException;
+import dev.getlate.Configuration;
+import dev.getlate.auth.*;
+import dev.getlate.models.*;
+import dev.getlate.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://getlate.dev/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        String accountId = "accountId_example"; // String | WhatsApp social account ID
+        try {
+            GetWhatsAppDisplayName200Response result = apiInstance.getWhatsAppDisplayName(accountId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#getWhatsAppDisplayName");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountId** | **String**| WhatsApp social account ID | |
+
+### Return type
+
+[**GetWhatsAppDisplayName200Response**](GetWhatsAppDisplayName200Response.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Display name info retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | WhatsApp account not found |  -  |
+
+## getWhatsAppDisplayNameWithHttpInfo
+
+> ApiResponse<GetWhatsAppDisplayName200Response> getWhatsAppDisplayName getWhatsAppDisplayNameWithHttpInfo(accountId)
+
+Get display name and review status
+
+Fetch the current display name and its Meta review status for a WhatsApp Business account. Display name changes require Meta approval and can take 1-3 business days. 
+
+### Example
+
+```java
+// Import classes:
+import dev.getlate.ApiClient;
+import dev.getlate.ApiException;
+import dev.getlate.ApiResponse;
+import dev.getlate.Configuration;
+import dev.getlate.auth.*;
+import dev.getlate.models.*;
+import dev.getlate.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://getlate.dev/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        String accountId = "accountId_example"; // String | WhatsApp social account ID
+        try {
+            ApiResponse<GetWhatsAppDisplayName200Response> response = apiInstance.getWhatsAppDisplayNameWithHttpInfo(accountId);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#getWhatsAppDisplayName");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountId** | **String**| WhatsApp social account ID | |
+
+### Return type
+
+ApiResponse<[**GetWhatsAppDisplayName200Response**](GetWhatsAppDisplayName200Response.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Display name info retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | WhatsApp account not found |  -  |
+
+
 ## getWhatsAppGroups
 
 > GetWhatsAppGroups200Response getWhatsAppGroups(accountId)
@@ -4325,6 +4479,156 @@ ApiResponse<[**UpdateWhatsAppContact200Response**](UpdateWhatsAppContact200Respo
 | **404** | Resource not found |  -  |
 
 
+## updateWhatsAppDisplayName
+
+> UpdateWhatsAppDisplayName200Response updateWhatsAppDisplayName(updateWhatsAppDisplayNameRequest)
+
+Request display name change
+
+Submit a display name change request for the WhatsApp Business account. The new name must follow WhatsApp naming guidelines (3-512 characters, must represent your business). Changes require Meta review and approval, which typically takes 1-3 business days. 
+
+### Example
+
+```java
+// Import classes:
+import dev.getlate.ApiClient;
+import dev.getlate.ApiException;
+import dev.getlate.Configuration;
+import dev.getlate.auth.*;
+import dev.getlate.models.*;
+import dev.getlate.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://getlate.dev/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        UpdateWhatsAppDisplayNameRequest updateWhatsAppDisplayNameRequest = new UpdateWhatsAppDisplayNameRequest(); // UpdateWhatsAppDisplayNameRequest | 
+        try {
+            UpdateWhatsAppDisplayName200Response result = apiInstance.updateWhatsAppDisplayName(updateWhatsAppDisplayNameRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#updateWhatsAppDisplayName");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **updateWhatsAppDisplayNameRequest** | [**UpdateWhatsAppDisplayNameRequest**](UpdateWhatsAppDisplayNameRequest.md)|  | |
+
+### Return type
+
+[**UpdateWhatsAppDisplayName200Response**](UpdateWhatsAppDisplayName200Response.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Display name change submitted for review |  -  |
+| **400** | Invalid display name (too short |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | WhatsApp account not found |  -  |
+
+## updateWhatsAppDisplayNameWithHttpInfo
+
+> ApiResponse<UpdateWhatsAppDisplayName200Response> updateWhatsAppDisplayName updateWhatsAppDisplayNameWithHttpInfo(updateWhatsAppDisplayNameRequest)
+
+Request display name change
+
+Submit a display name change request for the WhatsApp Business account. The new name must follow WhatsApp naming guidelines (3-512 characters, must represent your business). Changes require Meta review and approval, which typically takes 1-3 business days. 
+
+### Example
+
+```java
+// Import classes:
+import dev.getlate.ApiClient;
+import dev.getlate.ApiException;
+import dev.getlate.ApiResponse;
+import dev.getlate.Configuration;
+import dev.getlate.auth.*;
+import dev.getlate.models.*;
+import dev.getlate.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://getlate.dev/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        UpdateWhatsAppDisplayNameRequest updateWhatsAppDisplayNameRequest = new UpdateWhatsAppDisplayNameRequest(); // UpdateWhatsAppDisplayNameRequest | 
+        try {
+            ApiResponse<UpdateWhatsAppDisplayName200Response> response = apiInstance.updateWhatsAppDisplayNameWithHttpInfo(updateWhatsAppDisplayNameRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#updateWhatsAppDisplayName");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **updateWhatsAppDisplayNameRequest** | [**UpdateWhatsAppDisplayNameRequest**](UpdateWhatsAppDisplayNameRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**UpdateWhatsAppDisplayName200Response**](UpdateWhatsAppDisplayName200Response.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Display name change submitted for review |  -  |
+| **400** | Invalid display name (too short |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | WhatsApp account not found |  -  |
+
+
 ## updateWhatsAppTemplate
 
 > UpdateWhatsAppTemplate200Response updateWhatsAppTemplate(templateName, updateWhatsAppTemplateRequest)
@@ -4477,4 +4781,158 @@ ApiResponse<[**UpdateWhatsAppTemplate200Response**](UpdateWhatsAppTemplate200Res
 | **400** | Validation error (missing fields) |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Resource not found |  -  |
+
+
+## uploadWhatsAppProfilePhoto
+
+> UnpublishPost200Response uploadWhatsAppProfilePhoto(accountId, _file)
+
+Upload profile picture
+
+Upload a new profile picture for the WhatsApp Business Profile. Uses Meta&#39;s resumable upload API under the hood: creates an upload session, uploads the image bytes, then updates the business profile with the resulting handle. 
+
+### Example
+
+```java
+// Import classes:
+import dev.getlate.ApiClient;
+import dev.getlate.ApiException;
+import dev.getlate.Configuration;
+import dev.getlate.auth.*;
+import dev.getlate.models.*;
+import dev.getlate.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://getlate.dev/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        String accountId = "accountId_example"; // String | WhatsApp social account ID
+        File _file = new File("/path/to/file"); // File | Image file (JPEG or PNG, max 5MB, recommended 640x640)
+        try {
+            UnpublishPost200Response result = apiInstance.uploadWhatsAppProfilePhoto(accountId, _file);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#uploadWhatsAppProfilePhoto");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountId** | **String**| WhatsApp social account ID | |
+| **_file** | **File**| Image file (JPEG or PNG, max 5MB, recommended 640x640) | |
+
+### Return type
+
+[**UnpublishPost200Response**](UnpublishPost200Response.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Profile picture updated successfully |  -  |
+| **400** | Invalid file type |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | WhatsApp account not found |  -  |
+
+## uploadWhatsAppProfilePhotoWithHttpInfo
+
+> ApiResponse<UnpublishPost200Response> uploadWhatsAppProfilePhoto uploadWhatsAppProfilePhotoWithHttpInfo(accountId, _file)
+
+Upload profile picture
+
+Upload a new profile picture for the WhatsApp Business Profile. Uses Meta&#39;s resumable upload API under the hood: creates an upload session, uploads the image bytes, then updates the business profile with the resulting handle. 
+
+### Example
+
+```java
+// Import classes:
+import dev.getlate.ApiClient;
+import dev.getlate.ApiException;
+import dev.getlate.ApiResponse;
+import dev.getlate.Configuration;
+import dev.getlate.auth.*;
+import dev.getlate.models.*;
+import dev.getlate.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://getlate.dev/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        String accountId = "accountId_example"; // String | WhatsApp social account ID
+        File _file = new File("/path/to/file"); // File | Image file (JPEG or PNG, max 5MB, recommended 640x640)
+        try {
+            ApiResponse<UnpublishPost200Response> response = apiInstance.uploadWhatsAppProfilePhotoWithHttpInfo(accountId, _file);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#uploadWhatsAppProfilePhoto");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountId** | **String**| WhatsApp social account ID | |
+| **_file** | **File**| Image file (JPEG or PNG, max 5MB, recommended 640x640) | |
+
+### Return type
+
+ApiResponse<[**UnpublishPost200Response**](UnpublishPost200Response.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Profile picture updated successfully |  -  |
+| **400** | Invalid file type |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | WhatsApp account not found |  -  |
 

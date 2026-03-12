@@ -9,6 +9,7 @@ docs/AccountGetResponse.md
 docs/AccountGroupsApi.md
 docs/AccountSettingsApi.md
 docs/AccountWithFollowerStats.md
+docs/AccountWithFollowerStatsAllOfAccountStats.md
 docs/AccountsApi.md
 docs/AccountsListResponse.md
 docs/AddWhatsAppBroadcastRecipients200Response.md
@@ -231,6 +232,8 @@ docs/GetWhatsAppContacts200Response.md
 docs/GetWhatsAppContacts200ResponseContactsInner.md
 docs/GetWhatsAppContacts200ResponseFilters.md
 docs/GetWhatsAppContacts200ResponsePagination.md
+docs/GetWhatsAppDisplayName200Response.md
+docs/GetWhatsAppDisplayName200ResponseDisplayName.md
 docs/GetWhatsAppGroups200Response.md
 docs/GetWhatsAppGroups200ResponseGroupsInner.md
 docs/GetWhatsAppGroups200ResponseSummary.md
@@ -493,11 +496,15 @@ docs/UpdateWhatsAppBusinessProfileRequest.md
 docs/UpdateWhatsAppContact200Response.md
 docs/UpdateWhatsAppContact200ResponseContact.md
 docs/UpdateWhatsAppContactRequest.md
+docs/UpdateWhatsAppDisplayName200Response.md
+docs/UpdateWhatsAppDisplayName200ResponseDisplayName.md
+docs/UpdateWhatsAppDisplayNameRequest.md
 docs/UpdateWhatsAppTemplate200Response.md
 docs/UpdateWhatsAppTemplate200ResponseTemplate.md
 docs/UpdateWhatsAppTemplateRequest.md
 docs/UploadTokenResponse.md
 docs/UploadTokenStatusResponse.md
+docs/UploadWhatsAppProfilePhotoRequest.md
 docs/UploadedFile.md
 docs/UsageApi.md
 docs/UsageStats.md
@@ -612,6 +619,7 @@ src/main/java/dev/getlate/api/WhatsAppPhoneNumbersApi.java
 src/main/java/dev/getlate/model/AbstractOpenApiSchema.java
 src/main/java/dev/getlate/model/AccountGetResponse.java
 src/main/java/dev/getlate/model/AccountWithFollowerStats.java
+src/main/java/dev/getlate/model/AccountWithFollowerStatsAllOfAccountStats.java
 src/main/java/dev/getlate/model/AccountsListResponse.java
 src/main/java/dev/getlate/model/AddWhatsAppBroadcastRecipients200Response.java
 src/main/java/dev/getlate/model/AddWhatsAppBroadcastRecipientsRequest.java
@@ -829,6 +837,8 @@ src/main/java/dev/getlate/model/GetWhatsAppContacts200Response.java
 src/main/java/dev/getlate/model/GetWhatsAppContacts200ResponseContactsInner.java
 src/main/java/dev/getlate/model/GetWhatsAppContacts200ResponseFilters.java
 src/main/java/dev/getlate/model/GetWhatsAppContacts200ResponsePagination.java
+src/main/java/dev/getlate/model/GetWhatsAppDisplayName200Response.java
+src/main/java/dev/getlate/model/GetWhatsAppDisplayName200ResponseDisplayName.java
 src/main/java/dev/getlate/model/GetWhatsAppGroups200Response.java
 src/main/java/dev/getlate/model/GetWhatsAppGroups200ResponseGroupsInner.java
 src/main/java/dev/getlate/model/GetWhatsAppGroups200ResponseSummary.java
@@ -1074,11 +1084,15 @@ src/main/java/dev/getlate/model/UpdateWhatsAppBusinessProfileRequest.java
 src/main/java/dev/getlate/model/UpdateWhatsAppContact200Response.java
 src/main/java/dev/getlate/model/UpdateWhatsAppContact200ResponseContact.java
 src/main/java/dev/getlate/model/UpdateWhatsAppContactRequest.java
+src/main/java/dev/getlate/model/UpdateWhatsAppDisplayName200Response.java
+src/main/java/dev/getlate/model/UpdateWhatsAppDisplayName200ResponseDisplayName.java
+src/main/java/dev/getlate/model/UpdateWhatsAppDisplayNameRequest.java
 src/main/java/dev/getlate/model/UpdateWhatsAppTemplate200Response.java
 src/main/java/dev/getlate/model/UpdateWhatsAppTemplate200ResponseTemplate.java
 src/main/java/dev/getlate/model/UpdateWhatsAppTemplateRequest.java
 src/main/java/dev/getlate/model/UploadTokenResponse.java
 src/main/java/dev/getlate/model/UploadTokenStatusResponse.java
+src/main/java/dev/getlate/model/UploadWhatsAppProfilePhotoRequest.java
 src/main/java/dev/getlate/model/UploadedFile.java
 src/main/java/dev/getlate/model/UsageStats.java
 src/main/java/dev/getlate/model/UsageStatsLimits.java
@@ -1134,3 +1148,10 @@ src/main/java/dev/getlate/model/YouTubeDailyViewsResponseScopeStatus.java
 src/main/java/dev/getlate/model/YouTubePlatformData.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponseScopeStatus.java
+src/test/java/dev/getlate/model/AccountWithFollowerStatsAllOfAccountStatsTest.java
+src/test/java/dev/getlate/model/GetWhatsAppDisplayName200ResponseDisplayNameTest.java
+src/test/java/dev/getlate/model/GetWhatsAppDisplayName200ResponseTest.java
+src/test/java/dev/getlate/model/UpdateWhatsAppDisplayName200ResponseDisplayNameTest.java
+src/test/java/dev/getlate/model/UpdateWhatsAppDisplayName200ResponseTest.java
+src/test/java/dev/getlate/model/UpdateWhatsAppDisplayNameRequestTest.java
+src/test/java/dev/getlate/model/UploadWhatsAppProfilePhotoRequestTest.java

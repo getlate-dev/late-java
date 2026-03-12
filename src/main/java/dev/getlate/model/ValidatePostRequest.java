@@ -41,7 +41,7 @@ import dev.getlate.ApiClient;
   ValidatePostRequest.JSON_PROPERTY_PLATFORMS,
   ValidatePostRequest.JSON_PROPERTY_MEDIA_ITEMS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T09:10:29.751971885Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T09:26:22.389496965Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ValidatePostRequest {
   public static final String JSON_PROPERTY_CONTENT = "content";
   @javax.annotation.Nullable

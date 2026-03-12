@@ -39,7 +39,7 @@ import dev.getlate.ApiClient;
   AddWhatsAppBroadcastRecipientsRequestRecipientsInner.JSON_PROPERTY_NAME,
   AddWhatsAppBroadcastRecipientsRequestRecipientsInner.JSON_PROPERTY_VARIABLES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T09:10:29.751971885Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T09:26:22.389496965Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AddWhatsAppBroadcastRecipientsRequestRecipientsInner {
   public static final String JSON_PROPERTY_PHONE = "phone";
   @javax.annotation.Nonnull

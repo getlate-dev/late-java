@@ -22,6 +22,7 @@
 |**growth** | **BigDecimal** | Follower change over period |  [optional] |
 |**growthPercentage** | **BigDecimal** | Percentage growth |  [optional] |
 |**dataPoints** | **BigDecimal** | Number of historical snapshots |  [optional] |
+|**accountStats** | [**AccountWithFollowerStatsAllOfAccountStats**](AccountWithFollowerStatsAllOfAccountStats.md) |  |  [optional] |
 
 
 

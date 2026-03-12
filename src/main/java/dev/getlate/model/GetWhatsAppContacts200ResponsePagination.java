@@ -38,7 +38,7 @@ import dev.getlate.ApiClient;
   GetWhatsAppContacts200ResponsePagination.JSON_PROPERTY_SKIP,
   GetWhatsAppContacts200ResponsePagination.JSON_PROPERTY_HAS_MORE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T09:10:29.751971885Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T09:26:22.389496965Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetWhatsAppContacts200ResponsePagination {
   public static final String JSON_PROPERTY_TOTAL = "total";
   @javax.annotation.Nullable

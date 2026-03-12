@@ -32,12 +32,14 @@ import dev.getlate.model.CreateWhatsAppContactRequest;
 import dev.getlate.model.CreateWhatsAppTemplate200Response;
 import dev.getlate.model.CreateWhatsAppTemplateRequest;
 import dev.getlate.model.DeleteWhatsAppGroupRequest;
+import java.io.File;
 import dev.getlate.model.GetWhatsAppBroadcast200Response;
 import dev.getlate.model.GetWhatsAppBroadcastRecipients200Response;
 import dev.getlate.model.GetWhatsAppBroadcasts200Response;
 import dev.getlate.model.GetWhatsAppBusinessProfile200Response;
 import dev.getlate.model.GetWhatsAppContact200Response;
 import dev.getlate.model.GetWhatsAppContacts200Response;
+import dev.getlate.model.GetWhatsAppDisplayName200Response;
 import dev.getlate.model.GetWhatsAppGroups200Response;
 import dev.getlate.model.GetWhatsAppTemplate200Response;
 import dev.getlate.model.GetWhatsAppTemplates200Response;
@@ -58,6 +60,8 @@ import dev.getlate.model.UnpublishPost200Response;
 import dev.getlate.model.UpdateWhatsAppBusinessProfileRequest;
 import dev.getlate.model.UpdateWhatsAppContact200Response;
 import dev.getlate.model.UpdateWhatsAppContactRequest;
+import dev.getlate.model.UpdateWhatsAppDisplayName200Response;
+import dev.getlate.model.UpdateWhatsAppDisplayNameRequest;
 import dev.getlate.model.UpdateWhatsAppTemplate200Response;
 import dev.getlate.model.UpdateWhatsAppTemplateRequest;
 
@@ -92,7 +96,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T09:10:29.751971885Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T09:26:22.389496965Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WhatsAppApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -2410,6 +2414,138 @@ public class WhatsAppApi {
   }
 
   /**
+   * Get display name and review status
+   * Fetch the current display name and its Meta review status for a WhatsApp Business account. Display name changes require Meta approval and can take 1-3 business days. 
+   * @param accountId WhatsApp social account ID (required)
+   * @return GetWhatsAppDisplayName200Response
+   * @throws ApiException if fails to make API call
+   */
+  public GetWhatsAppDisplayName200Response getWhatsAppDisplayName(@javax.annotation.Nonnull String accountId) throws ApiException {
+    return getWhatsAppDisplayName(accountId, null);
+  }
+
+  /**
+   * Get display name and review status
+   * Fetch the current display name and its Meta review status for a WhatsApp Business account. Display name changes require Meta approval and can take 1-3 business days. 
+   * @param accountId WhatsApp social account ID (required)
+   * @param headers Optional headers to include in the request
+   * @return GetWhatsAppDisplayName200Response
+   * @throws ApiException if fails to make API call
+   */
+  public GetWhatsAppDisplayName200Response getWhatsAppDisplayName(@javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
+    ApiResponse<GetWhatsAppDisplayName200Response> localVarResponse = getWhatsAppDisplayNameWithHttpInfo(accountId, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Get display name and review status
+   * Fetch the current display name and its Meta review status for a WhatsApp Business account. Display name changes require Meta approval and can take 1-3 business days. 
+   * @param accountId WhatsApp social account ID (required)
+   * @return ApiResponse&lt;GetWhatsAppDisplayName200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<GetWhatsAppDisplayName200Response> getWhatsAppDisplayNameWithHttpInfo(@javax.annotation.Nonnull String accountId) throws ApiException {
+    return getWhatsAppDisplayNameWithHttpInfo(accountId, null);
+  }
+
+  /**
+   * Get display name and review status
+   * Fetch the current display name and its Meta review status for a WhatsApp Business account. Display name changes require Meta approval and can take 1-3 business days. 
+   * @param accountId WhatsApp social account ID (required)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;GetWhatsAppDisplayName200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<GetWhatsAppDisplayName200Response> getWhatsAppDisplayNameWithHttpInfo(@javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getWhatsAppDisplayNameRequestBuilder(accountId, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getWhatsAppDisplayName", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<GetWhatsAppDisplayName200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        GetWhatsAppDisplayName200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<GetWhatsAppDisplayName200Response>() {});
+        
+
+        return new ApiResponse<GetWhatsAppDisplayName200Response>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getWhatsAppDisplayNameRequestBuilder(@javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling getWhatsAppDisplayName");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/whatsapp/business-profile/display-name";
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "accountId";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("accountId", accountId));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
    * List contact groups
    * List all contact groups for a WhatsApp account with contact counts. Groups are derived from the groups field on contacts, not stored as separate documents. 
    * @param accountId WhatsApp social account ID (required)
@@ -3821,6 +3957,129 @@ public class WhatsAppApi {
   }
 
   /**
+   * Request display name change
+   * Submit a display name change request for the WhatsApp Business account. The new name must follow WhatsApp naming guidelines (3-512 characters, must represent your business). Changes require Meta review and approval, which typically takes 1-3 business days. 
+   * @param updateWhatsAppDisplayNameRequest  (required)
+   * @return UpdateWhatsAppDisplayName200Response
+   * @throws ApiException if fails to make API call
+   */
+  public UpdateWhatsAppDisplayName200Response updateWhatsAppDisplayName(@javax.annotation.Nonnull UpdateWhatsAppDisplayNameRequest updateWhatsAppDisplayNameRequest) throws ApiException {
+    return updateWhatsAppDisplayName(updateWhatsAppDisplayNameRequest, null);
+  }
+
+  /**
+   * Request display name change
+   * Submit a display name change request for the WhatsApp Business account. The new name must follow WhatsApp naming guidelines (3-512 characters, must represent your business). Changes require Meta review and approval, which typically takes 1-3 business days. 
+   * @param updateWhatsAppDisplayNameRequest  (required)
+   * @param headers Optional headers to include in the request
+   * @return UpdateWhatsAppDisplayName200Response
+   * @throws ApiException if fails to make API call
+   */
+  public UpdateWhatsAppDisplayName200Response updateWhatsAppDisplayName(@javax.annotation.Nonnull UpdateWhatsAppDisplayNameRequest updateWhatsAppDisplayNameRequest, Map<String, String> headers) throws ApiException {
+    ApiResponse<UpdateWhatsAppDisplayName200Response> localVarResponse = updateWhatsAppDisplayNameWithHttpInfo(updateWhatsAppDisplayNameRequest, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Request display name change
+   * Submit a display name change request for the WhatsApp Business account. The new name must follow WhatsApp naming guidelines (3-512 characters, must represent your business). Changes require Meta review and approval, which typically takes 1-3 business days. 
+   * @param updateWhatsAppDisplayNameRequest  (required)
+   * @return ApiResponse&lt;UpdateWhatsAppDisplayName200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UpdateWhatsAppDisplayName200Response> updateWhatsAppDisplayNameWithHttpInfo(@javax.annotation.Nonnull UpdateWhatsAppDisplayNameRequest updateWhatsAppDisplayNameRequest) throws ApiException {
+    return updateWhatsAppDisplayNameWithHttpInfo(updateWhatsAppDisplayNameRequest, null);
+  }
+
+  /**
+   * Request display name change
+   * Submit a display name change request for the WhatsApp Business account. The new name must follow WhatsApp naming guidelines (3-512 characters, must represent your business). Changes require Meta review and approval, which typically takes 1-3 business days. 
+   * @param updateWhatsAppDisplayNameRequest  (required)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;UpdateWhatsAppDisplayName200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UpdateWhatsAppDisplayName200Response> updateWhatsAppDisplayNameWithHttpInfo(@javax.annotation.Nonnull UpdateWhatsAppDisplayNameRequest updateWhatsAppDisplayNameRequest, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateWhatsAppDisplayNameRequestBuilder(updateWhatsAppDisplayNameRequest, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("updateWhatsAppDisplayName", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<UpdateWhatsAppDisplayName200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        UpdateWhatsAppDisplayName200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<UpdateWhatsAppDisplayName200Response>() {});
+        
+
+        return new ApiResponse<UpdateWhatsAppDisplayName200Response>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder updateWhatsAppDisplayNameRequestBuilder(@javax.annotation.Nonnull UpdateWhatsAppDisplayNameRequest updateWhatsAppDisplayNameRequest, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'updateWhatsAppDisplayNameRequest' is set
+    if (updateWhatsAppDisplayNameRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updateWhatsAppDisplayNameRequest' when calling updateWhatsAppDisplayName");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/whatsapp/business-profile/display-name";
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(updateWhatsAppDisplayNameRequest);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
    * Update template
    * Update a message template&#39;s components. Only certain fields can be updated depending on the template&#39;s current approval state. Approved templates can only have components updated. 
    * @param templateName Template name (required)
@@ -3941,6 +4200,168 @@ public class WhatsAppApi {
     } catch (IOException e) {
       throw new ApiException(e);
     }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Upload profile picture
+   * Upload a new profile picture for the WhatsApp Business Profile. Uses Meta&#39;s resumable upload API under the hood: creates an upload session, uploads the image bytes, then updates the business profile with the resulting handle. 
+   * @param accountId WhatsApp social account ID (required)
+   * @param _file Image file (JPEG or PNG, max 5MB, recommended 640x640) (required)
+   * @return UnpublishPost200Response
+   * @throws ApiException if fails to make API call
+   */
+  public UnpublishPost200Response uploadWhatsAppProfilePhoto(@javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull File _file) throws ApiException {
+    return uploadWhatsAppProfilePhoto(accountId, _file, null);
+  }
+
+  /**
+   * Upload profile picture
+   * Upload a new profile picture for the WhatsApp Business Profile. Uses Meta&#39;s resumable upload API under the hood: creates an upload session, uploads the image bytes, then updates the business profile with the resulting handle. 
+   * @param accountId WhatsApp social account ID (required)
+   * @param _file Image file (JPEG or PNG, max 5MB, recommended 640x640) (required)
+   * @param headers Optional headers to include in the request
+   * @return UnpublishPost200Response
+   * @throws ApiException if fails to make API call
+   */
+  public UnpublishPost200Response uploadWhatsAppProfilePhoto(@javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull File _file, Map<String, String> headers) throws ApiException {
+    ApiResponse<UnpublishPost200Response> localVarResponse = uploadWhatsAppProfilePhotoWithHttpInfo(accountId, _file, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Upload profile picture
+   * Upload a new profile picture for the WhatsApp Business Profile. Uses Meta&#39;s resumable upload API under the hood: creates an upload session, uploads the image bytes, then updates the business profile with the resulting handle. 
+   * @param accountId WhatsApp social account ID (required)
+   * @param _file Image file (JPEG or PNG, max 5MB, recommended 640x640) (required)
+   * @return ApiResponse&lt;UnpublishPost200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnpublishPost200Response> uploadWhatsAppProfilePhotoWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull File _file) throws ApiException {
+    return uploadWhatsAppProfilePhotoWithHttpInfo(accountId, _file, null);
+  }
+
+  /**
+   * Upload profile picture
+   * Upload a new profile picture for the WhatsApp Business Profile. Uses Meta&#39;s resumable upload API under the hood: creates an upload session, uploads the image bytes, then updates the business profile with the resulting handle. 
+   * @param accountId WhatsApp social account ID (required)
+   * @param _file Image file (JPEG or PNG, max 5MB, recommended 640x640) (required)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;UnpublishPost200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnpublishPost200Response> uploadWhatsAppProfilePhotoWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull File _file, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = uploadWhatsAppProfilePhotoRequestBuilder(accountId, _file, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("uploadWhatsAppProfilePhoto", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<UnpublishPost200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        UnpublishPost200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<UnpublishPost200Response>() {});
+        
+
+        return new ApiResponse<UnpublishPost200Response>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder uploadWhatsAppProfilePhotoRequestBuilder(@javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull File _file, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling uploadWhatsAppProfilePhoto");
+    }
+    // verify the required parameter '_file' is set
+    if (_file == null) {
+      throw new ApiException(400, "Missing the required parameter '_file' when calling uploadWhatsAppProfilePhoto");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/whatsapp/business-profile/photo";
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    MultipartEntityBuilder multiPartBuilder = MultipartEntityBuilder.create();
+    boolean hasFiles = false;
+    if (accountId != null) {
+        multiPartBuilder.addTextBody("accountId", accountId.toString());
+    }
+    multiPartBuilder.addBinaryBody("file", _file);
+    hasFiles = true;
+    HttpEntity entity = multiPartBuilder.build();
+    HttpRequest.BodyPublisher formDataPublisher;
+    if (hasFiles) {
+        Pipe pipe;
+        try {
+            pipe = Pipe.open();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        new Thread(() -> {
+            try (OutputStream outputStream = Channels.newOutputStream(pipe.sink())) {
+                entity.writeTo(outputStream);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
+        formDataPublisher = HttpRequest.BodyPublishers.ofInputStream(() -> Channels.newInputStream(pipe.source()));
+    } else {
+        ByteArrayOutputStream formOutputStream = new ByteArrayOutputStream();
+        try {
+            entity.writeTo(formOutputStream);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        byte[] formBytes = formOutputStream.toByteArray();
+        formDataPublisher = HttpRequest.BodyPublishers
+            .ofInputStream(() -> new ByteArrayInputStream(formBytes));
+    }
+    localVarRequestBuilder
+        .header("Content-Type", entity.getContentType().getValue())
+        .method("POST", formDataPublisher);
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }

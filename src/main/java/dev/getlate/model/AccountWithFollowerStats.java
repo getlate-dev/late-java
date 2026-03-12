@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import dev.getlate.model.AccountWithFollowerStatsAllOfAccountStats;
 import dev.getlate.model.SocialAccountProfileId;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
@@ -50,9 +51,10 @@ import dev.getlate.ApiClient;
   AccountWithFollowerStats.JSON_PROPERTY_LAST_UPDATED,
   AccountWithFollowerStats.JSON_PROPERTY_GROWTH,
   AccountWithFollowerStats.JSON_PROPERTY_GROWTH_PERCENTAGE,
-  AccountWithFollowerStats.JSON_PROPERTY_DATA_POINTS
+  AccountWithFollowerStats.JSON_PROPERTY_DATA_POINTS,
+  AccountWithFollowerStats.JSON_PROPERTY_ACCOUNT_STATS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T09:10:29.751971885Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T09:26:22.389496965Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AccountWithFollowerStats {
   public static final String JSON_PROPERTY_ID = "_id";
   @javax.annotation.Nullable
@@ -113,6 +115,10 @@ public class AccountWithFollowerStats {
   public static final String JSON_PROPERTY_DATA_POINTS = "dataPoints";
   @javax.annotation.Nullable
   private BigDecimal dataPoints;
+
+  public static final String JSON_PROPERTY_ACCOUNT_STATS = "accountStats";
+  @javax.annotation.Nullable
+  private AccountWithFollowerStatsAllOfAccountStats accountStats;
 
   public AccountWithFollowerStats() { 
   }
@@ -477,6 +483,30 @@ public class AccountWithFollowerStats {
   }
 
 
+  public AccountWithFollowerStats accountStats(@javax.annotation.Nullable AccountWithFollowerStatsAllOfAccountStats accountStats) {
+    this.accountStats = accountStats;
+    return this;
+  }
+
+  /**
+   * Get accountStats
+   * @return accountStats
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_ACCOUNT_STATS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AccountWithFollowerStatsAllOfAccountStats getAccountStats() {
+    return accountStats;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ACCOUNT_STATS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAccountStats(@javax.annotation.Nullable AccountWithFollowerStatsAllOfAccountStats accountStats) {
+    this.accountStats = accountStats;
+  }
+
+
   /**
    * Return true if this AccountWithFollowerStats object is equal to o.
    */
@@ -503,12 +533,13 @@ public class AccountWithFollowerStats {
         Objects.equals(this.lastUpdated, accountWithFollowerStats.lastUpdated) &&
         Objects.equals(this.growth, accountWithFollowerStats.growth) &&
         Objects.equals(this.growthPercentage, accountWithFollowerStats.growthPercentage) &&
-        Objects.equals(this.dataPoints, accountWithFollowerStats.dataPoints);
+        Objects.equals(this.dataPoints, accountWithFollowerStats.dataPoints) &&
+        Objects.equals(this.accountStats, accountWithFollowerStats.accountStats);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, platform, profileId, username, displayName, profileUrl, isActive, followersCount, followersLastUpdated, profilePicture, currentFollowers, lastUpdated, growth, growthPercentage, dataPoints);
+    return Objects.hash(id, platform, profileId, username, displayName, profileUrl, isActive, followersCount, followersLastUpdated, profilePicture, currentFollowers, lastUpdated, growth, growthPercentage, dataPoints, accountStats);
   }
 
   @Override
@@ -530,6 +561,7 @@ public class AccountWithFollowerStats {
     sb.append("    growth: ").append(toIndentedString(growth)).append("\n");
     sb.append("    growthPercentage: ").append(toIndentedString(growthPercentage)).append("\n");
     sb.append("    dataPoints: ").append(toIndentedString(dataPoints)).append("\n");
+    sb.append("    accountStats: ").append(toIndentedString(accountStats)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -650,6 +682,11 @@ public class AccountWithFollowerStats {
     // add `dataPoints` to the URL query string
     if (getDataPoints() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sdataPoints%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDataPoints()))));
+    }
+
+    // add `accountStats` to the URL query string
+    if (getAccountStats() != null) {
+      joiner.add(getAccountStats().toUrlQueryString(prefix + "accountStats" + suffix));
     }
 
     return joiner.toString();
