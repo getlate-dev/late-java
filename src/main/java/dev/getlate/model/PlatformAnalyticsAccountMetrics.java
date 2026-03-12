@@ -38,7 +38,7 @@ import dev.getlate.ApiClient;
   PlatformAnalyticsAccountMetrics.JSON_PROPERTY_SUBSCRIBERS,
   PlatformAnalyticsAccountMetrics.JSON_PROPERTY_LAST_UPDATED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-11T11:38:58.037813452Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T08:21:59.649313413Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class PlatformAnalyticsAccountMetrics {
   public static final String JSON_PROPERTY_FOLLOWERS = "followers";
   @javax.annotation.Nullable

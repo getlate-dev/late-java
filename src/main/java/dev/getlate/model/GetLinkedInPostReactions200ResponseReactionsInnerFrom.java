@@ -40,7 +40,7 @@ import dev.getlate.ApiClient;
   GetLinkedInPostReactions200ResponseReactionsInnerFrom.JSON_PROPERTY_PROFILE_PICTURE,
   GetLinkedInPostReactions200ResponseReactionsInnerFrom.JSON_PROPERTY_PROFILE_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-11T11:38:58.037813452Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T08:21:59.649313413Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetLinkedInPostReactions200ResponseReactionsInnerFrom {
   public static final String JSON_PROPERTY_URN = "urn";
   @javax.annotation.Nullable

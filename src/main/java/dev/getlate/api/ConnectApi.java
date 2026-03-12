@@ -21,6 +21,8 @@ import dev.getlate.Pair;
 import dev.getlate.model.CompleteTelegramConnect200Response;
 import dev.getlate.model.ConnectBlueskyCredentials200Response;
 import dev.getlate.model.ConnectBlueskyCredentialsRequest;
+import dev.getlate.model.ConnectWhatsAppCredentials200Response;
+import dev.getlate.model.ConnectWhatsAppCredentialsRequest;
 import dev.getlate.model.ErrorResponse;
 import dev.getlate.model.GetConnectUrl200Response;
 import dev.getlate.model.GetFacebookPages200Response;
@@ -86,7 +88,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-11T11:38:58.037813452Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T08:21:59.649313413Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ConnectApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -443,6 +445,129 @@ public class ConnectApi {
 
     try {
       byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(connectBlueskyCredentialsRequest);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Connect WhatsApp via credentials
+   * Connect a WhatsApp Business Account by providing Meta credentials directly. This is the headless alternative to the Embedded Signup browser flow.  To get the required credentials: 1. Go to Meta Business Suite (business.facebook.com) 2. Create or select a WhatsApp Business Account 3. In Business Settings &gt; System Users, create a System User 4. Assign it the &#x60;whatsapp_business_management&#x60; and &#x60;whatsapp_business_messaging&#x60; permissions 5. Generate a permanent access token 6. Get the WABA ID from WhatsApp Manager &gt; Account Tools &gt; Phone Numbers 7. Get the Phone Number ID from the same page (click on the number) 
+   * @param connectWhatsAppCredentialsRequest  (required)
+   * @return ConnectWhatsAppCredentials200Response
+   * @throws ApiException if fails to make API call
+   */
+  public ConnectWhatsAppCredentials200Response connectWhatsAppCredentials(@javax.annotation.Nonnull ConnectWhatsAppCredentialsRequest connectWhatsAppCredentialsRequest) throws ApiException {
+    return connectWhatsAppCredentials(connectWhatsAppCredentialsRequest, null);
+  }
+
+  /**
+   * Connect WhatsApp via credentials
+   * Connect a WhatsApp Business Account by providing Meta credentials directly. This is the headless alternative to the Embedded Signup browser flow.  To get the required credentials: 1. Go to Meta Business Suite (business.facebook.com) 2. Create or select a WhatsApp Business Account 3. In Business Settings &gt; System Users, create a System User 4. Assign it the &#x60;whatsapp_business_management&#x60; and &#x60;whatsapp_business_messaging&#x60; permissions 5. Generate a permanent access token 6. Get the WABA ID from WhatsApp Manager &gt; Account Tools &gt; Phone Numbers 7. Get the Phone Number ID from the same page (click on the number) 
+   * @param connectWhatsAppCredentialsRequest  (required)
+   * @param headers Optional headers to include in the request
+   * @return ConnectWhatsAppCredentials200Response
+   * @throws ApiException if fails to make API call
+   */
+  public ConnectWhatsAppCredentials200Response connectWhatsAppCredentials(@javax.annotation.Nonnull ConnectWhatsAppCredentialsRequest connectWhatsAppCredentialsRequest, Map<String, String> headers) throws ApiException {
+    ApiResponse<ConnectWhatsAppCredentials200Response> localVarResponse = connectWhatsAppCredentialsWithHttpInfo(connectWhatsAppCredentialsRequest, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Connect WhatsApp via credentials
+   * Connect a WhatsApp Business Account by providing Meta credentials directly. This is the headless alternative to the Embedded Signup browser flow.  To get the required credentials: 1. Go to Meta Business Suite (business.facebook.com) 2. Create or select a WhatsApp Business Account 3. In Business Settings &gt; System Users, create a System User 4. Assign it the &#x60;whatsapp_business_management&#x60; and &#x60;whatsapp_business_messaging&#x60; permissions 5. Generate a permanent access token 6. Get the WABA ID from WhatsApp Manager &gt; Account Tools &gt; Phone Numbers 7. Get the Phone Number ID from the same page (click on the number) 
+   * @param connectWhatsAppCredentialsRequest  (required)
+   * @return ApiResponse&lt;ConnectWhatsAppCredentials200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<ConnectWhatsAppCredentials200Response> connectWhatsAppCredentialsWithHttpInfo(@javax.annotation.Nonnull ConnectWhatsAppCredentialsRequest connectWhatsAppCredentialsRequest) throws ApiException {
+    return connectWhatsAppCredentialsWithHttpInfo(connectWhatsAppCredentialsRequest, null);
+  }
+
+  /**
+   * Connect WhatsApp via credentials
+   * Connect a WhatsApp Business Account by providing Meta credentials directly. This is the headless alternative to the Embedded Signup browser flow.  To get the required credentials: 1. Go to Meta Business Suite (business.facebook.com) 2. Create or select a WhatsApp Business Account 3. In Business Settings &gt; System Users, create a System User 4. Assign it the &#x60;whatsapp_business_management&#x60; and &#x60;whatsapp_business_messaging&#x60; permissions 5. Generate a permanent access token 6. Get the WABA ID from WhatsApp Manager &gt; Account Tools &gt; Phone Numbers 7. Get the Phone Number ID from the same page (click on the number) 
+   * @param connectWhatsAppCredentialsRequest  (required)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;ConnectWhatsAppCredentials200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<ConnectWhatsAppCredentials200Response> connectWhatsAppCredentialsWithHttpInfo(@javax.annotation.Nonnull ConnectWhatsAppCredentialsRequest connectWhatsAppCredentialsRequest, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = connectWhatsAppCredentialsRequestBuilder(connectWhatsAppCredentialsRequest, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("connectWhatsAppCredentials", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<ConnectWhatsAppCredentials200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        ConnectWhatsAppCredentials200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<ConnectWhatsAppCredentials200Response>() {});
+        
+
+        return new ApiResponse<ConnectWhatsAppCredentials200Response>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder connectWhatsAppCredentialsRequestBuilder(@javax.annotation.Nonnull ConnectWhatsAppCredentialsRequest connectWhatsAppCredentialsRequest, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'connectWhatsAppCredentialsRequest' is set
+    if (connectWhatsAppCredentialsRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'connectWhatsAppCredentialsRequest' when calling connectWhatsAppCredentials");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/connect/whatsapp/credentials";
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(connectWhatsAppCredentialsRequest);
       localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
     } catch (IOException e) {
       throw new ApiException(e);

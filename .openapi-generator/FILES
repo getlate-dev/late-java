@@ -43,6 +43,9 @@ docs/CompleteTelegramConnect200Response.md
 docs/ConnectApi.md
 docs/ConnectBlueskyCredentials200Response.md
 docs/ConnectBlueskyCredentialsRequest.md
+docs/ConnectWhatsAppCredentials200Response.md
+docs/ConnectWhatsAppCredentials200ResponseAccount.md
+docs/ConnectWhatsAppCredentialsRequest.md
 docs/Connected.md
 docs/ConnectedAccount.md
 docs/ConnectionLog.md
@@ -80,6 +83,8 @@ docs/CreateWhatsAppContactRequest.md
 docs/CreateWhatsAppTemplate200Response.md
 docs/CreateWhatsAppTemplate200ResponseTemplate.md
 docs/CreateWhatsAppTemplateRequest.md
+docs/CreateWhatsAppTemplateRequestLibraryTemplateButtonInputsInner.md
+docs/CreateWhatsAppTemplateRequestLibraryTemplateButtonInputsInnerUrl.md
 docs/DeleteAccountGroup200Response.md
 docs/DeleteGoogleBusinessMedia200Response.md
 docs/DeleteGoogleBusinessPlaceAction200Response.md
@@ -636,6 +641,9 @@ src/main/java/dev/getlate/model/CheckInstagramHashtagsRequest.java
 src/main/java/dev/getlate/model/CompleteTelegramConnect200Response.java
 src/main/java/dev/getlate/model/ConnectBlueskyCredentials200Response.java
 src/main/java/dev/getlate/model/ConnectBlueskyCredentialsRequest.java
+src/main/java/dev/getlate/model/ConnectWhatsAppCredentials200Response.java
+src/main/java/dev/getlate/model/ConnectWhatsAppCredentials200ResponseAccount.java
+src/main/java/dev/getlate/model/ConnectWhatsAppCredentialsRequest.java
 src/main/java/dev/getlate/model/Connected.java
 src/main/java/dev/getlate/model/ConnectedAccount.java
 src/main/java/dev/getlate/model/ConnectionLog.java
@@ -673,6 +681,8 @@ src/main/java/dev/getlate/model/CreateWhatsAppContactRequest.java
 src/main/java/dev/getlate/model/CreateWhatsAppTemplate200Response.java
 src/main/java/dev/getlate/model/CreateWhatsAppTemplate200ResponseTemplate.java
 src/main/java/dev/getlate/model/CreateWhatsAppTemplateRequest.java
+src/main/java/dev/getlate/model/CreateWhatsAppTemplateRequestLibraryTemplateButtonInputsInner.java
+src/main/java/dev/getlate/model/CreateWhatsAppTemplateRequestLibraryTemplateButtonInputsInnerUrl.java
 src/main/java/dev/getlate/model/DeleteAccountGroup200Response.java
 src/main/java/dev/getlate/model/DeleteGoogleBusinessMedia200Response.java
 src/main/java/dev/getlate/model/DeleteGoogleBusinessPlaceAction200Response.java
@@ -1124,3 +1134,8 @@ src/main/java/dev/getlate/model/YouTubeDailyViewsResponseScopeStatus.java
 src/main/java/dev/getlate/model/YouTubePlatformData.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponseScopeStatus.java
+src/test/java/dev/getlate/model/ConnectWhatsAppCredentials200ResponseAccountTest.java
+src/test/java/dev/getlate/model/ConnectWhatsAppCredentials200ResponseTest.java
+src/test/java/dev/getlate/model/ConnectWhatsAppCredentialsRequestTest.java
+src/test/java/dev/getlate/model/CreateWhatsAppTemplateRequestLibraryTemplateButtonInputsInnerTest.java
+src/test/java/dev/getlate/model/CreateWhatsAppTemplateRequestLibraryTemplateButtonInputsInnerUrlTest.java

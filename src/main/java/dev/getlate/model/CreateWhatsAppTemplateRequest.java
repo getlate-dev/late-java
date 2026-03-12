@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import dev.getlate.model.CreateWhatsAppTemplateRequestLibraryTemplateButtonInputsInner;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -39,9 +40,12 @@ import dev.getlate.ApiClient;
   CreateWhatsAppTemplateRequest.JSON_PROPERTY_NAME,
   CreateWhatsAppTemplateRequest.JSON_PROPERTY_CATEGORY,
   CreateWhatsAppTemplateRequest.JSON_PROPERTY_LANGUAGE,
-  CreateWhatsAppTemplateRequest.JSON_PROPERTY_COMPONENTS
+  CreateWhatsAppTemplateRequest.JSON_PROPERTY_COMPONENTS,
+  CreateWhatsAppTemplateRequest.JSON_PROPERTY_LIBRARY_TEMPLATE_NAME,
+  CreateWhatsAppTemplateRequest.JSON_PROPERTY_LIBRARY_TEMPLATE_BODY_INPUTS,
+  CreateWhatsAppTemplateRequest.JSON_PROPERTY_LIBRARY_TEMPLATE_BUTTON_INPUTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-11T11:38:58.037813452Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T08:21:59.649313413Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateWhatsAppTemplateRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nonnull
@@ -97,8 +101,20 @@ public class CreateWhatsAppTemplateRequest {
   private String language;
 
   public static final String JSON_PROPERTY_COMPONENTS = "components";
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private List<Object> components = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_LIBRARY_TEMPLATE_NAME = "library_template_name";
+  @javax.annotation.Nullable
+  private String libraryTemplateName;
+
+  public static final String JSON_PROPERTY_LIBRARY_TEMPLATE_BODY_INPUTS = "library_template_body_inputs";
+  @javax.annotation.Nullable
+  private Object libraryTemplateBodyInputs;
+
+  public static final String JSON_PROPERTY_LIBRARY_TEMPLATE_BUTTON_INPUTS = "library_template_button_inputs";
+  @javax.annotation.Nullable
+  private List<CreateWhatsAppTemplateRequestLibraryTemplateButtonInputsInner> libraryTemplateButtonInputs = new ArrayList<>();
 
   public CreateWhatsAppTemplateRequest() { 
   }
@@ -199,7 +215,7 @@ public class CreateWhatsAppTemplateRequest {
   }
 
 
-  public CreateWhatsAppTemplateRequest components(@javax.annotation.Nonnull List<Object> components) {
+  public CreateWhatsAppTemplateRequest components(@javax.annotation.Nullable List<Object> components) {
     this.components = components;
     return this;
   }
@@ -213,21 +229,101 @@ public class CreateWhatsAppTemplateRequest {
   }
 
   /**
-   * Template components (header, body, footer, buttons)
+   * Template components (header, body, footer, buttons). Required for custom templates, omit when using library_template_name.
    * @return components
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(value = JSON_PROPERTY_COMPONENTS, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_COMPONENTS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Object> getComponents() {
     return components;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_COMPONENTS, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setComponents(@javax.annotation.Nonnull List<Object> components) {
+  @JsonProperty(value = JSON_PROPERTY_COMPONENTS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setComponents(@javax.annotation.Nullable List<Object> components) {
     this.components = components;
+  }
+
+
+  public CreateWhatsAppTemplateRequest libraryTemplateName(@javax.annotation.Nullable String libraryTemplateName) {
+    this.libraryTemplateName = libraryTemplateName;
+    return this;
+  }
+
+  /**
+   * Name of a pre-built template from Meta&#39;s template library (e.g., \&quot;appointment_reminder\&quot;, \&quot;auto_pay_reminder_1\&quot;, \&quot;address_update\&quot;). When provided, the template is pre-approved by Meta with no review wait. Omit &#x60;components&#x60; when using this field. 
+   * @return libraryTemplateName
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_LIBRARY_TEMPLATE_NAME, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLibraryTemplateName() {
+    return libraryTemplateName;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_LIBRARY_TEMPLATE_NAME, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLibraryTemplateName(@javax.annotation.Nullable String libraryTemplateName) {
+    this.libraryTemplateName = libraryTemplateName;
+  }
+
+
+  public CreateWhatsAppTemplateRequest libraryTemplateBodyInputs(@javax.annotation.Nullable Object libraryTemplateBodyInputs) {
+    this.libraryTemplateBodyInputs = libraryTemplateBodyInputs;
+    return this;
+  }
+
+  /**
+   * Optional body customizations for library templates. Available options depend on the template (e.g., add_contact_number, add_learn_more_link, add_security_recommendation, add_track_package_link, code_expiration_minutes). 
+   * @return libraryTemplateBodyInputs
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_LIBRARY_TEMPLATE_BODY_INPUTS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Object getLibraryTemplateBodyInputs() {
+    return libraryTemplateBodyInputs;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_LIBRARY_TEMPLATE_BODY_INPUTS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLibraryTemplateBodyInputs(@javax.annotation.Nullable Object libraryTemplateBodyInputs) {
+    this.libraryTemplateBodyInputs = libraryTemplateBodyInputs;
+  }
+
+
+  public CreateWhatsAppTemplateRequest libraryTemplateButtonInputs(@javax.annotation.Nullable List<CreateWhatsAppTemplateRequestLibraryTemplateButtonInputsInner> libraryTemplateButtonInputs) {
+    this.libraryTemplateButtonInputs = libraryTemplateButtonInputs;
+    return this;
+  }
+
+  public CreateWhatsAppTemplateRequest addLibraryTemplateButtonInputsItem(CreateWhatsAppTemplateRequestLibraryTemplateButtonInputsInner libraryTemplateButtonInputsItem) {
+    if (this.libraryTemplateButtonInputs == null) {
+      this.libraryTemplateButtonInputs = new ArrayList<>();
+    }
+    this.libraryTemplateButtonInputs.add(libraryTemplateButtonInputsItem);
+    return this;
+  }
+
+  /**
+   * Optional button customizations for library templates. Each item specifies button type and configuration (e.g., URL, phone number, quick reply). 
+   * @return libraryTemplateButtonInputs
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_LIBRARY_TEMPLATE_BUTTON_INPUTS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<CreateWhatsAppTemplateRequestLibraryTemplateButtonInputsInner> getLibraryTemplateButtonInputs() {
+    return libraryTemplateButtonInputs;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_LIBRARY_TEMPLATE_BUTTON_INPUTS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLibraryTemplateButtonInputs(@javax.annotation.Nullable List<CreateWhatsAppTemplateRequestLibraryTemplateButtonInputsInner> libraryTemplateButtonInputs) {
+    this.libraryTemplateButtonInputs = libraryTemplateButtonInputs;
   }
 
 
@@ -247,12 +343,15 @@ public class CreateWhatsAppTemplateRequest {
         Objects.equals(this.name, createWhatsAppTemplateRequest.name) &&
         Objects.equals(this.category, createWhatsAppTemplateRequest.category) &&
         Objects.equals(this.language, createWhatsAppTemplateRequest.language) &&
-        Objects.equals(this.components, createWhatsAppTemplateRequest.components);
+        Objects.equals(this.components, createWhatsAppTemplateRequest.components) &&
+        Objects.equals(this.libraryTemplateName, createWhatsAppTemplateRequest.libraryTemplateName) &&
+        Objects.equals(this.libraryTemplateBodyInputs, createWhatsAppTemplateRequest.libraryTemplateBodyInputs) &&
+        Objects.equals(this.libraryTemplateButtonInputs, createWhatsAppTemplateRequest.libraryTemplateButtonInputs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, name, category, language, components);
+    return Objects.hash(accountId, name, category, language, components, libraryTemplateName, libraryTemplateBodyInputs, libraryTemplateButtonInputs);
   }
 
   @Override
@@ -264,6 +363,9 @@ public class CreateWhatsAppTemplateRequest {
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    components: ").append(toIndentedString(components)).append("\n");
+    sb.append("    libraryTemplateName: ").append(toIndentedString(libraryTemplateName)).append("\n");
+    sb.append("    libraryTemplateBodyInputs: ").append(toIndentedString(libraryTemplateBodyInputs)).append("\n");
+    sb.append("    libraryTemplateButtonInputs: ").append(toIndentedString(libraryTemplateButtonInputs)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -337,6 +439,26 @@ public class CreateWhatsAppTemplateRequest {
         joiner.add(String.format(java.util.Locale.ROOT, "%scomponents%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix),
             ApiClient.urlEncode(ApiClient.valueToString(getComponents().get(i)))));
+      }
+    }
+
+    // add `library_template_name` to the URL query string
+    if (getLibraryTemplateName() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%slibrary_template_name%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getLibraryTemplateName()))));
+    }
+
+    // add `library_template_body_inputs` to the URL query string
+    if (getLibraryTemplateBodyInputs() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%slibrary_template_body_inputs%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getLibraryTemplateBodyInputs()))));
+    }
+
+    // add `library_template_button_inputs` to the URL query string
+    if (getLibraryTemplateButtonInputs() != null) {
+      for (int i = 0; i < getLibraryTemplateButtonInputs().size(); i++) {
+        if (getLibraryTemplateButtonInputs().get(i) != null) {
+          joiner.add(getLibraryTemplateButtonInputs().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%slibrary_template_button_inputs%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
+        }
       }
     }
 

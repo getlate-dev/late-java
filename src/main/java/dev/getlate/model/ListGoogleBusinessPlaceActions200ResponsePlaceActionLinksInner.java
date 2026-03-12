@@ -40,7 +40,7 @@ import dev.getlate.ApiClient;
   ListGoogleBusinessPlaceActions200ResponsePlaceActionLinksInner.JSON_PROPERTY_CREATE_TIME,
   ListGoogleBusinessPlaceActions200ResponsePlaceActionLinksInner.JSON_PROPERTY_UPDATE_TIME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-11T11:38:58.037813452Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T08:21:59.649313413Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ListGoogleBusinessPlaceActions200ResponsePlaceActionLinksInner {
   public static final String JSON_PROPERTY_NAME = "name";
   @javax.annotation.Nullable

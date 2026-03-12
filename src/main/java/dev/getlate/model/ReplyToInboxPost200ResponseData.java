@@ -37,7 +37,7 @@ import dev.getlate.ApiClient;
   ReplyToInboxPost200ResponseData.JSON_PROPERTY_IS_REPLY,
   ReplyToInboxPost200ResponseData.JSON_PROPERTY_CID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-11T11:38:58.037813452Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T08:21:59.649313413Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ReplyToInboxPost200ResponseData {
   public static final String JSON_PROPERTY_COMMENT_ID = "commentId";
   @javax.annotation.Nullable

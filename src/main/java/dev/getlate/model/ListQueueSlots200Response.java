@@ -58,7 +58,7 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import dev.getlate.ApiClient;
 import dev.getlate.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-11T11:38:58.037813452Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T08:21:59.649313413Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 @JsonDeserialize(using = ListQueueSlots200Response.ListQueueSlots200ResponseDeserializer.class)
 @JsonSerialize(using = ListQueueSlots200Response.ListQueueSlots200ResponseSerializer.class)
 public class ListQueueSlots200Response extends AbstractOpenApiSchema {

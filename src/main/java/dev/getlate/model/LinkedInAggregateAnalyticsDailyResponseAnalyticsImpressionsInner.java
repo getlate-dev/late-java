@@ -37,7 +37,7 @@ import dev.getlate.ApiClient;
   LinkedInAggregateAnalyticsDailyResponseAnalyticsImpressionsInner.JSON_PROPERTY_DATE,
   LinkedInAggregateAnalyticsDailyResponseAnalyticsImpressionsInner.JSON_PROPERTY_COUNT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-11T11:38:58.037813452Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T08:21:59.649313413Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class LinkedInAggregateAnalyticsDailyResponseAnalyticsImpressionsInner {
   public static final String JSON_PROPERTY_DATE = "date";
   @javax.annotation.Nullable

@@ -8,6 +8,8 @@ All URIs are relative to *https://getlate.dev/api*
 | [**completeTelegramConnectWithHttpInfo**](ConnectApi.md#completeTelegramConnectWithHttpInfo) | **PATCH** /v1/connect/telegram | Check Telegram status |
 | [**connectBlueskyCredentials**](ConnectApi.md#connectBlueskyCredentials) | **POST** /v1/connect/bluesky/credentials | Connect Bluesky account |
 | [**connectBlueskyCredentialsWithHttpInfo**](ConnectApi.md#connectBlueskyCredentialsWithHttpInfo) | **POST** /v1/connect/bluesky/credentials | Connect Bluesky account |
+| [**connectWhatsAppCredentials**](ConnectApi.md#connectWhatsAppCredentials) | **POST** /v1/connect/whatsapp/credentials | Connect WhatsApp via credentials |
+| [**connectWhatsAppCredentialsWithHttpInfo**](ConnectApi.md#connectWhatsAppCredentialsWithHttpInfo) | **POST** /v1/connect/whatsapp/credentials | Connect WhatsApp via credentials |
 | [**getConnectUrl**](ConnectApi.md#getConnectUrl) | **GET** /v1/connect/{platform} | Get OAuth connect URL |
 | [**getConnectUrlWithHttpInfo**](ConnectApi.md#getConnectUrlWithHttpInfo) | **GET** /v1/connect/{platform} | Get OAuth connect URL |
 | [**getFacebookPages**](ConnectApi.md#getFacebookPages) | **GET** /v1/accounts/{accountId}/facebook-page | List Facebook pages |
@@ -361,6 +363,156 @@ ApiResponse<[**ConnectBlueskyCredentials200Response**](ConnectBlueskyCredentials
 | **400** | Invalid request - missing fields or invalid state format |  -  |
 | **401** | Unauthorized |  -  |
 | **500** | Internal error |  -  |
+
+
+## connectWhatsAppCredentials
+
+> ConnectWhatsAppCredentials200Response connectWhatsAppCredentials(connectWhatsAppCredentialsRequest)
+
+Connect WhatsApp via credentials
+
+Connect a WhatsApp Business Account by providing Meta credentials directly. This is the headless alternative to the Embedded Signup browser flow.  To get the required credentials: 1. Go to Meta Business Suite (business.facebook.com) 2. Create or select a WhatsApp Business Account 3. In Business Settings &gt; System Users, create a System User 4. Assign it the &#x60;whatsapp_business_management&#x60; and &#x60;whatsapp_business_messaging&#x60; permissions 5. Generate a permanent access token 6. Get the WABA ID from WhatsApp Manager &gt; Account Tools &gt; Phone Numbers 7. Get the Phone Number ID from the same page (click on the number) 
+
+### Example
+
+```java
+// Import classes:
+import dev.getlate.ApiClient;
+import dev.getlate.ApiException;
+import dev.getlate.Configuration;
+import dev.getlate.auth.*;
+import dev.getlate.models.*;
+import dev.getlate.api.ConnectApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://getlate.dev/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        ConnectApi apiInstance = new ConnectApi(defaultClient);
+        ConnectWhatsAppCredentialsRequest connectWhatsAppCredentialsRequest = new ConnectWhatsAppCredentialsRequest(); // ConnectWhatsAppCredentialsRequest | 
+        try {
+            ConnectWhatsAppCredentials200Response result = apiInstance.connectWhatsAppCredentials(connectWhatsAppCredentialsRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ConnectApi#connectWhatsAppCredentials");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **connectWhatsAppCredentialsRequest** | [**ConnectWhatsAppCredentialsRequest**](ConnectWhatsAppCredentialsRequest.md)|  | |
+
+### Return type
+
+[**ConnectWhatsAppCredentials200Response**](ConnectWhatsAppCredentials200Response.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | WhatsApp connected successfully |  -  |
+| **400** | Invalid request. Either missing fields or the phoneNumberId was not found in the specified WABA. If the phone was not found, the response includes &#x60;availablePhoneNumbers&#x60; to help identify the correct ID.  |  -  |
+| **401** | Invalid or expired access token |  -  |
+| **403** | Profile limit exceeded for this plan |  -  |
+
+## connectWhatsAppCredentialsWithHttpInfo
+
+> ApiResponse<ConnectWhatsAppCredentials200Response> connectWhatsAppCredentials connectWhatsAppCredentialsWithHttpInfo(connectWhatsAppCredentialsRequest)
+
+Connect WhatsApp via credentials
+
+Connect a WhatsApp Business Account by providing Meta credentials directly. This is the headless alternative to the Embedded Signup browser flow.  To get the required credentials: 1. Go to Meta Business Suite (business.facebook.com) 2. Create or select a WhatsApp Business Account 3. In Business Settings &gt; System Users, create a System User 4. Assign it the &#x60;whatsapp_business_management&#x60; and &#x60;whatsapp_business_messaging&#x60; permissions 5. Generate a permanent access token 6. Get the WABA ID from WhatsApp Manager &gt; Account Tools &gt; Phone Numbers 7. Get the Phone Number ID from the same page (click on the number) 
+
+### Example
+
+```java
+// Import classes:
+import dev.getlate.ApiClient;
+import dev.getlate.ApiException;
+import dev.getlate.ApiResponse;
+import dev.getlate.Configuration;
+import dev.getlate.auth.*;
+import dev.getlate.models.*;
+import dev.getlate.api.ConnectApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://getlate.dev/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        ConnectApi apiInstance = new ConnectApi(defaultClient);
+        ConnectWhatsAppCredentialsRequest connectWhatsAppCredentialsRequest = new ConnectWhatsAppCredentialsRequest(); // ConnectWhatsAppCredentialsRequest | 
+        try {
+            ApiResponse<ConnectWhatsAppCredentials200Response> response = apiInstance.connectWhatsAppCredentialsWithHttpInfo(connectWhatsAppCredentialsRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ConnectApi#connectWhatsAppCredentials");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **connectWhatsAppCredentialsRequest** | [**ConnectWhatsAppCredentialsRequest**](ConnectWhatsAppCredentialsRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**ConnectWhatsAppCredentials200Response**](ConnectWhatsAppCredentials200Response.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | WhatsApp connected successfully |  -  |
+| **400** | Invalid request. Either missing fields or the phoneNumberId was not found in the specified WABA. If the phone was not found, the response includes &#x60;availablePhoneNumbers&#x60; to help identify the correct ID.  |  -  |
+| **401** | Invalid or expired access token |  -  |
+| **403** | Profile limit exceeded for this plan |  -  |
 
 
 ## getConnectUrl

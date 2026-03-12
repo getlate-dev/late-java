@@ -973,7 +973,7 @@ ApiResponse<[**CreateWhatsAppContact200Response**](CreateWhatsAppContact200Respo
 
 Create template
 
-Create a new message template. Template names must be lowercase, start with a letter, and contain only letters, numbers, and underscores. Templates are submitted to Meta for review. 
+Create a new message template. Supports two modes:  **Custom template:** Provide &#x60;components&#x60; with your own content. Submitted to Meta for review (can take up to 24h).  **Library template:** Provide &#x60;library_template_name&#x60; instead of &#x60;components&#x60; to use a pre-built template from Meta&#39;s template library. Library templates are **pre-approved** (no review wait). You can optionally customize parameters and buttons via &#x60;library_template_body_inputs&#x60; and &#x60;library_template_button_inputs&#x60;.  Browse available library templates at: https://business.facebook.com/wa/manage/message-templates/ 
 
 ### Example
 
@@ -1035,7 +1035,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Template created and submitted for review |  -  |
+| **200** | Template created (pre-approved for library templates, pending review for custom) |  -  |
 | **400** | Validation error (invalid name format |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | WhatsApp account not found |  -  |
@@ -1046,7 +1046,7 @@ public class Example {
 
 Create template
 
-Create a new message template. Template names must be lowercase, start with a letter, and contain only letters, numbers, and underscores. Templates are submitted to Meta for review. 
+Create a new message template. Supports two modes:  **Custom template:** Provide &#x60;components&#x60; with your own content. Submitted to Meta for review (can take up to 24h).  **Library template:** Provide &#x60;library_template_name&#x60; instead of &#x60;components&#x60; to use a pre-built template from Meta&#39;s template library. Library templates are **pre-approved** (no review wait). You can optionally customize parameters and buttons via &#x60;library_template_body_inputs&#x60; and &#x60;library_template_button_inputs&#x60;.  Browse available library templates at: https://business.facebook.com/wa/manage/message-templates/ 
 
 ### Example
 
@@ -1111,7 +1111,7 @@ ApiResponse<[**CreateWhatsAppTemplate200Response**](CreateWhatsAppTemplate200Res
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Template created and submitted for review |  -  |
+| **200** | Template created (pre-approved for library templates, pending review for custom) |  -  |
 | **400** | Validation error (invalid name format |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | WhatsApp account not found |  -  |
