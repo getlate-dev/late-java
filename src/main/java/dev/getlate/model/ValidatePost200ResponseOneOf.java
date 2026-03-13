@@ -40,7 +40,7 @@ import dev.getlate.ApiClient;
   ValidatePost200ResponseOneOf.JSON_PROPERTY_MESSAGE,
   ValidatePost200ResponseOneOf.JSON_PROPERTY_WARNINGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-13T13:25:23.838967082Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-13T13:57:43.795423445Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ValidatePost200ResponseOneOf {
   public static final String JSON_PROPERTY_VALID = "valid";
   @javax.annotation.Nullable

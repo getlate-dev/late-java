@@ -43,7 +43,7 @@ import dev.getlate.ApiClient;
   GetLinkedInPostAnalytics200ResponseAnalytics.JSON_PROPERTY_VIEWS,
   GetLinkedInPostAnalytics200ResponseAnalytics.JSON_PROPERTY_ENGAGEMENT_RATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-13T13:25:23.838967082Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-13T13:57:43.795423445Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetLinkedInPostAnalytics200ResponseAnalytics {
   public static final String JSON_PROPERTY_IMPRESSIONS = "impressions";
   @javax.annotation.Nullable

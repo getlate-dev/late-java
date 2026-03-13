@@ -46,7 +46,7 @@ import dev.getlate.ApiClient;
   GetPendingOAuthData200Response.JSON_PROPERTY_SELECTION_TYPE,
   GetPendingOAuthData200Response.JSON_PROPERTY_ORGANIZATIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-13T13:25:23.838967082Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-13T13:57:43.795423445Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetPendingOAuthData200Response {
   public static final String JSON_PROPERTY_PLATFORM = "platform";
   @javax.annotation.Nullable

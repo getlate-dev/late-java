@@ -60,7 +60,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-13T13:25:23.838967082Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-13T13:57:43.795423445Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class TwitterEngagementApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -179,7 +179,7 @@ public class TwitterEngagementApi {
 
   /**
    * Bookmark a tweet
-   * Bookmark a tweet by ID. Requires X API Basic tier ($200/mo) or higher. Requires the bookmark.write OAuth scope. Rate limit: 50 requests per 15-min window. 
+   * Bookmark a tweet by ID. Requires the bookmark.write OAuth scope. Rate limit: 50 requests per 15-min window. 
    * @param bookmarkPostRequest  (required)
    * @return BookmarkPost200Response
    * @throws ApiException if fails to make API call
@@ -190,7 +190,7 @@ public class TwitterEngagementApi {
 
   /**
    * Bookmark a tweet
-   * Bookmark a tweet by ID. Requires X API Basic tier ($200/mo) or higher. Requires the bookmark.write OAuth scope. Rate limit: 50 requests per 15-min window. 
+   * Bookmark a tweet by ID. Requires the bookmark.write OAuth scope. Rate limit: 50 requests per 15-min window. 
    * @param bookmarkPostRequest  (required)
    * @param headers Optional headers to include in the request
    * @return BookmarkPost200Response
@@ -203,7 +203,7 @@ public class TwitterEngagementApi {
 
   /**
    * Bookmark a tweet
-   * Bookmark a tweet by ID. Requires X API Basic tier ($200/mo) or higher. Requires the bookmark.write OAuth scope. Rate limit: 50 requests per 15-min window. 
+   * Bookmark a tweet by ID. Requires the bookmark.write OAuth scope. Rate limit: 50 requests per 15-min window. 
    * @param bookmarkPostRequest  (required)
    * @return ApiResponse&lt;BookmarkPost200Response&gt;
    * @throws ApiException if fails to make API call
@@ -214,7 +214,7 @@ public class TwitterEngagementApi {
 
   /**
    * Bookmark a tweet
-   * Bookmark a tweet by ID. Requires X API Basic tier ($200/mo) or higher. Requires the bookmark.write OAuth scope. Rate limit: 50 requests per 15-min window. 
+   * Bookmark a tweet by ID. Requires the bookmark.write OAuth scope. Rate limit: 50 requests per 15-min window. 
    * @param bookmarkPostRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;BookmarkPost200Response&gt;
@@ -302,7 +302,7 @@ public class TwitterEngagementApi {
 
   /**
    * Follow a user
-   * Follow a user on X/Twitter. Requires X API Basic tier ($200/mo) or higher. Requires the follows.write OAuth scope. For protected accounts, a follow request is sent instead (pending_follow will be true). 
+   * Follow a user on X/Twitter. Requires the follows.write OAuth scope. For protected accounts, a follow request is sent instead (pending_follow will be true). 
    * @param followUserRequest  (required)
    * @return FollowUser200Response
    * @throws ApiException if fails to make API call
@@ -313,7 +313,7 @@ public class TwitterEngagementApi {
 
   /**
    * Follow a user
-   * Follow a user on X/Twitter. Requires X API Basic tier ($200/mo) or higher. Requires the follows.write OAuth scope. For protected accounts, a follow request is sent instead (pending_follow will be true). 
+   * Follow a user on X/Twitter. Requires the follows.write OAuth scope. For protected accounts, a follow request is sent instead (pending_follow will be true). 
    * @param followUserRequest  (required)
    * @param headers Optional headers to include in the request
    * @return FollowUser200Response
@@ -326,7 +326,7 @@ public class TwitterEngagementApi {
 
   /**
    * Follow a user
-   * Follow a user on X/Twitter. Requires X API Basic tier ($200/mo) or higher. Requires the follows.write OAuth scope. For protected accounts, a follow request is sent instead (pending_follow will be true). 
+   * Follow a user on X/Twitter. Requires the follows.write OAuth scope. For protected accounts, a follow request is sent instead (pending_follow will be true). 
    * @param followUserRequest  (required)
    * @return ApiResponse&lt;FollowUser200Response&gt;
    * @throws ApiException if fails to make API call
@@ -337,7 +337,7 @@ public class TwitterEngagementApi {
 
   /**
    * Follow a user
-   * Follow a user on X/Twitter. Requires X API Basic tier ($200/mo) or higher. Requires the follows.write OAuth scope. For protected accounts, a follow request is sent instead (pending_follow will be true). 
+   * Follow a user on X/Twitter. Requires the follows.write OAuth scope. For protected accounts, a follow request is sent instead (pending_follow will be true). 
    * @param followUserRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;FollowUser200Response&gt;
@@ -567,7 +567,7 @@ public class TwitterEngagementApi {
 
   /**
    * Retweet a post
-   * Retweet (repost) a tweet by ID. Requires X API Basic tier ($200/mo) or higher. Rate limit: 50 requests per 15-min window. Shares the 300/3hr creation limit with tweet creation. 
+   * Retweet (repost) a tweet by ID. Rate limit: 50 requests per 15-min window. Shares the 300/3hr creation limit with tweet creation. 
    * @param retweetPostRequest  (required)
    * @return RetweetPost200Response
    * @throws ApiException if fails to make API call
@@ -578,7 +578,7 @@ public class TwitterEngagementApi {
 
   /**
    * Retweet a post
-   * Retweet (repost) a tweet by ID. Requires X API Basic tier ($200/mo) or higher. Rate limit: 50 requests per 15-min window. Shares the 300/3hr creation limit with tweet creation. 
+   * Retweet (repost) a tweet by ID. Rate limit: 50 requests per 15-min window. Shares the 300/3hr creation limit with tweet creation. 
    * @param retweetPostRequest  (required)
    * @param headers Optional headers to include in the request
    * @return RetweetPost200Response
@@ -591,7 +591,7 @@ public class TwitterEngagementApi {
 
   /**
    * Retweet a post
-   * Retweet (repost) a tweet by ID. Requires X API Basic tier ($200/mo) or higher. Rate limit: 50 requests per 15-min window. Shares the 300/3hr creation limit with tweet creation. 
+   * Retweet (repost) a tweet by ID. Rate limit: 50 requests per 15-min window. Shares the 300/3hr creation limit with tweet creation. 
    * @param retweetPostRequest  (required)
    * @return ApiResponse&lt;RetweetPost200Response&gt;
    * @throws ApiException if fails to make API call
@@ -602,7 +602,7 @@ public class TwitterEngagementApi {
 
   /**
    * Retweet a post
-   * Retweet (repost) a tweet by ID. Requires X API Basic tier ($200/mo) or higher. Rate limit: 50 requests per 15-min window. Shares the 300/3hr creation limit with tweet creation. 
+   * Retweet (repost) a tweet by ID. Rate limit: 50 requests per 15-min window. Shares the 300/3hr creation limit with tweet creation. 
    * @param retweetPostRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;RetweetPost200Response&gt;

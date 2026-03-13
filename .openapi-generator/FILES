@@ -1202,13 +1202,3 @@ src/main/java/dev/getlate/model/YouTubeDailyViewsResponseScopeStatus.java
 src/main/java/dev/getlate/model/YouTubePlatformData.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponseScopeStatus.java
-src/test/java/dev/getlate/api/TwitterEngagementApiTest.java
-src/test/java/dev/getlate/model/BookmarkPost200ResponseTest.java
-src/test/java/dev/getlate/model/BookmarkPostRequestTest.java
-src/test/java/dev/getlate/model/FollowUser200ResponseTest.java
-src/test/java/dev/getlate/model/FollowUserRequestTest.java
-src/test/java/dev/getlate/model/RemoveBookmark200ResponseTest.java
-src/test/java/dev/getlate/model/RetweetPost200ResponseTest.java
-src/test/java/dev/getlate/model/RetweetPostRequestTest.java
-src/test/java/dev/getlate/model/UndoRetweet200ResponseTest.java
-src/test/java/dev/getlate/model/UnfollowUser200ResponseTest.java

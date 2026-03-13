@@ -72,7 +72,7 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import dev.getlate.ApiClient;
 import dev.getlate.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-13T13:25:23.838967082Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-13T13:57:43.795423445Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 @JsonDeserialize(using = CreatePostRequestPlatformsInnerPlatformSpecificData.CreatePostRequestPlatformsInnerPlatformSpecificDataDeserializer.class)
 @JsonSerialize(using = CreatePostRequestPlatformsInnerPlatformSpecificData.CreatePostRequestPlatformsInnerPlatformSpecificDataSerializer.class)
 public class CreatePostRequestPlatformsInnerPlatformSpecificData extends AbstractOpenApiSchema {
