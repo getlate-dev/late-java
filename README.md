@@ -4,7 +4,7 @@ Late API
 
 - API version: 1.0.1
 
-- Build date: 2026-03-16T13:07:03.329053907Z[Etc/UTC]
+- Build date: 2026-03-16T14:06:40.563016392Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -494,6 +494,7 @@ Class | Method | HTTP request | Description
  - [AnalyticsListResponse](docs/AnalyticsListResponse.md)
  - [AnalyticsListResponsePostsInner](docs/AnalyticsListResponsePostsInner.md)
  - [AnalyticsOverview](docs/AnalyticsOverview.md)
+ - [AnalyticsOverviewDataStaleness](docs/AnalyticsOverviewDataStaleness.md)
  - [AnalyticsSinglePostResponse](docs/AnalyticsSinglePostResponse.md)
  - [AnalyticsSinglePostResponseMediaItemsInner](docs/AnalyticsSinglePostResponseMediaItemsInner.md)
  - [ApiKey](docs/ApiKey.md)
@@ -603,6 +604,7 @@ Class | Method | HTTP request | Description
  - [GetAllAccountsHealth200ResponseAccountsInner](docs/GetAllAccountsHealth200ResponseAccountsInner.md)
  - [GetAllAccountsHealth200ResponseSummary](docs/GetAllAccountsHealth200ResponseSummary.md)
  - [GetAnalytics200Response](docs/GetAnalytics200Response.md)
+ - [GetAnalytics400Response](docs/GetAnalytics400Response.md)
  - [GetAnalytics402Response](docs/GetAnalytics402Response.md)
  - [GetBestTimeToPost200Response](docs/GetBestTimeToPost200Response.md)
  - [GetBestTimeToPost200ResponseSlotsInner](docs/GetBestTimeToPost200ResponseSlotsInner.md)
@@ -811,7 +813,6 @@ Class | Method | HTTP request | Description
  - [Pending](docs/Pending.md)
  - [PinterestPlatformData](docs/PinterestPlatformData.md)
  - [PlatformAnalytics](docs/PlatformAnalytics.md)
- - [PlatformAnalyticsAccountMetrics](docs/PlatformAnalyticsAccountMetrics.md)
  - [PlatformTarget](docs/PlatformTarget.md)
  - [PlatformTargetAccountId](docs/PlatformTargetAccountId.md)
  - [PlatformTargetPlatformSpecificData](docs/PlatformTargetPlatformSpecificData.md)

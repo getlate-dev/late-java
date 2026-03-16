@@ -24,8 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import dev.getlate.model.PlatformAnalyticsAccountMetrics;
 import dev.getlate.model.PostAnalytics;
+import java.net.URI;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -40,17 +40,54 @@ import dev.getlate.ApiClient;
   PlatformAnalytics.JSON_PROPERTY_ACCOUNT_ID,
   PlatformAnalytics.JSON_PROPERTY_ACCOUNT_USERNAME,
   PlatformAnalytics.JSON_PROPERTY_ANALYTICS,
-  PlatformAnalytics.JSON_PROPERTY_ACCOUNT_METRICS
+  PlatformAnalytics.JSON_PROPERTY_SYNC_STATUS,
+  PlatformAnalytics.JSON_PROPERTY_PLATFORM_POST_URL,
+  PlatformAnalytics.JSON_PROPERTY_ERROR_MESSAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-16T13:07:03.329053907Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-16T14:06:40.563016392Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class PlatformAnalytics {
   public static final String JSON_PROPERTY_PLATFORM = "platform";
   @javax.annotation.Nullable
   private String platform;
 
+  /**
+   * Gets or Sets status
+   */
+  public enum StatusEnum {
+    PUBLISHED(String.valueOf("published")),
+    
+    FAILED(String.valueOf("failed"));
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static StatusEnum fromValue(String value) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
   public static final String JSON_PROPERTY_STATUS = "status";
   @javax.annotation.Nullable
-  private String status;
+  private StatusEnum status;
 
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nullable
@@ -64,9 +101,54 @@ public class PlatformAnalytics {
   @javax.annotation.Nullable
   private PostAnalytics analytics;
 
-  public static final String JSON_PROPERTY_ACCOUNT_METRICS = "accountMetrics";
+  /**
+   * Sync state of analytics for this platform
+   */
+  public enum SyncStatusEnum {
+    SYNCED(String.valueOf("synced")),
+    
+    PENDING(String.valueOf("pending")),
+    
+    UNAVAILABLE(String.valueOf("unavailable"));
+
+    private String value;
+
+    SyncStatusEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static SyncStatusEnum fromValue(String value) {
+      for (SyncStatusEnum b : SyncStatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_SYNC_STATUS = "syncStatus";
   @javax.annotation.Nullable
-  private PlatformAnalyticsAccountMetrics accountMetrics;
+  private SyncStatusEnum syncStatus;
+
+  public static final String JSON_PROPERTY_PLATFORM_POST_URL = "platformPostUrl";
+  @javax.annotation.Nullable
+  private URI platformPostUrl;
+
+  public static final String JSON_PROPERTY_ERROR_MESSAGE = "errorMessage";
+  @javax.annotation.Nullable
+  private String errorMessage;
 
   public PlatformAnalytics() { 
   }
@@ -95,7 +177,7 @@ public class PlatformAnalytics {
   }
 
 
-  public PlatformAnalytics status(@javax.annotation.Nullable String status) {
+  public PlatformAnalytics status(@javax.annotation.Nullable StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -107,14 +189,14 @@ public class PlatformAnalytics {
   @javax.annotation.Nullable
   @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getStatus() {
+  public StatusEnum getStatus() {
     return status;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatus(@javax.annotation.Nullable String status) {
+  public void setStatus(@javax.annotation.Nullable StatusEnum status) {
     this.status = status;
   }
 
@@ -191,27 +273,75 @@ public class PlatformAnalytics {
   }
 
 
-  public PlatformAnalytics accountMetrics(@javax.annotation.Nullable PlatformAnalyticsAccountMetrics accountMetrics) {
-    this.accountMetrics = accountMetrics;
+  public PlatformAnalytics syncStatus(@javax.annotation.Nullable SyncStatusEnum syncStatus) {
+    this.syncStatus = syncStatus;
     return this;
   }
 
   /**
-   * Get accountMetrics
-   * @return accountMetrics
+   * Sync state of analytics for this platform
+   * @return syncStatus
    */
   @javax.annotation.Nullable
-  @JsonProperty(value = JSON_PROPERTY_ACCOUNT_METRICS, required = false)
+  @JsonProperty(value = JSON_PROPERTY_SYNC_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public PlatformAnalyticsAccountMetrics getAccountMetrics() {
-    return accountMetrics;
+  public SyncStatusEnum getSyncStatus() {
+    return syncStatus;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_ACCOUNT_METRICS, required = false)
+  @JsonProperty(value = JSON_PROPERTY_SYNC_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAccountMetrics(@javax.annotation.Nullable PlatformAnalyticsAccountMetrics accountMetrics) {
-    this.accountMetrics = accountMetrics;
+  public void setSyncStatus(@javax.annotation.Nullable SyncStatusEnum syncStatus) {
+    this.syncStatus = syncStatus;
+  }
+
+
+  public PlatformAnalytics platformPostUrl(@javax.annotation.Nullable URI platformPostUrl) {
+    this.platformPostUrl = platformPostUrl;
+    return this;
+  }
+
+  /**
+   * Get platformPostUrl
+   * @return platformPostUrl
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_PLATFORM_POST_URL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public URI getPlatformPostUrl() {
+    return platformPostUrl;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PLATFORM_POST_URL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPlatformPostUrl(@javax.annotation.Nullable URI platformPostUrl) {
+    this.platformPostUrl = platformPostUrl;
+  }
+
+
+  public PlatformAnalytics errorMessage(@javax.annotation.Nullable String errorMessage) {
+    this.errorMessage = errorMessage;
+    return this;
+  }
+
+  /**
+   * Error details when status is failed
+   * @return errorMessage
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_ERROR_MESSAGE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getErrorMessage() {
+    return errorMessage;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ERROR_MESSAGE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setErrorMessage(@javax.annotation.Nullable String errorMessage) {
+    this.errorMessage = errorMessage;
   }
 
 
@@ -232,12 +362,14 @@ public class PlatformAnalytics {
         Objects.equals(this.accountId, platformAnalytics.accountId) &&
         Objects.equals(this.accountUsername, platformAnalytics.accountUsername) &&
         Objects.equals(this.analytics, platformAnalytics.analytics) &&
-        Objects.equals(this.accountMetrics, platformAnalytics.accountMetrics);
+        Objects.equals(this.syncStatus, platformAnalytics.syncStatus) &&
+        Objects.equals(this.platformPostUrl, platformAnalytics.platformPostUrl) &&
+        Objects.equals(this.errorMessage, platformAnalytics.errorMessage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(platform, status, accountId, accountUsername, analytics, accountMetrics);
+    return Objects.hash(platform, status, accountId, accountUsername, analytics, syncStatus, platformPostUrl, errorMessage);
   }
 
   @Override
@@ -249,7 +381,9 @@ public class PlatformAnalytics {
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    accountUsername: ").append(toIndentedString(accountUsername)).append("\n");
     sb.append("    analytics: ").append(toIndentedString(analytics)).append("\n");
-    sb.append("    accountMetrics: ").append(toIndentedString(accountMetrics)).append("\n");
+    sb.append("    syncStatus: ").append(toIndentedString(syncStatus)).append("\n");
+    sb.append("    platformPostUrl: ").append(toIndentedString(platformPostUrl)).append("\n");
+    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -322,9 +456,19 @@ public class PlatformAnalytics {
       joiner.add(getAnalytics().toUrlQueryString(prefix + "analytics" + suffix));
     }
 
-    // add `accountMetrics` to the URL query string
-    if (getAccountMetrics() != null) {
-      joiner.add(getAccountMetrics().toUrlQueryString(prefix + "accountMetrics" + suffix));
+    // add `syncStatus` to the URL query string
+    if (getSyncStatus() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%ssyncStatus%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getSyncStatus()))));
+    }
+
+    // add `platformPostUrl` to the URL query string
+    if (getPlatformPostUrl() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%splatformPostUrl%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getPlatformPostUrl()))));
+    }
+
+    // add `errorMessage` to the URL query string
+    if (getErrorMessage() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%serrorMessage%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getErrorMessage()))));
     }
 
     return joiner.toString();

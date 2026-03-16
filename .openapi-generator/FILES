@@ -19,6 +19,7 @@ docs/AnalyticsApi.md
 docs/AnalyticsListResponse.md
 docs/AnalyticsListResponsePostsInner.md
 docs/AnalyticsOverview.md
+docs/AnalyticsOverviewDataStaleness.md
 docs/AnalyticsSinglePostResponse.md
 docs/AnalyticsSinglePostResponseMediaItemsInner.md
 docs/ApiKey.md
@@ -131,6 +132,7 @@ docs/GetAllAccountsHealth200Response.md
 docs/GetAllAccountsHealth200ResponseAccountsInner.md
 docs/GetAllAccountsHealth200ResponseSummary.md
 docs/GetAnalytics200Response.md
+docs/GetAnalytics400Response.md
 docs/GetAnalytics402Response.md
 docs/GetBestTimeToPost200Response.md
 docs/GetBestTimeToPost200ResponseSlotsInner.md
@@ -350,7 +352,6 @@ docs/Pagination.md
 docs/Pending.md
 docs/PinterestPlatformData.md
 docs/PlatformAnalytics.md
-docs/PlatformAnalyticsAccountMetrics.md
 docs/PlatformTarget.md
 docs/PlatformTargetAccountId.md
 docs/PlatformTargetPlatformSpecificData.md
@@ -655,6 +656,7 @@ src/main/java/dev/getlate/model/AddWhatsAppBroadcastRecipientsRequestRecipientsI
 src/main/java/dev/getlate/model/AnalyticsListResponse.java
 src/main/java/dev/getlate/model/AnalyticsListResponsePostsInner.java
 src/main/java/dev/getlate/model/AnalyticsOverview.java
+src/main/java/dev/getlate/model/AnalyticsOverviewDataStaleness.java
 src/main/java/dev/getlate/model/AnalyticsSinglePostResponse.java
 src/main/java/dev/getlate/model/AnalyticsSinglePostResponseMediaItemsInner.java
 src/main/java/dev/getlate/model/ApiKey.java
@@ -764,6 +766,7 @@ src/main/java/dev/getlate/model/GetAllAccountsHealth200Response.java
 src/main/java/dev/getlate/model/GetAllAccountsHealth200ResponseAccountsInner.java
 src/main/java/dev/getlate/model/GetAllAccountsHealth200ResponseSummary.java
 src/main/java/dev/getlate/model/GetAnalytics200Response.java
+src/main/java/dev/getlate/model/GetAnalytics400Response.java
 src/main/java/dev/getlate/model/GetAnalytics402Response.java
 src/main/java/dev/getlate/model/GetBestTimeToPost200Response.java
 src/main/java/dev/getlate/model/GetBestTimeToPost200ResponseSlotsInner.java
@@ -972,7 +975,6 @@ src/main/java/dev/getlate/model/Pagination.java
 src/main/java/dev/getlate/model/Pending.java
 src/main/java/dev/getlate/model/PinterestPlatformData.java
 src/main/java/dev/getlate/model/PlatformAnalytics.java
-src/main/java/dev/getlate/model/PlatformAnalyticsAccountMetrics.java
 src/main/java/dev/getlate/model/PlatformTarget.java
 src/main/java/dev/getlate/model/PlatformTargetAccountId.java
 src/main/java/dev/getlate/model/PlatformTargetPlatformSpecificData.java
@@ -1202,3 +1204,5 @@ src/main/java/dev/getlate/model/YouTubeDailyViewsResponseScopeStatus.java
 src/main/java/dev/getlate/model/YouTubePlatformData.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/getlate/model/YouTubeScopeMissingResponseScopeStatus.java
+src/test/java/dev/getlate/model/AnalyticsOverviewDataStalenessTest.java
+src/test/java/dev/getlate/model/GetAnalytics400ResponseTest.java

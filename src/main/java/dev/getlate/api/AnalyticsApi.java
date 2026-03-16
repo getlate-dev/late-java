@@ -18,8 +18,10 @@ import dev.getlate.ApiResponse;
 import dev.getlate.Configuration;
 import dev.getlate.Pair;
 
+import dev.getlate.model.AnalyticsSinglePostResponse;
 import dev.getlate.model.ErrorResponse;
 import dev.getlate.model.GetAnalytics200Response;
+import dev.getlate.model.GetAnalytics400Response;
 import dev.getlate.model.GetAnalytics402Response;
 import dev.getlate.model.GetBestTimeToPost200Response;
 import dev.getlate.model.GetBestTimeToPost403Response;
@@ -76,7 +78,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-16T13:07:03.329053907Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-16T14:06:40.563016392Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AnalyticsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -195,16 +197,16 @@ public class AnalyticsApi {
 
   /**
    * Get post analytics
-   * Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). Data is cached and refreshed at most once per hour. For follower stats, use /v1/accounts/follower-stats. 
+   * Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). fromDate defaults to 90 days ago if omitted, max range 366 days. Single post lookups may return 202 (sync pending) or 424 (all platforms failed). For follower stats, use /v1/accounts/follower-stats. 
    * @param postId Returns analytics for a single post. Accepts both Late Post IDs and External Post IDs. Late IDs are auto-resolved to External Post analytics. (optional)
    * @param platform Filter by platform (default \&quot;all\&quot;) (optional)
    * @param profileId Filter by profile ID (default \&quot;all\&quot;) (optional)
    * @param source Filter by post source: late (posted via Late API), external (synced from platform), all (default) (optional, default to all)
-   * @param fromDate Inclusive lower bound (optional)
-   * @param toDate Inclusive upper bound (optional)
+   * @param fromDate Inclusive lower bound (YYYY-MM-DD). Defaults to 90 days ago if omitted. Max range is 366 days. (optional)
+   * @param toDate Inclusive upper bound (YYYY-MM-DD). Defaults to today if omitted. (optional)
    * @param limit Page size (default 50) (optional, default to 50)
    * @param page Page number (default 1) (optional, default to 1)
-   * @param sortBy Sort by date or engagement (optional, default to date)
+   * @param sortBy Sort by date, engagement, or a specific metric (optional, default to date)
    * @param order Sort order (optional, default to desc)
    * @return GetAnalytics200Response
    * @throws ApiException if fails to make API call
@@ -215,16 +217,16 @@ public class AnalyticsApi {
 
   /**
    * Get post analytics
-   * Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). Data is cached and refreshed at most once per hour. For follower stats, use /v1/accounts/follower-stats. 
+   * Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). fromDate defaults to 90 days ago if omitted, max range 366 days. Single post lookups may return 202 (sync pending) or 424 (all platforms failed). For follower stats, use /v1/accounts/follower-stats. 
    * @param postId Returns analytics for a single post. Accepts both Late Post IDs and External Post IDs. Late IDs are auto-resolved to External Post analytics. (optional)
    * @param platform Filter by platform (default \&quot;all\&quot;) (optional)
    * @param profileId Filter by profile ID (default \&quot;all\&quot;) (optional)
    * @param source Filter by post source: late (posted via Late API), external (synced from platform), all (default) (optional, default to all)
-   * @param fromDate Inclusive lower bound (optional)
-   * @param toDate Inclusive upper bound (optional)
+   * @param fromDate Inclusive lower bound (YYYY-MM-DD). Defaults to 90 days ago if omitted. Max range is 366 days. (optional)
+   * @param toDate Inclusive upper bound (YYYY-MM-DD). Defaults to today if omitted. (optional)
    * @param limit Page size (default 50) (optional, default to 50)
    * @param page Page number (default 1) (optional, default to 1)
-   * @param sortBy Sort by date or engagement (optional, default to date)
+   * @param sortBy Sort by date, engagement, or a specific metric (optional, default to date)
    * @param order Sort order (optional, default to desc)
    * @param headers Optional headers to include in the request
    * @return GetAnalytics200Response
@@ -237,16 +239,16 @@ public class AnalyticsApi {
 
   /**
    * Get post analytics
-   * Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). Data is cached and refreshed at most once per hour. For follower stats, use /v1/accounts/follower-stats. 
+   * Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). fromDate defaults to 90 days ago if omitted, max range 366 days. Single post lookups may return 202 (sync pending) or 424 (all platforms failed). For follower stats, use /v1/accounts/follower-stats. 
    * @param postId Returns analytics for a single post. Accepts both Late Post IDs and External Post IDs. Late IDs are auto-resolved to External Post analytics. (optional)
    * @param platform Filter by platform (default \&quot;all\&quot;) (optional)
    * @param profileId Filter by profile ID (default \&quot;all\&quot;) (optional)
    * @param source Filter by post source: late (posted via Late API), external (synced from platform), all (default) (optional, default to all)
-   * @param fromDate Inclusive lower bound (optional)
-   * @param toDate Inclusive upper bound (optional)
+   * @param fromDate Inclusive lower bound (YYYY-MM-DD). Defaults to 90 days ago if omitted. Max range is 366 days. (optional)
+   * @param toDate Inclusive upper bound (YYYY-MM-DD). Defaults to today if omitted. (optional)
    * @param limit Page size (default 50) (optional, default to 50)
    * @param page Page number (default 1) (optional, default to 1)
-   * @param sortBy Sort by date or engagement (optional, default to date)
+   * @param sortBy Sort by date, engagement, or a specific metric (optional, default to date)
    * @param order Sort order (optional, default to desc)
    * @return ApiResponse&lt;GetAnalytics200Response&gt;
    * @throws ApiException if fails to make API call
@@ -257,16 +259,16 @@ public class AnalyticsApi {
 
   /**
    * Get post analytics
-   * Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). Data is cached and refreshed at most once per hour. For follower stats, use /v1/accounts/follower-stats. 
+   * Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). fromDate defaults to 90 days ago if omitted, max range 366 days. Single post lookups may return 202 (sync pending) or 424 (all platforms failed). For follower stats, use /v1/accounts/follower-stats. 
    * @param postId Returns analytics for a single post. Accepts both Late Post IDs and External Post IDs. Late IDs are auto-resolved to External Post analytics. (optional)
    * @param platform Filter by platform (default \&quot;all\&quot;) (optional)
    * @param profileId Filter by profile ID (default \&quot;all\&quot;) (optional)
    * @param source Filter by post source: late (posted via Late API), external (synced from platform), all (default) (optional, default to all)
-   * @param fromDate Inclusive lower bound (optional)
-   * @param toDate Inclusive upper bound (optional)
+   * @param fromDate Inclusive lower bound (YYYY-MM-DD). Defaults to 90 days ago if omitted. Max range is 366 days. (optional)
+   * @param toDate Inclusive upper bound (YYYY-MM-DD). Defaults to today if omitted. (optional)
    * @param limit Page size (default 50) (optional, default to 50)
    * @param page Page number (default 1) (optional, default to 1)
-   * @param sortBy Sort by date or engagement (optional, default to date)
+   * @param sortBy Sort by date, engagement, or a specific metric (optional, default to date)
    * @param order Sort order (optional, default to desc)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetAnalytics200Response&gt;

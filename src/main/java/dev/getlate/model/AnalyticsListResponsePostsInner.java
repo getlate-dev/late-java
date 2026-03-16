@@ -41,6 +41,7 @@ import dev.getlate.ApiClient;
  */
 @JsonPropertyOrder({
   AnalyticsListResponsePostsInner.JSON_PROPERTY_ID,
+  AnalyticsListResponsePostsInner.JSON_PROPERTY_LATE_POST_ID,
   AnalyticsListResponsePostsInner.JSON_PROPERTY_CONTENT,
   AnalyticsListResponsePostsInner.JSON_PROPERTY_SCHEDULED_FOR,
   AnalyticsListResponsePostsInner.JSON_PROPERTY_PUBLISHED_AT,
@@ -50,15 +51,20 @@ import dev.getlate.ApiClient;
   AnalyticsListResponsePostsInner.JSON_PROPERTY_PLATFORM,
   AnalyticsListResponsePostsInner.JSON_PROPERTY_PLATFORM_POST_URL,
   AnalyticsListResponsePostsInner.JSON_PROPERTY_IS_EXTERNAL,
+  AnalyticsListResponsePostsInner.JSON_PROPERTY_PROFILE_ID,
   AnalyticsListResponsePostsInner.JSON_PROPERTY_THUMBNAIL_URL,
   AnalyticsListResponsePostsInner.JSON_PROPERTY_MEDIA_TYPE,
   AnalyticsListResponsePostsInner.JSON_PROPERTY_MEDIA_ITEMS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-16T13:07:03.329053907Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-16T14:06:40.563016392Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AnalyticsListResponsePostsInner {
   public static final String JSON_PROPERTY_ID = "_id";
   @javax.annotation.Nullable
   private String id;
+
+  public static final String JSON_PROPERTY_LATE_POST_ID = "latePostId";
+  @javax.annotation.Nullable
+  private String latePostId;
 
   public static final String JSON_PROPERTY_CONTENT = "content";
   @javax.annotation.Nullable
@@ -95,6 +101,10 @@ public class AnalyticsListResponsePostsInner {
   public static final String JSON_PROPERTY_IS_EXTERNAL = "isExternal";
   @javax.annotation.Nullable
   private Boolean isExternal;
+
+  public static final String JSON_PROPERTY_PROFILE_ID = "profileId";
+  @javax.annotation.Nullable
+  private String profileId;
 
   public static final String JSON_PROPERTY_THUMBNAIL_URL = "thumbnailUrl";
   @javax.annotation.Nullable
@@ -175,6 +185,30 @@ public class AnalyticsListResponsePostsInner {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(@javax.annotation.Nullable String id) {
     this.id = id;
+  }
+
+
+  public AnalyticsListResponsePostsInner latePostId(@javax.annotation.Nullable String latePostId) {
+    this.latePostId = latePostId;
+    return this;
+  }
+
+  /**
+   * Original Late post ID if scheduled via Late
+   * @return latePostId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_LATE_POST_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLatePostId() {
+    return latePostId;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_LATE_POST_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLatePostId(@javax.annotation.Nullable String latePostId) {
+    this.latePostId = latePostId;
   }
 
 
@@ -402,6 +436,30 @@ public class AnalyticsListResponsePostsInner {
   }
 
 
+  public AnalyticsListResponsePostsInner profileId(@javax.annotation.Nullable String profileId) {
+    this.profileId = profileId;
+    return this;
+  }
+
+  /**
+   * Get profileId
+   * @return profileId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_PROFILE_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getProfileId() {
+    return profileId;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PROFILE_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setProfileId(@javax.annotation.Nullable String profileId) {
+    this.profileId = profileId;
+  }
+
+
   public AnalyticsListResponsePostsInner thumbnailUrl(@javax.annotation.Nullable URI thumbnailUrl) {
     this.thumbnailUrl = thumbnailUrl;
     return this;
@@ -495,6 +553,7 @@ public class AnalyticsListResponsePostsInner {
     }
     AnalyticsListResponsePostsInner analyticsListResponsePostsInner = (AnalyticsListResponsePostsInner) o;
     return Objects.equals(this.id, analyticsListResponsePostsInner.id) &&
+        Objects.equals(this.latePostId, analyticsListResponsePostsInner.latePostId) &&
         Objects.equals(this.content, analyticsListResponsePostsInner.content) &&
         Objects.equals(this.scheduledFor, analyticsListResponsePostsInner.scheduledFor) &&
         Objects.equals(this.publishedAt, analyticsListResponsePostsInner.publishedAt) &&
@@ -504,6 +563,7 @@ public class AnalyticsListResponsePostsInner {
         Objects.equals(this.platform, analyticsListResponsePostsInner.platform) &&
         Objects.equals(this.platformPostUrl, analyticsListResponsePostsInner.platformPostUrl) &&
         Objects.equals(this.isExternal, analyticsListResponsePostsInner.isExternal) &&
+        Objects.equals(this.profileId, analyticsListResponsePostsInner.profileId) &&
         Objects.equals(this.thumbnailUrl, analyticsListResponsePostsInner.thumbnailUrl) &&
         Objects.equals(this.mediaType, analyticsListResponsePostsInner.mediaType) &&
         Objects.equals(this.mediaItems, analyticsListResponsePostsInner.mediaItems);
@@ -511,7 +571,7 @@ public class AnalyticsListResponsePostsInner {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, content, scheduledFor, publishedAt, status, analytics, platforms, platform, platformPostUrl, isExternal, thumbnailUrl, mediaType, mediaItems);
+    return Objects.hash(id, latePostId, content, scheduledFor, publishedAt, status, analytics, platforms, platform, platformPostUrl, isExternal, profileId, thumbnailUrl, mediaType, mediaItems);
   }
 
   @Override
@@ -519,6 +579,7 @@ public class AnalyticsListResponsePostsInner {
     StringBuilder sb = new StringBuilder();
     sb.append("class AnalyticsListResponsePostsInner {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    latePostId: ").append(toIndentedString(latePostId)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    scheduledFor: ").append(toIndentedString(scheduledFor)).append("\n");
     sb.append("    publishedAt: ").append(toIndentedString(publishedAt)).append("\n");
@@ -528,6 +589,7 @@ public class AnalyticsListResponsePostsInner {
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
     sb.append("    platformPostUrl: ").append(toIndentedString(platformPostUrl)).append("\n");
     sb.append("    isExternal: ").append(toIndentedString(isExternal)).append("\n");
+    sb.append("    profileId: ").append(toIndentedString(profileId)).append("\n");
     sb.append("    thumbnailUrl: ").append(toIndentedString(thumbnailUrl)).append("\n");
     sb.append("    mediaType: ").append(toIndentedString(mediaType)).append("\n");
     sb.append("    mediaItems: ").append(toIndentedString(mediaItems)).append("\n");
@@ -583,6 +645,11 @@ public class AnalyticsListResponsePostsInner {
       joiner.add(String.format(java.util.Locale.ROOT, "%s_id%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getId()))));
     }
 
+    // add `latePostId` to the URL query string
+    if (getLatePostId() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%slatePostId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getLatePostId()))));
+    }
+
     // add `content` to the URL query string
     if (getContent() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%scontent%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getContent()))));
@@ -631,6 +698,11 @@ public class AnalyticsListResponsePostsInner {
     // add `isExternal` to the URL query string
     if (getIsExternal() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sisExternal%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getIsExternal()))));
+    }
+
+    // add `profileId` to the URL query string
+    if (getProfileId() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sprofileId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getProfileId()))));
     }
 
     // add `thumbnailUrl` to the URL query string

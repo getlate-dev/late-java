@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import dev.getlate.model.AnalyticsOverviewDataStaleness;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,9 +38,10 @@ import dev.getlate.ApiClient;
   AnalyticsOverview.JSON_PROPERTY_TOTAL_POSTS,
   AnalyticsOverview.JSON_PROPERTY_PUBLISHED_POSTS,
   AnalyticsOverview.JSON_PROPERTY_SCHEDULED_POSTS,
-  AnalyticsOverview.JSON_PROPERTY_LAST_SYNC
+  AnalyticsOverview.JSON_PROPERTY_LAST_SYNC,
+  AnalyticsOverview.JSON_PROPERTY_DATA_STALENESS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-16T13:07:03.329053907Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-16T14:06:40.563016392Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AnalyticsOverview {
   public static final String JSON_PROPERTY_TOTAL_POSTS = "totalPosts";
   @javax.annotation.Nullable
@@ -56,6 +58,10 @@ public class AnalyticsOverview {
   public static final String JSON_PROPERTY_LAST_SYNC = "lastSync";
   @javax.annotation.Nullable
   private OffsetDateTime lastSync;
+
+  public static final String JSON_PROPERTY_DATA_STALENESS = "dataStaleness";
+  @javax.annotation.Nullable
+  private AnalyticsOverviewDataStaleness dataStaleness;
 
   public AnalyticsOverview() { 
   }
@@ -156,6 +162,30 @@ public class AnalyticsOverview {
   }
 
 
+  public AnalyticsOverview dataStaleness(@javax.annotation.Nullable AnalyticsOverviewDataStaleness dataStaleness) {
+    this.dataStaleness = dataStaleness;
+    return this;
+  }
+
+  /**
+   * Get dataStaleness
+   * @return dataStaleness
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_DATA_STALENESS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AnalyticsOverviewDataStaleness getDataStaleness() {
+    return dataStaleness;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_DATA_STALENESS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDataStaleness(@javax.annotation.Nullable AnalyticsOverviewDataStaleness dataStaleness) {
+    this.dataStaleness = dataStaleness;
+  }
+
+
   /**
    * Return true if this AnalyticsOverview object is equal to o.
    */
@@ -171,12 +201,13 @@ public class AnalyticsOverview {
     return Objects.equals(this.totalPosts, analyticsOverview.totalPosts) &&
         Objects.equals(this.publishedPosts, analyticsOverview.publishedPosts) &&
         Objects.equals(this.scheduledPosts, analyticsOverview.scheduledPosts) &&
-        Objects.equals(this.lastSync, analyticsOverview.lastSync);
+        Objects.equals(this.lastSync, analyticsOverview.lastSync) &&
+        Objects.equals(this.dataStaleness, analyticsOverview.dataStaleness);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalPosts, publishedPosts, scheduledPosts, lastSync);
+    return Objects.hash(totalPosts, publishedPosts, scheduledPosts, lastSync, dataStaleness);
   }
 
   @Override
@@ -187,6 +218,7 @@ public class AnalyticsOverview {
     sb.append("    publishedPosts: ").append(toIndentedString(publishedPosts)).append("\n");
     sb.append("    scheduledPosts: ").append(toIndentedString(scheduledPosts)).append("\n");
     sb.append("    lastSync: ").append(toIndentedString(lastSync)).append("\n");
+    sb.append("    dataStaleness: ").append(toIndentedString(dataStaleness)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -252,6 +284,11 @@ public class AnalyticsOverview {
     // add `lastSync` to the URL query string
     if (getLastSync() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%slastSync%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getLastSync()))));
+    }
+
+    // add `dataStaleness` to the URL query string
+    if (getDataStaleness() != null) {
+      joiner.add(getDataStaleness().toUrlQueryString(prefix + "dataStaleness" + suffix));
     }
 
     return joiner.toString();

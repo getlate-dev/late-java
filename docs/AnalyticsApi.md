@@ -35,7 +35,7 @@ All URIs are relative to *https://getlate.dev/api*
 
 Get post analytics
 
-Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). Data is cached and refreshed at most once per hour. For follower stats, use /v1/accounts/follower-stats. 
+Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). fromDate defaults to 90 days ago if omitted, max range 366 days. Single post lookups may return 202 (sync pending) or 424 (all platforms failed). For follower stats, use /v1/accounts/follower-stats. 
 
 ### Example
 
@@ -62,11 +62,11 @@ public class Example {
         String platform = "platform_example"; // String | Filter by platform (default \"all\")
         String profileId = "profileId_example"; // String | Filter by profile ID (default \"all\")
         String source = "all"; // String | Filter by post source: late (posted via Late API), external (synced from platform), all (default)
-        LocalDate fromDate = LocalDate.now(); // LocalDate | Inclusive lower bound
-        LocalDate toDate = LocalDate.now(); // LocalDate | Inclusive upper bound
+        LocalDate fromDate = LocalDate.now(); // LocalDate | Inclusive lower bound (YYYY-MM-DD). Defaults to 90 days ago if omitted. Max range is 366 days.
+        LocalDate toDate = LocalDate.now(); // LocalDate | Inclusive upper bound (YYYY-MM-DD). Defaults to today if omitted.
         Integer limit = 50; // Integer | Page size (default 50)
         Integer page = 1; // Integer | Page number (default 1)
-        String sortBy = "date"; // String | Sort by date or engagement
+        String sortBy = "date"; // String | Sort by date, engagement, or a specific metric
         String order = "asc"; // String | Sort order
         try {
             GetAnalytics200Response result = apiInstance.getAnalytics(postId, platform, profileId, source, fromDate, toDate, limit, page, sortBy, order);
@@ -91,11 +91,11 @@ public class Example {
 | **platform** | **String**| Filter by platform (default \&quot;all\&quot;) | [optional] |
 | **profileId** | **String**| Filter by profile ID (default \&quot;all\&quot;) | [optional] |
 | **source** | **String**| Filter by post source: late (posted via Late API), external (synced from platform), all (default) | [optional] [default to all] [enum: all, late, external] |
-| **fromDate** | **LocalDate**| Inclusive lower bound | [optional] |
-| **toDate** | **LocalDate**| Inclusive upper bound | [optional] |
+| **fromDate** | **LocalDate**| Inclusive lower bound (YYYY-MM-DD). Defaults to 90 days ago if omitted. Max range is 366 days. | [optional] |
+| **toDate** | **LocalDate**| Inclusive upper bound (YYYY-MM-DD). Defaults to today if omitted. | [optional] |
 | **limit** | **Integer**| Page size (default 50) | [optional] [default to 50] |
 | **page** | **Integer**| Page number (default 1) | [optional] [default to 1] |
-| **sortBy** | **String**| Sort by date or engagement | [optional] [default to date] [enum: date, engagement] |
+| **sortBy** | **String**| Sort by date, engagement, or a specific metric | [optional] [default to date] [enum: date, engagement, impressions, reach, likes, comments, shares, saves, clicks, views] |
 | **order** | **String**| Sort order | [optional] [default to desc] [enum: asc, desc] |
 
 ### Return type
@@ -116,9 +116,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Analytics result |  -  |
+| **202** | Analytics are being synced from the platform (single post lookup only). The response body matches AnalyticsSinglePostResponse with syncStatus \&quot;pending\&quot; and a message. |  -  |
+| **400** | Validation error |  -  |
 | **401** | Unauthorized |  -  |
 | **402** | Analytics add-on required |  -  |
 | **404** | Resource not found |  -  |
+| **424** | Post failed to publish on all platforms. Analytics are unavailable. (single post lookup only) |  -  |
 | **500** | Internal server error |  -  |
 
 ## getAnalyticsWithHttpInfo
@@ -127,7 +130,7 @@ public class Example {
 
 Get post analytics
 
-Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). Data is cached and refreshed at most once per hour. For follower stats, use /v1/accounts/follower-stats. 
+Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Late Post IDs and External Post IDs (auto-resolved). fromDate defaults to 90 days ago if omitted, max range 366 days. Single post lookups may return 202 (sync pending) or 424 (all platforms failed). For follower stats, use /v1/accounts/follower-stats. 
 
 ### Example
 
@@ -155,11 +158,11 @@ public class Example {
         String platform = "platform_example"; // String | Filter by platform (default \"all\")
         String profileId = "profileId_example"; // String | Filter by profile ID (default \"all\")
         String source = "all"; // String | Filter by post source: late (posted via Late API), external (synced from platform), all (default)
-        LocalDate fromDate = LocalDate.now(); // LocalDate | Inclusive lower bound
-        LocalDate toDate = LocalDate.now(); // LocalDate | Inclusive upper bound
+        LocalDate fromDate = LocalDate.now(); // LocalDate | Inclusive lower bound (YYYY-MM-DD). Defaults to 90 days ago if omitted. Max range is 366 days.
+        LocalDate toDate = LocalDate.now(); // LocalDate | Inclusive upper bound (YYYY-MM-DD). Defaults to today if omitted.
         Integer limit = 50; // Integer | Page size (default 50)
         Integer page = 1; // Integer | Page number (default 1)
-        String sortBy = "date"; // String | Sort by date or engagement
+        String sortBy = "date"; // String | Sort by date, engagement, or a specific metric
         String order = "asc"; // String | Sort order
         try {
             ApiResponse<GetAnalytics200Response> response = apiInstance.getAnalyticsWithHttpInfo(postId, platform, profileId, source, fromDate, toDate, limit, page, sortBy, order);
@@ -186,11 +189,11 @@ public class Example {
 | **platform** | **String**| Filter by platform (default \&quot;all\&quot;) | [optional] |
 | **profileId** | **String**| Filter by profile ID (default \&quot;all\&quot;) | [optional] |
 | **source** | **String**| Filter by post source: late (posted via Late API), external (synced from platform), all (default) | [optional] [default to all] [enum: all, late, external] |
-| **fromDate** | **LocalDate**| Inclusive lower bound | [optional] |
-| **toDate** | **LocalDate**| Inclusive upper bound | [optional] |
+| **fromDate** | **LocalDate**| Inclusive lower bound (YYYY-MM-DD). Defaults to 90 days ago if omitted. Max range is 366 days. | [optional] |
+| **toDate** | **LocalDate**| Inclusive upper bound (YYYY-MM-DD). Defaults to today if omitted. | [optional] |
 | **limit** | **Integer**| Page size (default 50) | [optional] [default to 50] |
 | **page** | **Integer**| Page number (default 1) | [optional] [default to 1] |
-| **sortBy** | **String**| Sort by date or engagement | [optional] [default to date] [enum: date, engagement] |
+| **sortBy** | **String**| Sort by date, engagement, or a specific metric | [optional] [default to date] [enum: date, engagement, impressions, reach, likes, comments, shares, saves, clicks, views] |
 | **order** | **String**| Sort order | [optional] [default to desc] [enum: asc, desc] |
 
 ### Return type
@@ -211,9 +214,12 @@ ApiResponse<[**GetAnalytics200Response**](GetAnalytics200Response.md)>
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Analytics result |  -  |
+| **202** | Analytics are being synced from the platform (single post lookup only). The response body matches AnalyticsSinglePostResponse with syncStatus \&quot;pending\&quot; and a message. |  -  |
+| **400** | Validation error |  -  |
 | **401** | Unauthorized |  -  |
 | **402** | Analytics add-on required |  -  |
 | **404** | Resource not found |  -  |
+| **424** | Post failed to publish on all platforms. Analytics are unavailable. (single post lookup only) |  -  |
 | **500** | Internal server error |  -  |
 
 

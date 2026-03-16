@@ -8,7 +8,8 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**postId** | **String** |  |  [optional] |
-|**status** | **String** |  |  [optional] |
+|**latePostId** | **String** | Original Late post ID if scheduled via Late |  [optional] |
+|**status** | [**StatusEnum**](#StatusEnum) | Overall post status. \&quot;partial\&quot; when some platforms published and others failed. |  [optional] |
 |**content** | **String** |  |  [optional] |
 |**scheduledFor** | **OffsetDateTime** |  |  [optional] |
 |**publishedAt** | **OffsetDateTime** |  |  [optional] |
@@ -17,9 +18,32 @@
 |**platform** | **String** |  |  [optional] |
 |**platformPostUrl** | **URI** |  |  [optional] |
 |**isExternal** | **Boolean** |  |  [optional] |
+|**syncStatus** | [**SyncStatusEnum**](#SyncStatusEnum) | Overall sync state across all platforms |  [optional] |
+|**message** | **String** | Human-readable status message for pending, partial, or failed states |  [optional] |
 |**thumbnailUrl** | **URI** |  |  [optional] |
 |**mediaType** | [**MediaTypeEnum**](#MediaTypeEnum) |  |  [optional] |
 |**mediaItems** | [**List&lt;AnalyticsSinglePostResponseMediaItemsInner&gt;**](AnalyticsSinglePostResponseMediaItemsInner.md) | All media items for this post. Carousel posts contain one entry per slide. |  [optional] |
+
+
+
+## Enum: StatusEnum
+
+| Name | Value |
+|---- | -----|
+| PUBLISHED | &quot;published&quot; |
+| FAILED | &quot;failed&quot; |
+| PARTIAL | &quot;partial&quot; |
+
+
+
+## Enum: SyncStatusEnum
+
+| Name | Value |
+|---- | -----|
+| SYNCED | &quot;synced&quot; |
+| PENDING | &quot;pending&quot; |
+| PARTIAL | &quot;partial&quot; |
+| UNAVAILABLE | &quot;unavailable&quot; |
 
 
 

@@ -8,6 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
+|**latePostId** | **String** | Original Late post ID if scheduled via Late |  [optional] |
 |**content** | **String** |  |  [optional] |
 |**scheduledFor** | **OffsetDateTime** |  |  [optional] |
 |**publishedAt** | **OffsetDateTime** |  |  [optional] |
@@ -17,6 +18,7 @@
 |**platform** | **String** |  |  [optional] |
 |**platformPostUrl** | **URI** |  |  [optional] |
 |**isExternal** | **Boolean** |  |  [optional] |
+|**profileId** | **String** |  |  [optional] |
 |**thumbnailUrl** | **URI** |  |  [optional] |
 |**mediaType** | [**MediaTypeEnum**](#MediaTypeEnum) |  |  [optional] |
 |**mediaItems** | [**List&lt;AnalyticsSinglePostResponseMediaItemsInner&gt;**](AnalyticsSinglePostResponseMediaItemsInner.md) | All media items for this post. Carousel posts contain one entry per slide. |  [optional] |

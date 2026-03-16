@@ -645,7 +645,8 @@ paths:
     get:
       description: |
         Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats.
-        Accepts both Late Post IDs and External Post IDs (auto-resolved). Data is cached and refreshed at most once per hour. For follower stats, use /v1/accounts/follower-stats.
+        Accepts both Late Post IDs and External Post IDs (auto-resolved). fromDate defaults to 90 days ago if omitted, max range 366 days.
+        Single post lookups may return 202 (sync pending) or 424 (all platforms failed). For follower stats, use /v1/accounts/follower-stats.
       operationId: getAnalytics
       parameters:
       - description: Returns analytics for a single post. Accepts both Late Post IDs
@@ -687,7 +688,8 @@ paths:
           - external
           type: string
         style: form
-      - description: Inclusive lower bound
+      - description: Inclusive lower bound (YYYY-MM-DD). Defaults to 90 days ago if
+          omitted. Max range is 366 days.
         explode: true
         in: query
         name: fromDate
@@ -696,7 +698,7 @@ paths:
           format: date
           type: string
         style: form
-      - description: Inclusive upper bound
+      - description: Inclusive upper bound (YYYY-MM-DD). Defaults to today if omitted.
         explode: true
         in: query
         name: toDate
@@ -726,7 +728,7 @@ paths:
           minimum: 1
           type: integer
         style: form
-      - description: Sort by date or engagement
+      - description: "Sort by date, engagement, or a specific metric"
         explode: true
         in: query
         name: sortBy
@@ -736,6 +738,14 @@ paths:
           enum:
           - date
           - engagement
+          - impressions
+          - reach
+          - likes
+          - comments
+          - shares
+          - saves
+          - clicks
+          - views
           type: string
         style: form
       - description: Sort order
@@ -756,10 +766,10 @@ paths:
             application/json:
               examples:
                 singlePost:
-                  summary: Single post analytics
+                  summary: Single post analytics (Late post with synced analytics)
                   value:
                     postId: 65f1c0a9e2b5af0012ab34cd
-                    latePostId: 65f1c0a9e2b5af0012ab34ab
+                    latePostId: null
                     status: published
                     content: Check out our new product launch!
                     scheduledFor: 2024-11-01T10:00:00Z
@@ -770,6 +780,7 @@ paths:
                       likes: 342
                       comments: 28
                       shares: 45
+                      saves: 0
                       clicks: 189
                       views: 0
                       engagementRate: 2.78
@@ -785,13 +796,19 @@ paths:
                         likes: 342
                         comments: 28
                         shares: 45
+                        saves: 0
                         clicks: 189
                         views: 0
                         engagementRate: 2.78
                         lastUpdated: 2024-11-02T08:30:00Z
+                      syncStatus: synced
+                      platformPostUrl: https://twitter.com/acmecorp/status/123456789
+                      errorMessage: null
                     platform: twitter
                     platformPostUrl: https://twitter.com/acmecorp/status/123456789
                     isExternal: false
+                    syncStatus: synced
+                    message: null
                     thumbnailUrl: https://storage.example.com/image.jpg
                     mediaType: image
                     mediaItems:
@@ -799,17 +816,18 @@ paths:
                       url: https://storage.example.com/image.jpg
                       thumbnail: https://storage.example.com/image.jpg
                 postList:
-                  description: "Note: The list endpoint returns External Post IDs.\
-                    \ Posts originally \nscheduled via Late will have isExternal:\
-                    \ true in this response.\nUse platformPostUrl to correlate with\
-                    \ your original Late Post IDs.\n"
+                  description: |
+                    Posts originally scheduled via Late will have latePostId populated.
                   summary: Paginated analytics list
                   value:
                     overview:
                       totalPosts: 156
-                      publishedPosts: 142
+                      publishedPosts: 156
                       scheduledPosts: 0
                       lastSync: 2024-11-02T08:30:00Z
+                      dataStaleness:
+                        staleAccountCount: 0
+                        syncTriggered: false
                     posts:
                     - _id: 65f1c0a9e2b5af0012ab34cd
                       latePostId: 65f1c0a9e2b5af0012ab34ab
@@ -819,20 +837,38 @@ paths:
                       status: published
                       analytics:
                         impressions: 15420
+                        reach: 12350
                         likes: 342
                         comments: 28
+                        shares: 45
+                        saves: 0
+                        clicks: 189
+                        views: 0
                         engagementRate: 2.78
                         lastUpdated: 2024-11-02T08:30:00Z
                       platforms:
                       - platform: instagram
                         status: published
+                        accountId: 64e1f0a9e2b5af0012ab34cd
+                        accountUsername: '@acmecorp'
                         analytics:
                           impressions: 15420
+                          reach: 12350
                           likes: 342
                           comments: 28
+                          shares: 45
+                          saves: 0
+                          clicks: 189
+                          views: 0
+                          engagementRate: 2.78
+                          lastUpdated: 2024-11-02T08:30:00Z
+                        syncStatus: synced
+                        platformPostUrl: https://www.instagram.com/reel/ABC123xyz/
+                        errorMessage: null
                       platform: instagram
                       platformPostUrl: https://www.instagram.com/reel/ABC123xyz/
                       isExternal: true
+                      profileId: 64e1f0a9e2b5af0012ab34cd
                       thumbnailUrl: https://storage.example.com/thumb.jpg
                       mediaType: carousel
                       mediaItems:
@@ -857,6 +893,20 @@ paths:
               schema:
                 $ref: "#/components/schemas/getAnalytics_200_response"
           description: Analytics result
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AnalyticsSinglePostResponse"
+          description: Analytics are being synced from the platform (single post lookup
+            only). The response body matches AnalyticsSinglePostResponse with syncStatus
+            "pending" and a message.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getAnalytics_400_response"
+          description: Validation error
         "401":
           $ref: "#/components/responses/Unauthorized"
         "402":
@@ -867,6 +917,13 @@ paths:
           description: Analytics add-on required
         "404":
           $ref: "#/components/responses/NotFound"
+        "424":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AnalyticsSinglePostResponse"
+          description: Post failed to publish on all platforms. Analytics are unavailable.
+            (single post lookup only)
         "500":
           content:
             application/json:
@@ -13278,38 +13335,46 @@ components:
           type: string
     PlatformAnalytics:
       example:
-        analytics:
-          shares: 0
-          engagementRate: 0
-          lastUpdated: 2000-01-23T04:56:07.000+00:00
-          comments: 0
-          saves: 0
-          reach: 0
-          clicks: 0
-          impressions: 0
-          views: 0
-          likes: 0
+        analytics: ""
         accountId: accountId
-        accountMetrics:
-          lastUpdated: 2000-01-23T04:56:07.000+00:00
-          followers: 0
-          subscribers: 6
         accountUsername: accountUsername
+        platformPostUrl: https://openapi-generator.tech
+        errorMessage: errorMessage
         platform: platform
-        status: status
+        syncStatus: synced
+        status: published
       properties:
         platform:
           type: string
         status:
+          enum:
+          - published
+          - failed
           type: string
         accountId:
           type: string
         accountUsername:
           type: string
+          nullable: true
         analytics:
-          $ref: "#/components/schemas/PostAnalytics"
-        accountMetrics:
-          $ref: "#/components/schemas/PlatformAnalytics_accountMetrics"
+          allOf:
+          - $ref: "#/components/schemas/PostAnalytics"
+          nullable: true
+        syncStatus:
+          description: Sync state of analytics for this platform
+          enum:
+          - synced
+          - pending
+          - unavailable
+          type: string
+        platformPostUrl:
+          format: uri
+          type: string
+          nullable: true
+        errorMessage:
+          description: Error details when status is failed
+          type: string
+          nullable: true
     AnalyticsOverview:
       properties:
         totalPosts:
@@ -13321,51 +13386,33 @@ components:
         lastSync:
           format: date-time
           type: string
+          nullable: true
+        dataStaleness:
+          $ref: "#/components/schemas/AnalyticsOverview_dataStaleness"
     AnalyticsSinglePostResponse:
       example:
         isExternal: true
         publishedAt: 2000-01-23T04:56:07.000+00:00
         mediaType: image
         postId: postId
+        message: message
         platformAnalytics:
-        - analytics:
-            shares: 0
-            engagementRate: 0
-            lastUpdated: 2000-01-23T04:56:07.000+00:00
-            comments: 0
-            saves: 0
-            reach: 0
-            clicks: 0
-            impressions: 0
-            views: 0
-            likes: 0
+        - analytics: ""
           accountId: accountId
-          accountMetrics:
-            lastUpdated: 2000-01-23T04:56:07.000+00:00
-            followers: 0
-            subscribers: 6
           accountUsername: accountUsername
+          platformPostUrl: https://openapi-generator.tech
+          errorMessage: errorMessage
           platform: platform
-          status: status
-        - analytics:
-            shares: 0
-            engagementRate: 0
-            lastUpdated: 2000-01-23T04:56:07.000+00:00
-            comments: 0
-            saves: 0
-            reach: 0
-            clicks: 0
-            impressions: 0
-            views: 0
-            likes: 0
+          syncStatus: synced
+          status: published
+        - analytics: ""
           accountId: accountId
-          accountMetrics:
-            lastUpdated: 2000-01-23T04:56:07.000+00:00
-            followers: 0
-            subscribers: 6
           accountUsername: accountUsername
+          platformPostUrl: https://openapi-generator.tech
+          errorMessage: errorMessage
           platform: platform
-          status: status
+          syncStatus: synced
+          status: published
         content: content
         platform: platform
         analytics:
@@ -13388,12 +13435,24 @@ components:
           url: https://openapi-generator.tech
         scheduledFor: 2000-01-23T04:56:07.000+00:00
         platformPostUrl: https://openapi-generator.tech
-        status: status
+        latePostId: latePostId
+        syncStatus: synced
+        status: published
         thumbnailUrl: https://openapi-generator.tech
       properties:
         postId:
           type: string
+        latePostId:
+          description: Original Late post ID if scheduled via Late
+          type: string
+          nullable: true
         status:
+          description: Overall post status. "partial" when some platforms published
+            and others failed.
+          enum:
+          - published
+          - failed
+          - partial
           type: string
         content:
           type: string
@@ -13403,6 +13462,7 @@ components:
         publishedAt:
           format: date-time
           type: string
+          nullable: true
         analytics:
           $ref: "#/components/schemas/PostAnalytics"
         platformAnalytics:
@@ -13414,8 +13474,22 @@ components:
         platformPostUrl:
           format: uri
           type: string
+          nullable: true
         isExternal:
           type: boolean
+        syncStatus:
+          description: Overall sync state across all platforms
+          enum:
+          - synced
+          - pending
+          - partial
+          - unavailable
+          type: string
+        message:
+          description: "Human-readable status message for pending, partial, or failed\
+            \ states"
+          type: string
+          nullable: true
         thumbnailUrl:
           format: uri
           type: string
@@ -15704,6 +15778,17 @@ components:
       oneOf:
       - $ref: "#/components/schemas/AnalyticsSinglePostResponse"
       - $ref: "#/components/schemas/AnalyticsListResponse"
+    getAnalytics_400_response:
+      example:
+        details: "{}"
+        error: Invalid query parameters
+      properties:
+        error:
+          example: Invalid query parameters
+          type: string
+        details:
+          description: Detailed validation errors
+          type: object
     getAnalytics_402_response:
       example:
         code: analytics_addon_required
@@ -26748,25 +26833,14 @@ components:
         lastReset:
           format: date-time
           type: string
-    PlatformAnalytics_accountMetrics:
-      example:
-        lastUpdated: 2000-01-23T04:56:07.000+00:00
-        followers: 0
-        subscribers: 6
+    AnalyticsOverview_dataStaleness:
       properties:
-        followers:
-          description: "Followers/fans count (e.g., Instagram, Facebook Pages, Twitter)"
+        staleAccountCount:
+          description: Number of accounts with stale analytics data
           type: integer
-          nullable: true
-        subscribers:
-          description: "Subscribers count (e.g., YouTube)"
-          type: integer
-          nullable: true
-        lastUpdated:
-          format: date-time
-          type: string
-          nullable: true
-      nullable: true
+        syncTriggered:
+          description: Whether a background sync was triggered for stale accounts
+          type: boolean
     AnalyticsSinglePostResponse_mediaItems_inner:
       example:
         thumbnail: https://openapi-generator.tech
@@ -26790,6 +26864,10 @@ components:
       properties:
         _id:
           type: string
+        latePostId:
+          description: Original Late post ID if scheduled via Late
+          type: string
+          nullable: true
         content:
           type: string
         scheduledFor:
@@ -26813,6 +26891,9 @@ components:
           type: string
         isExternal:
           type: boolean
+        profileId:
+          type: string
+          nullable: true
         thumbnailUrl:
           format: uri
           type: string

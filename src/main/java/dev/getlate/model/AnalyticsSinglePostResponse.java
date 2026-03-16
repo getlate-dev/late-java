@@ -41,6 +41,7 @@ import dev.getlate.ApiClient;
  */
 @JsonPropertyOrder({
   AnalyticsSinglePostResponse.JSON_PROPERTY_POST_ID,
+  AnalyticsSinglePostResponse.JSON_PROPERTY_LATE_POST_ID,
   AnalyticsSinglePostResponse.JSON_PROPERTY_STATUS,
   AnalyticsSinglePostResponse.JSON_PROPERTY_CONTENT,
   AnalyticsSinglePostResponse.JSON_PROPERTY_SCHEDULED_FOR,
@@ -50,19 +51,62 @@ import dev.getlate.ApiClient;
   AnalyticsSinglePostResponse.JSON_PROPERTY_PLATFORM,
   AnalyticsSinglePostResponse.JSON_PROPERTY_PLATFORM_POST_URL,
   AnalyticsSinglePostResponse.JSON_PROPERTY_IS_EXTERNAL,
+  AnalyticsSinglePostResponse.JSON_PROPERTY_SYNC_STATUS,
+  AnalyticsSinglePostResponse.JSON_PROPERTY_MESSAGE,
   AnalyticsSinglePostResponse.JSON_PROPERTY_THUMBNAIL_URL,
   AnalyticsSinglePostResponse.JSON_PROPERTY_MEDIA_TYPE,
   AnalyticsSinglePostResponse.JSON_PROPERTY_MEDIA_ITEMS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-16T13:07:03.329053907Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-16T14:06:40.563016392Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AnalyticsSinglePostResponse {
   public static final String JSON_PROPERTY_POST_ID = "postId";
   @javax.annotation.Nullable
   private String postId;
 
+  public static final String JSON_PROPERTY_LATE_POST_ID = "latePostId";
+  @javax.annotation.Nullable
+  private String latePostId;
+
+  /**
+   * Overall post status. \&quot;partial\&quot; when some platforms published and others failed.
+   */
+  public enum StatusEnum {
+    PUBLISHED(String.valueOf("published")),
+    
+    FAILED(String.valueOf("failed")),
+    
+    PARTIAL(String.valueOf("partial"));
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static StatusEnum fromValue(String value) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
   public static final String JSON_PROPERTY_STATUS = "status";
   @javax.annotation.Nullable
-  private String status;
+  private StatusEnum status;
 
   public static final String JSON_PROPERTY_CONTENT = "content";
   @javax.annotation.Nullable
@@ -95,6 +139,53 @@ public class AnalyticsSinglePostResponse {
   public static final String JSON_PROPERTY_IS_EXTERNAL = "isExternal";
   @javax.annotation.Nullable
   private Boolean isExternal;
+
+  /**
+   * Overall sync state across all platforms
+   */
+  public enum SyncStatusEnum {
+    SYNCED(String.valueOf("synced")),
+    
+    PENDING(String.valueOf("pending")),
+    
+    PARTIAL(String.valueOf("partial")),
+    
+    UNAVAILABLE(String.valueOf("unavailable"));
+
+    private String value;
+
+    SyncStatusEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static SyncStatusEnum fromValue(String value) {
+      for (SyncStatusEnum b : SyncStatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_SYNC_STATUS = "syncStatus";
+  @javax.annotation.Nullable
+  private SyncStatusEnum syncStatus;
+
+  public static final String JSON_PROPERTY_MESSAGE = "message";
+  @javax.annotation.Nullable
+  private String message;
 
   public static final String JSON_PROPERTY_THUMBNAIL_URL = "thumbnailUrl";
   @javax.annotation.Nullable
@@ -174,26 +265,50 @@ public class AnalyticsSinglePostResponse {
   }
 
 
-  public AnalyticsSinglePostResponse status(@javax.annotation.Nullable String status) {
+  public AnalyticsSinglePostResponse latePostId(@javax.annotation.Nullable String latePostId) {
+    this.latePostId = latePostId;
+    return this;
+  }
+
+  /**
+   * Original Late post ID if scheduled via Late
+   * @return latePostId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_LATE_POST_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLatePostId() {
+    return latePostId;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_LATE_POST_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLatePostId(@javax.annotation.Nullable String latePostId) {
+    this.latePostId = latePostId;
+  }
+
+
+  public AnalyticsSinglePostResponse status(@javax.annotation.Nullable StatusEnum status) {
     this.status = status;
     return this;
   }
 
   /**
-   * Get status
+   * Overall post status. \&quot;partial\&quot; when some platforms published and others failed.
    * @return status
    */
   @javax.annotation.Nullable
   @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getStatus() {
+  public StatusEnum getStatus() {
     return status;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatus(@javax.annotation.Nullable String status) {
+  public void setStatus(@javax.annotation.Nullable StatusEnum status) {
     this.status = status;
   }
 
@@ -398,6 +513,54 @@ public class AnalyticsSinglePostResponse {
   }
 
 
+  public AnalyticsSinglePostResponse syncStatus(@javax.annotation.Nullable SyncStatusEnum syncStatus) {
+    this.syncStatus = syncStatus;
+    return this;
+  }
+
+  /**
+   * Overall sync state across all platforms
+   * @return syncStatus
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_SYNC_STATUS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyncStatusEnum getSyncStatus() {
+    return syncStatus;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SYNC_STATUS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSyncStatus(@javax.annotation.Nullable SyncStatusEnum syncStatus) {
+    this.syncStatus = syncStatus;
+  }
+
+
+  public AnalyticsSinglePostResponse message(@javax.annotation.Nullable String message) {
+    this.message = message;
+    return this;
+  }
+
+  /**
+   * Human-readable status message for pending, partial, or failed states
+   * @return message
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMessage() {
+    return message;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMessage(@javax.annotation.Nullable String message) {
+    this.message = message;
+  }
+
+
   public AnalyticsSinglePostResponse thumbnailUrl(@javax.annotation.Nullable URI thumbnailUrl) {
     this.thumbnailUrl = thumbnailUrl;
     return this;
@@ -491,6 +654,7 @@ public class AnalyticsSinglePostResponse {
     }
     AnalyticsSinglePostResponse analyticsSinglePostResponse = (AnalyticsSinglePostResponse) o;
     return Objects.equals(this.postId, analyticsSinglePostResponse.postId) &&
+        Objects.equals(this.latePostId, analyticsSinglePostResponse.latePostId) &&
         Objects.equals(this.status, analyticsSinglePostResponse.status) &&
         Objects.equals(this.content, analyticsSinglePostResponse.content) &&
         Objects.equals(this.scheduledFor, analyticsSinglePostResponse.scheduledFor) &&
@@ -500,6 +664,8 @@ public class AnalyticsSinglePostResponse {
         Objects.equals(this.platform, analyticsSinglePostResponse.platform) &&
         Objects.equals(this.platformPostUrl, analyticsSinglePostResponse.platformPostUrl) &&
         Objects.equals(this.isExternal, analyticsSinglePostResponse.isExternal) &&
+        Objects.equals(this.syncStatus, analyticsSinglePostResponse.syncStatus) &&
+        Objects.equals(this.message, analyticsSinglePostResponse.message) &&
         Objects.equals(this.thumbnailUrl, analyticsSinglePostResponse.thumbnailUrl) &&
         Objects.equals(this.mediaType, analyticsSinglePostResponse.mediaType) &&
         Objects.equals(this.mediaItems, analyticsSinglePostResponse.mediaItems);
@@ -507,7 +673,7 @@ public class AnalyticsSinglePostResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(postId, status, content, scheduledFor, publishedAt, analytics, platformAnalytics, platform, platformPostUrl, isExternal, thumbnailUrl, mediaType, mediaItems);
+    return Objects.hash(postId, latePostId, status, content, scheduledFor, publishedAt, analytics, platformAnalytics, platform, platformPostUrl, isExternal, syncStatus, message, thumbnailUrl, mediaType, mediaItems);
   }
 
   @Override
@@ -515,6 +681,7 @@ public class AnalyticsSinglePostResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class AnalyticsSinglePostResponse {\n");
     sb.append("    postId: ").append(toIndentedString(postId)).append("\n");
+    sb.append("    latePostId: ").append(toIndentedString(latePostId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    scheduledFor: ").append(toIndentedString(scheduledFor)).append("\n");
@@ -524,6 +691,8 @@ public class AnalyticsSinglePostResponse {
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
     sb.append("    platformPostUrl: ").append(toIndentedString(platformPostUrl)).append("\n");
     sb.append("    isExternal: ").append(toIndentedString(isExternal)).append("\n");
+    sb.append("    syncStatus: ").append(toIndentedString(syncStatus)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    thumbnailUrl: ").append(toIndentedString(thumbnailUrl)).append("\n");
     sb.append("    mediaType: ").append(toIndentedString(mediaType)).append("\n");
     sb.append("    mediaItems: ").append(toIndentedString(mediaItems)).append("\n");
@@ -579,6 +748,11 @@ public class AnalyticsSinglePostResponse {
       joiner.add(String.format(java.util.Locale.ROOT, "%spostId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getPostId()))));
     }
 
+    // add `latePostId` to the URL query string
+    if (getLatePostId() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%slatePostId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getLatePostId()))));
+    }
+
     // add `status` to the URL query string
     if (getStatus() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sstatus%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getStatus()))));
@@ -627,6 +801,16 @@ public class AnalyticsSinglePostResponse {
     // add `isExternal` to the URL query string
     if (getIsExternal() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sisExternal%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getIsExternal()))));
+    }
+
+    // add `syncStatus` to the URL query string
+    if (getSyncStatus() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%ssyncStatus%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getSyncStatus()))));
+    }
+
+    // add `message` to the URL query string
+    if (getMessage() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%smessage%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getMessage()))));
     }
 
     // add `thumbnailUrl` to the URL query string

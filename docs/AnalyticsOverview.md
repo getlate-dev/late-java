@@ -11,6 +11,7 @@
 |**publishedPosts** | **Integer** |  |  [optional] |
 |**scheduledPosts** | **Integer** |  |  [optional] |
 |**lastSync** | **OffsetDateTime** |  |  [optional] |
+|**dataStaleness** | [**AnalyticsOverviewDataStaleness**](AnalyticsOverviewDataStaleness.md) |  |  [optional] |
 
 
 
