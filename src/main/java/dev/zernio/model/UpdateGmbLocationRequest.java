@@ -35,7 +35,7 @@ import dev.zernio.ApiClient;
 @JsonPropertyOrder({
   UpdateGmbLocationRequest.JSON_PROPERTY_SELECTED_LOCATION_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-19T14:36:20.865692174Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-21T12:00:22.166654886Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UpdateGmbLocationRequest {
   public static final String JSON_PROPERTY_SELECTED_LOCATION_ID = "selectedLocationId";
   @javax.annotation.Nonnull
