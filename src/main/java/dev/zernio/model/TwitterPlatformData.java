@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import dev.zernio.model.TwitterPlatformDataPoll;
 import dev.zernio.model.TwitterPlatformDataThreadItemsInner;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,9 +39,10 @@ import dev.zernio.ApiClient;
 @JsonPropertyOrder({
   TwitterPlatformData.JSON_PROPERTY_REPLY_TO_TWEET_ID,
   TwitterPlatformData.JSON_PROPERTY_REPLY_SETTINGS,
-  TwitterPlatformData.JSON_PROPERTY_THREAD_ITEMS
+  TwitterPlatformData.JSON_PROPERTY_THREAD_ITEMS,
+  TwitterPlatformData.JSON_PROPERTY_POLL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T10:06:03.078279317Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T12:22:55.667233913Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class TwitterPlatformData {
   public static final String JSON_PROPERTY_REPLY_TO_TWEET_ID = "replyToTweetId";
   @javax.annotation.Nullable
@@ -92,6 +94,10 @@ public class TwitterPlatformData {
   public static final String JSON_PROPERTY_THREAD_ITEMS = "threadItems";
   @javax.annotation.Nullable
   private List<TwitterPlatformDataThreadItemsInner> threadItems = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_POLL = "poll";
+  @javax.annotation.Nullable
+  private TwitterPlatformDataPoll poll;
 
   public TwitterPlatformData() { 
   }
@@ -176,6 +182,30 @@ public class TwitterPlatformData {
   }
 
 
+  public TwitterPlatformData poll(@javax.annotation.Nullable TwitterPlatformDataPoll poll) {
+    this.poll = poll;
+    return this;
+  }
+
+  /**
+   * Get poll
+   * @return poll
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_POLL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TwitterPlatformDataPoll getPoll() {
+    return poll;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_POLL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPoll(@javax.annotation.Nullable TwitterPlatformDataPoll poll) {
+    this.poll = poll;
+  }
+
+
   /**
    * Return true if this TwitterPlatformData object is equal to o.
    */
@@ -190,12 +220,13 @@ public class TwitterPlatformData {
     TwitterPlatformData twitterPlatformData = (TwitterPlatformData) o;
     return Objects.equals(this.replyToTweetId, twitterPlatformData.replyToTweetId) &&
         Objects.equals(this.replySettings, twitterPlatformData.replySettings) &&
-        Objects.equals(this.threadItems, twitterPlatformData.threadItems);
+        Objects.equals(this.threadItems, twitterPlatformData.threadItems) &&
+        Objects.equals(this.poll, twitterPlatformData.poll);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(replyToTweetId, replySettings, threadItems);
+    return Objects.hash(replyToTweetId, replySettings, threadItems, poll);
   }
 
   @Override
@@ -205,6 +236,7 @@ public class TwitterPlatformData {
     sb.append("    replyToTweetId: ").append(toIndentedString(replyToTweetId)).append("\n");
     sb.append("    replySettings: ").append(toIndentedString(replySettings)).append("\n");
     sb.append("    threadItems: ").append(toIndentedString(threadItems)).append("\n");
+    sb.append("    poll: ").append(toIndentedString(poll)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -270,6 +302,11 @@ public class TwitterPlatformData {
           "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
+    }
+
+    // add `poll` to the URL query string
+    if (getPoll() != null) {
+      joiner.add(getPoll().toUrlQueryString(prefix + "poll" + suffix));
     }
 
     return joiner.toString();

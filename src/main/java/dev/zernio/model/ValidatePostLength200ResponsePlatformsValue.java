@@ -37,7 +37,7 @@ import dev.zernio.ApiClient;
   ValidatePostLength200ResponsePlatformsValue.JSON_PROPERTY_LIMIT,
   ValidatePostLength200ResponsePlatformsValue.JSON_PROPERTY_VALID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T10:06:03.078279317Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T12:22:55.667233913Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ValidatePostLength200ResponsePlatformsValue {
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable

@@ -4,7 +4,7 @@ Zernio API
 
 - API version: 1.0.1
 
-- Build date: 2026-03-23T10:06:03.078279317Z[Etc/UTC]
+- Build date: 2026-03-23T12:22:55.667233913Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -946,6 +946,7 @@ Class | Method | HTTP request | Description
  - [TranscriptResponse](docs/TranscriptResponse.md)
  - [TranscriptSegment](docs/TranscriptSegment.md)
  - [TwitterPlatformData](docs/TwitterPlatformData.md)
+ - [TwitterPlatformDataPoll](docs/TwitterPlatformDataPoll.md)
  - [TwitterPlatformDataThreadItemsInner](docs/TwitterPlatformDataThreadItemsInner.md)
  - [UndoRetweet200Response](docs/UndoRetweet200Response.md)
  - [UnfollowUser200Response](docs/UnfollowUser200Response.md)
