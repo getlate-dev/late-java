@@ -1230,11 +1230,3 @@ src/main/java/dev/zernio/model/YouTubeDailyViewsResponseScopeStatus.java
 src/main/java/dev/zernio/model/YouTubePlatformData.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponseScopeStatus.java
-src/test/java/dev/zernio/model/GetInstagramAccountInsights404ResponseTest.java
-src/test/java/dev/zernio/model/InstagramAccountInsightsResponseDateRangeTest.java
-src/test/java/dev/zernio/model/InstagramAccountInsightsResponseMetricsValueBreakdownsInnerTest.java
-src/test/java/dev/zernio/model/InstagramAccountInsightsResponseMetricsValueTest.java
-src/test/java/dev/zernio/model/InstagramAccountInsightsResponseMetricsValueValuesInnerTest.java
-src/test/java/dev/zernio/model/InstagramAccountInsightsResponseTest.java
-src/test/java/dev/zernio/model/InstagramDemographicsResponseDemographicsValueInnerTest.java
-src/test/java/dev/zernio/model/InstagramDemographicsResponseTest.java

@@ -41,6 +41,8 @@ import dev.zernio.ApiClient;
 @JsonPropertyOrder({
   SendInboxMessageRequest.JSON_PROPERTY_ACCOUNT_ID,
   SendInboxMessageRequest.JSON_PROPERTY_MESSAGE,
+  SendInboxMessageRequest.JSON_PROPERTY_ATTACHMENT_URL,
+  SendInboxMessageRequest.JSON_PROPERTY_ATTACHMENT_TYPE,
   SendInboxMessageRequest.JSON_PROPERTY_QUICK_REPLIES,
   SendInboxMessageRequest.JSON_PROPERTY_BUTTONS,
   SendInboxMessageRequest.JSON_PROPERTY_TEMPLATE,
@@ -49,7 +51,7 @@ import dev.zernio.ApiClient;
   SendInboxMessageRequest.JSON_PROPERTY_MESSAGE_TAG,
   SendInboxMessageRequest.JSON_PROPERTY_REPLY_TO
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-22T19:33:43.724148338Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T10:06:03.078279317Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class SendInboxMessageRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nonnull
@@ -58,6 +60,53 @@ public class SendInboxMessageRequest {
   public static final String JSON_PROPERTY_MESSAGE = "message";
   @javax.annotation.Nullable
   private String message;
+
+  public static final String JSON_PROPERTY_ATTACHMENT_URL = "attachmentUrl";
+  @javax.annotation.Nullable
+  private String attachmentUrl;
+
+  /**
+   * Type of attachment. Defaults to file if not specified.
+   */
+  public enum AttachmentTypeEnum {
+    IMAGE(String.valueOf("image")),
+    
+    VIDEO(String.valueOf("video")),
+    
+    AUDIO(String.valueOf("audio")),
+    
+    FILE(String.valueOf("file"));
+
+    private String value;
+
+    AttachmentTypeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static AttachmentTypeEnum fromValue(String value) {
+      for (AttachmentTypeEnum b : AttachmentTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_ATTACHMENT_TYPE = "attachmentType";
+  @javax.annotation.Nullable
+  private AttachmentTypeEnum attachmentType;
 
   public static final String JSON_PROPERTY_QUICK_REPLIES = "quickReplies";
   @javax.annotation.Nullable
@@ -211,6 +260,54 @@ public class SendInboxMessageRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(@javax.annotation.Nullable String message) {
     this.message = message;
+  }
+
+
+  public SendInboxMessageRequest attachmentUrl(@javax.annotation.Nullable String attachmentUrl) {
+    this.attachmentUrl = attachmentUrl;
+    return this;
+  }
+
+  /**
+   * URL of the attachment to send (image, video, audio, or file). The URL must be publicly accessible. For binary file uploads, use multipart/form-data instead.
+   * @return attachmentUrl
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_ATTACHMENT_URL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAttachmentUrl() {
+    return attachmentUrl;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ATTACHMENT_URL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAttachmentUrl(@javax.annotation.Nullable String attachmentUrl) {
+    this.attachmentUrl = attachmentUrl;
+  }
+
+
+  public SendInboxMessageRequest attachmentType(@javax.annotation.Nullable AttachmentTypeEnum attachmentType) {
+    this.attachmentType = attachmentType;
+    return this;
+  }
+
+  /**
+   * Type of attachment. Defaults to file if not specified.
+   * @return attachmentType
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_ATTACHMENT_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AttachmentTypeEnum getAttachmentType() {
+    return attachmentType;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ATTACHMENT_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAttachmentType(@javax.annotation.Nullable AttachmentTypeEnum attachmentType) {
+    this.attachmentType = attachmentType;
   }
 
 
@@ -412,6 +509,8 @@ public class SendInboxMessageRequest {
     SendInboxMessageRequest sendInboxMessageRequest = (SendInboxMessageRequest) o;
     return Objects.equals(this.accountId, sendInboxMessageRequest.accountId) &&
         Objects.equals(this.message, sendInboxMessageRequest.message) &&
+        Objects.equals(this.attachmentUrl, sendInboxMessageRequest.attachmentUrl) &&
+        Objects.equals(this.attachmentType, sendInboxMessageRequest.attachmentType) &&
         Objects.equals(this.quickReplies, sendInboxMessageRequest.quickReplies) &&
         Objects.equals(this.buttons, sendInboxMessageRequest.buttons) &&
         Objects.equals(this.template, sendInboxMessageRequest.template) &&
@@ -423,7 +522,7 @@ public class SendInboxMessageRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, message, quickReplies, buttons, template, replyMarkup, messagingType, messageTag, replyTo);
+    return Objects.hash(accountId, message, attachmentUrl, attachmentType, quickReplies, buttons, template, replyMarkup, messagingType, messageTag, replyTo);
   }
 
   @Override
@@ -432,6 +531,8 @@ public class SendInboxMessageRequest {
     sb.append("class SendInboxMessageRequest {\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    attachmentUrl: ").append(toIndentedString(attachmentUrl)).append("\n");
+    sb.append("    attachmentType: ").append(toIndentedString(attachmentType)).append("\n");
     sb.append("    quickReplies: ").append(toIndentedString(quickReplies)).append("\n");
     sb.append("    buttons: ").append(toIndentedString(buttons)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
@@ -494,6 +595,16 @@ public class SendInboxMessageRequest {
     // add `message` to the URL query string
     if (getMessage() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%smessage%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getMessage()))));
+    }
+
+    // add `attachmentUrl` to the URL query string
+    if (getAttachmentUrl() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sattachmentUrl%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getAttachmentUrl()))));
+    }
+
+    // add `attachmentType` to the URL query string
+    if (getAttachmentType() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sattachmentType%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getAttachmentType()))));
     }
 
     // add `quickReplies` to the URL query string

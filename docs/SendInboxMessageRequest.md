@@ -9,6 +9,8 @@
 |------------ | ------------- | ------------- | -------------|
 |**accountId** | **String** | Social account ID |  |
 |**message** | **String** | Message text |  [optional] |
+|**attachmentUrl** | **String** | URL of the attachment to send (image, video, audio, or file). The URL must be publicly accessible. For binary file uploads, use multipart/form-data instead. |  [optional] |
+|**attachmentType** | [**AttachmentTypeEnum**](#AttachmentTypeEnum) | Type of attachment. Defaults to file if not specified. |  [optional] |
 |**quickReplies** | [**List&lt;SendInboxMessageRequestQuickRepliesInner&gt;**](SendInboxMessageRequestQuickRepliesInner.md) | Quick reply buttons. Mutually exclusive with buttons. Max 13 items. |  [optional] |
 |**buttons** | [**List&lt;SendInboxMessageRequestButtonsInner&gt;**](SendInboxMessageRequestButtonsInner.md) | Action buttons. Mutually exclusive with quickReplies. Max 3 items. |  [optional] |
 |**template** | [**SendInboxMessageRequestTemplate**](SendInboxMessageRequestTemplate.md) |  |  [optional] |
@@ -16,6 +18,17 @@
 |**messagingType** | [**MessagingTypeEnum**](#MessagingTypeEnum) | Facebook messaging type. Required when using messageTag. |  [optional] |
 |**messageTag** | [**MessageTagEnum**](#MessageTagEnum) | Facebook message tag for messaging outside 24h window. Requires messagingType MESSAGE_TAG. Instagram only supports HUMAN_AGENT. |  [optional] |
 |**replyTo** | **String** | Platform message ID to reply to (Telegram only). |  [optional] |
+
+
+
+## Enum: AttachmentTypeEnum
+
+| Name | Value |
+|---- | -----|
+| IMAGE | &quot;image&quot; |
+| VIDEO | &quot;video&quot; |
+| AUDIO | &quot;audio&quot; |
+| FILE | &quot;file&quot; |
 
 
 

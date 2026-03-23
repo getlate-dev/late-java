@@ -23682,6 +23682,19 @@ components:
         message:
           description: Message text
           type: string
+        attachmentUrl:
+          description: "URL of the attachment to send (image, video, audio, or file).\
+            \ The URL must be publicly accessible. For binary file uploads, use multipart/form-data\
+            \ instead."
+          type: string
+        attachmentType:
+          description: Type of attachment. Defaults to file if not specified.
+          enum:
+          - image
+          - video
+          - audio
+          - file
+          type: string
         quickReplies:
           description: Quick reply buttons. Mutually exclusive with buttons. Max 13
             items.
