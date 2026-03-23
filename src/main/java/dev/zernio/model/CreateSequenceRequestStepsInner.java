@@ -24,8 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import dev.zernio.model.CreateSequenceRequestStepsInnerMessage;
 import dev.zernio.model.CreateSequenceRequestStepsInnerTemplate;
+import dev.zernio.model.GetBroadcast200ResponseBroadcastMessage;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -40,7 +40,7 @@ import dev.zernio.ApiClient;
   CreateSequenceRequestStepsInner.JSON_PROPERTY_MESSAGE,
   CreateSequenceRequestStepsInner.JSON_PROPERTY_TEMPLATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T20:36:39.232538925Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T20:40:28.543652189Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateSequenceRequestStepsInner {
   public static final String JSON_PROPERTY_ORDER = "order";
   @javax.annotation.Nonnull
@@ -52,7 +52,7 @@ public class CreateSequenceRequestStepsInner {
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
   @javax.annotation.Nullable
-  private CreateSequenceRequestStepsInnerMessage message;
+  private GetBroadcast200ResponseBroadcastMessage message;
 
   public static final String JSON_PROPERTY_TEMPLATE = "template";
   @javax.annotation.Nullable
@@ -109,7 +109,7 @@ public class CreateSequenceRequestStepsInner {
   }
 
 
-  public CreateSequenceRequestStepsInner message(@javax.annotation.Nullable CreateSequenceRequestStepsInnerMessage message) {
+  public CreateSequenceRequestStepsInner message(@javax.annotation.Nullable GetBroadcast200ResponseBroadcastMessage message) {
     this.message = message;
     return this;
   }
@@ -121,14 +121,14 @@ public class CreateSequenceRequestStepsInner {
   @javax.annotation.Nullable
   @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CreateSequenceRequestStepsInnerMessage getMessage() {
+  public GetBroadcast200ResponseBroadcastMessage getMessage() {
     return message;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMessage(@javax.annotation.Nullable CreateSequenceRequestStepsInnerMessage message) {
+  public void setMessage(@javax.annotation.Nullable GetBroadcast200ResponseBroadcastMessage message) {
     this.message = message;
   }
 

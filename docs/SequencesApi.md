@@ -29,7 +29,7 @@ All URIs are relative to *https://zernio.com/api*
 
 ## activateSequence
 
-> void activateSequence(sequenceId)
+> ActivateSequence200Response activateSequence(sequenceId)
 
 Activate a sequence
 
@@ -56,7 +56,8 @@ public class Example {
         SequencesApi apiInstance = new SequencesApi(defaultClient);
         String sequenceId = "sequenceId_example"; // String | 
         try {
-            apiInstance.activateSequence(sequenceId);
+            ActivateSequence200Response result = apiInstance.activateSequence(sequenceId);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SequencesApi#activateSequence");
             System.err.println("Status code: " + e.getCode());
@@ -77,8 +78,8 @@ public class Example {
 
 ### Return type
 
+[**ActivateSequence200Response**](ActivateSequence200Response.md)
 
-null (empty response body)
 
 ### Authorization
 
@@ -99,7 +100,7 @@ null (empty response body)
 
 ## activateSequenceWithHttpInfo
 
-> ApiResponse<Void> activateSequence activateSequenceWithHttpInfo(sequenceId)
+> ApiResponse<ActivateSequence200Response> activateSequence activateSequenceWithHttpInfo(sequenceId)
 
 Activate a sequence
 
@@ -127,9 +128,10 @@ public class Example {
         SequencesApi apiInstance = new SequencesApi(defaultClient);
         String sequenceId = "sequenceId_example"; // String | 
         try {
-            ApiResponse<Void> response = apiInstance.activateSequenceWithHttpInfo(sequenceId);
+            ApiResponse<ActivateSequence200Response> response = apiInstance.activateSequenceWithHttpInfo(sequenceId);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
         } catch (ApiException e) {
             System.err.println("Exception when calling SequencesApi#activateSequence");
             System.err.println("Status code: " + e.getCode());
@@ -150,8 +152,8 @@ public class Example {
 
 ### Return type
 
+ApiResponse<[**ActivateSequence200Response**](ActivateSequence200Response.md)>
 
-ApiResponse<Void>
 
 ### Authorization
 
@@ -455,7 +457,7 @@ ApiResponse<Void>
 
 ## enrollContacts
 
-> void enrollContacts(sequenceId, enrollContactsRequest)
+> EnrollContacts200Response enrollContacts(sequenceId, enrollContactsRequest)
 
 Enroll contacts in a sequence
 
@@ -483,7 +485,8 @@ public class Example {
         String sequenceId = "sequenceId_example"; // String | 
         EnrollContactsRequest enrollContactsRequest = new EnrollContactsRequest(); // EnrollContactsRequest | 
         try {
-            apiInstance.enrollContacts(sequenceId, enrollContactsRequest);
+            EnrollContacts200Response result = apiInstance.enrollContacts(sequenceId, enrollContactsRequest);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SequencesApi#enrollContacts");
             System.err.println("Status code: " + e.getCode());
@@ -505,8 +508,8 @@ public class Example {
 
 ### Return type
 
+[**EnrollContacts200Response**](EnrollContacts200Response.md)
 
-null (empty response body)
 
 ### Authorization
 
@@ -526,7 +529,7 @@ null (empty response body)
 
 ## enrollContactsWithHttpInfo
 
-> ApiResponse<Void> enrollContacts enrollContactsWithHttpInfo(sequenceId, enrollContactsRequest)
+> ApiResponse<EnrollContacts200Response> enrollContacts enrollContactsWithHttpInfo(sequenceId, enrollContactsRequest)
 
 Enroll contacts in a sequence
 
@@ -555,9 +558,10 @@ public class Example {
         String sequenceId = "sequenceId_example"; // String | 
         EnrollContactsRequest enrollContactsRequest = new EnrollContactsRequest(); // EnrollContactsRequest | 
         try {
-            ApiResponse<Void> response = apiInstance.enrollContactsWithHttpInfo(sequenceId, enrollContactsRequest);
+            ApiResponse<EnrollContacts200Response> response = apiInstance.enrollContactsWithHttpInfo(sequenceId, enrollContactsRequest);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
         } catch (ApiException e) {
             System.err.println("Exception when calling SequencesApi#enrollContacts");
             System.err.println("Status code: " + e.getCode());
@@ -579,8 +583,8 @@ public class Example {
 
 ### Return type
 
+ApiResponse<[**EnrollContacts200Response**](EnrollContacts200Response.md)>
 
-ApiResponse<Void>
 
 ### Authorization
 
@@ -601,7 +605,7 @@ ApiResponse<Void>
 
 ## getSequence
 
-> void getSequence(sequenceId)
+> GetSequence200Response getSequence(sequenceId)
 
 Get sequence with steps
 
@@ -628,7 +632,8 @@ public class Example {
         SequencesApi apiInstance = new SequencesApi(defaultClient);
         String sequenceId = "sequenceId_example"; // String | 
         try {
-            apiInstance.getSequence(sequenceId);
+            GetSequence200Response result = apiInstance.getSequence(sequenceId);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SequencesApi#getSequence");
             System.err.println("Status code: " + e.getCode());
@@ -649,8 +654,8 @@ public class Example {
 
 ### Return type
 
+[**GetSequence200Response**](GetSequence200Response.md)
 
-null (empty response body)
 
 ### Authorization
 
@@ -670,7 +675,7 @@ null (empty response body)
 
 ## getSequenceWithHttpInfo
 
-> ApiResponse<Void> getSequence getSequenceWithHttpInfo(sequenceId)
+> ApiResponse<GetSequence200Response> getSequence getSequenceWithHttpInfo(sequenceId)
 
 Get sequence with steps
 
@@ -698,9 +703,10 @@ public class Example {
         SequencesApi apiInstance = new SequencesApi(defaultClient);
         String sequenceId = "sequenceId_example"; // String | 
         try {
-            ApiResponse<Void> response = apiInstance.getSequenceWithHttpInfo(sequenceId);
+            ApiResponse<GetSequence200Response> response = apiInstance.getSequenceWithHttpInfo(sequenceId);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
         } catch (ApiException e) {
             System.err.println("Exception when calling SequencesApi#getSequence");
             System.err.println("Status code: " + e.getCode());
@@ -721,8 +727,8 @@ public class Example {
 
 ### Return type
 
+ApiResponse<[**GetSequence200Response**](GetSequence200Response.md)>
 
-ApiResponse<Void>
 
 ### Authorization
 
@@ -743,7 +749,7 @@ ApiResponse<Void>
 
 ## listSequenceEnrollments
 
-> void listSequenceEnrollments(sequenceId, status, limit, skip)
+> ListSequenceEnrollments200Response listSequenceEnrollments(sequenceId, status, limit, skip)
 
 List enrollments for a sequence
 
@@ -773,7 +779,8 @@ public class Example {
         Integer limit = 50; // Integer | 
         Integer skip = 0; // Integer | 
         try {
-            apiInstance.listSequenceEnrollments(sequenceId, status, limit, skip);
+            ListSequenceEnrollments200Response result = apiInstance.listSequenceEnrollments(sequenceId, status, limit, skip);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SequencesApi#listSequenceEnrollments");
             System.err.println("Status code: " + e.getCode());
@@ -797,8 +804,8 @@ public class Example {
 
 ### Return type
 
+[**ListSequenceEnrollments200Response**](ListSequenceEnrollments200Response.md)
 
-null (empty response body)
 
 ### Authorization
 
@@ -818,7 +825,7 @@ null (empty response body)
 
 ## listSequenceEnrollmentsWithHttpInfo
 
-> ApiResponse<Void> listSequenceEnrollments listSequenceEnrollmentsWithHttpInfo(sequenceId, status, limit, skip)
+> ApiResponse<ListSequenceEnrollments200Response> listSequenceEnrollments listSequenceEnrollmentsWithHttpInfo(sequenceId, status, limit, skip)
 
 List enrollments for a sequence
 
@@ -849,9 +856,10 @@ public class Example {
         Integer limit = 50; // Integer | 
         Integer skip = 0; // Integer | 
         try {
-            ApiResponse<Void> response = apiInstance.listSequenceEnrollmentsWithHttpInfo(sequenceId, status, limit, skip);
+            ApiResponse<ListSequenceEnrollments200Response> response = apiInstance.listSequenceEnrollmentsWithHttpInfo(sequenceId, status, limit, skip);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
         } catch (ApiException e) {
             System.err.println("Exception when calling SequencesApi#listSequenceEnrollments");
             System.err.println("Status code: " + e.getCode());
@@ -875,8 +883,8 @@ public class Example {
 
 ### Return type
 
+ApiResponse<[**ListSequenceEnrollments200Response**](ListSequenceEnrollments200Response.md)>
 
-ApiResponse<Void>
 
 ### Authorization
 
@@ -1051,7 +1059,7 @@ ApiResponse<[**ListSequences200Response**](ListSequences200Response.md)>
 
 ## pauseSequence
 
-> void pauseSequence(sequenceId)
+> ActivateSequence200Response pauseSequence(sequenceId)
 
 Pause a sequence
 
@@ -1078,7 +1086,8 @@ public class Example {
         SequencesApi apiInstance = new SequencesApi(defaultClient);
         String sequenceId = "sequenceId_example"; // String | 
         try {
-            apiInstance.pauseSequence(sequenceId);
+            ActivateSequence200Response result = apiInstance.pauseSequence(sequenceId);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SequencesApi#pauseSequence");
             System.err.println("Status code: " + e.getCode());
@@ -1099,8 +1108,8 @@ public class Example {
 
 ### Return type
 
+[**ActivateSequence200Response**](ActivateSequence200Response.md)
 
-null (empty response body)
 
 ### Authorization
 
@@ -1121,7 +1130,7 @@ null (empty response body)
 
 ## pauseSequenceWithHttpInfo
 
-> ApiResponse<Void> pauseSequence pauseSequenceWithHttpInfo(sequenceId)
+> ApiResponse<ActivateSequence200Response> pauseSequence pauseSequenceWithHttpInfo(sequenceId)
 
 Pause a sequence
 
@@ -1149,9 +1158,10 @@ public class Example {
         SequencesApi apiInstance = new SequencesApi(defaultClient);
         String sequenceId = "sequenceId_example"; // String | 
         try {
-            ApiResponse<Void> response = apiInstance.pauseSequenceWithHttpInfo(sequenceId);
+            ApiResponse<ActivateSequence200Response> response = apiInstance.pauseSequenceWithHttpInfo(sequenceId);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
         } catch (ApiException e) {
             System.err.println("Exception when calling SequencesApi#pauseSequence");
             System.err.println("Status code: " + e.getCode());
@@ -1172,8 +1182,8 @@ public class Example {
 
 ### Return type
 
+ApiResponse<[**ActivateSequence200Response**](ActivateSequence200Response.md)>
 
-ApiResponse<Void>
 
 ### Authorization
 
@@ -1341,7 +1351,7 @@ ApiResponse<Void>
 
 ## updateSequence
 
-> void updateSequence(sequenceId)
+> UpdateSequence200Response updateSequence(sequenceId)
 
 Update a sequence
 
@@ -1368,7 +1378,8 @@ public class Example {
         SequencesApi apiInstance = new SequencesApi(defaultClient);
         String sequenceId = "sequenceId_example"; // String | 
         try {
-            apiInstance.updateSequence(sequenceId);
+            UpdateSequence200Response result = apiInstance.updateSequence(sequenceId);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SequencesApi#updateSequence");
             System.err.println("Status code: " + e.getCode());
@@ -1389,8 +1400,8 @@ public class Example {
 
 ### Return type
 
+[**UpdateSequence200Response**](UpdateSequence200Response.md)
 
-null (empty response body)
 
 ### Authorization
 
@@ -1410,7 +1421,7 @@ null (empty response body)
 
 ## updateSequenceWithHttpInfo
 
-> ApiResponse<Void> updateSequence updateSequenceWithHttpInfo(sequenceId)
+> ApiResponse<UpdateSequence200Response> updateSequence updateSequenceWithHttpInfo(sequenceId)
 
 Update a sequence
 
@@ -1438,9 +1449,10 @@ public class Example {
         SequencesApi apiInstance = new SequencesApi(defaultClient);
         String sequenceId = "sequenceId_example"; // String | 
         try {
-            ApiResponse<Void> response = apiInstance.updateSequenceWithHttpInfo(sequenceId);
+            ApiResponse<UpdateSequence200Response> response = apiInstance.updateSequenceWithHttpInfo(sequenceId);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
         } catch (ApiException e) {
             System.err.println("Exception when calling SequencesApi#updateSequence");
             System.err.println("Status code: " + e.getCode());
@@ -1461,8 +1473,8 @@ public class Example {
 
 ### Return type
 
+ApiResponse<[**UpdateSequence200Response**](UpdateSequence200Response.md)>
 
-ApiResponse<Void>
 
 ### Authorization
 

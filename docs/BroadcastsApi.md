@@ -29,7 +29,7 @@ All URIs are relative to *https://zernio.com/api*
 
 ## addBroadcastRecipients
 
-> void addBroadcastRecipients(broadcastId, addBroadcastRecipientsRequest)
+> AddBroadcastRecipients200Response addBroadcastRecipients(broadcastId, addBroadcastRecipientsRequest)
 
 Add recipients to a broadcast
 
@@ -57,7 +57,8 @@ public class Example {
         String broadcastId = "broadcastId_example"; // String | 
         AddBroadcastRecipientsRequest addBroadcastRecipientsRequest = new AddBroadcastRecipientsRequest(); // AddBroadcastRecipientsRequest | 
         try {
-            apiInstance.addBroadcastRecipients(broadcastId, addBroadcastRecipientsRequest);
+            AddBroadcastRecipients200Response result = apiInstance.addBroadcastRecipients(broadcastId, addBroadcastRecipientsRequest);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling BroadcastsApi#addBroadcastRecipients");
             System.err.println("Status code: " + e.getCode());
@@ -79,8 +80,8 @@ public class Example {
 
 ### Return type
 
+[**AddBroadcastRecipients200Response**](AddBroadcastRecipients200Response.md)
 
-null (empty response body)
 
 ### Authorization
 
@@ -100,7 +101,7 @@ null (empty response body)
 
 ## addBroadcastRecipientsWithHttpInfo
 
-> ApiResponse<Void> addBroadcastRecipients addBroadcastRecipientsWithHttpInfo(broadcastId, addBroadcastRecipientsRequest)
+> ApiResponse<AddBroadcastRecipients200Response> addBroadcastRecipients addBroadcastRecipientsWithHttpInfo(broadcastId, addBroadcastRecipientsRequest)
 
 Add recipients to a broadcast
 
@@ -129,9 +130,10 @@ public class Example {
         String broadcastId = "broadcastId_example"; // String | 
         AddBroadcastRecipientsRequest addBroadcastRecipientsRequest = new AddBroadcastRecipientsRequest(); // AddBroadcastRecipientsRequest | 
         try {
-            ApiResponse<Void> response = apiInstance.addBroadcastRecipientsWithHttpInfo(broadcastId, addBroadcastRecipientsRequest);
+            ApiResponse<AddBroadcastRecipients200Response> response = apiInstance.addBroadcastRecipientsWithHttpInfo(broadcastId, addBroadcastRecipientsRequest);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
         } catch (ApiException e) {
             System.err.println("Exception when calling BroadcastsApi#addBroadcastRecipients");
             System.err.println("Status code: " + e.getCode());
@@ -153,8 +155,8 @@ public class Example {
 
 ### Return type
 
+ApiResponse<[**AddBroadcastRecipients200Response**](AddBroadcastRecipients200Response.md)>
 
-ApiResponse<Void>
 
 ### Authorization
 
@@ -175,7 +177,7 @@ ApiResponse<Void>
 
 ## cancelBroadcast
 
-> void cancelBroadcast(broadcastId)
+> CancelBroadcast200Response cancelBroadcast(broadcastId)
 
 Cancel a broadcast
 
@@ -202,7 +204,8 @@ public class Example {
         BroadcastsApi apiInstance = new BroadcastsApi(defaultClient);
         String broadcastId = "broadcastId_example"; // String | 
         try {
-            apiInstance.cancelBroadcast(broadcastId);
+            CancelBroadcast200Response result = apiInstance.cancelBroadcast(broadcastId);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling BroadcastsApi#cancelBroadcast");
             System.err.println("Status code: " + e.getCode());
@@ -223,8 +226,8 @@ public class Example {
 
 ### Return type
 
+[**CancelBroadcast200Response**](CancelBroadcast200Response.md)
 
-null (empty response body)
 
 ### Authorization
 
@@ -245,7 +248,7 @@ null (empty response body)
 
 ## cancelBroadcastWithHttpInfo
 
-> ApiResponse<Void> cancelBroadcast cancelBroadcastWithHttpInfo(broadcastId)
+> ApiResponse<CancelBroadcast200Response> cancelBroadcast cancelBroadcastWithHttpInfo(broadcastId)
 
 Cancel a broadcast
 
@@ -273,9 +276,10 @@ public class Example {
         BroadcastsApi apiInstance = new BroadcastsApi(defaultClient);
         String broadcastId = "broadcastId_example"; // String | 
         try {
-            ApiResponse<Void> response = apiInstance.cancelBroadcastWithHttpInfo(broadcastId);
+            ApiResponse<CancelBroadcast200Response> response = apiInstance.cancelBroadcastWithHttpInfo(broadcastId);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
         } catch (ApiException e) {
             System.err.println("Exception when calling BroadcastsApi#cancelBroadcast");
             System.err.println("Status code: " + e.getCode());
@@ -296,8 +300,8 @@ public class Example {
 
 ### Return type
 
+ApiResponse<[**CancelBroadcast200Response**](CancelBroadcast200Response.md)>
 
-ApiResponse<Void>
 
 ### Authorization
 
@@ -601,7 +605,7 @@ ApiResponse<Void>
 
 ## getBroadcast
 
-> void getBroadcast(broadcastId)
+> GetBroadcast200Response getBroadcast(broadcastId)
 
 Get broadcast details
 
@@ -628,7 +632,8 @@ public class Example {
         BroadcastsApi apiInstance = new BroadcastsApi(defaultClient);
         String broadcastId = "broadcastId_example"; // String | 
         try {
-            apiInstance.getBroadcast(broadcastId);
+            GetBroadcast200Response result = apiInstance.getBroadcast(broadcastId);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling BroadcastsApi#getBroadcast");
             System.err.println("Status code: " + e.getCode());
@@ -649,8 +654,8 @@ public class Example {
 
 ### Return type
 
+[**GetBroadcast200Response**](GetBroadcast200Response.md)
 
-null (empty response body)
 
 ### Authorization
 
@@ -670,7 +675,7 @@ null (empty response body)
 
 ## getBroadcastWithHttpInfo
 
-> ApiResponse<Void> getBroadcast getBroadcastWithHttpInfo(broadcastId)
+> ApiResponse<GetBroadcast200Response> getBroadcast getBroadcastWithHttpInfo(broadcastId)
 
 Get broadcast details
 
@@ -698,9 +703,10 @@ public class Example {
         BroadcastsApi apiInstance = new BroadcastsApi(defaultClient);
         String broadcastId = "broadcastId_example"; // String | 
         try {
-            ApiResponse<Void> response = apiInstance.getBroadcastWithHttpInfo(broadcastId);
+            ApiResponse<GetBroadcast200Response> response = apiInstance.getBroadcastWithHttpInfo(broadcastId);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
         } catch (ApiException e) {
             System.err.println("Exception when calling BroadcastsApi#getBroadcast");
             System.err.println("Status code: " + e.getCode());
@@ -721,8 +727,8 @@ public class Example {
 
 ### Return type
 
+ApiResponse<[**GetBroadcast200Response**](GetBroadcast200Response.md)>
 
-ApiResponse<Void>
 
 ### Authorization
 
@@ -743,7 +749,7 @@ ApiResponse<Void>
 
 ## listBroadcastRecipients
 
-> void listBroadcastRecipients(broadcastId, status, limit, skip)
+> ListBroadcastRecipients200Response listBroadcastRecipients(broadcastId, status, limit, skip)
 
 List broadcast recipients
 
@@ -773,7 +779,8 @@ public class Example {
         Integer limit = 50; // Integer | 
         Integer skip = 0; // Integer | 
         try {
-            apiInstance.listBroadcastRecipients(broadcastId, status, limit, skip);
+            ListBroadcastRecipients200Response result = apiInstance.listBroadcastRecipients(broadcastId, status, limit, skip);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling BroadcastsApi#listBroadcastRecipients");
             System.err.println("Status code: " + e.getCode());
@@ -797,8 +804,8 @@ public class Example {
 
 ### Return type
 
+[**ListBroadcastRecipients200Response**](ListBroadcastRecipients200Response.md)
 
-null (empty response body)
 
 ### Authorization
 
@@ -818,7 +825,7 @@ null (empty response body)
 
 ## listBroadcastRecipientsWithHttpInfo
 
-> ApiResponse<Void> listBroadcastRecipients listBroadcastRecipientsWithHttpInfo(broadcastId, status, limit, skip)
+> ApiResponse<ListBroadcastRecipients200Response> listBroadcastRecipients listBroadcastRecipientsWithHttpInfo(broadcastId, status, limit, skip)
 
 List broadcast recipients
 
@@ -849,9 +856,10 @@ public class Example {
         Integer limit = 50; // Integer | 
         Integer skip = 0; // Integer | 
         try {
-            ApiResponse<Void> response = apiInstance.listBroadcastRecipientsWithHttpInfo(broadcastId, status, limit, skip);
+            ApiResponse<ListBroadcastRecipients200Response> response = apiInstance.listBroadcastRecipientsWithHttpInfo(broadcastId, status, limit, skip);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
         } catch (ApiException e) {
             System.err.println("Exception when calling BroadcastsApi#listBroadcastRecipients");
             System.err.println("Status code: " + e.getCode());
@@ -875,8 +883,8 @@ public class Example {
 
 ### Return type
 
+ApiResponse<[**ListBroadcastRecipients200Response**](ListBroadcastRecipients200Response.md)>
 
-ApiResponse<Void>
 
 ### Authorization
 
@@ -1055,7 +1063,7 @@ ApiResponse<[**ListBroadcasts200Response**](ListBroadcasts200Response.md)>
 
 ## scheduleBroadcast
 
-> void scheduleBroadcast(broadcastId, scheduleBroadcastRequest)
+> ScheduleBroadcast200Response scheduleBroadcast(broadcastId, scheduleBroadcastRequest)
 
 Schedule broadcast for later
 
@@ -1083,7 +1091,8 @@ public class Example {
         String broadcastId = "broadcastId_example"; // String | 
         ScheduleBroadcastRequest scheduleBroadcastRequest = new ScheduleBroadcastRequest(); // ScheduleBroadcastRequest | 
         try {
-            apiInstance.scheduleBroadcast(broadcastId, scheduleBroadcastRequest);
+            ScheduleBroadcast200Response result = apiInstance.scheduleBroadcast(broadcastId, scheduleBroadcastRequest);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling BroadcastsApi#scheduleBroadcast");
             System.err.println("Status code: " + e.getCode());
@@ -1105,8 +1114,8 @@ public class Example {
 
 ### Return type
 
+[**ScheduleBroadcast200Response**](ScheduleBroadcast200Response.md)
 
-null (empty response body)
 
 ### Authorization
 
@@ -1127,7 +1136,7 @@ null (empty response body)
 
 ## scheduleBroadcastWithHttpInfo
 
-> ApiResponse<Void> scheduleBroadcast scheduleBroadcastWithHttpInfo(broadcastId, scheduleBroadcastRequest)
+> ApiResponse<ScheduleBroadcast200Response> scheduleBroadcast scheduleBroadcastWithHttpInfo(broadcastId, scheduleBroadcastRequest)
 
 Schedule broadcast for later
 
@@ -1156,9 +1165,10 @@ public class Example {
         String broadcastId = "broadcastId_example"; // String | 
         ScheduleBroadcastRequest scheduleBroadcastRequest = new ScheduleBroadcastRequest(); // ScheduleBroadcastRequest | 
         try {
-            ApiResponse<Void> response = apiInstance.scheduleBroadcastWithHttpInfo(broadcastId, scheduleBroadcastRequest);
+            ApiResponse<ScheduleBroadcast200Response> response = apiInstance.scheduleBroadcastWithHttpInfo(broadcastId, scheduleBroadcastRequest);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
         } catch (ApiException e) {
             System.err.println("Exception when calling BroadcastsApi#scheduleBroadcast");
             System.err.println("Status code: " + e.getCode());
@@ -1180,8 +1190,8 @@ public class Example {
 
 ### Return type
 
+ApiResponse<[**ScheduleBroadcast200Response**](ScheduleBroadcast200Response.md)>
 
-ApiResponse<Void>
 
 ### Authorization
 
@@ -1349,7 +1359,7 @@ ApiResponse<[**SendBroadcast200Response**](SendBroadcast200Response.md)>
 
 ## updateBroadcast
 
-> void updateBroadcast(broadcastId)
+> UpdateBroadcast200Response updateBroadcast(broadcastId)
 
 Update a broadcast
 
@@ -1376,7 +1386,8 @@ public class Example {
         BroadcastsApi apiInstance = new BroadcastsApi(defaultClient);
         String broadcastId = "broadcastId_example"; // String | 
         try {
-            apiInstance.updateBroadcast(broadcastId);
+            UpdateBroadcast200Response result = apiInstance.updateBroadcast(broadcastId);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling BroadcastsApi#updateBroadcast");
             System.err.println("Status code: " + e.getCode());
@@ -1397,8 +1408,8 @@ public class Example {
 
 ### Return type
 
+[**UpdateBroadcast200Response**](UpdateBroadcast200Response.md)
 
-null (empty response body)
 
 ### Authorization
 
@@ -1418,7 +1429,7 @@ null (empty response body)
 
 ## updateBroadcastWithHttpInfo
 
-> ApiResponse<Void> updateBroadcast updateBroadcastWithHttpInfo(broadcastId)
+> ApiResponse<UpdateBroadcast200Response> updateBroadcast updateBroadcastWithHttpInfo(broadcastId)
 
 Update a broadcast
 
@@ -1446,9 +1457,10 @@ public class Example {
         BroadcastsApi apiInstance = new BroadcastsApi(defaultClient);
         String broadcastId = "broadcastId_example"; // String | 
         try {
-            ApiResponse<Void> response = apiInstance.updateBroadcastWithHttpInfo(broadcastId);
+            ApiResponse<UpdateBroadcast200Response> response = apiInstance.updateBroadcastWithHttpInfo(broadcastId);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
         } catch (ApiException e) {
             System.err.println("Exception when calling BroadcastsApi#updateBroadcast");
             System.err.println("Status code: " + e.getCode());
@@ -1469,8 +1481,8 @@ public class Example {
 
 ### Return type
 
+ApiResponse<[**UpdateBroadcast200Response**](UpdateBroadcast200Response.md)>
 
-ApiResponse<Void>
 
 ### Authorization
 

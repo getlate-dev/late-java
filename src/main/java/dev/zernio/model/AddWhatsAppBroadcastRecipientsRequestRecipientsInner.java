@@ -39,7 +39,7 @@ import dev.zernio.ApiClient;
   AddWhatsAppBroadcastRecipientsRequestRecipientsInner.JSON_PROPERTY_NAME,
   AddWhatsAppBroadcastRecipientsRequestRecipientsInner.JSON_PROPERTY_VARIABLES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T20:36:39.232538925Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T20:40:28.543652189Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AddWhatsAppBroadcastRecipientsRequestRecipientsInner {
   public static final String JSON_PROPERTY_PHONE = "phone";
   @javax.annotation.Nonnull

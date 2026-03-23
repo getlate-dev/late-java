@@ -18,11 +18,16 @@ import dev.zernio.ApiResponse;
 import dev.zernio.Configuration;
 import dev.zernio.Pair;
 
+import dev.zernio.model.ActivateSequence200Response;
 import dev.zernio.model.CreateSequenceRequest;
+import dev.zernio.model.EnrollContacts200Response;
 import dev.zernio.model.EnrollContactsRequest;
+import dev.zernio.model.GetSequence200Response;
 import dev.zernio.model.InlineObject;
 import dev.zernio.model.InlineObject1;
+import dev.zernio.model.ListSequenceEnrollments200Response;
 import dev.zernio.model.ListSequences200Response;
+import dev.zernio.model.UpdateSequence200Response;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -55,7 +60,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T20:36:39.232538925Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T20:40:28.543652189Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class SequencesApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -176,10 +181,11 @@ public class SequencesApi {
    * Activate a sequence
    * 
    * @param sequenceId  (required)
+   * @return ActivateSequence200Response
    * @throws ApiException if fails to make API call
    */
-  public void activateSequence(@javax.annotation.Nonnull String sequenceId) throws ApiException {
-    activateSequence(sequenceId, null);
+  public ActivateSequence200Response activateSequence(@javax.annotation.Nonnull String sequenceId) throws ApiException {
+    return activateSequence(sequenceId, null);
   }
 
   /**
@@ -187,20 +193,22 @@ public class SequencesApi {
    * 
    * @param sequenceId  (required)
    * @param headers Optional headers to include in the request
+   * @return ActivateSequence200Response
    * @throws ApiException if fails to make API call
    */
-  public void activateSequence(@javax.annotation.Nonnull String sequenceId, Map<String, String> headers) throws ApiException {
-    activateSequenceWithHttpInfo(sequenceId, headers);
+  public ActivateSequence200Response activateSequence(@javax.annotation.Nonnull String sequenceId, Map<String, String> headers) throws ApiException {
+    ApiResponse<ActivateSequence200Response> localVarResponse = activateSequenceWithHttpInfo(sequenceId, headers);
+    return localVarResponse.getData();
   }
 
   /**
    * Activate a sequence
    * 
    * @param sequenceId  (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;ActivateSequence200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> activateSequenceWithHttpInfo(@javax.annotation.Nonnull String sequenceId) throws ApiException {
+  public ApiResponse<ActivateSequence200Response> activateSequenceWithHttpInfo(@javax.annotation.Nonnull String sequenceId) throws ApiException {
     return activateSequenceWithHttpInfo(sequenceId, null);
   }
 
@@ -209,10 +217,10 @@ public class SequencesApi {
    * 
    * @param sequenceId  (required)
    * @param headers Optional headers to include in the request
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;ActivateSequence200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> activateSequenceWithHttpInfo(@javax.annotation.Nonnull String sequenceId, Map<String, String> headers) throws ApiException {
+  public ApiResponse<ActivateSequence200Response> activateSequenceWithHttpInfo(@javax.annotation.Nonnull String sequenceId, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = activateSequenceRequestBuilder(sequenceId, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -227,13 +235,24 @@ public class SequencesApi {
           throw getApiException("activateSequence", localVarResponse);
         }
         localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
-        if (localVarResponseBody != null) {
-          localVarResponseBody.readAllBytes();
+        if (localVarResponseBody == null) {
+          return new ApiResponse<ActivateSequence200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
         }
-        return new ApiResponse<>(
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        ActivateSequence200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<ActivateSequence200Response>() {});
+        
+
+        return new ApiResponse<ActivateSequence200Response>(
             localVarResponse.statusCode(),
             localVarResponse.headers().map(),
-            null
+            responseValue
         );
       } finally {
         if (localVarResponseBody != null) {
@@ -494,10 +513,11 @@ public class SequencesApi {
    * 
    * @param sequenceId  (required)
    * @param enrollContactsRequest  (required)
+   * @return EnrollContacts200Response
    * @throws ApiException if fails to make API call
    */
-  public void enrollContacts(@javax.annotation.Nonnull String sequenceId, @javax.annotation.Nonnull EnrollContactsRequest enrollContactsRequest) throws ApiException {
-    enrollContacts(sequenceId, enrollContactsRequest, null);
+  public EnrollContacts200Response enrollContacts(@javax.annotation.Nonnull String sequenceId, @javax.annotation.Nonnull EnrollContactsRequest enrollContactsRequest) throws ApiException {
+    return enrollContacts(sequenceId, enrollContactsRequest, null);
   }
 
   /**
@@ -506,10 +526,12 @@ public class SequencesApi {
    * @param sequenceId  (required)
    * @param enrollContactsRequest  (required)
    * @param headers Optional headers to include in the request
+   * @return EnrollContacts200Response
    * @throws ApiException if fails to make API call
    */
-  public void enrollContacts(@javax.annotation.Nonnull String sequenceId, @javax.annotation.Nonnull EnrollContactsRequest enrollContactsRequest, Map<String, String> headers) throws ApiException {
-    enrollContactsWithHttpInfo(sequenceId, enrollContactsRequest, headers);
+  public EnrollContacts200Response enrollContacts(@javax.annotation.Nonnull String sequenceId, @javax.annotation.Nonnull EnrollContactsRequest enrollContactsRequest, Map<String, String> headers) throws ApiException {
+    ApiResponse<EnrollContacts200Response> localVarResponse = enrollContactsWithHttpInfo(sequenceId, enrollContactsRequest, headers);
+    return localVarResponse.getData();
   }
 
   /**
@@ -517,10 +539,10 @@ public class SequencesApi {
    * 
    * @param sequenceId  (required)
    * @param enrollContactsRequest  (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;EnrollContacts200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> enrollContactsWithHttpInfo(@javax.annotation.Nonnull String sequenceId, @javax.annotation.Nonnull EnrollContactsRequest enrollContactsRequest) throws ApiException {
+  public ApiResponse<EnrollContacts200Response> enrollContactsWithHttpInfo(@javax.annotation.Nonnull String sequenceId, @javax.annotation.Nonnull EnrollContactsRequest enrollContactsRequest) throws ApiException {
     return enrollContactsWithHttpInfo(sequenceId, enrollContactsRequest, null);
   }
 
@@ -530,10 +552,10 @@ public class SequencesApi {
    * @param sequenceId  (required)
    * @param enrollContactsRequest  (required)
    * @param headers Optional headers to include in the request
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;EnrollContacts200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> enrollContactsWithHttpInfo(@javax.annotation.Nonnull String sequenceId, @javax.annotation.Nonnull EnrollContactsRequest enrollContactsRequest, Map<String, String> headers) throws ApiException {
+  public ApiResponse<EnrollContacts200Response> enrollContactsWithHttpInfo(@javax.annotation.Nonnull String sequenceId, @javax.annotation.Nonnull EnrollContactsRequest enrollContactsRequest, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = enrollContactsRequestBuilder(sequenceId, enrollContactsRequest, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -548,13 +570,24 @@ public class SequencesApi {
           throw getApiException("enrollContacts", localVarResponse);
         }
         localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
-        if (localVarResponseBody != null) {
-          localVarResponseBody.readAllBytes();
+        if (localVarResponseBody == null) {
+          return new ApiResponse<EnrollContacts200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
         }
-        return new ApiResponse<>(
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        EnrollContacts200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<EnrollContacts200Response>() {});
+        
+
+        return new ApiResponse<EnrollContacts200Response>(
             localVarResponse.statusCode(),
             localVarResponse.headers().map(),
-            null
+            responseValue
         );
       } finally {
         if (localVarResponseBody != null) {
@@ -611,10 +644,11 @@ public class SequencesApi {
    * Get sequence with steps
    * 
    * @param sequenceId  (required)
+   * @return GetSequence200Response
    * @throws ApiException if fails to make API call
    */
-  public void getSequence(@javax.annotation.Nonnull String sequenceId) throws ApiException {
-    getSequence(sequenceId, null);
+  public GetSequence200Response getSequence(@javax.annotation.Nonnull String sequenceId) throws ApiException {
+    return getSequence(sequenceId, null);
   }
 
   /**
@@ -622,20 +656,22 @@ public class SequencesApi {
    * 
    * @param sequenceId  (required)
    * @param headers Optional headers to include in the request
+   * @return GetSequence200Response
    * @throws ApiException if fails to make API call
    */
-  public void getSequence(@javax.annotation.Nonnull String sequenceId, Map<String, String> headers) throws ApiException {
-    getSequenceWithHttpInfo(sequenceId, headers);
+  public GetSequence200Response getSequence(@javax.annotation.Nonnull String sequenceId, Map<String, String> headers) throws ApiException {
+    ApiResponse<GetSequence200Response> localVarResponse = getSequenceWithHttpInfo(sequenceId, headers);
+    return localVarResponse.getData();
   }
 
   /**
    * Get sequence with steps
    * 
    * @param sequenceId  (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;GetSequence200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> getSequenceWithHttpInfo(@javax.annotation.Nonnull String sequenceId) throws ApiException {
+  public ApiResponse<GetSequence200Response> getSequenceWithHttpInfo(@javax.annotation.Nonnull String sequenceId) throws ApiException {
     return getSequenceWithHttpInfo(sequenceId, null);
   }
 
@@ -644,10 +680,10 @@ public class SequencesApi {
    * 
    * @param sequenceId  (required)
    * @param headers Optional headers to include in the request
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;GetSequence200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> getSequenceWithHttpInfo(@javax.annotation.Nonnull String sequenceId, Map<String, String> headers) throws ApiException {
+  public ApiResponse<GetSequence200Response> getSequenceWithHttpInfo(@javax.annotation.Nonnull String sequenceId, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getSequenceRequestBuilder(sequenceId, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -662,13 +698,24 @@ public class SequencesApi {
           throw getApiException("getSequence", localVarResponse);
         }
         localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
-        if (localVarResponseBody != null) {
-          localVarResponseBody.readAllBytes();
+        if (localVarResponseBody == null) {
+          return new ApiResponse<GetSequence200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
         }
-        return new ApiResponse<>(
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        GetSequence200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<GetSequence200Response>() {});
+        
+
+        return new ApiResponse<GetSequence200Response>(
             localVarResponse.statusCode(),
             localVarResponse.headers().map(),
-            null
+            responseValue
         );
       } finally {
         if (localVarResponseBody != null) {
@@ -718,10 +765,11 @@ public class SequencesApi {
    * @param status  (optional)
    * @param limit  (optional, default to 50)
    * @param skip  (optional, default to 0)
+   * @return ListSequenceEnrollments200Response
    * @throws ApiException if fails to make API call
    */
-  public void listSequenceEnrollments(@javax.annotation.Nonnull String sequenceId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip) throws ApiException {
-    listSequenceEnrollments(sequenceId, status, limit, skip, null);
+  public ListSequenceEnrollments200Response listSequenceEnrollments(@javax.annotation.Nonnull String sequenceId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip) throws ApiException {
+    return listSequenceEnrollments(sequenceId, status, limit, skip, null);
   }
 
   /**
@@ -732,10 +780,12 @@ public class SequencesApi {
    * @param limit  (optional, default to 50)
    * @param skip  (optional, default to 0)
    * @param headers Optional headers to include in the request
+   * @return ListSequenceEnrollments200Response
    * @throws ApiException if fails to make API call
    */
-  public void listSequenceEnrollments(@javax.annotation.Nonnull String sequenceId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, Map<String, String> headers) throws ApiException {
-    listSequenceEnrollmentsWithHttpInfo(sequenceId, status, limit, skip, headers);
+  public ListSequenceEnrollments200Response listSequenceEnrollments(@javax.annotation.Nonnull String sequenceId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, Map<String, String> headers) throws ApiException {
+    ApiResponse<ListSequenceEnrollments200Response> localVarResponse = listSequenceEnrollmentsWithHttpInfo(sequenceId, status, limit, skip, headers);
+    return localVarResponse.getData();
   }
 
   /**
@@ -745,10 +795,10 @@ public class SequencesApi {
    * @param status  (optional)
    * @param limit  (optional, default to 50)
    * @param skip  (optional, default to 0)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;ListSequenceEnrollments200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> listSequenceEnrollmentsWithHttpInfo(@javax.annotation.Nonnull String sequenceId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip) throws ApiException {
+  public ApiResponse<ListSequenceEnrollments200Response> listSequenceEnrollmentsWithHttpInfo(@javax.annotation.Nonnull String sequenceId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip) throws ApiException {
     return listSequenceEnrollmentsWithHttpInfo(sequenceId, status, limit, skip, null);
   }
 
@@ -760,10 +810,10 @@ public class SequencesApi {
    * @param limit  (optional, default to 50)
    * @param skip  (optional, default to 0)
    * @param headers Optional headers to include in the request
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;ListSequenceEnrollments200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> listSequenceEnrollmentsWithHttpInfo(@javax.annotation.Nonnull String sequenceId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, Map<String, String> headers) throws ApiException {
+  public ApiResponse<ListSequenceEnrollments200Response> listSequenceEnrollmentsWithHttpInfo(@javax.annotation.Nonnull String sequenceId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listSequenceEnrollmentsRequestBuilder(sequenceId, status, limit, skip, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -778,13 +828,24 @@ public class SequencesApi {
           throw getApiException("listSequenceEnrollments", localVarResponse);
         }
         localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
-        if (localVarResponseBody != null) {
-          localVarResponseBody.readAllBytes();
+        if (localVarResponseBody == null) {
+          return new ApiResponse<ListSequenceEnrollments200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
         }
-        return new ApiResponse<>(
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        ListSequenceEnrollments200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<ListSequenceEnrollments200Response>() {});
+        
+
+        return new ApiResponse<ListSequenceEnrollments200Response>(
             localVarResponse.statusCode(),
             localVarResponse.headers().map(),
-            null
+            responseValue
         );
       } finally {
         if (localVarResponseBody != null) {
@@ -996,10 +1057,11 @@ public class SequencesApi {
    * Pause a sequence
    * 
    * @param sequenceId  (required)
+   * @return ActivateSequence200Response
    * @throws ApiException if fails to make API call
    */
-  public void pauseSequence(@javax.annotation.Nonnull String sequenceId) throws ApiException {
-    pauseSequence(sequenceId, null);
+  public ActivateSequence200Response pauseSequence(@javax.annotation.Nonnull String sequenceId) throws ApiException {
+    return pauseSequence(sequenceId, null);
   }
 
   /**
@@ -1007,20 +1069,22 @@ public class SequencesApi {
    * 
    * @param sequenceId  (required)
    * @param headers Optional headers to include in the request
+   * @return ActivateSequence200Response
    * @throws ApiException if fails to make API call
    */
-  public void pauseSequence(@javax.annotation.Nonnull String sequenceId, Map<String, String> headers) throws ApiException {
-    pauseSequenceWithHttpInfo(sequenceId, headers);
+  public ActivateSequence200Response pauseSequence(@javax.annotation.Nonnull String sequenceId, Map<String, String> headers) throws ApiException {
+    ApiResponse<ActivateSequence200Response> localVarResponse = pauseSequenceWithHttpInfo(sequenceId, headers);
+    return localVarResponse.getData();
   }
 
   /**
    * Pause a sequence
    * 
    * @param sequenceId  (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;ActivateSequence200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> pauseSequenceWithHttpInfo(@javax.annotation.Nonnull String sequenceId) throws ApiException {
+  public ApiResponse<ActivateSequence200Response> pauseSequenceWithHttpInfo(@javax.annotation.Nonnull String sequenceId) throws ApiException {
     return pauseSequenceWithHttpInfo(sequenceId, null);
   }
 
@@ -1029,10 +1093,10 @@ public class SequencesApi {
    * 
    * @param sequenceId  (required)
    * @param headers Optional headers to include in the request
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;ActivateSequence200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> pauseSequenceWithHttpInfo(@javax.annotation.Nonnull String sequenceId, Map<String, String> headers) throws ApiException {
+  public ApiResponse<ActivateSequence200Response> pauseSequenceWithHttpInfo(@javax.annotation.Nonnull String sequenceId, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = pauseSequenceRequestBuilder(sequenceId, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -1047,13 +1111,24 @@ public class SequencesApi {
           throw getApiException("pauseSequence", localVarResponse);
         }
         localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
-        if (localVarResponseBody != null) {
-          localVarResponseBody.readAllBytes();
+        if (localVarResponseBody == null) {
+          return new ApiResponse<ActivateSequence200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
         }
-        return new ApiResponse<>(
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        ActivateSequence200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<ActivateSequence200Response>() {});
+        
+
+        return new ApiResponse<ActivateSequence200Response>(
             localVarResponse.statusCode(),
             localVarResponse.headers().map(),
-            null
+            responseValue
         );
       } finally {
         if (localVarResponseBody != null) {
@@ -1213,10 +1288,11 @@ public class SequencesApi {
    * Update a sequence
    * 
    * @param sequenceId  (required)
+   * @return UpdateSequence200Response
    * @throws ApiException if fails to make API call
    */
-  public void updateSequence(@javax.annotation.Nonnull String sequenceId) throws ApiException {
-    updateSequence(sequenceId, null);
+  public UpdateSequence200Response updateSequence(@javax.annotation.Nonnull String sequenceId) throws ApiException {
+    return updateSequence(sequenceId, null);
   }
 
   /**
@@ -1224,20 +1300,22 @@ public class SequencesApi {
    * 
    * @param sequenceId  (required)
    * @param headers Optional headers to include in the request
+   * @return UpdateSequence200Response
    * @throws ApiException if fails to make API call
    */
-  public void updateSequence(@javax.annotation.Nonnull String sequenceId, Map<String, String> headers) throws ApiException {
-    updateSequenceWithHttpInfo(sequenceId, headers);
+  public UpdateSequence200Response updateSequence(@javax.annotation.Nonnull String sequenceId, Map<String, String> headers) throws ApiException {
+    ApiResponse<UpdateSequence200Response> localVarResponse = updateSequenceWithHttpInfo(sequenceId, headers);
+    return localVarResponse.getData();
   }
 
   /**
    * Update a sequence
    * 
    * @param sequenceId  (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;UpdateSequence200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> updateSequenceWithHttpInfo(@javax.annotation.Nonnull String sequenceId) throws ApiException {
+  public ApiResponse<UpdateSequence200Response> updateSequenceWithHttpInfo(@javax.annotation.Nonnull String sequenceId) throws ApiException {
     return updateSequenceWithHttpInfo(sequenceId, null);
   }
 
@@ -1246,10 +1324,10 @@ public class SequencesApi {
    * 
    * @param sequenceId  (required)
    * @param headers Optional headers to include in the request
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;UpdateSequence200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> updateSequenceWithHttpInfo(@javax.annotation.Nonnull String sequenceId, Map<String, String> headers) throws ApiException {
+  public ApiResponse<UpdateSequence200Response> updateSequenceWithHttpInfo(@javax.annotation.Nonnull String sequenceId, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateSequenceRequestBuilder(sequenceId, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -1264,13 +1342,24 @@ public class SequencesApi {
           throw getApiException("updateSequence", localVarResponse);
         }
         localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
-        if (localVarResponseBody != null) {
-          localVarResponseBody.readAllBytes();
+        if (localVarResponseBody == null) {
+          return new ApiResponse<UpdateSequence200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
         }
-        return new ApiResponse<>(
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        UpdateSequence200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<UpdateSequence200Response>() {});
+        
+
+        return new ApiResponse<UpdateSequence200Response>(
             localVarResponse.statusCode(),
             localVarResponse.headers().map(),
-            null
+            responseValue
         );
       } finally {
         if (localVarResponseBody != null) {

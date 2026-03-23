@@ -11771,6 +11771,10 @@ paths:
         style: simple
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getBroadcast_200_response"
           description: Broadcast details with stats
         "401":
           $ref: "#/components/responses/Unauthorized"
@@ -11793,6 +11797,10 @@ paths:
         style: simple
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/updateBroadcast_200_response"
           description: Broadcast updated
         "401":
           $ref: "#/components/responses/Unauthorized"
@@ -11851,6 +11859,10 @@ paths:
         required: true
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/scheduleBroadcast_200_response"
           description: Broadcast scheduled
         "400":
           description: Invalid date or status
@@ -11877,6 +11889,10 @@ paths:
         style: simple
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/cancelBroadcast_200_response"
           description: Broadcast cancelled
         "400":
           description: Cannot cancel in current status
@@ -11931,6 +11947,10 @@ paths:
         style: form
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/listBroadcastRecipients_200_response"
           description: Recipients list with delivery status
         "401":
           $ref: "#/components/responses/Unauthorized"
@@ -11959,6 +11979,10 @@ paths:
         required: true
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/addBroadcastRecipients_200_response"
           description: Recipients added
         "401":
           $ref: "#/components/responses/Unauthorized"
@@ -12077,6 +12101,10 @@ paths:
         style: simple
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getSequence_200_response"
           description: Sequence details with steps
         "401":
           $ref: "#/components/responses/Unauthorized"
@@ -12099,6 +12127,10 @@ paths:
         style: simple
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/updateSequence_200_response"
           description: Sequence updated
         "401":
           $ref: "#/components/responses/Unauthorized"
@@ -12122,6 +12154,10 @@ paths:
         style: simple
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/activateSequence_200_response"
           description: Sequence activated
         "400":
           description: Invalid status or no steps
@@ -12147,6 +12183,10 @@ paths:
         style: simple
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/activateSequence_200_response"
           description: Sequence paused
         "400":
           description: Sequence is not active
@@ -12178,6 +12218,10 @@ paths:
         required: true
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/enrollContacts_200_response"
           description: Enrollment results
         "401":
           $ref: "#/components/responses/Unauthorized"
@@ -12260,6 +12304,10 @@ paths:
         style: form
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/listSequenceEnrollments_200_response"
           description: Enrollments list with progress
         "401":
           $ref: "#/components/responses/Unauthorized"
@@ -28495,6 +28543,167 @@ components:
       - name
       - platform
       - profileId
+    getBroadcast_200_response_broadcast_message:
+      example:
+        text: text
+      properties:
+        text:
+          type: string
+    getBroadcast_200_response_broadcast_segmentFilters:
+      example:
+        tags:
+        - tags
+        - tags
+      properties:
+        tags:
+          items:
+            type: string
+          type: array
+    getBroadcast_200_response_broadcast:
+      example:
+        template:
+          name: name
+          language: language
+        completedAt: 2000-01-23T04:56:07.000+00:00
+        description: description
+        startedAt: 2000-01-23T04:56:07.000+00:00
+        message:
+          text: text
+        readCount: 5
+        platform: platform
+        sentCount: 6
+        accountId: accountId
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        failedCount: 5
+        recipientCount: 0
+        segmentFilters:
+          tags:
+          - tags
+          - tags
+        name: name
+        deliveredCount: 1
+        id: id
+        scheduledAt: 2000-01-23T04:56:07.000+00:00
+        status: draft
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        platform:
+          type: string
+        accountId:
+          type: string
+        message:
+          $ref: "#/components/schemas/getBroadcast_200_response_broadcast_message"
+        template:
+          $ref: "#/components/schemas/getWhatsAppBroadcasts_200_response_broadcasts_inner_template"
+        segmentFilters:
+          $ref: "#/components/schemas/getBroadcast_200_response_broadcast_segmentFilters"
+        status:
+          enum:
+          - draft
+          - scheduled
+          - sending
+          - completed
+          - failed
+          - cancelled
+          type: string
+        scheduledAt:
+          format: date-time
+          type: string
+        startedAt:
+          format: date-time
+          type: string
+        completedAt:
+          format: date-time
+          type: string
+        recipientCount:
+          type: integer
+        sentCount:
+          type: integer
+        deliveredCount:
+          type: integer
+        readCount:
+          type: integer
+        failedCount:
+          type: integer
+        createdAt:
+          format: date-time
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+    getBroadcast_200_response:
+      example:
+        broadcast:
+          template:
+            name: name
+            language: language
+          completedAt: 2000-01-23T04:56:07.000+00:00
+          description: description
+          startedAt: 2000-01-23T04:56:07.000+00:00
+          message:
+            text: text
+          readCount: 5
+          platform: platform
+          sentCount: 6
+          accountId: accountId
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          failedCount: 5
+          recipientCount: 0
+          segmentFilters:
+            tags:
+            - tags
+            - tags
+          name: name
+          deliveredCount: 1
+          id: id
+          scheduledAt: 2000-01-23T04:56:07.000+00:00
+          status: draft
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        success: true
+      properties:
+        success:
+          type: boolean
+        broadcast:
+          $ref: "#/components/schemas/getBroadcast_200_response_broadcast"
+    updateBroadcast_200_response_broadcast:
+      example:
+        name: name
+        description: description
+        id: id
+        status: status
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+    updateBroadcast_200_response:
+      example:
+        broadcast:
+          name: name
+          description: description
+          id: id
+          status: status
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        success: true
+      properties:
+        success:
+          type: boolean
+        broadcast:
+          $ref: "#/components/schemas/updateBroadcast_200_response_broadcast"
     sendBroadcast_200_response:
       example:
         recipientCount: 1
@@ -28528,6 +28737,136 @@ components:
           type: string
       required:
       - scheduledAt
+    scheduleBroadcast_200_response_broadcast:
+      example:
+        id: id
+        scheduledAt: 2000-01-23T04:56:07.000+00:00
+        status: status
+      properties:
+        id:
+          type: string
+        status:
+          type: string
+        scheduledAt:
+          format: date-time
+          type: string
+    scheduleBroadcast_200_response:
+      example:
+        broadcast:
+          id: id
+          scheduledAt: 2000-01-23T04:56:07.000+00:00
+          status: status
+        success: true
+      properties:
+        success:
+          type: boolean
+        broadcast:
+          $ref: "#/components/schemas/scheduleBroadcast_200_response_broadcast"
+    cancelBroadcast_200_response_broadcast:
+      example:
+        id: id
+        status: status
+      properties:
+        id:
+          type: string
+        status:
+          type: string
+    cancelBroadcast_200_response:
+      example:
+        broadcast:
+          id: id
+          status: status
+        success: true
+      properties:
+        success:
+          type: boolean
+        broadcast:
+          $ref: "#/components/schemas/cancelBroadcast_200_response_broadcast"
+    listBroadcastRecipients_200_response_recipients_inner:
+      example:
+        contactId: contactId
+        contactName: contactName
+        messageId: messageId
+        id: id
+        sentAt: 2000-01-23T04:56:07.000+00:00
+        error: error
+        readAt: 2000-01-23T04:56:07.000+00:00
+        channelId: channelId
+        platformIdentifier: platformIdentifier
+        status: pending
+        deliveredAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          type: string
+        contactId:
+          type: string
+        channelId:
+          type: string
+        platformIdentifier:
+          type: string
+        contactName:
+          type: string
+        status:
+          enum:
+          - pending
+          - sent
+          - delivered
+          - read
+          - failed
+          type: string
+        messageId:
+          type: string
+        error:
+          type: string
+        sentAt:
+          format: date-time
+          type: string
+        deliveredAt:
+          format: date-time
+          type: string
+        readAt:
+          format: date-time
+          type: string
+    listBroadcastRecipients_200_response:
+      example:
+        pagination:
+          total: 1
+          limit: 5
+          hasMore: true
+          skip: 5
+        success: true
+        recipients:
+        - contactId: contactId
+          contactName: contactName
+          messageId: messageId
+          id: id
+          sentAt: 2000-01-23T04:56:07.000+00:00
+          error: error
+          readAt: 2000-01-23T04:56:07.000+00:00
+          channelId: channelId
+          platformIdentifier: platformIdentifier
+          status: pending
+          deliveredAt: 2000-01-23T04:56:07.000+00:00
+        - contactId: contactId
+          contactName: contactName
+          messageId: messageId
+          id: id
+          sentAt: 2000-01-23T04:56:07.000+00:00
+          error: error
+          readAt: 2000-01-23T04:56:07.000+00:00
+          channelId: channelId
+          platformIdentifier: platformIdentifier
+          status: pending
+          deliveredAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        success:
+          type: boolean
+        recipients:
+          items:
+            $ref: "#/components/schemas/listBroadcastRecipients_200_response_recipients_inner"
+          type: array
+        pagination:
+          $ref: "#/components/schemas/getWhatsAppContacts_200_response_pagination"
     addBroadcastRecipients_request:
       properties:
         contactIds:
@@ -28544,6 +28883,20 @@ components:
         useSegment:
           description: Auto-populate from broadcast segment filters
           type: boolean
+    addBroadcastRecipients_200_response:
+      example:
+        added: 0
+        success: true
+        skipped: 6
+      properties:
+        success:
+          type: boolean
+        added:
+          description: Number of recipients successfully added
+          type: integer
+        skipped:
+          description: Number skipped (duplicates or missing channels)
+          type: integer
     listSequences_200_response_sequences_inner:
       example:
         exitOnUnsubscribe: true
@@ -28647,10 +29000,6 @@ components:
           type: array
         pagination:
           $ref: "#/components/schemas/getWhatsAppContacts_200_response_pagination"
-    createSequence_request_steps_inner_message:
-      properties:
-        text:
-          type: string
     createSequence_request_steps_inner_template_variableMapping_value:
       properties:
         field:
@@ -28683,7 +29032,7 @@ components:
         delayMinutes:
           type: integer
         message:
-          $ref: "#/components/schemas/createSequence_request_steps_inner_message"
+          $ref: "#/components/schemas/getBroadcast_200_response_broadcast_message"
         template:
           $ref: "#/components/schemas/createSequence_request_steps_inner_template"
       required:
@@ -28724,6 +29073,207 @@ components:
       - name
       - platform
       - profileId
+    getSequence_200_response_sequence_steps_inner_template:
+      example:
+        variableMapping: "{}"
+        name: name
+        language: language
+      properties:
+        name:
+          type: string
+        language:
+          type: string
+        variableMapping:
+          type: object
+    getSequence_200_response_sequence_steps_inner:
+      example:
+        template:
+          variableMapping: "{}"
+          name: name
+          language: language
+        delayMinutes: 6
+        message:
+          text: text
+        order: 0
+      properties:
+        order:
+          type: integer
+        delayMinutes:
+          type: integer
+        message:
+          $ref: "#/components/schemas/getBroadcast_200_response_broadcast_message"
+        template:
+          $ref: "#/components/schemas/getSequence_200_response_sequence_steps_inner_template"
+    getSequence_200_response_sequence:
+      example:
+        exitOnUnsubscribe: true
+        totalCompleted: 5
+        totalEnrolled: 1
+        description: description
+        steps:
+        - template:
+            variableMapping: "{}"
+            name: name
+            language: language
+          delayMinutes: 6
+          message:
+            text: text
+          order: 0
+        - template:
+            variableMapping: "{}"
+            name: name
+            language: language
+          delayMinutes: 6
+          message:
+            text: text
+          order: 0
+        platform: platform
+        accountId: accountId
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        name: name
+        exitOnReply: true
+        totalExited: 5
+        id: id
+        status: draft
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        platform:
+          type: string
+        accountId:
+          type: string
+        status:
+          enum:
+          - draft
+          - active
+          - paused
+          type: string
+        steps:
+          items:
+            $ref: "#/components/schemas/getSequence_200_response_sequence_steps_inner"
+          type: array
+        exitOnReply:
+          type: boolean
+        exitOnUnsubscribe:
+          type: boolean
+        totalEnrolled:
+          type: integer
+        totalCompleted:
+          type: integer
+        totalExited:
+          type: integer
+        createdAt:
+          format: date-time
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+    getSequence_200_response:
+      example:
+        sequence:
+          exitOnUnsubscribe: true
+          totalCompleted: 5
+          totalEnrolled: 1
+          description: description
+          steps:
+          - template:
+              variableMapping: "{}"
+              name: name
+              language: language
+            delayMinutes: 6
+            message:
+              text: text
+            order: 0
+          - template:
+              variableMapping: "{}"
+              name: name
+              language: language
+            delayMinutes: 6
+            message:
+              text: text
+            order: 0
+          platform: platform
+          accountId: accountId
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          name: name
+          exitOnReply: true
+          totalExited: 5
+          id: id
+          status: draft
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        success: true
+      properties:
+        success:
+          type: boolean
+        sequence:
+          $ref: "#/components/schemas/getSequence_200_response_sequence"
+    updateSequence_200_response_sequence:
+      example:
+        exitOnUnsubscribe: true
+        name: name
+        exitOnReply: true
+        description: description
+        id: id
+        steps:
+        - "{}"
+        - "{}"
+        status: status
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+        steps:
+          items:
+            type: object
+          type: array
+        exitOnReply:
+          type: boolean
+        exitOnUnsubscribe:
+          type: boolean
+        updatedAt:
+          format: date-time
+          type: string
+    updateSequence_200_response:
+      example:
+        sequence:
+          exitOnUnsubscribe: true
+          name: name
+          exitOnReply: true
+          description: description
+          id: id
+          steps:
+          - "{}"
+          - "{}"
+          status: status
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        success: true
+      properties:
+        success:
+          type: boolean
+        sequence:
+          $ref: "#/components/schemas/updateSequence_200_response_sequence"
+    activateSequence_200_response:
+      example:
+        sequence:
+          id: id
+          status: status
+        success: true
+      properties:
+        success:
+          type: boolean
+        sequence:
+          $ref: "#/components/schemas/cancelBroadcast_200_response_broadcast"
     enrollContacts_request:
       properties:
         contactIds:
@@ -28737,6 +29287,109 @@ components:
           type: array
       required:
       - contactIds
+    enrollContacts_200_response:
+      example:
+        success: true
+        enrolled: 0
+        skipped: 6
+      properties:
+        success:
+          type: boolean
+        enrolled:
+          description: Number of contacts successfully enrolled
+          type: integer
+        skipped:
+          description: Number skipped (already enrolled or missing channel)
+          type: integer
+    listSequenceEnrollments_200_response_enrollments_inner:
+      example:
+        nextStepAt: 2000-01-23T04:56:07.000+00:00
+        lastStepSentAt: 2000-01-23T04:56:07.000+00:00
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        exitReason: exitReason
+        contactId: contactId
+        contactName: contactName
+        currentStepIndex: 0
+        stepsSent: 6
+        id: id
+        channelId: channelId
+        platformIdentifier: platformIdentifier
+        status: active
+      properties:
+        id:
+          type: string
+        contactId:
+          type: string
+        channelId:
+          type: string
+        platformIdentifier:
+          type: string
+        contactName:
+          type: string
+        currentStepIndex:
+          type: integer
+        status:
+          enum:
+          - active
+          - completed
+          - exited
+          - paused
+          type: string
+        exitReason:
+          type: string
+        nextStepAt:
+          format: date-time
+          type: string
+        stepsSent:
+          type: integer
+        lastStepSentAt:
+          format: date-time
+          type: string
+        createdAt:
+          format: date-time
+          type: string
+    listSequenceEnrollments_200_response:
+      example:
+        pagination:
+          total: 1
+          limit: 5
+          hasMore: true
+          skip: 5
+        success: true
+        enrollments:
+        - nextStepAt: 2000-01-23T04:56:07.000+00:00
+          lastStepSentAt: 2000-01-23T04:56:07.000+00:00
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          exitReason: exitReason
+          contactId: contactId
+          contactName: contactName
+          currentStepIndex: 0
+          stepsSent: 6
+          id: id
+          channelId: channelId
+          platformIdentifier: platformIdentifier
+          status: active
+        - nextStepAt: 2000-01-23T04:56:07.000+00:00
+          lastStepSentAt: 2000-01-23T04:56:07.000+00:00
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          exitReason: exitReason
+          contactId: contactId
+          contactName: contactName
+          currentStepIndex: 0
+          stepsSent: 6
+          id: id
+          channelId: channelId
+          platformIdentifier: platformIdentifier
+          status: active
+      properties:
+        success:
+          type: boolean
+        enrollments:
+          items:
+            $ref: "#/components/schemas/listSequenceEnrollments_200_response_enrollments_inner"
+          type: array
+        pagination:
+          $ref: "#/components/schemas/getWhatsAppContacts_200_response_pagination"
     listCommentAutomations_200_response_automations_inner_stats:
       example:
         triggered: 0

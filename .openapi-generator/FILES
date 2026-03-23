@@ -12,6 +12,8 @@ docs/AccountWithFollowerStats.md
 docs/AccountWithFollowerStatsAllOfAccountStats.md
 docs/AccountsApi.md
 docs/AccountsListResponse.md
+docs/ActivateSequence200Response.md
+docs/AddBroadcastRecipients200Response.md
 docs/AddBroadcastRecipientsRequest.md
 docs/AddWhatsAppBroadcastRecipients200Response.md
 docs/AddWhatsAppBroadcastRecipientsRequest.md
@@ -40,6 +42,8 @@ docs/BulkUploadPosts200Response.md
 docs/BulkUploadPosts200ResponseErrorsInner.md
 docs/BulkUploadPosts429Response.md
 docs/BulkUploadPostsRequest.md
+docs/CancelBroadcast200Response.md
+docs/CancelBroadcast200ResponseBroadcast.md
 docs/CancelWhatsAppBroadcastSchedule200Response.md
 docs/CancelWhatsAppBroadcastSchedule200ResponseBroadcast.md
 docs/CaptionResponse.md
@@ -93,7 +97,6 @@ docs/CreateQueueSlot201Response.md
 docs/CreateQueueSlotRequest.md
 docs/CreateSequenceRequest.md
 docs/CreateSequenceRequestStepsInner.md
-docs/CreateSequenceRequestStepsInnerMessage.md
 docs/CreateSequenceRequestStepsInnerTemplate.md
 docs/CreateSequenceRequestStepsInnerTemplateVariableMappingValue.md
 docs/CreateWebhookSettingsRequest.md
@@ -132,6 +135,7 @@ docs/EditInboxMessage200ResponseData.md
 docs/EditInboxMessageRequest.md
 docs/EditInboxMessageRequestReplyMarkup.md
 docs/EditInboxMessageRequestReplyMarkupKeyboardInnerInner.md
+docs/EnrollContacts200Response.md
 docs/EnrollContactsRequest.md
 docs/ErrorResponse.md
 docs/Expired.md
@@ -158,6 +162,10 @@ docs/GetAnalytics402Response.md
 docs/GetBestTimeToPost200Response.md
 docs/GetBestTimeToPost200ResponseSlotsInner.md
 docs/GetBestTimeToPost403Response.md
+docs/GetBroadcast200Response.md
+docs/GetBroadcast200ResponseBroadcast.md
+docs/GetBroadcast200ResponseBroadcastMessage.md
+docs/GetBroadcast200ResponseBroadcastSegmentFilters.md
 docs/GetConnectUrl200Response.md
 docs/GetContentDecay200Response.md
 docs/GetContentDecay200ResponseBucketsInner.md
@@ -246,6 +254,10 @@ docs/GetRedditFlairs200Response.md
 docs/GetRedditFlairs200ResponseFlairsInner.md
 docs/GetRedditSubreddits200Response.md
 docs/GetRedditSubreddits200ResponseSubredditsInner.md
+docs/GetSequence200Response.md
+docs/GetSequence200ResponseSequence.md
+docs/GetSequence200ResponseSequenceStepsInner.md
+docs/GetSequence200ResponseSequenceStepsInnerTemplate.md
 docs/GetTelegramCommands200Response.md
 docs/GetTelegramCommands200ResponseDataInner.md
 docs/GetTelegramConnectStatus200Response.md
@@ -340,6 +352,8 @@ docs/ListAccountGroups200Response.md
 docs/ListAccountGroups200ResponseGroupsInner.md
 docs/ListAccounts200Response.md
 docs/ListApiKeys200Response.md
+docs/ListBroadcastRecipients200Response.md
+docs/ListBroadcastRecipients200ResponseRecipientsInner.md
 docs/ListBroadcasts200Response.md
 docs/ListBroadcasts200ResponseBroadcastsInner.md
 docs/ListCommentAutomations200Response.md
@@ -377,6 +391,8 @@ docs/ListPostsLogs200ResponsePagination.md
 docs/ListQueueSlots200Response.md
 docs/ListQueueSlots200ResponseOneOf.md
 docs/ListQueueSlots200ResponseOneOf1.md
+docs/ListSequenceEnrollments200Response.md
+docs/ListSequenceEnrollments200ResponseEnrollmentsInner.md
 docs/ListSequences200Response.md
 docs/ListSequences200ResponseSequencesInner.md
 docs/ListSnapchatProfiles200Response.md
@@ -452,6 +468,8 @@ docs/ReplyToInboxReviewRequest.md
 docs/RetweetPost200Response.md
 docs/RetweetPostRequest.md
 docs/ReviewsApi.md
+docs/ScheduleBroadcast200Response.md
+docs/ScheduleBroadcast200ResponseBroadcast.md
 docs/ScheduleBroadcastRequest.md
 docs/ScheduleWhatsAppBroadcast200Response.md
 docs/ScheduleWhatsAppBroadcast200ResponseBroadcast.md
@@ -529,6 +547,8 @@ docs/UpdateAccount200Response.md
 docs/UpdateAccountGroup200Response.md
 docs/UpdateAccountGroupRequest.md
 docs/UpdateAccountRequest.md
+docs/UpdateBroadcast200Response.md
+docs/UpdateBroadcast200ResponseBroadcast.md
 docs/UpdateCommentAutomationRequest.md
 docs/UpdateContactRequest.md
 docs/UpdateCustomFieldRequest.md
@@ -567,6 +587,8 @@ docs/UpdateQueueSlot200Response.md
 docs/UpdateQueueSlotRequest.md
 docs/UpdateRedditSubreddits200Response.md
 docs/UpdateRedditSubredditsRequest.md
+docs/UpdateSequence200Response.md
+docs/UpdateSequence200ResponseSequence.md
 docs/UpdateWebhookSettings200Response.md
 docs/UpdateWebhookSettingsRequest.md
 docs/UpdateWhatsAppBusinessProfileRequest.md
@@ -704,6 +726,8 @@ src/main/java/dev/zernio/model/AccountGetResponse.java
 src/main/java/dev/zernio/model/AccountWithFollowerStats.java
 src/main/java/dev/zernio/model/AccountWithFollowerStatsAllOfAccountStats.java
 src/main/java/dev/zernio/model/AccountsListResponse.java
+src/main/java/dev/zernio/model/ActivateSequence200Response.java
+src/main/java/dev/zernio/model/AddBroadcastRecipients200Response.java
 src/main/java/dev/zernio/model/AddBroadcastRecipientsRequest.java
 src/main/java/dev/zernio/model/AddWhatsAppBroadcastRecipients200Response.java
 src/main/java/dev/zernio/model/AddWhatsAppBroadcastRecipientsRequest.java
@@ -729,6 +753,8 @@ src/main/java/dev/zernio/model/BulkUploadPosts200Response.java
 src/main/java/dev/zernio/model/BulkUploadPosts200ResponseErrorsInner.java
 src/main/java/dev/zernio/model/BulkUploadPosts429Response.java
 src/main/java/dev/zernio/model/BulkUploadPostsRequest.java
+src/main/java/dev/zernio/model/CancelBroadcast200Response.java
+src/main/java/dev/zernio/model/CancelBroadcast200ResponseBroadcast.java
 src/main/java/dev/zernio/model/CancelWhatsAppBroadcastSchedule200Response.java
 src/main/java/dev/zernio/model/CancelWhatsAppBroadcastSchedule200ResponseBroadcast.java
 src/main/java/dev/zernio/model/CaptionResponse.java
@@ -778,7 +804,6 @@ src/main/java/dev/zernio/model/CreateQueueSlot201Response.java
 src/main/java/dev/zernio/model/CreateQueueSlotRequest.java
 src/main/java/dev/zernio/model/CreateSequenceRequest.java
 src/main/java/dev/zernio/model/CreateSequenceRequestStepsInner.java
-src/main/java/dev/zernio/model/CreateSequenceRequestStepsInnerMessage.java
 src/main/java/dev/zernio/model/CreateSequenceRequestStepsInnerTemplate.java
 src/main/java/dev/zernio/model/CreateSequenceRequestStepsInnerTemplateVariableMappingValue.java
 src/main/java/dev/zernio/model/CreateWebhookSettingsRequest.java
@@ -816,6 +841,7 @@ src/main/java/dev/zernio/model/EditInboxMessage200ResponseData.java
 src/main/java/dev/zernio/model/EditInboxMessageRequest.java
 src/main/java/dev/zernio/model/EditInboxMessageRequestReplyMarkup.java
 src/main/java/dev/zernio/model/EditInboxMessageRequestReplyMarkupKeyboardInnerInner.java
+src/main/java/dev/zernio/model/EnrollContacts200Response.java
 src/main/java/dev/zernio/model/EnrollContactsRequest.java
 src/main/java/dev/zernio/model/ErrorResponse.java
 src/main/java/dev/zernio/model/Expired.java
@@ -842,6 +868,10 @@ src/main/java/dev/zernio/model/GetAnalytics402Response.java
 src/main/java/dev/zernio/model/GetBestTimeToPost200Response.java
 src/main/java/dev/zernio/model/GetBestTimeToPost200ResponseSlotsInner.java
 src/main/java/dev/zernio/model/GetBestTimeToPost403Response.java
+src/main/java/dev/zernio/model/GetBroadcast200Response.java
+src/main/java/dev/zernio/model/GetBroadcast200ResponseBroadcast.java
+src/main/java/dev/zernio/model/GetBroadcast200ResponseBroadcastMessage.java
+src/main/java/dev/zernio/model/GetBroadcast200ResponseBroadcastSegmentFilters.java
 src/main/java/dev/zernio/model/GetConnectUrl200Response.java
 src/main/java/dev/zernio/model/GetContentDecay200Response.java
 src/main/java/dev/zernio/model/GetContentDecay200ResponseBucketsInner.java
@@ -930,6 +960,10 @@ src/main/java/dev/zernio/model/GetRedditFlairs200Response.java
 src/main/java/dev/zernio/model/GetRedditFlairs200ResponseFlairsInner.java
 src/main/java/dev/zernio/model/GetRedditSubreddits200Response.java
 src/main/java/dev/zernio/model/GetRedditSubreddits200ResponseSubredditsInner.java
+src/main/java/dev/zernio/model/GetSequence200Response.java
+src/main/java/dev/zernio/model/GetSequence200ResponseSequence.java
+src/main/java/dev/zernio/model/GetSequence200ResponseSequenceStepsInner.java
+src/main/java/dev/zernio/model/GetSequence200ResponseSequenceStepsInnerTemplate.java
 src/main/java/dev/zernio/model/GetTelegramCommands200Response.java
 src/main/java/dev/zernio/model/GetTelegramCommands200ResponseDataInner.java
 src/main/java/dev/zernio/model/GetTelegramConnectStatus200Response.java
@@ -1016,6 +1050,8 @@ src/main/java/dev/zernio/model/ListAccountGroups200Response.java
 src/main/java/dev/zernio/model/ListAccountGroups200ResponseGroupsInner.java
 src/main/java/dev/zernio/model/ListAccounts200Response.java
 src/main/java/dev/zernio/model/ListApiKeys200Response.java
+src/main/java/dev/zernio/model/ListBroadcastRecipients200Response.java
+src/main/java/dev/zernio/model/ListBroadcastRecipients200ResponseRecipientsInner.java
 src/main/java/dev/zernio/model/ListBroadcasts200Response.java
 src/main/java/dev/zernio/model/ListBroadcasts200ResponseBroadcastsInner.java
 src/main/java/dev/zernio/model/ListCommentAutomations200Response.java
@@ -1053,6 +1089,8 @@ src/main/java/dev/zernio/model/ListPostsLogs200ResponsePagination.java
 src/main/java/dev/zernio/model/ListQueueSlots200Response.java
 src/main/java/dev/zernio/model/ListQueueSlots200ResponseOneOf.java
 src/main/java/dev/zernio/model/ListQueueSlots200ResponseOneOf1.java
+src/main/java/dev/zernio/model/ListSequenceEnrollments200Response.java
+src/main/java/dev/zernio/model/ListSequenceEnrollments200ResponseEnrollmentsInner.java
 src/main/java/dev/zernio/model/ListSequences200Response.java
 src/main/java/dev/zernio/model/ListSequences200ResponseSequencesInner.java
 src/main/java/dev/zernio/model/ListSnapchatProfiles200Response.java
@@ -1120,6 +1158,8 @@ src/main/java/dev/zernio/model/ReplyToInboxReview200ResponseReply.java
 src/main/java/dev/zernio/model/ReplyToInboxReviewRequest.java
 src/main/java/dev/zernio/model/RetweetPost200Response.java
 src/main/java/dev/zernio/model/RetweetPostRequest.java
+src/main/java/dev/zernio/model/ScheduleBroadcast200Response.java
+src/main/java/dev/zernio/model/ScheduleBroadcast200ResponseBroadcast.java
 src/main/java/dev/zernio/model/ScheduleBroadcastRequest.java
 src/main/java/dev/zernio/model/ScheduleWhatsAppBroadcast200Response.java
 src/main/java/dev/zernio/model/ScheduleWhatsAppBroadcast200ResponseBroadcast.java
@@ -1194,6 +1234,8 @@ src/main/java/dev/zernio/model/UpdateAccount200Response.java
 src/main/java/dev/zernio/model/UpdateAccountGroup200Response.java
 src/main/java/dev/zernio/model/UpdateAccountGroupRequest.java
 src/main/java/dev/zernio/model/UpdateAccountRequest.java
+src/main/java/dev/zernio/model/UpdateBroadcast200Response.java
+src/main/java/dev/zernio/model/UpdateBroadcast200ResponseBroadcast.java
 src/main/java/dev/zernio/model/UpdateCommentAutomationRequest.java
 src/main/java/dev/zernio/model/UpdateContactRequest.java
 src/main/java/dev/zernio/model/UpdateCustomFieldRequest.java
@@ -1232,6 +1274,8 @@ src/main/java/dev/zernio/model/UpdateQueueSlot200Response.java
 src/main/java/dev/zernio/model/UpdateQueueSlotRequest.java
 src/main/java/dev/zernio/model/UpdateRedditSubreddits200Response.java
 src/main/java/dev/zernio/model/UpdateRedditSubredditsRequest.java
+src/main/java/dev/zernio/model/UpdateSequence200Response.java
+src/main/java/dev/zernio/model/UpdateSequence200ResponseSequence.java
 src/main/java/dev/zernio/model/UpdateWebhookSettings200Response.java
 src/main/java/dev/zernio/model/UpdateWebhookSettingsRequest.java
 src/main/java/dev/zernio/model/UpdateWhatsAppBusinessProfileRequest.java
@@ -1302,8 +1346,26 @@ src/main/java/dev/zernio/model/YouTubeDailyViewsResponseScopeStatus.java
 src/main/java/dev/zernio/model/YouTubePlatformData.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponseScopeStatus.java
-src/test/java/dev/zernio/model/ListBroadcasts200ResponseBroadcastsInnerTest.java
-src/test/java/dev/zernio/model/ListBroadcasts200ResponseTest.java
-src/test/java/dev/zernio/model/ListSequences200ResponseSequencesInnerTest.java
-src/test/java/dev/zernio/model/ListSequences200ResponseTest.java
-src/test/java/dev/zernio/model/SendBroadcast200ResponseTest.java
+src/test/java/dev/zernio/model/ActivateSequence200ResponseTest.java
+src/test/java/dev/zernio/model/AddBroadcastRecipients200ResponseTest.java
+src/test/java/dev/zernio/model/CancelBroadcast200ResponseBroadcastTest.java
+src/test/java/dev/zernio/model/CancelBroadcast200ResponseTest.java
+src/test/java/dev/zernio/model/EnrollContacts200ResponseTest.java
+src/test/java/dev/zernio/model/GetBroadcast200ResponseBroadcastMessageTest.java
+src/test/java/dev/zernio/model/GetBroadcast200ResponseBroadcastSegmentFiltersTest.java
+src/test/java/dev/zernio/model/GetBroadcast200ResponseBroadcastTest.java
+src/test/java/dev/zernio/model/GetBroadcast200ResponseTest.java
+src/test/java/dev/zernio/model/GetSequence200ResponseSequenceStepsInnerTemplateTest.java
+src/test/java/dev/zernio/model/GetSequence200ResponseSequenceStepsInnerTest.java
+src/test/java/dev/zernio/model/GetSequence200ResponseSequenceTest.java
+src/test/java/dev/zernio/model/GetSequence200ResponseTest.java
+src/test/java/dev/zernio/model/ListBroadcastRecipients200ResponseRecipientsInnerTest.java
+src/test/java/dev/zernio/model/ListBroadcastRecipients200ResponseTest.java
+src/test/java/dev/zernio/model/ListSequenceEnrollments200ResponseEnrollmentsInnerTest.java
+src/test/java/dev/zernio/model/ListSequenceEnrollments200ResponseTest.java
+src/test/java/dev/zernio/model/ScheduleBroadcast200ResponseBroadcastTest.java
+src/test/java/dev/zernio/model/ScheduleBroadcast200ResponseTest.java
+src/test/java/dev/zernio/model/UpdateBroadcast200ResponseBroadcastTest.java
+src/test/java/dev/zernio/model/UpdateBroadcast200ResponseTest.java
+src/test/java/dev/zernio/model/UpdateSequence200ResponseSequenceTest.java
+src/test/java/dev/zernio/model/UpdateSequence200ResponseTest.java

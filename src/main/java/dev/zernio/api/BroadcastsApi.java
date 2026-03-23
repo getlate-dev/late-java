@@ -18,13 +18,19 @@ import dev.zernio.ApiResponse;
 import dev.zernio.Configuration;
 import dev.zernio.Pair;
 
+import dev.zernio.model.AddBroadcastRecipients200Response;
 import dev.zernio.model.AddBroadcastRecipientsRequest;
+import dev.zernio.model.CancelBroadcast200Response;
 import dev.zernio.model.CreateBroadcastRequest;
+import dev.zernio.model.GetBroadcast200Response;
 import dev.zernio.model.InlineObject;
 import dev.zernio.model.InlineObject1;
+import dev.zernio.model.ListBroadcastRecipients200Response;
 import dev.zernio.model.ListBroadcasts200Response;
+import dev.zernio.model.ScheduleBroadcast200Response;
 import dev.zernio.model.ScheduleBroadcastRequest;
 import dev.zernio.model.SendBroadcast200Response;
+import dev.zernio.model.UpdateBroadcast200Response;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -51,7 +57,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T20:36:39.232538925Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T20:40:28.543652189Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class BroadcastsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -173,10 +179,11 @@ public class BroadcastsApi {
    * 
    * @param broadcastId  (required)
    * @param addBroadcastRecipientsRequest  (required)
+   * @return AddBroadcastRecipients200Response
    * @throws ApiException if fails to make API call
    */
-  public void addBroadcastRecipients(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull AddBroadcastRecipientsRequest addBroadcastRecipientsRequest) throws ApiException {
-    addBroadcastRecipients(broadcastId, addBroadcastRecipientsRequest, null);
+  public AddBroadcastRecipients200Response addBroadcastRecipients(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull AddBroadcastRecipientsRequest addBroadcastRecipientsRequest) throws ApiException {
+    return addBroadcastRecipients(broadcastId, addBroadcastRecipientsRequest, null);
   }
 
   /**
@@ -185,10 +192,12 @@ public class BroadcastsApi {
    * @param broadcastId  (required)
    * @param addBroadcastRecipientsRequest  (required)
    * @param headers Optional headers to include in the request
+   * @return AddBroadcastRecipients200Response
    * @throws ApiException if fails to make API call
    */
-  public void addBroadcastRecipients(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull AddBroadcastRecipientsRequest addBroadcastRecipientsRequest, Map<String, String> headers) throws ApiException {
-    addBroadcastRecipientsWithHttpInfo(broadcastId, addBroadcastRecipientsRequest, headers);
+  public AddBroadcastRecipients200Response addBroadcastRecipients(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull AddBroadcastRecipientsRequest addBroadcastRecipientsRequest, Map<String, String> headers) throws ApiException {
+    ApiResponse<AddBroadcastRecipients200Response> localVarResponse = addBroadcastRecipientsWithHttpInfo(broadcastId, addBroadcastRecipientsRequest, headers);
+    return localVarResponse.getData();
   }
 
   /**
@@ -196,10 +205,10 @@ public class BroadcastsApi {
    * 
    * @param broadcastId  (required)
    * @param addBroadcastRecipientsRequest  (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;AddBroadcastRecipients200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> addBroadcastRecipientsWithHttpInfo(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull AddBroadcastRecipientsRequest addBroadcastRecipientsRequest) throws ApiException {
+  public ApiResponse<AddBroadcastRecipients200Response> addBroadcastRecipientsWithHttpInfo(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull AddBroadcastRecipientsRequest addBroadcastRecipientsRequest) throws ApiException {
     return addBroadcastRecipientsWithHttpInfo(broadcastId, addBroadcastRecipientsRequest, null);
   }
 
@@ -209,10 +218,10 @@ public class BroadcastsApi {
    * @param broadcastId  (required)
    * @param addBroadcastRecipientsRequest  (required)
    * @param headers Optional headers to include in the request
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;AddBroadcastRecipients200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> addBroadcastRecipientsWithHttpInfo(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull AddBroadcastRecipientsRequest addBroadcastRecipientsRequest, Map<String, String> headers) throws ApiException {
+  public ApiResponse<AddBroadcastRecipients200Response> addBroadcastRecipientsWithHttpInfo(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull AddBroadcastRecipientsRequest addBroadcastRecipientsRequest, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = addBroadcastRecipientsRequestBuilder(broadcastId, addBroadcastRecipientsRequest, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -227,13 +236,24 @@ public class BroadcastsApi {
           throw getApiException("addBroadcastRecipients", localVarResponse);
         }
         localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
-        if (localVarResponseBody != null) {
-          localVarResponseBody.readAllBytes();
+        if (localVarResponseBody == null) {
+          return new ApiResponse<AddBroadcastRecipients200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
         }
-        return new ApiResponse<>(
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        AddBroadcastRecipients200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<AddBroadcastRecipients200Response>() {});
+        
+
+        return new ApiResponse<AddBroadcastRecipients200Response>(
             localVarResponse.statusCode(),
             localVarResponse.headers().map(),
-            null
+            responseValue
         );
       } finally {
         if (localVarResponseBody != null) {
@@ -290,10 +310,11 @@ public class BroadcastsApi {
    * Cancel a broadcast
    * 
    * @param broadcastId  (required)
+   * @return CancelBroadcast200Response
    * @throws ApiException if fails to make API call
    */
-  public void cancelBroadcast(@javax.annotation.Nonnull String broadcastId) throws ApiException {
-    cancelBroadcast(broadcastId, null);
+  public CancelBroadcast200Response cancelBroadcast(@javax.annotation.Nonnull String broadcastId) throws ApiException {
+    return cancelBroadcast(broadcastId, null);
   }
 
   /**
@@ -301,20 +322,22 @@ public class BroadcastsApi {
    * 
    * @param broadcastId  (required)
    * @param headers Optional headers to include in the request
+   * @return CancelBroadcast200Response
    * @throws ApiException if fails to make API call
    */
-  public void cancelBroadcast(@javax.annotation.Nonnull String broadcastId, Map<String, String> headers) throws ApiException {
-    cancelBroadcastWithHttpInfo(broadcastId, headers);
+  public CancelBroadcast200Response cancelBroadcast(@javax.annotation.Nonnull String broadcastId, Map<String, String> headers) throws ApiException {
+    ApiResponse<CancelBroadcast200Response> localVarResponse = cancelBroadcastWithHttpInfo(broadcastId, headers);
+    return localVarResponse.getData();
   }
 
   /**
    * Cancel a broadcast
    * 
    * @param broadcastId  (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;CancelBroadcast200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> cancelBroadcastWithHttpInfo(@javax.annotation.Nonnull String broadcastId) throws ApiException {
+  public ApiResponse<CancelBroadcast200Response> cancelBroadcastWithHttpInfo(@javax.annotation.Nonnull String broadcastId) throws ApiException {
     return cancelBroadcastWithHttpInfo(broadcastId, null);
   }
 
@@ -323,10 +346,10 @@ public class BroadcastsApi {
    * 
    * @param broadcastId  (required)
    * @param headers Optional headers to include in the request
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;CancelBroadcast200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> cancelBroadcastWithHttpInfo(@javax.annotation.Nonnull String broadcastId, Map<String, String> headers) throws ApiException {
+  public ApiResponse<CancelBroadcast200Response> cancelBroadcastWithHttpInfo(@javax.annotation.Nonnull String broadcastId, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = cancelBroadcastRequestBuilder(broadcastId, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -341,13 +364,24 @@ public class BroadcastsApi {
           throw getApiException("cancelBroadcast", localVarResponse);
         }
         localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
-        if (localVarResponseBody != null) {
-          localVarResponseBody.readAllBytes();
+        if (localVarResponseBody == null) {
+          return new ApiResponse<CancelBroadcast200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
         }
-        return new ApiResponse<>(
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        CancelBroadcast200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<CancelBroadcast200Response>() {});
+        
+
+        return new ApiResponse<CancelBroadcast200Response>(
             localVarResponse.statusCode(),
             localVarResponse.headers().map(),
-            null
+            responseValue
         );
       } finally {
         if (localVarResponseBody != null) {
@@ -607,10 +641,11 @@ public class BroadcastsApi {
    * Get broadcast details
    * 
    * @param broadcastId  (required)
+   * @return GetBroadcast200Response
    * @throws ApiException if fails to make API call
    */
-  public void getBroadcast(@javax.annotation.Nonnull String broadcastId) throws ApiException {
-    getBroadcast(broadcastId, null);
+  public GetBroadcast200Response getBroadcast(@javax.annotation.Nonnull String broadcastId) throws ApiException {
+    return getBroadcast(broadcastId, null);
   }
 
   /**
@@ -618,20 +653,22 @@ public class BroadcastsApi {
    * 
    * @param broadcastId  (required)
    * @param headers Optional headers to include in the request
+   * @return GetBroadcast200Response
    * @throws ApiException if fails to make API call
    */
-  public void getBroadcast(@javax.annotation.Nonnull String broadcastId, Map<String, String> headers) throws ApiException {
-    getBroadcastWithHttpInfo(broadcastId, headers);
+  public GetBroadcast200Response getBroadcast(@javax.annotation.Nonnull String broadcastId, Map<String, String> headers) throws ApiException {
+    ApiResponse<GetBroadcast200Response> localVarResponse = getBroadcastWithHttpInfo(broadcastId, headers);
+    return localVarResponse.getData();
   }
 
   /**
    * Get broadcast details
    * 
    * @param broadcastId  (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;GetBroadcast200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> getBroadcastWithHttpInfo(@javax.annotation.Nonnull String broadcastId) throws ApiException {
+  public ApiResponse<GetBroadcast200Response> getBroadcastWithHttpInfo(@javax.annotation.Nonnull String broadcastId) throws ApiException {
     return getBroadcastWithHttpInfo(broadcastId, null);
   }
 
@@ -640,10 +677,10 @@ public class BroadcastsApi {
    * 
    * @param broadcastId  (required)
    * @param headers Optional headers to include in the request
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;GetBroadcast200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> getBroadcastWithHttpInfo(@javax.annotation.Nonnull String broadcastId, Map<String, String> headers) throws ApiException {
+  public ApiResponse<GetBroadcast200Response> getBroadcastWithHttpInfo(@javax.annotation.Nonnull String broadcastId, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getBroadcastRequestBuilder(broadcastId, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -658,13 +695,24 @@ public class BroadcastsApi {
           throw getApiException("getBroadcast", localVarResponse);
         }
         localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
-        if (localVarResponseBody != null) {
-          localVarResponseBody.readAllBytes();
+        if (localVarResponseBody == null) {
+          return new ApiResponse<GetBroadcast200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
         }
-        return new ApiResponse<>(
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        GetBroadcast200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<GetBroadcast200Response>() {});
+        
+
+        return new ApiResponse<GetBroadcast200Response>(
             localVarResponse.statusCode(),
             localVarResponse.headers().map(),
-            null
+            responseValue
         );
       } finally {
         if (localVarResponseBody != null) {
@@ -714,10 +762,11 @@ public class BroadcastsApi {
    * @param status  (optional)
    * @param limit  (optional, default to 50)
    * @param skip  (optional, default to 0)
+   * @return ListBroadcastRecipients200Response
    * @throws ApiException if fails to make API call
    */
-  public void listBroadcastRecipients(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip) throws ApiException {
-    listBroadcastRecipients(broadcastId, status, limit, skip, null);
+  public ListBroadcastRecipients200Response listBroadcastRecipients(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip) throws ApiException {
+    return listBroadcastRecipients(broadcastId, status, limit, skip, null);
   }
 
   /**
@@ -728,10 +777,12 @@ public class BroadcastsApi {
    * @param limit  (optional, default to 50)
    * @param skip  (optional, default to 0)
    * @param headers Optional headers to include in the request
+   * @return ListBroadcastRecipients200Response
    * @throws ApiException if fails to make API call
    */
-  public void listBroadcastRecipients(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, Map<String, String> headers) throws ApiException {
-    listBroadcastRecipientsWithHttpInfo(broadcastId, status, limit, skip, headers);
+  public ListBroadcastRecipients200Response listBroadcastRecipients(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, Map<String, String> headers) throws ApiException {
+    ApiResponse<ListBroadcastRecipients200Response> localVarResponse = listBroadcastRecipientsWithHttpInfo(broadcastId, status, limit, skip, headers);
+    return localVarResponse.getData();
   }
 
   /**
@@ -741,10 +792,10 @@ public class BroadcastsApi {
    * @param status  (optional)
    * @param limit  (optional, default to 50)
    * @param skip  (optional, default to 0)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;ListBroadcastRecipients200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> listBroadcastRecipientsWithHttpInfo(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip) throws ApiException {
+  public ApiResponse<ListBroadcastRecipients200Response> listBroadcastRecipientsWithHttpInfo(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip) throws ApiException {
     return listBroadcastRecipientsWithHttpInfo(broadcastId, status, limit, skip, null);
   }
 
@@ -756,10 +807,10 @@ public class BroadcastsApi {
    * @param limit  (optional, default to 50)
    * @param skip  (optional, default to 0)
    * @param headers Optional headers to include in the request
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;ListBroadcastRecipients200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> listBroadcastRecipientsWithHttpInfo(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, Map<String, String> headers) throws ApiException {
+  public ApiResponse<ListBroadcastRecipients200Response> listBroadcastRecipientsWithHttpInfo(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listBroadcastRecipientsRequestBuilder(broadcastId, status, limit, skip, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -774,13 +825,24 @@ public class BroadcastsApi {
           throw getApiException("listBroadcastRecipients", localVarResponse);
         }
         localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
-        if (localVarResponseBody != null) {
-          localVarResponseBody.readAllBytes();
+        if (localVarResponseBody == null) {
+          return new ApiResponse<ListBroadcastRecipients200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
         }
-        return new ApiResponse<>(
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        ListBroadcastRecipients200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<ListBroadcastRecipients200Response>() {});
+        
+
+        return new ApiResponse<ListBroadcastRecipients200Response>(
             localVarResponse.statusCode(),
             localVarResponse.headers().map(),
-            null
+            responseValue
         );
       } finally {
         if (localVarResponseBody != null) {
@@ -999,10 +1061,11 @@ public class BroadcastsApi {
    * 
    * @param broadcastId  (required)
    * @param scheduleBroadcastRequest  (required)
+   * @return ScheduleBroadcast200Response
    * @throws ApiException if fails to make API call
    */
-  public void scheduleBroadcast(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull ScheduleBroadcastRequest scheduleBroadcastRequest) throws ApiException {
-    scheduleBroadcast(broadcastId, scheduleBroadcastRequest, null);
+  public ScheduleBroadcast200Response scheduleBroadcast(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull ScheduleBroadcastRequest scheduleBroadcastRequest) throws ApiException {
+    return scheduleBroadcast(broadcastId, scheduleBroadcastRequest, null);
   }
 
   /**
@@ -1011,10 +1074,12 @@ public class BroadcastsApi {
    * @param broadcastId  (required)
    * @param scheduleBroadcastRequest  (required)
    * @param headers Optional headers to include in the request
+   * @return ScheduleBroadcast200Response
    * @throws ApiException if fails to make API call
    */
-  public void scheduleBroadcast(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull ScheduleBroadcastRequest scheduleBroadcastRequest, Map<String, String> headers) throws ApiException {
-    scheduleBroadcastWithHttpInfo(broadcastId, scheduleBroadcastRequest, headers);
+  public ScheduleBroadcast200Response scheduleBroadcast(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull ScheduleBroadcastRequest scheduleBroadcastRequest, Map<String, String> headers) throws ApiException {
+    ApiResponse<ScheduleBroadcast200Response> localVarResponse = scheduleBroadcastWithHttpInfo(broadcastId, scheduleBroadcastRequest, headers);
+    return localVarResponse.getData();
   }
 
   /**
@@ -1022,10 +1087,10 @@ public class BroadcastsApi {
    * 
    * @param broadcastId  (required)
    * @param scheduleBroadcastRequest  (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;ScheduleBroadcast200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> scheduleBroadcastWithHttpInfo(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull ScheduleBroadcastRequest scheduleBroadcastRequest) throws ApiException {
+  public ApiResponse<ScheduleBroadcast200Response> scheduleBroadcastWithHttpInfo(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull ScheduleBroadcastRequest scheduleBroadcastRequest) throws ApiException {
     return scheduleBroadcastWithHttpInfo(broadcastId, scheduleBroadcastRequest, null);
   }
 
@@ -1035,10 +1100,10 @@ public class BroadcastsApi {
    * @param broadcastId  (required)
    * @param scheduleBroadcastRequest  (required)
    * @param headers Optional headers to include in the request
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;ScheduleBroadcast200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> scheduleBroadcastWithHttpInfo(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull ScheduleBroadcastRequest scheduleBroadcastRequest, Map<String, String> headers) throws ApiException {
+  public ApiResponse<ScheduleBroadcast200Response> scheduleBroadcastWithHttpInfo(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull ScheduleBroadcastRequest scheduleBroadcastRequest, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = scheduleBroadcastRequestBuilder(broadcastId, scheduleBroadcastRequest, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -1053,13 +1118,24 @@ public class BroadcastsApi {
           throw getApiException("scheduleBroadcast", localVarResponse);
         }
         localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
-        if (localVarResponseBody != null) {
-          localVarResponseBody.readAllBytes();
+        if (localVarResponseBody == null) {
+          return new ApiResponse<ScheduleBroadcast200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
         }
-        return new ApiResponse<>(
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        ScheduleBroadcast200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<ScheduleBroadcast200Response>() {});
+        
+
+        return new ApiResponse<ScheduleBroadcast200Response>(
             localVarResponse.statusCode(),
             localVarResponse.headers().map(),
-            null
+            responseValue
         );
       } finally {
         if (localVarResponseBody != null) {
@@ -1234,10 +1310,11 @@ public class BroadcastsApi {
    * Update a broadcast
    * 
    * @param broadcastId  (required)
+   * @return UpdateBroadcast200Response
    * @throws ApiException if fails to make API call
    */
-  public void updateBroadcast(@javax.annotation.Nonnull String broadcastId) throws ApiException {
-    updateBroadcast(broadcastId, null);
+  public UpdateBroadcast200Response updateBroadcast(@javax.annotation.Nonnull String broadcastId) throws ApiException {
+    return updateBroadcast(broadcastId, null);
   }
 
   /**
@@ -1245,20 +1322,22 @@ public class BroadcastsApi {
    * 
    * @param broadcastId  (required)
    * @param headers Optional headers to include in the request
+   * @return UpdateBroadcast200Response
    * @throws ApiException if fails to make API call
    */
-  public void updateBroadcast(@javax.annotation.Nonnull String broadcastId, Map<String, String> headers) throws ApiException {
-    updateBroadcastWithHttpInfo(broadcastId, headers);
+  public UpdateBroadcast200Response updateBroadcast(@javax.annotation.Nonnull String broadcastId, Map<String, String> headers) throws ApiException {
+    ApiResponse<UpdateBroadcast200Response> localVarResponse = updateBroadcastWithHttpInfo(broadcastId, headers);
+    return localVarResponse.getData();
   }
 
   /**
    * Update a broadcast
    * 
    * @param broadcastId  (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;UpdateBroadcast200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> updateBroadcastWithHttpInfo(@javax.annotation.Nonnull String broadcastId) throws ApiException {
+  public ApiResponse<UpdateBroadcast200Response> updateBroadcastWithHttpInfo(@javax.annotation.Nonnull String broadcastId) throws ApiException {
     return updateBroadcastWithHttpInfo(broadcastId, null);
   }
 
@@ -1267,10 +1346,10 @@ public class BroadcastsApi {
    * 
    * @param broadcastId  (required)
    * @param headers Optional headers to include in the request
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;UpdateBroadcast200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> updateBroadcastWithHttpInfo(@javax.annotation.Nonnull String broadcastId, Map<String, String> headers) throws ApiException {
+  public ApiResponse<UpdateBroadcast200Response> updateBroadcastWithHttpInfo(@javax.annotation.Nonnull String broadcastId, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateBroadcastRequestBuilder(broadcastId, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -1285,13 +1364,24 @@ public class BroadcastsApi {
           throw getApiException("updateBroadcast", localVarResponse);
         }
         localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
-        if (localVarResponseBody != null) {
-          localVarResponseBody.readAllBytes();
+        if (localVarResponseBody == null) {
+          return new ApiResponse<UpdateBroadcast200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
         }
-        return new ApiResponse<>(
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        UpdateBroadcast200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<UpdateBroadcast200Response>() {});
+        
+
+        return new ApiResponse<UpdateBroadcast200Response>(
             localVarResponse.statusCode(),
             localVarResponse.headers().map(),
-            null
+            responseValue
         );
       } finally {
         if (localVarResponseBody != null) {

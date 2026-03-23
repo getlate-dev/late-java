@@ -37,7 +37,7 @@ import dev.zernio.ApiClient;
   CreatePost409ResponseDetails.JSON_PROPERTY_PLATFORM,
   CreatePost409ResponseDetails.JSON_PROPERTY_EXISTING_POST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T20:36:39.232538925Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T20:40:28.543652189Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreatePost409ResponseDetails {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nullable
