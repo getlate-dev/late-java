@@ -44,7 +44,7 @@ import dev.zernio.ApiClient;
   SearchReddit200ResponsePostsInner.JSON_PROPERTY_CREATED_UTC,
   SearchReddit200ResponsePostsInner.JSON_PROPERTY_PERMALINK
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T17:45:20.637936939Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T18:52:30.532070037Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class SearchReddit200ResponsePostsInner {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable

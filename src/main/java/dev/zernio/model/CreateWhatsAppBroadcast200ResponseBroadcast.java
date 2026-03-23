@@ -42,7 +42,7 @@ import dev.zernio.ApiClient;
   CreateWhatsAppBroadcast200ResponseBroadcast.JSON_PROPERTY_RECIPIENT_COUNT,
   CreateWhatsAppBroadcast200ResponseBroadcast.JSON_PROPERTY_CREATED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T17:45:20.637936939Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T18:52:30.532070037Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateWhatsAppBroadcast200ResponseBroadcast {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable

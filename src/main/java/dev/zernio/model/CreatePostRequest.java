@@ -60,7 +60,7 @@ import dev.zernio.ApiClient;
   CreatePostRequest.JSON_PROPERTY_QUEUED_FROM_PROFILE,
   CreatePostRequest.JSON_PROPERTY_QUEUE_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T17:45:20.637936939Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T18:52:30.532070037Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreatePostRequest {
   public static final String JSON_PROPERTY_TITLE = "title";
   @javax.annotation.Nullable
@@ -227,7 +227,7 @@ public class CreatePostRequest {
   }
 
   /**
-   * Get platforms
+   * Target platforms and accounts for this post. Required for non-draft posts (returns 400 if empty). Drafts can omit platforms.
    * @return platforms
    */
   @javax.annotation.Nullable

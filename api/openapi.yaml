@@ -18373,6 +18373,8 @@ components:
             $ref: "#/components/schemas/createPost_request_mediaItems_inner"
           type: array
         platforms:
+          description: Target platforms and accounts for this post. Required for non-draft
+            posts (returns 400 if empty). Drafts can omit platforms.
           items:
             $ref: "#/components/schemas/createPost_request_platforms_inner"
           type: array
