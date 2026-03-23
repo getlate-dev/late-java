@@ -28372,6 +28372,12 @@ components:
           items:
             type: string
           type: array
+        phones:
+          description: Raw phone numbers (auto-creates contacts). Useful for WhatsApp/Telegram
+            manual entry
+          items:
+            type: string
+          type: array
         useSegment:
           description: Auto-populate from broadcast segment filters
           type: boolean

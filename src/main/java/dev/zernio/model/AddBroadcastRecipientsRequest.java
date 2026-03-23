@@ -36,13 +36,18 @@ import dev.zernio.ApiClient;
  */
 @JsonPropertyOrder({
   AddBroadcastRecipientsRequest.JSON_PROPERTY_CONTACT_IDS,
+  AddBroadcastRecipientsRequest.JSON_PROPERTY_PHONES,
   AddBroadcastRecipientsRequest.JSON_PROPERTY_USE_SEGMENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T18:52:30.532070037Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T19:06:34.759305459Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AddBroadcastRecipientsRequest {
   public static final String JSON_PROPERTY_CONTACT_IDS = "contactIds";
   @javax.annotation.Nullable
   private List<String> contactIds = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_PHONES = "phones";
+  @javax.annotation.Nullable
+  private List<String> phones = new ArrayList<>();
 
   public static final String JSON_PROPERTY_USE_SEGMENT = "useSegment";
   @javax.annotation.Nullable
@@ -83,6 +88,38 @@ public class AddBroadcastRecipientsRequest {
   }
 
 
+  public AddBroadcastRecipientsRequest phones(@javax.annotation.Nullable List<String> phones) {
+    this.phones = phones;
+    return this;
+  }
+
+  public AddBroadcastRecipientsRequest addPhonesItem(String phonesItem) {
+    if (this.phones == null) {
+      this.phones = new ArrayList<>();
+    }
+    this.phones.add(phonesItem);
+    return this;
+  }
+
+  /**
+   * Raw phone numbers (auto-creates contacts). Useful for WhatsApp/Telegram manual entry
+   * @return phones
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_PHONES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getPhones() {
+    return phones;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PHONES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPhones(@javax.annotation.Nullable List<String> phones) {
+    this.phones = phones;
+  }
+
+
   public AddBroadcastRecipientsRequest useSegment(@javax.annotation.Nullable Boolean useSegment) {
     this.useSegment = useSegment;
     return this;
@@ -120,12 +157,13 @@ public class AddBroadcastRecipientsRequest {
     }
     AddBroadcastRecipientsRequest addBroadcastRecipientsRequest = (AddBroadcastRecipientsRequest) o;
     return Objects.equals(this.contactIds, addBroadcastRecipientsRequest.contactIds) &&
+        Objects.equals(this.phones, addBroadcastRecipientsRequest.phones) &&
         Objects.equals(this.useSegment, addBroadcastRecipientsRequest.useSegment);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contactIds, useSegment);
+    return Objects.hash(contactIds, phones, useSegment);
   }
 
   @Override
@@ -133,6 +171,7 @@ public class AddBroadcastRecipientsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class AddBroadcastRecipientsRequest {\n");
     sb.append("    contactIds: ").append(toIndentedString(contactIds)).append("\n");
+    sb.append("    phones: ").append(toIndentedString(phones)).append("\n");
     sb.append("    useSegment: ").append(toIndentedString(useSegment)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -187,6 +226,15 @@ public class AddBroadcastRecipientsRequest {
         joiner.add(String.format(java.util.Locale.ROOT, "%scontactIds%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix),
             ApiClient.urlEncode(ApiClient.valueToString(getContactIds().get(i)))));
+      }
+    }
+
+    // add `phones` to the URL query string
+    if (getPhones() != null) {
+      for (int i = 0; i < getPhones().size(); i++) {
+        joiner.add(String.format(java.util.Locale.ROOT, "%sphones%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix),
+            ApiClient.urlEncode(ApiClient.valueToString(getPhones().get(i)))));
       }
     }
 
