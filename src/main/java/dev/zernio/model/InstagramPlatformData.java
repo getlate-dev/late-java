@@ -46,7 +46,7 @@ import dev.zernio.ApiClient;
   InstagramPlatformData.JSON_PROPERTY_AUDIO_NAME,
   InstagramPlatformData.JSON_PROPERTY_THUMB_OFFSET
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T15:44:02.123260201Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T16:07:59.334097222Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class InstagramPlatformData {
   /**
    * Set to &#39;story&#39; to publish as a Story. Default posts become Reels or feed depending on media.

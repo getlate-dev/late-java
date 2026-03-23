@@ -922,7 +922,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         SequencesApi apiInstance = new SequencesApi(defaultClient);
-        String profileId = "profileId_example"; // String | 
+        String profileId = "profileId_example"; // String | Filter by profile. Omit to list across all profiles
         String status = "draft"; // String | 
         Integer limit = 50; // Integer | 
         Integer skip = 0; // Integer | 
@@ -944,7 +944,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **profileId** | **String**|  | |
+| **profileId** | **String**| Filter by profile. Omit to list across all profiles | [optional] |
 | **status** | **String**|  | [optional] [enum: draft, active, paused] |
 | **limit** | **Integer**|  | [optional] [default to 50] |
 | **skip** | **Integer**|  | [optional] [default to 0] |
@@ -997,7 +997,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         SequencesApi apiInstance = new SequencesApi(defaultClient);
-        String profileId = "profileId_example"; // String | 
+        String profileId = "profileId_example"; // String | Filter by profile. Omit to list across all profiles
         String status = "draft"; // String | 
         Integer limit = 50; // Integer | 
         Integer skip = 0; // Integer | 
@@ -1021,7 +1021,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **profileId** | **String**|  | |
+| **profileId** | **String**| Filter by profile. Omit to list across all profiles | [optional] |
 | **status** | **String**|  | [optional] [enum: draft, active, paused] |
 | **limit** | **Integer**|  | [optional] [default to 50] |
 | **skip** | **Integer**|  | [optional] [default to 0] |

@@ -476,7 +476,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         CustomFieldsApi apiInstance = new CustomFieldsApi(defaultClient);
-        String profileId = "profileId_example"; // String | 
+        String profileId = "profileId_example"; // String | Filter by profile. Omit to list across all profiles
         try {
             apiInstance.listCustomFields(profileId);
         } catch (ApiException e) {
@@ -495,7 +495,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **profileId** | **String**|  | |
+| **profileId** | **String**| Filter by profile. Omit to list across all profiles | [optional] |
 
 ### Return type
 
@@ -545,7 +545,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         CustomFieldsApi apiInstance = new CustomFieldsApi(defaultClient);
-        String profileId = "profileId_example"; // String | 
+        String profileId = "profileId_example"; // String | Filter by profile. Omit to list across all profiles
         try {
             ApiResponse<Void> response = apiInstance.listCustomFieldsWithHttpInfo(profileId);
             System.out.println("Status code: " + response.getStatusCode());
@@ -566,7 +566,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **profileId** | **String**|  | |
+| **profileId** | **String**| Filter by profile. Omit to list across all profiles | [optional] |
 
 ### Return type
 

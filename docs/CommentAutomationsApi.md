@@ -638,7 +638,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         CommentAutomationsApi apiInstance = new CommentAutomationsApi(defaultClient);
-        String profileId = "profileId_example"; // String | Profile ID
+        String profileId = "profileId_example"; // String | Filter by profile. Omit to list across all profiles
         try {
             ListCommentAutomations200Response result = apiInstance.listCommentAutomations(profileId);
             System.out.println(result);
@@ -658,7 +658,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **profileId** | **String**| Profile ID | |
+| **profileId** | **String**| Filter by profile. Omit to list across all profiles | [optional] |
 
 ### Return type
 
@@ -710,7 +710,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         CommentAutomationsApi apiInstance = new CommentAutomationsApi(defaultClient);
-        String profileId = "profileId_example"; // String | Profile ID
+        String profileId = "profileId_example"; // String | Filter by profile. Omit to list across all profiles
         try {
             ApiResponse<ListCommentAutomations200Response> response = apiInstance.listCommentAutomationsWithHttpInfo(profileId);
             System.out.println("Status code: " + response.getStatusCode());
@@ -732,7 +732,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **profileId** | **String**| Profile ID | |
+| **profileId** | **String**| Filter by profile. Omit to list across all profiles | [optional] |
 
 ### Return type
 

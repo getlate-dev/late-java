@@ -49,7 +49,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T15:44:02.123260201Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T16:07:59.334097222Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CommentAutomationsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -621,23 +621,23 @@ public class CommentAutomationsApi {
   /**
    * List comment-to-DM automations
    * List all comment-to-DM automations for a profile. Returns automations with their stats.
-   * @param profileId Profile ID (required)
+   * @param profileId Filter by profile. Omit to list across all profiles (optional)
    * @return ListCommentAutomations200Response
    * @throws ApiException if fails to make API call
    */
-  public ListCommentAutomations200Response listCommentAutomations(@javax.annotation.Nonnull String profileId) throws ApiException {
+  public ListCommentAutomations200Response listCommentAutomations(@javax.annotation.Nullable String profileId) throws ApiException {
     return listCommentAutomations(profileId, null);
   }
 
   /**
    * List comment-to-DM automations
    * List all comment-to-DM automations for a profile. Returns automations with their stats.
-   * @param profileId Profile ID (required)
+   * @param profileId Filter by profile. Omit to list across all profiles (optional)
    * @param headers Optional headers to include in the request
    * @return ListCommentAutomations200Response
    * @throws ApiException if fails to make API call
    */
-  public ListCommentAutomations200Response listCommentAutomations(@javax.annotation.Nonnull String profileId, Map<String, String> headers) throws ApiException {
+  public ListCommentAutomations200Response listCommentAutomations(@javax.annotation.Nullable String profileId, Map<String, String> headers) throws ApiException {
     ApiResponse<ListCommentAutomations200Response> localVarResponse = listCommentAutomationsWithHttpInfo(profileId, headers);
     return localVarResponse.getData();
   }
@@ -645,23 +645,23 @@ public class CommentAutomationsApi {
   /**
    * List comment-to-DM automations
    * List all comment-to-DM automations for a profile. Returns automations with their stats.
-   * @param profileId Profile ID (required)
+   * @param profileId Filter by profile. Omit to list across all profiles (optional)
    * @return ApiResponse&lt;ListCommentAutomations200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListCommentAutomations200Response> listCommentAutomationsWithHttpInfo(@javax.annotation.Nonnull String profileId) throws ApiException {
+  public ApiResponse<ListCommentAutomations200Response> listCommentAutomationsWithHttpInfo(@javax.annotation.Nullable String profileId) throws ApiException {
     return listCommentAutomationsWithHttpInfo(profileId, null);
   }
 
   /**
    * List comment-to-DM automations
    * List all comment-to-DM automations for a profile. Returns automations with their stats.
-   * @param profileId Profile ID (required)
+   * @param profileId Filter by profile. Omit to list across all profiles (optional)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;ListCommentAutomations200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListCommentAutomations200Response> listCommentAutomationsWithHttpInfo(@javax.annotation.Nonnull String profileId, Map<String, String> headers) throws ApiException {
+  public ApiResponse<ListCommentAutomations200Response> listCommentAutomationsWithHttpInfo(@javax.annotation.Nullable String profileId, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listCommentAutomationsRequestBuilder(profileId, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -709,11 +709,7 @@ public class CommentAutomationsApi {
     }
   }
 
-  private HttpRequest.Builder listCommentAutomationsRequestBuilder(@javax.annotation.Nonnull String profileId, Map<String, String> headers) throws ApiException {
-    // verify the required parameter 'profileId' is set
-    if (profileId == null) {
-      throw new ApiException(400, "Missing the required parameter 'profileId' when calling listCommentAutomations");
-    }
+  private HttpRequest.Builder listCommentAutomationsRequestBuilder(@javax.annotation.Nullable String profileId, Map<String, String> headers) throws ApiException {
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 

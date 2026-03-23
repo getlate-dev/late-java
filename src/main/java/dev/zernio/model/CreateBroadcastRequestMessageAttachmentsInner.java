@@ -37,7 +37,7 @@ import dev.zernio.ApiClient;
   CreateBroadcastRequestMessageAttachmentsInner.JSON_PROPERTY_URL,
   CreateBroadcastRequestMessageAttachmentsInner.JSON_PROPERTY_FILENAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T15:44:02.123260201Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T16:07:59.334097222Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateBroadcastRequestMessageAttachmentsInner {
   public static final String JSON_PROPERTY_TYPE = "type";
   @javax.annotation.Nullable

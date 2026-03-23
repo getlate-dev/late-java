@@ -40,7 +40,7 @@ import dev.zernio.ApiClient;
   ListInboxConversations200ResponseMetaFailedAccountsInner.JSON_PROPERTY_CODE,
   ListInboxConversations200ResponseMetaFailedAccountsInner.JSON_PROPERTY_RETRY_AFTER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T15:44:02.123260201Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T16:07:59.334097222Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ListInboxConversations200ResponseMetaFailedAccountsInner {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nullable

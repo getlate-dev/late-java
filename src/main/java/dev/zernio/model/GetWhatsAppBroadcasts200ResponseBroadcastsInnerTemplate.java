@@ -36,7 +36,7 @@ import dev.zernio.ApiClient;
   GetWhatsAppBroadcasts200ResponseBroadcastsInnerTemplate.JSON_PROPERTY_NAME,
   GetWhatsAppBroadcasts200ResponseBroadcastsInnerTemplate.JSON_PROPERTY_LANGUAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T15:44:02.123260201Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T16:07:59.334097222Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetWhatsAppBroadcasts200ResponseBroadcastsInnerTemplate {
   public static final String JSON_PROPERTY_NAME = "name";
   @javax.annotation.Nullable

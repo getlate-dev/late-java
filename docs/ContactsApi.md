@@ -766,7 +766,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ContactsApi apiInstance = new ContactsApi(defaultClient);
-        String profileId = "profileId_example"; // String | 
+        String profileId = "profileId_example"; // String | Filter by profile. Omit to list across all profiles
         String search = "search_example"; // String | 
         String tag = "tag_example"; // String | 
         String platform = "instagram"; // String | 
@@ -791,7 +791,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **profileId** | **String**|  | |
+| **profileId** | **String**| Filter by profile. Omit to list across all profiles | [optional] |
 | **search** | **String**|  | [optional] |
 | **tag** | **String**|  | [optional] |
 | **platform** | **String**|  | [optional] [enum: instagram, facebook, telegram, twitter, bluesky, reddit, whatsapp] |
@@ -849,7 +849,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ContactsApi apiInstance = new ContactsApi(defaultClient);
-        String profileId = "profileId_example"; // String | 
+        String profileId = "profileId_example"; // String | Filter by profile. Omit to list across all profiles
         String search = "search_example"; // String | 
         String tag = "tag_example"; // String | 
         String platform = "instagram"; // String | 
@@ -876,7 +876,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **profileId** | **String**|  | |
+| **profileId** | **String**| Filter by profile. Omit to list across all profiles | [optional] |
 | **search** | **String**|  | [optional] |
 | **tag** | **String**|  | [optional] |
 | **platform** | **String**|  | [optional] [enum: instagram, facebook, telegram, twitter, bluesky, reddit, whatsapp] |

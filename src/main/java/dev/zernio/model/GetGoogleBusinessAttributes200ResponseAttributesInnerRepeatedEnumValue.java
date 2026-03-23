@@ -38,7 +38,7 @@ import dev.zernio.ApiClient;
   GetGoogleBusinessAttributes200ResponseAttributesInnerRepeatedEnumValue.JSON_PROPERTY_SET_VALUES,
   GetGoogleBusinessAttributes200ResponseAttributesInnerRepeatedEnumValue.JSON_PROPERTY_UNSET_VALUES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T15:44:02.123260201Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T16:07:59.334097222Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetGoogleBusinessAttributes200ResponseAttributesInnerRepeatedEnumValue {
   public static final String JSON_PROPERTY_SET_VALUES = "setValues";
   @javax.annotation.Nullable

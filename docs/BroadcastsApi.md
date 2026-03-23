@@ -922,7 +922,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         BroadcastsApi apiInstance = new BroadcastsApi(defaultClient);
-        String profileId = "profileId_example"; // String | 
+        String profileId = "profileId_example"; // String | Filter by profile. Omit to list across all profiles
         String status = "draft"; // String | 
         String platform = "platform_example"; // String | 
         Integer limit = 50; // Integer | 
@@ -945,7 +945,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **profileId** | **String**|  | |
+| **profileId** | **String**| Filter by profile. Omit to list across all profiles | [optional] |
 | **status** | **String**|  | [optional] [enum: draft, scheduled, sending, completed, failed, cancelled] |
 | **platform** | **String**|  | [optional] |
 | **limit** | **Integer**|  | [optional] [default to 50] |
@@ -999,7 +999,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         BroadcastsApi apiInstance = new BroadcastsApi(defaultClient);
-        String profileId = "profileId_example"; // String | 
+        String profileId = "profileId_example"; // String | Filter by profile. Omit to list across all profiles
         String status = "draft"; // String | 
         String platform = "platform_example"; // String | 
         Integer limit = 50; // Integer | 
@@ -1024,7 +1024,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **profileId** | **String**|  | |
+| **profileId** | **String**| Filter by profile. Omit to list across all profiles | [optional] |
 | **status** | **String**|  | [optional] [enum: draft, scheduled, sending, completed, failed, cancelled] |
 | **platform** | **String**|  | [optional] |
 | **limit** | **Integer**|  | [optional] [default to 50] |
