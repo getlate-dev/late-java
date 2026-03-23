@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import dev.zernio.model.CreateSequenceRequestStepsInnerMessage;
-import dev.zernio.model.GetWhatsAppBroadcasts200ResponseBroadcastsInnerTemplate;
+import dev.zernio.model.CreateSequenceRequestStepsInnerTemplate;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -40,7 +40,7 @@ import dev.zernio.ApiClient;
   CreateSequenceRequestStepsInner.JSON_PROPERTY_MESSAGE,
   CreateSequenceRequestStepsInner.JSON_PROPERTY_TEMPLATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T19:06:34.759305459Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T20:30:47.505542502Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateSequenceRequestStepsInner {
   public static final String JSON_PROPERTY_ORDER = "order";
   @javax.annotation.Nonnull
@@ -56,7 +56,7 @@ public class CreateSequenceRequestStepsInner {
 
   public static final String JSON_PROPERTY_TEMPLATE = "template";
   @javax.annotation.Nullable
-  private GetWhatsAppBroadcasts200ResponseBroadcastsInnerTemplate template;
+  private CreateSequenceRequestStepsInnerTemplate template;
 
   public CreateSequenceRequestStepsInner() { 
   }
@@ -133,7 +133,7 @@ public class CreateSequenceRequestStepsInner {
   }
 
 
-  public CreateSequenceRequestStepsInner template(@javax.annotation.Nullable GetWhatsAppBroadcasts200ResponseBroadcastsInnerTemplate template) {
+  public CreateSequenceRequestStepsInner template(@javax.annotation.Nullable CreateSequenceRequestStepsInnerTemplate template) {
     this.template = template;
     return this;
   }
@@ -145,14 +145,14 @@ public class CreateSequenceRequestStepsInner {
   @javax.annotation.Nullable
   @JsonProperty(value = JSON_PROPERTY_TEMPLATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GetWhatsAppBroadcasts200ResponseBroadcastsInnerTemplate getTemplate() {
+  public CreateSequenceRequestStepsInnerTemplate getTemplate() {
     return template;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_TEMPLATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTemplate(@javax.annotation.Nullable GetWhatsAppBroadcasts200ResponseBroadcastsInnerTemplate template) {
+  public void setTemplate(@javax.annotation.Nullable CreateSequenceRequestStepsInnerTemplate template) {
     this.template = template;
   }
 

@@ -28385,6 +28385,31 @@ components:
       properties:
         text:
           type: string
+    createSequence_request_steps_inner_template_variableMapping_value:
+      properties:
+        field:
+          enum:
+          - name
+          - phone
+          - email
+          - company
+          - custom
+          type: string
+        customValue:
+          description: Static value when field is "custom"
+          type: string
+    createSequence_request_steps_inner_template:
+      properties:
+        name:
+          type: string
+        language:
+          type: string
+        variableMapping:
+          additionalProperties:
+            $ref: "#/components/schemas/createSequence_request_steps_inner_template_variableMapping_value"
+          description: "Maps template variable positions to contact fields. Keys are\
+            \ position strings (\"1\", \"2\"), values are objects with field and optional\
+            \ customValue"
     createSequence_request_steps_inner:
       properties:
         order:
@@ -28394,7 +28419,7 @@ components:
         message:
           $ref: "#/components/schemas/createSequence_request_steps_inner_message"
         template:
-          $ref: "#/components/schemas/getWhatsAppBroadcasts_200_response_broadcasts_inner_template"
+          $ref: "#/components/schemas/createSequence_request_steps_inner_template"
       required:
       - delayMinutes
       - order
