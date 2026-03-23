@@ -11727,6 +11727,10 @@ paths:
         required: true
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/createBroadcast_200_response"
           description: Broadcast created
         "401":
           $ref: "#/components/responses/Unauthorized"
@@ -12057,6 +12061,10 @@ paths:
         required: true
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/createSequence_200_response"
           description: Sequence created
         "401":
           $ref: "#/components/responses/Unauthorized"
@@ -28543,6 +28551,47 @@ components:
       - name
       - platform
       - profileId
+    createBroadcast_200_response_broadcast:
+      example:
+        accountId: accountId
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        name: name
+        description: description
+        id: id
+        platform: platform
+        status: status
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        platform:
+          type: string
+        accountId:
+          type: string
+        status:
+          type: string
+        createdAt:
+          format: date-time
+          type: string
+    createBroadcast_200_response:
+      example:
+        broadcast:
+          accountId: accountId
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          name: name
+          description: description
+          id: id
+          platform: platform
+          status: status
+        success: true
+      properties:
+        success:
+          type: boolean
+        broadcast:
+          $ref: "#/components/schemas/createBroadcast_200_response_broadcast"
     getBroadcast_200_response_broadcast_message:
       example:
         text: text
@@ -29073,6 +29122,47 @@ components:
       - name
       - platform
       - profileId
+    createSequence_200_response_sequence:
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        name: name
+        description: description
+        stepsCount: 0
+        id: id
+        platform: platform
+        status: status
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        platform:
+          type: string
+        status:
+          type: string
+        stepsCount:
+          type: integer
+        createdAt:
+          format: date-time
+          type: string
+    createSequence_200_response:
+      example:
+        sequence:
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          name: name
+          description: description
+          stepsCount: 0
+          id: id
+          platform: platform
+          status: status
+        success: true
+      properties:
+        success:
+          type: boolean
+        sequence:
+          $ref: "#/components/schemas/createSequence_200_response_sequence"
     getSequence_200_response_sequence_steps_inner_template:
       example:
         variableMapping: "{}"

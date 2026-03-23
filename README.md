@@ -4,7 +4,7 @@ Zernio API
 
 - API version: 1.0.1
 
-- Build date: 2026-03-23T20:40:28.543652189Z[Etc/UTC]
+- Build date: 2026-03-23T20:43:03.427923241Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -624,6 +624,8 @@ Class | Method | HTTP request | Description
  - [CreateAccountGroupRequest](docs/CreateAccountGroupRequest.md)
  - [CreateApiKey201Response](docs/CreateApiKey201Response.md)
  - [CreateApiKeyRequest](docs/CreateApiKeyRequest.md)
+ - [CreateBroadcast200Response](docs/CreateBroadcast200Response.md)
+ - [CreateBroadcast200ResponseBroadcast](docs/CreateBroadcast200ResponseBroadcast.md)
  - [CreateBroadcastRequest](docs/CreateBroadcastRequest.md)
  - [CreateBroadcastRequestMessage](docs/CreateBroadcastRequestMessage.md)
  - [CreateBroadcastRequestMessageAttachmentsInner](docs/CreateBroadcastRequestMessageAttachmentsInner.md)
@@ -648,6 +650,8 @@ Class | Method | HTTP request | Description
  - [CreateProfileRequest](docs/CreateProfileRequest.md)
  - [CreateQueueSlot201Response](docs/CreateQueueSlot201Response.md)
  - [CreateQueueSlotRequest](docs/CreateQueueSlotRequest.md)
+ - [CreateSequence200Response](docs/CreateSequence200Response.md)
+ - [CreateSequence200ResponseSequence](docs/CreateSequence200ResponseSequence.md)
  - [CreateSequenceRequest](docs/CreateSequenceRequest.md)
  - [CreateSequenceRequestStepsInner](docs/CreateSequenceRequestStepsInner.md)
  - [CreateSequenceRequestStepsInnerTemplate](docs/CreateSequenceRequestStepsInnerTemplate.md)

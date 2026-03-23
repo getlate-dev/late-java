@@ -37,7 +37,7 @@ import dev.zernio.ApiClient;
   GetWhatsAppGroups200ResponseSummary.JSON_PROPERTY_OPTED_IN_CONTACTS,
   GetWhatsAppGroups200ResponseSummary.JSON_PROPERTY_GROUP_COUNT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T20:40:28.543652189Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T20:43:03.427923241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetWhatsAppGroups200ResponseSummary {
   public static final String JSON_PROPERTY_TOTAL_CONTACTS = "totalContacts";
   @javax.annotation.Nullable

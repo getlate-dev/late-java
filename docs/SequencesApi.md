@@ -175,7 +175,7 @@ ApiResponse<[**ActivateSequence200Response**](ActivateSequence200Response.md)>
 
 ## createSequence
 
-> void createSequence(createSequenceRequest)
+> CreateSequence200Response createSequence(createSequenceRequest)
 
 Create a sequence
 
@@ -202,7 +202,8 @@ public class Example {
         SequencesApi apiInstance = new SequencesApi(defaultClient);
         CreateSequenceRequest createSequenceRequest = new CreateSequenceRequest(); // CreateSequenceRequest | 
         try {
-            apiInstance.createSequence(createSequenceRequest);
+            CreateSequence200Response result = apiInstance.createSequence(createSequenceRequest);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SequencesApi#createSequence");
             System.err.println("Status code: " + e.getCode());
@@ -223,8 +224,8 @@ public class Example {
 
 ### Return type
 
+[**CreateSequence200Response**](CreateSequence200Response.md)
 
-null (empty response body)
 
 ### Authorization
 
@@ -243,7 +244,7 @@ null (empty response body)
 
 ## createSequenceWithHttpInfo
 
-> ApiResponse<Void> createSequence createSequenceWithHttpInfo(createSequenceRequest)
+> ApiResponse<CreateSequence200Response> createSequence createSequenceWithHttpInfo(createSequenceRequest)
 
 Create a sequence
 
@@ -271,9 +272,10 @@ public class Example {
         SequencesApi apiInstance = new SequencesApi(defaultClient);
         CreateSequenceRequest createSequenceRequest = new CreateSequenceRequest(); // CreateSequenceRequest | 
         try {
-            ApiResponse<Void> response = apiInstance.createSequenceWithHttpInfo(createSequenceRequest);
+            ApiResponse<CreateSequence200Response> response = apiInstance.createSequenceWithHttpInfo(createSequenceRequest);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
         } catch (ApiException e) {
             System.err.println("Exception when calling SequencesApi#createSequence");
             System.err.println("Status code: " + e.getCode());
@@ -294,8 +296,8 @@ public class Example {
 
 ### Return type
 
+ApiResponse<[**CreateSequence200Response**](CreateSequence200Response.md)>
 
-ApiResponse<Void>
 
 ### Authorization
 

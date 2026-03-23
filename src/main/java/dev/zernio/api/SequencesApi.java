@@ -19,6 +19,7 @@ import dev.zernio.Configuration;
 import dev.zernio.Pair;
 
 import dev.zernio.model.ActivateSequence200Response;
+import dev.zernio.model.CreateSequence200Response;
 import dev.zernio.model.CreateSequenceRequest;
 import dev.zernio.model.EnrollContacts200Response;
 import dev.zernio.model.EnrollContactsRequest;
@@ -60,7 +61,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T20:40:28.543652189Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T20:43:03.427923241Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class SequencesApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -299,10 +300,11 @@ public class SequencesApi {
    * Create a sequence
    * 
    * @param createSequenceRequest  (required)
+   * @return CreateSequence200Response
    * @throws ApiException if fails to make API call
    */
-  public void createSequence(@javax.annotation.Nonnull CreateSequenceRequest createSequenceRequest) throws ApiException {
-    createSequence(createSequenceRequest, null);
+  public CreateSequence200Response createSequence(@javax.annotation.Nonnull CreateSequenceRequest createSequenceRequest) throws ApiException {
+    return createSequence(createSequenceRequest, null);
   }
 
   /**
@@ -310,20 +312,22 @@ public class SequencesApi {
    * 
    * @param createSequenceRequest  (required)
    * @param headers Optional headers to include in the request
+   * @return CreateSequence200Response
    * @throws ApiException if fails to make API call
    */
-  public void createSequence(@javax.annotation.Nonnull CreateSequenceRequest createSequenceRequest, Map<String, String> headers) throws ApiException {
-    createSequenceWithHttpInfo(createSequenceRequest, headers);
+  public CreateSequence200Response createSequence(@javax.annotation.Nonnull CreateSequenceRequest createSequenceRequest, Map<String, String> headers) throws ApiException {
+    ApiResponse<CreateSequence200Response> localVarResponse = createSequenceWithHttpInfo(createSequenceRequest, headers);
+    return localVarResponse.getData();
   }
 
   /**
    * Create a sequence
    * 
    * @param createSequenceRequest  (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;CreateSequence200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> createSequenceWithHttpInfo(@javax.annotation.Nonnull CreateSequenceRequest createSequenceRequest) throws ApiException {
+  public ApiResponse<CreateSequence200Response> createSequenceWithHttpInfo(@javax.annotation.Nonnull CreateSequenceRequest createSequenceRequest) throws ApiException {
     return createSequenceWithHttpInfo(createSequenceRequest, null);
   }
 
@@ -332,10 +336,10 @@ public class SequencesApi {
    * 
    * @param createSequenceRequest  (required)
    * @param headers Optional headers to include in the request
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;CreateSequence200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Void> createSequenceWithHttpInfo(@javax.annotation.Nonnull CreateSequenceRequest createSequenceRequest, Map<String, String> headers) throws ApiException {
+  public ApiResponse<CreateSequence200Response> createSequenceWithHttpInfo(@javax.annotation.Nonnull CreateSequenceRequest createSequenceRequest, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createSequenceRequestBuilder(createSequenceRequest, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -350,13 +354,24 @@ public class SequencesApi {
           throw getApiException("createSequence", localVarResponse);
         }
         localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
-        if (localVarResponseBody != null) {
-          localVarResponseBody.readAllBytes();
+        if (localVarResponseBody == null) {
+          return new ApiResponse<CreateSequence200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
         }
-        return new ApiResponse<>(
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        CreateSequence200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<CreateSequence200Response>() {});
+        
+
+        return new ApiResponse<CreateSequence200Response>(
             localVarResponse.statusCode(),
             localVarResponse.headers().map(),
-            null
+            responseValue
         );
       } finally {
         if (localVarResponseBody != null) {

@@ -323,7 +323,7 @@ ApiResponse<[**CancelBroadcast200Response**](CancelBroadcast200Response.md)>
 
 ## createBroadcast
 
-> void createBroadcast(createBroadcastRequest)
+> CreateBroadcast200Response createBroadcast(createBroadcastRequest)
 
 Create a broadcast draft
 
@@ -350,7 +350,8 @@ public class Example {
         BroadcastsApi apiInstance = new BroadcastsApi(defaultClient);
         CreateBroadcastRequest createBroadcastRequest = new CreateBroadcastRequest(); // CreateBroadcastRequest | 
         try {
-            apiInstance.createBroadcast(createBroadcastRequest);
+            CreateBroadcast200Response result = apiInstance.createBroadcast(createBroadcastRequest);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling BroadcastsApi#createBroadcast");
             System.err.println("Status code: " + e.getCode());
@@ -371,8 +372,8 @@ public class Example {
 
 ### Return type
 
+[**CreateBroadcast200Response**](CreateBroadcast200Response.md)
 
-null (empty response body)
 
 ### Authorization
 
@@ -391,7 +392,7 @@ null (empty response body)
 
 ## createBroadcastWithHttpInfo
 
-> ApiResponse<Void> createBroadcast createBroadcastWithHttpInfo(createBroadcastRequest)
+> ApiResponse<CreateBroadcast200Response> createBroadcast createBroadcastWithHttpInfo(createBroadcastRequest)
 
 Create a broadcast draft
 
@@ -419,9 +420,10 @@ public class Example {
         BroadcastsApi apiInstance = new BroadcastsApi(defaultClient);
         CreateBroadcastRequest createBroadcastRequest = new CreateBroadcastRequest(); // CreateBroadcastRequest | 
         try {
-            ApiResponse<Void> response = apiInstance.createBroadcastWithHttpInfo(createBroadcastRequest);
+            ApiResponse<CreateBroadcast200Response> response = apiInstance.createBroadcastWithHttpInfo(createBroadcastRequest);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
         } catch (ApiException e) {
             System.err.println("Exception when calling BroadcastsApi#createBroadcast");
             System.err.println("Status code: " + e.getCode());
@@ -442,8 +444,8 @@ public class Example {
 
 ### Return type
 
+ApiResponse<[**CreateBroadcast200Response**](CreateBroadcast200Response.md)>
 
-ApiResponse<Void>
 
 ### Authorization
 
