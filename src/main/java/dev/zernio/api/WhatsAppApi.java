@@ -96,7 +96,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T12:22:55.667233913Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T15:44:02.123260201Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WhatsAppApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -215,25 +215,29 @@ public class WhatsAppApi {
 
   /**
    * Add recipients
-   * Add recipients to a draft broadcast. Maximum 1000 recipients per request. Duplicate phone numbers are automatically skipped. 
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/recipients&#x60; instead. Add recipients to a draft broadcast. Maximum 1000 recipients per request. Duplicate phone numbers are automatically skipped. 
    * @param broadcastId Broadcast ID (required)
    * @param addWhatsAppBroadcastRecipientsRequest  (required)
    * @return AddWhatsAppBroadcastRecipients200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public AddWhatsAppBroadcastRecipients200Response addWhatsAppBroadcastRecipients(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull AddWhatsAppBroadcastRecipientsRequest addWhatsAppBroadcastRecipientsRequest) throws ApiException {
     return addWhatsAppBroadcastRecipients(broadcastId, addWhatsAppBroadcastRecipientsRequest, null);
   }
 
   /**
    * Add recipients
-   * Add recipients to a draft broadcast. Maximum 1000 recipients per request. Duplicate phone numbers are automatically skipped. 
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/recipients&#x60; instead. Add recipients to a draft broadcast. Maximum 1000 recipients per request. Duplicate phone numbers are automatically skipped. 
    * @param broadcastId Broadcast ID (required)
    * @param addWhatsAppBroadcastRecipientsRequest  (required)
    * @param headers Optional headers to include in the request
    * @return AddWhatsAppBroadcastRecipients200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public AddWhatsAppBroadcastRecipients200Response addWhatsAppBroadcastRecipients(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull AddWhatsAppBroadcastRecipientsRequest addWhatsAppBroadcastRecipientsRequest, Map<String, String> headers) throws ApiException {
     ApiResponse<AddWhatsAppBroadcastRecipients200Response> localVarResponse = addWhatsAppBroadcastRecipientsWithHttpInfo(broadcastId, addWhatsAppBroadcastRecipientsRequest, headers);
     return localVarResponse.getData();
@@ -241,25 +245,29 @@ public class WhatsAppApi {
 
   /**
    * Add recipients
-   * Add recipients to a draft broadcast. Maximum 1000 recipients per request. Duplicate phone numbers are automatically skipped. 
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/recipients&#x60; instead. Add recipients to a draft broadcast. Maximum 1000 recipients per request. Duplicate phone numbers are automatically skipped. 
    * @param broadcastId Broadcast ID (required)
    * @param addWhatsAppBroadcastRecipientsRequest  (required)
    * @return ApiResponse&lt;AddWhatsAppBroadcastRecipients200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<AddWhatsAppBroadcastRecipients200Response> addWhatsAppBroadcastRecipientsWithHttpInfo(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull AddWhatsAppBroadcastRecipientsRequest addWhatsAppBroadcastRecipientsRequest) throws ApiException {
     return addWhatsAppBroadcastRecipientsWithHttpInfo(broadcastId, addWhatsAppBroadcastRecipientsRequest, null);
   }
 
   /**
    * Add recipients
-   * Add recipients to a draft broadcast. Maximum 1000 recipients per request. Duplicate phone numbers are automatically skipped. 
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/recipients&#x60; instead. Add recipients to a draft broadcast. Maximum 1000 recipients per request. Duplicate phone numbers are automatically skipped. 
    * @param broadcastId Broadcast ID (required)
    * @param addWhatsAppBroadcastRecipientsRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;AddWhatsAppBroadcastRecipients200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<AddWhatsAppBroadcastRecipients200Response> addWhatsAppBroadcastRecipientsWithHttpInfo(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull AddWhatsAppBroadcastRecipientsRequest addWhatsAppBroadcastRecipientsRequest, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = addWhatsAppBroadcastRecipientsRequestBuilder(broadcastId, addWhatsAppBroadcastRecipientsRequest, headers);
     try {
@@ -347,23 +355,27 @@ public class WhatsAppApi {
 
   /**
    * Bulk delete contacts
-   * Permanently delete multiple contacts at once (max 500 per request).
+   * **Deprecated.** Use &#x60;DELETE /v1/contacts/{id}&#x60; for individual deletes instead. Permanently delete multiple contacts at once (max 500 per request). 
    * @param bulkDeleteWhatsAppContactsRequest  (required)
    * @return BulkDeleteWhatsAppContacts200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public BulkDeleteWhatsAppContacts200Response bulkDeleteWhatsAppContacts(@javax.annotation.Nonnull BulkDeleteWhatsAppContactsRequest bulkDeleteWhatsAppContactsRequest) throws ApiException {
     return bulkDeleteWhatsAppContacts(bulkDeleteWhatsAppContactsRequest, null);
   }
 
   /**
    * Bulk delete contacts
-   * Permanently delete multiple contacts at once (max 500 per request).
+   * **Deprecated.** Use &#x60;DELETE /v1/contacts/{id}&#x60; for individual deletes instead. Permanently delete multiple contacts at once (max 500 per request). 
    * @param bulkDeleteWhatsAppContactsRequest  (required)
    * @param headers Optional headers to include in the request
    * @return BulkDeleteWhatsAppContacts200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public BulkDeleteWhatsAppContacts200Response bulkDeleteWhatsAppContacts(@javax.annotation.Nonnull BulkDeleteWhatsAppContactsRequest bulkDeleteWhatsAppContactsRequest, Map<String, String> headers) throws ApiException {
     ApiResponse<BulkDeleteWhatsAppContacts200Response> localVarResponse = bulkDeleteWhatsAppContactsWithHttpInfo(bulkDeleteWhatsAppContactsRequest, headers);
     return localVarResponse.getData();
@@ -371,23 +383,27 @@ public class WhatsAppApi {
 
   /**
    * Bulk delete contacts
-   * Permanently delete multiple contacts at once (max 500 per request).
+   * **Deprecated.** Use &#x60;DELETE /v1/contacts/{id}&#x60; for individual deletes instead. Permanently delete multiple contacts at once (max 500 per request). 
    * @param bulkDeleteWhatsAppContactsRequest  (required)
    * @return ApiResponse&lt;BulkDeleteWhatsAppContacts200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<BulkDeleteWhatsAppContacts200Response> bulkDeleteWhatsAppContactsWithHttpInfo(@javax.annotation.Nonnull BulkDeleteWhatsAppContactsRequest bulkDeleteWhatsAppContactsRequest) throws ApiException {
     return bulkDeleteWhatsAppContactsWithHttpInfo(bulkDeleteWhatsAppContactsRequest, null);
   }
 
   /**
    * Bulk delete contacts
-   * Permanently delete multiple contacts at once (max 500 per request).
+   * **Deprecated.** Use &#x60;DELETE /v1/contacts/{id}&#x60; for individual deletes instead. Permanently delete multiple contacts at once (max 500 per request). 
    * @param bulkDeleteWhatsAppContactsRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;BulkDeleteWhatsAppContacts200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<BulkDeleteWhatsAppContacts200Response> bulkDeleteWhatsAppContactsWithHttpInfo(@javax.annotation.Nonnull BulkDeleteWhatsAppContactsRequest bulkDeleteWhatsAppContactsRequest, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = bulkDeleteWhatsAppContactsRequestBuilder(bulkDeleteWhatsAppContactsRequest, headers);
     try {
@@ -470,23 +486,27 @@ public class WhatsAppApi {
 
   /**
    * Bulk update contacts
-   * Perform bulk operations on multiple contacts (max 500 per request). Supported actions: addTags, removeTags, addGroups, removeGroups, optIn, optOut, block, unblock. 
+   * **Deprecated.** Use &#x60;PATCH /v1/contacts/{id}&#x60; for individual updates instead. Perform bulk operations on multiple contacts (max 500 per request). Supported actions: addTags, removeTags, addGroups, removeGroups, optIn, optOut, block, unblock. 
    * @param bulkUpdateWhatsAppContactsRequest  (required)
    * @return BulkUpdateWhatsAppContacts200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public BulkUpdateWhatsAppContacts200Response bulkUpdateWhatsAppContacts(@javax.annotation.Nonnull BulkUpdateWhatsAppContactsRequest bulkUpdateWhatsAppContactsRequest) throws ApiException {
     return bulkUpdateWhatsAppContacts(bulkUpdateWhatsAppContactsRequest, null);
   }
 
   /**
    * Bulk update contacts
-   * Perform bulk operations on multiple contacts (max 500 per request). Supported actions: addTags, removeTags, addGroups, removeGroups, optIn, optOut, block, unblock. 
+   * **Deprecated.** Use &#x60;PATCH /v1/contacts/{id}&#x60; for individual updates instead. Perform bulk operations on multiple contacts (max 500 per request). Supported actions: addTags, removeTags, addGroups, removeGroups, optIn, optOut, block, unblock. 
    * @param bulkUpdateWhatsAppContactsRequest  (required)
    * @param headers Optional headers to include in the request
    * @return BulkUpdateWhatsAppContacts200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public BulkUpdateWhatsAppContacts200Response bulkUpdateWhatsAppContacts(@javax.annotation.Nonnull BulkUpdateWhatsAppContactsRequest bulkUpdateWhatsAppContactsRequest, Map<String, String> headers) throws ApiException {
     ApiResponse<BulkUpdateWhatsAppContacts200Response> localVarResponse = bulkUpdateWhatsAppContactsWithHttpInfo(bulkUpdateWhatsAppContactsRequest, headers);
     return localVarResponse.getData();
@@ -494,23 +514,27 @@ public class WhatsAppApi {
 
   /**
    * Bulk update contacts
-   * Perform bulk operations on multiple contacts (max 500 per request). Supported actions: addTags, removeTags, addGroups, removeGroups, optIn, optOut, block, unblock. 
+   * **Deprecated.** Use &#x60;PATCH /v1/contacts/{id}&#x60; for individual updates instead. Perform bulk operations on multiple contacts (max 500 per request). Supported actions: addTags, removeTags, addGroups, removeGroups, optIn, optOut, block, unblock. 
    * @param bulkUpdateWhatsAppContactsRequest  (required)
    * @return ApiResponse&lt;BulkUpdateWhatsAppContacts200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<BulkUpdateWhatsAppContacts200Response> bulkUpdateWhatsAppContactsWithHttpInfo(@javax.annotation.Nonnull BulkUpdateWhatsAppContactsRequest bulkUpdateWhatsAppContactsRequest) throws ApiException {
     return bulkUpdateWhatsAppContactsWithHttpInfo(bulkUpdateWhatsAppContactsRequest, null);
   }
 
   /**
    * Bulk update contacts
-   * Perform bulk operations on multiple contacts (max 500 per request). Supported actions: addTags, removeTags, addGroups, removeGroups, optIn, optOut, block, unblock. 
+   * **Deprecated.** Use &#x60;PATCH /v1/contacts/{id}&#x60; for individual updates instead. Perform bulk operations on multiple contacts (max 500 per request). Supported actions: addTags, removeTags, addGroups, removeGroups, optIn, optOut, block, unblock. 
    * @param bulkUpdateWhatsAppContactsRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;BulkUpdateWhatsAppContacts200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<BulkUpdateWhatsAppContacts200Response> bulkUpdateWhatsAppContactsWithHttpInfo(@javax.annotation.Nonnull BulkUpdateWhatsAppContactsRequest bulkUpdateWhatsAppContactsRequest, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = bulkUpdateWhatsAppContactsRequestBuilder(bulkUpdateWhatsAppContactsRequest, headers);
     try {
@@ -593,23 +617,27 @@ public class WhatsAppApi {
 
   /**
    * Cancel scheduled broadcast
-   * Cancel a scheduled broadcast and return it to draft status. Only broadcasts in scheduled status can be cancelled. 
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/cancel&#x60; instead. Cancel a scheduled broadcast and return it to draft status. Only broadcasts in scheduled status can be cancelled. 
    * @param broadcastId Broadcast ID (required)
    * @return CancelWhatsAppBroadcastSchedule200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public CancelWhatsAppBroadcastSchedule200Response cancelWhatsAppBroadcastSchedule(@javax.annotation.Nonnull String broadcastId) throws ApiException {
     return cancelWhatsAppBroadcastSchedule(broadcastId, null);
   }
 
   /**
    * Cancel scheduled broadcast
-   * Cancel a scheduled broadcast and return it to draft status. Only broadcasts in scheduled status can be cancelled. 
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/cancel&#x60; instead. Cancel a scheduled broadcast and return it to draft status. Only broadcasts in scheduled status can be cancelled. 
    * @param broadcastId Broadcast ID (required)
    * @param headers Optional headers to include in the request
    * @return CancelWhatsAppBroadcastSchedule200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public CancelWhatsAppBroadcastSchedule200Response cancelWhatsAppBroadcastSchedule(@javax.annotation.Nonnull String broadcastId, Map<String, String> headers) throws ApiException {
     ApiResponse<CancelWhatsAppBroadcastSchedule200Response> localVarResponse = cancelWhatsAppBroadcastScheduleWithHttpInfo(broadcastId, headers);
     return localVarResponse.getData();
@@ -617,23 +645,27 @@ public class WhatsAppApi {
 
   /**
    * Cancel scheduled broadcast
-   * Cancel a scheduled broadcast and return it to draft status. Only broadcasts in scheduled status can be cancelled. 
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/cancel&#x60; instead. Cancel a scheduled broadcast and return it to draft status. Only broadcasts in scheduled status can be cancelled. 
    * @param broadcastId Broadcast ID (required)
    * @return ApiResponse&lt;CancelWhatsAppBroadcastSchedule200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<CancelWhatsAppBroadcastSchedule200Response> cancelWhatsAppBroadcastScheduleWithHttpInfo(@javax.annotation.Nonnull String broadcastId) throws ApiException {
     return cancelWhatsAppBroadcastScheduleWithHttpInfo(broadcastId, null);
   }
 
   /**
    * Cancel scheduled broadcast
-   * Cancel a scheduled broadcast and return it to draft status. Only broadcasts in scheduled status can be cancelled. 
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/cancel&#x60; instead. Cancel a scheduled broadcast and return it to draft status. Only broadcasts in scheduled status can be cancelled. 
    * @param broadcastId Broadcast ID (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;CancelWhatsAppBroadcastSchedule200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<CancelWhatsAppBroadcastSchedule200Response> cancelWhatsAppBroadcastScheduleWithHttpInfo(@javax.annotation.Nonnull String broadcastId, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = cancelWhatsAppBroadcastScheduleRequestBuilder(broadcastId, headers);
     try {
@@ -711,23 +743,27 @@ public class WhatsAppApi {
 
   /**
    * Create broadcast
-   * Create a new draft broadcast. Optionally include initial recipients. After creation, add recipients and then send or schedule the broadcast. 
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts&#x60; instead. Create a new draft broadcast. Optionally include initial recipients. After creation, add recipients and then send or schedule the broadcast. 
    * @param createWhatsAppBroadcastRequest  (required)
    * @return CreateWhatsAppBroadcast200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public CreateWhatsAppBroadcast200Response createWhatsAppBroadcast(@javax.annotation.Nonnull CreateWhatsAppBroadcastRequest createWhatsAppBroadcastRequest) throws ApiException {
     return createWhatsAppBroadcast(createWhatsAppBroadcastRequest, null);
   }
 
   /**
    * Create broadcast
-   * Create a new draft broadcast. Optionally include initial recipients. After creation, add recipients and then send or schedule the broadcast. 
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts&#x60; instead. Create a new draft broadcast. Optionally include initial recipients. After creation, add recipients and then send or schedule the broadcast. 
    * @param createWhatsAppBroadcastRequest  (required)
    * @param headers Optional headers to include in the request
    * @return CreateWhatsAppBroadcast200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public CreateWhatsAppBroadcast200Response createWhatsAppBroadcast(@javax.annotation.Nonnull CreateWhatsAppBroadcastRequest createWhatsAppBroadcastRequest, Map<String, String> headers) throws ApiException {
     ApiResponse<CreateWhatsAppBroadcast200Response> localVarResponse = createWhatsAppBroadcastWithHttpInfo(createWhatsAppBroadcastRequest, headers);
     return localVarResponse.getData();
@@ -735,23 +771,27 @@ public class WhatsAppApi {
 
   /**
    * Create broadcast
-   * Create a new draft broadcast. Optionally include initial recipients. After creation, add recipients and then send or schedule the broadcast. 
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts&#x60; instead. Create a new draft broadcast. Optionally include initial recipients. After creation, add recipients and then send or schedule the broadcast. 
    * @param createWhatsAppBroadcastRequest  (required)
    * @return ApiResponse&lt;CreateWhatsAppBroadcast200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<CreateWhatsAppBroadcast200Response> createWhatsAppBroadcastWithHttpInfo(@javax.annotation.Nonnull CreateWhatsAppBroadcastRequest createWhatsAppBroadcastRequest) throws ApiException {
     return createWhatsAppBroadcastWithHttpInfo(createWhatsAppBroadcastRequest, null);
   }
 
   /**
    * Create broadcast
-   * Create a new draft broadcast. Optionally include initial recipients. After creation, add recipients and then send or schedule the broadcast. 
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts&#x60; instead. Create a new draft broadcast. Optionally include initial recipients. After creation, add recipients and then send or schedule the broadcast. 
    * @param createWhatsAppBroadcastRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;CreateWhatsAppBroadcast200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<CreateWhatsAppBroadcast200Response> createWhatsAppBroadcastWithHttpInfo(@javax.annotation.Nonnull CreateWhatsAppBroadcastRequest createWhatsAppBroadcastRequest, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createWhatsAppBroadcastRequestBuilder(createWhatsAppBroadcastRequest, headers);
     try {
@@ -834,23 +874,27 @@ public class WhatsAppApi {
 
   /**
    * Create contact
-   * Create a new WhatsApp contact. Phone number must be unique per account and in E.164 format (e.g., +1234567890). 
+   * **Deprecated.** Use &#x60;POST /v1/contacts&#x60; instead. Create a new WhatsApp contact. Phone number must be unique per account and in E.164 format (e.g., +1234567890). 
    * @param createWhatsAppContactRequest  (required)
    * @return CreateWhatsAppContact200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public CreateWhatsAppContact200Response createWhatsAppContact(@javax.annotation.Nonnull CreateWhatsAppContactRequest createWhatsAppContactRequest) throws ApiException {
     return createWhatsAppContact(createWhatsAppContactRequest, null);
   }
 
   /**
    * Create contact
-   * Create a new WhatsApp contact. Phone number must be unique per account and in E.164 format (e.g., +1234567890). 
+   * **Deprecated.** Use &#x60;POST /v1/contacts&#x60; instead. Create a new WhatsApp contact. Phone number must be unique per account and in E.164 format (e.g., +1234567890). 
    * @param createWhatsAppContactRequest  (required)
    * @param headers Optional headers to include in the request
    * @return CreateWhatsAppContact200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public CreateWhatsAppContact200Response createWhatsAppContact(@javax.annotation.Nonnull CreateWhatsAppContactRequest createWhatsAppContactRequest, Map<String, String> headers) throws ApiException {
     ApiResponse<CreateWhatsAppContact200Response> localVarResponse = createWhatsAppContactWithHttpInfo(createWhatsAppContactRequest, headers);
     return localVarResponse.getData();
@@ -858,23 +902,27 @@ public class WhatsAppApi {
 
   /**
    * Create contact
-   * Create a new WhatsApp contact. Phone number must be unique per account and in E.164 format (e.g., +1234567890). 
+   * **Deprecated.** Use &#x60;POST /v1/contacts&#x60; instead. Create a new WhatsApp contact. Phone number must be unique per account and in E.164 format (e.g., +1234567890). 
    * @param createWhatsAppContactRequest  (required)
    * @return ApiResponse&lt;CreateWhatsAppContact200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<CreateWhatsAppContact200Response> createWhatsAppContactWithHttpInfo(@javax.annotation.Nonnull CreateWhatsAppContactRequest createWhatsAppContactRequest) throws ApiException {
     return createWhatsAppContactWithHttpInfo(createWhatsAppContactRequest, null);
   }
 
   /**
    * Create contact
-   * Create a new WhatsApp contact. Phone number must be unique per account and in E.164 format (e.g., +1234567890). 
+   * **Deprecated.** Use &#x60;POST /v1/contacts&#x60; instead. Create a new WhatsApp contact. Phone number must be unique per account and in E.164 format (e.g., +1234567890). 
    * @param createWhatsAppContactRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;CreateWhatsAppContact200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<CreateWhatsAppContact200Response> createWhatsAppContactWithHttpInfo(@javax.annotation.Nonnull CreateWhatsAppContactRequest createWhatsAppContactRequest, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createWhatsAppContactRequestBuilder(createWhatsAppContactRequest, headers);
     try {
@@ -1080,23 +1128,27 @@ public class WhatsAppApi {
 
   /**
    * Delete broadcast
-   * Delete a broadcast. Only draft or cancelled broadcasts can be deleted.
+   * **Deprecated.** Use &#x60;DELETE /v1/broadcasts/{id}&#x60; instead. Delete a broadcast. Only draft or cancelled broadcasts can be deleted. 
    * @param broadcastId Broadcast ID (required)
    * @return UnpublishPost200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UnpublishPost200Response deleteWhatsAppBroadcast(@javax.annotation.Nonnull String broadcastId) throws ApiException {
     return deleteWhatsAppBroadcast(broadcastId, null);
   }
 
   /**
    * Delete broadcast
-   * Delete a broadcast. Only draft or cancelled broadcasts can be deleted.
+   * **Deprecated.** Use &#x60;DELETE /v1/broadcasts/{id}&#x60; instead. Delete a broadcast. Only draft or cancelled broadcasts can be deleted. 
    * @param broadcastId Broadcast ID (required)
    * @param headers Optional headers to include in the request
    * @return UnpublishPost200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UnpublishPost200Response deleteWhatsAppBroadcast(@javax.annotation.Nonnull String broadcastId, Map<String, String> headers) throws ApiException {
     ApiResponse<UnpublishPost200Response> localVarResponse = deleteWhatsAppBroadcastWithHttpInfo(broadcastId, headers);
     return localVarResponse.getData();
@@ -1104,23 +1156,27 @@ public class WhatsAppApi {
 
   /**
    * Delete broadcast
-   * Delete a broadcast. Only draft or cancelled broadcasts can be deleted.
+   * **Deprecated.** Use &#x60;DELETE /v1/broadcasts/{id}&#x60; instead. Delete a broadcast. Only draft or cancelled broadcasts can be deleted. 
    * @param broadcastId Broadcast ID (required)
    * @return ApiResponse&lt;UnpublishPost200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<UnpublishPost200Response> deleteWhatsAppBroadcastWithHttpInfo(@javax.annotation.Nonnull String broadcastId) throws ApiException {
     return deleteWhatsAppBroadcastWithHttpInfo(broadcastId, null);
   }
 
   /**
    * Delete broadcast
-   * Delete a broadcast. Only draft or cancelled broadcasts can be deleted.
+   * **Deprecated.** Use &#x60;DELETE /v1/broadcasts/{id}&#x60; instead. Delete a broadcast. Only draft or cancelled broadcasts can be deleted. 
    * @param broadcastId Broadcast ID (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;UnpublishPost200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<UnpublishPost200Response> deleteWhatsAppBroadcastWithHttpInfo(@javax.annotation.Nonnull String broadcastId, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteWhatsAppBroadcastRequestBuilder(broadcastId, headers);
     try {
@@ -1198,23 +1254,27 @@ public class WhatsAppApi {
 
   /**
    * Delete contact
-   * Permanently delete a WhatsApp contact.
+   * **Deprecated.** Use &#x60;DELETE /v1/contacts/{id}&#x60; instead. Permanently delete a WhatsApp contact. 
    * @param contactId Contact ID (required)
    * @return UnpublishPost200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UnpublishPost200Response deleteWhatsAppContact(@javax.annotation.Nonnull String contactId) throws ApiException {
     return deleteWhatsAppContact(contactId, null);
   }
 
   /**
    * Delete contact
-   * Permanently delete a WhatsApp contact.
+   * **Deprecated.** Use &#x60;DELETE /v1/contacts/{id}&#x60; instead. Permanently delete a WhatsApp contact. 
    * @param contactId Contact ID (required)
    * @param headers Optional headers to include in the request
    * @return UnpublishPost200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UnpublishPost200Response deleteWhatsAppContact(@javax.annotation.Nonnull String contactId, Map<String, String> headers) throws ApiException {
     ApiResponse<UnpublishPost200Response> localVarResponse = deleteWhatsAppContactWithHttpInfo(contactId, headers);
     return localVarResponse.getData();
@@ -1222,23 +1282,27 @@ public class WhatsAppApi {
 
   /**
    * Delete contact
-   * Permanently delete a WhatsApp contact.
+   * **Deprecated.** Use &#x60;DELETE /v1/contacts/{id}&#x60; instead. Permanently delete a WhatsApp contact. 
    * @param contactId Contact ID (required)
    * @return ApiResponse&lt;UnpublishPost200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<UnpublishPost200Response> deleteWhatsAppContactWithHttpInfo(@javax.annotation.Nonnull String contactId) throws ApiException {
     return deleteWhatsAppContactWithHttpInfo(contactId, null);
   }
 
   /**
    * Delete contact
-   * Permanently delete a WhatsApp contact.
+   * **Deprecated.** Use &#x60;DELETE /v1/contacts/{id}&#x60; instead. Permanently delete a WhatsApp contact. 
    * @param contactId Contact ID (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;UnpublishPost200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<UnpublishPost200Response> deleteWhatsAppContactWithHttpInfo(@javax.annotation.Nonnull String contactId, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteWhatsAppContactRequestBuilder(contactId, headers);
     try {
@@ -1316,23 +1380,27 @@ public class WhatsAppApi {
 
   /**
    * Delete group
-   * Delete a contact group. This removes the group from all contacts but does not delete the contacts themselves.
+   * **Deprecated.** Use contact tags via &#x60;PATCH /v1/contacts/{id}&#x60; instead. Delete a contact group. This removes the group from all contacts but does not delete the contacts themselves. 
    * @param deleteWhatsAppGroupRequest  (required)
    * @return RenameWhatsAppGroup200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public RenameWhatsAppGroup200Response deleteWhatsAppGroup(@javax.annotation.Nonnull DeleteWhatsAppGroupRequest deleteWhatsAppGroupRequest) throws ApiException {
     return deleteWhatsAppGroup(deleteWhatsAppGroupRequest, null);
   }
 
   /**
    * Delete group
-   * Delete a contact group. This removes the group from all contacts but does not delete the contacts themselves.
+   * **Deprecated.** Use contact tags via &#x60;PATCH /v1/contacts/{id}&#x60; instead. Delete a contact group. This removes the group from all contacts but does not delete the contacts themselves. 
    * @param deleteWhatsAppGroupRequest  (required)
    * @param headers Optional headers to include in the request
    * @return RenameWhatsAppGroup200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public RenameWhatsAppGroup200Response deleteWhatsAppGroup(@javax.annotation.Nonnull DeleteWhatsAppGroupRequest deleteWhatsAppGroupRequest, Map<String, String> headers) throws ApiException {
     ApiResponse<RenameWhatsAppGroup200Response> localVarResponse = deleteWhatsAppGroupWithHttpInfo(deleteWhatsAppGroupRequest, headers);
     return localVarResponse.getData();
@@ -1340,23 +1408,27 @@ public class WhatsAppApi {
 
   /**
    * Delete group
-   * Delete a contact group. This removes the group from all contacts but does not delete the contacts themselves.
+   * **Deprecated.** Use contact tags via &#x60;PATCH /v1/contacts/{id}&#x60; instead. Delete a contact group. This removes the group from all contacts but does not delete the contacts themselves. 
    * @param deleteWhatsAppGroupRequest  (required)
    * @return ApiResponse&lt;RenameWhatsAppGroup200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<RenameWhatsAppGroup200Response> deleteWhatsAppGroupWithHttpInfo(@javax.annotation.Nonnull DeleteWhatsAppGroupRequest deleteWhatsAppGroupRequest) throws ApiException {
     return deleteWhatsAppGroupWithHttpInfo(deleteWhatsAppGroupRequest, null);
   }
 
   /**
    * Delete group
-   * Delete a contact group. This removes the group from all contacts but does not delete the contacts themselves.
+   * **Deprecated.** Use contact tags via &#x60;PATCH /v1/contacts/{id}&#x60; instead. Delete a contact group. This removes the group from all contacts but does not delete the contacts themselves. 
    * @param deleteWhatsAppGroupRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;RenameWhatsAppGroup200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<RenameWhatsAppGroup200Response> deleteWhatsAppGroupWithHttpInfo(@javax.annotation.Nonnull DeleteWhatsAppGroupRequest deleteWhatsAppGroupRequest, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteWhatsAppGroupRequestBuilder(deleteWhatsAppGroupRequest, headers);
     try {
@@ -1439,7 +1511,7 @@ public class WhatsAppApi {
 
   /**
    * Delete template
-   * Permanently delete a message template by name.
+   * Permanently delete a message template by name. 
    * @param templateName Template name (required)
    * @param accountId WhatsApp social account ID (required)
    * @return UnpublishPost200Response
@@ -1451,7 +1523,7 @@ public class WhatsAppApi {
 
   /**
    * Delete template
-   * Permanently delete a message template by name.
+   * Permanently delete a message template by name. 
    * @param templateName Template name (required)
    * @param accountId WhatsApp social account ID (required)
    * @param headers Optional headers to include in the request
@@ -1465,7 +1537,7 @@ public class WhatsAppApi {
 
   /**
    * Delete template
-   * Permanently delete a message template by name.
+   * Permanently delete a message template by name. 
    * @param templateName Template name (required)
    * @param accountId WhatsApp social account ID (required)
    * @return ApiResponse&lt;UnpublishPost200Response&gt;
@@ -1477,7 +1549,7 @@ public class WhatsAppApi {
 
   /**
    * Delete template
-   * Permanently delete a message template by name.
+   * Permanently delete a message template by name. 
    * @param templateName Template name (required)
    * @param accountId WhatsApp social account ID (required)
    * @param headers Optional headers to include in the request
@@ -1580,23 +1652,27 @@ public class WhatsAppApi {
 
   /**
    * Get broadcast
-   * Retrieve detailed information about a single broadcast including delivery statistics.
+   * **Deprecated.** Use &#x60;GET /v1/broadcasts/{id}&#x60; instead. Retrieve detailed information about a single broadcast including delivery statistics. 
    * @param broadcastId Broadcast ID (required)
    * @return GetWhatsAppBroadcast200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public GetWhatsAppBroadcast200Response getWhatsAppBroadcast(@javax.annotation.Nonnull String broadcastId) throws ApiException {
     return getWhatsAppBroadcast(broadcastId, null);
   }
 
   /**
    * Get broadcast
-   * Retrieve detailed information about a single broadcast including delivery statistics.
+   * **Deprecated.** Use &#x60;GET /v1/broadcasts/{id}&#x60; instead. Retrieve detailed information about a single broadcast including delivery statistics. 
    * @param broadcastId Broadcast ID (required)
    * @param headers Optional headers to include in the request
    * @return GetWhatsAppBroadcast200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public GetWhatsAppBroadcast200Response getWhatsAppBroadcast(@javax.annotation.Nonnull String broadcastId, Map<String, String> headers) throws ApiException {
     ApiResponse<GetWhatsAppBroadcast200Response> localVarResponse = getWhatsAppBroadcastWithHttpInfo(broadcastId, headers);
     return localVarResponse.getData();
@@ -1604,23 +1680,27 @@ public class WhatsAppApi {
 
   /**
    * Get broadcast
-   * Retrieve detailed information about a single broadcast including delivery statistics.
+   * **Deprecated.** Use &#x60;GET /v1/broadcasts/{id}&#x60; instead. Retrieve detailed information about a single broadcast including delivery statistics. 
    * @param broadcastId Broadcast ID (required)
    * @return ApiResponse&lt;GetWhatsAppBroadcast200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<GetWhatsAppBroadcast200Response> getWhatsAppBroadcastWithHttpInfo(@javax.annotation.Nonnull String broadcastId) throws ApiException {
     return getWhatsAppBroadcastWithHttpInfo(broadcastId, null);
   }
 
   /**
    * Get broadcast
-   * Retrieve detailed information about a single broadcast including delivery statistics.
+   * **Deprecated.** Use &#x60;GET /v1/broadcasts/{id}&#x60; instead. Retrieve detailed information about a single broadcast including delivery statistics. 
    * @param broadcastId Broadcast ID (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetWhatsAppBroadcast200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<GetWhatsAppBroadcast200Response> getWhatsAppBroadcastWithHttpInfo(@javax.annotation.Nonnull String broadcastId, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getWhatsAppBroadcastRequestBuilder(broadcastId, headers);
     try {
@@ -1698,21 +1778,23 @@ public class WhatsAppApi {
 
   /**
    * List recipients
-   * List recipients of a broadcast with their delivery status. Supports filtering by delivery status and pagination. 
+   * **Deprecated.** Use &#x60;GET /v1/broadcasts/{id}/recipients&#x60; instead. List recipients of a broadcast with their delivery status. Supports filtering by delivery status and pagination. 
    * @param broadcastId Broadcast ID (required)
    * @param status Filter by recipient delivery status (optional)
    * @param limit Maximum results (default 100) (optional, default to 100)
    * @param skip Offset for pagination (optional, default to 0)
    * @return GetWhatsAppBroadcastRecipients200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public GetWhatsAppBroadcastRecipients200Response getWhatsAppBroadcastRecipients(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip) throws ApiException {
     return getWhatsAppBroadcastRecipients(broadcastId, status, limit, skip, null);
   }
 
   /**
    * List recipients
-   * List recipients of a broadcast with their delivery status. Supports filtering by delivery status and pagination. 
+   * **Deprecated.** Use &#x60;GET /v1/broadcasts/{id}/recipients&#x60; instead. List recipients of a broadcast with their delivery status. Supports filtering by delivery status and pagination. 
    * @param broadcastId Broadcast ID (required)
    * @param status Filter by recipient delivery status (optional)
    * @param limit Maximum results (default 100) (optional, default to 100)
@@ -1720,7 +1802,9 @@ public class WhatsAppApi {
    * @param headers Optional headers to include in the request
    * @return GetWhatsAppBroadcastRecipients200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public GetWhatsAppBroadcastRecipients200Response getWhatsAppBroadcastRecipients(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, Map<String, String> headers) throws ApiException {
     ApiResponse<GetWhatsAppBroadcastRecipients200Response> localVarResponse = getWhatsAppBroadcastRecipientsWithHttpInfo(broadcastId, status, limit, skip, headers);
     return localVarResponse.getData();
@@ -1728,21 +1812,23 @@ public class WhatsAppApi {
 
   /**
    * List recipients
-   * List recipients of a broadcast with their delivery status. Supports filtering by delivery status and pagination. 
+   * **Deprecated.** Use &#x60;GET /v1/broadcasts/{id}/recipients&#x60; instead. List recipients of a broadcast with their delivery status. Supports filtering by delivery status and pagination. 
    * @param broadcastId Broadcast ID (required)
    * @param status Filter by recipient delivery status (optional)
    * @param limit Maximum results (default 100) (optional, default to 100)
    * @param skip Offset for pagination (optional, default to 0)
    * @return ApiResponse&lt;GetWhatsAppBroadcastRecipients200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<GetWhatsAppBroadcastRecipients200Response> getWhatsAppBroadcastRecipientsWithHttpInfo(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip) throws ApiException {
     return getWhatsAppBroadcastRecipientsWithHttpInfo(broadcastId, status, limit, skip, null);
   }
 
   /**
    * List recipients
-   * List recipients of a broadcast with their delivery status. Supports filtering by delivery status and pagination. 
+   * **Deprecated.** Use &#x60;GET /v1/broadcasts/{id}/recipients&#x60; instead. List recipients of a broadcast with their delivery status. Supports filtering by delivery status and pagination. 
    * @param broadcastId Broadcast ID (required)
    * @param status Filter by recipient delivery status (optional)
    * @param limit Maximum results (default 100) (optional, default to 100)
@@ -1750,7 +1836,9 @@ public class WhatsAppApi {
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetWhatsAppBroadcastRecipients200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<GetWhatsAppBroadcastRecipients200Response> getWhatsAppBroadcastRecipientsWithHttpInfo(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getWhatsAppBroadcastRecipientsRequestBuilder(broadcastId, status, limit, skip, headers);
     try {
@@ -1847,21 +1935,23 @@ public class WhatsAppApi {
 
   /**
    * List broadcasts
-   * List all WhatsApp broadcasts for an account. Returns broadcasts sorted by creation date (newest first) without the full recipients list for performance. 
+   * **Deprecated.** Use &#x60;GET /v1/broadcasts?profileId&#x3D;{profileId}&#x60; instead. List all WhatsApp broadcasts for an account. Returns broadcasts sorted by creation date (newest first) without the full recipients list for performance. 
    * @param accountId WhatsApp social account ID (required)
    * @param status Filter by broadcast status (optional)
    * @param limit Maximum results (default 50) (optional, default to 50)
    * @param skip Offset for pagination (optional, default to 0)
    * @return GetWhatsAppBroadcasts200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public GetWhatsAppBroadcasts200Response getWhatsAppBroadcasts(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip) throws ApiException {
     return getWhatsAppBroadcasts(accountId, status, limit, skip, null);
   }
 
   /**
    * List broadcasts
-   * List all WhatsApp broadcasts for an account. Returns broadcasts sorted by creation date (newest first) without the full recipients list for performance. 
+   * **Deprecated.** Use &#x60;GET /v1/broadcasts?profileId&#x3D;{profileId}&#x60; instead. List all WhatsApp broadcasts for an account. Returns broadcasts sorted by creation date (newest first) without the full recipients list for performance. 
    * @param accountId WhatsApp social account ID (required)
    * @param status Filter by broadcast status (optional)
    * @param limit Maximum results (default 50) (optional, default to 50)
@@ -1869,7 +1959,9 @@ public class WhatsAppApi {
    * @param headers Optional headers to include in the request
    * @return GetWhatsAppBroadcasts200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public GetWhatsAppBroadcasts200Response getWhatsAppBroadcasts(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, Map<String, String> headers) throws ApiException {
     ApiResponse<GetWhatsAppBroadcasts200Response> localVarResponse = getWhatsAppBroadcastsWithHttpInfo(accountId, status, limit, skip, headers);
     return localVarResponse.getData();
@@ -1877,21 +1969,23 @@ public class WhatsAppApi {
 
   /**
    * List broadcasts
-   * List all WhatsApp broadcasts for an account. Returns broadcasts sorted by creation date (newest first) without the full recipients list for performance. 
+   * **Deprecated.** Use &#x60;GET /v1/broadcasts?profileId&#x3D;{profileId}&#x60; instead. List all WhatsApp broadcasts for an account. Returns broadcasts sorted by creation date (newest first) without the full recipients list for performance. 
    * @param accountId WhatsApp social account ID (required)
    * @param status Filter by broadcast status (optional)
    * @param limit Maximum results (default 50) (optional, default to 50)
    * @param skip Offset for pagination (optional, default to 0)
    * @return ApiResponse&lt;GetWhatsAppBroadcasts200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<GetWhatsAppBroadcasts200Response> getWhatsAppBroadcastsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip) throws ApiException {
     return getWhatsAppBroadcastsWithHttpInfo(accountId, status, limit, skip, null);
   }
 
   /**
    * List broadcasts
-   * List all WhatsApp broadcasts for an account. Returns broadcasts sorted by creation date (newest first) without the full recipients list for performance. 
+   * **Deprecated.** Use &#x60;GET /v1/broadcasts?profileId&#x3D;{profileId}&#x60; instead. List all WhatsApp broadcasts for an account. Returns broadcasts sorted by creation date (newest first) without the full recipients list for performance. 
    * @param accountId WhatsApp social account ID (required)
    * @param status Filter by broadcast status (optional)
    * @param limit Maximum results (default 50) (optional, default to 50)
@@ -1899,7 +1993,9 @@ public class WhatsAppApi {
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetWhatsAppBroadcasts200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<GetWhatsAppBroadcasts200Response> getWhatsAppBroadcastsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getWhatsAppBroadcastsRequestBuilder(accountId, status, limit, skip, headers);
     try {
@@ -1997,7 +2093,7 @@ public class WhatsAppApi {
 
   /**
    * Get business profile
-   * Retrieve the WhatsApp Business profile for the account (about, address, description, email, websites, etc.).
+   * Retrieve the WhatsApp Business profile for the account (about, address, description, email, websites, etc.). 
    * @param accountId WhatsApp social account ID (required)
    * @return GetWhatsAppBusinessProfile200Response
    * @throws ApiException if fails to make API call
@@ -2008,7 +2104,7 @@ public class WhatsAppApi {
 
   /**
    * Get business profile
-   * Retrieve the WhatsApp Business profile for the account (about, address, description, email, websites, etc.).
+   * Retrieve the WhatsApp Business profile for the account (about, address, description, email, websites, etc.). 
    * @param accountId WhatsApp social account ID (required)
    * @param headers Optional headers to include in the request
    * @return GetWhatsAppBusinessProfile200Response
@@ -2021,7 +2117,7 @@ public class WhatsAppApi {
 
   /**
    * Get business profile
-   * Retrieve the WhatsApp Business profile for the account (about, address, description, email, websites, etc.).
+   * Retrieve the WhatsApp Business profile for the account (about, address, description, email, websites, etc.). 
    * @param accountId WhatsApp social account ID (required)
    * @return ApiResponse&lt;GetWhatsAppBusinessProfile200Response&gt;
    * @throws ApiException if fails to make API call
@@ -2032,7 +2128,7 @@ public class WhatsAppApi {
 
   /**
    * Get business profile
-   * Retrieve the WhatsApp Business profile for the account (about, address, description, email, websites, etc.).
+   * Retrieve the WhatsApp Business profile for the account (about, address, description, email, websites, etc.). 
    * @param accountId WhatsApp social account ID (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetWhatsAppBusinessProfile200Response&gt;
@@ -2129,23 +2225,27 @@ public class WhatsAppApi {
 
   /**
    * Get contact
-   * Retrieve a single WhatsApp contact by ID with full details.
+   * **Deprecated.** Use &#x60;GET /v1/contacts/{id}&#x60; instead. Retrieve a single WhatsApp contact by ID with full details. 
    * @param contactId Contact ID (required)
    * @return GetWhatsAppContact200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public GetWhatsAppContact200Response getWhatsAppContact(@javax.annotation.Nonnull String contactId) throws ApiException {
     return getWhatsAppContact(contactId, null);
   }
 
   /**
    * Get contact
-   * Retrieve a single WhatsApp contact by ID with full details.
+   * **Deprecated.** Use &#x60;GET /v1/contacts/{id}&#x60; instead. Retrieve a single WhatsApp contact by ID with full details. 
    * @param contactId Contact ID (required)
    * @param headers Optional headers to include in the request
    * @return GetWhatsAppContact200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public GetWhatsAppContact200Response getWhatsAppContact(@javax.annotation.Nonnull String contactId, Map<String, String> headers) throws ApiException {
     ApiResponse<GetWhatsAppContact200Response> localVarResponse = getWhatsAppContactWithHttpInfo(contactId, headers);
     return localVarResponse.getData();
@@ -2153,23 +2253,27 @@ public class WhatsAppApi {
 
   /**
    * Get contact
-   * Retrieve a single WhatsApp contact by ID with full details.
+   * **Deprecated.** Use &#x60;GET /v1/contacts/{id}&#x60; instead. Retrieve a single WhatsApp contact by ID with full details. 
    * @param contactId Contact ID (required)
    * @return ApiResponse&lt;GetWhatsAppContact200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<GetWhatsAppContact200Response> getWhatsAppContactWithHttpInfo(@javax.annotation.Nonnull String contactId) throws ApiException {
     return getWhatsAppContactWithHttpInfo(contactId, null);
   }
 
   /**
    * Get contact
-   * Retrieve a single WhatsApp contact by ID with full details.
+   * **Deprecated.** Use &#x60;GET /v1/contacts/{id}&#x60; instead. Retrieve a single WhatsApp contact by ID with full details. 
    * @param contactId Contact ID (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetWhatsAppContact200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<GetWhatsAppContact200Response> getWhatsAppContactWithHttpInfo(@javax.annotation.Nonnull String contactId, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getWhatsAppContactRequestBuilder(contactId, headers);
     try {
@@ -2247,7 +2351,7 @@ public class WhatsAppApi {
 
   /**
    * List contacts
-   * List WhatsApp contacts for an account. Supports filtering by tags, groups, opt-in status, and text search. Returns contacts sorted by name with available filter options. 
+   * **Deprecated.** Use &#x60;GET /v1/contacts?profileId&#x3D;{profileId}&#x60; instead. List WhatsApp contacts for an account. Supports filtering by tags, groups, opt-in status, and text search. Returns contacts sorted by name with available filter options. 
    * @param accountId WhatsApp social account ID (required)
    * @param search Search contacts by name, phone, email, or company (optional)
    * @param tag Filter by tag (optional)
@@ -2257,14 +2361,16 @@ public class WhatsAppApi {
    * @param skip Offset for pagination (optional, default to 0)
    * @return GetWhatsAppContacts200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public GetWhatsAppContacts200Response getWhatsAppContacts(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String search, @javax.annotation.Nullable String tag, @javax.annotation.Nullable String group, @javax.annotation.Nullable String optedIn, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip) throws ApiException {
     return getWhatsAppContacts(accountId, search, tag, group, optedIn, limit, skip, null);
   }
 
   /**
    * List contacts
-   * List WhatsApp contacts for an account. Supports filtering by tags, groups, opt-in status, and text search. Returns contacts sorted by name with available filter options. 
+   * **Deprecated.** Use &#x60;GET /v1/contacts?profileId&#x3D;{profileId}&#x60; instead. List WhatsApp contacts for an account. Supports filtering by tags, groups, opt-in status, and text search. Returns contacts sorted by name with available filter options. 
    * @param accountId WhatsApp social account ID (required)
    * @param search Search contacts by name, phone, email, or company (optional)
    * @param tag Filter by tag (optional)
@@ -2275,7 +2381,9 @@ public class WhatsAppApi {
    * @param headers Optional headers to include in the request
    * @return GetWhatsAppContacts200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public GetWhatsAppContacts200Response getWhatsAppContacts(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String search, @javax.annotation.Nullable String tag, @javax.annotation.Nullable String group, @javax.annotation.Nullable String optedIn, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, Map<String, String> headers) throws ApiException {
     ApiResponse<GetWhatsAppContacts200Response> localVarResponse = getWhatsAppContactsWithHttpInfo(accountId, search, tag, group, optedIn, limit, skip, headers);
     return localVarResponse.getData();
@@ -2283,7 +2391,7 @@ public class WhatsAppApi {
 
   /**
    * List contacts
-   * List WhatsApp contacts for an account. Supports filtering by tags, groups, opt-in status, and text search. Returns contacts sorted by name with available filter options. 
+   * **Deprecated.** Use &#x60;GET /v1/contacts?profileId&#x3D;{profileId}&#x60; instead. List WhatsApp contacts for an account. Supports filtering by tags, groups, opt-in status, and text search. Returns contacts sorted by name with available filter options. 
    * @param accountId WhatsApp social account ID (required)
    * @param search Search contacts by name, phone, email, or company (optional)
    * @param tag Filter by tag (optional)
@@ -2293,14 +2401,16 @@ public class WhatsAppApi {
    * @param skip Offset for pagination (optional, default to 0)
    * @return ApiResponse&lt;GetWhatsAppContacts200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<GetWhatsAppContacts200Response> getWhatsAppContactsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String search, @javax.annotation.Nullable String tag, @javax.annotation.Nullable String group, @javax.annotation.Nullable String optedIn, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip) throws ApiException {
     return getWhatsAppContactsWithHttpInfo(accountId, search, tag, group, optedIn, limit, skip, null);
   }
 
   /**
    * List contacts
-   * List WhatsApp contacts for an account. Supports filtering by tags, groups, opt-in status, and text search. Returns contacts sorted by name with available filter options. 
+   * **Deprecated.** Use &#x60;GET /v1/contacts?profileId&#x3D;{profileId}&#x60; instead. List WhatsApp contacts for an account. Supports filtering by tags, groups, opt-in status, and text search. Returns contacts sorted by name with available filter options. 
    * @param accountId WhatsApp social account ID (required)
    * @param search Search contacts by name, phone, email, or company (optional)
    * @param tag Filter by tag (optional)
@@ -2311,7 +2421,9 @@ public class WhatsAppApi {
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetWhatsAppContacts200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<GetWhatsAppContacts200Response> getWhatsAppContactsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String search, @javax.annotation.Nullable String tag, @javax.annotation.Nullable String group, @javax.annotation.Nullable String optedIn, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getWhatsAppContactsRequestBuilder(accountId, search, tag, group, optedIn, limit, skip, headers);
     try {
@@ -2547,23 +2659,27 @@ public class WhatsAppApi {
 
   /**
    * List contact groups
-   * List all contact groups for a WhatsApp account with contact counts. Groups are derived from the groups field on contacts, not stored as separate documents. 
+   * **Deprecated.** Use contact tags via &#x60;GET /v1/contacts&#x60; for grouping instead. WhatsApp groups have no cross-platform equivalent. List all contact groups for a WhatsApp account with contact counts. Groups are derived from the groups field on contacts, not stored as separate documents. 
    * @param accountId WhatsApp social account ID (required)
    * @return GetWhatsAppGroups200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public GetWhatsAppGroups200Response getWhatsAppGroups(@javax.annotation.Nonnull String accountId) throws ApiException {
     return getWhatsAppGroups(accountId, null);
   }
 
   /**
    * List contact groups
-   * List all contact groups for a WhatsApp account with contact counts. Groups are derived from the groups field on contacts, not stored as separate documents. 
+   * **Deprecated.** Use contact tags via &#x60;GET /v1/contacts&#x60; for grouping instead. WhatsApp groups have no cross-platform equivalent. List all contact groups for a WhatsApp account with contact counts. Groups are derived from the groups field on contacts, not stored as separate documents. 
    * @param accountId WhatsApp social account ID (required)
    * @param headers Optional headers to include in the request
    * @return GetWhatsAppGroups200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public GetWhatsAppGroups200Response getWhatsAppGroups(@javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
     ApiResponse<GetWhatsAppGroups200Response> localVarResponse = getWhatsAppGroupsWithHttpInfo(accountId, headers);
     return localVarResponse.getData();
@@ -2571,23 +2687,27 @@ public class WhatsAppApi {
 
   /**
    * List contact groups
-   * List all contact groups for a WhatsApp account with contact counts. Groups are derived from the groups field on contacts, not stored as separate documents. 
+   * **Deprecated.** Use contact tags via &#x60;GET /v1/contacts&#x60; for grouping instead. WhatsApp groups have no cross-platform equivalent. List all contact groups for a WhatsApp account with contact counts. Groups are derived from the groups field on contacts, not stored as separate documents. 
    * @param accountId WhatsApp social account ID (required)
    * @return ApiResponse&lt;GetWhatsAppGroups200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<GetWhatsAppGroups200Response> getWhatsAppGroupsWithHttpInfo(@javax.annotation.Nonnull String accountId) throws ApiException {
     return getWhatsAppGroupsWithHttpInfo(accountId, null);
   }
 
   /**
    * List contact groups
-   * List all contact groups for a WhatsApp account with contact counts. Groups are derived from the groups field on contacts, not stored as separate documents. 
+   * **Deprecated.** Use contact tags via &#x60;GET /v1/contacts&#x60; for grouping instead. WhatsApp groups have no cross-platform equivalent. List all contact groups for a WhatsApp account with contact counts. Groups are derived from the groups field on contacts, not stored as separate documents. 
    * @param accountId WhatsApp social account ID (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetWhatsAppGroups200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<GetWhatsAppGroups200Response> getWhatsAppGroupsWithHttpInfo(@javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getWhatsAppGroupsRequestBuilder(accountId, headers);
     try {
@@ -2679,7 +2799,7 @@ public class WhatsAppApi {
 
   /**
    * Get template
-   * Retrieve a single message template by name.
+   * Retrieve a single message template by name. 
    * @param templateName Template name (required)
    * @param accountId WhatsApp social account ID (required)
    * @return GetWhatsAppTemplate200Response
@@ -2691,7 +2811,7 @@ public class WhatsAppApi {
 
   /**
    * Get template
-   * Retrieve a single message template by name.
+   * Retrieve a single message template by name. 
    * @param templateName Template name (required)
    * @param accountId WhatsApp social account ID (required)
    * @param headers Optional headers to include in the request
@@ -2705,7 +2825,7 @@ public class WhatsAppApi {
 
   /**
    * Get template
-   * Retrieve a single message template by name.
+   * Retrieve a single message template by name. 
    * @param templateName Template name (required)
    * @param accountId WhatsApp social account ID (required)
    * @return ApiResponse&lt;GetWhatsAppTemplate200Response&gt;
@@ -2717,7 +2837,7 @@ public class WhatsAppApi {
 
   /**
    * Get template
-   * Retrieve a single message template by name.
+   * Retrieve a single message template by name. 
    * @param templateName Template name (required)
    * @param accountId WhatsApp social account ID (required)
    * @param headers Optional headers to include in the request
@@ -2952,23 +3072,27 @@ public class WhatsAppApi {
 
   /**
    * Bulk import contacts
-   * Import up to 1000 contacts at once. Each contact requires a phone number and name. Duplicates are skipped by default. Supports default tags and groups applied to all imported contacts. 
+   * **Deprecated.** Use &#x60;POST /v1/contacts/bulk&#x60; instead. Import up to 1000 contacts at once. Each contact requires a phone number and name. Duplicates are skipped by default. Supports default tags and groups applied to all imported contacts. 
    * @param importWhatsAppContactsRequest  (required)
    * @return ImportWhatsAppContacts200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ImportWhatsAppContacts200Response importWhatsAppContacts(@javax.annotation.Nonnull ImportWhatsAppContactsRequest importWhatsAppContactsRequest) throws ApiException {
     return importWhatsAppContacts(importWhatsAppContactsRequest, null);
   }
 
   /**
    * Bulk import contacts
-   * Import up to 1000 contacts at once. Each contact requires a phone number and name. Duplicates are skipped by default. Supports default tags and groups applied to all imported contacts. 
+   * **Deprecated.** Use &#x60;POST /v1/contacts/bulk&#x60; instead. Import up to 1000 contacts at once. Each contact requires a phone number and name. Duplicates are skipped by default. Supports default tags and groups applied to all imported contacts. 
    * @param importWhatsAppContactsRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ImportWhatsAppContacts200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ImportWhatsAppContacts200Response importWhatsAppContacts(@javax.annotation.Nonnull ImportWhatsAppContactsRequest importWhatsAppContactsRequest, Map<String, String> headers) throws ApiException {
     ApiResponse<ImportWhatsAppContacts200Response> localVarResponse = importWhatsAppContactsWithHttpInfo(importWhatsAppContactsRequest, headers);
     return localVarResponse.getData();
@@ -2976,23 +3100,27 @@ public class WhatsAppApi {
 
   /**
    * Bulk import contacts
-   * Import up to 1000 contacts at once. Each contact requires a phone number and name. Duplicates are skipped by default. Supports default tags and groups applied to all imported contacts. 
+   * **Deprecated.** Use &#x60;POST /v1/contacts/bulk&#x60; instead. Import up to 1000 contacts at once. Each contact requires a phone number and name. Duplicates are skipped by default. Supports default tags and groups applied to all imported contacts. 
    * @param importWhatsAppContactsRequest  (required)
    * @return ApiResponse&lt;ImportWhatsAppContacts200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<ImportWhatsAppContacts200Response> importWhatsAppContactsWithHttpInfo(@javax.annotation.Nonnull ImportWhatsAppContactsRequest importWhatsAppContactsRequest) throws ApiException {
     return importWhatsAppContactsWithHttpInfo(importWhatsAppContactsRequest, null);
   }
 
   /**
    * Bulk import contacts
-   * Import up to 1000 contacts at once. Each contact requires a phone number and name. Duplicates are skipped by default. Supports default tags and groups applied to all imported contacts. 
+   * **Deprecated.** Use &#x60;POST /v1/contacts/bulk&#x60; instead. Import up to 1000 contacts at once. Each contact requires a phone number and name. Duplicates are skipped by default. Supports default tags and groups applied to all imported contacts. 
    * @param importWhatsAppContactsRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;ImportWhatsAppContacts200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<ImportWhatsAppContacts200Response> importWhatsAppContactsWithHttpInfo(@javax.annotation.Nonnull ImportWhatsAppContactsRequest importWhatsAppContactsRequest, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = importWhatsAppContactsRequestBuilder(importWhatsAppContactsRequest, headers);
     try {
@@ -3075,25 +3203,29 @@ public class WhatsAppApi {
 
   /**
    * Remove recipients
-   * Remove recipients from a draft broadcast by phone number.
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/recipients&#x60; with removal flag instead. Remove recipients from a draft broadcast by phone number. 
    * @param broadcastId Broadcast ID (required)
    * @param removeWhatsAppBroadcastRecipientsRequest  (required)
    * @return RemoveWhatsAppBroadcastRecipients200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public RemoveWhatsAppBroadcastRecipients200Response removeWhatsAppBroadcastRecipients(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull RemoveWhatsAppBroadcastRecipientsRequest removeWhatsAppBroadcastRecipientsRequest) throws ApiException {
     return removeWhatsAppBroadcastRecipients(broadcastId, removeWhatsAppBroadcastRecipientsRequest, null);
   }
 
   /**
    * Remove recipients
-   * Remove recipients from a draft broadcast by phone number.
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/recipients&#x60; with removal flag instead. Remove recipients from a draft broadcast by phone number. 
    * @param broadcastId Broadcast ID (required)
    * @param removeWhatsAppBroadcastRecipientsRequest  (required)
    * @param headers Optional headers to include in the request
    * @return RemoveWhatsAppBroadcastRecipients200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public RemoveWhatsAppBroadcastRecipients200Response removeWhatsAppBroadcastRecipients(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull RemoveWhatsAppBroadcastRecipientsRequest removeWhatsAppBroadcastRecipientsRequest, Map<String, String> headers) throws ApiException {
     ApiResponse<RemoveWhatsAppBroadcastRecipients200Response> localVarResponse = removeWhatsAppBroadcastRecipientsWithHttpInfo(broadcastId, removeWhatsAppBroadcastRecipientsRequest, headers);
     return localVarResponse.getData();
@@ -3101,25 +3233,29 @@ public class WhatsAppApi {
 
   /**
    * Remove recipients
-   * Remove recipients from a draft broadcast by phone number.
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/recipients&#x60; with removal flag instead. Remove recipients from a draft broadcast by phone number. 
    * @param broadcastId Broadcast ID (required)
    * @param removeWhatsAppBroadcastRecipientsRequest  (required)
    * @return ApiResponse&lt;RemoveWhatsAppBroadcastRecipients200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<RemoveWhatsAppBroadcastRecipients200Response> removeWhatsAppBroadcastRecipientsWithHttpInfo(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull RemoveWhatsAppBroadcastRecipientsRequest removeWhatsAppBroadcastRecipientsRequest) throws ApiException {
     return removeWhatsAppBroadcastRecipientsWithHttpInfo(broadcastId, removeWhatsAppBroadcastRecipientsRequest, null);
   }
 
   /**
    * Remove recipients
-   * Remove recipients from a draft broadcast by phone number.
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/recipients&#x60; with removal flag instead. Remove recipients from a draft broadcast by phone number. 
    * @param broadcastId Broadcast ID (required)
    * @param removeWhatsAppBroadcastRecipientsRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;RemoveWhatsAppBroadcastRecipients200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<RemoveWhatsAppBroadcastRecipients200Response> removeWhatsAppBroadcastRecipientsWithHttpInfo(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull RemoveWhatsAppBroadcastRecipientsRequest removeWhatsAppBroadcastRecipientsRequest, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = removeWhatsAppBroadcastRecipientsRequestBuilder(broadcastId, removeWhatsAppBroadcastRecipientsRequest, headers);
     try {
@@ -3207,23 +3343,27 @@ public class WhatsAppApi {
 
   /**
    * Rename group
-   * Rename a contact group. This updates the group name on all contacts that belong to the group.
+   * **Deprecated.** Use contact tags via &#x60;PATCH /v1/contacts/{id}&#x60; instead. Rename a contact group. This updates the group name on all contacts that belong to the group. 
    * @param renameWhatsAppGroupRequest  (required)
    * @return RenameWhatsAppGroup200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public RenameWhatsAppGroup200Response renameWhatsAppGroup(@javax.annotation.Nonnull RenameWhatsAppGroupRequest renameWhatsAppGroupRequest) throws ApiException {
     return renameWhatsAppGroup(renameWhatsAppGroupRequest, null);
   }
 
   /**
    * Rename group
-   * Rename a contact group. This updates the group name on all contacts that belong to the group.
+   * **Deprecated.** Use contact tags via &#x60;PATCH /v1/contacts/{id}&#x60; instead. Rename a contact group. This updates the group name on all contacts that belong to the group. 
    * @param renameWhatsAppGroupRequest  (required)
    * @param headers Optional headers to include in the request
    * @return RenameWhatsAppGroup200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public RenameWhatsAppGroup200Response renameWhatsAppGroup(@javax.annotation.Nonnull RenameWhatsAppGroupRequest renameWhatsAppGroupRequest, Map<String, String> headers) throws ApiException {
     ApiResponse<RenameWhatsAppGroup200Response> localVarResponse = renameWhatsAppGroupWithHttpInfo(renameWhatsAppGroupRequest, headers);
     return localVarResponse.getData();
@@ -3231,23 +3371,27 @@ public class WhatsAppApi {
 
   /**
    * Rename group
-   * Rename a contact group. This updates the group name on all contacts that belong to the group.
+   * **Deprecated.** Use contact tags via &#x60;PATCH /v1/contacts/{id}&#x60; instead. Rename a contact group. This updates the group name on all contacts that belong to the group. 
    * @param renameWhatsAppGroupRequest  (required)
    * @return ApiResponse&lt;RenameWhatsAppGroup200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<RenameWhatsAppGroup200Response> renameWhatsAppGroupWithHttpInfo(@javax.annotation.Nonnull RenameWhatsAppGroupRequest renameWhatsAppGroupRequest) throws ApiException {
     return renameWhatsAppGroupWithHttpInfo(renameWhatsAppGroupRequest, null);
   }
 
   /**
    * Rename group
-   * Rename a contact group. This updates the group name on all contacts that belong to the group.
+   * **Deprecated.** Use contact tags via &#x60;PATCH /v1/contacts/{id}&#x60; instead. Rename a contact group. This updates the group name on all contacts that belong to the group. 
    * @param renameWhatsAppGroupRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;RenameWhatsAppGroup200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<RenameWhatsAppGroup200Response> renameWhatsAppGroupWithHttpInfo(@javax.annotation.Nonnull RenameWhatsAppGroupRequest renameWhatsAppGroupRequest, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = renameWhatsAppGroupRequestBuilder(renameWhatsAppGroupRequest, headers);
     try {
@@ -3330,25 +3474,29 @@ public class WhatsAppApi {
 
   /**
    * Schedule broadcast
-   * Schedule a draft broadcast for future sending. The scheduled time must be in the future and no more than 30 days in advance. The broadcast must be in draft status and have recipients. 
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/schedule&#x60; instead. Schedule a draft broadcast for future sending. The scheduled time must be in the future and no more than 30 days in advance. The broadcast must be in draft status and have recipients. 
    * @param broadcastId Broadcast ID (required)
    * @param scheduleWhatsAppBroadcastRequest  (required)
    * @return ScheduleWhatsAppBroadcast200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ScheduleWhatsAppBroadcast200Response scheduleWhatsAppBroadcast(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull ScheduleWhatsAppBroadcastRequest scheduleWhatsAppBroadcastRequest) throws ApiException {
     return scheduleWhatsAppBroadcast(broadcastId, scheduleWhatsAppBroadcastRequest, null);
   }
 
   /**
    * Schedule broadcast
-   * Schedule a draft broadcast for future sending. The scheduled time must be in the future and no more than 30 days in advance. The broadcast must be in draft status and have recipients. 
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/schedule&#x60; instead. Schedule a draft broadcast for future sending. The scheduled time must be in the future and no more than 30 days in advance. The broadcast must be in draft status and have recipients. 
    * @param broadcastId Broadcast ID (required)
    * @param scheduleWhatsAppBroadcastRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ScheduleWhatsAppBroadcast200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ScheduleWhatsAppBroadcast200Response scheduleWhatsAppBroadcast(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull ScheduleWhatsAppBroadcastRequest scheduleWhatsAppBroadcastRequest, Map<String, String> headers) throws ApiException {
     ApiResponse<ScheduleWhatsAppBroadcast200Response> localVarResponse = scheduleWhatsAppBroadcastWithHttpInfo(broadcastId, scheduleWhatsAppBroadcastRequest, headers);
     return localVarResponse.getData();
@@ -3356,25 +3504,29 @@ public class WhatsAppApi {
 
   /**
    * Schedule broadcast
-   * Schedule a draft broadcast for future sending. The scheduled time must be in the future and no more than 30 days in advance. The broadcast must be in draft status and have recipients. 
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/schedule&#x60; instead. Schedule a draft broadcast for future sending. The scheduled time must be in the future and no more than 30 days in advance. The broadcast must be in draft status and have recipients. 
    * @param broadcastId Broadcast ID (required)
    * @param scheduleWhatsAppBroadcastRequest  (required)
    * @return ApiResponse&lt;ScheduleWhatsAppBroadcast200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<ScheduleWhatsAppBroadcast200Response> scheduleWhatsAppBroadcastWithHttpInfo(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull ScheduleWhatsAppBroadcastRequest scheduleWhatsAppBroadcastRequest) throws ApiException {
     return scheduleWhatsAppBroadcastWithHttpInfo(broadcastId, scheduleWhatsAppBroadcastRequest, null);
   }
 
   /**
    * Schedule broadcast
-   * Schedule a draft broadcast for future sending. The scheduled time must be in the future and no more than 30 days in advance. The broadcast must be in draft status and have recipients. 
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/schedule&#x60; instead. Schedule a draft broadcast for future sending. The scheduled time must be in the future and no more than 30 days in advance. The broadcast must be in draft status and have recipients. 
    * @param broadcastId Broadcast ID (required)
    * @param scheduleWhatsAppBroadcastRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;ScheduleWhatsAppBroadcast200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<ScheduleWhatsAppBroadcast200Response> scheduleWhatsAppBroadcastWithHttpInfo(@javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull ScheduleWhatsAppBroadcastRequest scheduleWhatsAppBroadcastRequest, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = scheduleWhatsAppBroadcastRequestBuilder(broadcastId, scheduleWhatsAppBroadcastRequest, headers);
     try {
@@ -3462,23 +3614,27 @@ public class WhatsAppApi {
 
   /**
    * Send broadcast
-   * Start sending a broadcast immediately. The broadcast must be in draft or scheduled status and have at least one recipient. Messages are sent sequentially with rate limiting. 
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/send&#x60; instead. Start sending a broadcast immediately. The broadcast must be in draft or scheduled status and have at least one recipient. Messages are sent sequentially with rate limiting. 
    * @param broadcastId Broadcast ID (required)
    * @return SendWhatsAppBroadcast200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public SendWhatsAppBroadcast200Response sendWhatsAppBroadcast(@javax.annotation.Nonnull String broadcastId) throws ApiException {
     return sendWhatsAppBroadcast(broadcastId, null);
   }
 
   /**
    * Send broadcast
-   * Start sending a broadcast immediately. The broadcast must be in draft or scheduled status and have at least one recipient. Messages are sent sequentially with rate limiting. 
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/send&#x60; instead. Start sending a broadcast immediately. The broadcast must be in draft or scheduled status and have at least one recipient. Messages are sent sequentially with rate limiting. 
    * @param broadcastId Broadcast ID (required)
    * @param headers Optional headers to include in the request
    * @return SendWhatsAppBroadcast200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public SendWhatsAppBroadcast200Response sendWhatsAppBroadcast(@javax.annotation.Nonnull String broadcastId, Map<String, String> headers) throws ApiException {
     ApiResponse<SendWhatsAppBroadcast200Response> localVarResponse = sendWhatsAppBroadcastWithHttpInfo(broadcastId, headers);
     return localVarResponse.getData();
@@ -3486,23 +3642,27 @@ public class WhatsAppApi {
 
   /**
    * Send broadcast
-   * Start sending a broadcast immediately. The broadcast must be in draft or scheduled status and have at least one recipient. Messages are sent sequentially with rate limiting. 
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/send&#x60; instead. Start sending a broadcast immediately. The broadcast must be in draft or scheduled status and have at least one recipient. Messages are sent sequentially with rate limiting. 
    * @param broadcastId Broadcast ID (required)
    * @return ApiResponse&lt;SendWhatsAppBroadcast200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<SendWhatsAppBroadcast200Response> sendWhatsAppBroadcastWithHttpInfo(@javax.annotation.Nonnull String broadcastId) throws ApiException {
     return sendWhatsAppBroadcastWithHttpInfo(broadcastId, null);
   }
 
   /**
    * Send broadcast
-   * Start sending a broadcast immediately. The broadcast must be in draft or scheduled status and have at least one recipient. Messages are sent sequentially with rate limiting. 
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/send&#x60; instead. Start sending a broadcast immediately. The broadcast must be in draft or scheduled status and have at least one recipient. Messages are sent sequentially with rate limiting. 
    * @param broadcastId Broadcast ID (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;SendWhatsAppBroadcast200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<SendWhatsAppBroadcast200Response> sendWhatsAppBroadcastWithHttpInfo(@javax.annotation.Nonnull String broadcastId, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = sendWhatsAppBroadcastRequestBuilder(broadcastId, headers);
     try {
@@ -3580,23 +3740,27 @@ public class WhatsAppApi {
 
   /**
    * Bulk send template messages
-   * Send a template message to multiple recipients in a single request. Maximum 100 recipients per request. Only template messages are supported for bulk sending (not free-form text).  Each recipient can have optional per-recipient template variables for personalization. Returns detailed results for each recipient. 
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts&#x60; to create a broadcast, &#x60;POST /v1/broadcasts/{id}/recipients&#x60; to add recipients, then &#x60;POST /v1/broadcasts/{id}/send&#x60; to send. Send a template message to multiple recipients in a single request. Maximum 100 recipients per request. Only template messages are supported for bulk sending (not free-form text).  Each recipient can have optional per-recipient template variables for personalization. Returns detailed results for each recipient. 
    * @param sendWhatsAppBulkRequest  (required)
    * @return SendWhatsAppBulk200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public SendWhatsAppBulk200Response sendWhatsAppBulk(@javax.annotation.Nonnull SendWhatsAppBulkRequest sendWhatsAppBulkRequest) throws ApiException {
     return sendWhatsAppBulk(sendWhatsAppBulkRequest, null);
   }
 
   /**
    * Bulk send template messages
-   * Send a template message to multiple recipients in a single request. Maximum 100 recipients per request. Only template messages are supported for bulk sending (not free-form text).  Each recipient can have optional per-recipient template variables for personalization. Returns detailed results for each recipient. 
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts&#x60; to create a broadcast, &#x60;POST /v1/broadcasts/{id}/recipients&#x60; to add recipients, then &#x60;POST /v1/broadcasts/{id}/send&#x60; to send. Send a template message to multiple recipients in a single request. Maximum 100 recipients per request. Only template messages are supported for bulk sending (not free-form text).  Each recipient can have optional per-recipient template variables for personalization. Returns detailed results for each recipient. 
    * @param sendWhatsAppBulkRequest  (required)
    * @param headers Optional headers to include in the request
    * @return SendWhatsAppBulk200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public SendWhatsAppBulk200Response sendWhatsAppBulk(@javax.annotation.Nonnull SendWhatsAppBulkRequest sendWhatsAppBulkRequest, Map<String, String> headers) throws ApiException {
     ApiResponse<SendWhatsAppBulk200Response> localVarResponse = sendWhatsAppBulkWithHttpInfo(sendWhatsAppBulkRequest, headers);
     return localVarResponse.getData();
@@ -3604,23 +3768,27 @@ public class WhatsAppApi {
 
   /**
    * Bulk send template messages
-   * Send a template message to multiple recipients in a single request. Maximum 100 recipients per request. Only template messages are supported for bulk sending (not free-form text).  Each recipient can have optional per-recipient template variables for personalization. Returns detailed results for each recipient. 
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts&#x60; to create a broadcast, &#x60;POST /v1/broadcasts/{id}/recipients&#x60; to add recipients, then &#x60;POST /v1/broadcasts/{id}/send&#x60; to send. Send a template message to multiple recipients in a single request. Maximum 100 recipients per request. Only template messages are supported for bulk sending (not free-form text).  Each recipient can have optional per-recipient template variables for personalization. Returns detailed results for each recipient. 
    * @param sendWhatsAppBulkRequest  (required)
    * @return ApiResponse&lt;SendWhatsAppBulk200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<SendWhatsAppBulk200Response> sendWhatsAppBulkWithHttpInfo(@javax.annotation.Nonnull SendWhatsAppBulkRequest sendWhatsAppBulkRequest) throws ApiException {
     return sendWhatsAppBulkWithHttpInfo(sendWhatsAppBulkRequest, null);
   }
 
   /**
    * Bulk send template messages
-   * Send a template message to multiple recipients in a single request. Maximum 100 recipients per request. Only template messages are supported for bulk sending (not free-form text).  Each recipient can have optional per-recipient template variables for personalization. Returns detailed results for each recipient. 
+   * **Deprecated.** Use &#x60;POST /v1/broadcasts&#x60; to create a broadcast, &#x60;POST /v1/broadcasts/{id}/recipients&#x60; to add recipients, then &#x60;POST /v1/broadcasts/{id}/send&#x60; to send. Send a template message to multiple recipients in a single request. Maximum 100 recipients per request. Only template messages are supported for bulk sending (not free-form text).  Each recipient can have optional per-recipient template variables for personalization. Returns detailed results for each recipient. 
    * @param sendWhatsAppBulkRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;SendWhatsAppBulk200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<SendWhatsAppBulk200Response> sendWhatsAppBulkWithHttpInfo(@javax.annotation.Nonnull SendWhatsAppBulkRequest sendWhatsAppBulkRequest, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = sendWhatsAppBulkRequestBuilder(sendWhatsAppBulkRequest, headers);
     try {
@@ -3826,25 +3994,29 @@ public class WhatsAppApi {
 
   /**
    * Update contact
-   * Update an existing WhatsApp contact. All fields are optional; only provided fields will be updated. Custom fields are merged with existing values. Set a custom field to null to remove it. 
+   * **Deprecated.** Use &#x60;PATCH /v1/contacts/{id}&#x60; instead. Update an existing WhatsApp contact. All fields are optional; only provided fields will be updated. Custom fields are merged with existing values. Set a custom field to null to remove it. 
    * @param contactId Contact ID (required)
    * @param updateWhatsAppContactRequest  (required)
    * @return UpdateWhatsAppContact200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UpdateWhatsAppContact200Response updateWhatsAppContact(@javax.annotation.Nonnull String contactId, @javax.annotation.Nonnull UpdateWhatsAppContactRequest updateWhatsAppContactRequest) throws ApiException {
     return updateWhatsAppContact(contactId, updateWhatsAppContactRequest, null);
   }
 
   /**
    * Update contact
-   * Update an existing WhatsApp contact. All fields are optional; only provided fields will be updated. Custom fields are merged with existing values. Set a custom field to null to remove it. 
+   * **Deprecated.** Use &#x60;PATCH /v1/contacts/{id}&#x60; instead. Update an existing WhatsApp contact. All fields are optional; only provided fields will be updated. Custom fields are merged with existing values. Set a custom field to null to remove it. 
    * @param contactId Contact ID (required)
    * @param updateWhatsAppContactRequest  (required)
    * @param headers Optional headers to include in the request
    * @return UpdateWhatsAppContact200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UpdateWhatsAppContact200Response updateWhatsAppContact(@javax.annotation.Nonnull String contactId, @javax.annotation.Nonnull UpdateWhatsAppContactRequest updateWhatsAppContactRequest, Map<String, String> headers) throws ApiException {
     ApiResponse<UpdateWhatsAppContact200Response> localVarResponse = updateWhatsAppContactWithHttpInfo(contactId, updateWhatsAppContactRequest, headers);
     return localVarResponse.getData();
@@ -3852,25 +4024,29 @@ public class WhatsAppApi {
 
   /**
    * Update contact
-   * Update an existing WhatsApp contact. All fields are optional; only provided fields will be updated. Custom fields are merged with existing values. Set a custom field to null to remove it. 
+   * **Deprecated.** Use &#x60;PATCH /v1/contacts/{id}&#x60; instead. Update an existing WhatsApp contact. All fields are optional; only provided fields will be updated. Custom fields are merged with existing values. Set a custom field to null to remove it. 
    * @param contactId Contact ID (required)
    * @param updateWhatsAppContactRequest  (required)
    * @return ApiResponse&lt;UpdateWhatsAppContact200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<UpdateWhatsAppContact200Response> updateWhatsAppContactWithHttpInfo(@javax.annotation.Nonnull String contactId, @javax.annotation.Nonnull UpdateWhatsAppContactRequest updateWhatsAppContactRequest) throws ApiException {
     return updateWhatsAppContactWithHttpInfo(contactId, updateWhatsAppContactRequest, null);
   }
 
   /**
    * Update contact
-   * Update an existing WhatsApp contact. All fields are optional; only provided fields will be updated. Custom fields are merged with existing values. Set a custom field to null to remove it. 
+   * **Deprecated.** Use &#x60;PATCH /v1/contacts/{id}&#x60; instead. Update an existing WhatsApp contact. All fields are optional; only provided fields will be updated. Custom fields are merged with existing values. Set a custom field to null to remove it. 
    * @param contactId Contact ID (required)
    * @param updateWhatsAppContactRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;UpdateWhatsAppContact200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<UpdateWhatsAppContact200Response> updateWhatsAppContactWithHttpInfo(@javax.annotation.Nonnull String contactId, @javax.annotation.Nonnull UpdateWhatsAppContactRequest updateWhatsAppContactRequest, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateWhatsAppContactRequestBuilder(contactId, updateWhatsAppContactRequest, headers);
     try {

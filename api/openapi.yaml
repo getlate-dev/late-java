@@ -112,6 +112,27 @@ tags:
     Platform-specific account settings: Facebook persistent menu, Instagram ice breakers, and Telegram bot commands.
   name: Account Settings
 - description: |
+    Cross-platform contact management (CRM). Contacts are unified identities linked to platform-specific
+    channels (phone, IGSID, etc.). Created automatically when messages arrive, or manually via API.
+  name: Contacts
+- description: |
+    Custom field definitions for contacts. Define fields (text, number, date, boolean, select) that can be
+    set on any contact for segmentation and personalization.
+  name: Custom Fields
+- description: |
+    Platform-agnostic broadcast campaigns. Send bulk messages to contacts via any inbox platform.
+    WhatsApp broadcasts use templates; other platforms use generic messages.
+  name: Broadcasts
+- description: |
+    Drip campaign sequences. Send a series of messages to enrolled contacts with configurable delays
+    between steps. Supports auto-exit on reply or unsubscribe.
+  name: Sequences
+- description: |
+    Comment-to-DM growth automations. Set up keyword triggers on Instagram/Facebook posts so
+    commenters automatically receive a DM. Supports dedup, optional public comment reply, and
+    auto-creates contacts.
+  name: Comment Automations
+- description: |
     Configure webhooks for real-time notifications. Events: post.scheduled, post.published, post.failed, post.partial, post.recycled, account.connected, account.disconnected, message.received, comment.received.
     Security: optional HMAC-SHA256 signature in X-Zernio-Signature header. Configure a secret key to enable verification. Custom headers supported.
   name: Webhooks
@@ -119,7 +140,9 @@ tags:
     Publishing logs for transparency and debugging. Each log includes the platform API endpoint, HTTP status code, request/response bodies, duration, and retry attempts. Logs are automatically deleted after 7 days.
   name: Logs
 - description: |
-    WhatsApp Business API for sending messages, managing contacts, templates, broadcasts, and conversations.
+    WhatsApp Business API. Contact, broadcast, and group endpoints are **deprecated** in favor of the
+    cross-platform `/v1/contacts`, `/v1/broadcasts`, and `/v1/sequences` endpoints.
+    Template, business profile, and phone number endpoints remain active (no cross-platform equivalent).
     All endpoints require an accountId parameter identifying the WhatsApp-connected social account.
   name: WhatsApp
 - description: |
@@ -9643,7 +9666,9 @@ paths:
       - application/json
   /v1/whatsapp/bulk:
     post:
+      deprecated: true
       description: |
+        **Deprecated.** Use `POST /v1/broadcasts` to create a broadcast, `POST /v1/broadcasts/{id}/recipients` to add recipients, then `POST /v1/broadcasts/{id}/send` to send.
         Send a template message to multiple recipients in a single request. Maximum 100 recipients per request.
         Only template messages are supported for bulk sending (not free-form text).
 
@@ -9691,7 +9716,9 @@ paths:
       - application/json
   /v1/whatsapp/contacts:
     get:
+      deprecated: true
       description: |
+        **Deprecated.** Use `GET /v1/contacts?profileId={profileId}` instead.
         List WhatsApp contacts for an account. Supports filtering by tags, groups, opt-in status,
         and text search. Returns contacts sorted by name with available filter options.
       operationId: getWhatsAppContacts
@@ -9778,7 +9805,9 @@ paths:
       x-accepts:
       - application/json
     post:
+      deprecated: true
       description: |
+        **Deprecated.** Use `POST /v1/contacts` instead.
         Create a new WhatsApp contact. Phone number must be unique per account
         and in E.164 format (e.g., +1234567890).
       operationId: createWhatsAppContact
@@ -9823,7 +9852,10 @@ paths:
       - application/json
   /v1/whatsapp/contacts/{contactId}:
     delete:
-      description: Permanently delete a WhatsApp contact.
+      deprecated: true
+      description: |
+        **Deprecated.** Use `DELETE /v1/contacts/{id}` instead.
+        Permanently delete a WhatsApp contact.
       operationId: deleteWhatsAppContact
       parameters:
       - description: Contact ID
@@ -9856,7 +9888,10 @@ paths:
       x-accepts:
       - application/json
     get:
-      description: Retrieve a single WhatsApp contact by ID with full details.
+      deprecated: true
+      description: |
+        **Deprecated.** Use `GET /v1/contacts/{id}` instead.
+        Retrieve a single WhatsApp contact by ID with full details.
       operationId: getWhatsAppContact
       parameters:
       - description: Contact ID
@@ -9886,7 +9921,9 @@ paths:
       x-accepts:
       - application/json
     put:
+      deprecated: true
       description: |
+        **Deprecated.** Use `PATCH /v1/contacts/{id}` instead.
         Update an existing WhatsApp contact. All fields are optional; only provided fields will be updated.
         Custom fields are merged with existing values. Set a custom field to null to remove it.
       operationId: updateWhatsAppContact
@@ -9934,7 +9971,9 @@ paths:
       - application/json
   /v1/whatsapp/contacts/import:
     post:
+      deprecated: true
       description: |
+        **Deprecated.** Use `POST /v1/contacts/bulk` instead.
         Import up to 1000 contacts at once. Each contact requires a phone number and name.
         Duplicates are skipped by default. Supports default tags and groups applied to all imported contacts.
       operationId: importWhatsAppContacts
@@ -9979,7 +10018,10 @@ paths:
       - application/json
   /v1/whatsapp/contacts/bulk:
     delete:
-      description: Permanently delete multiple contacts at once (max 500 per request).
+      deprecated: true
+      description: |
+        **Deprecated.** Use `DELETE /v1/contacts/{id}` for individual deletes instead.
+        Permanently delete multiple contacts at once (max 500 per request).
       operationId: bulkDeleteWhatsAppContacts
       requestBody:
         content:
@@ -10011,7 +10053,9 @@ paths:
       x-accepts:
       - application/json
     post:
+      deprecated: true
       description: |
+        **Deprecated.** Use `PATCH /v1/contacts/{id}` for individual updates instead.
         Perform bulk operations on multiple contacts (max 500 per request). Supported actions:
         addTags, removeTags, addGroups, removeGroups, optIn, optOut, block, unblock.
       operationId: bulkUpdateWhatsAppContacts
@@ -10059,8 +10103,10 @@ paths:
       - application/json
   /v1/whatsapp/groups:
     delete:
-      description: Delete a contact group. This removes the group from all contacts
-        but does not delete the contacts themselves.
+      deprecated: true
+      description: |
+        **Deprecated.** Use contact tags via `PATCH /v1/contacts/{id}` instead.
+        Delete a contact group. This removes the group from all contacts but does not delete the contacts themselves.
       operationId: deleteWhatsAppGroup
       requestBody:
         content:
@@ -10093,7 +10139,9 @@ paths:
       x-accepts:
       - application/json
     get:
+      deprecated: true
       description: |
+        **Deprecated.** Use contact tags via `GET /v1/contacts` for grouping instead. WhatsApp groups have no cross-platform equivalent.
         List all contact groups for a WhatsApp account with contact counts.
         Groups are derived from the groups field on contacts, not stored as separate documents.
       operationId: getWhatsAppGroups
@@ -10127,8 +10175,10 @@ paths:
       x-accepts:
       - application/json
     post:
-      description: Rename a contact group. This updates the group name on all contacts
-        that belong to the group.
+      deprecated: true
+      description: |
+        **Deprecated.** Use contact tags via `PATCH /v1/contacts/{id}` instead.
+        Rename a contact group. This updates the group name on all contacts that belong to the group.
       operationId: renameWhatsAppGroup
       requestBody:
         content:
@@ -10262,7 +10312,8 @@ paths:
       - application/json
   /v1/whatsapp/templates/{templateName}:
     delete:
-      description: Permanently delete a message template by name.
+      description: |
+        Permanently delete a message template by name.
       operationId: deleteWhatsAppTemplate
       parameters:
       - description: Template name
@@ -10305,7 +10356,8 @@ paths:
       x-accepts:
       - application/json
     get:
-      description: Retrieve a single message template by name.
+      description: |
+        Retrieve a single message template by name.
       operationId: getWhatsAppTemplate
       parameters:
       - description: Template name
@@ -10392,7 +10444,9 @@ paths:
       - application/json
   /v1/whatsapp/broadcasts:
     get:
+      deprecated: true
       description: |
+        **Deprecated.** Use `GET /v1/broadcasts?profileId={profileId}` instead.
         List all WhatsApp broadcasts for an account. Returns broadcasts sorted by creation date
         (newest first) without the full recipients list for performance.
       operationId: getWhatsAppBroadcasts
@@ -10459,7 +10513,9 @@ paths:
       x-accepts:
       - application/json
     post:
+      deprecated: true
       description: |
+        **Deprecated.** Use `POST /v1/broadcasts` instead.
         Create a new draft broadcast. Optionally include initial recipients.
         After creation, add recipients and then send or schedule the broadcast.
       operationId: createWhatsAppBroadcast
@@ -10504,7 +10560,10 @@ paths:
       - application/json
   /v1/whatsapp/broadcasts/{broadcastId}:
     delete:
-      description: Delete a broadcast. Only draft or cancelled broadcasts can be deleted.
+      deprecated: true
+      description: |
+        **Deprecated.** Use `DELETE /v1/broadcasts/{id}` instead.
+        Delete a broadcast. Only draft or cancelled broadcasts can be deleted.
       operationId: deleteWhatsAppBroadcast
       parameters:
       - description: Broadcast ID
@@ -10539,8 +10598,10 @@ paths:
       x-accepts:
       - application/json
     get:
-      description: Retrieve detailed information about a single broadcast including
-        delivery statistics.
+      deprecated: true
+      description: |
+        **Deprecated.** Use `GET /v1/broadcasts/{id}` instead.
+        Retrieve detailed information about a single broadcast including delivery statistics.
       operationId: getWhatsAppBroadcast
       parameters:
       - description: Broadcast ID
@@ -10571,7 +10632,9 @@ paths:
       - application/json
   /v1/whatsapp/broadcasts/{broadcastId}/send:
     post:
+      deprecated: true
       description: |
+        **Deprecated.** Use `POST /v1/broadcasts/{id}/send` instead.
         Start sending a broadcast immediately. The broadcast must be in draft or scheduled status
         and have at least one recipient. Messages are sent sequentially with rate limiting.
       operationId: sendWhatsAppBroadcast
@@ -10612,7 +10675,9 @@ paths:
       - application/json
   /v1/whatsapp/broadcasts/{broadcastId}/schedule:
     delete:
+      deprecated: true
       description: |
+        **Deprecated.** Use `POST /v1/broadcasts/{id}/cancel` instead.
         Cancel a scheduled broadcast and return it to draft status. Only broadcasts in
         scheduled status can be cancelled.
       operationId: cancelWhatsAppBroadcastSchedule
@@ -10652,7 +10717,9 @@ paths:
       x-accepts:
       - application/json
     post:
+      deprecated: true
       description: |
+        **Deprecated.** Use `POST /v1/broadcasts/{id}/schedule` instead.
         Schedule a draft broadcast for future sending. The scheduled time must be in the future
         and no more than 30 days in advance. The broadcast must be in draft status and have recipients.
       operationId: scheduleWhatsAppBroadcast
@@ -10696,7 +10763,10 @@ paths:
       - application/json
   /v1/whatsapp/broadcasts/{broadcastId}/recipients:
     delete:
-      description: Remove recipients from a draft broadcast by phone number.
+      deprecated: true
+      description: |
+        **Deprecated.** Use `POST /v1/broadcasts/{id}/recipients` with removal flag instead.
+        Remove recipients from a draft broadcast by phone number.
       operationId: removeWhatsAppBroadcastRecipients
       parameters:
       - description: Broadcast ID
@@ -10739,7 +10809,9 @@ paths:
       x-accepts:
       - application/json
     get:
+      deprecated: true
       description: |
+        **Deprecated.** Use `GET /v1/broadcasts/{id}/recipients` instead.
         List recipients of a broadcast with their delivery status. Supports filtering
         by delivery status and pagination.
       operationId: getWhatsAppBroadcastRecipients
@@ -10803,7 +10875,9 @@ paths:
       x-accepts:
       - application/json
     patch:
+      deprecated: true
       description: |
+        **Deprecated.** Use `POST /v1/broadcasts/{id}/recipients` instead.
         Add recipients to a draft broadcast. Maximum 1000 recipients per request.
         Duplicate phone numbers are automatically skipped.
       operationId: addWhatsAppBroadcastRecipients
@@ -10853,8 +10927,8 @@ paths:
       - application/json
   /v1/whatsapp/business-profile:
     get:
-      description: "Retrieve the WhatsApp Business profile for the account (about,\
-        \ address, description, email, websites, etc.)."
+      description: |
+        Retrieve the WhatsApp Business profile for the account (about, address, description, email, websites, etc.).
       operationId: getWhatsAppBusinessProfile
       parameters:
       - description: WhatsApp social account ID
@@ -11182,6 +11256,1179 @@ paths:
       summary: Get phone number
       tags:
       - WhatsApp Phone Numbers
+      x-accepts:
+      - application/json
+  /v1/contacts:
+    get:
+      description: "List and search contacts for a profile. Supports filtering by\
+        \ tags, platform, subscription status, and full-text search."
+      operationId: listContacts
+      parameters:
+      - explode: true
+        in: query
+        name: profileId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: search
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: tag
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: platform
+        required: false
+        schema:
+          enum:
+          - instagram
+          - facebook
+          - telegram
+          - twitter
+          - bluesky
+          - reddit
+          - whatsapp
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: isSubscribed
+        required: false
+        schema:
+          enum:
+          - "true"
+          - "false"
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 50
+          maximum: 200
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: skip
+        required: false
+        schema:
+          default: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          description: Contacts list with pagination and filter metadata
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+      summary: List contacts
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+    post:
+      description: "Create a new contact. Optionally create a platform channel in\
+        \ the same request by providing accountId, platform, and platformIdentifier."
+      operationId: createContact
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/createContact_request"
+        required: true
+      responses:
+        "200":
+          description: Contact created
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "409":
+          description: Duplicate contact
+      summary: Create a contact
+      tags:
+      - Contacts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v1/contacts/{contactId}:
+    delete:
+      operationId: deleteContact
+      parameters:
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Contact deleted
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      summary: Delete a contact
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+    get:
+      operationId: getContact
+      parameters:
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Contact with channels
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      summary: Get contact with channels
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+    patch:
+      operationId: updateContact
+      parameters:
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/updateContact_request"
+      responses:
+        "200":
+          description: Contact updated
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      summary: Update a contact
+      tags:
+      - Contacts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v1/contacts/{contactId}/channels:
+    get:
+      operationId: getContactChannels
+      parameters:
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: List of contact channels
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      summary: List channels for a contact
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+  /v1/contacts/bulk:
+    post:
+      description: Import up to 1000 contacts at a time. Skips duplicates.
+      operationId: bulkCreateContacts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/bulkCreateContacts_request"
+        required: true
+      responses:
+        "200":
+          description: Bulk import results
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+      summary: Bulk create contacts
+      tags:
+      - Contacts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v1/contacts/{contactId}/fields/{slug}:
+    delete:
+      operationId: clearContactFieldValue
+      parameters:
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: slug
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Field value cleared
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      summary: Clear a custom field value
+      tags:
+      - Custom Fields
+      x-accepts:
+      - application/json
+    put:
+      operationId: setContactFieldValue
+      parameters:
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: slug
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/setContactFieldValue_request"
+        required: true
+      responses:
+        "200":
+          description: Field value set
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      summary: Set a custom field value
+      tags:
+      - Custom Fields
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v1/custom-fields:
+    get:
+      operationId: listCustomFields
+      parameters:
+      - explode: true
+        in: query
+        name: profileId
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          description: List of custom field definitions
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+      summary: List custom field definitions
+      tags:
+      - Custom Fields
+      x-accepts:
+      - application/json
+    post:
+      operationId: createCustomField
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/createCustomField_request"
+        required: true
+      responses:
+        "200":
+          description: Custom field created
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "409":
+          description: Duplicate slug
+      summary: Create a custom field definition
+      tags:
+      - Custom Fields
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v1/custom-fields/{fieldId}:
+    delete:
+      operationId: deleteCustomField
+      parameters:
+      - explode: false
+        in: path
+        name: fieldId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Custom field deleted
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      summary: Delete a custom field definition
+      tags:
+      - Custom Fields
+      x-accepts:
+      - application/json
+    patch:
+      operationId: updateCustomField
+      parameters:
+      - explode: false
+        in: path
+        name: fieldId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/updateCustomField_request"
+      responses:
+        "200":
+          description: Custom field updated
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      summary: Update a custom field definition
+      tags:
+      - Custom Fields
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v1/broadcasts:
+    get:
+      operationId: listBroadcasts
+      parameters:
+      - explode: true
+        in: query
+        name: profileId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: status
+        required: false
+        schema:
+          enum:
+          - draft
+          - scheduled
+          - sending
+          - completed
+          - failed
+          - cancelled
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: platform
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 50
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: skip
+        required: false
+        schema:
+          default: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          description: Broadcasts list
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+      summary: List broadcasts
+      tags:
+      - Broadcasts
+      x-accepts:
+      - application/json
+    post:
+      operationId: createBroadcast
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/createBroadcast_request"
+        required: true
+      responses:
+        "200":
+          description: Broadcast created
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+      summary: Create a broadcast draft
+      tags:
+      - Broadcasts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v1/broadcasts/{broadcastId}:
+    delete:
+      operationId: deleteBroadcast
+      parameters:
+      - explode: false
+        in: path
+        name: broadcastId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Broadcast deleted
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      summary: Delete a broadcast (draft only)
+      tags:
+      - Broadcasts
+      x-accepts:
+      - application/json
+    get:
+      operationId: getBroadcast
+      parameters:
+      - explode: false
+        in: path
+        name: broadcastId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Broadcast details with stats
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      summary: Get broadcast details
+      tags:
+      - Broadcasts
+      x-accepts:
+      - application/json
+    patch:
+      operationId: updateBroadcast
+      parameters:
+      - explode: false
+        in: path
+        name: broadcastId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Broadcast updated
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      summary: Update a broadcast
+      tags:
+      - Broadcasts
+      x-accepts:
+      - application/json
+  /v1/broadcasts/{broadcastId}/send:
+    post:
+      operationId: sendBroadcast
+      parameters:
+      - explode: false
+        in: path
+        name: broadcastId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Broadcast sending started
+        "400":
+          description: Invalid status or no recipients
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      summary: Trigger immediate send
+      tags:
+      - Broadcasts
+      x-accepts:
+      - application/json
+  /v1/broadcasts/{broadcastId}/schedule:
+    post:
+      operationId: scheduleBroadcast
+      parameters:
+      - explode: false
+        in: path
+        name: broadcastId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/scheduleBroadcast_request"
+        required: true
+      responses:
+        "200":
+          description: Broadcast scheduled
+        "400":
+          description: Invalid date or status
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      summary: Schedule broadcast for later
+      tags:
+      - Broadcasts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v1/broadcasts/{broadcastId}/cancel:
+    post:
+      operationId: cancelBroadcast
+      parameters:
+      - explode: false
+        in: path
+        name: broadcastId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Broadcast cancelled
+        "400":
+          description: Cannot cancel in current status
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      summary: Cancel a broadcast
+      tags:
+      - Broadcasts
+      x-accepts:
+      - application/json
+  /v1/broadcasts/{broadcastId}/recipients:
+    get:
+      operationId: listBroadcastRecipients
+      parameters:
+      - explode: false
+        in: path
+        name: broadcastId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: status
+        required: false
+        schema:
+          enum:
+          - pending
+          - sent
+          - delivered
+          - read
+          - failed
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 50
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: skip
+        required: false
+        schema:
+          default: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          description: Recipients list with delivery status
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      summary: List broadcast recipients
+      tags:
+      - Broadcasts
+      x-accepts:
+      - application/json
+    post:
+      operationId: addBroadcastRecipients
+      parameters:
+      - explode: false
+        in: path
+        name: broadcastId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/addBroadcastRecipients_request"
+        required: true
+      responses:
+        "200":
+          description: Recipients added
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      summary: Add recipients to a broadcast
+      tags:
+      - Broadcasts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v1/sequences:
+    get:
+      operationId: listSequences
+      parameters:
+      - explode: true
+        in: query
+        name: profileId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: status
+        required: false
+        schema:
+          enum:
+          - draft
+          - active
+          - paused
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 50
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: skip
+        required: false
+        schema:
+          default: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          description: Sequences list
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+      summary: List sequences
+      tags:
+      - Sequences
+      x-accepts:
+      - application/json
+    post:
+      operationId: createSequence
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/createSequence_request"
+        required: true
+      responses:
+        "200":
+          description: Sequence created
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+      summary: Create a sequence
+      tags:
+      - Sequences
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v1/sequences/{sequenceId}:
+    delete:
+      operationId: deleteSequence
+      parameters:
+      - explode: false
+        in: path
+        name: sequenceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Sequence deleted
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      summary: Delete a sequence
+      tags:
+      - Sequences
+      x-accepts:
+      - application/json
+    get:
+      operationId: getSequence
+      parameters:
+      - explode: false
+        in: path
+        name: sequenceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Sequence details with steps
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      summary: Get sequence with steps
+      tags:
+      - Sequences
+      x-accepts:
+      - application/json
+    patch:
+      operationId: updateSequence
+      parameters:
+      - explode: false
+        in: path
+        name: sequenceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Sequence updated
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      summary: Update a sequence
+      tags:
+      - Sequences
+      x-accepts:
+      - application/json
+  /v1/sequences/{sequenceId}/activate:
+    post:
+      operationId: activateSequence
+      parameters:
+      - explode: false
+        in: path
+        name: sequenceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Sequence activated
+        "400":
+          description: Invalid status or no steps
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      summary: Activate a sequence
+      tags:
+      - Sequences
+      x-accepts:
+      - application/json
+  /v1/sequences/{sequenceId}/pause:
+    post:
+      operationId: pauseSequence
+      parameters:
+      - explode: false
+        in: path
+        name: sequenceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Sequence paused
+        "400":
+          description: Sequence is not active
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      summary: Pause a sequence
+      tags:
+      - Sequences
+      x-accepts:
+      - application/json
+  /v1/sequences/{sequenceId}/enroll:
+    post:
+      operationId: enrollContacts
+      parameters:
+      - explode: false
+        in: path
+        name: sequenceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/enrollContacts_request"
+        required: true
+      responses:
+        "200":
+          description: Enrollment results
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      summary: Enroll contacts in a sequence
+      tags:
+      - Sequences
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v1/sequences/{sequenceId}/enroll/{contactId}:
+    delete:
+      operationId: unenrollContact
+      parameters:
+      - explode: false
+        in: path
+        name: sequenceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Contact unenrolled
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      summary: Unenroll a contact from a sequence
+      tags:
+      - Sequences
+      x-accepts:
+      - application/json
+  /v1/sequences/{sequenceId}/enrollments:
+    get:
+      operationId: listSequenceEnrollments
+      parameters:
+      - explode: false
+        in: path
+        name: sequenceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: status
+        required: false
+        schema:
+          enum:
+          - active
+          - completed
+          - exited
+          - paused
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 50
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: skip
+        required: false
+        schema:
+          default: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          description: Enrollments list with progress
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      summary: List enrollments for a sequence
+      tags:
+      - Sequences
+      x-accepts:
+      - application/json
+  /v1/comment-automations:
+    get:
+      description: List all comment-to-DM automations for a profile. Returns automations
+        with their stats.
+      operationId: listCommentAutomations
+      parameters:
+      - description: Profile ID
+        explode: true
+        in: query
+        name: profileId
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/listCommentAutomations_200_response"
+          description: Automations list
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+      security:
+      - bearerAuth: []
+      summary: List comment-to-DM automations
+      tags:
+      - Comment Automations
+      x-accepts:
+      - application/json
+    post:
+      description: |
+        Create a keyword-triggered DM automation on an Instagram or Facebook post.
+        When someone comments a matching keyword, they automatically receive a DM.
+        Only one active automation per post is allowed.
+      operationId: createCommentAutomation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/createCommentAutomation_request"
+        required: true
+      responses:
+        "200":
+          description: Automation created
+        "400":
+          description: Validation error
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "409":
+          description: Active automation already exists for this post
+      security:
+      - bearerAuth: []
+      summary: Create a comment-to-DM automation
+      tags:
+      - Comment Automations
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v1/comment-automations/{automationId}:
+    delete:
+      operationId: deleteCommentAutomation
+      parameters:
+      - explode: false
+        in: path
+        name: automationId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Automation deleted
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      security:
+      - bearerAuth: []
+      summary: Delete automation and all logs
+      tags:
+      - Comment Automations
+      x-accepts:
+      - application/json
+    get:
+      operationId: getCommentAutomation
+      parameters:
+      - explode: false
+        in: path
+        name: automationId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Automation details with stats and recent trigger logs
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      security:
+      - bearerAuth: []
+      summary: Get automation details with recent logs
+      tags:
+      - Comment Automations
+      x-accepts:
+      - application/json
+    patch:
+      operationId: updateCommentAutomation
+      parameters:
+      - explode: false
+        in: path
+        name: automationId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/updateCommentAutomation_request"
+      responses:
+        "200":
+          description: Automation updated
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      security:
+      - bearerAuth: []
+      summary: Update automation settings
+      tags:
+      - Comment Automations
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v1/comment-automations/{automationId}/logs:
+    get:
+      description: "Paginated list of every comment that triggered this automation,\
+        \ with send status and commenter info."
+      operationId: listCommentAutomationLogs
+      parameters:
+      - explode: false
+        in: path
+        name: automationId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Filter by result status
+        explode: true
+        in: query
+        name: status
+        required: false
+        schema:
+          enum:
+          - sent
+          - failed
+          - skipped
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 50
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: skip
+        required: false
+        schema:
+          default: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          description: Trigger logs with pagination
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      security:
+      - bearerAuth: []
+      summary: List trigger logs for an automation
+      tags:
+      - Comment Automations
       x-accepts:
       - application/json
 components:
@@ -26897,6 +28144,462 @@ components:
           type: string
         phoneNumber:
           $ref: "#/components/schemas/releaseWhatsAppPhoneNumber_200_response_phoneNumber"
+    createContact_request:
+      properties:
+        profileId:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+        company:
+          type: string
+        tags:
+          items:
+            type: string
+          type: array
+        isSubscribed:
+          default: true
+          type: boolean
+        notes:
+          type: string
+        accountId:
+          description: Optional. Creates a channel if provided with platform + platformIdentifier
+          type: string
+        platform:
+          type: string
+        platformIdentifier:
+          type: string
+        displayIdentifier:
+          type: string
+      required:
+      - name
+      - profileId
+    updateContact_request:
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        company:
+          type: string
+        avatarUrl:
+          type: string
+        tags:
+          items:
+            type: string
+          type: array
+        isSubscribed:
+          type: boolean
+        isBlocked:
+          type: boolean
+        notes:
+          type: string
+    bulkCreateContacts_request_contacts_inner:
+      properties:
+        name:
+          type: string
+        platformIdentifier:
+          type: string
+        displayIdentifier:
+          type: string
+        email:
+          type: string
+        company:
+          type: string
+        tags:
+          items:
+            type: string
+          type: array
+      required:
+      - name
+      - platformIdentifier
+    bulkCreateContacts_request:
+      properties:
+        profileId:
+          type: string
+        accountId:
+          type: string
+        platform:
+          type: string
+        contacts:
+          items:
+            $ref: "#/components/schemas/bulkCreateContacts_request_contacts_inner"
+          maxItems: 1000
+          type: array
+      required:
+      - accountId
+      - contacts
+      - platform
+      - profileId
+    setContactFieldValue_request:
+      properties:
+        value: {}
+      required:
+      - value
+    createCustomField_request:
+      properties:
+        profileId:
+          type: string
+        name:
+          type: string
+        slug:
+          description: Auto-generated from name if not provided
+          type: string
+        type:
+          enum:
+          - text
+          - number
+          - date
+          - boolean
+          - select
+          type: string
+        options:
+          description: Required for select type
+          items:
+            type: string
+          type: array
+      required:
+      - name
+      - profileId
+      - type
+    updateCustomField_request:
+      properties:
+        name:
+          type: string
+        options:
+          items:
+            type: string
+          type: array
+    createBroadcast_request_message_attachments_inner:
+      properties:
+        type:
+          type: string
+        url:
+          type: string
+        filename:
+          type: string
+    createBroadcast_request_message:
+      properties:
+        text:
+          type: string
+        attachments:
+          items:
+            $ref: "#/components/schemas/createBroadcast_request_message_attachments_inner"
+          type: array
+    createBroadcast_request_template:
+      description: WhatsApp template (required when platform is whatsapp)
+      properties:
+        name:
+          type: string
+        language:
+          type: string
+        components:
+          items: {}
+          type: array
+    createBroadcast_request_segmentFilters:
+      properties:
+        tags:
+          items:
+            type: string
+          type: array
+        isSubscribed:
+          type: boolean
+    createBroadcast_request:
+      properties:
+        profileId:
+          type: string
+        accountId:
+          type: string
+        platform:
+          enum:
+          - instagram
+          - facebook
+          - telegram
+          - twitter
+          - bluesky
+          - reddit
+          - whatsapp
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        message:
+          $ref: "#/components/schemas/createBroadcast_request_message"
+        template:
+          $ref: "#/components/schemas/createBroadcast_request_template"
+        segmentFilters:
+          $ref: "#/components/schemas/createBroadcast_request_segmentFilters"
+      required:
+      - accountId
+      - name
+      - platform
+      - profileId
+    scheduleBroadcast_request:
+      properties:
+        scheduledAt:
+          format: date-time
+          type: string
+      required:
+      - scheduledAt
+    addBroadcastRecipients_request:
+      properties:
+        contactIds:
+          description: Specific contact IDs to add
+          items:
+            type: string
+          type: array
+        useSegment:
+          description: Auto-populate from broadcast segment filters
+          type: boolean
+    createSequence_request_steps_inner_message:
+      properties:
+        text:
+          type: string
+    createSequence_request_steps_inner:
+      properties:
+        order:
+          type: integer
+        delayMinutes:
+          type: integer
+        message:
+          $ref: "#/components/schemas/createSequence_request_steps_inner_message"
+        template:
+          $ref: "#/components/schemas/getWhatsAppBroadcasts_200_response_broadcasts_inner_template"
+      required:
+      - delayMinutes
+      - order
+    createSequence_request:
+      properties:
+        profileId:
+          type: string
+        accountId:
+          type: string
+        platform:
+          enum:
+          - instagram
+          - facebook
+          - telegram
+          - twitter
+          - bluesky
+          - reddit
+          - whatsapp
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        steps:
+          items:
+            $ref: "#/components/schemas/createSequence_request_steps_inner"
+          type: array
+        exitOnReply:
+          default: true
+          type: boolean
+        exitOnUnsubscribe:
+          default: true
+          type: boolean
+      required:
+      - accountId
+      - name
+      - platform
+      - profileId
+    enrollContacts_request:
+      properties:
+        contactIds:
+          items:
+            type: string
+          type: array
+        channelIds:
+          description: Optional. Auto-detected if not provided.
+          items:
+            type: string
+          type: array
+      required:
+      - contactIds
+    listCommentAutomations_200_response_automations_inner_stats:
+      example:
+        triggered: 0
+        dmsFailed: 1
+        uniqueContacts: 5
+        dmsSent: 6
+      properties:
+        triggered:
+          type: integer
+        dmsSent:
+          type: integer
+        dmsFailed:
+          type: integer
+        uniqueContacts:
+          type: integer
+    listCommentAutomations_200_response_automations_inner:
+      example:
+        dmMessage: dmMessage
+        keywords:
+        - keywords
+        - keywords
+        commentReply: commentReply
+        isActive: true
+        platform: instagram
+        accountId: accountId
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        stats:
+          triggered: 0
+          dmsFailed: 1
+          uniqueContacts: 5
+          dmsSent: 6
+        name: name
+        postTitle: postTitle
+        id: id
+        matchMode: exact
+        platformPostId: platformPostId
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        platform:
+          enum:
+          - instagram
+          - facebook
+          type: string
+        accountId:
+          type: string
+        platformPostId:
+          type: string
+        postTitle:
+          type: string
+        keywords:
+          items:
+            type: string
+          type: array
+        matchMode:
+          enum:
+          - exact
+          - contains
+          type: string
+        dmMessage:
+          type: string
+        commentReply:
+          type: string
+        isActive:
+          type: boolean
+        stats:
+          $ref: "#/components/schemas/listCommentAutomations_200_response_automations_inner_stats"
+        createdAt:
+          format: date-time
+          type: string
+    listCommentAutomations_200_response:
+      example:
+        automations:
+        - dmMessage: dmMessage
+          keywords:
+          - keywords
+          - keywords
+          commentReply: commentReply
+          isActive: true
+          platform: instagram
+          accountId: accountId
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          stats:
+            triggered: 0
+            dmsFailed: 1
+            uniqueContacts: 5
+            dmsSent: 6
+          name: name
+          postTitle: postTitle
+          id: id
+          matchMode: exact
+          platformPostId: platformPostId
+        - dmMessage: dmMessage
+          keywords:
+          - keywords
+          - keywords
+          commentReply: commentReply
+          isActive: true
+          platform: instagram
+          accountId: accountId
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          stats:
+            triggered: 0
+            dmsFailed: 1
+            uniqueContacts: 5
+            dmsSent: 6
+          name: name
+          postTitle: postTitle
+          id: id
+          matchMode: exact
+          platformPostId: platformPostId
+        success: true
+      properties:
+        success:
+          type: boolean
+        automations:
+          items:
+            $ref: "#/components/schemas/listCommentAutomations_200_response_automations_inner"
+          type: array
+    createCommentAutomation_request:
+      properties:
+        profileId:
+          type: string
+        accountId:
+          description: Instagram or Facebook account ID
+          type: string
+        platformPostId:
+          description: Platform media/post ID
+          type: string
+        postId:
+          description: Zernio post ID (optional)
+          type: string
+        postTitle:
+          description: Post content snippet for display
+          type: string
+        name:
+          description: Automation label
+          type: string
+        keywords:
+          description: Trigger keywords (empty = any comment triggers)
+          items:
+            type: string
+          type: array
+        matchMode:
+          default: contains
+          enum:
+          - exact
+          - contains
+          type: string
+        dmMessage:
+          description: DM text to send to commenter
+          type: string
+        commentReply:
+          description: Optional public reply to the comment
+          type: string
+      required:
+      - accountId
+      - dmMessage
+      - name
+      - platformPostId
+      - profileId
+    updateCommentAutomation_request:
+      properties:
+        name:
+          type: string
+        keywords:
+          items:
+            type: string
+          type: array
+        matchMode:
+          enum:
+          - exact
+          - contains
+          type: string
+        dmMessage:
+          type: string
+        commentReply:
+          type: string
+        isActive:
+          type: boolean
     FoodMenuItem_options_inner:
       example:
         attributes:

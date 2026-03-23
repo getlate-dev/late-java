@@ -77,7 +77,7 @@ All URIs are relative to *https://zernio.com/api*
 
 Add recipients
 
-Add recipients to a draft broadcast. Maximum 1000 recipients per request. Duplicate phone numbers are automatically skipped. 
+**Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/recipients&#x60; instead. Add recipients to a draft broadcast. Maximum 1000 recipients per request. Duplicate phone numbers are automatically skipped. 
 
 ### Example
 
@@ -152,7 +152,7 @@ public class Example {
 
 Add recipients
 
-Add recipients to a draft broadcast. Maximum 1000 recipients per request. Duplicate phone numbers are automatically skipped. 
+**Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/recipients&#x60; instead. Add recipients to a draft broadcast. Maximum 1000 recipients per request. Duplicate phone numbers are automatically skipped. 
 
 ### Example
 
@@ -231,7 +231,7 @@ ApiResponse<[**AddWhatsAppBroadcastRecipients200Response**](AddWhatsAppBroadcast
 
 Bulk delete contacts
 
-Permanently delete multiple contacts at once (max 500 per request).
+**Deprecated.** Use &#x60;DELETE /v1/contacts/{id}&#x60; for individual deletes instead. Permanently delete multiple contacts at once (max 500 per request). 
 
 ### Example
 
@@ -303,7 +303,7 @@ public class Example {
 
 Bulk delete contacts
 
-Permanently delete multiple contacts at once (max 500 per request).
+**Deprecated.** Use &#x60;DELETE /v1/contacts/{id}&#x60; for individual deletes instead. Permanently delete multiple contacts at once (max 500 per request). 
 
 ### Example
 
@@ -379,7 +379,7 @@ ApiResponse<[**BulkDeleteWhatsAppContacts200Response**](BulkDeleteWhatsAppContac
 
 Bulk update contacts
 
-Perform bulk operations on multiple contacts (max 500 per request). Supported actions: addTags, removeTags, addGroups, removeGroups, optIn, optOut, block, unblock. 
+**Deprecated.** Use &#x60;PATCH /v1/contacts/{id}&#x60; for individual updates instead. Perform bulk operations on multiple contacts (max 500 per request). Supported actions: addTags, removeTags, addGroups, removeGroups, optIn, optOut, block, unblock. 
 
 ### Example
 
@@ -451,7 +451,7 @@ public class Example {
 
 Bulk update contacts
 
-Perform bulk operations on multiple contacts (max 500 per request). Supported actions: addTags, removeTags, addGroups, removeGroups, optIn, optOut, block, unblock. 
+**Deprecated.** Use &#x60;PATCH /v1/contacts/{id}&#x60; for individual updates instead. Perform bulk operations on multiple contacts (max 500 per request). Supported actions: addTags, removeTags, addGroups, removeGroups, optIn, optOut, block, unblock. 
 
 ### Example
 
@@ -527,7 +527,7 @@ ApiResponse<[**BulkUpdateWhatsAppContacts200Response**](BulkUpdateWhatsAppContac
 
 Cancel scheduled broadcast
 
-Cancel a scheduled broadcast and return it to draft status. Only broadcasts in scheduled status can be cancelled. 
+**Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/cancel&#x60; instead. Cancel a scheduled broadcast and return it to draft status. Only broadcasts in scheduled status can be cancelled. 
 
 ### Example
 
@@ -600,7 +600,7 @@ public class Example {
 
 Cancel scheduled broadcast
 
-Cancel a scheduled broadcast and return it to draft status. Only broadcasts in scheduled status can be cancelled. 
+**Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/cancel&#x60; instead. Cancel a scheduled broadcast and return it to draft status. Only broadcasts in scheduled status can be cancelled. 
 
 ### Example
 
@@ -677,7 +677,7 @@ ApiResponse<[**CancelWhatsAppBroadcastSchedule200Response**](CancelWhatsAppBroad
 
 Create broadcast
 
-Create a new draft broadcast. Optionally include initial recipients. After creation, add recipients and then send or schedule the broadcast. 
+**Deprecated.** Use &#x60;POST /v1/broadcasts&#x60; instead. Create a new draft broadcast. Optionally include initial recipients. After creation, add recipients and then send or schedule the broadcast. 
 
 ### Example
 
@@ -750,7 +750,7 @@ public class Example {
 
 Create broadcast
 
-Create a new draft broadcast. Optionally include initial recipients. After creation, add recipients and then send or schedule the broadcast. 
+**Deprecated.** Use &#x60;POST /v1/broadcasts&#x60; instead. Create a new draft broadcast. Optionally include initial recipients. After creation, add recipients and then send or schedule the broadcast. 
 
 ### Example
 
@@ -827,7 +827,7 @@ ApiResponse<[**CreateWhatsAppBroadcast200Response**](CreateWhatsAppBroadcast200R
 
 Create contact
 
-Create a new WhatsApp contact. Phone number must be unique per account and in E.164 format (e.g., +1234567890). 
+**Deprecated.** Use &#x60;POST /v1/contacts&#x60; instead. Create a new WhatsApp contact. Phone number must be unique per account and in E.164 format (e.g., +1234567890). 
 
 ### Example
 
@@ -901,7 +901,7 @@ public class Example {
 
 Create contact
 
-Create a new WhatsApp contact. Phone number must be unique per account and in E.164 format (e.g., +1234567890). 
+**Deprecated.** Use &#x60;POST /v1/contacts&#x60; instead. Create a new WhatsApp contact. Phone number must be unique per account and in E.164 format (e.g., +1234567890). 
 
 ### Example
 
@@ -1129,7 +1129,7 @@ ApiResponse<[**CreateWhatsAppTemplate200Response**](CreateWhatsAppTemplate200Res
 
 Delete broadcast
 
-Delete a broadcast. Only draft or cancelled broadcasts can be deleted.
+**Deprecated.** Use &#x60;DELETE /v1/broadcasts/{id}&#x60; instead. Delete a broadcast. Only draft or cancelled broadcasts can be deleted. 
 
 ### Example
 
@@ -1202,7 +1202,7 @@ public class Example {
 
 Delete broadcast
 
-Delete a broadcast. Only draft or cancelled broadcasts can be deleted.
+**Deprecated.** Use &#x60;DELETE /v1/broadcasts/{id}&#x60; instead. Delete a broadcast. Only draft or cancelled broadcasts can be deleted. 
 
 ### Example
 
@@ -1279,7 +1279,7 @@ ApiResponse<[**UnpublishPost200Response**](UnpublishPost200Response.md)>
 
 Delete contact
 
-Permanently delete a WhatsApp contact.
+**Deprecated.** Use &#x60;DELETE /v1/contacts/{id}&#x60; instead. Permanently delete a WhatsApp contact. 
 
 ### Example
 
@@ -1351,7 +1351,7 @@ public class Example {
 
 Delete contact
 
-Permanently delete a WhatsApp contact.
+**Deprecated.** Use &#x60;DELETE /v1/contacts/{id}&#x60; instead. Permanently delete a WhatsApp contact. 
 
 ### Example
 
@@ -1427,7 +1427,7 @@ ApiResponse<[**UnpublishPost200Response**](UnpublishPost200Response.md)>
 
 Delete group
 
-Delete a contact group. This removes the group from all contacts but does not delete the contacts themselves.
+**Deprecated.** Use contact tags via &#x60;PATCH /v1/contacts/{id}&#x60; instead. Delete a contact group. This removes the group from all contacts but does not delete the contacts themselves. 
 
 ### Example
 
@@ -1500,7 +1500,7 @@ public class Example {
 
 Delete group
 
-Delete a contact group. This removes the group from all contacts but does not delete the contacts themselves.
+**Deprecated.** Use contact tags via &#x60;PATCH /v1/contacts/{id}&#x60; instead. Delete a contact group. This removes the group from all contacts but does not delete the contacts themselves. 
 
 ### Example
 
@@ -1577,7 +1577,7 @@ ApiResponse<[**RenameWhatsAppGroup200Response**](RenameWhatsAppGroup200Response.
 
 Delete template
 
-Permanently delete a message template by name.
+Permanently delete a message template by name. 
 
 ### Example
 
@@ -1652,7 +1652,7 @@ public class Example {
 
 Delete template
 
-Permanently delete a message template by name.
+Permanently delete a message template by name. 
 
 ### Example
 
@@ -1731,7 +1731,7 @@ ApiResponse<[**UnpublishPost200Response**](UnpublishPost200Response.md)>
 
 Get broadcast
 
-Retrieve detailed information about a single broadcast including delivery statistics.
+**Deprecated.** Use &#x60;GET /v1/broadcasts/{id}&#x60; instead. Retrieve detailed information about a single broadcast including delivery statistics. 
 
 ### Example
 
@@ -1803,7 +1803,7 @@ public class Example {
 
 Get broadcast
 
-Retrieve detailed information about a single broadcast including delivery statistics.
+**Deprecated.** Use &#x60;GET /v1/broadcasts/{id}&#x60; instead. Retrieve detailed information about a single broadcast including delivery statistics. 
 
 ### Example
 
@@ -1879,7 +1879,7 @@ ApiResponse<[**GetWhatsAppBroadcast200Response**](GetWhatsAppBroadcast200Respons
 
 List recipients
 
-List recipients of a broadcast with their delivery status. Supports filtering by delivery status and pagination. 
+**Deprecated.** Use &#x60;GET /v1/broadcasts/{id}/recipients&#x60; instead. List recipients of a broadcast with their delivery status. Supports filtering by delivery status and pagination. 
 
 ### Example
 
@@ -1957,7 +1957,7 @@ public class Example {
 
 List recipients
 
-List recipients of a broadcast with their delivery status. Supports filtering by delivery status and pagination. 
+**Deprecated.** Use &#x60;GET /v1/broadcasts/{id}/recipients&#x60; instead. List recipients of a broadcast with their delivery status. Supports filtering by delivery status and pagination. 
 
 ### Example
 
@@ -2039,7 +2039,7 @@ ApiResponse<[**GetWhatsAppBroadcastRecipients200Response**](GetWhatsAppBroadcast
 
 List broadcasts
 
-List all WhatsApp broadcasts for an account. Returns broadcasts sorted by creation date (newest first) without the full recipients list for performance. 
+**Deprecated.** Use &#x60;GET /v1/broadcasts?profileId&#x3D;{profileId}&#x60; instead. List all WhatsApp broadcasts for an account. Returns broadcasts sorted by creation date (newest first) without the full recipients list for performance. 
 
 ### Example
 
@@ -2118,7 +2118,7 @@ public class Example {
 
 List broadcasts
 
-List all WhatsApp broadcasts for an account. Returns broadcasts sorted by creation date (newest first) without the full recipients list for performance. 
+**Deprecated.** Use &#x60;GET /v1/broadcasts?profileId&#x3D;{profileId}&#x60; instead. List all WhatsApp broadcasts for an account. Returns broadcasts sorted by creation date (newest first) without the full recipients list for performance. 
 
 ### Example
 
@@ -2201,7 +2201,7 @@ ApiResponse<[**GetWhatsAppBroadcasts200Response**](GetWhatsAppBroadcasts200Respo
 
 Get business profile
 
-Retrieve the WhatsApp Business profile for the account (about, address, description, email, websites, etc.).
+Retrieve the WhatsApp Business profile for the account (about, address, description, email, websites, etc.). 
 
 ### Example
 
@@ -2274,7 +2274,7 @@ public class Example {
 
 Get business profile
 
-Retrieve the WhatsApp Business profile for the account (about, address, description, email, websites, etc.).
+Retrieve the WhatsApp Business profile for the account (about, address, description, email, websites, etc.). 
 
 ### Example
 
@@ -2351,7 +2351,7 @@ ApiResponse<[**GetWhatsAppBusinessProfile200Response**](GetWhatsAppBusinessProfi
 
 Get contact
 
-Retrieve a single WhatsApp contact by ID with full details.
+**Deprecated.** Use &#x60;GET /v1/contacts/{id}&#x60; instead. Retrieve a single WhatsApp contact by ID with full details. 
 
 ### Example
 
@@ -2423,7 +2423,7 @@ public class Example {
 
 Get contact
 
-Retrieve a single WhatsApp contact by ID with full details.
+**Deprecated.** Use &#x60;GET /v1/contacts/{id}&#x60; instead. Retrieve a single WhatsApp contact by ID with full details. 
 
 ### Example
 
@@ -2499,7 +2499,7 @@ ApiResponse<[**GetWhatsAppContact200Response**](GetWhatsAppContact200Response.md
 
 List contacts
 
-List WhatsApp contacts for an account. Supports filtering by tags, groups, opt-in status, and text search. Returns contacts sorted by name with available filter options. 
+**Deprecated.** Use &#x60;GET /v1/contacts?profileId&#x3D;{profileId}&#x60; instead. List WhatsApp contacts for an account. Supports filtering by tags, groups, opt-in status, and text search. Returns contacts sorted by name with available filter options. 
 
 ### Example
 
@@ -2584,7 +2584,7 @@ public class Example {
 
 List contacts
 
-List WhatsApp contacts for an account. Supports filtering by tags, groups, opt-in status, and text search. Returns contacts sorted by name with available filter options. 
+**Deprecated.** Use &#x60;GET /v1/contacts?profileId&#x3D;{profileId}&#x60; instead. List WhatsApp contacts for an account. Supports filtering by tags, groups, opt-in status, and text search. Returns contacts sorted by name with available filter options. 
 
 ### Example
 
@@ -2821,7 +2821,7 @@ ApiResponse<[**GetWhatsAppDisplayName200Response**](GetWhatsAppDisplayName200Res
 
 List contact groups
 
-List all contact groups for a WhatsApp account with contact counts. Groups are derived from the groups field on contacts, not stored as separate documents. 
+**Deprecated.** Use contact tags via &#x60;GET /v1/contacts&#x60; for grouping instead. WhatsApp groups have no cross-platform equivalent. List all contact groups for a WhatsApp account with contact counts. Groups are derived from the groups field on contacts, not stored as separate documents. 
 
 ### Example
 
@@ -2894,7 +2894,7 @@ public class Example {
 
 List contact groups
 
-List all contact groups for a WhatsApp account with contact counts. Groups are derived from the groups field on contacts, not stored as separate documents. 
+**Deprecated.** Use contact tags via &#x60;GET /v1/contacts&#x60; for grouping instead. WhatsApp groups have no cross-platform equivalent. List all contact groups for a WhatsApp account with contact counts. Groups are derived from the groups field on contacts, not stored as separate documents. 
 
 ### Example
 
@@ -2971,7 +2971,7 @@ ApiResponse<[**GetWhatsAppGroups200Response**](GetWhatsAppGroups200Response.md)>
 
 Get template
 
-Retrieve a single message template by name.
+Retrieve a single message template by name. 
 
 ### Example
 
@@ -3046,7 +3046,7 @@ public class Example {
 
 Get template
 
-Retrieve a single message template by name.
+Retrieve a single message template by name. 
 
 ### Example
 
@@ -3275,7 +3275,7 @@ ApiResponse<[**GetWhatsAppTemplates200Response**](GetWhatsAppTemplates200Respons
 
 Bulk import contacts
 
-Import up to 1000 contacts at once. Each contact requires a phone number and name. Duplicates are skipped by default. Supports default tags and groups applied to all imported contacts. 
+**Deprecated.** Use &#x60;POST /v1/contacts/bulk&#x60; instead. Import up to 1000 contacts at once. Each contact requires a phone number and name. Duplicates are skipped by default. Supports default tags and groups applied to all imported contacts. 
 
 ### Example
 
@@ -3348,7 +3348,7 @@ public class Example {
 
 Bulk import contacts
 
-Import up to 1000 contacts at once. Each contact requires a phone number and name. Duplicates are skipped by default. Supports default tags and groups applied to all imported contacts. 
+**Deprecated.** Use &#x60;POST /v1/contacts/bulk&#x60; instead. Import up to 1000 contacts at once. Each contact requires a phone number and name. Duplicates are skipped by default. Supports default tags and groups applied to all imported contacts. 
 
 ### Example
 
@@ -3425,7 +3425,7 @@ ApiResponse<[**ImportWhatsAppContacts200Response**](ImportWhatsAppContacts200Res
 
 Remove recipients
 
-Remove recipients from a draft broadcast by phone number.
+**Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/recipients&#x60; with removal flag instead. Remove recipients from a draft broadcast by phone number. 
 
 ### Example
 
@@ -3500,7 +3500,7 @@ public class Example {
 
 Remove recipients
 
-Remove recipients from a draft broadcast by phone number.
+**Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/recipients&#x60; with removal flag instead. Remove recipients from a draft broadcast by phone number. 
 
 ### Example
 
@@ -3579,7 +3579,7 @@ ApiResponse<[**RemoveWhatsAppBroadcastRecipients200Response**](RemoveWhatsAppBro
 
 Rename group
 
-Rename a contact group. This updates the group name on all contacts that belong to the group.
+**Deprecated.** Use contact tags via &#x60;PATCH /v1/contacts/{id}&#x60; instead. Rename a contact group. This updates the group name on all contacts that belong to the group. 
 
 ### Example
 
@@ -3652,7 +3652,7 @@ public class Example {
 
 Rename group
 
-Rename a contact group. This updates the group name on all contacts that belong to the group.
+**Deprecated.** Use contact tags via &#x60;PATCH /v1/contacts/{id}&#x60; instead. Rename a contact group. This updates the group name on all contacts that belong to the group. 
 
 ### Example
 
@@ -3729,7 +3729,7 @@ ApiResponse<[**RenameWhatsAppGroup200Response**](RenameWhatsAppGroup200Response.
 
 Schedule broadcast
 
-Schedule a draft broadcast for future sending. The scheduled time must be in the future and no more than 30 days in advance. The broadcast must be in draft status and have recipients. 
+**Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/schedule&#x60; instead. Schedule a draft broadcast for future sending. The scheduled time must be in the future and no more than 30 days in advance. The broadcast must be in draft status and have recipients. 
 
 ### Example
 
@@ -3804,7 +3804,7 @@ public class Example {
 
 Schedule broadcast
 
-Schedule a draft broadcast for future sending. The scheduled time must be in the future and no more than 30 days in advance. The broadcast must be in draft status and have recipients. 
+**Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/schedule&#x60; instead. Schedule a draft broadcast for future sending. The scheduled time must be in the future and no more than 30 days in advance. The broadcast must be in draft status and have recipients. 
 
 ### Example
 
@@ -3883,7 +3883,7 @@ ApiResponse<[**ScheduleWhatsAppBroadcast200Response**](ScheduleWhatsAppBroadcast
 
 Send broadcast
 
-Start sending a broadcast immediately. The broadcast must be in draft or scheduled status and have at least one recipient. Messages are sent sequentially with rate limiting. 
+**Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/send&#x60; instead. Start sending a broadcast immediately. The broadcast must be in draft or scheduled status and have at least one recipient. Messages are sent sequentially with rate limiting. 
 
 ### Example
 
@@ -3956,7 +3956,7 @@ public class Example {
 
 Send broadcast
 
-Start sending a broadcast immediately. The broadcast must be in draft or scheduled status and have at least one recipient. Messages are sent sequentially with rate limiting. 
+**Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/send&#x60; instead. Start sending a broadcast immediately. The broadcast must be in draft or scheduled status and have at least one recipient. Messages are sent sequentially with rate limiting. 
 
 ### Example
 
@@ -4033,7 +4033,7 @@ ApiResponse<[**SendWhatsAppBroadcast200Response**](SendWhatsAppBroadcast200Respo
 
 Bulk send template messages
 
-Send a template message to multiple recipients in a single request. Maximum 100 recipients per request. Only template messages are supported for bulk sending (not free-form text).  Each recipient can have optional per-recipient template variables for personalization. Returns detailed results for each recipient. 
+**Deprecated.** Use &#x60;POST /v1/broadcasts&#x60; to create a broadcast, &#x60;POST /v1/broadcasts/{id}/recipients&#x60; to add recipients, then &#x60;POST /v1/broadcasts/{id}/send&#x60; to send. Send a template message to multiple recipients in a single request. Maximum 100 recipients per request. Only template messages are supported for bulk sending (not free-form text).  Each recipient can have optional per-recipient template variables for personalization. Returns detailed results for each recipient. 
 
 ### Example
 
@@ -4106,7 +4106,7 @@ public class Example {
 
 Bulk send template messages
 
-Send a template message to multiple recipients in a single request. Maximum 100 recipients per request. Only template messages are supported for bulk sending (not free-form text).  Each recipient can have optional per-recipient template variables for personalization. Returns detailed results for each recipient. 
+**Deprecated.** Use &#x60;POST /v1/broadcasts&#x60; to create a broadcast, &#x60;POST /v1/broadcasts/{id}/recipients&#x60; to add recipients, then &#x60;POST /v1/broadcasts/{id}/send&#x60; to send. Send a template message to multiple recipients in a single request. Maximum 100 recipients per request. Only template messages are supported for bulk sending (not free-form text).  Each recipient can have optional per-recipient template variables for personalization. Returns detailed results for each recipient. 
 
 ### Example
 
@@ -4333,7 +4333,7 @@ ApiResponse<[**UnpublishPost200Response**](UnpublishPost200Response.md)>
 
 Update contact
 
-Update an existing WhatsApp contact. All fields are optional; only provided fields will be updated. Custom fields are merged with existing values. Set a custom field to null to remove it. 
+**Deprecated.** Use &#x60;PATCH /v1/contacts/{id}&#x60; instead. Update an existing WhatsApp contact. All fields are optional; only provided fields will be updated. Custom fields are merged with existing values. Set a custom field to null to remove it. 
 
 ### Example
 
@@ -4407,7 +4407,7 @@ public class Example {
 
 Update contact
 
-Update an existing WhatsApp contact. All fields are optional; only provided fields will be updated. Custom fields are merged with existing values. Set a custom field to null to remove it. 
+**Deprecated.** Use &#x60;PATCH /v1/contacts/{id}&#x60; instead. Update an existing WhatsApp contact. All fields are optional; only provided fields will be updated. Custom fields are merged with existing values. Set a custom field to null to remove it. 
 
 ### Example
 

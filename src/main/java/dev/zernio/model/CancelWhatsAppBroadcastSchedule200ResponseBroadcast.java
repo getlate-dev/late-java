@@ -36,7 +36,7 @@ import dev.zernio.ApiClient;
   CancelWhatsAppBroadcastSchedule200ResponseBroadcast.JSON_PROPERTY_ID,
   CancelWhatsAppBroadcastSchedule200ResponseBroadcast.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T12:22:55.667233913Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T15:44:02.123260201Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CancelWhatsAppBroadcastSchedule200ResponseBroadcast {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable
