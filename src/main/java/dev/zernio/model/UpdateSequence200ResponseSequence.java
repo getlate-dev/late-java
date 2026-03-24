@@ -45,7 +45,7 @@ import dev.zernio.ApiClient;
   UpdateSequence200ResponseSequence.JSON_PROPERTY_EXIT_ON_UNSUBSCRIBE,
   UpdateSequence200ResponseSequence.JSON_PROPERTY_UPDATED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-24T09:12:30.411688078Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-24T10:18:55.642597888Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UpdateSequence200ResponseSequence {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable
