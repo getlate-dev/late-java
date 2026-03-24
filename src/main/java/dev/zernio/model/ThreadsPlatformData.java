@@ -36,16 +36,45 @@ import dev.zernio.ApiClient;
  * Up to 10 images per carousel (no videos). Videos must be H.264/AAC MP4, max 5 min. Images JPEG/PNG, max 8 MB. Use threadItems for reply chains.
  */
 @JsonPropertyOrder({
+  ThreadsPlatformData.JSON_PROPERTY_TOPIC_TAG,
   ThreadsPlatformData.JSON_PROPERTY_THREAD_ITEMS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T20:48:30.201691476Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-24T09:12:30.411688078Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ThreadsPlatformData {
+  public static final String JSON_PROPERTY_TOPIC_TAG = "topic_tag";
+  @javax.annotation.Nullable
+  private String topicTag;
+
   public static final String JSON_PROPERTY_THREAD_ITEMS = "threadItems";
   @javax.annotation.Nullable
   private List<TwitterPlatformDataThreadItemsInner> threadItems = new ArrayList<>();
 
   public ThreadsPlatformData() { 
   }
+
+  public ThreadsPlatformData topicTag(@javax.annotation.Nullable String topicTag) {
+    this.topicTag = topicTag;
+    return this;
+  }
+
+  /**
+   * Topic tag for post categorization and discoverability on Threads. Must be 1-50 characters, cannot contain periods (.) or ampersands (&amp;). Overrides auto-extraction from content hashtags when provided.
+   * @return topicTag
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_TOPIC_TAG, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTopicTag() {
+    return topicTag;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_TOPIC_TAG, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTopicTag(@javax.annotation.Nullable String topicTag) {
+    this.topicTag = topicTag;
+  }
+
 
   public ThreadsPlatformData threadItems(@javax.annotation.Nullable List<TwitterPlatformDataThreadItemsInner> threadItems) {
     this.threadItems = threadItems;
@@ -91,18 +120,20 @@ public class ThreadsPlatformData {
       return false;
     }
     ThreadsPlatformData threadsPlatformData = (ThreadsPlatformData) o;
-    return Objects.equals(this.threadItems, threadsPlatformData.threadItems);
+    return Objects.equals(this.topicTag, threadsPlatformData.topicTag) &&
+        Objects.equals(this.threadItems, threadsPlatformData.threadItems);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(threadItems);
+    return Objects.hash(topicTag, threadItems);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ThreadsPlatformData {\n");
+    sb.append("    topicTag: ").append(toIndentedString(topicTag)).append("\n");
     sb.append("    threadItems: ").append(toIndentedString(threadItems)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -150,6 +181,11 @@ public class ThreadsPlatformData {
     }
 
     StringJoiner joiner = new StringJoiner("&");
+
+    // add `topic_tag` to the URL query string
+    if (getTopicTag() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%stopic_tag%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getTopicTag()))));
+    }
 
     // add `threadItems` to the URL query string
     if (getThreadItems() != null) {

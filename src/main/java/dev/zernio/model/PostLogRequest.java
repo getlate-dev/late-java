@@ -43,7 +43,7 @@ import dev.zernio.ApiClient;
   PostLogRequest.JSON_PROPERTY_SCHEDULED_FOR,
   PostLogRequest.JSON_PROPERTY_RAW_BODY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-23T20:48:30.201691476Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-24T09:12:30.411688078Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class PostLogRequest {
   public static final String JSON_PROPERTY_CONTENT_PREVIEW = "contentPreview";
   @javax.annotation.Nullable
