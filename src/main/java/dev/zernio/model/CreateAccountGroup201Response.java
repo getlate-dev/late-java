@@ -37,7 +37,7 @@ import dev.zernio.ApiClient;
   CreateAccountGroup201Response.JSON_PROPERTY_MESSAGE,
   CreateAccountGroup201Response.JSON_PROPERTY_GROUP
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-26T14:49:34.857605595Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-26T15:28:43.475777651Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateAccountGroup201Response {
   public static final String JSON_PROPERTY_MESSAGE = "message";
   @javax.annotation.Nullable

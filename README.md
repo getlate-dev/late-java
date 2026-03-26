@@ -4,7 +4,7 @@ Zernio API
 
 - API version: 1.0.1
 
-- Build date: 2026-03-26T14:49:34.857605595Z[Etc/UTC]
+- Build date: 2026-03-26T15:28:43.475777651Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -496,6 +496,10 @@ Class | Method | HTTP request | Description
 *WebhooksApi* | [**updateWebhookSettingsWithHttpInfo**](docs/WebhooksApi.md#updateWebhookSettingsWithHttpInfo) | **PUT** /v1/webhooks/settings | Update webhook
 *WhatsAppApi* | [**addWhatsAppBroadcastRecipients**](docs/WhatsAppApi.md#addWhatsAppBroadcastRecipients) | **PATCH** /v1/whatsapp/broadcasts/{broadcastId}/recipients | Add recipients
 *WhatsAppApi* | [**addWhatsAppBroadcastRecipientsWithHttpInfo**](docs/WhatsAppApi.md#addWhatsAppBroadcastRecipientsWithHttpInfo) | **PATCH** /v1/whatsapp/broadcasts/{broadcastId}/recipients | Add recipients
+*WhatsAppApi* | [**addWhatsAppGroupParticipants**](docs/WhatsAppApi.md#addWhatsAppGroupParticipants) | **POST** /v1/whatsapp/wa-groups/{groupId}/participants | Add participants
+*WhatsAppApi* | [**addWhatsAppGroupParticipantsWithHttpInfo**](docs/WhatsAppApi.md#addWhatsAppGroupParticipantsWithHttpInfo) | **POST** /v1/whatsapp/wa-groups/{groupId}/participants | Add participants
+*WhatsAppApi* | [**approveWhatsAppGroupJoinRequests**](docs/WhatsAppApi.md#approveWhatsAppGroupJoinRequests) | **POST** /v1/whatsapp/wa-groups/{groupId}/join-requests | Approve join requests
+*WhatsAppApi* | [**approveWhatsAppGroupJoinRequestsWithHttpInfo**](docs/WhatsAppApi.md#approveWhatsAppGroupJoinRequestsWithHttpInfo) | **POST** /v1/whatsapp/wa-groups/{groupId}/join-requests | Approve join requests
 *WhatsAppApi* | [**bulkDeleteWhatsAppContacts**](docs/WhatsAppApi.md#bulkDeleteWhatsAppContacts) | **DELETE** /v1/whatsapp/contacts/bulk | Bulk delete contacts
 *WhatsAppApi* | [**bulkDeleteWhatsAppContactsWithHttpInfo**](docs/WhatsAppApi.md#bulkDeleteWhatsAppContactsWithHttpInfo) | **DELETE** /v1/whatsapp/contacts/bulk | Bulk delete contacts
 *WhatsAppApi* | [**bulkUpdateWhatsAppContacts**](docs/WhatsAppApi.md#bulkUpdateWhatsAppContacts) | **POST** /v1/whatsapp/contacts/bulk | Bulk update contacts
@@ -506,6 +510,10 @@ Class | Method | HTTP request | Description
 *WhatsAppApi* | [**createWhatsAppBroadcastWithHttpInfo**](docs/WhatsAppApi.md#createWhatsAppBroadcastWithHttpInfo) | **POST** /v1/whatsapp/broadcasts | Create broadcast
 *WhatsAppApi* | [**createWhatsAppContact**](docs/WhatsAppApi.md#createWhatsAppContact) | **POST** /v1/whatsapp/contacts | Create contact
 *WhatsAppApi* | [**createWhatsAppContactWithHttpInfo**](docs/WhatsAppApi.md#createWhatsAppContactWithHttpInfo) | **POST** /v1/whatsapp/contacts | Create contact
+*WhatsAppApi* | [**createWhatsAppGroupChat**](docs/WhatsAppApi.md#createWhatsAppGroupChat) | **POST** /v1/whatsapp/wa-groups | Create group
+*WhatsAppApi* | [**createWhatsAppGroupChatWithHttpInfo**](docs/WhatsAppApi.md#createWhatsAppGroupChatWithHttpInfo) | **POST** /v1/whatsapp/wa-groups | Create group
+*WhatsAppApi* | [**createWhatsAppGroupInviteLink**](docs/WhatsAppApi.md#createWhatsAppGroupInviteLink) | **POST** /v1/whatsapp/wa-groups/{groupId}/invite-link | Create invite link
+*WhatsAppApi* | [**createWhatsAppGroupInviteLinkWithHttpInfo**](docs/WhatsAppApi.md#createWhatsAppGroupInviteLinkWithHttpInfo) | **POST** /v1/whatsapp/wa-groups/{groupId}/invite-link | Create invite link
 *WhatsAppApi* | [**createWhatsAppTemplate**](docs/WhatsAppApi.md#createWhatsAppTemplate) | **POST** /v1/whatsapp/templates | Create template
 *WhatsAppApi* | [**createWhatsAppTemplateWithHttpInfo**](docs/WhatsAppApi.md#createWhatsAppTemplateWithHttpInfo) | **POST** /v1/whatsapp/templates | Create template
 *WhatsAppApi* | [**deleteWhatsAppBroadcast**](docs/WhatsAppApi.md#deleteWhatsAppBroadcast) | **DELETE** /v1/whatsapp/broadcasts/{broadcastId} | Delete broadcast
@@ -514,6 +522,8 @@ Class | Method | HTTP request | Description
 *WhatsAppApi* | [**deleteWhatsAppContactWithHttpInfo**](docs/WhatsAppApi.md#deleteWhatsAppContactWithHttpInfo) | **DELETE** /v1/whatsapp/contacts/{contactId} | Delete contact
 *WhatsAppApi* | [**deleteWhatsAppGroup**](docs/WhatsAppApi.md#deleteWhatsAppGroup) | **DELETE** /v1/whatsapp/groups | Delete group
 *WhatsAppApi* | [**deleteWhatsAppGroupWithHttpInfo**](docs/WhatsAppApi.md#deleteWhatsAppGroupWithHttpInfo) | **DELETE** /v1/whatsapp/groups | Delete group
+*WhatsAppApi* | [**deleteWhatsAppGroupChat**](docs/WhatsAppApi.md#deleteWhatsAppGroupChat) | **DELETE** /v1/whatsapp/wa-groups/{groupId} | Delete group
+*WhatsAppApi* | [**deleteWhatsAppGroupChatWithHttpInfo**](docs/WhatsAppApi.md#deleteWhatsAppGroupChatWithHttpInfo) | **DELETE** /v1/whatsapp/wa-groups/{groupId} | Delete group
 *WhatsAppApi* | [**deleteWhatsAppTemplate**](docs/WhatsAppApi.md#deleteWhatsAppTemplate) | **DELETE** /v1/whatsapp/templates/{templateName} | Delete template
 *WhatsAppApi* | [**deleteWhatsAppTemplateWithHttpInfo**](docs/WhatsAppApi.md#deleteWhatsAppTemplateWithHttpInfo) | **DELETE** /v1/whatsapp/templates/{templateName} | Delete template
 *WhatsAppApi* | [**getWhatsAppBroadcast**](docs/WhatsAppApi.md#getWhatsAppBroadcast) | **GET** /v1/whatsapp/broadcasts/{broadcastId} | Get broadcast
@@ -530,6 +540,8 @@ Class | Method | HTTP request | Description
 *WhatsAppApi* | [**getWhatsAppContactsWithHttpInfo**](docs/WhatsAppApi.md#getWhatsAppContactsWithHttpInfo) | **GET** /v1/whatsapp/contacts | List contacts
 *WhatsAppApi* | [**getWhatsAppDisplayName**](docs/WhatsAppApi.md#getWhatsAppDisplayName) | **GET** /v1/whatsapp/business-profile/display-name | Get display name and review status
 *WhatsAppApi* | [**getWhatsAppDisplayNameWithHttpInfo**](docs/WhatsAppApi.md#getWhatsAppDisplayNameWithHttpInfo) | **GET** /v1/whatsapp/business-profile/display-name | Get display name and review status
+*WhatsAppApi* | [**getWhatsAppGroupChat**](docs/WhatsAppApi.md#getWhatsAppGroupChat) | **GET** /v1/whatsapp/wa-groups/{groupId} | Get group info
+*WhatsAppApi* | [**getWhatsAppGroupChatWithHttpInfo**](docs/WhatsAppApi.md#getWhatsAppGroupChatWithHttpInfo) | **GET** /v1/whatsapp/wa-groups/{groupId} | Get group info
 *WhatsAppApi* | [**getWhatsAppGroups**](docs/WhatsAppApi.md#getWhatsAppGroups) | **GET** /v1/whatsapp/groups | List contact groups
 *WhatsAppApi* | [**getWhatsAppGroupsWithHttpInfo**](docs/WhatsAppApi.md#getWhatsAppGroupsWithHttpInfo) | **GET** /v1/whatsapp/groups | List contact groups
 *WhatsAppApi* | [**getWhatsAppTemplate**](docs/WhatsAppApi.md#getWhatsAppTemplate) | **GET** /v1/whatsapp/templates/{templateName} | Get template
@@ -538,8 +550,16 @@ Class | Method | HTTP request | Description
 *WhatsAppApi* | [**getWhatsAppTemplatesWithHttpInfo**](docs/WhatsAppApi.md#getWhatsAppTemplatesWithHttpInfo) | **GET** /v1/whatsapp/templates | List templates
 *WhatsAppApi* | [**importWhatsAppContacts**](docs/WhatsAppApi.md#importWhatsAppContacts) | **POST** /v1/whatsapp/contacts/import | Bulk import contacts
 *WhatsAppApi* | [**importWhatsAppContactsWithHttpInfo**](docs/WhatsAppApi.md#importWhatsAppContactsWithHttpInfo) | **POST** /v1/whatsapp/contacts/import | Bulk import contacts
+*WhatsAppApi* | [**listWhatsAppGroupChats**](docs/WhatsAppApi.md#listWhatsAppGroupChats) | **GET** /v1/whatsapp/wa-groups | List active groups
+*WhatsAppApi* | [**listWhatsAppGroupChatsWithHttpInfo**](docs/WhatsAppApi.md#listWhatsAppGroupChatsWithHttpInfo) | **GET** /v1/whatsapp/wa-groups | List active groups
+*WhatsAppApi* | [**listWhatsAppGroupJoinRequests**](docs/WhatsAppApi.md#listWhatsAppGroupJoinRequests) | **GET** /v1/whatsapp/wa-groups/{groupId}/join-requests | List join requests
+*WhatsAppApi* | [**listWhatsAppGroupJoinRequestsWithHttpInfo**](docs/WhatsAppApi.md#listWhatsAppGroupJoinRequestsWithHttpInfo) | **GET** /v1/whatsapp/wa-groups/{groupId}/join-requests | List join requests
+*WhatsAppApi* | [**rejectWhatsAppGroupJoinRequests**](docs/WhatsAppApi.md#rejectWhatsAppGroupJoinRequests) | **DELETE** /v1/whatsapp/wa-groups/{groupId}/join-requests | Reject join requests
+*WhatsAppApi* | [**rejectWhatsAppGroupJoinRequestsWithHttpInfo**](docs/WhatsAppApi.md#rejectWhatsAppGroupJoinRequestsWithHttpInfo) | **DELETE** /v1/whatsapp/wa-groups/{groupId}/join-requests | Reject join requests
 *WhatsAppApi* | [**removeWhatsAppBroadcastRecipients**](docs/WhatsAppApi.md#removeWhatsAppBroadcastRecipients) | **DELETE** /v1/whatsapp/broadcasts/{broadcastId}/recipients | Remove recipients
 *WhatsAppApi* | [**removeWhatsAppBroadcastRecipientsWithHttpInfo**](docs/WhatsAppApi.md#removeWhatsAppBroadcastRecipientsWithHttpInfo) | **DELETE** /v1/whatsapp/broadcasts/{broadcastId}/recipients | Remove recipients
+*WhatsAppApi* | [**removeWhatsAppGroupParticipants**](docs/WhatsAppApi.md#removeWhatsAppGroupParticipants) | **DELETE** /v1/whatsapp/wa-groups/{groupId}/participants | Remove participants
+*WhatsAppApi* | [**removeWhatsAppGroupParticipantsWithHttpInfo**](docs/WhatsAppApi.md#removeWhatsAppGroupParticipantsWithHttpInfo) | **DELETE** /v1/whatsapp/wa-groups/{groupId}/participants | Remove participants
 *WhatsAppApi* | [**renameWhatsAppGroup**](docs/WhatsAppApi.md#renameWhatsAppGroup) | **POST** /v1/whatsapp/groups | Rename group
 *WhatsAppApi* | [**renameWhatsAppGroupWithHttpInfo**](docs/WhatsAppApi.md#renameWhatsAppGroupWithHttpInfo) | **POST** /v1/whatsapp/groups | Rename group
 *WhatsAppApi* | [**scheduleWhatsAppBroadcast**](docs/WhatsAppApi.md#scheduleWhatsAppBroadcast) | **POST** /v1/whatsapp/broadcasts/{broadcastId}/schedule | Schedule broadcast
@@ -554,6 +574,8 @@ Class | Method | HTTP request | Description
 *WhatsAppApi* | [**updateWhatsAppContactWithHttpInfo**](docs/WhatsAppApi.md#updateWhatsAppContactWithHttpInfo) | **PUT** /v1/whatsapp/contacts/{contactId} | Update contact
 *WhatsAppApi* | [**updateWhatsAppDisplayName**](docs/WhatsAppApi.md#updateWhatsAppDisplayName) | **POST** /v1/whatsapp/business-profile/display-name | Request display name change
 *WhatsAppApi* | [**updateWhatsAppDisplayNameWithHttpInfo**](docs/WhatsAppApi.md#updateWhatsAppDisplayNameWithHttpInfo) | **POST** /v1/whatsapp/business-profile/display-name | Request display name change
+*WhatsAppApi* | [**updateWhatsAppGroupChat**](docs/WhatsAppApi.md#updateWhatsAppGroupChat) | **POST** /v1/whatsapp/wa-groups/{groupId} | Update group settings
+*WhatsAppApi* | [**updateWhatsAppGroupChatWithHttpInfo**](docs/WhatsAppApi.md#updateWhatsAppGroupChatWithHttpInfo) | **POST** /v1/whatsapp/wa-groups/{groupId} | Update group settings
 *WhatsAppApi* | [**updateWhatsAppTemplate**](docs/WhatsAppApi.md#updateWhatsAppTemplate) | **PATCH** /v1/whatsapp/templates/{templateName} | Update template
 *WhatsAppApi* | [**updateWhatsAppTemplateWithHttpInfo**](docs/WhatsAppApi.md#updateWhatsAppTemplateWithHttpInfo) | **PATCH** /v1/whatsapp/templates/{templateName} | Update template
 *WhatsAppApi* | [**uploadWhatsAppProfilePhoto**](docs/WhatsAppApi.md#uploadWhatsAppProfilePhoto) | **POST** /v1/whatsapp/business-profile/photo | Upload profile picture
@@ -580,6 +602,7 @@ Class | Method | HTTP request | Description
  - [AddWhatsAppBroadcastRecipients200Response](docs/AddWhatsAppBroadcastRecipients200Response.md)
  - [AddWhatsAppBroadcastRecipientsRequest](docs/AddWhatsAppBroadcastRecipientsRequest.md)
  - [AddWhatsAppBroadcastRecipientsRequestRecipientsInner](docs/AddWhatsAppBroadcastRecipientsRequestRecipientsInner.md)
+ - [AddWhatsAppGroupParticipantsRequest](docs/AddWhatsAppGroupParticipantsRequest.md)
  - [AnalyticsListResponse](docs/AnalyticsListResponse.md)
  - [AnalyticsListResponsePostsInner](docs/AnalyticsListResponsePostsInner.md)
  - [AnalyticsOverview](docs/AnalyticsOverview.md)
@@ -588,6 +611,7 @@ Class | Method | HTTP request | Description
  - [AnalyticsSinglePostResponseMediaItemsInner](docs/AnalyticsSinglePostResponseMediaItemsInner.md)
  - [ApiKey](docs/ApiKey.md)
  - [ApiKeyProfileIdsInner](docs/ApiKeyProfileIdsInner.md)
+ - [ApproveWhatsAppGroupJoinRequestsRequest](docs/ApproveWhatsAppGroupJoinRequestsRequest.md)
  - [BlueskyPlatformData](docs/BlueskyPlatformData.md)
  - [BookmarkPost200Response](docs/BookmarkPost200Response.md)
  - [BookmarkPostRequest](docs/BookmarkPostRequest.md)
@@ -674,6 +698,10 @@ Class | Method | HTTP request | Description
  - [CreateWhatsAppContact200Response](docs/CreateWhatsAppContact200Response.md)
  - [CreateWhatsAppContact200ResponseContact](docs/CreateWhatsAppContact200ResponseContact.md)
  - [CreateWhatsAppContactRequest](docs/CreateWhatsAppContactRequest.md)
+ - [CreateWhatsAppGroupChat201Response](docs/CreateWhatsAppGroupChat201Response.md)
+ - [CreateWhatsAppGroupChat201ResponseGroup](docs/CreateWhatsAppGroupChat201ResponseGroup.md)
+ - [CreateWhatsAppGroupChatRequest](docs/CreateWhatsAppGroupChatRequest.md)
+ - [CreateWhatsAppGroupInviteLink200Response](docs/CreateWhatsAppGroupInviteLink200Response.md)
  - [CreateWhatsAppTemplate200Response](docs/CreateWhatsAppTemplate200Response.md)
  - [CreateWhatsAppTemplate200ResponseTemplate](docs/CreateWhatsAppTemplate200ResponseTemplate.md)
  - [CreateWhatsAppTemplateRequest](docs/CreateWhatsAppTemplateRequest.md)
@@ -861,6 +889,9 @@ Class | Method | HTTP request | Description
  - [GetWhatsAppContacts200ResponsePagination](docs/GetWhatsAppContacts200ResponsePagination.md)
  - [GetWhatsAppDisplayName200Response](docs/GetWhatsAppDisplayName200Response.md)
  - [GetWhatsAppDisplayName200ResponseDisplayName](docs/GetWhatsAppDisplayName200ResponseDisplayName.md)
+ - [GetWhatsAppGroupChat200Response](docs/GetWhatsAppGroupChat200Response.md)
+ - [GetWhatsAppGroupChat200ResponseGroup](docs/GetWhatsAppGroupChat200ResponseGroup.md)
+ - [GetWhatsAppGroupChat200ResponseGroupParticipantsInner](docs/GetWhatsAppGroupChat200ResponseGroupParticipantsInner.md)
  - [GetWhatsAppGroups200Response](docs/GetWhatsAppGroups200Response.md)
  - [GetWhatsAppGroups200ResponseGroupsInner](docs/GetWhatsAppGroups200ResponseGroupsInner.md)
  - [GetWhatsAppGroups200ResponseSummary](docs/GetWhatsAppGroups200ResponseSummary.md)
@@ -970,6 +1001,12 @@ Class | Method | HTTP request | Description
  - [ListSnapchatProfiles200ResponsePublicProfilesInner](docs/ListSnapchatProfiles200ResponsePublicProfilesInner.md)
  - [ListUsers200Response](docs/ListUsers200Response.md)
  - [ListUsers200ResponseUsersInner](docs/ListUsers200ResponseUsersInner.md)
+ - [ListWhatsAppGroupChats200Response](docs/ListWhatsAppGroupChats200Response.md)
+ - [ListWhatsAppGroupChats200ResponseGroupsInner](docs/ListWhatsAppGroupChats200ResponseGroupsInner.md)
+ - [ListWhatsAppGroupChats200ResponsePaging](docs/ListWhatsAppGroupChats200ResponsePaging.md)
+ - [ListWhatsAppGroupChats200ResponsePagingCursors](docs/ListWhatsAppGroupChats200ResponsePagingCursors.md)
+ - [ListWhatsAppGroupJoinRequests200Response](docs/ListWhatsAppGroupJoinRequests200Response.md)
+ - [ListWhatsAppGroupJoinRequests200ResponseJoinRequestsInner](docs/ListWhatsAppGroupJoinRequests200ResponseJoinRequestsInner.md)
  - [MediaItem](docs/MediaItem.md)
  - [MediaUploadResponse](docs/MediaUploadResponse.md)
  - [Money](docs/Money.md)
@@ -1016,11 +1053,13 @@ Class | Method | HTTP request | Description
  - [RecyclingConfig](docs/RecyclingConfig.md)
  - [RecyclingState](docs/RecyclingState.md)
  - [RedditPlatformData](docs/RedditPlatformData.md)
+ - [RejectWhatsAppGroupJoinRequestsRequest](docs/RejectWhatsAppGroupJoinRequestsRequest.md)
  - [ReleaseWhatsAppPhoneNumber200Response](docs/ReleaseWhatsAppPhoneNumber200Response.md)
  - [ReleaseWhatsAppPhoneNumber200ResponsePhoneNumber](docs/ReleaseWhatsAppPhoneNumber200ResponsePhoneNumber.md)
  - [RemoveBookmark200Response](docs/RemoveBookmark200Response.md)
  - [RemoveWhatsAppBroadcastRecipients200Response](docs/RemoveWhatsAppBroadcastRecipients200Response.md)
  - [RemoveWhatsAppBroadcastRecipientsRequest](docs/RemoveWhatsAppBroadcastRecipientsRequest.md)
+ - [RemoveWhatsAppGroupParticipantsRequest](docs/RemoveWhatsAppGroupParticipantsRequest.md)
  - [RenameWhatsAppGroup200Response](docs/RenameWhatsAppGroup200Response.md)
  - [RenameWhatsAppGroupRequest](docs/RenameWhatsAppGroupRequest.md)
  - [ReplyToInboxPost200Response](docs/ReplyToInboxPost200Response.md)
@@ -1166,6 +1205,7 @@ Class | Method | HTTP request | Description
  - [UpdateWhatsAppDisplayName200Response](docs/UpdateWhatsAppDisplayName200Response.md)
  - [UpdateWhatsAppDisplayName200ResponseDisplayName](docs/UpdateWhatsAppDisplayName200ResponseDisplayName.md)
  - [UpdateWhatsAppDisplayNameRequest](docs/UpdateWhatsAppDisplayNameRequest.md)
+ - [UpdateWhatsAppGroupChatRequest](docs/UpdateWhatsAppGroupChatRequest.md)
  - [UpdateWhatsAppTemplate200Response](docs/UpdateWhatsAppTemplate200Response.md)
  - [UpdateWhatsAppTemplate200ResponseTemplate](docs/UpdateWhatsAppTemplate200ResponseTemplate.md)
  - [UpdateWhatsAppTemplateRequest](docs/UpdateWhatsAppTemplateRequest.md)

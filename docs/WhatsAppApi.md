@@ -6,6 +6,10 @@ All URIs are relative to *https://zernio.com/api*
 |------------- | ------------- | -------------|
 | [**addWhatsAppBroadcastRecipients**](WhatsAppApi.md#addWhatsAppBroadcastRecipients) | **PATCH** /v1/whatsapp/broadcasts/{broadcastId}/recipients | Add recipients |
 | [**addWhatsAppBroadcastRecipientsWithHttpInfo**](WhatsAppApi.md#addWhatsAppBroadcastRecipientsWithHttpInfo) | **PATCH** /v1/whatsapp/broadcasts/{broadcastId}/recipients | Add recipients |
+| [**addWhatsAppGroupParticipants**](WhatsAppApi.md#addWhatsAppGroupParticipants) | **POST** /v1/whatsapp/wa-groups/{groupId}/participants | Add participants |
+| [**addWhatsAppGroupParticipantsWithHttpInfo**](WhatsAppApi.md#addWhatsAppGroupParticipantsWithHttpInfo) | **POST** /v1/whatsapp/wa-groups/{groupId}/participants | Add participants |
+| [**approveWhatsAppGroupJoinRequests**](WhatsAppApi.md#approveWhatsAppGroupJoinRequests) | **POST** /v1/whatsapp/wa-groups/{groupId}/join-requests | Approve join requests |
+| [**approveWhatsAppGroupJoinRequestsWithHttpInfo**](WhatsAppApi.md#approveWhatsAppGroupJoinRequestsWithHttpInfo) | **POST** /v1/whatsapp/wa-groups/{groupId}/join-requests | Approve join requests |
 | [**bulkDeleteWhatsAppContacts**](WhatsAppApi.md#bulkDeleteWhatsAppContacts) | **DELETE** /v1/whatsapp/contacts/bulk | Bulk delete contacts |
 | [**bulkDeleteWhatsAppContactsWithHttpInfo**](WhatsAppApi.md#bulkDeleteWhatsAppContactsWithHttpInfo) | **DELETE** /v1/whatsapp/contacts/bulk | Bulk delete contacts |
 | [**bulkUpdateWhatsAppContacts**](WhatsAppApi.md#bulkUpdateWhatsAppContacts) | **POST** /v1/whatsapp/contacts/bulk | Bulk update contacts |
@@ -16,6 +20,10 @@ All URIs are relative to *https://zernio.com/api*
 | [**createWhatsAppBroadcastWithHttpInfo**](WhatsAppApi.md#createWhatsAppBroadcastWithHttpInfo) | **POST** /v1/whatsapp/broadcasts | Create broadcast |
 | [**createWhatsAppContact**](WhatsAppApi.md#createWhatsAppContact) | **POST** /v1/whatsapp/contacts | Create contact |
 | [**createWhatsAppContactWithHttpInfo**](WhatsAppApi.md#createWhatsAppContactWithHttpInfo) | **POST** /v1/whatsapp/contacts | Create contact |
+| [**createWhatsAppGroupChat**](WhatsAppApi.md#createWhatsAppGroupChat) | **POST** /v1/whatsapp/wa-groups | Create group |
+| [**createWhatsAppGroupChatWithHttpInfo**](WhatsAppApi.md#createWhatsAppGroupChatWithHttpInfo) | **POST** /v1/whatsapp/wa-groups | Create group |
+| [**createWhatsAppGroupInviteLink**](WhatsAppApi.md#createWhatsAppGroupInviteLink) | **POST** /v1/whatsapp/wa-groups/{groupId}/invite-link | Create invite link |
+| [**createWhatsAppGroupInviteLinkWithHttpInfo**](WhatsAppApi.md#createWhatsAppGroupInviteLinkWithHttpInfo) | **POST** /v1/whatsapp/wa-groups/{groupId}/invite-link | Create invite link |
 | [**createWhatsAppTemplate**](WhatsAppApi.md#createWhatsAppTemplate) | **POST** /v1/whatsapp/templates | Create template |
 | [**createWhatsAppTemplateWithHttpInfo**](WhatsAppApi.md#createWhatsAppTemplateWithHttpInfo) | **POST** /v1/whatsapp/templates | Create template |
 | [**deleteWhatsAppBroadcast**](WhatsAppApi.md#deleteWhatsAppBroadcast) | **DELETE** /v1/whatsapp/broadcasts/{broadcastId} | Delete broadcast |
@@ -24,6 +32,8 @@ All URIs are relative to *https://zernio.com/api*
 | [**deleteWhatsAppContactWithHttpInfo**](WhatsAppApi.md#deleteWhatsAppContactWithHttpInfo) | **DELETE** /v1/whatsapp/contacts/{contactId} | Delete contact |
 | [**deleteWhatsAppGroup**](WhatsAppApi.md#deleteWhatsAppGroup) | **DELETE** /v1/whatsapp/groups | Delete group |
 | [**deleteWhatsAppGroupWithHttpInfo**](WhatsAppApi.md#deleteWhatsAppGroupWithHttpInfo) | **DELETE** /v1/whatsapp/groups | Delete group |
+| [**deleteWhatsAppGroupChat**](WhatsAppApi.md#deleteWhatsAppGroupChat) | **DELETE** /v1/whatsapp/wa-groups/{groupId} | Delete group |
+| [**deleteWhatsAppGroupChatWithHttpInfo**](WhatsAppApi.md#deleteWhatsAppGroupChatWithHttpInfo) | **DELETE** /v1/whatsapp/wa-groups/{groupId} | Delete group |
 | [**deleteWhatsAppTemplate**](WhatsAppApi.md#deleteWhatsAppTemplate) | **DELETE** /v1/whatsapp/templates/{templateName} | Delete template |
 | [**deleteWhatsAppTemplateWithHttpInfo**](WhatsAppApi.md#deleteWhatsAppTemplateWithHttpInfo) | **DELETE** /v1/whatsapp/templates/{templateName} | Delete template |
 | [**getWhatsAppBroadcast**](WhatsAppApi.md#getWhatsAppBroadcast) | **GET** /v1/whatsapp/broadcasts/{broadcastId} | Get broadcast |
@@ -40,6 +50,8 @@ All URIs are relative to *https://zernio.com/api*
 | [**getWhatsAppContactsWithHttpInfo**](WhatsAppApi.md#getWhatsAppContactsWithHttpInfo) | **GET** /v1/whatsapp/contacts | List contacts |
 | [**getWhatsAppDisplayName**](WhatsAppApi.md#getWhatsAppDisplayName) | **GET** /v1/whatsapp/business-profile/display-name | Get display name and review status |
 | [**getWhatsAppDisplayNameWithHttpInfo**](WhatsAppApi.md#getWhatsAppDisplayNameWithHttpInfo) | **GET** /v1/whatsapp/business-profile/display-name | Get display name and review status |
+| [**getWhatsAppGroupChat**](WhatsAppApi.md#getWhatsAppGroupChat) | **GET** /v1/whatsapp/wa-groups/{groupId} | Get group info |
+| [**getWhatsAppGroupChatWithHttpInfo**](WhatsAppApi.md#getWhatsAppGroupChatWithHttpInfo) | **GET** /v1/whatsapp/wa-groups/{groupId} | Get group info |
 | [**getWhatsAppGroups**](WhatsAppApi.md#getWhatsAppGroups) | **GET** /v1/whatsapp/groups | List contact groups |
 | [**getWhatsAppGroupsWithHttpInfo**](WhatsAppApi.md#getWhatsAppGroupsWithHttpInfo) | **GET** /v1/whatsapp/groups | List contact groups |
 | [**getWhatsAppTemplate**](WhatsAppApi.md#getWhatsAppTemplate) | **GET** /v1/whatsapp/templates/{templateName} | Get template |
@@ -48,8 +60,16 @@ All URIs are relative to *https://zernio.com/api*
 | [**getWhatsAppTemplatesWithHttpInfo**](WhatsAppApi.md#getWhatsAppTemplatesWithHttpInfo) | **GET** /v1/whatsapp/templates | List templates |
 | [**importWhatsAppContacts**](WhatsAppApi.md#importWhatsAppContacts) | **POST** /v1/whatsapp/contacts/import | Bulk import contacts |
 | [**importWhatsAppContactsWithHttpInfo**](WhatsAppApi.md#importWhatsAppContactsWithHttpInfo) | **POST** /v1/whatsapp/contacts/import | Bulk import contacts |
+| [**listWhatsAppGroupChats**](WhatsAppApi.md#listWhatsAppGroupChats) | **GET** /v1/whatsapp/wa-groups | List active groups |
+| [**listWhatsAppGroupChatsWithHttpInfo**](WhatsAppApi.md#listWhatsAppGroupChatsWithHttpInfo) | **GET** /v1/whatsapp/wa-groups | List active groups |
+| [**listWhatsAppGroupJoinRequests**](WhatsAppApi.md#listWhatsAppGroupJoinRequests) | **GET** /v1/whatsapp/wa-groups/{groupId}/join-requests | List join requests |
+| [**listWhatsAppGroupJoinRequestsWithHttpInfo**](WhatsAppApi.md#listWhatsAppGroupJoinRequestsWithHttpInfo) | **GET** /v1/whatsapp/wa-groups/{groupId}/join-requests | List join requests |
+| [**rejectWhatsAppGroupJoinRequests**](WhatsAppApi.md#rejectWhatsAppGroupJoinRequests) | **DELETE** /v1/whatsapp/wa-groups/{groupId}/join-requests | Reject join requests |
+| [**rejectWhatsAppGroupJoinRequestsWithHttpInfo**](WhatsAppApi.md#rejectWhatsAppGroupJoinRequestsWithHttpInfo) | **DELETE** /v1/whatsapp/wa-groups/{groupId}/join-requests | Reject join requests |
 | [**removeWhatsAppBroadcastRecipients**](WhatsAppApi.md#removeWhatsAppBroadcastRecipients) | **DELETE** /v1/whatsapp/broadcasts/{broadcastId}/recipients | Remove recipients |
 | [**removeWhatsAppBroadcastRecipientsWithHttpInfo**](WhatsAppApi.md#removeWhatsAppBroadcastRecipientsWithHttpInfo) | **DELETE** /v1/whatsapp/broadcasts/{broadcastId}/recipients | Remove recipients |
+| [**removeWhatsAppGroupParticipants**](WhatsAppApi.md#removeWhatsAppGroupParticipants) | **DELETE** /v1/whatsapp/wa-groups/{groupId}/participants | Remove participants |
+| [**removeWhatsAppGroupParticipantsWithHttpInfo**](WhatsAppApi.md#removeWhatsAppGroupParticipantsWithHttpInfo) | **DELETE** /v1/whatsapp/wa-groups/{groupId}/participants | Remove participants |
 | [**renameWhatsAppGroup**](WhatsAppApi.md#renameWhatsAppGroup) | **POST** /v1/whatsapp/groups | Rename group |
 | [**renameWhatsAppGroupWithHttpInfo**](WhatsAppApi.md#renameWhatsAppGroupWithHttpInfo) | **POST** /v1/whatsapp/groups | Rename group |
 | [**scheduleWhatsAppBroadcast**](WhatsAppApi.md#scheduleWhatsAppBroadcast) | **POST** /v1/whatsapp/broadcasts/{broadcastId}/schedule | Schedule broadcast |
@@ -64,6 +84,8 @@ All URIs are relative to *https://zernio.com/api*
 | [**updateWhatsAppContactWithHttpInfo**](WhatsAppApi.md#updateWhatsAppContactWithHttpInfo) | **PUT** /v1/whatsapp/contacts/{contactId} | Update contact |
 | [**updateWhatsAppDisplayName**](WhatsAppApi.md#updateWhatsAppDisplayName) | **POST** /v1/whatsapp/business-profile/display-name | Request display name change |
 | [**updateWhatsAppDisplayNameWithHttpInfo**](WhatsAppApi.md#updateWhatsAppDisplayNameWithHttpInfo) | **POST** /v1/whatsapp/business-profile/display-name | Request display name change |
+| [**updateWhatsAppGroupChat**](WhatsAppApi.md#updateWhatsAppGroupChat) | **POST** /v1/whatsapp/wa-groups/{groupId} | Update group settings |
+| [**updateWhatsAppGroupChatWithHttpInfo**](WhatsAppApi.md#updateWhatsAppGroupChatWithHttpInfo) | **POST** /v1/whatsapp/wa-groups/{groupId} | Update group settings |
 | [**updateWhatsAppTemplate**](WhatsAppApi.md#updateWhatsAppTemplate) | **PATCH** /v1/whatsapp/templates/{templateName} | Update template |
 | [**updateWhatsAppTemplateWithHttpInfo**](WhatsAppApi.md#updateWhatsAppTemplateWithHttpInfo) | **PATCH** /v1/whatsapp/templates/{templateName} | Update template |
 | [**uploadWhatsAppProfilePhoto**](WhatsAppApi.md#uploadWhatsAppProfilePhoto) | **POST** /v1/whatsapp/business-profile/photo | Upload profile picture |
@@ -223,6 +245,314 @@ ApiResponse<[**AddWhatsAppBroadcastRecipients200Response**](AddWhatsAppBroadcast
 | **400** | Validation error or broadcast not in draft status |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Resource not found |  -  |
+
+
+## addWhatsAppGroupParticipants
+
+> UnpublishPost200Response addWhatsAppGroupParticipants(groupId, accountId, addWhatsAppGroupParticipantsRequest)
+
+Add participants
+
+Add participants to a WhatsApp group. Maximum 8 participants per request. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        String groupId = "groupId_example"; // String | Group ID
+        String accountId = "accountId_example"; // String | WhatsApp social account ID
+        AddWhatsAppGroupParticipantsRequest addWhatsAppGroupParticipantsRequest = new AddWhatsAppGroupParticipantsRequest(); // AddWhatsAppGroupParticipantsRequest | 
+        try {
+            UnpublishPost200Response result = apiInstance.addWhatsAppGroupParticipants(groupId, accountId, addWhatsAppGroupParticipantsRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#addWhatsAppGroupParticipants");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **groupId** | **String**| Group ID | |
+| **accountId** | **String**| WhatsApp social account ID | |
+| **addWhatsAppGroupParticipantsRequest** | [**AddWhatsAppGroupParticipantsRequest**](AddWhatsAppGroupParticipantsRequest.md)|  | |
+
+### Return type
+
+[**UnpublishPost200Response**](UnpublishPost200Response.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Participants added |  -  |
+| **401** | Unauthorized |  -  |
+
+## addWhatsAppGroupParticipantsWithHttpInfo
+
+> ApiResponse<UnpublishPost200Response> addWhatsAppGroupParticipants addWhatsAppGroupParticipantsWithHttpInfo(groupId, accountId, addWhatsAppGroupParticipantsRequest)
+
+Add participants
+
+Add participants to a WhatsApp group. Maximum 8 participants per request. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.ApiResponse;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        String groupId = "groupId_example"; // String | Group ID
+        String accountId = "accountId_example"; // String | WhatsApp social account ID
+        AddWhatsAppGroupParticipantsRequest addWhatsAppGroupParticipantsRequest = new AddWhatsAppGroupParticipantsRequest(); // AddWhatsAppGroupParticipantsRequest | 
+        try {
+            ApiResponse<UnpublishPost200Response> response = apiInstance.addWhatsAppGroupParticipantsWithHttpInfo(groupId, accountId, addWhatsAppGroupParticipantsRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#addWhatsAppGroupParticipants");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **groupId** | **String**| Group ID | |
+| **accountId** | **String**| WhatsApp social account ID | |
+| **addWhatsAppGroupParticipantsRequest** | [**AddWhatsAppGroupParticipantsRequest**](AddWhatsAppGroupParticipantsRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**UnpublishPost200Response**](UnpublishPost200Response.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Participants added |  -  |
+| **401** | Unauthorized |  -  |
+
+
+## approveWhatsAppGroupJoinRequests
+
+> UnpublishPost200Response approveWhatsAppGroupJoinRequests(groupId, accountId, approveWhatsAppGroupJoinRequestsRequest)
+
+Approve join requests
+
+Approve pending join requests for a WhatsApp group. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        String groupId = "groupId_example"; // String | Group ID
+        String accountId = "accountId_example"; // String | WhatsApp social account ID
+        ApproveWhatsAppGroupJoinRequestsRequest approveWhatsAppGroupJoinRequestsRequest = new ApproveWhatsAppGroupJoinRequestsRequest(); // ApproveWhatsAppGroupJoinRequestsRequest | 
+        try {
+            UnpublishPost200Response result = apiInstance.approveWhatsAppGroupJoinRequests(groupId, accountId, approveWhatsAppGroupJoinRequestsRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#approveWhatsAppGroupJoinRequests");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **groupId** | **String**| Group ID | |
+| **accountId** | **String**| WhatsApp social account ID | |
+| **approveWhatsAppGroupJoinRequestsRequest** | [**ApproveWhatsAppGroupJoinRequestsRequest**](ApproveWhatsAppGroupJoinRequestsRequest.md)|  | |
+
+### Return type
+
+[**UnpublishPost200Response**](UnpublishPost200Response.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Requests approved |  -  |
+| **401** | Unauthorized |  -  |
+
+## approveWhatsAppGroupJoinRequestsWithHttpInfo
+
+> ApiResponse<UnpublishPost200Response> approveWhatsAppGroupJoinRequests approveWhatsAppGroupJoinRequestsWithHttpInfo(groupId, accountId, approveWhatsAppGroupJoinRequestsRequest)
+
+Approve join requests
+
+Approve pending join requests for a WhatsApp group. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.ApiResponse;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        String groupId = "groupId_example"; // String | Group ID
+        String accountId = "accountId_example"; // String | WhatsApp social account ID
+        ApproveWhatsAppGroupJoinRequestsRequest approveWhatsAppGroupJoinRequestsRequest = new ApproveWhatsAppGroupJoinRequestsRequest(); // ApproveWhatsAppGroupJoinRequestsRequest | 
+        try {
+            ApiResponse<UnpublishPost200Response> response = apiInstance.approveWhatsAppGroupJoinRequestsWithHttpInfo(groupId, accountId, approveWhatsAppGroupJoinRequestsRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#approveWhatsAppGroupJoinRequests");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **groupId** | **String**| Group ID | |
+| **accountId** | **String**| WhatsApp social account ID | |
+| **approveWhatsAppGroupJoinRequestsRequest** | [**ApproveWhatsAppGroupJoinRequestsRequest**](ApproveWhatsAppGroupJoinRequestsRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**UnpublishPost200Response**](UnpublishPost200Response.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Requests approved |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## bulkDeleteWhatsAppContacts
@@ -973,6 +1303,302 @@ ApiResponse<[**CreateWhatsAppContact200Response**](CreateWhatsAppContact200Respo
 | **409** | Contact with this phone number already exists |  -  |
 
 
+## createWhatsAppGroupChat
+
+> CreateWhatsAppGroupChat201Response createWhatsAppGroupChat(createWhatsAppGroupChatRequest)
+
+Create group
+
+Create a new WhatsApp group chat. Returns the group ID and optionally an invite link. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        CreateWhatsAppGroupChatRequest createWhatsAppGroupChatRequest = new CreateWhatsAppGroupChatRequest(); // CreateWhatsAppGroupChatRequest | 
+        try {
+            CreateWhatsAppGroupChat201Response result = apiInstance.createWhatsAppGroupChat(createWhatsAppGroupChatRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#createWhatsAppGroupChat");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createWhatsAppGroupChatRequest** | [**CreateWhatsAppGroupChatRequest**](CreateWhatsAppGroupChatRequest.md)|  | |
+
+### Return type
+
+[**CreateWhatsAppGroupChat201Response**](CreateWhatsAppGroupChat201Response.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Group created |  -  |
+| **401** | Unauthorized |  -  |
+
+## createWhatsAppGroupChatWithHttpInfo
+
+> ApiResponse<CreateWhatsAppGroupChat201Response> createWhatsAppGroupChat createWhatsAppGroupChatWithHttpInfo(createWhatsAppGroupChatRequest)
+
+Create group
+
+Create a new WhatsApp group chat. Returns the group ID and optionally an invite link. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.ApiResponse;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        CreateWhatsAppGroupChatRequest createWhatsAppGroupChatRequest = new CreateWhatsAppGroupChatRequest(); // CreateWhatsAppGroupChatRequest | 
+        try {
+            ApiResponse<CreateWhatsAppGroupChat201Response> response = apiInstance.createWhatsAppGroupChatWithHttpInfo(createWhatsAppGroupChatRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#createWhatsAppGroupChat");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createWhatsAppGroupChatRequest** | [**CreateWhatsAppGroupChatRequest**](CreateWhatsAppGroupChatRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**CreateWhatsAppGroupChat201Response**](CreateWhatsAppGroupChat201Response.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Group created |  -  |
+| **401** | Unauthorized |  -  |
+
+
+## createWhatsAppGroupInviteLink
+
+> CreateWhatsAppGroupInviteLink200Response createWhatsAppGroupInviteLink(groupId, accountId)
+
+Create invite link
+
+Create a new invite link for a WhatsApp group. The previous link is revoked. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        String groupId = "groupId_example"; // String | Group ID
+        String accountId = "accountId_example"; // String | WhatsApp social account ID
+        try {
+            CreateWhatsAppGroupInviteLink200Response result = apiInstance.createWhatsAppGroupInviteLink(groupId, accountId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#createWhatsAppGroupInviteLink");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **groupId** | **String**| Group ID | |
+| **accountId** | **String**| WhatsApp social account ID | |
+
+### Return type
+
+[**CreateWhatsAppGroupInviteLink200Response**](CreateWhatsAppGroupInviteLink200Response.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Invite link created |  -  |
+| **401** | Unauthorized |  -  |
+
+## createWhatsAppGroupInviteLinkWithHttpInfo
+
+> ApiResponse<CreateWhatsAppGroupInviteLink200Response> createWhatsAppGroupInviteLink createWhatsAppGroupInviteLinkWithHttpInfo(groupId, accountId)
+
+Create invite link
+
+Create a new invite link for a WhatsApp group. The previous link is revoked. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.ApiResponse;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        String groupId = "groupId_example"; // String | Group ID
+        String accountId = "accountId_example"; // String | WhatsApp social account ID
+        try {
+            ApiResponse<CreateWhatsAppGroupInviteLink200Response> response = apiInstance.createWhatsAppGroupInviteLinkWithHttpInfo(groupId, accountId);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#createWhatsAppGroupInviteLink");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **groupId** | **String**| Group ID | |
+| **accountId** | **String**| WhatsApp social account ID | |
+
+### Return type
+
+ApiResponse<[**CreateWhatsAppGroupInviteLink200Response**](CreateWhatsAppGroupInviteLink200Response.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Invite link created |  -  |
+| **401** | Unauthorized |  -  |
+
+
 ## createWhatsAppTemplate
 
 > CreateWhatsAppTemplate200Response createWhatsAppTemplate(createWhatsAppTemplateRequest)
@@ -1569,6 +2195,158 @@ ApiResponse<[**RenameWhatsAppGroup200Response**](RenameWhatsAppGroup200Response.
 | **400** | Validation error (missing fields) |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | WhatsApp account not found |  -  |
+
+
+## deleteWhatsAppGroupChat
+
+> UnpublishPost200Response deleteWhatsAppGroupChat(groupId, accountId)
+
+Delete group
+
+Delete a WhatsApp group and remove all participants. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        String groupId = "groupId_example"; // String | Group ID
+        String accountId = "accountId_example"; // String | WhatsApp social account ID
+        try {
+            UnpublishPost200Response result = apiInstance.deleteWhatsAppGroupChat(groupId, accountId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#deleteWhatsAppGroupChat");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **groupId** | **String**| Group ID | |
+| **accountId** | **String**| WhatsApp social account ID | |
+
+### Return type
+
+[**UnpublishPost200Response**](UnpublishPost200Response.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Group deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Resource not found |  -  |
+
+## deleteWhatsAppGroupChatWithHttpInfo
+
+> ApiResponse<UnpublishPost200Response> deleteWhatsAppGroupChat deleteWhatsAppGroupChatWithHttpInfo(groupId, accountId)
+
+Delete group
+
+Delete a WhatsApp group and remove all participants. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.ApiResponse;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        String groupId = "groupId_example"; // String | Group ID
+        String accountId = "accountId_example"; // String | WhatsApp social account ID
+        try {
+            ApiResponse<UnpublishPost200Response> response = apiInstance.deleteWhatsAppGroupChatWithHttpInfo(groupId, accountId);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#deleteWhatsAppGroupChat");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **groupId** | **String**| Group ID | |
+| **accountId** | **String**| WhatsApp social account ID | |
+
+### Return type
+
+ApiResponse<[**UnpublishPost200Response**](UnpublishPost200Response.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Group deleted |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Resource not found |  -  |
 
 
 ## deleteWhatsAppTemplate
@@ -2815,6 +3593,158 @@ ApiResponse<[**GetWhatsAppDisplayName200Response**](GetWhatsAppDisplayName200Res
 | **404** | WhatsApp account not found |  -  |
 
 
+## getWhatsAppGroupChat
+
+> GetWhatsAppGroupChat200Response getWhatsAppGroupChat(groupId, accountId)
+
+Get group info
+
+Retrieve metadata about a WhatsApp group including subject, description, participants, and settings. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        String groupId = "groupId_example"; // String | Group ID
+        String accountId = "accountId_example"; // String | WhatsApp social account ID
+        try {
+            GetWhatsAppGroupChat200Response result = apiInstance.getWhatsAppGroupChat(groupId, accountId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#getWhatsAppGroupChat");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **groupId** | **String**| Group ID | |
+| **accountId** | **String**| WhatsApp social account ID | |
+
+### Return type
+
+[**GetWhatsAppGroupChat200Response**](GetWhatsAppGroupChat200Response.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Group info |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Resource not found |  -  |
+
+## getWhatsAppGroupChatWithHttpInfo
+
+> ApiResponse<GetWhatsAppGroupChat200Response> getWhatsAppGroupChat getWhatsAppGroupChatWithHttpInfo(groupId, accountId)
+
+Get group info
+
+Retrieve metadata about a WhatsApp group including subject, description, participants, and settings. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.ApiResponse;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        String groupId = "groupId_example"; // String | Group ID
+        String accountId = "accountId_example"; // String | WhatsApp social account ID
+        try {
+            ApiResponse<GetWhatsAppGroupChat200Response> response = apiInstance.getWhatsAppGroupChatWithHttpInfo(groupId, accountId);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#getWhatsAppGroupChat");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **groupId** | **String**| Group ID | |
+| **accountId** | **String**| WhatsApp social account ID | |
+
+### Return type
+
+ApiResponse<[**GetWhatsAppGroupChat200Response**](GetWhatsAppGroupChat200Response.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Group info |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Resource not found |  -  |
+
+
 ## getWhatsAppGroups
 
 > GetWhatsAppGroups200Response getWhatsAppGroups(accountId)
@@ -3419,6 +4349,464 @@ ApiResponse<[**ImportWhatsAppContacts200Response**](ImportWhatsAppContacts200Res
 | **404** | WhatsApp account not found |  -  |
 
 
+## listWhatsAppGroupChats
+
+> ListWhatsAppGroupChats200Response listWhatsAppGroupChats(accountId, limit, after)
+
+List active groups
+
+List active WhatsApp group chats for a business phone number. These are actual WhatsApp group conversations on the platform. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        String accountId = "accountId_example"; // String | WhatsApp social account ID
+        Integer limit = 25; // Integer | Max groups to return
+        String after = "after_example"; // String | Pagination cursor
+        try {
+            ListWhatsAppGroupChats200Response result = apiInstance.listWhatsAppGroupChats(accountId, limit, after);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#listWhatsAppGroupChats");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountId** | **String**| WhatsApp social account ID | |
+| **limit** | **Integer**| Max groups to return | [optional] [default to 25] |
+| **after** | **String**| Pagination cursor | [optional] |
+
+### Return type
+
+[**ListWhatsAppGroupChats200Response**](ListWhatsAppGroupChats200Response.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List of active groups |  -  |
+| **401** | Unauthorized |  -  |
+
+## listWhatsAppGroupChatsWithHttpInfo
+
+> ApiResponse<ListWhatsAppGroupChats200Response> listWhatsAppGroupChats listWhatsAppGroupChatsWithHttpInfo(accountId, limit, after)
+
+List active groups
+
+List active WhatsApp group chats for a business phone number. These are actual WhatsApp group conversations on the platform. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.ApiResponse;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        String accountId = "accountId_example"; // String | WhatsApp social account ID
+        Integer limit = 25; // Integer | Max groups to return
+        String after = "after_example"; // String | Pagination cursor
+        try {
+            ApiResponse<ListWhatsAppGroupChats200Response> response = apiInstance.listWhatsAppGroupChatsWithHttpInfo(accountId, limit, after);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#listWhatsAppGroupChats");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountId** | **String**| WhatsApp social account ID | |
+| **limit** | **Integer**| Max groups to return | [optional] [default to 25] |
+| **after** | **String**| Pagination cursor | [optional] |
+
+### Return type
+
+ApiResponse<[**ListWhatsAppGroupChats200Response**](ListWhatsAppGroupChats200Response.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List of active groups |  -  |
+| **401** | Unauthorized |  -  |
+
+
+## listWhatsAppGroupJoinRequests
+
+> ListWhatsAppGroupJoinRequests200Response listWhatsAppGroupJoinRequests(groupId, accountId)
+
+List join requests
+
+List pending join requests for a WhatsApp group (only for groups with approval_required mode). 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        String groupId = "groupId_example"; // String | Group ID
+        String accountId = "accountId_example"; // String | WhatsApp social account ID
+        try {
+            ListWhatsAppGroupJoinRequests200Response result = apiInstance.listWhatsAppGroupJoinRequests(groupId, accountId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#listWhatsAppGroupJoinRequests");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **groupId** | **String**| Group ID | |
+| **accountId** | **String**| WhatsApp social account ID | |
+
+### Return type
+
+[**ListWhatsAppGroupJoinRequests200Response**](ListWhatsAppGroupJoinRequests200Response.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Join requests |  -  |
+| **401** | Unauthorized |  -  |
+
+## listWhatsAppGroupJoinRequestsWithHttpInfo
+
+> ApiResponse<ListWhatsAppGroupJoinRequests200Response> listWhatsAppGroupJoinRequests listWhatsAppGroupJoinRequestsWithHttpInfo(groupId, accountId)
+
+List join requests
+
+List pending join requests for a WhatsApp group (only for groups with approval_required mode). 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.ApiResponse;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        String groupId = "groupId_example"; // String | Group ID
+        String accountId = "accountId_example"; // String | WhatsApp social account ID
+        try {
+            ApiResponse<ListWhatsAppGroupJoinRequests200Response> response = apiInstance.listWhatsAppGroupJoinRequestsWithHttpInfo(groupId, accountId);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#listWhatsAppGroupJoinRequests");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **groupId** | **String**| Group ID | |
+| **accountId** | **String**| WhatsApp social account ID | |
+
+### Return type
+
+ApiResponse<[**ListWhatsAppGroupJoinRequests200Response**](ListWhatsAppGroupJoinRequests200Response.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Join requests |  -  |
+| **401** | Unauthorized |  -  |
+
+
+## rejectWhatsAppGroupJoinRequests
+
+> UnpublishPost200Response rejectWhatsAppGroupJoinRequests(groupId, accountId, rejectWhatsAppGroupJoinRequestsRequest)
+
+Reject join requests
+
+Reject pending join requests for a WhatsApp group. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        String groupId = "groupId_example"; // String | Group ID
+        String accountId = "accountId_example"; // String | WhatsApp social account ID
+        RejectWhatsAppGroupJoinRequestsRequest rejectWhatsAppGroupJoinRequestsRequest = new RejectWhatsAppGroupJoinRequestsRequest(); // RejectWhatsAppGroupJoinRequestsRequest | 
+        try {
+            UnpublishPost200Response result = apiInstance.rejectWhatsAppGroupJoinRequests(groupId, accountId, rejectWhatsAppGroupJoinRequestsRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#rejectWhatsAppGroupJoinRequests");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **groupId** | **String**| Group ID | |
+| **accountId** | **String**| WhatsApp social account ID | |
+| **rejectWhatsAppGroupJoinRequestsRequest** | [**RejectWhatsAppGroupJoinRequestsRequest**](RejectWhatsAppGroupJoinRequestsRequest.md)|  | |
+
+### Return type
+
+[**UnpublishPost200Response**](UnpublishPost200Response.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Requests rejected |  -  |
+| **401** | Unauthorized |  -  |
+
+## rejectWhatsAppGroupJoinRequestsWithHttpInfo
+
+> ApiResponse<UnpublishPost200Response> rejectWhatsAppGroupJoinRequests rejectWhatsAppGroupJoinRequestsWithHttpInfo(groupId, accountId, rejectWhatsAppGroupJoinRequestsRequest)
+
+Reject join requests
+
+Reject pending join requests for a WhatsApp group. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.ApiResponse;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        String groupId = "groupId_example"; // String | Group ID
+        String accountId = "accountId_example"; // String | WhatsApp social account ID
+        RejectWhatsAppGroupJoinRequestsRequest rejectWhatsAppGroupJoinRequestsRequest = new RejectWhatsAppGroupJoinRequestsRequest(); // RejectWhatsAppGroupJoinRequestsRequest | 
+        try {
+            ApiResponse<UnpublishPost200Response> response = apiInstance.rejectWhatsAppGroupJoinRequestsWithHttpInfo(groupId, accountId, rejectWhatsAppGroupJoinRequestsRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#rejectWhatsAppGroupJoinRequests");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **groupId** | **String**| Group ID | |
+| **accountId** | **String**| WhatsApp social account ID | |
+| **rejectWhatsAppGroupJoinRequestsRequest** | [**RejectWhatsAppGroupJoinRequestsRequest**](RejectWhatsAppGroupJoinRequestsRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**UnpublishPost200Response**](UnpublishPost200Response.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Requests rejected |  -  |
+| **401** | Unauthorized |  -  |
+
+
 ## removeWhatsAppBroadcastRecipients
 
 > RemoveWhatsAppBroadcastRecipients200Response removeWhatsAppBroadcastRecipients(broadcastId, removeWhatsAppBroadcastRecipientsRequest)
@@ -3571,6 +4959,160 @@ ApiResponse<[**RemoveWhatsAppBroadcastRecipients200Response**](RemoveWhatsAppBro
 | **400** | Validation error or broadcast not in draft status |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Resource not found |  -  |
+
+
+## removeWhatsAppGroupParticipants
+
+> UnpublishPost200Response removeWhatsAppGroupParticipants(groupId, accountId, removeWhatsAppGroupParticipantsRequest)
+
+Remove participants
+
+Remove participants from a WhatsApp group. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        String groupId = "groupId_example"; // String | Group ID
+        String accountId = "accountId_example"; // String | WhatsApp social account ID
+        RemoveWhatsAppGroupParticipantsRequest removeWhatsAppGroupParticipantsRequest = new RemoveWhatsAppGroupParticipantsRequest(); // RemoveWhatsAppGroupParticipantsRequest | 
+        try {
+            UnpublishPost200Response result = apiInstance.removeWhatsAppGroupParticipants(groupId, accountId, removeWhatsAppGroupParticipantsRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#removeWhatsAppGroupParticipants");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **groupId** | **String**| Group ID | |
+| **accountId** | **String**| WhatsApp social account ID | |
+| **removeWhatsAppGroupParticipantsRequest** | [**RemoveWhatsAppGroupParticipantsRequest**](RemoveWhatsAppGroupParticipantsRequest.md)|  | |
+
+### Return type
+
+[**UnpublishPost200Response**](UnpublishPost200Response.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Participants removed |  -  |
+| **401** | Unauthorized |  -  |
+
+## removeWhatsAppGroupParticipantsWithHttpInfo
+
+> ApiResponse<UnpublishPost200Response> removeWhatsAppGroupParticipants removeWhatsAppGroupParticipantsWithHttpInfo(groupId, accountId, removeWhatsAppGroupParticipantsRequest)
+
+Remove participants
+
+Remove participants from a WhatsApp group. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.ApiResponse;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        String groupId = "groupId_example"; // String | Group ID
+        String accountId = "accountId_example"; // String | WhatsApp social account ID
+        RemoveWhatsAppGroupParticipantsRequest removeWhatsAppGroupParticipantsRequest = new RemoveWhatsAppGroupParticipantsRequest(); // RemoveWhatsAppGroupParticipantsRequest | 
+        try {
+            ApiResponse<UnpublishPost200Response> response = apiInstance.removeWhatsAppGroupParticipantsWithHttpInfo(groupId, accountId, removeWhatsAppGroupParticipantsRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#removeWhatsAppGroupParticipants");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **groupId** | **String**| Group ID | |
+| **accountId** | **String**| WhatsApp social account ID | |
+| **removeWhatsAppGroupParticipantsRequest** | [**RemoveWhatsAppGroupParticipantsRequest**](RemoveWhatsAppGroupParticipantsRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**UnpublishPost200Response**](UnpublishPost200Response.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Participants removed |  -  |
+| **401** | Unauthorized |  -  |
 
 
 ## renameWhatsAppGroup
@@ -4627,6 +6169,162 @@ ApiResponse<[**UpdateWhatsAppDisplayName200Response**](UpdateWhatsAppDisplayName
 | **400** | Invalid display name (too short |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | WhatsApp account not found |  -  |
+
+
+## updateWhatsAppGroupChat
+
+> UnpublishPost200Response updateWhatsAppGroupChat(groupId, accountId, updateWhatsAppGroupChatRequest)
+
+Update group settings
+
+Update the subject, description, or join approval mode of a WhatsApp group. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        String groupId = "groupId_example"; // String | Group ID
+        String accountId = "accountId_example"; // String | WhatsApp social account ID
+        UpdateWhatsAppGroupChatRequest updateWhatsAppGroupChatRequest = new UpdateWhatsAppGroupChatRequest(); // UpdateWhatsAppGroupChatRequest | 
+        try {
+            UnpublishPost200Response result = apiInstance.updateWhatsAppGroupChat(groupId, accountId, updateWhatsAppGroupChatRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#updateWhatsAppGroupChat");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **groupId** | **String**| Group ID | |
+| **accountId** | **String**| WhatsApp social account ID | |
+| **updateWhatsAppGroupChatRequest** | [**UpdateWhatsAppGroupChatRequest**](UpdateWhatsAppGroupChatRequest.md)|  | |
+
+### Return type
+
+[**UnpublishPost200Response**](UnpublishPost200Response.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Group updated |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Resource not found |  -  |
+
+## updateWhatsAppGroupChatWithHttpInfo
+
+> ApiResponse<UnpublishPost200Response> updateWhatsAppGroupChat updateWhatsAppGroupChatWithHttpInfo(groupId, accountId, updateWhatsAppGroupChatRequest)
+
+Update group settings
+
+Update the subject, description, or join approval mode of a WhatsApp group. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.ApiResponse;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        String groupId = "groupId_example"; // String | Group ID
+        String accountId = "accountId_example"; // String | WhatsApp social account ID
+        UpdateWhatsAppGroupChatRequest updateWhatsAppGroupChatRequest = new UpdateWhatsAppGroupChatRequest(); // UpdateWhatsAppGroupChatRequest | 
+        try {
+            ApiResponse<UnpublishPost200Response> response = apiInstance.updateWhatsAppGroupChatWithHttpInfo(groupId, accountId, updateWhatsAppGroupChatRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#updateWhatsAppGroupChat");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **groupId** | **String**| Group ID | |
+| **accountId** | **String**| WhatsApp social account ID | |
+| **updateWhatsAppGroupChatRequest** | [**UpdateWhatsAppGroupChatRequest**](UpdateWhatsAppGroupChatRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**UnpublishPost200Response**](UnpublishPost200Response.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Group updated |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Resource not found |  -  |
 
 
 ## updateWhatsAppTemplate

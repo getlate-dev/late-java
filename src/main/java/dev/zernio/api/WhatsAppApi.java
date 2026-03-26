@@ -20,6 +20,8 @@ import dev.zernio.Pair;
 
 import dev.zernio.model.AddWhatsAppBroadcastRecipients200Response;
 import dev.zernio.model.AddWhatsAppBroadcastRecipientsRequest;
+import dev.zernio.model.AddWhatsAppGroupParticipantsRequest;
+import dev.zernio.model.ApproveWhatsAppGroupJoinRequestsRequest;
 import dev.zernio.model.BulkDeleteWhatsAppContacts200Response;
 import dev.zernio.model.BulkDeleteWhatsAppContactsRequest;
 import dev.zernio.model.BulkUpdateWhatsAppContacts200Response;
@@ -29,6 +31,9 @@ import dev.zernio.model.CreateWhatsAppBroadcast200Response;
 import dev.zernio.model.CreateWhatsAppBroadcastRequest;
 import dev.zernio.model.CreateWhatsAppContact200Response;
 import dev.zernio.model.CreateWhatsAppContactRequest;
+import dev.zernio.model.CreateWhatsAppGroupChat201Response;
+import dev.zernio.model.CreateWhatsAppGroupChatRequest;
+import dev.zernio.model.CreateWhatsAppGroupInviteLink200Response;
 import dev.zernio.model.CreateWhatsAppTemplate200Response;
 import dev.zernio.model.CreateWhatsAppTemplateRequest;
 import dev.zernio.model.DeleteWhatsAppGroupRequest;
@@ -40,6 +45,7 @@ import dev.zernio.model.GetWhatsAppBusinessProfile200Response;
 import dev.zernio.model.GetWhatsAppContact200Response;
 import dev.zernio.model.GetWhatsAppContacts200Response;
 import dev.zernio.model.GetWhatsAppDisplayName200Response;
+import dev.zernio.model.GetWhatsAppGroupChat200Response;
 import dev.zernio.model.GetWhatsAppGroups200Response;
 import dev.zernio.model.GetWhatsAppTemplate200Response;
 import dev.zernio.model.GetWhatsAppTemplates200Response;
@@ -47,8 +53,12 @@ import dev.zernio.model.ImportWhatsAppContacts200Response;
 import dev.zernio.model.ImportWhatsAppContactsRequest;
 import dev.zernio.model.InlineObject;
 import dev.zernio.model.InlineObject1;
+import dev.zernio.model.ListWhatsAppGroupChats200Response;
+import dev.zernio.model.ListWhatsAppGroupJoinRequests200Response;
+import dev.zernio.model.RejectWhatsAppGroupJoinRequestsRequest;
 import dev.zernio.model.RemoveWhatsAppBroadcastRecipients200Response;
 import dev.zernio.model.RemoveWhatsAppBroadcastRecipientsRequest;
+import dev.zernio.model.RemoveWhatsAppGroupParticipantsRequest;
 import dev.zernio.model.RenameWhatsAppGroup200Response;
 import dev.zernio.model.RenameWhatsAppGroupRequest;
 import dev.zernio.model.ScheduleWhatsAppBroadcast200Response;
@@ -62,6 +72,7 @@ import dev.zernio.model.UpdateWhatsAppContact200Response;
 import dev.zernio.model.UpdateWhatsAppContactRequest;
 import dev.zernio.model.UpdateWhatsAppDisplayName200Response;
 import dev.zernio.model.UpdateWhatsAppDisplayNameRequest;
+import dev.zernio.model.UpdateWhatsAppGroupChatRequest;
 import dev.zernio.model.UpdateWhatsAppTemplate200Response;
 import dev.zernio.model.UpdateWhatsAppTemplateRequest;
 
@@ -96,7 +107,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-26T14:49:34.857605595Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-26T15:28:43.475777651Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WhatsAppApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -339,6 +350,316 @@ public class WhatsAppApi {
     try {
       byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(addWhatsAppBroadcastRecipientsRequest);
       localVarRequestBuilder.method("PATCH", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Add participants
+   * Add participants to a WhatsApp group. Maximum 8 participants per request. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param addWhatsAppGroupParticipantsRequest  (required)
+   * @return UnpublishPost200Response
+   * @throws ApiException if fails to make API call
+   */
+  public UnpublishPost200Response addWhatsAppGroupParticipants(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull AddWhatsAppGroupParticipantsRequest addWhatsAppGroupParticipantsRequest) throws ApiException {
+    return addWhatsAppGroupParticipants(groupId, accountId, addWhatsAppGroupParticipantsRequest, null);
+  }
+
+  /**
+   * Add participants
+   * Add participants to a WhatsApp group. Maximum 8 participants per request. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param addWhatsAppGroupParticipantsRequest  (required)
+   * @param headers Optional headers to include in the request
+   * @return UnpublishPost200Response
+   * @throws ApiException if fails to make API call
+   */
+  public UnpublishPost200Response addWhatsAppGroupParticipants(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull AddWhatsAppGroupParticipantsRequest addWhatsAppGroupParticipantsRequest, Map<String, String> headers) throws ApiException {
+    ApiResponse<UnpublishPost200Response> localVarResponse = addWhatsAppGroupParticipantsWithHttpInfo(groupId, accountId, addWhatsAppGroupParticipantsRequest, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Add participants
+   * Add participants to a WhatsApp group. Maximum 8 participants per request. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param addWhatsAppGroupParticipantsRequest  (required)
+   * @return ApiResponse&lt;UnpublishPost200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnpublishPost200Response> addWhatsAppGroupParticipantsWithHttpInfo(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull AddWhatsAppGroupParticipantsRequest addWhatsAppGroupParticipantsRequest) throws ApiException {
+    return addWhatsAppGroupParticipantsWithHttpInfo(groupId, accountId, addWhatsAppGroupParticipantsRequest, null);
+  }
+
+  /**
+   * Add participants
+   * Add participants to a WhatsApp group. Maximum 8 participants per request. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param addWhatsAppGroupParticipantsRequest  (required)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;UnpublishPost200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnpublishPost200Response> addWhatsAppGroupParticipantsWithHttpInfo(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull AddWhatsAppGroupParticipantsRequest addWhatsAppGroupParticipantsRequest, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = addWhatsAppGroupParticipantsRequestBuilder(groupId, accountId, addWhatsAppGroupParticipantsRequest, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("addWhatsAppGroupParticipants", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<UnpublishPost200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        UnpublishPost200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<UnpublishPost200Response>() {});
+        
+
+        return new ApiResponse<UnpublishPost200Response>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder addWhatsAppGroupParticipantsRequestBuilder(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull AddWhatsAppGroupParticipantsRequest addWhatsAppGroupParticipantsRequest, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'groupId' is set
+    if (groupId == null) {
+      throw new ApiException(400, "Missing the required parameter 'groupId' when calling addWhatsAppGroupParticipants");
+    }
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling addWhatsAppGroupParticipants");
+    }
+    // verify the required parameter 'addWhatsAppGroupParticipantsRequest' is set
+    if (addWhatsAppGroupParticipantsRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'addWhatsAppGroupParticipantsRequest' when calling addWhatsAppGroupParticipants");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/whatsapp/wa-groups/{groupId}/participants"
+        .replace("{groupId}", ApiClient.urlEncode(groupId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "accountId";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("accountId", accountId));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(addWhatsAppGroupParticipantsRequest);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Approve join requests
+   * Approve pending join requests for a WhatsApp group. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param approveWhatsAppGroupJoinRequestsRequest  (required)
+   * @return UnpublishPost200Response
+   * @throws ApiException if fails to make API call
+   */
+  public UnpublishPost200Response approveWhatsAppGroupJoinRequests(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull ApproveWhatsAppGroupJoinRequestsRequest approveWhatsAppGroupJoinRequestsRequest) throws ApiException {
+    return approveWhatsAppGroupJoinRequests(groupId, accountId, approveWhatsAppGroupJoinRequestsRequest, null);
+  }
+
+  /**
+   * Approve join requests
+   * Approve pending join requests for a WhatsApp group. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param approveWhatsAppGroupJoinRequestsRequest  (required)
+   * @param headers Optional headers to include in the request
+   * @return UnpublishPost200Response
+   * @throws ApiException if fails to make API call
+   */
+  public UnpublishPost200Response approveWhatsAppGroupJoinRequests(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull ApproveWhatsAppGroupJoinRequestsRequest approveWhatsAppGroupJoinRequestsRequest, Map<String, String> headers) throws ApiException {
+    ApiResponse<UnpublishPost200Response> localVarResponse = approveWhatsAppGroupJoinRequestsWithHttpInfo(groupId, accountId, approveWhatsAppGroupJoinRequestsRequest, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Approve join requests
+   * Approve pending join requests for a WhatsApp group. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param approveWhatsAppGroupJoinRequestsRequest  (required)
+   * @return ApiResponse&lt;UnpublishPost200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnpublishPost200Response> approveWhatsAppGroupJoinRequestsWithHttpInfo(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull ApproveWhatsAppGroupJoinRequestsRequest approveWhatsAppGroupJoinRequestsRequest) throws ApiException {
+    return approveWhatsAppGroupJoinRequestsWithHttpInfo(groupId, accountId, approveWhatsAppGroupJoinRequestsRequest, null);
+  }
+
+  /**
+   * Approve join requests
+   * Approve pending join requests for a WhatsApp group. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param approveWhatsAppGroupJoinRequestsRequest  (required)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;UnpublishPost200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnpublishPost200Response> approveWhatsAppGroupJoinRequestsWithHttpInfo(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull ApproveWhatsAppGroupJoinRequestsRequest approveWhatsAppGroupJoinRequestsRequest, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = approveWhatsAppGroupJoinRequestsRequestBuilder(groupId, accountId, approveWhatsAppGroupJoinRequestsRequest, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("approveWhatsAppGroupJoinRequests", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<UnpublishPost200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        UnpublishPost200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<UnpublishPost200Response>() {});
+        
+
+        return new ApiResponse<UnpublishPost200Response>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder approveWhatsAppGroupJoinRequestsRequestBuilder(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull ApproveWhatsAppGroupJoinRequestsRequest approveWhatsAppGroupJoinRequestsRequest, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'groupId' is set
+    if (groupId == null) {
+      throw new ApiException(400, "Missing the required parameter 'groupId' when calling approveWhatsAppGroupJoinRequests");
+    }
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling approveWhatsAppGroupJoinRequests");
+    }
+    // verify the required parameter 'approveWhatsAppGroupJoinRequestsRequest' is set
+    if (approveWhatsAppGroupJoinRequestsRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'approveWhatsAppGroupJoinRequestsRequest' when calling approveWhatsAppGroupJoinRequests");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/whatsapp/wa-groups/{groupId}/join-requests"
+        .replace("{groupId}", ApiClient.urlEncode(groupId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "accountId";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("accountId", accountId));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(approveWhatsAppGroupJoinRequestsRequest);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
     } catch (IOException e) {
       throw new ApiException(e);
     }
@@ -1004,6 +1325,270 @@ public class WhatsAppApi {
   }
 
   /**
+   * Create group
+   * Create a new WhatsApp group chat. Returns the group ID and optionally an invite link. 
+   * @param createWhatsAppGroupChatRequest  (required)
+   * @return CreateWhatsAppGroupChat201Response
+   * @throws ApiException if fails to make API call
+   */
+  public CreateWhatsAppGroupChat201Response createWhatsAppGroupChat(@javax.annotation.Nonnull CreateWhatsAppGroupChatRequest createWhatsAppGroupChatRequest) throws ApiException {
+    return createWhatsAppGroupChat(createWhatsAppGroupChatRequest, null);
+  }
+
+  /**
+   * Create group
+   * Create a new WhatsApp group chat. Returns the group ID and optionally an invite link. 
+   * @param createWhatsAppGroupChatRequest  (required)
+   * @param headers Optional headers to include in the request
+   * @return CreateWhatsAppGroupChat201Response
+   * @throws ApiException if fails to make API call
+   */
+  public CreateWhatsAppGroupChat201Response createWhatsAppGroupChat(@javax.annotation.Nonnull CreateWhatsAppGroupChatRequest createWhatsAppGroupChatRequest, Map<String, String> headers) throws ApiException {
+    ApiResponse<CreateWhatsAppGroupChat201Response> localVarResponse = createWhatsAppGroupChatWithHttpInfo(createWhatsAppGroupChatRequest, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Create group
+   * Create a new WhatsApp group chat. Returns the group ID and optionally an invite link. 
+   * @param createWhatsAppGroupChatRequest  (required)
+   * @return ApiResponse&lt;CreateWhatsAppGroupChat201Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<CreateWhatsAppGroupChat201Response> createWhatsAppGroupChatWithHttpInfo(@javax.annotation.Nonnull CreateWhatsAppGroupChatRequest createWhatsAppGroupChatRequest) throws ApiException {
+    return createWhatsAppGroupChatWithHttpInfo(createWhatsAppGroupChatRequest, null);
+  }
+
+  /**
+   * Create group
+   * Create a new WhatsApp group chat. Returns the group ID and optionally an invite link. 
+   * @param createWhatsAppGroupChatRequest  (required)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;CreateWhatsAppGroupChat201Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<CreateWhatsAppGroupChat201Response> createWhatsAppGroupChatWithHttpInfo(@javax.annotation.Nonnull CreateWhatsAppGroupChatRequest createWhatsAppGroupChatRequest, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createWhatsAppGroupChatRequestBuilder(createWhatsAppGroupChatRequest, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("createWhatsAppGroupChat", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<CreateWhatsAppGroupChat201Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        CreateWhatsAppGroupChat201Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<CreateWhatsAppGroupChat201Response>() {});
+        
+
+        return new ApiResponse<CreateWhatsAppGroupChat201Response>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder createWhatsAppGroupChatRequestBuilder(@javax.annotation.Nonnull CreateWhatsAppGroupChatRequest createWhatsAppGroupChatRequest, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'createWhatsAppGroupChatRequest' is set
+    if (createWhatsAppGroupChatRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createWhatsAppGroupChatRequest' when calling createWhatsAppGroupChat");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/whatsapp/wa-groups";
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(createWhatsAppGroupChatRequest);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Create invite link
+   * Create a new invite link for a WhatsApp group. The previous link is revoked. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @return CreateWhatsAppGroupInviteLink200Response
+   * @throws ApiException if fails to make API call
+   */
+  public CreateWhatsAppGroupInviteLink200Response createWhatsAppGroupInviteLink(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId) throws ApiException {
+    return createWhatsAppGroupInviteLink(groupId, accountId, null);
+  }
+
+  /**
+   * Create invite link
+   * Create a new invite link for a WhatsApp group. The previous link is revoked. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param headers Optional headers to include in the request
+   * @return CreateWhatsAppGroupInviteLink200Response
+   * @throws ApiException if fails to make API call
+   */
+  public CreateWhatsAppGroupInviteLink200Response createWhatsAppGroupInviteLink(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
+    ApiResponse<CreateWhatsAppGroupInviteLink200Response> localVarResponse = createWhatsAppGroupInviteLinkWithHttpInfo(groupId, accountId, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Create invite link
+   * Create a new invite link for a WhatsApp group. The previous link is revoked. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @return ApiResponse&lt;CreateWhatsAppGroupInviteLink200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<CreateWhatsAppGroupInviteLink200Response> createWhatsAppGroupInviteLinkWithHttpInfo(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId) throws ApiException {
+    return createWhatsAppGroupInviteLinkWithHttpInfo(groupId, accountId, null);
+  }
+
+  /**
+   * Create invite link
+   * Create a new invite link for a WhatsApp group. The previous link is revoked. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;CreateWhatsAppGroupInviteLink200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<CreateWhatsAppGroupInviteLink200Response> createWhatsAppGroupInviteLinkWithHttpInfo(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createWhatsAppGroupInviteLinkRequestBuilder(groupId, accountId, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("createWhatsAppGroupInviteLink", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<CreateWhatsAppGroupInviteLink200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        CreateWhatsAppGroupInviteLink200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<CreateWhatsAppGroupInviteLink200Response>() {});
+        
+
+        return new ApiResponse<CreateWhatsAppGroupInviteLink200Response>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder createWhatsAppGroupInviteLinkRequestBuilder(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'groupId' is set
+    if (groupId == null) {
+      throw new ApiException(400, "Missing the required parameter 'groupId' when calling createWhatsAppGroupInviteLink");
+    }
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling createWhatsAppGroupInviteLink");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/whatsapp/wa-groups/{groupId}/invite-link"
+        .replace("{groupId}", ApiClient.urlEncode(groupId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "accountId";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("accountId", accountId));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
    * Create template
    * Create a new message template. Supports two modes:  **Custom template:** Provide &#x60;components&#x60; with your own content. Submitted to Meta for review (can take up to 24h).  **Library template:** Provide &#x60;library_template_name&#x60; instead of &#x60;components&#x60; to use a pre-built template from Meta&#39;s template library. Library templates are **pre-approved** (no review wait). You can optionally customize parameters and buttons via &#x60;library_template_body_inputs&#x60; and &#x60;library_template_button_inputs&#x60;.  Browse available library templates at: https://business.facebook.com/wa/manage/message-templates/ 
    * @param createWhatsAppTemplateRequest  (required)
@@ -1498,6 +2083,147 @@ public class WhatsAppApi {
     } catch (IOException e) {
       throw new ApiException(e);
     }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Delete group
+   * Delete a WhatsApp group and remove all participants. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @return UnpublishPost200Response
+   * @throws ApiException if fails to make API call
+   */
+  public UnpublishPost200Response deleteWhatsAppGroupChat(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId) throws ApiException {
+    return deleteWhatsAppGroupChat(groupId, accountId, null);
+  }
+
+  /**
+   * Delete group
+   * Delete a WhatsApp group and remove all participants. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param headers Optional headers to include in the request
+   * @return UnpublishPost200Response
+   * @throws ApiException if fails to make API call
+   */
+  public UnpublishPost200Response deleteWhatsAppGroupChat(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
+    ApiResponse<UnpublishPost200Response> localVarResponse = deleteWhatsAppGroupChatWithHttpInfo(groupId, accountId, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Delete group
+   * Delete a WhatsApp group and remove all participants. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @return ApiResponse&lt;UnpublishPost200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnpublishPost200Response> deleteWhatsAppGroupChatWithHttpInfo(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId) throws ApiException {
+    return deleteWhatsAppGroupChatWithHttpInfo(groupId, accountId, null);
+  }
+
+  /**
+   * Delete group
+   * Delete a WhatsApp group and remove all participants. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;UnpublishPost200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnpublishPost200Response> deleteWhatsAppGroupChatWithHttpInfo(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteWhatsAppGroupChatRequestBuilder(groupId, accountId, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("deleteWhatsAppGroupChat", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<UnpublishPost200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        UnpublishPost200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<UnpublishPost200Response>() {});
+        
+
+        return new ApiResponse<UnpublishPost200Response>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder deleteWhatsAppGroupChatRequestBuilder(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'groupId' is set
+    if (groupId == null) {
+      throw new ApiException(400, "Missing the required parameter 'groupId' when calling deleteWhatsAppGroupChat");
+    }
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling deleteWhatsAppGroupChat");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/whatsapp/wa-groups/{groupId}"
+        .replace("{groupId}", ApiClient.urlEncode(groupId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "accountId";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("accountId", accountId));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.noBody());
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
@@ -2658,6 +3384,147 @@ public class WhatsAppApi {
   }
 
   /**
+   * Get group info
+   * Retrieve metadata about a WhatsApp group including subject, description, participants, and settings. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @return GetWhatsAppGroupChat200Response
+   * @throws ApiException if fails to make API call
+   */
+  public GetWhatsAppGroupChat200Response getWhatsAppGroupChat(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId) throws ApiException {
+    return getWhatsAppGroupChat(groupId, accountId, null);
+  }
+
+  /**
+   * Get group info
+   * Retrieve metadata about a WhatsApp group including subject, description, participants, and settings. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param headers Optional headers to include in the request
+   * @return GetWhatsAppGroupChat200Response
+   * @throws ApiException if fails to make API call
+   */
+  public GetWhatsAppGroupChat200Response getWhatsAppGroupChat(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
+    ApiResponse<GetWhatsAppGroupChat200Response> localVarResponse = getWhatsAppGroupChatWithHttpInfo(groupId, accountId, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Get group info
+   * Retrieve metadata about a WhatsApp group including subject, description, participants, and settings. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @return ApiResponse&lt;GetWhatsAppGroupChat200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<GetWhatsAppGroupChat200Response> getWhatsAppGroupChatWithHttpInfo(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId) throws ApiException {
+    return getWhatsAppGroupChatWithHttpInfo(groupId, accountId, null);
+  }
+
+  /**
+   * Get group info
+   * Retrieve metadata about a WhatsApp group including subject, description, participants, and settings. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;GetWhatsAppGroupChat200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<GetWhatsAppGroupChat200Response> getWhatsAppGroupChatWithHttpInfo(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getWhatsAppGroupChatRequestBuilder(groupId, accountId, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getWhatsAppGroupChat", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<GetWhatsAppGroupChat200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        GetWhatsAppGroupChat200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<GetWhatsAppGroupChat200Response>() {});
+        
+
+        return new ApiResponse<GetWhatsAppGroupChat200Response>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getWhatsAppGroupChatRequestBuilder(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'groupId' is set
+    if (groupId == null) {
+      throw new ApiException(400, "Missing the required parameter 'groupId' when calling getWhatsAppGroupChat");
+    }
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling getWhatsAppGroupChat");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/whatsapp/wa-groups/{groupId}"
+        .replace("{groupId}", ApiClient.urlEncode(groupId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "accountId";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("accountId", accountId));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
    * List contact groups
    * **Deprecated.** Use contact tags via &#x60;GET /v1/contacts&#x60; for grouping instead. WhatsApp groups have no cross-platform equivalent. List all contact groups for a WhatsApp account with contact counts. Groups are derived from the groups field on contacts, not stored as separate documents. 
    * @param accountId WhatsApp social account ID (required)
@@ -3202,6 +4069,446 @@ public class WhatsAppApi {
   }
 
   /**
+   * List active groups
+   * List active WhatsApp group chats for a business phone number. These are actual WhatsApp group conversations on the platform. 
+   * @param accountId WhatsApp social account ID (required)
+   * @param limit Max groups to return (optional, default to 25)
+   * @param after Pagination cursor (optional)
+   * @return ListWhatsAppGroupChats200Response
+   * @throws ApiException if fails to make API call
+   */
+  public ListWhatsAppGroupChats200Response listWhatsAppGroupChats(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String after) throws ApiException {
+    return listWhatsAppGroupChats(accountId, limit, after, null);
+  }
+
+  /**
+   * List active groups
+   * List active WhatsApp group chats for a business phone number. These are actual WhatsApp group conversations on the platform. 
+   * @param accountId WhatsApp social account ID (required)
+   * @param limit Max groups to return (optional, default to 25)
+   * @param after Pagination cursor (optional)
+   * @param headers Optional headers to include in the request
+   * @return ListWhatsAppGroupChats200Response
+   * @throws ApiException if fails to make API call
+   */
+  public ListWhatsAppGroupChats200Response listWhatsAppGroupChats(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String after, Map<String, String> headers) throws ApiException {
+    ApiResponse<ListWhatsAppGroupChats200Response> localVarResponse = listWhatsAppGroupChatsWithHttpInfo(accountId, limit, after, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * List active groups
+   * List active WhatsApp group chats for a business phone number. These are actual WhatsApp group conversations on the platform. 
+   * @param accountId WhatsApp social account ID (required)
+   * @param limit Max groups to return (optional, default to 25)
+   * @param after Pagination cursor (optional)
+   * @return ApiResponse&lt;ListWhatsAppGroupChats200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<ListWhatsAppGroupChats200Response> listWhatsAppGroupChatsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String after) throws ApiException {
+    return listWhatsAppGroupChatsWithHttpInfo(accountId, limit, after, null);
+  }
+
+  /**
+   * List active groups
+   * List active WhatsApp group chats for a business phone number. These are actual WhatsApp group conversations on the platform. 
+   * @param accountId WhatsApp social account ID (required)
+   * @param limit Max groups to return (optional, default to 25)
+   * @param after Pagination cursor (optional)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;ListWhatsAppGroupChats200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<ListWhatsAppGroupChats200Response> listWhatsAppGroupChatsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String after, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listWhatsAppGroupChatsRequestBuilder(accountId, limit, after, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("listWhatsAppGroupChats", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<ListWhatsAppGroupChats200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        ListWhatsAppGroupChats200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<ListWhatsAppGroupChats200Response>() {});
+        
+
+        return new ApiResponse<ListWhatsAppGroupChats200Response>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder listWhatsAppGroupChatsRequestBuilder(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String after, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling listWhatsAppGroupChats");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/whatsapp/wa-groups";
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "accountId";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("accountId", accountId));
+    localVarQueryParameterBaseName = "limit";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("limit", limit));
+    localVarQueryParameterBaseName = "after";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("after", after));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * List join requests
+   * List pending join requests for a WhatsApp group (only for groups with approval_required mode). 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @return ListWhatsAppGroupJoinRequests200Response
+   * @throws ApiException if fails to make API call
+   */
+  public ListWhatsAppGroupJoinRequests200Response listWhatsAppGroupJoinRequests(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId) throws ApiException {
+    return listWhatsAppGroupJoinRequests(groupId, accountId, null);
+  }
+
+  /**
+   * List join requests
+   * List pending join requests for a WhatsApp group (only for groups with approval_required mode). 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param headers Optional headers to include in the request
+   * @return ListWhatsAppGroupJoinRequests200Response
+   * @throws ApiException if fails to make API call
+   */
+  public ListWhatsAppGroupJoinRequests200Response listWhatsAppGroupJoinRequests(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
+    ApiResponse<ListWhatsAppGroupJoinRequests200Response> localVarResponse = listWhatsAppGroupJoinRequestsWithHttpInfo(groupId, accountId, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * List join requests
+   * List pending join requests for a WhatsApp group (only for groups with approval_required mode). 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @return ApiResponse&lt;ListWhatsAppGroupJoinRequests200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<ListWhatsAppGroupJoinRequests200Response> listWhatsAppGroupJoinRequestsWithHttpInfo(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId) throws ApiException {
+    return listWhatsAppGroupJoinRequestsWithHttpInfo(groupId, accountId, null);
+  }
+
+  /**
+   * List join requests
+   * List pending join requests for a WhatsApp group (only for groups with approval_required mode). 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;ListWhatsAppGroupJoinRequests200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<ListWhatsAppGroupJoinRequests200Response> listWhatsAppGroupJoinRequestsWithHttpInfo(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listWhatsAppGroupJoinRequestsRequestBuilder(groupId, accountId, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("listWhatsAppGroupJoinRequests", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<ListWhatsAppGroupJoinRequests200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        ListWhatsAppGroupJoinRequests200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<ListWhatsAppGroupJoinRequests200Response>() {});
+        
+
+        return new ApiResponse<ListWhatsAppGroupJoinRequests200Response>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder listWhatsAppGroupJoinRequestsRequestBuilder(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'groupId' is set
+    if (groupId == null) {
+      throw new ApiException(400, "Missing the required parameter 'groupId' when calling listWhatsAppGroupJoinRequests");
+    }
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling listWhatsAppGroupJoinRequests");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/whatsapp/wa-groups/{groupId}/join-requests"
+        .replace("{groupId}", ApiClient.urlEncode(groupId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "accountId";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("accountId", accountId));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Reject join requests
+   * Reject pending join requests for a WhatsApp group. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param rejectWhatsAppGroupJoinRequestsRequest  (required)
+   * @return UnpublishPost200Response
+   * @throws ApiException if fails to make API call
+   */
+  public UnpublishPost200Response rejectWhatsAppGroupJoinRequests(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull RejectWhatsAppGroupJoinRequestsRequest rejectWhatsAppGroupJoinRequestsRequest) throws ApiException {
+    return rejectWhatsAppGroupJoinRequests(groupId, accountId, rejectWhatsAppGroupJoinRequestsRequest, null);
+  }
+
+  /**
+   * Reject join requests
+   * Reject pending join requests for a WhatsApp group. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param rejectWhatsAppGroupJoinRequestsRequest  (required)
+   * @param headers Optional headers to include in the request
+   * @return UnpublishPost200Response
+   * @throws ApiException if fails to make API call
+   */
+  public UnpublishPost200Response rejectWhatsAppGroupJoinRequests(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull RejectWhatsAppGroupJoinRequestsRequest rejectWhatsAppGroupJoinRequestsRequest, Map<String, String> headers) throws ApiException {
+    ApiResponse<UnpublishPost200Response> localVarResponse = rejectWhatsAppGroupJoinRequestsWithHttpInfo(groupId, accountId, rejectWhatsAppGroupJoinRequestsRequest, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Reject join requests
+   * Reject pending join requests for a WhatsApp group. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param rejectWhatsAppGroupJoinRequestsRequest  (required)
+   * @return ApiResponse&lt;UnpublishPost200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnpublishPost200Response> rejectWhatsAppGroupJoinRequestsWithHttpInfo(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull RejectWhatsAppGroupJoinRequestsRequest rejectWhatsAppGroupJoinRequestsRequest) throws ApiException {
+    return rejectWhatsAppGroupJoinRequestsWithHttpInfo(groupId, accountId, rejectWhatsAppGroupJoinRequestsRequest, null);
+  }
+
+  /**
+   * Reject join requests
+   * Reject pending join requests for a WhatsApp group. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param rejectWhatsAppGroupJoinRequestsRequest  (required)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;UnpublishPost200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnpublishPost200Response> rejectWhatsAppGroupJoinRequestsWithHttpInfo(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull RejectWhatsAppGroupJoinRequestsRequest rejectWhatsAppGroupJoinRequestsRequest, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = rejectWhatsAppGroupJoinRequestsRequestBuilder(groupId, accountId, rejectWhatsAppGroupJoinRequestsRequest, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("rejectWhatsAppGroupJoinRequests", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<UnpublishPost200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        UnpublishPost200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<UnpublishPost200Response>() {});
+        
+
+        return new ApiResponse<UnpublishPost200Response>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder rejectWhatsAppGroupJoinRequestsRequestBuilder(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull RejectWhatsAppGroupJoinRequestsRequest rejectWhatsAppGroupJoinRequestsRequest, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'groupId' is set
+    if (groupId == null) {
+      throw new ApiException(400, "Missing the required parameter 'groupId' when calling rejectWhatsAppGroupJoinRequests");
+    }
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling rejectWhatsAppGroupJoinRequests");
+    }
+    // verify the required parameter 'rejectWhatsAppGroupJoinRequestsRequest' is set
+    if (rejectWhatsAppGroupJoinRequestsRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'rejectWhatsAppGroupJoinRequestsRequest' when calling rejectWhatsAppGroupJoinRequests");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/whatsapp/wa-groups/{groupId}/join-requests"
+        .replace("{groupId}", ApiClient.urlEncode(groupId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "accountId";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("accountId", accountId));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(rejectWhatsAppGroupJoinRequestsRequest);
+      localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
    * Remove recipients
    * **Deprecated.** Use &#x60;POST /v1/broadcasts/{id}/recipients&#x60; with removal flag instead. Remove recipients from a draft broadcast by phone number. 
    * @param broadcastId Broadcast ID (required)
@@ -3326,6 +4633,161 @@ public class WhatsAppApi {
 
     try {
       byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(removeWhatsAppBroadcastRecipientsRequest);
+      localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Remove participants
+   * Remove participants from a WhatsApp group. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param removeWhatsAppGroupParticipantsRequest  (required)
+   * @return UnpublishPost200Response
+   * @throws ApiException if fails to make API call
+   */
+  public UnpublishPost200Response removeWhatsAppGroupParticipants(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull RemoveWhatsAppGroupParticipantsRequest removeWhatsAppGroupParticipantsRequest) throws ApiException {
+    return removeWhatsAppGroupParticipants(groupId, accountId, removeWhatsAppGroupParticipantsRequest, null);
+  }
+
+  /**
+   * Remove participants
+   * Remove participants from a WhatsApp group. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param removeWhatsAppGroupParticipantsRequest  (required)
+   * @param headers Optional headers to include in the request
+   * @return UnpublishPost200Response
+   * @throws ApiException if fails to make API call
+   */
+  public UnpublishPost200Response removeWhatsAppGroupParticipants(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull RemoveWhatsAppGroupParticipantsRequest removeWhatsAppGroupParticipantsRequest, Map<String, String> headers) throws ApiException {
+    ApiResponse<UnpublishPost200Response> localVarResponse = removeWhatsAppGroupParticipantsWithHttpInfo(groupId, accountId, removeWhatsAppGroupParticipantsRequest, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Remove participants
+   * Remove participants from a WhatsApp group. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param removeWhatsAppGroupParticipantsRequest  (required)
+   * @return ApiResponse&lt;UnpublishPost200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnpublishPost200Response> removeWhatsAppGroupParticipantsWithHttpInfo(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull RemoveWhatsAppGroupParticipantsRequest removeWhatsAppGroupParticipantsRequest) throws ApiException {
+    return removeWhatsAppGroupParticipantsWithHttpInfo(groupId, accountId, removeWhatsAppGroupParticipantsRequest, null);
+  }
+
+  /**
+   * Remove participants
+   * Remove participants from a WhatsApp group. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param removeWhatsAppGroupParticipantsRequest  (required)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;UnpublishPost200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnpublishPost200Response> removeWhatsAppGroupParticipantsWithHttpInfo(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull RemoveWhatsAppGroupParticipantsRequest removeWhatsAppGroupParticipantsRequest, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = removeWhatsAppGroupParticipantsRequestBuilder(groupId, accountId, removeWhatsAppGroupParticipantsRequest, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("removeWhatsAppGroupParticipants", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<UnpublishPost200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        UnpublishPost200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<UnpublishPost200Response>() {});
+        
+
+        return new ApiResponse<UnpublishPost200Response>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder removeWhatsAppGroupParticipantsRequestBuilder(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull RemoveWhatsAppGroupParticipantsRequest removeWhatsAppGroupParticipantsRequest, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'groupId' is set
+    if (groupId == null) {
+      throw new ApiException(400, "Missing the required parameter 'groupId' when calling removeWhatsAppGroupParticipants");
+    }
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling removeWhatsAppGroupParticipants");
+    }
+    // verify the required parameter 'removeWhatsAppGroupParticipantsRequest' is set
+    if (removeWhatsAppGroupParticipantsRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'removeWhatsAppGroupParticipantsRequest' when calling removeWhatsAppGroupParticipants");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/whatsapp/wa-groups/{groupId}/participants"
+        .replace("{groupId}", ApiClient.urlEncode(groupId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "accountId";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("accountId", accountId));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(removeWhatsAppGroupParticipantsRequest);
       localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
     } catch (IOException e) {
       throw new ApiException(e);
@@ -4240,6 +5702,161 @@ public class WhatsAppApi {
 
     try {
       byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(updateWhatsAppDisplayNameRequest);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Update group settings
+   * Update the subject, description, or join approval mode of a WhatsApp group. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param updateWhatsAppGroupChatRequest  (required)
+   * @return UnpublishPost200Response
+   * @throws ApiException if fails to make API call
+   */
+  public UnpublishPost200Response updateWhatsAppGroupChat(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull UpdateWhatsAppGroupChatRequest updateWhatsAppGroupChatRequest) throws ApiException {
+    return updateWhatsAppGroupChat(groupId, accountId, updateWhatsAppGroupChatRequest, null);
+  }
+
+  /**
+   * Update group settings
+   * Update the subject, description, or join approval mode of a WhatsApp group. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param updateWhatsAppGroupChatRequest  (required)
+   * @param headers Optional headers to include in the request
+   * @return UnpublishPost200Response
+   * @throws ApiException if fails to make API call
+   */
+  public UnpublishPost200Response updateWhatsAppGroupChat(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull UpdateWhatsAppGroupChatRequest updateWhatsAppGroupChatRequest, Map<String, String> headers) throws ApiException {
+    ApiResponse<UnpublishPost200Response> localVarResponse = updateWhatsAppGroupChatWithHttpInfo(groupId, accountId, updateWhatsAppGroupChatRequest, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Update group settings
+   * Update the subject, description, or join approval mode of a WhatsApp group. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param updateWhatsAppGroupChatRequest  (required)
+   * @return ApiResponse&lt;UnpublishPost200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnpublishPost200Response> updateWhatsAppGroupChatWithHttpInfo(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull UpdateWhatsAppGroupChatRequest updateWhatsAppGroupChatRequest) throws ApiException {
+    return updateWhatsAppGroupChatWithHttpInfo(groupId, accountId, updateWhatsAppGroupChatRequest, null);
+  }
+
+  /**
+   * Update group settings
+   * Update the subject, description, or join approval mode of a WhatsApp group. 
+   * @param groupId Group ID (required)
+   * @param accountId WhatsApp social account ID (required)
+   * @param updateWhatsAppGroupChatRequest  (required)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;UnpublishPost200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnpublishPost200Response> updateWhatsAppGroupChatWithHttpInfo(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull UpdateWhatsAppGroupChatRequest updateWhatsAppGroupChatRequest, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateWhatsAppGroupChatRequestBuilder(groupId, accountId, updateWhatsAppGroupChatRequest, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("updateWhatsAppGroupChat", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<UnpublishPost200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        UnpublishPost200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<UnpublishPost200Response>() {});
+        
+
+        return new ApiResponse<UnpublishPost200Response>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder updateWhatsAppGroupChatRequestBuilder(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull UpdateWhatsAppGroupChatRequest updateWhatsAppGroupChatRequest, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'groupId' is set
+    if (groupId == null) {
+      throw new ApiException(400, "Missing the required parameter 'groupId' when calling updateWhatsAppGroupChat");
+    }
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling updateWhatsAppGroupChat");
+    }
+    // verify the required parameter 'updateWhatsAppGroupChatRequest' is set
+    if (updateWhatsAppGroupChatRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updateWhatsAppGroupChatRequest' when calling updateWhatsAppGroupChat");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/whatsapp/wa-groups/{groupId}"
+        .replace("{groupId}", ApiClient.urlEncode(groupId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "accountId";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("accountId", accountId));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(updateWhatsAppGroupChatRequest);
       localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
     } catch (IOException e) {
       throw new ApiException(e);

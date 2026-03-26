@@ -39,7 +39,7 @@ import dev.zernio.ApiClient;
   CheckInstagramHashtags200ResponseResultsInner.JSON_PROPERTY_REASON,
   CheckInstagramHashtags200ResponseResultsInner.JSON_PROPERTY_CONFIDENCE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-26T14:49:34.857605595Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-26T15:28:43.475777651Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CheckInstagramHashtags200ResponseResultsInner {
   public static final String JSON_PROPERTY_HASHTAG = "hashtag";
   @javax.annotation.Nullable
