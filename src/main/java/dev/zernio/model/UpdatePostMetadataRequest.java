@@ -36,13 +36,15 @@ import dev.zernio.ApiClient;
  */
 @JsonPropertyOrder({
   UpdatePostMetadataRequest.JSON_PROPERTY_PLATFORM,
+  UpdatePostMetadataRequest.JSON_PROPERTY_VIDEO_ID,
+  UpdatePostMetadataRequest.JSON_PROPERTY_ACCOUNT_ID,
   UpdatePostMetadataRequest.JSON_PROPERTY_TITLE,
   UpdatePostMetadataRequest.JSON_PROPERTY_DESCRIPTION,
   UpdatePostMetadataRequest.JSON_PROPERTY_TAGS,
   UpdatePostMetadataRequest.JSON_PROPERTY_CATEGORY_ID,
   UpdatePostMetadataRequest.JSON_PROPERTY_PRIVACY_STATUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-26T15:28:43.475777651Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-26T18:00:22.486210924Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UpdatePostMetadataRequest {
   /**
    * The platform to update metadata on
@@ -80,6 +82,14 @@ public class UpdatePostMetadataRequest {
   public static final String JSON_PROPERTY_PLATFORM = "platform";
   @javax.annotation.Nonnull
   private PlatformEnum platform;
+
+  public static final String JSON_PROPERTY_VIDEO_ID = "videoId";
+  @javax.annotation.Nullable
+  private String videoId;
+
+  public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
+  @javax.annotation.Nullable
+  private String accountId;
 
   public static final String JSON_PROPERTY_TITLE = "title";
   @javax.annotation.Nullable
@@ -162,6 +172,54 @@ public class UpdatePostMetadataRequest {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPlatform(@javax.annotation.Nonnull PlatformEnum platform) {
     this.platform = platform;
+  }
+
+
+  public UpdatePostMetadataRequest videoId(@javax.annotation.Nullable String videoId) {
+    this.videoId = videoId;
+    return this;
+  }
+
+  /**
+   * YouTube video ID (required for direct mode, ignored for post-based mode)
+   * @return videoId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_VIDEO_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getVideoId() {
+    return videoId;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_VIDEO_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVideoId(@javax.annotation.Nullable String videoId) {
+    this.videoId = videoId;
+  }
+
+
+  public UpdatePostMetadataRequest accountId(@javax.annotation.Nullable String accountId) {
+    this.accountId = accountId;
+    return this;
+  }
+
+  /**
+   * Zernio social account ID (required for direct mode, ignored for post-based mode)
+   * @return accountId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAccountId() {
+    return accountId;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAccountId(@javax.annotation.Nullable String accountId) {
+    this.accountId = accountId;
   }
 
 
@@ -306,6 +364,8 @@ public class UpdatePostMetadataRequest {
     }
     UpdatePostMetadataRequest updatePostMetadataRequest = (UpdatePostMetadataRequest) o;
     return Objects.equals(this.platform, updatePostMetadataRequest.platform) &&
+        Objects.equals(this.videoId, updatePostMetadataRequest.videoId) &&
+        Objects.equals(this.accountId, updatePostMetadataRequest.accountId) &&
         Objects.equals(this.title, updatePostMetadataRequest.title) &&
         Objects.equals(this.description, updatePostMetadataRequest.description) &&
         Objects.equals(this.tags, updatePostMetadataRequest.tags) &&
@@ -315,7 +375,7 @@ public class UpdatePostMetadataRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(platform, title, description, tags, categoryId, privacyStatus);
+    return Objects.hash(platform, videoId, accountId, title, description, tags, categoryId, privacyStatus);
   }
 
   @Override
@@ -323,6 +383,8 @@ public class UpdatePostMetadataRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdatePostMetadataRequest {\n");
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
+    sb.append("    videoId: ").append(toIndentedString(videoId)).append("\n");
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
@@ -378,6 +440,16 @@ public class UpdatePostMetadataRequest {
     // add `platform` to the URL query string
     if (getPlatform() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%splatform%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getPlatform()))));
+    }
+
+    // add `videoId` to the URL query string
+    if (getVideoId() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%svideoId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getVideoId()))));
+    }
+
+    // add `accountId` to the URL query string
+    if (getAccountId() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%saccountId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getAccountId()))));
     }
 
     // add `title` to the URL query string

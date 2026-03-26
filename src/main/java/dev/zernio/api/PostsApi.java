@@ -71,7 +71,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-26T15:28:43.475777651Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-26T18:00:22.486210924Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class PostsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -1285,8 +1285,8 @@ public class PostsApi {
 
   /**
    * Update post metadata
-   * Updates metadata of an already-published post on the specified platform without re-uploading the media. Currently only supported for YouTube videos (title, description, tags, category, privacy status). The post must have \&quot;published\&quot; status on the target platform. At least one updatable field is required. 
-   * @param postId  (required)
+   * Updates metadata of a published video on the specified platform without re-uploading. Currently only supported for YouTube. At least one updatable field is required.  **Two modes:**  1. **Post-based** (video published through Zernio): pass the Zernio postId in the URL and &#x60;platform&#x60; in the body. 2. **Direct video ID** (video uploaded outside Zernio, e.g. directly to YouTube): use &#x60;_&#x60; as the postId,    and pass &#x60;videoId&#x60; + &#x60;accountId&#x60; + &#x60;platform&#x60; in the body. The accountId is the Zernio social account ID    for the connected YouTube channel. 
+   * @param postId Zernio post ID, or \&quot;_\&quot; when using direct video ID mode (required)
    * @param updatePostMetadataRequest  (required)
    * @return UpdatePostMetadata200Response
    * @throws ApiException if fails to make API call
@@ -1297,8 +1297,8 @@ public class PostsApi {
 
   /**
    * Update post metadata
-   * Updates metadata of an already-published post on the specified platform without re-uploading the media. Currently only supported for YouTube videos (title, description, tags, category, privacy status). The post must have \&quot;published\&quot; status on the target platform. At least one updatable field is required. 
-   * @param postId  (required)
+   * Updates metadata of a published video on the specified platform without re-uploading. Currently only supported for YouTube. At least one updatable field is required.  **Two modes:**  1. **Post-based** (video published through Zernio): pass the Zernio postId in the URL and &#x60;platform&#x60; in the body. 2. **Direct video ID** (video uploaded outside Zernio, e.g. directly to YouTube): use &#x60;_&#x60; as the postId,    and pass &#x60;videoId&#x60; + &#x60;accountId&#x60; + &#x60;platform&#x60; in the body. The accountId is the Zernio social account ID    for the connected YouTube channel. 
+   * @param postId Zernio post ID, or \&quot;_\&quot; when using direct video ID mode (required)
    * @param updatePostMetadataRequest  (required)
    * @param headers Optional headers to include in the request
    * @return UpdatePostMetadata200Response
@@ -1311,8 +1311,8 @@ public class PostsApi {
 
   /**
    * Update post metadata
-   * Updates metadata of an already-published post on the specified platform without re-uploading the media. Currently only supported for YouTube videos (title, description, tags, category, privacy status). The post must have \&quot;published\&quot; status on the target platform. At least one updatable field is required. 
-   * @param postId  (required)
+   * Updates metadata of a published video on the specified platform without re-uploading. Currently only supported for YouTube. At least one updatable field is required.  **Two modes:**  1. **Post-based** (video published through Zernio): pass the Zernio postId in the URL and &#x60;platform&#x60; in the body. 2. **Direct video ID** (video uploaded outside Zernio, e.g. directly to YouTube): use &#x60;_&#x60; as the postId,    and pass &#x60;videoId&#x60; + &#x60;accountId&#x60; + &#x60;platform&#x60; in the body. The accountId is the Zernio social account ID    for the connected YouTube channel. 
+   * @param postId Zernio post ID, or \&quot;_\&quot; when using direct video ID mode (required)
    * @param updatePostMetadataRequest  (required)
    * @return ApiResponse&lt;UpdatePostMetadata200Response&gt;
    * @throws ApiException if fails to make API call
@@ -1323,8 +1323,8 @@ public class PostsApi {
 
   /**
    * Update post metadata
-   * Updates metadata of an already-published post on the specified platform without re-uploading the media. Currently only supported for YouTube videos (title, description, tags, category, privacy status). The post must have \&quot;published\&quot; status on the target platform. At least one updatable field is required. 
-   * @param postId  (required)
+   * Updates metadata of a published video on the specified platform without re-uploading. Currently only supported for YouTube. At least one updatable field is required.  **Two modes:**  1. **Post-based** (video published through Zernio): pass the Zernio postId in the URL and &#x60;platform&#x60; in the body. 2. **Direct video ID** (video uploaded outside Zernio, e.g. directly to YouTube): use &#x60;_&#x60; as the postId,    and pass &#x60;videoId&#x60; + &#x60;accountId&#x60; + &#x60;platform&#x60; in the body. The accountId is the Zernio social account ID    for the connected YouTube channel. 
+   * @param postId Zernio post ID, or \&quot;_\&quot; when using direct video ID mode (required)
    * @param updatePostMetadataRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;UpdatePostMetadata200Response&gt;

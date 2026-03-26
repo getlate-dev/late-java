@@ -37,9 +37,10 @@ import dev.zernio.ApiClient;
 @JsonPropertyOrder({
   UpdatePostMetadata200Response.JSON_PROPERTY_SUCCESS,
   UpdatePostMetadata200Response.JSON_PROPERTY_MESSAGE,
+  UpdatePostMetadata200Response.JSON_PROPERTY_VIDEO_ID,
   UpdatePostMetadata200Response.JSON_PROPERTY_UPDATED_FIELDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-26T15:28:43.475777651Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-26T18:00:22.486210924Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UpdatePostMetadata200Response {
   public static final String JSON_PROPERTY_SUCCESS = "success";
   @javax.annotation.Nullable
@@ -48,6 +49,10 @@ public class UpdatePostMetadata200Response {
   public static final String JSON_PROPERTY_MESSAGE = "message";
   @javax.annotation.Nullable
   private String message;
+
+  public static final String JSON_PROPERTY_VIDEO_ID = "videoId";
+  @javax.annotation.Nullable
+  private String videoId;
 
   public static final String JSON_PROPERTY_UPDATED_FIELDS = "updatedFields";
   @javax.annotation.Nullable
@@ -104,6 +109,30 @@ public class UpdatePostMetadata200Response {
   }
 
 
+  public UpdatePostMetadata200Response videoId(@javax.annotation.Nullable String videoId) {
+    this.videoId = videoId;
+    return this;
+  }
+
+  /**
+   * Only present in direct video ID mode
+   * @return videoId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_VIDEO_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getVideoId() {
+    return videoId;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_VIDEO_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVideoId(@javax.annotation.Nullable String videoId) {
+    this.videoId = videoId;
+  }
+
+
   public UpdatePostMetadata200Response updatedFields(@javax.annotation.Nullable List<String> updatedFields) {
     this.updatedFields = updatedFields;
     return this;
@@ -150,12 +179,13 @@ public class UpdatePostMetadata200Response {
     UpdatePostMetadata200Response updatePostMetadata200Response = (UpdatePostMetadata200Response) o;
     return Objects.equals(this.success, updatePostMetadata200Response.success) &&
         Objects.equals(this.message, updatePostMetadata200Response.message) &&
+        Objects.equals(this.videoId, updatePostMetadata200Response.videoId) &&
         Objects.equals(this.updatedFields, updatePostMetadata200Response.updatedFields);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(success, message, updatedFields);
+    return Objects.hash(success, message, videoId, updatedFields);
   }
 
   @Override
@@ -164,6 +194,7 @@ public class UpdatePostMetadata200Response {
     sb.append("class UpdatePostMetadata200Response {\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    videoId: ").append(toIndentedString(videoId)).append("\n");
     sb.append("    updatedFields: ").append(toIndentedString(updatedFields)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -220,6 +251,11 @@ public class UpdatePostMetadata200Response {
     // add `message` to the URL query string
     if (getMessage() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%smessage%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getMessage()))));
+    }
+
+    // add `videoId` to the URL query string
+    if (getVideoId() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%svideoId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getVideoId()))));
     }
 
     // add `updatedFields` to the URL query string

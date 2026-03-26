@@ -1303,7 +1303,7 @@ ApiResponse<[**PostUpdateResponse**](PostUpdateResponse.md)>
 
 Update post metadata
 
-Updates metadata of an already-published post on the specified platform without re-uploading the media. Currently only supported for YouTube videos (title, description, tags, category, privacy status). The post must have \&quot;published\&quot; status on the target platform. At least one updatable field is required. 
+Updates metadata of a published video on the specified platform without re-uploading. Currently only supported for YouTube. At least one updatable field is required.  **Two modes:**  1. **Post-based** (video published through Zernio): pass the Zernio postId in the URL and &#x60;platform&#x60; in the body. 2. **Direct video ID** (video uploaded outside Zernio, e.g. directly to YouTube): use &#x60;_&#x60; as the postId,    and pass &#x60;videoId&#x60; + &#x60;accountId&#x60; + &#x60;platform&#x60; in the body. The accountId is the Zernio social account ID    for the connected YouTube channel. 
 
 ### Example
 
@@ -1326,7 +1326,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         PostsApi apiInstance = new PostsApi(defaultClient);
-        String postId = "postId_example"; // String | 
+        String postId = "postId_example"; // String | Zernio post ID, or \"_\" when using direct video ID mode
         UpdatePostMetadataRequest updatePostMetadataRequest = new UpdatePostMetadataRequest(); // UpdatePostMetadataRequest | 
         try {
             UpdatePostMetadata200Response result = apiInstance.updatePostMetadata(postId, updatePostMetadataRequest);
@@ -1347,7 +1347,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **postId** | **String**|  | |
+| **postId** | **String**| Zernio post ID, or \&quot;_\&quot; when using direct video ID mode | |
 | **updatePostMetadataRequest** | [**UpdatePostMetadataRequest**](UpdatePostMetadataRequest.md)|  | |
 
 ### Return type
@@ -1380,7 +1380,7 @@ public class Example {
 
 Update post metadata
 
-Updates metadata of an already-published post on the specified platform without re-uploading the media. Currently only supported for YouTube videos (title, description, tags, category, privacy status). The post must have \&quot;published\&quot; status on the target platform. At least one updatable field is required. 
+Updates metadata of a published video on the specified platform without re-uploading. Currently only supported for YouTube. At least one updatable field is required.  **Two modes:**  1. **Post-based** (video published through Zernio): pass the Zernio postId in the URL and &#x60;platform&#x60; in the body. 2. **Direct video ID** (video uploaded outside Zernio, e.g. directly to YouTube): use &#x60;_&#x60; as the postId,    and pass &#x60;videoId&#x60; + &#x60;accountId&#x60; + &#x60;platform&#x60; in the body. The accountId is the Zernio social account ID    for the connected YouTube channel. 
 
 ### Example
 
@@ -1404,7 +1404,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         PostsApi apiInstance = new PostsApi(defaultClient);
-        String postId = "postId_example"; // String | 
+        String postId = "postId_example"; // String | Zernio post ID, or \"_\" when using direct video ID mode
         UpdatePostMetadataRequest updatePostMetadataRequest = new UpdatePostMetadataRequest(); // UpdatePostMetadataRequest | 
         try {
             ApiResponse<UpdatePostMetadata200Response> response = apiInstance.updatePostMetadataWithHttpInfo(postId, updatePostMetadataRequest);
@@ -1427,7 +1427,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **postId** | **String**|  | |
+| **postId** | **String**| Zernio post ID, or \&quot;_\&quot; when using direct video ID mode | |
 | **updatePostMetadataRequest** | [**UpdatePostMetadataRequest**](UpdatePostMetadataRequest.md)|  | |
 
 ### Return type
