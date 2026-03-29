@@ -37,7 +37,7 @@ import dev.zernio.ApiClient;
   UpdateContact200Response.JSON_PROPERTY_SUCCESS,
   UpdateContact200Response.JSON_PROPERTY_CONTACT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-27T14:51:10.757984978Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-29T13:17:04.228443515Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UpdateContact200Response {
   public static final String JSON_PROPERTY_SUCCESS = "success";
   @javax.annotation.Nullable

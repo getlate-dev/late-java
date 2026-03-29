@@ -51,7 +51,7 @@ import dev.zernio.ApiClient;
   GetWhatsAppBroadcasts200ResponseBroadcastsInner.JSON_PROPERTY_FAILED_COUNT,
   GetWhatsAppBroadcasts200ResponseBroadcastsInner.JSON_PROPERTY_CREATED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-27T14:51:10.757984978Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-29T13:17:04.228443515Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetWhatsAppBroadcasts200ResponseBroadcastsInner {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable
