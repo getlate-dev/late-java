@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import dev.zernio.model.CreateWhatsAppTemplateRequestLibraryTemplateButtonInputsInner;
+import dev.zernio.model.WhatsAppTemplateComponent;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -45,7 +46,7 @@ import dev.zernio.ApiClient;
   CreateWhatsAppTemplateRequest.JSON_PROPERTY_LIBRARY_TEMPLATE_BODY_INPUTS,
   CreateWhatsAppTemplateRequest.JSON_PROPERTY_LIBRARY_TEMPLATE_BUTTON_INPUTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-30T16:57:55.652265708Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-30T17:01:45.893793398Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateWhatsAppTemplateRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nonnull
@@ -102,7 +103,7 @@ public class CreateWhatsAppTemplateRequest {
 
   public static final String JSON_PROPERTY_COMPONENTS = "components";
   @javax.annotation.Nullable
-  private List<Object> components = new ArrayList<>();
+  private List<WhatsAppTemplateComponent> components = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LIBRARY_TEMPLATE_NAME = "library_template_name";
   @javax.annotation.Nullable
@@ -215,12 +216,12 @@ public class CreateWhatsAppTemplateRequest {
   }
 
 
-  public CreateWhatsAppTemplateRequest components(@javax.annotation.Nullable List<Object> components) {
+  public CreateWhatsAppTemplateRequest components(@javax.annotation.Nullable List<WhatsAppTemplateComponent> components) {
     this.components = components;
     return this;
   }
 
-  public CreateWhatsAppTemplateRequest addComponentsItem(Object componentsItem) {
+  public CreateWhatsAppTemplateRequest addComponentsItem(WhatsAppTemplateComponent componentsItem) {
     if (this.components == null) {
       this.components = new ArrayList<>();
     }
@@ -229,20 +230,20 @@ public class CreateWhatsAppTemplateRequest {
   }
 
   /**
-   * Template components (header, body, footer, buttons). Required for custom templates, omit when using library_template_name.
+   * Template components (HEADER, BODY, FOOTER, BUTTONS). Required for custom templates, omit when using library_template_name.
    * @return components
    */
   @javax.annotation.Nullable
   @JsonProperty(value = JSON_PROPERTY_COMPONENTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Object> getComponents() {
+  public List<WhatsAppTemplateComponent> getComponents() {
     return components;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_COMPONENTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setComponents(@javax.annotation.Nullable List<Object> components) {
+  public void setComponents(@javax.annotation.Nullable List<WhatsAppTemplateComponent> components) {
     this.components = components;
   }
 
@@ -436,9 +437,10 @@ public class CreateWhatsAppTemplateRequest {
     // add `components` to the URL query string
     if (getComponents() != null) {
       for (int i = 0; i < getComponents().size(); i++) {
-        joiner.add(String.format(java.util.Locale.ROOT, "%scomponents%s%s=%s", prefix, suffix,
-            "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix),
-            ApiClient.urlEncode(ApiClient.valueToString(getComponents().get(i)))));
+        if (getComponents().get(i) != null) {
+          joiner.add(getComponents().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%scomponents%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
+        }
       }
     }
 
