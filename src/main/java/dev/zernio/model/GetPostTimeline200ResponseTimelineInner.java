@@ -46,7 +46,7 @@ import dev.zernio.ApiClient;
   GetPostTimeline200ResponseTimelineInner.JSON_PROPERTY_CLICKS,
   GetPostTimeline200ResponseTimelineInner.JSON_PROPERTY_VIEWS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-29T17:30:47.684023718Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-30T11:32:53.465629721Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetPostTimeline200ResponseTimelineInner {
   public static final String JSON_PROPERTY_DATE = "date";
   @javax.annotation.Nullable

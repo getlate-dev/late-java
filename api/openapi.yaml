@@ -14956,7 +14956,11 @@ components:
           format: uri
           type: string
         instagramThumbnail:
-          description: Optional custom cover image URL for Instagram Reels
+          description: "Custom cover image URL for Instagram Reels. Can also be set\
+            \ via platformSpecificData.instagramThumbnail or platformSpecificData.reelCover.\
+            \ Resolution order: this field > platformSpecificData.instagramThumbnail\
+            \ > platformSpecificData.reelCover > platformSpecificData.thumbnailUrl\
+            \ (legacy)."
           format: uri
           type: string
         tiktokProcessed:
@@ -15686,11 +15690,23 @@ components:
           example: My Podcast Intro
           type: string
         thumbOffset:
-          description: Millisecond offset from video start for the Reel thumbnail.
-            Ignored if a custom thumbnail URL is provided. Defaults to 0.
+          description: Millisecond offset from video start for the Reel cover frame.
+            Ignored when instagramThumbnail or reelCover is provided. Defaults to
+            0.
           example: 5000
           minimum: 0
           type: integer
+        instagramThumbnail:
+          description: "Custom cover image URL for Instagram Reels (JPG or PNG, publicly\
+            \ accessible). Overrides thumbOffset when provided. Also accepted as reelCover\
+            \ (alias)."
+          format: uri
+          type: string
+        reelCover:
+          description: "Alias for instagramThumbnail. If both are provided, instagramThumbnail\
+            \ takes priority."
+          format: uri
+          type: string
     LinkedInPlatformData:
       description: "Up to 20 images, no multi-video. Single PDF supported (max 100MB).\
         \ Link previews auto-generated when no media attached. Use organizationUrn\

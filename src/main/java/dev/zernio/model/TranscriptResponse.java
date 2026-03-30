@@ -40,7 +40,7 @@ import dev.zernio.ApiClient;
   TranscriptResponse.JSON_PROPERTY_SEGMENTS,
   TranscriptResponse.JSON_PROPERTY_LANGUAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-29T17:30:47.684023718Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-30T11:32:53.465629721Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class TranscriptResponse {
   public static final String JSON_PROPERTY_TRANSCRIPT = "transcript";
   @javax.annotation.Nullable

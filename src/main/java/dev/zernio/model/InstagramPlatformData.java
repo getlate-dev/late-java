@@ -26,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import dev.zernio.model.InstagramPlatformDataTrialParams;
 import dev.zernio.model.InstagramPlatformDataUserTagsInner;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -44,9 +45,11 @@ import dev.zernio.ApiClient;
   InstagramPlatformData.JSON_PROPERTY_TRIAL_PARAMS,
   InstagramPlatformData.JSON_PROPERTY_USER_TAGS,
   InstagramPlatformData.JSON_PROPERTY_AUDIO_NAME,
-  InstagramPlatformData.JSON_PROPERTY_THUMB_OFFSET
+  InstagramPlatformData.JSON_PROPERTY_THUMB_OFFSET,
+  InstagramPlatformData.JSON_PROPERTY_INSTAGRAM_THUMBNAIL,
+  InstagramPlatformData.JSON_PROPERTY_REEL_COVER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-29T17:30:47.684023718Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-30T11:32:53.465629721Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class InstagramPlatformData {
   /**
    * Set to &#39;story&#39; to publish as a Story. Default posts become Reels or feed depending on media.
@@ -112,6 +115,14 @@ public class InstagramPlatformData {
   public static final String JSON_PROPERTY_THUMB_OFFSET = "thumbOffset";
   @javax.annotation.Nullable
   private Integer thumbOffset;
+
+  public static final String JSON_PROPERTY_INSTAGRAM_THUMBNAIL = "instagramThumbnail";
+  @javax.annotation.Nullable
+  private URI instagramThumbnail;
+
+  public static final String JSON_PROPERTY_REEL_COVER = "reelCover";
+  @javax.annotation.Nullable
+  private URI reelCover;
 
   public InstagramPlatformData() { 
   }
@@ -306,7 +317,7 @@ public class InstagramPlatformData {
   }
 
   /**
-   * Millisecond offset from video start for the Reel thumbnail. Ignored if a custom thumbnail URL is provided. Defaults to 0.
+   * Millisecond offset from video start for the Reel cover frame. Ignored when instagramThumbnail or reelCover is provided. Defaults to 0.
    * minimum: 0
    * @return thumbOffset
    */
@@ -322,6 +333,54 @@ public class InstagramPlatformData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThumbOffset(@javax.annotation.Nullable Integer thumbOffset) {
     this.thumbOffset = thumbOffset;
+  }
+
+
+  public InstagramPlatformData instagramThumbnail(@javax.annotation.Nullable URI instagramThumbnail) {
+    this.instagramThumbnail = instagramThumbnail;
+    return this;
+  }
+
+  /**
+   * Custom cover image URL for Instagram Reels (JPG or PNG, publicly accessible). Overrides thumbOffset when provided. Also accepted as reelCover (alias).
+   * @return instagramThumbnail
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_INSTAGRAM_THUMBNAIL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public URI getInstagramThumbnail() {
+    return instagramThumbnail;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_INSTAGRAM_THUMBNAIL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInstagramThumbnail(@javax.annotation.Nullable URI instagramThumbnail) {
+    this.instagramThumbnail = instagramThumbnail;
+  }
+
+
+  public InstagramPlatformData reelCover(@javax.annotation.Nullable URI reelCover) {
+    this.reelCover = reelCover;
+    return this;
+  }
+
+  /**
+   * Alias for instagramThumbnail. If both are provided, instagramThumbnail takes priority.
+   * @return reelCover
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_REEL_COVER, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public URI getReelCover() {
+    return reelCover;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_REEL_COVER, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReelCover(@javax.annotation.Nullable URI reelCover) {
+    this.reelCover = reelCover;
   }
 
 
@@ -344,12 +403,14 @@ public class InstagramPlatformData {
         Objects.equals(this.trialParams, instagramPlatformData.trialParams) &&
         Objects.equals(this.userTags, instagramPlatformData.userTags) &&
         Objects.equals(this.audioName, instagramPlatformData.audioName) &&
-        Objects.equals(this.thumbOffset, instagramPlatformData.thumbOffset);
+        Objects.equals(this.thumbOffset, instagramPlatformData.thumbOffset) &&
+        Objects.equals(this.instagramThumbnail, instagramPlatformData.instagramThumbnail) &&
+        Objects.equals(this.reelCover, instagramPlatformData.reelCover);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contentType, shareToFeed, collaborators, firstComment, trialParams, userTags, audioName, thumbOffset);
+    return Objects.hash(contentType, shareToFeed, collaborators, firstComment, trialParams, userTags, audioName, thumbOffset, instagramThumbnail, reelCover);
   }
 
   @Override
@@ -364,6 +425,8 @@ public class InstagramPlatformData {
     sb.append("    userTags: ").append(toIndentedString(userTags)).append("\n");
     sb.append("    audioName: ").append(toIndentedString(audioName)).append("\n");
     sb.append("    thumbOffset: ").append(toIndentedString(thumbOffset)).append("\n");
+    sb.append("    instagramThumbnail: ").append(toIndentedString(instagramThumbnail)).append("\n");
+    sb.append("    reelCover: ").append(toIndentedString(reelCover)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -458,6 +521,16 @@ public class InstagramPlatformData {
     // add `thumbOffset` to the URL query string
     if (getThumbOffset() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sthumbOffset%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getThumbOffset()))));
+    }
+
+    // add `instagramThumbnail` to the URL query string
+    if (getInstagramThumbnail() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sinstagramThumbnail%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getInstagramThumbnail()))));
+    }
+
+    // add `reelCover` to the URL query string
+    if (getReelCover() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sreelCover%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getReelCover()))));
     }
 
     return joiner.toString();

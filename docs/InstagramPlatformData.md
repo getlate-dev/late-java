@@ -15,7 +15,9 @@ Feed aspect ratio 0.8-1.91, carousels up to 10 items, stories require media (no 
 |**trialParams** | [**InstagramPlatformDataTrialParams**](InstagramPlatformDataTrialParams.md) |  |  [optional] |
 |**userTags** | [**List&lt;InstagramPlatformDataUserTagsInner&gt;**](InstagramPlatformDataUserTagsInner.md) | Tag Instagram users in photos by username and position. Not supported for stories or videos. For carousels, use mediaIndex to target specific slides (defaults to 0). Tags on video items are silently skipped. |  [optional] |
 |**audioName** | **String** | Custom name for original audio in Reels. Replaces the default \&quot;Original Audio\&quot; label. Can only be set once. |  [optional] |
-|**thumbOffset** | **Integer** | Millisecond offset from video start for the Reel thumbnail. Ignored if a custom thumbnail URL is provided. Defaults to 0. |  [optional] |
+|**thumbOffset** | **Integer** | Millisecond offset from video start for the Reel cover frame. Ignored when instagramThumbnail or reelCover is provided. Defaults to 0. |  [optional] |
+|**instagramThumbnail** | **URI** | Custom cover image URL for Instagram Reels (JPG or PNG, publicly accessible). Overrides thumbOffset when provided. Also accepted as reelCover (alias). |  [optional] |
+|**reelCover** | **URI** | Alias for instagramThumbnail. If both are provided, instagramThumbnail takes priority. |  [optional] |
 
 
 
