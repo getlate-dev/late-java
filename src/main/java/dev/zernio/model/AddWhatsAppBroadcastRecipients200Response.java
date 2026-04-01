@@ -38,7 +38,7 @@ import dev.zernio.ApiClient;
   AddWhatsAppBroadcastRecipients200Response.JSON_PROPERTY_DUPLICATES,
   AddWhatsAppBroadcastRecipients200Response.JSON_PROPERTY_TOTAL_RECIPIENTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-01T14:15:18.197272190Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-01T14:16:42.532061782Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AddWhatsAppBroadcastRecipients200Response {
   public static final String JSON_PROPERTY_SUCCESS = "success";
   @javax.annotation.Nullable

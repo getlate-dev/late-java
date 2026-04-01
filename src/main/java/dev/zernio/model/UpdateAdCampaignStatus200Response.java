@@ -37,9 +37,10 @@ import dev.zernio.ApiClient;
 @JsonPropertyOrder({
   UpdateAdCampaignStatus200Response.JSON_PROPERTY_UPDATED,
   UpdateAdCampaignStatus200Response.JSON_PROPERTY_SKIPPED,
-  UpdateAdCampaignStatus200Response.JSON_PROPERTY_SKIPPED_REASONS
+  UpdateAdCampaignStatus200Response.JSON_PROPERTY_SKIPPED_REASONS,
+  UpdateAdCampaignStatus200Response.JSON_PROPERTY_MESSAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-01T14:15:18.197272190Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-01T14:16:42.532061782Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UpdateAdCampaignStatus200Response {
   public static final String JSON_PROPERTY_UPDATED = "updated";
   @javax.annotation.Nullable
@@ -52,6 +53,10 @@ public class UpdateAdCampaignStatus200Response {
   public static final String JSON_PROPERTY_SKIPPED_REASONS = "skippedReasons";
   @javax.annotation.Nullable
   private List<String> skippedReasons = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_MESSAGE = "message";
+  @javax.annotation.Nullable
+  private String message;
 
   public UpdateAdCampaignStatus200Response() { 
   }
@@ -136,6 +141,30 @@ public class UpdateAdCampaignStatus200Response {
   }
 
 
+  public UpdateAdCampaignStatus200Response message(@javax.annotation.Nullable String message) {
+    this.message = message;
+    return this;
+  }
+
+  /**
+   * Human-readable summary (present when no ads were actionable)
+   * @return message
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMessage() {
+    return message;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMessage(@javax.annotation.Nullable String message) {
+    this.message = message;
+  }
+
+
   /**
    * Return true if this updateAdCampaignStatus_200_response object is equal to o.
    */
@@ -150,12 +179,13 @@ public class UpdateAdCampaignStatus200Response {
     UpdateAdCampaignStatus200Response updateAdCampaignStatus200Response = (UpdateAdCampaignStatus200Response) o;
     return Objects.equals(this.updated, updateAdCampaignStatus200Response.updated) &&
         Objects.equals(this.skipped, updateAdCampaignStatus200Response.skipped) &&
-        Objects.equals(this.skippedReasons, updateAdCampaignStatus200Response.skippedReasons);
+        Objects.equals(this.skippedReasons, updateAdCampaignStatus200Response.skippedReasons) &&
+        Objects.equals(this.message, updateAdCampaignStatus200Response.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(updated, skipped, skippedReasons);
+    return Objects.hash(updated, skipped, skippedReasons, message);
   }
 
   @Override
@@ -165,6 +195,7 @@ public class UpdateAdCampaignStatus200Response {
     sb.append("    updated: ").append(toIndentedString(updated)).append("\n");
     sb.append("    skipped: ").append(toIndentedString(skipped)).append("\n");
     sb.append("    skippedReasons: ").append(toIndentedString(skippedReasons)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -229,6 +260,11 @@ public class UpdateAdCampaignStatus200Response {
             "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix),
             ApiClient.urlEncode(ApiClient.valueToString(getSkippedReasons().get(i)))));
       }
+    }
+
+    // add `message` to the URL query string
+    if (getMessage() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%smessage%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getMessage()))));
     }
 
     return joiner.toString();

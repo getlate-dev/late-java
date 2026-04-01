@@ -19284,6 +19284,7 @@ components:
         engagement:
           type: integer
         lastSyncedAt:
+          description: "Present on individual ads only, not on campaign aggregations"
           format: date-time
           type: string
     Ad:
@@ -33515,6 +33516,7 @@ components:
         skippedReasons:
         - skippedReasons
         - skippedReasons
+        message: message
         updated: 0
         skipped: 6
       properties:
@@ -33528,6 +33530,9 @@ components:
           items:
             type: string
           type: array
+        message:
+          description: Human-readable summary (present when no ads were actionable)
+          type: string
     getAd_200_response:
       example:
         ad:
@@ -34029,7 +34034,7 @@ components:
           description: New ads imported
           type: integer
         skipped:
-          description: Already-synced ads updated
+          description: Already-known ads (skipped import
           type: integer
         errors:
           description: Failed ad imports

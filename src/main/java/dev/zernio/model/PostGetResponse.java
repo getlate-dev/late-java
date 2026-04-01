@@ -36,7 +36,7 @@ import dev.zernio.ApiClient;
 @JsonPropertyOrder({
   PostGetResponse.JSON_PROPERTY_POST
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-01T14:15:18.197272190Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-01T14:16:42.532061782Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class PostGetResponse {
   public static final String JSON_PROPERTY_POST = "post";
   @javax.annotation.Nullable

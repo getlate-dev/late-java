@@ -35,7 +35,7 @@ import dev.zernio.ApiClient;
 @JsonPropertyOrder({
   UpdateRedditSubredditsRequest.JSON_PROPERTY_DEFAULT_SUBREDDIT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-01T14:15:18.197272190Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-01T14:16:42.532061782Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UpdateRedditSubredditsRequest {
   public static final String JSON_PROPERTY_DEFAULT_SUBREDDIT = "defaultSubreddit";
   @javax.annotation.Nonnull

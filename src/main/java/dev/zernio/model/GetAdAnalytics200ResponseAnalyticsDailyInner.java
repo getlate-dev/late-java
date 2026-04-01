@@ -47,7 +47,7 @@ import dev.zernio.ApiClient;
   GetAdAnalytics200ResponseAnalyticsDailyInner.JSON_PROPERTY_LAST_SYNCED_AT,
   GetAdAnalytics200ResponseAnalyticsDailyInner.JSON_PROPERTY_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-01T14:15:18.197272190Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-01T14:16:42.532061782Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetAdAnalytics200ResponseAnalyticsDailyInner {
   public static final String JSON_PROPERTY_SPEND = "spend";
   @javax.annotation.Nullable
@@ -290,7 +290,7 @@ public class GetAdAnalytics200ResponseAnalyticsDailyInner {
   }
 
   /**
-   * Get lastSyncedAt
+   * Present on individual ads only, not on campaign aggregations
    * @return lastSyncedAt
    */
   @javax.annotation.Nullable
