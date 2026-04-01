@@ -44,9 +44,12 @@ import dev.zernio.ApiClient;
   UpdatePostMetadataRequest.JSON_PROPERTY_TAGS,
   UpdatePostMetadataRequest.JSON_PROPERTY_CATEGORY_ID,
   UpdatePostMetadataRequest.JSON_PROPERTY_PRIVACY_STATUS,
-  UpdatePostMetadataRequest.JSON_PROPERTY_THUMBNAIL_URL
+  UpdatePostMetadataRequest.JSON_PROPERTY_THUMBNAIL_URL,
+  UpdatePostMetadataRequest.JSON_PROPERTY_MADE_FOR_KIDS,
+  UpdatePostMetadataRequest.JSON_PROPERTY_CONTAINS_SYNTHETIC_MEDIA,
+  UpdatePostMetadataRequest.JSON_PROPERTY_PLAYLIST_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-31T19:50:24.437613523Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-01T06:39:52.065493300Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UpdatePostMetadataRequest {
   /**
    * The platform to update metadata on
@@ -153,6 +156,18 @@ public class UpdatePostMetadataRequest {
   public static final String JSON_PROPERTY_THUMBNAIL_URL = "thumbnailUrl";
   @javax.annotation.Nullable
   private URI thumbnailUrl;
+
+  public static final String JSON_PROPERTY_MADE_FOR_KIDS = "madeForKids";
+  @javax.annotation.Nullable
+  private Boolean madeForKids;
+
+  public static final String JSON_PROPERTY_CONTAINS_SYNTHETIC_MEDIA = "containsSyntheticMedia";
+  @javax.annotation.Nullable
+  private Boolean containsSyntheticMedia;
+
+  public static final String JSON_PROPERTY_PLAYLIST_ID = "playlistId";
+  @javax.annotation.Nullable
+  private String playlistId;
 
   public UpdatePostMetadataRequest() { 
   }
@@ -381,6 +396,78 @@ public class UpdatePostMetadataRequest {
   }
 
 
+  public UpdatePostMetadataRequest madeForKids(@javax.annotation.Nullable Boolean madeForKids) {
+    this.madeForKids = madeForKids;
+    return this;
+  }
+
+  /**
+   * COPPA compliance flag. Set true for child-directed content (restricts comments, notifications, ad targeting).
+   * @return madeForKids
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_MADE_FOR_KIDS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getMadeForKids() {
+    return madeForKids;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_MADE_FOR_KIDS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMadeForKids(@javax.annotation.Nullable Boolean madeForKids) {
+    this.madeForKids = madeForKids;
+  }
+
+
+  public UpdatePostMetadataRequest containsSyntheticMedia(@javax.annotation.Nullable Boolean containsSyntheticMedia) {
+    this.containsSyntheticMedia = containsSyntheticMedia;
+    return this;
+  }
+
+  /**
+   * AI-generated content disclosure. Set true if the video contains synthetic content that could be mistaken for real. YouTube may add a label.
+   * @return containsSyntheticMedia
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_CONTAINS_SYNTHETIC_MEDIA, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getContainsSyntheticMedia() {
+    return containsSyntheticMedia;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_CONTAINS_SYNTHETIC_MEDIA, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setContainsSyntheticMedia(@javax.annotation.Nullable Boolean containsSyntheticMedia) {
+    this.containsSyntheticMedia = containsSyntheticMedia;
+  }
+
+
+  public UpdatePostMetadataRequest playlistId(@javax.annotation.Nullable String playlistId) {
+    this.playlistId = playlistId;
+    return this;
+  }
+
+  /**
+   * YouTube playlist ID to add the video to (e.g. &#39;PLxxxxxxxxxxxxx&#39;). Use GET /v1/accounts/{id}/youtube-playlists to list available playlists. Only playlists owned by the channel are supported.
+   * @return playlistId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_PLAYLIST_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPlaylistId() {
+    return playlistId;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PLAYLIST_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPlaylistId(@javax.annotation.Nullable String playlistId) {
+    this.playlistId = playlistId;
+  }
+
+
   /**
    * Return true if this updatePostMetadata_request object is equal to o.
    */
@@ -401,12 +488,15 @@ public class UpdatePostMetadataRequest {
         Objects.equals(this.tags, updatePostMetadataRequest.tags) &&
         Objects.equals(this.categoryId, updatePostMetadataRequest.categoryId) &&
         Objects.equals(this.privacyStatus, updatePostMetadataRequest.privacyStatus) &&
-        Objects.equals(this.thumbnailUrl, updatePostMetadataRequest.thumbnailUrl);
+        Objects.equals(this.thumbnailUrl, updatePostMetadataRequest.thumbnailUrl) &&
+        Objects.equals(this.madeForKids, updatePostMetadataRequest.madeForKids) &&
+        Objects.equals(this.containsSyntheticMedia, updatePostMetadataRequest.containsSyntheticMedia) &&
+        Objects.equals(this.playlistId, updatePostMetadataRequest.playlistId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(platform, videoId, accountId, title, description, tags, categoryId, privacyStatus, thumbnailUrl);
+    return Objects.hash(platform, videoId, accountId, title, description, tags, categoryId, privacyStatus, thumbnailUrl, madeForKids, containsSyntheticMedia, playlistId);
   }
 
   @Override
@@ -422,6 +512,9 @@ public class UpdatePostMetadataRequest {
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
     sb.append("    privacyStatus: ").append(toIndentedString(privacyStatus)).append("\n");
     sb.append("    thumbnailUrl: ").append(toIndentedString(thumbnailUrl)).append("\n");
+    sb.append("    madeForKids: ").append(toIndentedString(madeForKids)).append("\n");
+    sb.append("    containsSyntheticMedia: ").append(toIndentedString(containsSyntheticMedia)).append("\n");
+    sb.append("    playlistId: ").append(toIndentedString(playlistId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -516,6 +609,21 @@ public class UpdatePostMetadataRequest {
     // add `thumbnailUrl` to the URL query string
     if (getThumbnailUrl() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sthumbnailUrl%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getThumbnailUrl()))));
+    }
+
+    // add `madeForKids` to the URL query string
+    if (getMadeForKids() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%smadeForKids%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getMadeForKids()))));
+    }
+
+    // add `containsSyntheticMedia` to the URL query string
+    if (getContainsSyntheticMedia() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%scontainsSyntheticMedia%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getContainsSyntheticMedia()))));
+    }
+
+    // add `playlistId` to the URL query string
+    if (getPlaylistId() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%splaylistId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getPlaylistId()))));
     }
 
     return joiner.toString();

@@ -36,7 +36,7 @@ import dev.zernio.ApiClient;
   ValidatePostRequestPlatformsInnerCustomMediaInner.JSON_PROPERTY_URL,
   ValidatePostRequestPlatformsInnerCustomMediaInner.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-31T19:50:24.437613523Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-01T06:39:52.065493300Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ValidatePostRequestPlatformsInnerCustomMediaInner {
   public static final String JSON_PROPERTY_URL = "url";
   @javax.annotation.Nullable

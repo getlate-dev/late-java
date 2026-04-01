@@ -20470,6 +20470,19 @@ components:
             \ (phone verification) to set custom thumbnails."
           format: uri
           type: string
+        madeForKids:
+          description: "COPPA compliance flag. Set true for child-directed content\
+            \ (restricts comments, notifications, ad targeting)."
+          type: boolean
+        containsSyntheticMedia:
+          description: AI-generated content disclosure. Set true if the video contains
+            synthetic content that could be mistaken for real. YouTube may add a label.
+          type: boolean
+        playlistId:
+          description: "YouTube playlist ID to add the video to (e.g. 'PLxxxxxxxxxxxxx').\
+            \ Use GET /v1/accounts/{id}/youtube-playlists to list available playlists.\
+            \ Only playlists owned by the channel are supported."
+          type: string
       required:
       - platform
     updatePostMetadata_200_response:

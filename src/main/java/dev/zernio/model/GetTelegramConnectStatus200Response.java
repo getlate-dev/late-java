@@ -42,7 +42,7 @@ import dev.zernio.ApiClient;
   GetTelegramConnectStatus200Response.JSON_PROPERTY_BOT_USERNAME,
   GetTelegramConnectStatus200Response.JSON_PROPERTY_INSTRUCTIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-31T19:50:24.437613523Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-01T06:39:52.065493300Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetTelegramConnectStatus200Response {
   public static final String JSON_PROPERTY_CODE = "code";
   @javax.annotation.Nullable
