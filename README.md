@@ -4,7 +4,7 @@ Zernio API
 
 - API version: 1.0.1
 
-- Build date: 2026-04-02T07:47:31.297642643Z[Etc/UTC]
+- Build date: 2026-04-02T08:06:02.865206243Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -486,24 +486,6 @@ Class | Method | HTTP request | Description
 *SequencesApi* | [**unenrollContactWithHttpInfo**](docs/SequencesApi.md#unenrollContactWithHttpInfo) | **DELETE** /v1/sequences/{sequenceId}/enroll/{contactId} | Unenroll a contact from a sequence
 *SequencesApi* | [**updateSequence**](docs/SequencesApi.md#updateSequence) | **PATCH** /v1/sequences/{sequenceId} | Update a sequence
 *SequencesApi* | [**updateSequenceWithHttpInfo**](docs/SequencesApi.md#updateSequenceWithHttpInfo) | **PATCH** /v1/sequences/{sequenceId} | Update a sequence
-*ToolsApi* | [**checkInstagramHashtags**](docs/ToolsApi.md#checkInstagramHashtags) | **POST** /v1/tools/instagram/hashtag-checker | Check IG hashtag bans
-*ToolsApi* | [**checkInstagramHashtagsWithHttpInfo**](docs/ToolsApi.md#checkInstagramHashtagsWithHttpInfo) | **POST** /v1/tools/instagram/hashtag-checker | Check IG hashtag bans
-*ToolsApi* | [**downloadBlueskyMedia**](docs/ToolsApi.md#downloadBlueskyMedia) | **GET** /v1/tools/bluesky/download | Download Bluesky media
-*ToolsApi* | [**downloadBlueskyMediaWithHttpInfo**](docs/ToolsApi.md#downloadBlueskyMediaWithHttpInfo) | **GET** /v1/tools/bluesky/download | Download Bluesky media
-*ToolsApi* | [**downloadFacebookVideo**](docs/ToolsApi.md#downloadFacebookVideo) | **GET** /v1/tools/facebook/download | Download Facebook video
-*ToolsApi* | [**downloadFacebookVideoWithHttpInfo**](docs/ToolsApi.md#downloadFacebookVideoWithHttpInfo) | **GET** /v1/tools/facebook/download | Download Facebook video
-*ToolsApi* | [**downloadInstagramMedia**](docs/ToolsApi.md#downloadInstagramMedia) | **GET** /v1/tools/instagram/download | Download Instagram media
-*ToolsApi* | [**downloadInstagramMediaWithHttpInfo**](docs/ToolsApi.md#downloadInstagramMediaWithHttpInfo) | **GET** /v1/tools/instagram/download | Download Instagram media
-*ToolsApi* | [**downloadLinkedInVideo**](docs/ToolsApi.md#downloadLinkedInVideo) | **GET** /v1/tools/linkedin/download | Download LinkedIn video
-*ToolsApi* | [**downloadLinkedInVideoWithHttpInfo**](docs/ToolsApi.md#downloadLinkedInVideoWithHttpInfo) | **GET** /v1/tools/linkedin/download | Download LinkedIn video
-*ToolsApi* | [**downloadTikTokVideo**](docs/ToolsApi.md#downloadTikTokVideo) | **GET** /v1/tools/tiktok/download | Download TikTok video
-*ToolsApi* | [**downloadTikTokVideoWithHttpInfo**](docs/ToolsApi.md#downloadTikTokVideoWithHttpInfo) | **GET** /v1/tools/tiktok/download | Download TikTok video
-*ToolsApi* | [**downloadTwitterMedia**](docs/ToolsApi.md#downloadTwitterMedia) | **GET** /v1/tools/twitter/download | Download Twitter/X media
-*ToolsApi* | [**downloadTwitterMediaWithHttpInfo**](docs/ToolsApi.md#downloadTwitterMediaWithHttpInfo) | **GET** /v1/tools/twitter/download | Download Twitter/X media
-*ToolsApi* | [**downloadYouTubeVideo**](docs/ToolsApi.md#downloadYouTubeVideo) | **GET** /v1/tools/youtube/download | Download YouTube video
-*ToolsApi* | [**downloadYouTubeVideoWithHttpInfo**](docs/ToolsApi.md#downloadYouTubeVideoWithHttpInfo) | **GET** /v1/tools/youtube/download | Download YouTube video
-*ToolsApi* | [**getYouTubeTranscript**](docs/ToolsApi.md#getYouTubeTranscript) | **GET** /v1/tools/youtube/transcript | Get YouTube transcript
-*ToolsApi* | [**getYouTubeTranscriptWithHttpInfo**](docs/ToolsApi.md#getYouTubeTranscriptWithHttpInfo) | **GET** /v1/tools/youtube/transcript | Get YouTube transcript
 *TwitterEngagementApi* | [**bookmarkPost**](docs/TwitterEngagementApi.md#bookmarkPost) | **POST** /v1/twitter/bookmark | Bookmark a tweet
 *TwitterEngagementApi* | [**bookmarkPostWithHttpInfo**](docs/TwitterEngagementApi.md#bookmarkPostWithHttpInfo) | **POST** /v1/twitter/bookmark | Bookmark a tweet
 *TwitterEngagementApi* | [**followUser**](docs/TwitterEngagementApi.md#followUser) | **POST** /v1/twitter/follow | Follow a user
@@ -522,14 +504,6 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**getUserWithHttpInfo**](docs/UsersApi.md#getUserWithHttpInfo) | **GET** /v1/users/{userId} | Get user
 *UsersApi* | [**listUsers**](docs/UsersApi.md#listUsers) | **GET** /v1/users | List users
 *UsersApi* | [**listUsersWithHttpInfo**](docs/UsersApi.md#listUsersWithHttpInfo) | **GET** /v1/users | List users
-*ValidateApi* | [**validateMedia**](docs/ValidateApi.md#validateMedia) | **POST** /v1/tools/validate/media | Validate media URL
-*ValidateApi* | [**validateMediaWithHttpInfo**](docs/ValidateApi.md#validateMediaWithHttpInfo) | **POST** /v1/tools/validate/media | Validate media URL
-*ValidateApi* | [**validatePost**](docs/ValidateApi.md#validatePost) | **POST** /v1/tools/validate/post | Validate post content
-*ValidateApi* | [**validatePostWithHttpInfo**](docs/ValidateApi.md#validatePostWithHttpInfo) | **POST** /v1/tools/validate/post | Validate post content
-*ValidateApi* | [**validatePostLength**](docs/ValidateApi.md#validatePostLength) | **POST** /v1/tools/validate/post-length | Validate post character count
-*ValidateApi* | [**validatePostLengthWithHttpInfo**](docs/ValidateApi.md#validatePostLengthWithHttpInfo) | **POST** /v1/tools/validate/post-length | Validate post character count
-*ValidateApi* | [**validateSubreddit**](docs/ValidateApi.md#validateSubreddit) | **GET** /v1/tools/validate/subreddit | Check subreddit existence
-*ValidateApi* | [**validateSubredditWithHttpInfo**](docs/ValidateApi.md#validateSubredditWithHttpInfo) | **GET** /v1/tools/validate/subreddit | Check subreddit existence
 *WebhooksApi* | [**createWebhookSettings**](docs/WebhooksApi.md#createWebhookSettings) | **POST** /v1/webhooks/settings | Create webhook
 *WebhooksApi* | [**createWebhookSettingsWithHttpInfo**](docs/WebhooksApi.md#createWebhookSettingsWithHttpInfo) | **POST** /v1/webhooks/settings | Create webhook
 *WebhooksApi* | [**deleteWebhookSettings**](docs/WebhooksApi.md#deleteWebhookSettings) | **DELETE** /v1/webhooks/settings | Delete webhook
@@ -692,11 +666,6 @@ Class | Method | HTTP request | Description
  - [CancelBroadcast200ResponseBroadcast](docs/CancelBroadcast200ResponseBroadcast.md)
  - [CancelWhatsAppBroadcastSchedule200Response](docs/CancelWhatsAppBroadcastSchedule200Response.md)
  - [CancelWhatsAppBroadcastSchedule200ResponseBroadcast](docs/CancelWhatsAppBroadcastSchedule200ResponseBroadcast.md)
- - [CaptionResponse](docs/CaptionResponse.md)
- - [CheckInstagramHashtags200Response](docs/CheckInstagramHashtags200Response.md)
- - [CheckInstagramHashtags200ResponseResultsInner](docs/CheckInstagramHashtags200ResponseResultsInner.md)
- - [CheckInstagramHashtags200ResponseSummary](docs/CheckInstagramHashtags200ResponseSummary.md)
- - [CheckInstagramHashtagsRequest](docs/CheckInstagramHashtagsRequest.md)
  - [CompleteTelegramConnect200Response](docs/CompleteTelegramConnect200Response.md)
  - [ConnectBlueskyCredentials200Response](docs/ConnectBlueskyCredentials200Response.md)
  - [ConnectBlueskyCredentialsRequest](docs/ConnectBlueskyCredentialsRequest.md)
@@ -780,15 +749,6 @@ Class | Method | HTTP request | Description
  - [DeleteInboxReviewReplyRequest](docs/DeleteInboxReviewReplyRequest.md)
  - [DeleteQueueSlot200Response](docs/DeleteQueueSlot200Response.md)
  - [DeleteWhatsAppGroupRequest](docs/DeleteWhatsAppGroupRequest.md)
- - [DownloadBlueskyMedia200Response](docs/DownloadBlueskyMedia200Response.md)
- - [DownloadFacebookVideo200Response](docs/DownloadFacebookVideo200Response.md)
- - [DownloadFormat](docs/DownloadFormat.md)
- - [DownloadInstagramMedia200Response](docs/DownloadInstagramMedia200Response.md)
- - [DownloadResponse](docs/DownloadResponse.md)
- - [DownloadTikTokVideo200Response](docs/DownloadTikTokVideo200Response.md)
- - [DownloadTikTokVideo200ResponseFormatsInner](docs/DownloadTikTokVideo200ResponseFormatsInner.md)
- - [DownloadYouTubeVideo200Response](docs/DownloadYouTubeVideo200Response.md)
- - [DownloadYouTubeVideo200ResponseFormatsInner](docs/DownloadYouTubeVideo200ResponseFormatsInner.md)
  - [EditInboxMessage200Response](docs/EditInboxMessage200Response.md)
  - [EditInboxMessage200ResponseData](docs/EditInboxMessage200ResponseData.md)
  - [EditInboxMessageRequest](docs/EditInboxMessageRequest.md)
@@ -977,15 +937,11 @@ Class | Method | HTTP request | Description
  - [GetYouTubeDailyViews400Response](docs/GetYouTubeDailyViews400Response.md)
  - [GetYouTubeDailyViews403Response](docs/GetYouTubeDailyViews403Response.md)
  - [GetYouTubeDailyViews500Response](docs/GetYouTubeDailyViews500Response.md)
- - [GetYouTubeTranscript200Response](docs/GetYouTubeTranscript200Response.md)
- - [GetYouTubeTranscript200ResponseSegmentsInner](docs/GetYouTubeTranscript200ResponseSegmentsInner.md)
  - [GetYoutubePlaylists200Response](docs/GetYoutubePlaylists200Response.md)
  - [GetYoutubePlaylists200ResponsePlaylistsInner](docs/GetYoutubePlaylists200ResponsePlaylistsInner.md)
  - [GoogleBusinessPlatformData](docs/GoogleBusinessPlatformData.md)
  - [GoogleBusinessPlatformDataCallToAction](docs/GoogleBusinessPlatformDataCallToAction.md)
  - [HandleOAuthCallbackRequest](docs/HandleOAuthCallbackRequest.md)
- - [HashtagCheckResponse](docs/HashtagCheckResponse.md)
- - [HashtagInfo](docs/HashtagInfo.md)
  - [HideInboxComment200Response](docs/HideInboxComment200Response.md)
  - [HideInboxCommentRequest](docs/HideInboxCommentRequest.md)
  - [ImportWhatsAppContacts200Response](docs/ImportWhatsAppContacts200Response.md)
@@ -1215,8 +1171,6 @@ Class | Method | HTTP request | Description
  - [TestWebhookRequest](docs/TestWebhookRequest.md)
  - [ThreadsPlatformData](docs/ThreadsPlatformData.md)
  - [TikTokPlatformData](docs/TikTokPlatformData.md)
- - [TranscriptResponse](docs/TranscriptResponse.md)
- - [TranscriptSegment](docs/TranscriptSegment.md)
  - [TwitterPlatformData](docs/TwitterPlatformData.md)
  - [TwitterPlatformDataPoll](docs/TwitterPlatformDataPoll.md)
  - [TwitterPlatformDataThreadItemsInner](docs/TwitterPlatformDataThreadItemsInner.md)
@@ -1311,25 +1265,6 @@ Class | Method | HTTP request | Description
  - [User](docs/User.md)
  - [UserGetResponse](docs/UserGetResponse.md)
  - [UsersListResponse](docs/UsersListResponse.md)
- - [ValidateMedia200Response](docs/ValidateMedia200Response.md)
- - [ValidateMedia200ResponsePlatformLimitsValue](docs/ValidateMedia200ResponsePlatformLimitsValue.md)
- - [ValidateMediaRequest](docs/ValidateMediaRequest.md)
- - [ValidatePost200Response](docs/ValidatePost200Response.md)
- - [ValidatePost200ResponseOneOf](docs/ValidatePost200ResponseOneOf.md)
- - [ValidatePost200ResponseOneOf1](docs/ValidatePost200ResponseOneOf1.md)
- - [ValidatePost200ResponseOneOf1ErrorsInner](docs/ValidatePost200ResponseOneOf1ErrorsInner.md)
- - [ValidatePost200ResponseOneOfWarningsInner](docs/ValidatePost200ResponseOneOfWarningsInner.md)
- - [ValidatePostLength200Response](docs/ValidatePostLength200Response.md)
- - [ValidatePostLength200ResponsePlatformsValue](docs/ValidatePostLength200ResponsePlatformsValue.md)
- - [ValidatePostLengthRequest](docs/ValidatePostLengthRequest.md)
- - [ValidatePostRequest](docs/ValidatePostRequest.md)
- - [ValidatePostRequestMediaItemsInner](docs/ValidatePostRequestMediaItemsInner.md)
- - [ValidatePostRequestPlatformsInner](docs/ValidatePostRequestPlatformsInner.md)
- - [ValidatePostRequestPlatformsInnerCustomMediaInner](docs/ValidatePostRequestPlatformsInnerCustomMediaInner.md)
- - [ValidateSubreddit200Response](docs/ValidateSubreddit200Response.md)
- - [ValidateSubreddit200ResponseOneOf](docs/ValidateSubreddit200ResponseOneOf.md)
- - [ValidateSubreddit200ResponseOneOf1](docs/ValidateSubreddit200ResponseOneOf1.md)
- - [ValidateSubreddit200ResponseOneOfSubreddit](docs/ValidateSubreddit200ResponseOneOfSubreddit.md)
  - [Webhook](docs/Webhook.md)
  - [WebhookLog](docs/WebhookLog.md)
  - [WebhookPayloadAccountConnected](docs/WebhookPayloadAccountConnected.md)
