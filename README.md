@@ -4,7 +4,7 @@ Zernio API
 
 - API version: 1.0.1
 
-- Build date: 2026-04-02T08:58:19.024551527Z[Etc/UTC]
+- Build date: 2026-04-02T10:30:01.624944268Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -632,6 +632,7 @@ Class | Method | HTTP request | Description
  - [Ad](docs/Ad.md)
  - [AdBudget](docs/AdBudget.md)
  - [AdCampaign](docs/AdCampaign.md)
+ - [AdCreative](docs/AdCreative.md)
  - [AdMetrics](docs/AdMetrics.md)
  - [AdSchedule](docs/AdSchedule.md)
  - [AdTreeAdSet](docs/AdTreeAdSet.md)

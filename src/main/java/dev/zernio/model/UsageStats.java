@@ -43,7 +43,7 @@ import dev.zernio.ApiClient;
   UsageStats.JSON_PROPERTY_LIMITS,
   UsageStats.JSON_PROPERTY_USAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-02T08:58:19.024551527Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-02T10:30:01.624944268Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UsageStats {
   public static final String JSON_PROPERTY_PLAN_NAME = "planName";
   @javax.annotation.Nullable

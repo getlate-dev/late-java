@@ -18,6 +18,7 @@ docs/AdAudiencesApi.md
 docs/AdBudget.md
 docs/AdCampaign.md
 docs/AdCampaignsApi.md
+docs/AdCreative.md
 docs/AdMetrics.md
 docs/AdSchedule.md
 docs/AdTreeAdSet.md
@@ -823,6 +824,7 @@ src/main/java/dev/zernio/model/ActivateSequence200Response.java
 src/main/java/dev/zernio/model/Ad.java
 src/main/java/dev/zernio/model/AdBudget.java
 src/main/java/dev/zernio/model/AdCampaign.java
+src/main/java/dev/zernio/model/AdCreative.java
 src/main/java/dev/zernio/model/AdMetrics.java
 src/main/java/dev/zernio/model/AdSchedule.java
 src/main/java/dev/zernio/model/AdTreeAdSet.java
@@ -1526,3 +1528,4 @@ src/main/java/dev/zernio/model/YouTubeDailyViewsResponseScopeStatus.java
 src/main/java/dev/zernio/model/YouTubePlatformData.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponseScopeStatus.java
+src/test/java/dev/zernio/model/AdCreativeTest.java

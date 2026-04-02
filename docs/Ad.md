@@ -22,7 +22,7 @@
 |**platformAdSetId** | **String** |  |  [optional] |
 |**campaignName** | **String** |  |  [optional] |
 |**adSetName** | **String** |  |  [optional] |
-|**creative** | **Object** | Platform-specific creative data |  [optional] |
+|**creative** | [**AdCreative**](AdCreative.md) |  |  [optional] |
 |**targeting** | **Object** |  |  [optional] |
 |**schedule** | [**AdSchedule**](AdSchedule.md) |  |  [optional] |
 |**rejectionReason** | **String** |  |  [optional] |

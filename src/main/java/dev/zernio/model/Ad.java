@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import dev.zernio.model.AdBudget;
+import dev.zernio.model.AdCreative;
 import dev.zernio.model.AdMetrics;
 import dev.zernio.model.AdSchedule;
 import java.time.OffsetDateTime;
@@ -59,7 +60,7 @@ import dev.zernio.ApiClient;
   Ad.JSON_PROPERTY_CREATED_AT,
   Ad.JSON_PROPERTY_UPDATED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-02T08:58:19.024551527Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-02T10:30:01.624944268Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class Ad {
   public static final String JSON_PROPERTY_ID = "_id";
   @javax.annotation.Nullable
@@ -287,7 +288,7 @@ public class Ad {
 
   public static final String JSON_PROPERTY_CREATIVE = "creative";
   @javax.annotation.Nullable
-  private Object creative;
+  private AdCreative creative;
 
   public static final String JSON_PROPERTY_TARGETING = "targeting";
   @javax.annotation.Nullable
@@ -672,26 +673,26 @@ public class Ad {
   }
 
 
-  public Ad creative(@javax.annotation.Nullable Object creative) {
+  public Ad creative(@javax.annotation.Nullable AdCreative creative) {
     this.creative = creative;
     return this;
   }
 
   /**
-   * Platform-specific creative data
+   * Get creative
    * @return creative
    */
   @javax.annotation.Nullable
   @JsonProperty(value = JSON_PROPERTY_CREATIVE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Object getCreative() {
+  public AdCreative getCreative() {
     return creative;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_CREATIVE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCreative(@javax.annotation.Nullable Object creative) {
+  public void setCreative(@javax.annotation.Nullable AdCreative creative) {
     this.creative = creative;
   }
 
@@ -1005,7 +1006,7 @@ public class Ad {
 
     // add `creative` to the URL query string
     if (getCreative() != null) {
-      joiner.add(String.format(java.util.Locale.ROOT, "%screative%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getCreative()))));
+      joiner.add(getCreative().toUrlQueryString(prefix + "creative" + suffix));
     }
 
     // add `targeting` to the URL query string
