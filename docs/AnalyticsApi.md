@@ -30,6 +30,8 @@ All URIs are relative to *https://zernio.com/api*
 | [**getPostingFrequencyWithHttpInfo**](AnalyticsApi.md#getPostingFrequencyWithHttpInfo) | **GET** /v1/analytics/posting-frequency | Get posting frequency vs engagement |
 | [**getYouTubeDailyViews**](AnalyticsApi.md#getYouTubeDailyViews) | **GET** /v1/analytics/youtube/daily-views | Get YouTube daily views |
 | [**getYouTubeDailyViewsWithHttpInfo**](AnalyticsApi.md#getYouTubeDailyViewsWithHttpInfo) | **GET** /v1/analytics/youtube/daily-views | Get YouTube daily views |
+| [**getYouTubeDemographics**](AnalyticsApi.md#getYouTubeDemographics) | **GET** /v1/analytics/youtube/demographics | Get YouTube audience demographics |
+| [**getYouTubeDemographicsWithHttpInfo**](AnalyticsApi.md#getYouTubeDemographicsWithHttpInfo) | **GET** /v1/analytics/youtube/demographics | Get YouTube audience demographics |
 
 
 
@@ -2193,4 +2195,172 @@ ApiResponse<[**YouTubeDailyViewsResponse**](YouTubeDailyViewsResponse.md)>
 | **403** | Access denied to this account |  -  |
 | **412** | Missing YouTube Analytics scope |  -  |
 | **500** | Internal server error |  -  |
+
+
+## getYouTubeDemographics
+
+> YouTubeDemographicsResponse getYouTubeDemographics(accountId, breakdown, startDate, endDate)
+
+Get YouTube audience demographics
+
+Returns audience demographic insights for a YouTube channel, broken down by age, gender, and/or country. Age and gender values are viewer percentages (0-100). Country values are view counts. Data is based on signed-in viewers only, with a 2-3 day delay. Requires the Analytics add-on. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.AnalyticsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        AnalyticsApi apiInstance = new AnalyticsApi(defaultClient);
+        String accountId = "accountId_example"; // String | The Zernio SocialAccount ID for the YouTube account
+        String breakdown = "breakdown_example"; // String | Comma-separated list of demographic dimensions: age, gender, country. Defaults to all three if omitted. 
+        LocalDate startDate = LocalDate.now(); // LocalDate | Start date in YYYY-MM-DD format. Defaults to 90 days ago. 
+        LocalDate endDate = LocalDate.now(); // LocalDate | End date in YYYY-MM-DD format. Defaults to 3 days ago (YouTube data latency). 
+        try {
+            YouTubeDemographicsResponse result = apiInstance.getYouTubeDemographics(accountId, breakdown, startDate, endDate);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AnalyticsApi#getYouTubeDemographics");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountId** | **String**| The Zernio SocialAccount ID for the YouTube account | |
+| **breakdown** | **String**| Comma-separated list of demographic dimensions: age, gender, country. Defaults to all three if omitted.  | [optional] |
+| **startDate** | **LocalDate**| Start date in YYYY-MM-DD format. Defaults to 90 days ago.  | [optional] |
+| **endDate** | **LocalDate**| End date in YYYY-MM-DD format. Defaults to 3 days ago (YouTube data latency).  | [optional] |
+
+### Return type
+
+[**YouTubeDemographicsResponse**](YouTubeDemographicsResponse.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Demographic insights data |  -  |
+| **400** | Bad request (invalid parameters or not a YouTube account) |  -  |
+| **401** | Unauthorized |  -  |
+| **402** | Analytics add-on required |  -  |
+| **403** | Access denied to this account |  -  |
+| **404** | Account not found |  -  |
+| **412** | YouTube Analytics scope not granted |  -  |
+
+## getYouTubeDemographicsWithHttpInfo
+
+> ApiResponse<YouTubeDemographicsResponse> getYouTubeDemographics getYouTubeDemographicsWithHttpInfo(accountId, breakdown, startDate, endDate)
+
+Get YouTube audience demographics
+
+Returns audience demographic insights for a YouTube channel, broken down by age, gender, and/or country. Age and gender values are viewer percentages (0-100). Country values are view counts. Data is based on signed-in viewers only, with a 2-3 day delay. Requires the Analytics add-on. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.ApiResponse;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.AnalyticsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        AnalyticsApi apiInstance = new AnalyticsApi(defaultClient);
+        String accountId = "accountId_example"; // String | The Zernio SocialAccount ID for the YouTube account
+        String breakdown = "breakdown_example"; // String | Comma-separated list of demographic dimensions: age, gender, country. Defaults to all three if omitted. 
+        LocalDate startDate = LocalDate.now(); // LocalDate | Start date in YYYY-MM-DD format. Defaults to 90 days ago. 
+        LocalDate endDate = LocalDate.now(); // LocalDate | End date in YYYY-MM-DD format. Defaults to 3 days ago (YouTube data latency). 
+        try {
+            ApiResponse<YouTubeDemographicsResponse> response = apiInstance.getYouTubeDemographicsWithHttpInfo(accountId, breakdown, startDate, endDate);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AnalyticsApi#getYouTubeDemographics");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountId** | **String**| The Zernio SocialAccount ID for the YouTube account | |
+| **breakdown** | **String**| Comma-separated list of demographic dimensions: age, gender, country. Defaults to all three if omitted.  | [optional] |
+| **startDate** | **LocalDate**| Start date in YYYY-MM-DD format. Defaults to 90 days ago.  | [optional] |
+| **endDate** | **LocalDate**| End date in YYYY-MM-DD format. Defaults to 3 days ago (YouTube data latency).  | [optional] |
+
+### Return type
+
+ApiResponse<[**YouTubeDemographicsResponse**](YouTubeDemographicsResponse.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Demographic insights data |  -  |
+| **400** | Bad request (invalid parameters or not a YouTube account) |  -  |
+| **401** | Unauthorized |  -  |
+| **402** | Analytics add-on required |  -  |
+| **403** | Access denied to this account |  -  |
+| **404** | Account not found |  -  |
+| **412** | YouTube Analytics scope not granted |  -  |
 

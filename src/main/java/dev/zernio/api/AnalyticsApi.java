@@ -47,6 +47,7 @@ import dev.zernio.model.GetPostingFrequency200Response;
 import dev.zernio.model.GetYouTubeDailyViews400Response;
 import dev.zernio.model.GetYouTubeDailyViews403Response;
 import dev.zernio.model.GetYouTubeDailyViews500Response;
+import dev.zernio.model.GetYouTubeDemographics412Response;
 import dev.zernio.model.InlineObject;
 import dev.zernio.model.InlineObject1;
 import dev.zernio.model.InstagramAccountInsightsResponse;
@@ -54,6 +55,7 @@ import dev.zernio.model.InstagramDemographicsResponse;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import dev.zernio.model.YouTubeDailyViewsResponse;
+import dev.zernio.model.YouTubeDemographicsResponse;
 import dev.zernio.model.YouTubeScopeMissingResponse;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -81,7 +83,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-02T15:54:02.129713120Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T21:11:30.282858424Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AnalyticsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -2145,6 +2147,156 @@ public class AnalyticsApi {
     localVarQueryParams.addAll(ApiClient.parameterToPairs("videoId", videoId));
     localVarQueryParameterBaseName = "accountId";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("accountId", accountId));
+    localVarQueryParameterBaseName = "startDate";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("startDate", startDate));
+    localVarQueryParameterBaseName = "endDate";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("endDate", endDate));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Get YouTube audience demographics
+   * Returns audience demographic insights for a YouTube channel, broken down by age, gender, and/or country. Age and gender values are viewer percentages (0-100). Country values are view counts. Data is based on signed-in viewers only, with a 2-3 day delay. Requires the Analytics add-on. 
+   * @param accountId The Zernio SocialAccount ID for the YouTube account (required)
+   * @param breakdown Comma-separated list of demographic dimensions: age, gender, country. Defaults to all three if omitted.  (optional)
+   * @param startDate Start date in YYYY-MM-DD format. Defaults to 90 days ago.  (optional)
+   * @param endDate End date in YYYY-MM-DD format. Defaults to 3 days ago (YouTube data latency).  (optional)
+   * @return YouTubeDemographicsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public YouTubeDemographicsResponse getYouTubeDemographics(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String breakdown, @javax.annotation.Nullable LocalDate startDate, @javax.annotation.Nullable LocalDate endDate) throws ApiException {
+    return getYouTubeDemographics(accountId, breakdown, startDate, endDate, null);
+  }
+
+  /**
+   * Get YouTube audience demographics
+   * Returns audience demographic insights for a YouTube channel, broken down by age, gender, and/or country. Age and gender values are viewer percentages (0-100). Country values are view counts. Data is based on signed-in viewers only, with a 2-3 day delay. Requires the Analytics add-on. 
+   * @param accountId The Zernio SocialAccount ID for the YouTube account (required)
+   * @param breakdown Comma-separated list of demographic dimensions: age, gender, country. Defaults to all three if omitted.  (optional)
+   * @param startDate Start date in YYYY-MM-DD format. Defaults to 90 days ago.  (optional)
+   * @param endDate End date in YYYY-MM-DD format. Defaults to 3 days ago (YouTube data latency).  (optional)
+   * @param headers Optional headers to include in the request
+   * @return YouTubeDemographicsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public YouTubeDemographicsResponse getYouTubeDemographics(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String breakdown, @javax.annotation.Nullable LocalDate startDate, @javax.annotation.Nullable LocalDate endDate, Map<String, String> headers) throws ApiException {
+    ApiResponse<YouTubeDemographicsResponse> localVarResponse = getYouTubeDemographicsWithHttpInfo(accountId, breakdown, startDate, endDate, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Get YouTube audience demographics
+   * Returns audience demographic insights for a YouTube channel, broken down by age, gender, and/or country. Age and gender values are viewer percentages (0-100). Country values are view counts. Data is based on signed-in viewers only, with a 2-3 day delay. Requires the Analytics add-on. 
+   * @param accountId The Zernio SocialAccount ID for the YouTube account (required)
+   * @param breakdown Comma-separated list of demographic dimensions: age, gender, country. Defaults to all three if omitted.  (optional)
+   * @param startDate Start date in YYYY-MM-DD format. Defaults to 90 days ago.  (optional)
+   * @param endDate End date in YYYY-MM-DD format. Defaults to 3 days ago (YouTube data latency).  (optional)
+   * @return ApiResponse&lt;YouTubeDemographicsResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<YouTubeDemographicsResponse> getYouTubeDemographicsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String breakdown, @javax.annotation.Nullable LocalDate startDate, @javax.annotation.Nullable LocalDate endDate) throws ApiException {
+    return getYouTubeDemographicsWithHttpInfo(accountId, breakdown, startDate, endDate, null);
+  }
+
+  /**
+   * Get YouTube audience demographics
+   * Returns audience demographic insights for a YouTube channel, broken down by age, gender, and/or country. Age and gender values are viewer percentages (0-100). Country values are view counts. Data is based on signed-in viewers only, with a 2-3 day delay. Requires the Analytics add-on. 
+   * @param accountId The Zernio SocialAccount ID for the YouTube account (required)
+   * @param breakdown Comma-separated list of demographic dimensions: age, gender, country. Defaults to all three if omitted.  (optional)
+   * @param startDate Start date in YYYY-MM-DD format. Defaults to 90 days ago.  (optional)
+   * @param endDate End date in YYYY-MM-DD format. Defaults to 3 days ago (YouTube data latency).  (optional)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;YouTubeDemographicsResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<YouTubeDemographicsResponse> getYouTubeDemographicsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String breakdown, @javax.annotation.Nullable LocalDate startDate, @javax.annotation.Nullable LocalDate endDate, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getYouTubeDemographicsRequestBuilder(accountId, breakdown, startDate, endDate, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getYouTubeDemographics", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<YouTubeDemographicsResponse>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        YouTubeDemographicsResponse responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<YouTubeDemographicsResponse>() {});
+        
+
+        return new ApiResponse<YouTubeDemographicsResponse>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getYouTubeDemographicsRequestBuilder(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String breakdown, @javax.annotation.Nullable LocalDate startDate, @javax.annotation.Nullable LocalDate endDate, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling getYouTubeDemographics");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/analytics/youtube/demographics";
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "accountId";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("accountId", accountId));
+    localVarQueryParameterBaseName = "breakdown";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("breakdown", breakdown));
     localVarQueryParameterBaseName = "startDate";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("startDate", startDate));
     localVarQueryParameterBaseName = "endDate";

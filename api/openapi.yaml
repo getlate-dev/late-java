@@ -160,6 +160,12 @@ tags:
     All endpoints require an accountId parameter identifying the WhatsApp-connected social account.
   name: WhatsApp
 - description: |
+    WhatsApp Flows let you build native interactive forms, surveys, and booking experiences inside WhatsApp.
+    Flows are created in DRAFT status, populated with a Flow JSON definition, then published for sending.
+    Published flows are immutable; to update, create a new flow (optionally cloning the old one).
+    All endpoints require an accountId parameter identifying the WhatsApp-connected social account.
+  name: WhatsApp Flows
+- description: |
     Manage WhatsApp phone numbers: purchase, verify, and release numbers for your WhatsApp Business account.
     Requires a paid plan.
   name: WhatsApp Phone Numbers
@@ -1034,6 +1040,125 @@ paths:
                 $ref: "#/components/schemas/getInstagramAccountInsights_404_response"
           description: Account not found
       summary: Get Instagram audience demographics
+      tags:
+      - Analytics
+      x-accepts:
+      - application/json
+  /v1/analytics/youtube/demographics:
+    get:
+      description: |
+        Returns audience demographic insights for a YouTube channel, broken down by age, gender, and/or country.
+        Age and gender values are viewer percentages (0-100). Country values are view counts.
+        Data is based on signed-in viewers only, with a 2-3 day delay. Requires the Analytics add-on.
+      operationId: getYouTubeDemographics
+      parameters:
+      - description: The Zernio SocialAccount ID for the YouTube account
+        explode: true
+        in: query
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: |
+          Comma-separated list of demographic dimensions: age, gender, country.
+          Defaults to all three if omitted.
+        explode: true
+        in: query
+        name: breakdown
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          Start date in YYYY-MM-DD format. Defaults to 90 days ago.
+        explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: |
+          End date in YYYY-MM-DD format. Defaults to 3 days ago (YouTube data latency).
+        explode: true
+        in: query
+        name: endDate
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                allBreakdowns:
+                  summary: All three demographic breakdowns
+                  value:
+                    success: true
+                    accountId: 64e1a2b3c4d5e6f7a8b9c0d1
+                    platform: youtube
+                    demographics:
+                      age:
+                      - dimension: 25-34
+                        value: 28.5
+                      - dimension: 18-24
+                        value: 22.1
+                      gender:
+                      - dimension: male
+                        value: 62.3
+                      - dimension: female
+                        value: 35.8
+                      country:
+                      - dimension: US
+                        value: 12000
+                      - dimension: GB
+                        value: 3500
+                    dateRange:
+                      startDate: 2026-01-01
+                      endDate: 2026-03-31
+                    note: "Age/gender values are viewer percentages (0-100). Country\
+                      \ values are view counts. Data based on signed-in viewers only,\
+                      \ with 2-3 day delay."
+              schema:
+                $ref: "#/components/schemas/YouTubeDemographicsResponse"
+          description: Demographic insights data
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getYouTubeDailyViews_400_response"
+          description: Bad request (invalid parameters or not a YouTube account)
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "402":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getAnalytics_402_response"
+          description: Analytics add-on required
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getYouTubeDailyViews_403_response"
+          description: Access denied to this account
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getInstagramAccountInsights_404_response"
+          description: Account not found
+        "412":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getYouTubeDemographics_412_response"
+          description: YouTube Analytics scope not granted
+      summary: Get YouTube audience demographics
       tags:
       - Analytics
       x-accepts:
@@ -11840,6 +11965,457 @@ paths:
       x-content-type: application/json
       x-accepts:
       - application/json
+  /v1/whatsapp/flows:
+    get:
+      description: |
+        List all WhatsApp Flows for the Business Account (WABA) associated with the given account.
+      operationId: listWhatsAppFlows
+      parameters:
+      - description: WhatsApp social account ID
+        explode: true
+        in: query
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/listWhatsAppFlows_200_response"
+          description: Flows retrieved
+        "400":
+          description: WABA ID not found on account
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: WhatsApp account not found
+      security:
+      - bearerAuth: []
+      summary: List flows
+      tags:
+      - WhatsApp Flows
+      x-accepts:
+      - application/json
+    post:
+      description: |
+        Create a new WhatsApp Flow in DRAFT status. Optionally clone an existing flow.
+        After creating, upload a Flow JSON definition, then publish to make it sendable.
+      operationId: createWhatsAppFlow
+      requestBody:
+        content:
+          application/json:
+            examples:
+              basic:
+                summary: Create a lead generation flow
+                value:
+                  accountId: 507f1f77bcf86cd799439011
+                  name: lead_capture_form
+                  categories:
+                  - LEAD_GENERATION
+            schema:
+              $ref: "#/components/schemas/createWhatsAppFlow_request"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/createWhatsAppFlow_200_response"
+          description: Flow created
+        "400":
+          description: Validation error
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: WhatsApp account not found
+      security:
+      - bearerAuth: []
+      summary: Create flow
+      tags:
+      - WhatsApp Flows
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v1/whatsapp/flows/{flowId}:
+    delete:
+      description: |
+        Delete a DRAFT flow. This is irreversible. Only flows in DRAFT status can be deleted.
+      operationId: deleteWhatsAppFlow
+      parameters:
+      - description: Flow ID
+        explode: false
+        in: path
+        name: flowId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: WhatsApp social account ID
+        explode: true
+        in: query
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/updateYoutubeDefaultPlaylist_200_response"
+          description: Flow deleted
+        "400":
+          description: Flow is not in DRAFT status
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: WhatsApp account or flow not found
+      security:
+      - bearerAuth: []
+      summary: Delete flow
+      tags:
+      - WhatsApp Flows
+      x-accepts:
+      - application/json
+    get:
+      description: |
+        Get details for a specific flow, including status, categories, validation errors, and preview URL.
+      operationId: getWhatsAppFlow
+      parameters:
+      - description: Flow ID
+        explode: false
+        in: path
+        name: flowId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: WhatsApp social account ID
+        explode: true
+        in: query
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: "Comma-separated fields to return (default: id,name,status,categories,validation_errors,json_version,preview,data_api_version,endpoint_uri)"
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getWhatsAppFlow_200_response"
+          description: Flow details
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: Flow or account not found
+      security:
+      - bearerAuth: []
+      summary: Get flow
+      tags:
+      - WhatsApp Flows
+      x-accepts:
+      - application/json
+    patch:
+      description: |
+        Update metadata (name, categories) of a DRAFT flow. Published flows are immutable.
+      operationId: updateWhatsAppFlow
+      parameters:
+      - description: Flow ID
+        explode: false
+        in: path
+        name: flowId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/updateWhatsAppFlow_request"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/updateYoutubeDefaultPlaylist_200_response"
+          description: Flow updated
+        "400":
+          description: "At least one of name or categories is required, or flow is\
+            \ not in DRAFT status"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: WhatsApp account or flow not found
+      security:
+      - bearerAuth: []
+      summary: Update flow
+      tags:
+      - WhatsApp Flows
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v1/whatsapp/flows/{flowId}/json:
+    get:
+      description: |
+        Get the flow JSON asset metadata, including a temporary download URL for the Flow JSON file.
+      operationId: getWhatsAppFlowJson
+      parameters:
+      - description: Flow ID
+        explode: false
+        in: path
+        name: flowId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: WhatsApp social account ID
+        explode: true
+        in: query
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getWhatsAppFlowJson_200_response"
+          description: Flow JSON asset
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: WhatsApp account not found
+      security:
+      - bearerAuth: []
+      summary: Get flow JSON asset
+      tags:
+      - WhatsApp Flows
+      x-accepts:
+      - application/json
+    put:
+      description: |
+        Upload or update the Flow JSON for a DRAFT flow. The Flow JSON defines all screens,
+        components (text inputs, dropdowns, date pickers, etc.), and navigation.
+
+        Meta validates the JSON on upload and returns any validation errors.
+        See: https://developers.facebook.com/docs/whatsapp/flows/reference/flowjson
+      operationId: uploadWhatsAppFlowJson
+      parameters:
+      - description: Flow ID
+        explode: false
+        in: path
+        name: flowId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            examples:
+              simple_form:
+                summary: Simple lead capture form
+                value:
+                  accountId: 507f1f77bcf86cd799439011
+                  flow_json:
+                    version: "6.0"
+                    screens:
+                    - id: LEAD_FORM
+                      title: Get a Quote
+                      terminal: true
+                      success: true
+                      layout:
+                        type: SingleColumnLayout
+                        children:
+                        - type: TextInput
+                          name: full_name
+                          label: Full Name
+                          required: true
+                          input-type: text
+                        - type: TextInput
+                          name: email
+                          label: Email
+                          required: true
+                          input-type: email
+                        - type: Footer
+                          label: Submit
+                          on-click-action:
+                            name: complete
+                            payload:
+                              full_name: "${form.full_name}"
+                              email: "${form.email}"
+            schema:
+              $ref: "#/components/schemas/uploadWhatsAppFlowJson_request"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/uploadWhatsAppFlowJson_200_response"
+          description: Flow JSON uploaded
+        "400":
+          description: Invalid JSON or flow is not in DRAFT status
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: WhatsApp account not found
+      security:
+      - bearerAuth: []
+      summary: Upload flow JSON
+      tags:
+      - WhatsApp Flows
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v1/whatsapp/flows/{flowId}/publish:
+    post:
+      description: |
+        Publish a DRAFT flow. **This is irreversible.** Once published, the flow and its JSON
+        become immutable and the flow can be sent to users. To update a published flow,
+        create a new flow (optionally cloning this one via `cloneFlowId`).
+      operationId: publishWhatsAppFlow
+      parameters:
+      - description: Flow ID
+        explode: false
+        in: path
+        name: flowId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/publishWhatsAppFlow_request"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/updateYoutubeDefaultPlaylist_200_response"
+          description: Flow published
+        "400":
+          description: Flow is not in DRAFT status or has validation errors
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: WhatsApp account not found
+      security:
+      - bearerAuth: []
+      summary: Publish flow
+      tags:
+      - WhatsApp Flows
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v1/whatsapp/flows/{flowId}/deprecate:
+    post:
+      description: |
+        Deprecate a PUBLISHED flow. **This is irreversible.** Deprecated flows cannot be sent
+        or opened, but existing active sessions may continue until they complete.
+      operationId: deprecateWhatsAppFlow
+      parameters:
+      - description: Flow ID
+        explode: false
+        in: path
+        name: flowId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/publishWhatsAppFlow_request"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/updateYoutubeDefaultPlaylist_200_response"
+          description: Flow deprecated
+        "400":
+          description: Flow is not in PUBLISHED status
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: WhatsApp account not found
+      security:
+      - bearerAuth: []
+      summary: Deprecate flow
+      tags:
+      - WhatsApp Flows
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /v1/whatsapp/flows/send:
+    post:
+      description: |
+        Send a published flow as an interactive message with a CTA button.
+        When the recipient taps the button, the flow opens natively in WhatsApp.
+        Flow responses are received via webhooks.
+      operationId: sendWhatsAppFlowMessage
+      requestBody:
+        content:
+          application/json:
+            examples:
+              basic:
+                summary: Send a lead capture flow
+                value:
+                  accountId: 507f1f77bcf86cd799439011
+                  to: "+1234567890"
+                  flow_id: "1234567890"
+                  flow_cta: Get a Quote
+                  flow_action: navigate
+                  flow_action_payload:
+                    screen: LEAD_FORM
+                  body: Hi! Fill out this quick form to get a personalized quote.
+            schema:
+              $ref: "#/components/schemas/sendWhatsAppFlowMessage_request"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/sendWhatsAppFlowMessage_200_response"
+          description: Flow message sent
+        "400":
+          description: Validation error or missing phone number ID
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: WhatsApp account not found
+      security:
+      - bearerAuth: []
+      summary: Send flow message
+      tags:
+      - WhatsApp Flows
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /v1/contacts:
     get:
       description: "List and search contacts for a profile. Supports filtering by\
@@ -15071,6 +15647,44 @@ components:
           description: "Object keyed by breakdown dimension (age, city, country, gender)"
         note:
           example: Demographics show top 45 entries per dimension. Requires 100+ followers.
+          type: string
+    YouTubeDemographicsResponse:
+      example:
+        accountId: accountId
+        note: "Age/gender values are viewer percentages (0-100). Country values are\
+          \ view counts. Data based on signed-in viewers only, with 2-3 day delay."
+        dateRange:
+          endDate: 2026-03-31
+          startDate: 2026-01-01
+        success: true
+        platform: youtube
+        demographics:
+          key:
+          - dimension: dimension
+            value: 0.8008281904610115
+          - dimension: dimension
+            value: 0.8008281904610115
+      properties:
+        success:
+          example: true
+          type: boolean
+        accountId:
+          description: The Zernio SocialAccount ID
+          type: string
+        platform:
+          example: youtube
+          type: string
+        demographics:
+          additionalProperties:
+            items:
+              $ref: "#/components/schemas/YouTubeDemographicsResponse_demographics_value_inner"
+          description: "Object keyed by breakdown dimension (age, gender, country)"
+        dateRange:
+          $ref: "#/components/schemas/YouTubeDemographicsResponse_dateRange"
+        note:
+          example: "Age/gender values are viewer percentages (0-100). Country values\
+            \ are view counts. Data based on signed-in viewers only, with 2-3 day\
+            \ delay."
           type: string
     Webhook:
       description: Individual webhook configuration for receiving real-time notifications
@@ -19909,6 +20523,40 @@ components:
         error:
           example: Account not found
           type: string
+    getYouTubeDemographics_412_response_scopeStatus:
+      example:
+        hasAnalyticsScope: false
+        requiresReauthorization: true
+        reauthorizeUrl: reauthorizeUrl
+      properties:
+        hasAnalyticsScope:
+          example: false
+          type: boolean
+        requiresReauthorization:
+          example: true
+          type: boolean
+        reauthorizeUrl:
+          type: string
+    getYouTubeDemographics_412_response:
+      example:
+        code: youtube_analytics_scope_missing
+        success: false
+        error: error
+        scopeStatus:
+          hasAnalyticsScope: false
+          requiresReauthorization: true
+          reauthorizeUrl: reauthorizeUrl
+      properties:
+        success:
+          example: false
+          type: boolean
+        error:
+          type: string
+        code:
+          example: youtube_analytics_scope_missing
+          type: string
+        scopeStatus:
+          $ref: "#/components/schemas/getYouTubeDemographics_412_response_scopeStatus"
     getDailyMetrics_200_response_dailyData_inner_metrics:
       example:
         shares: 5
@@ -30853,6 +31501,401 @@ components:
           type: array
       required:
       - phoneNumbers
+    listWhatsAppFlows_200_response_flows_inner:
+      example:
+        name: name
+        validation_errors:
+        - "{}"
+        - "{}"
+        id: id
+        categories:
+        - categories
+        - categories
+        status: DRAFT
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        status:
+          enum:
+          - DRAFT
+          - PUBLISHED
+          - DEPRECATED
+          - BLOCKED
+          - THROTTLED
+          type: string
+        categories:
+          items:
+            type: string
+          type: array
+        validation_errors:
+          items:
+            type: object
+          type: array
+    listWhatsAppFlows_200_response:
+      example:
+        flows:
+        - name: name
+          validation_errors:
+          - "{}"
+          - "{}"
+          id: id
+          categories:
+          - categories
+          - categories
+          status: DRAFT
+        - name: name
+          validation_errors:
+          - "{}"
+          - "{}"
+          id: id
+          categories:
+          - categories
+          - categories
+          status: DRAFT
+        success: true
+      properties:
+        success:
+          type: boolean
+        flows:
+          items:
+            $ref: "#/components/schemas/listWhatsAppFlows_200_response_flows_inner"
+          type: array
+    createWhatsAppFlow_request:
+      properties:
+        accountId:
+          description: WhatsApp social account ID
+          type: string
+        name:
+          description: Flow display name
+          maxLength: 128
+          type: string
+        categories:
+          description: Flow categories
+          items:
+            enum:
+            - SIGN_UP
+            - SIGN_IN
+            - APPOINTMENT_BOOKING
+            - LEAD_GENERATION
+            - CONTACT_US
+            - CUSTOMER_SUPPORT
+            - SURVEY
+            - OTHER
+            type: string
+          minItems: 1
+          type: array
+        cloneFlowId:
+          description: "Optional: ID of an existing flow to clone"
+          type: string
+      required:
+      - accountId
+      - categories
+      - name
+    createWhatsAppFlow_200_response_flow:
+      example:
+        name: name
+        id: id
+        categories:
+        - categories
+        - categories
+        status: DRAFT
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        status:
+          example: DRAFT
+          type: string
+        categories:
+          items:
+            type: string
+          type: array
+    createWhatsAppFlow_200_response:
+      example:
+        success: true
+        flow:
+          name: name
+          id: id
+          categories:
+          - categories
+          - categories
+          status: DRAFT
+      properties:
+        success:
+          type: boolean
+        flow:
+          $ref: "#/components/schemas/createWhatsAppFlow_200_response_flow"
+    getWhatsAppFlow_200_response_flow_preview:
+      example:
+        expires_at: expires_at
+        preview_url: preview_url
+      properties:
+        preview_url:
+          type: string
+        expires_at:
+          type: string
+    getWhatsAppFlow_200_response_flow:
+      example:
+        preview:
+          expires_at: expires_at
+          preview_url: preview_url
+        name: name
+        validation_errors:
+        - "{}"
+        - "{}"
+        id: id
+        categories:
+        - categories
+        - categories
+        json_version: json_version
+        status: status
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        status:
+          type: string
+        categories:
+          items:
+            type: string
+          type: array
+        validation_errors:
+          items:
+            type: object
+          type: array
+        json_version:
+          type: string
+        preview:
+          $ref: "#/components/schemas/getWhatsAppFlow_200_response_flow_preview"
+    getWhatsAppFlow_200_response:
+      example:
+        success: true
+        flow:
+          preview:
+            expires_at: expires_at
+            preview_url: preview_url
+          name: name
+          validation_errors:
+          - "{}"
+          - "{}"
+          id: id
+          categories:
+          - categories
+          - categories
+          json_version: json_version
+          status: status
+      properties:
+        success:
+          type: boolean
+        flow:
+          $ref: "#/components/schemas/getWhatsAppFlow_200_response_flow"
+    updateWhatsAppFlow_request:
+      properties:
+        accountId:
+          description: WhatsApp social account ID
+          type: string
+        name:
+          description: New flow name
+          maxLength: 128
+          type: string
+        categories:
+          items:
+            enum:
+            - SIGN_UP
+            - SIGN_IN
+            - APPOINTMENT_BOOKING
+            - LEAD_GENERATION
+            - CONTACT_US
+            - CUSTOMER_SUPPORT
+            - SURVEY
+            - OTHER
+            type: string
+          minItems: 1
+          type: array
+      required:
+      - accountId
+    getWhatsAppFlowJson_200_response_assets_inner:
+      example:
+        name: flow.json
+        asset_type: FLOW_JSON
+        download_url: download_url
+      properties:
+        name:
+          example: flow.json
+          type: string
+        asset_type:
+          example: FLOW_JSON
+          type: string
+        download_url:
+          description: Temporary URL to download the flow JSON
+          type: string
+    getWhatsAppFlowJson_200_response:
+      example:
+        assets:
+        - name: flow.json
+          asset_type: FLOW_JSON
+          download_url: download_url
+        - name: flow.json
+          asset_type: FLOW_JSON
+          download_url: download_url
+        success: true
+      properties:
+        success:
+          type: boolean
+        assets:
+          items:
+            $ref: "#/components/schemas/getWhatsAppFlowJson_200_response_assets_inner"
+          type: array
+    uploadWhatsAppFlowJson_request_flow_json:
+      description: The Flow JSON content. Pass as a JSON object or a JSON string.
+      oneOf:
+      - type: object
+      - type: string
+    uploadWhatsAppFlowJson_request:
+      properties:
+        accountId:
+          description: WhatsApp social account ID
+          type: string
+        flow_json:
+          $ref: "#/components/schemas/uploadWhatsAppFlowJson_request_flow_json"
+      required:
+      - accountId
+      - flow_json
+    uploadWhatsAppFlowJson_200_response_validation_errors_inner:
+      example:
+        error_type: error_type
+        column_end: 5
+        column_start: 1
+        error: error
+        message: message
+        line_start: 0
+        line_end: 6
+      properties:
+        error:
+          type: string
+        error_type:
+          type: string
+        message:
+          type: string
+        line_start:
+          type: integer
+        line_end:
+          type: integer
+        column_start:
+          type: integer
+        column_end:
+          type: integer
+    uploadWhatsAppFlowJson_200_response:
+      example:
+        success: true
+        validation_errors:
+        - error_type: error_type
+          column_end: 5
+          column_start: 1
+          error: error
+          message: message
+          line_start: 0
+          line_end: 6
+        - error_type: error_type
+          column_end: 5
+          column_start: 1
+          error: error
+          message: message
+          line_start: 0
+          line_end: 6
+      properties:
+        success:
+          type: boolean
+        validation_errors:
+          description: "Empty array if valid; otherwise, contains validation error\
+            \ details from Meta"
+          items:
+            $ref: "#/components/schemas/uploadWhatsAppFlowJson_200_response_validation_errors_inner"
+          type: array
+    publishWhatsAppFlow_request:
+      properties:
+        accountId:
+          description: WhatsApp social account ID
+          type: string
+      required:
+      - accountId
+    sendWhatsAppFlowMessage_request_flow_action_payload:
+      properties:
+        screen:
+          description: First screen ID to navigate to
+          type: string
+        data:
+          description: Optional data to pass to the screen
+          type: object
+    sendWhatsAppFlowMessage_request_header:
+      properties:
+        type:
+          enum:
+          - text
+          type: string
+        text:
+          type: string
+    sendWhatsAppFlowMessage_request:
+      properties:
+        accountId:
+          description: WhatsApp social account ID
+          type: string
+        to:
+          description: "Recipient phone number (E.164 format, e.g. +1234567890)"
+          type: string
+        flow_id:
+          description: Published flow ID
+          type: string
+        flow_cta:
+          description: "CTA button text (e.g. 'Book Now', 'Sign Up')"
+          maxLength: 20
+          type: string
+        flow_action:
+          default: navigate
+          description: "Action type: navigate opens a screen directly, data_exchange\
+            \ hits your endpoint first"
+          enum:
+          - navigate
+          - data_exchange
+          type: string
+        flow_token:
+          description: Unique token to correlate responses. Auto-generated UUID if
+            omitted.
+          maxLength: 200
+          type: string
+        flow_action_payload:
+          $ref: "#/components/schemas/sendWhatsAppFlowMessage_request_flow_action_payload"
+        body:
+          description: Message body text
+          type: string
+        header:
+          $ref: "#/components/schemas/sendWhatsAppFlowMessage_request_header"
+        footer:
+          description: Optional footer text
+          type: string
+        draft:
+          description: Set true to test an unpublished (DRAFT) flow
+          type: boolean
+      required:
+      - accountId
+      - body
+      - flow_cta
+      - flow_id
+      - to
+    sendWhatsAppFlowMessage_200_response:
+      example:
+        success: true
+        messageId: messageId
+      properties:
+        success:
+          type: boolean
+        messageId:
+          description: WhatsApp message ID (WAMID)
+          type: string
     listContacts_200_response_contacts_inner:
       example:
         messagesReceivedCount: 6
@@ -34710,6 +35753,28 @@ components:
         value:
           description: Count of accounts in this dimension
           type: number
+    YouTubeDemographicsResponse_demographics_value_inner:
+      example:
+        dimension: dimension
+        value: 0.8008281904610115
+      properties:
+        dimension:
+          description: "The dimension value (e.g., \"25-34\", \"US\", \"male\")"
+          type: string
+        value:
+          description: Viewer percentage (age/gender) or view count (country)
+          type: number
+    YouTubeDemographicsResponse_dateRange:
+      example:
+        endDate: 2026-03-31
+        startDate: 2026-01-01
+      properties:
+        startDate:
+          example: 2026-01-01
+          type: string
+        endDate:
+          example: 2026-03-31
+          type: string
     WebhookPayloadPost_post_platforms_inner:
       example:
         publishedUrl: publishedUrl
