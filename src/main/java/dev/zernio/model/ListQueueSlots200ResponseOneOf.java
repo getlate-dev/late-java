@@ -41,7 +41,7 @@ import dev.zernio.ApiClient;
   ListQueueSlots200ResponseOneOf.JSON_PROPERTY_SCHEDULE,
   ListQueueSlots200ResponseOneOf.JSON_PROPERTY_NEXT_SLOTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-06T07:02:22.007854824Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-07T11:02:59.333343802Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ListQueueSlots200ResponseOneOf {
   public static final String JSON_PROPERTY_EXISTS = "exists";
   @javax.annotation.Nullable
