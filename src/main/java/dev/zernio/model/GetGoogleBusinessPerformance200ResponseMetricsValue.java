@@ -39,7 +39,7 @@ import dev.zernio.ApiClient;
   GetGoogleBusinessPerformance200ResponseMetricsValue.JSON_PROPERTY_TOTAL,
   GetGoogleBusinessPerformance200ResponseMetricsValue.JSON_PROPERTY_VALUES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-08T08:46:29.621751381Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-08T10:56:07.428135569Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetGoogleBusinessPerformance200ResponseMetricsValue {
   public static final String JSON_PROPERTY_TOTAL = "total";
   @javax.annotation.Nullable

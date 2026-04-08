@@ -38,7 +38,7 @@ import dev.zernio.ApiClient;
   GetRedditFlairs200ResponseFlairsInner.JSON_PROPERTY_TEXT_COLOR,
   GetRedditFlairs200ResponseFlairsInner.JSON_PROPERTY_BACKGROUND_COLOR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-08T08:46:29.621751381Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-08T10:56:07.428135569Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetRedditFlairs200ResponseFlairsInner {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable
