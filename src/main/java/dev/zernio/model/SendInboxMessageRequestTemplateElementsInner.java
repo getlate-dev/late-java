@@ -41,7 +41,7 @@ import dev.zernio.ApiClient;
   SendInboxMessageRequestTemplateElementsInner.JSON_PROPERTY_IMAGE_URL,
   SendInboxMessageRequestTemplateElementsInner.JSON_PROPERTY_BUTTONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T14:13:45.870968896Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T14:42:45.727853060Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class SendInboxMessageRequestTemplateElementsInner {
   public static final String JSON_PROPERTY_TITLE = "title";
   @javax.annotation.Nonnull

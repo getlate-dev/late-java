@@ -42,7 +42,7 @@ import dev.zernio.ApiClient;
   ListInboxConversations200Response.JSON_PROPERTY_PAGINATION,
   ListInboxConversations200Response.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T14:13:45.870968896Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T14:42:45.727853060Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ListInboxConversations200Response {
   public static final String JSON_PROPERTY_DATA = "data";
   @javax.annotation.Nullable

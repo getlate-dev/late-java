@@ -47,7 +47,7 @@ import dev.zernio.ApiClient;
   CreateContactRequest.JSON_PROPERTY_PLATFORM_IDENTIFIER,
   CreateContactRequest.JSON_PROPERTY_DISPLAY_IDENTIFIER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T14:13:45.870968896Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T14:42:45.727853060Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateContactRequest {
   public static final String JSON_PROPERTY_PROFILE_ID = "profileId";
   @javax.annotation.Nonnull
