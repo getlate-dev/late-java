@@ -22,6 +22,7 @@ import dev.zernio.model.WebhookPayloadAccountConnected;
 import dev.zernio.model.WebhookPayloadAccountDisconnected;
 import dev.zernio.model.WebhookPayloadComment;
 import dev.zernio.model.WebhookPayloadMessage;
+import dev.zernio.model.WebhookPayloadMessageSent;
 import dev.zernio.model.WebhookPayloadPost;
 import dev.zernio.model.WebhookPayloadTest;
 
@@ -56,7 +57,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T09:31:36.259498755Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T14:13:45.870968896Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WebhookEventsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -594,6 +595,115 @@ public class WebhookEventsApi {
 
     try {
       byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(webhookPayloadMessage);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Message sent event
+   * Fired when a message is sent via the API.
+   * @param webhookPayloadMessageSent  (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void onMessageSent(@javax.annotation.Nonnull WebhookPayloadMessageSent webhookPayloadMessageSent) throws ApiException {
+    onMessageSent(webhookPayloadMessageSent, null);
+  }
+
+  /**
+   * Message sent event
+   * Fired when a message is sent via the API.
+   * @param webhookPayloadMessageSent  (required)
+   * @param headers Optional headers to include in the request
+   * @throws ApiException if fails to make API call
+   */
+  public void onMessageSent(@javax.annotation.Nonnull WebhookPayloadMessageSent webhookPayloadMessageSent, Map<String, String> headers) throws ApiException {
+    onMessageSentWithHttpInfo(webhookPayloadMessageSent, headers);
+  }
+
+  /**
+   * Message sent event
+   * Fired when a message is sent via the API.
+   * @param webhookPayloadMessageSent  (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> onMessageSentWithHttpInfo(@javax.annotation.Nonnull WebhookPayloadMessageSent webhookPayloadMessageSent) throws ApiException {
+    return onMessageSentWithHttpInfo(webhookPayloadMessageSent, null);
+  }
+
+  /**
+   * Message sent event
+   * Fired when a message is sent via the API.
+   * @param webhookPayloadMessageSent  (required)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> onMessageSentWithHttpInfo(@javax.annotation.Nonnull WebhookPayloadMessageSent webhookPayloadMessageSent, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = onMessageSentRequestBuilder(webhookPayloadMessageSent, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("onMessageSent", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody != null) {
+          localVarResponseBody.readAllBytes();
+        }
+        return new ApiResponse<>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            null
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder onMessageSentRequestBuilder(@javax.annotation.Nonnull WebhookPayloadMessageSent webhookPayloadMessageSent, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'webhookPayloadMessageSent' is set
+    if (webhookPayloadMessageSent == null) {
+      throw new ApiException(400, "Missing the required parameter 'webhookPayloadMessageSent' when calling onMessageSent");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/message.sent";
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(webhookPayloadMessageSent);
       localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
     } catch (IOException e) {
       throw new ApiException(e);

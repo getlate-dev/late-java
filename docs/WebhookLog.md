@@ -37,6 +37,7 @@ Webhook delivery log entry
 | ACCOUNT_CONNECTED | &quot;account.connected&quot; |
 | ACCOUNT_DISCONNECTED | &quot;account.disconnected&quot; |
 | MESSAGE_RECEIVED | &quot;message.received&quot; |
+| MESSAGE_SENT | &quot;message.sent&quot; |
 | COMMENT_RECEIVED | &quot;comment.received&quot; |
 | WEBHOOK_TEST | &quot;webhook.test&quot; |
 

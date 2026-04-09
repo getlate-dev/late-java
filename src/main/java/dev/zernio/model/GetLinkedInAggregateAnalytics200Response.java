@@ -59,7 +59,7 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import dev.zernio.ApiClient;
 import dev.zernio.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T09:31:36.259498755Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T14:13:45.870968896Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 @JsonDeserialize(using = GetLinkedInAggregateAnalytics200Response.GetLinkedInAggregateAnalytics200ResponseDeserializer.class)
 @JsonSerialize(using = GetLinkedInAggregateAnalytics200Response.GetLinkedInAggregateAnalytics200ResponseSerializer.class)
 public class GetLinkedInAggregateAnalytics200Response extends AbstractOpenApiSchema {

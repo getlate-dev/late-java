@@ -4,7 +4,7 @@ Zernio API
 
 - API version: 1.0.1
 
-- Build date: 2026-04-09T09:31:36.259498755Z[Etc/UTC]
+- Build date: 2026-04-09T14:13:45.870968896Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -1394,6 +1394,9 @@ Class | Method | HTTP request | Description
  - [WebhookPayloadMessageMessageSender](docs/WebhookPayloadMessageMessageSender.md)
  - [WebhookPayloadMessageMessageSenderInstagramProfile](docs/WebhookPayloadMessageMessageSenderInstagramProfile.md)
  - [WebhookPayloadMessageMetadata](docs/WebhookPayloadMessageMetadata.md)
+ - [WebhookPayloadMessageSent](docs/WebhookPayloadMessageSent.md)
+ - [WebhookPayloadMessageSentMessage](docs/WebhookPayloadMessageSentMessage.md)
+ - [WebhookPayloadMessageSentMessageSender](docs/WebhookPayloadMessageSentMessageSender.md)
  - [WebhookPayloadPost](docs/WebhookPayloadPost.md)
  - [WebhookPayloadPostPost](docs/WebhookPayloadPostPost.md)
  - [WebhookPayloadPostPostPlatformsInner](docs/WebhookPayloadPostPostPlatformsInner.md)

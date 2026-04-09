@@ -144,7 +144,7 @@ tags:
     Requires the Ads add-on.
   name: Ad Audiences
 - description: |
-    Configure webhooks for real-time notifications. Events: post.scheduled, post.published, post.failed, post.partial, post.cancelled, post.recycled, account.connected, account.disconnected, message.received, comment.received, webhook.test.
+    Configure webhooks for real-time notifications. Events: post.scheduled, post.published, post.failed, post.partial, post.cancelled, post.recycled, account.connected, account.disconnected, message.received, message.sent, comment.received, webhook.test.
     Security: optional HMAC-SHA256 signature in X-Zernio-Signature header. Configure a secret key to enable verification. Custom headers supported.
   name: Webhooks
 - description: |
@@ -8272,6 +8272,7 @@ paths:
           - account.connected
           - account.disconnected
           - message.received
+          - message.sent
           - comment.received
           - webhook.test
           type: string
@@ -16484,6 +16485,7 @@ components:
             - account.connected
             - account.disconnected
             - message.received
+            - message.sent
             - comment.received
             type: string
           type: array
@@ -16538,6 +16540,7 @@ components:
           - account.connected
           - account.disconnected
           - message.received
+          - message.sent
           - comment.received
           - webhook.test
           type: string
@@ -16796,6 +16799,71 @@ components:
           $ref: "#/components/schemas/WebhookPayloadMessage_account"
         metadata:
           $ref: "#/components/schemas/WebhookPayloadMessage_metadata"
+        timestamp:
+          format: date-time
+          type: string
+      required:
+      - account
+      - conversation
+      - event
+      - id
+      - message
+      - timestamp
+    WebhookPayloadMessageSent:
+      description: Webhook payload for message sent events (fired when a message is
+        sent via the API)
+      example:
+        id: id
+        event: message.sent
+        message:
+          attachments:
+          - payload: "{}"
+            type: type
+            url: url
+          - payload: "{}"
+            type: type
+            url: url
+          sender:
+            name: name
+            id: id
+            picture: picture
+            username: username
+          conversationId: conversationId
+          isRead: true
+          id: id
+          text: text
+          sentAt: 2000-01-23T04:56:07.000+00:00
+          platformMessageId: platformMessageId
+          platform: instagram
+          direction: incoming
+        conversation:
+          participantId: participantId
+          platformConversationId: platformConversationId
+          participantPicture: participantPicture
+          id: id
+          participantName: participantName
+          participantUsername: participantUsername
+          status: active
+        account:
+          displayName: displayName
+          id: id
+          platform: platform
+          username: username
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          description: Stable webhook event ID
+          type: string
+        event:
+          enum:
+          - message.sent
+          type: string
+        message:
+          $ref: "#/components/schemas/WebhookPayloadMessageSent_message"
+        conversation:
+          $ref: "#/components/schemas/WebhookPayloadMessage_conversation"
+        account:
+          $ref: "#/components/schemas/WebhookPayloadMessage_account"
         timestamp:
           format: date-time
           type: string
@@ -37456,6 +37524,93 @@ components:
           description: Callback data from an inline keyboard button tap (Telegram)
           type: string
       nullable: true
+    WebhookPayloadMessageSent_message_sender:
+      example:
+        name: name
+        id: id
+        picture: picture
+        username: username
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        username:
+          type: string
+        picture:
+          type: string
+      required:
+      - id
+    WebhookPayloadMessageSent_message:
+      example:
+        attachments:
+        - payload: "{}"
+          type: type
+          url: url
+        - payload: "{}"
+          type: type
+          url: url
+        sender:
+          name: name
+          id: id
+          picture: picture
+          username: username
+        conversationId: conversationId
+        isRead: true
+        id: id
+        text: text
+        sentAt: 2000-01-23T04:56:07.000+00:00
+        platformMessageId: platformMessageId
+        platform: instagram
+        direction: incoming
+      properties:
+        id:
+          description: Internal message ID
+          type: string
+        conversationId:
+          description: Internal conversation ID
+          type: string
+        platform:
+          enum:
+          - instagram
+          - facebook
+          - telegram
+          - whatsapp
+          type: string
+        platformMessageId:
+          description: Platform's message ID
+          type: string
+        direction:
+          enum:
+          - incoming
+          - outgoing
+          type: string
+        text:
+          description: Message text content
+          type: string
+          nullable: true
+        attachments:
+          items:
+            $ref: "#/components/schemas/WebhookPayloadMessage_message_attachments_inner"
+          type: array
+        sender:
+          $ref: "#/components/schemas/WebhookPayloadMessageSent_message_sender"
+        sentAt:
+          format: date-time
+          type: string
+        isRead:
+          type: boolean
+      required:
+      - attachments
+      - conversationId
+      - direction
+      - id
+      - isRead
+      - platform
+      - platformMessageId
+      - sender
+      - sentAt
+      - text
     PostLog_postId_oneOf:
       description: Populated post reference
       properties:
@@ -38159,6 +38314,7 @@ x-documentation:
     - `account.connected` - Social account connected
     - `account.disconnected` - Social account disconnected (token expired)
     - `message.received` - New DM received
+    - `message.sent` - DM sent via the API
     - `comment.received` - New comment received on a post
     - `webhook.test` - Test event sent when verifying a webhook endpoint
 

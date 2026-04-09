@@ -49,7 +49,7 @@ import dev.zernio.ApiClient;
   WebhookLog.JSON_PROPERTY_RESPONSE_TIME,
   WebhookLog.JSON_PROPERTY_CREATED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T09:31:36.259498755Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T14:13:45.870968896Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WebhookLog {
   public static final String JSON_PROPERTY_ID = "_id";
   @javax.annotation.Nullable
@@ -84,6 +84,8 @@ public class WebhookLog {
     ACCOUNT_DISCONNECTED(String.valueOf("account.disconnected")),
     
     MESSAGE_RECEIVED(String.valueOf("message.received")),
+    
+    MESSAGE_SENT(String.valueOf("message.sent")),
     
     COMMENT_RECEIVED(String.valueOf("comment.received")),
     
