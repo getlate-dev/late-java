@@ -31,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.zernio.ApiClient;
 /**
- * Photo carousels up to 35 images. Video titles up to 2200 chars, photo titles truncated to 90 chars. privacyLevel must match creator_info options. Both camelCase and snake_case accepted.
+ * Photo carousels up to 35 images. Video titles up to 2200 chars, photo titles truncated to 90 chars. privacyLevel must match creator_info options. Both camelCase and snake_case accepted.  **Creator Inbox (draft mode):** Set &#x60;draft: true&#x60; to send content to the TikTok Creator Inbox instead of publishing immediately. The creator receives an inbox notification and completes the post using TikTok&#39;s editing flow. This maps to TikTok&#39;s &#x60;post_mode: \&quot;MEDIA_UPLOAD\&quot;&#x60; internally.  **Important:** The field &#x60;publish_type&#x60; is NOT supported. Use &#x60;draft: true&#x60; for Creator Inbox flow.  **Photo drafts** use the &#x60;/v2/post/publish/content/init/&#x60; endpoint with &#x60;post_mode: \&quot;MEDIA_UPLOAD\&quot;&#x60;. **Video drafts** use the dedicated &#x60;/v2/post/publish/inbox/video/init/&#x60; endpoint.  When &#x60;draft: true&#x60;, the &#x60;video.upload&#x60; scope is required. When &#x60;draft&#x60; is false or omitted (direct post), the &#x60;video.publish&#x60; scope is required. For Creator Inbox, TikTok app version must be 31.8 or higher. 
  */
 @JsonPropertyOrder({
   TikTokPlatformData.JSON_PROPERTY_DRAFT,
@@ -52,7 +52,7 @@ import dev.zernio.ApiClient;
   TikTokPlatformData.JSON_PROPERTY_VIDEO_MADE_WITH_AI,
   TikTokPlatformData.JSON_PROPERTY_DESCRIPTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T14:42:45.727853060Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-10T09:29:13.193747949Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class TikTokPlatformData {
   public static final String JSON_PROPERTY_DRAFT = "draft";
   @javax.annotation.Nullable
@@ -203,7 +203,7 @@ public class TikTokPlatformData {
   }
 
   /**
-   * When true, sends the post to the TikTok Creator Inbox as a draft instead of publishing immediately.
+   * When true, sends the post to the TikTok Creator Inbox as a draft instead of publishing immediately. The creator receives an inbox notification to complete posting via TikTok&#39;s editing flow. Maps to TikTok API &#x60;post_mode: \&quot;MEDIA_UPLOAD\&quot;&#x60; (photos) or the dedicated inbox endpoint (videos). When false or omitted, publishes directly via &#x60;post_mode: \&quot;DIRECT_POST\&quot;&#x60;. Note: &#x60;publish_type&#x60; is not a supported field. Use this field instead. 
    * @return draft
    */
   @javax.annotation.Nullable

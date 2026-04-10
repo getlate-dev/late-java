@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**adsPlatform** | [**AdsPlatformEnum**](#AdsPlatformEnum) | The ads platform to disconnect |  |
+|**adsPlatform** | [**AdsPlatformEnum**](#AdsPlatformEnum) | The ads platform (optional, used for logging only) |  [optional] |
 
 
 

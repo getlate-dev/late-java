@@ -46,6 +46,8 @@ import dev.zernio.ApiClient;
   AccountWithFollowerStats.JSON_PROPERTY_IS_ACTIVE,
   AccountWithFollowerStats.JSON_PROPERTY_FOLLOWERS_COUNT,
   AccountWithFollowerStats.JSON_PROPERTY_FOLLOWERS_LAST_UPDATED,
+  AccountWithFollowerStats.JSON_PROPERTY_PARENT_ACCOUNT_ID,
+  AccountWithFollowerStats.JSON_PROPERTY_ENABLED,
   AccountWithFollowerStats.JSON_PROPERTY_ADS_STATUS,
   AccountWithFollowerStats.JSON_PROPERTY_METADATA,
   AccountWithFollowerStats.JSON_PROPERTY_PROFILE_PICTURE,
@@ -56,15 +58,86 @@ import dev.zernio.ApiClient;
   AccountWithFollowerStats.JSON_PROPERTY_DATA_POINTS,
   AccountWithFollowerStats.JSON_PROPERTY_ACCOUNT_STATS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T14:42:45.727853060Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-10T09:29:13.193747949Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AccountWithFollowerStats {
   public static final String JSON_PROPERTY_ID = "_id";
   @javax.annotation.Nullable
   private String id;
 
+  /**
+   * Gets or Sets platform
+   */
+  public enum PlatformEnum {
+    TIKTOK(String.valueOf("tiktok")),
+    
+    INSTAGRAM(String.valueOf("instagram")),
+    
+    FACEBOOK(String.valueOf("facebook")),
+    
+    YOUTUBE(String.valueOf("youtube")),
+    
+    LINKEDIN(String.valueOf("linkedin")),
+    
+    TWITTER(String.valueOf("twitter")),
+    
+    THREADS(String.valueOf("threads")),
+    
+    PINTEREST(String.valueOf("pinterest")),
+    
+    REDDIT(String.valueOf("reddit")),
+    
+    BLUESKY(String.valueOf("bluesky")),
+    
+    GOOGLEBUSINESS(String.valueOf("googlebusiness")),
+    
+    TELEGRAM(String.valueOf("telegram")),
+    
+    SNAPCHAT(String.valueOf("snapchat")),
+    
+    WHATSAPP(String.valueOf("whatsapp")),
+    
+    LINKEDINADS(String.valueOf("linkedinads")),
+    
+    METAADS(String.valueOf("metaads")),
+    
+    PINTERESTADS(String.valueOf("pinterestads")),
+    
+    TIKTOKADS(String.valueOf("tiktokads")),
+    
+    XADS(String.valueOf("xads")),
+    
+    GOOGLEADS(String.valueOf("googleads"));
+
+    private String value;
+
+    PlatformEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static PlatformEnum fromValue(String value) {
+      for (PlatformEnum b : PlatformEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
   public static final String JSON_PROPERTY_PLATFORM = "platform";
   @javax.annotation.Nullable
-  private String platform;
+  private PlatformEnum platform;
 
   public static final String JSON_PROPERTY_PROFILE_ID = "profileId";
   @javax.annotation.Nullable
@@ -94,8 +167,16 @@ public class AccountWithFollowerStats {
   @javax.annotation.Nullable
   private OffsetDateTime followersLastUpdated;
 
+  public static final String JSON_PROPERTY_PARENT_ACCOUNT_ID = "parentAccountId";
+  @javax.annotation.Nullable
+  private String parentAccountId;
+
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  @javax.annotation.Nullable
+  private Boolean enabled;
+
   /**
-   * Ads connection status for this account. - &#x60;connected&#x60;: Ads are ready to use (same-token platforms like Meta/LinkedIn, or separate ads token is present). - &#x60;not_connected&#x60;: Platform supports ads but requires a separate ads OAuth. Use &#x60;GET /v1/connect/{platform}/ads&#x60; to connect. - &#x60;not_available&#x60;: Platform does not support ads (e.g., YouTube, Reddit, Bluesky). 
+   * **Deprecated.** With the new ads account model, ads accounts are separate SocialAccount documents. Check for accounts with ads platform values (metaads, linkedinads, pinterestads, tiktokads, xads, googleads) instead.  Legacy behavior: - &#x60;connected&#x60;: Ads are ready to use (same-token platforms like Meta/LinkedIn, or separate ads token is present). - &#x60;not_connected&#x60;: Platform supports ads but requires a separate ads OAuth. Use &#x60;GET /v1/connect/{platform}/ads&#x60; to connect. - &#x60;not_available&#x60;: Platform does not support ads (e.g., YouTube, Reddit, Bluesky). 
    */
   public enum AdsStatusEnum {
     CONNECTED(String.valueOf("connected")),
@@ -194,7 +275,7 @@ public class AccountWithFollowerStats {
   }
 
 
-  public AccountWithFollowerStats platform(@javax.annotation.Nullable String platform) {
+  public AccountWithFollowerStats platform(@javax.annotation.Nullable PlatformEnum platform) {
     this.platform = platform;
     return this;
   }
@@ -206,14 +287,14 @@ public class AccountWithFollowerStats {
   @javax.annotation.Nullable
   @JsonProperty(value = JSON_PROPERTY_PLATFORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPlatform() {
+  public PlatformEnum getPlatform() {
     return platform;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_PLATFORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPlatform(@javax.annotation.Nullable String platform) {
+  public void setPlatform(@javax.annotation.Nullable PlatformEnum platform) {
     this.platform = platform;
   }
 
@@ -386,15 +467,65 @@ public class AccountWithFollowerStats {
   }
 
 
+  public AccountWithFollowerStats parentAccountId(@javax.annotation.Nullable String parentAccountId) {
+    this.parentAccountId = parentAccountId;
+    return this;
+  }
+
+  /**
+   * Reference to the parent posting SocialAccount. Set for ads accounts that share or derive from a posting account&#39;s OAuth token. null for standalone ads (Google Ads) and all posting accounts. 
+   * @return parentAccountId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_PARENT_ACCOUNT_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getParentAccountId() {
+    return parentAccountId;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PARENT_ACCOUNT_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setParentAccountId(@javax.annotation.Nullable String parentAccountId) {
+    this.parentAccountId = parentAccountId;
+  }
+
+
+  public AccountWithFollowerStats enabled(@javax.annotation.Nullable Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+  /**
+   * Whether the user explicitly activated this account. false means the account was created as a side effect (e.g., posting account auto-created when user connected ads first). Posting UI and scheduler ignore accounts with enabled: false. 
+   * @return enabled
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ENABLED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEnabled(@javax.annotation.Nullable Boolean enabled) {
+    this.enabled = enabled;
+  }
+
+
   public AccountWithFollowerStats adsStatus(@javax.annotation.Nullable AdsStatusEnum adsStatus) {
     this.adsStatus = adsStatus;
     return this;
   }
 
   /**
-   * Ads connection status for this account. - &#x60;connected&#x60;: Ads are ready to use (same-token platforms like Meta/LinkedIn, or separate ads token is present). - &#x60;not_connected&#x60;: Platform supports ads but requires a separate ads OAuth. Use &#x60;GET /v1/connect/{platform}/ads&#x60; to connect. - &#x60;not_available&#x60;: Platform does not support ads (e.g., YouTube, Reddit, Bluesky). 
+   * **Deprecated.** With the new ads account model, ads accounts are separate SocialAccount documents. Check for accounts with ads platform values (metaads, linkedinads, pinterestads, tiktokads, xads, googleads) instead.  Legacy behavior: - &#x60;connected&#x60;: Ads are ready to use (same-token platforms like Meta/LinkedIn, or separate ads token is present). - &#x60;not_connected&#x60;: Platform supports ads but requires a separate ads OAuth. Use &#x60;GET /v1/connect/{platform}/ads&#x60; to connect. - &#x60;not_available&#x60;: Platform does not support ads (e.g., YouTube, Reddit, Bluesky). 
    * @return adsStatus
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   @JsonProperty(value = JSON_PROPERTY_ADS_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -623,6 +754,8 @@ public class AccountWithFollowerStats {
         Objects.equals(this.isActive, accountWithFollowerStats.isActive) &&
         Objects.equals(this.followersCount, accountWithFollowerStats.followersCount) &&
         Objects.equals(this.followersLastUpdated, accountWithFollowerStats.followersLastUpdated) &&
+        Objects.equals(this.parentAccountId, accountWithFollowerStats.parentAccountId) &&
+        Objects.equals(this.enabled, accountWithFollowerStats.enabled) &&
         Objects.equals(this.adsStatus, accountWithFollowerStats.adsStatus) &&
         Objects.equals(this.metadata, accountWithFollowerStats.metadata) &&
         Objects.equals(this.profilePicture, accountWithFollowerStats.profilePicture) &&
@@ -636,7 +769,7 @@ public class AccountWithFollowerStats {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, platform, profileId, username, displayName, profileUrl, isActive, followersCount, followersLastUpdated, adsStatus, metadata, profilePicture, currentFollowers, lastUpdated, growth, growthPercentage, dataPoints, accountStats);
+    return Objects.hash(id, platform, profileId, username, displayName, profileUrl, isActive, followersCount, followersLastUpdated, parentAccountId, enabled, adsStatus, metadata, profilePicture, currentFollowers, lastUpdated, growth, growthPercentage, dataPoints, accountStats);
   }
 
   @Override
@@ -652,6 +785,8 @@ public class AccountWithFollowerStats {
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
     sb.append("    followersCount: ").append(toIndentedString(followersCount)).append("\n");
     sb.append("    followersLastUpdated: ").append(toIndentedString(followersLastUpdated)).append("\n");
+    sb.append("    parentAccountId: ").append(toIndentedString(parentAccountId)).append("\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    adsStatus: ").append(toIndentedString(adsStatus)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    profilePicture: ").append(toIndentedString(profilePicture)).append("\n");
@@ -751,6 +886,16 @@ public class AccountWithFollowerStats {
     // add `followersLastUpdated` to the URL query string
     if (getFollowersLastUpdated() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sfollowersLastUpdated%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getFollowersLastUpdated()))));
+    }
+
+    // add `parentAccountId` to the URL query string
+    if (getParentAccountId() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sparentAccountId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getParentAccountId()))));
+    }
+
+    // add `enabled` to the URL query string
+    if (getEnabled() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%senabled%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getEnabled()))));
     }
 
     // add `adsStatus` to the URL query string

@@ -177,7 +177,7 @@ ApiResponse<[**DeleteAccountGroup200Response**](DeleteAccountGroup200Response.md
 
 Disconnect ads from an account
 
-Disconnects ads from a social account without removing the posting connection.  **Same-token platforms** (metaads, linkedinads, pinterestads): Sets an &#x60;adsOptOut&#x60; flag. The posting account and OAuth token are preserved. Reconnecting ads clears the flag.  **Separate-token platforms** (tiktokads, xads): Clears the ads-specific metadata (marketing API tokens). The posting account stays intact.  **Standalone platforms** (googleads): Do not use this endpoint. Use &#x60;DELETE /v1/accounts/{accountId}&#x60; instead, since Google Ads accounts are standalone. 
+**Deprecated.** Ads accounts are now standalone SocialAccount documents. Use &#x60;DELETE /v1/accounts/{accountId}&#x60; instead, passing the ads account&#39;s own ID.  This endpoint is kept for backward compatibility. It soft-deletes the ads SocialAccount identified by &#x60;accountId&#x60; (which must be an ads account, not a posting account). The parent posting account is left untouched. 
 
 ### Example
 
@@ -200,7 +200,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         AccountsApi apiInstance = new AccountsApi(defaultClient);
-        String accountId = "accountId_example"; // String | The SocialAccount ID (parent posting account for same-token/separate-token platforms)
+        String accountId = "accountId_example"; // String | The ads SocialAccount ID to disconnect
         DisconnectAdsRequest disconnectAdsRequest = new DisconnectAdsRequest(); // DisconnectAdsRequest | 
         try {
             DeleteAccountGroup200Response result = apiInstance.disconnectAds(accountId, disconnectAdsRequest);
@@ -221,8 +221,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **accountId** | **String**| The SocialAccount ID (parent posting account for same-token/separate-token platforms) | |
-| **disconnectAdsRequest** | [**DisconnectAdsRequest**](DisconnectAdsRequest.md)|  | |
+| **accountId** | **String**| The ads SocialAccount ID to disconnect | |
+| **disconnectAdsRequest** | [**DisconnectAdsRequest**](DisconnectAdsRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -252,7 +252,7 @@ public class Example {
 
 Disconnect ads from an account
 
-Disconnects ads from a social account without removing the posting connection.  **Same-token platforms** (metaads, linkedinads, pinterestads): Sets an &#x60;adsOptOut&#x60; flag. The posting account and OAuth token are preserved. Reconnecting ads clears the flag.  **Separate-token platforms** (tiktokads, xads): Clears the ads-specific metadata (marketing API tokens). The posting account stays intact.  **Standalone platforms** (googleads): Do not use this endpoint. Use &#x60;DELETE /v1/accounts/{accountId}&#x60; instead, since Google Ads accounts are standalone. 
+**Deprecated.** Ads accounts are now standalone SocialAccount documents. Use &#x60;DELETE /v1/accounts/{accountId}&#x60; instead, passing the ads account&#39;s own ID.  This endpoint is kept for backward compatibility. It soft-deletes the ads SocialAccount identified by &#x60;accountId&#x60; (which must be an ads account, not a posting account). The parent posting account is left untouched. 
 
 ### Example
 
@@ -276,7 +276,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         AccountsApi apiInstance = new AccountsApi(defaultClient);
-        String accountId = "accountId_example"; // String | The SocialAccount ID (parent posting account for same-token/separate-token platforms)
+        String accountId = "accountId_example"; // String | The ads SocialAccount ID to disconnect
         DisconnectAdsRequest disconnectAdsRequest = new DisconnectAdsRequest(); // DisconnectAdsRequest | 
         try {
             ApiResponse<DeleteAccountGroup200Response> response = apiInstance.disconnectAdsWithHttpInfo(accountId, disconnectAdsRequest);
@@ -299,8 +299,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **accountId** | **String**| The SocialAccount ID (parent posting account for same-token/separate-token platforms) | |
-| **disconnectAdsRequest** | [**DisconnectAdsRequest**](DisconnectAdsRequest.md)|  | |
+| **accountId** | **String**| The ads SocialAccount ID to disconnect | |
+| **disconnectAdsRequest** | [**DisconnectAdsRequest**](DisconnectAdsRequest.md)|  | [optional] |
 
 ### Return type
 

@@ -35,10 +35,10 @@ import dev.zernio.ApiClient;
 @JsonPropertyOrder({
   DisconnectAdsRequest.JSON_PROPERTY_ADS_PLATFORM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T14:42:45.727853060Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-10T09:29:13.193747949Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class DisconnectAdsRequest {
   /**
-   * The ads platform to disconnect
+   * The ads platform (optional, used for logging only)
    */
   public enum AdsPlatformEnum {
     METAADS(String.valueOf("metaads")),
@@ -79,32 +79,32 @@ public class DisconnectAdsRequest {
   }
 
   public static final String JSON_PROPERTY_ADS_PLATFORM = "adsPlatform";
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private AdsPlatformEnum adsPlatform;
 
   public DisconnectAdsRequest() { 
   }
 
-  public DisconnectAdsRequest adsPlatform(@javax.annotation.Nonnull AdsPlatformEnum adsPlatform) {
+  public DisconnectAdsRequest adsPlatform(@javax.annotation.Nullable AdsPlatformEnum adsPlatform) {
     this.adsPlatform = adsPlatform;
     return this;
   }
 
   /**
-   * The ads platform to disconnect
+   * The ads platform (optional, used for logging only)
    * @return adsPlatform
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(value = JSON_PROPERTY_ADS_PLATFORM, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_ADS_PLATFORM, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AdsPlatformEnum getAdsPlatform() {
     return adsPlatform;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_ADS_PLATFORM, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAdsPlatform(@javax.annotation.Nonnull AdsPlatformEnum adsPlatform) {
+  @JsonProperty(value = JSON_PROPERTY_ADS_PLATFORM, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAdsPlatform(@javax.annotation.Nullable AdsPlatformEnum adsPlatform) {
     this.adsPlatform = adsPlatform;
   }
 

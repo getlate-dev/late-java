@@ -58,7 +58,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T14:42:45.727853060Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-10T09:29:13.193747949Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AccountsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -295,52 +295,60 @@ public class AccountsApi {
 
   /**
    * Disconnect ads from an account
-   * Disconnects ads from a social account without removing the posting connection.  **Same-token platforms** (metaads, linkedinads, pinterestads): Sets an &#x60;adsOptOut&#x60; flag. The posting account and OAuth token are preserved. Reconnecting ads clears the flag.  **Separate-token platforms** (tiktokads, xads): Clears the ads-specific metadata (marketing API tokens). The posting account stays intact.  **Standalone platforms** (googleads): Do not use this endpoint. Use &#x60;DELETE /v1/accounts/{accountId}&#x60; instead, since Google Ads accounts are standalone. 
-   * @param accountId The SocialAccount ID (parent posting account for same-token/separate-token platforms) (required)
-   * @param disconnectAdsRequest  (required)
+   * **Deprecated.** Ads accounts are now standalone SocialAccount documents. Use &#x60;DELETE /v1/accounts/{accountId}&#x60; instead, passing the ads account&#39;s own ID.  This endpoint is kept for backward compatibility. It soft-deletes the ads SocialAccount identified by &#x60;accountId&#x60; (which must be an ads account, not a posting account). The parent posting account is left untouched. 
+   * @param accountId The ads SocialAccount ID to disconnect (required)
+   * @param disconnectAdsRequest  (optional)
    * @return DeleteAccountGroup200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
-  public DeleteAccountGroup200Response disconnectAds(@javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull DisconnectAdsRequest disconnectAdsRequest) throws ApiException {
+  @Deprecated
+  public DeleteAccountGroup200Response disconnectAds(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable DisconnectAdsRequest disconnectAdsRequest) throws ApiException {
     return disconnectAds(accountId, disconnectAdsRequest, null);
   }
 
   /**
    * Disconnect ads from an account
-   * Disconnects ads from a social account without removing the posting connection.  **Same-token platforms** (metaads, linkedinads, pinterestads): Sets an &#x60;adsOptOut&#x60; flag. The posting account and OAuth token are preserved. Reconnecting ads clears the flag.  **Separate-token platforms** (tiktokads, xads): Clears the ads-specific metadata (marketing API tokens). The posting account stays intact.  **Standalone platforms** (googleads): Do not use this endpoint. Use &#x60;DELETE /v1/accounts/{accountId}&#x60; instead, since Google Ads accounts are standalone. 
-   * @param accountId The SocialAccount ID (parent posting account for same-token/separate-token platforms) (required)
-   * @param disconnectAdsRequest  (required)
+   * **Deprecated.** Ads accounts are now standalone SocialAccount documents. Use &#x60;DELETE /v1/accounts/{accountId}&#x60; instead, passing the ads account&#39;s own ID.  This endpoint is kept for backward compatibility. It soft-deletes the ads SocialAccount identified by &#x60;accountId&#x60; (which must be an ads account, not a posting account). The parent posting account is left untouched. 
+   * @param accountId The ads SocialAccount ID to disconnect (required)
+   * @param disconnectAdsRequest  (optional)
    * @param headers Optional headers to include in the request
    * @return DeleteAccountGroup200Response
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
-  public DeleteAccountGroup200Response disconnectAds(@javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull DisconnectAdsRequest disconnectAdsRequest, Map<String, String> headers) throws ApiException {
+  @Deprecated
+  public DeleteAccountGroup200Response disconnectAds(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable DisconnectAdsRequest disconnectAdsRequest, Map<String, String> headers) throws ApiException {
     ApiResponse<DeleteAccountGroup200Response> localVarResponse = disconnectAdsWithHttpInfo(accountId, disconnectAdsRequest, headers);
     return localVarResponse.getData();
   }
 
   /**
    * Disconnect ads from an account
-   * Disconnects ads from a social account without removing the posting connection.  **Same-token platforms** (metaads, linkedinads, pinterestads): Sets an &#x60;adsOptOut&#x60; flag. The posting account and OAuth token are preserved. Reconnecting ads clears the flag.  **Separate-token platforms** (tiktokads, xads): Clears the ads-specific metadata (marketing API tokens). The posting account stays intact.  **Standalone platforms** (googleads): Do not use this endpoint. Use &#x60;DELETE /v1/accounts/{accountId}&#x60; instead, since Google Ads accounts are standalone. 
-   * @param accountId The SocialAccount ID (parent posting account for same-token/separate-token platforms) (required)
-   * @param disconnectAdsRequest  (required)
+   * **Deprecated.** Ads accounts are now standalone SocialAccount documents. Use &#x60;DELETE /v1/accounts/{accountId}&#x60; instead, passing the ads account&#39;s own ID.  This endpoint is kept for backward compatibility. It soft-deletes the ads SocialAccount identified by &#x60;accountId&#x60; (which must be an ads account, not a posting account). The parent posting account is left untouched. 
+   * @param accountId The ads SocialAccount ID to disconnect (required)
+   * @param disconnectAdsRequest  (optional)
    * @return ApiResponse&lt;DeleteAccountGroup200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
-  public ApiResponse<DeleteAccountGroup200Response> disconnectAdsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull DisconnectAdsRequest disconnectAdsRequest) throws ApiException {
+  @Deprecated
+  public ApiResponse<DeleteAccountGroup200Response> disconnectAdsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable DisconnectAdsRequest disconnectAdsRequest) throws ApiException {
     return disconnectAdsWithHttpInfo(accountId, disconnectAdsRequest, null);
   }
 
   /**
    * Disconnect ads from an account
-   * Disconnects ads from a social account without removing the posting connection.  **Same-token platforms** (metaads, linkedinads, pinterestads): Sets an &#x60;adsOptOut&#x60; flag. The posting account and OAuth token are preserved. Reconnecting ads clears the flag.  **Separate-token platforms** (tiktokads, xads): Clears the ads-specific metadata (marketing API tokens). The posting account stays intact.  **Standalone platforms** (googleads): Do not use this endpoint. Use &#x60;DELETE /v1/accounts/{accountId}&#x60; instead, since Google Ads accounts are standalone. 
-   * @param accountId The SocialAccount ID (parent posting account for same-token/separate-token platforms) (required)
-   * @param disconnectAdsRequest  (required)
+   * **Deprecated.** Ads accounts are now standalone SocialAccount documents. Use &#x60;DELETE /v1/accounts/{accountId}&#x60; instead, passing the ads account&#39;s own ID.  This endpoint is kept for backward compatibility. It soft-deletes the ads SocialAccount identified by &#x60;accountId&#x60; (which must be an ads account, not a posting account). The parent posting account is left untouched. 
+   * @param accountId The ads SocialAccount ID to disconnect (required)
+   * @param disconnectAdsRequest  (optional)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;DeleteAccountGroup200Response&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
-  public ApiResponse<DeleteAccountGroup200Response> disconnectAdsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull DisconnectAdsRequest disconnectAdsRequest, Map<String, String> headers) throws ApiException {
+  @Deprecated
+  public ApiResponse<DeleteAccountGroup200Response> disconnectAdsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable DisconnectAdsRequest disconnectAdsRequest, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = disconnectAdsRequestBuilder(accountId, disconnectAdsRequest, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -388,14 +396,10 @@ public class AccountsApi {
     }
   }
 
-  private HttpRequest.Builder disconnectAdsRequestBuilder(@javax.annotation.Nonnull String accountId, @javax.annotation.Nonnull DisconnectAdsRequest disconnectAdsRequest, Map<String, String> headers) throws ApiException {
+  private HttpRequest.Builder disconnectAdsRequestBuilder(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable DisconnectAdsRequest disconnectAdsRequest, Map<String, String> headers) throws ApiException {
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       throw new ApiException(400, "Missing the required parameter 'accountId' when calling disconnectAds");
-    }
-    // verify the required parameter 'disconnectAdsRequest' is set
-    if (disconnectAdsRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'disconnectAdsRequest' when calling disconnectAds");
     }
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();

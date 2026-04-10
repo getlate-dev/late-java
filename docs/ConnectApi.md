@@ -227,7 +227,7 @@ ApiResponse<[**CompleteTelegramConnect200Response**](CompleteTelegramConnect200R
 
 Connect ads for a platform
 
-Unified ads connection endpoint. Handles all platforms through a single route:  **Same-token platforms** (facebook, instagram, linkedin, pinterest): If a posting account already exists, returns &#x60;alreadyConnected: true&#x60; immediately (no extra OAuth needed). If not, starts the normal OAuth flow, and the resulting account supports both posting and ads.  **Separate-token platforms** (tiktok, twitter): Requires an existing posting account (&#x60;accountId&#x60; param). If ads are already connected, returns &#x60;alreadyConnected: true&#x60;. Otherwise, starts the platform-specific marketing API OAuth flow.  **Ads-only platforms** (googleads): If a Google Ads account exists, returns &#x60;alreadyConnected: true&#x60;. Otherwise, starts the Google Ads OAuth flow.  Use the &#x60;adsStatus&#x60; field from &#x60;GET /v1/accounts&#x60; to check which accounts need ads connection. 
+Unified ads connection endpoint. Creates a dedicated ads SocialAccount for the specified platform.  **Same-token platforms** (facebook, instagram, linkedin, pinterest): Creates an ads SocialAccount (&#x60;metaads&#x60;, &#x60;linkedinads&#x60;, &#x60;pinterestads&#x60;) with a copied OAuth token from the parent posting account. If the ads account already exists, returns &#x60;alreadyConnected: true&#x60;. No extra OAuth needed.  **Separate-token platforms** (tiktok, twitter): Starts the platform-specific marketing API OAuth flow and creates an ads SocialAccount (&#x60;tiktokads&#x60;, &#x60;xads&#x60;) with its own token. Requires an existing posting account (&#x60;accountId&#x60; param). If the ads account already exists, returns &#x60;alreadyConnected: true&#x60;.  **Standalone platforms** (googleads): Starts the Google Ads OAuth flow and creates a standalone ads SocialAccount (&#x60;googleads&#x60;) with no parent. If the account already exists, returns &#x60;alreadyConnected: true&#x60;.  Ads accounts appear as regular SocialAccount documents with ads platform values (e.g., &#x60;metaads&#x60;, &#x60;tiktokads&#x60;) in &#x60;GET /v1/accounts&#x60;. 
 
 ### Example
 
@@ -252,7 +252,7 @@ public class Example {
         ConnectApi apiInstance = new ConnectApi(defaultClient);
         String platform = "facebook"; // String | Platform to connect ads for. Only platforms with ads support are accepted.
         String profileId = "profileId_example"; // String | Your Zernio profile ID
-        String accountId = "accountId_example"; // String | Existing SocialAccount ID. Required for separate-token platforms (tiktok, twitter). Ignored for same-token and ads-only platforms.
+        String accountId = "accountId_example"; // String | Existing SocialAccount ID. Required for separate-token platforms (tiktok, twitter). Ignored for same-token and standalone platforms.
         URI redirectUrl = new URI(); // URI | Custom redirect URL after OAuth completes (same-token platforms only)
         Boolean headless = false; // Boolean | Enable headless mode (same-token platforms only)
         try {
@@ -276,7 +276,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **platform** | **String**| Platform to connect ads for. Only platforms with ads support are accepted. | [enum: facebook, instagram, linkedin, tiktok, twitter, pinterest, googleads] |
 | **profileId** | **String**| Your Zernio profile ID | |
-| **accountId** | **String**| Existing SocialAccount ID. Required for separate-token platforms (tiktok, twitter). Ignored for same-token and ads-only platforms. | [optional] |
+| **accountId** | **String**| Existing SocialAccount ID. Required for separate-token platforms (tiktok, twitter). Ignored for same-token and standalone platforms. | [optional] |
 | **redirectUrl** | **URI**| Custom redirect URL after OAuth completes (same-token platforms only) | [optional] |
 | **headless** | **Boolean**| Enable headless mode (same-token platforms only) | [optional] [default to false] |
 
@@ -309,7 +309,7 @@ public class Example {
 
 Connect ads for a platform
 
-Unified ads connection endpoint. Handles all platforms through a single route:  **Same-token platforms** (facebook, instagram, linkedin, pinterest): If a posting account already exists, returns &#x60;alreadyConnected: true&#x60; immediately (no extra OAuth needed). If not, starts the normal OAuth flow, and the resulting account supports both posting and ads.  **Separate-token platforms** (tiktok, twitter): Requires an existing posting account (&#x60;accountId&#x60; param). If ads are already connected, returns &#x60;alreadyConnected: true&#x60;. Otherwise, starts the platform-specific marketing API OAuth flow.  **Ads-only platforms** (googleads): If a Google Ads account exists, returns &#x60;alreadyConnected: true&#x60;. Otherwise, starts the Google Ads OAuth flow.  Use the &#x60;adsStatus&#x60; field from &#x60;GET /v1/accounts&#x60; to check which accounts need ads connection. 
+Unified ads connection endpoint. Creates a dedicated ads SocialAccount for the specified platform.  **Same-token platforms** (facebook, instagram, linkedin, pinterest): Creates an ads SocialAccount (&#x60;metaads&#x60;, &#x60;linkedinads&#x60;, &#x60;pinterestads&#x60;) with a copied OAuth token from the parent posting account. If the ads account already exists, returns &#x60;alreadyConnected: true&#x60;. No extra OAuth needed.  **Separate-token platforms** (tiktok, twitter): Starts the platform-specific marketing API OAuth flow and creates an ads SocialAccount (&#x60;tiktokads&#x60;, &#x60;xads&#x60;) with its own token. Requires an existing posting account (&#x60;accountId&#x60; param). If the ads account already exists, returns &#x60;alreadyConnected: true&#x60;.  **Standalone platforms** (googleads): Starts the Google Ads OAuth flow and creates a standalone ads SocialAccount (&#x60;googleads&#x60;) with no parent. If the account already exists, returns &#x60;alreadyConnected: true&#x60;.  Ads accounts appear as regular SocialAccount documents with ads platform values (e.g., &#x60;metaads&#x60;, &#x60;tiktokads&#x60;) in &#x60;GET /v1/accounts&#x60;. 
 
 ### Example
 
@@ -335,7 +335,7 @@ public class Example {
         ConnectApi apiInstance = new ConnectApi(defaultClient);
         String platform = "facebook"; // String | Platform to connect ads for. Only platforms with ads support are accepted.
         String profileId = "profileId_example"; // String | Your Zernio profile ID
-        String accountId = "accountId_example"; // String | Existing SocialAccount ID. Required for separate-token platforms (tiktok, twitter). Ignored for same-token and ads-only platforms.
+        String accountId = "accountId_example"; // String | Existing SocialAccount ID. Required for separate-token platforms (tiktok, twitter). Ignored for same-token and standalone platforms.
         URI redirectUrl = new URI(); // URI | Custom redirect URL after OAuth completes (same-token platforms only)
         Boolean headless = false; // Boolean | Enable headless mode (same-token platforms only)
         try {
@@ -361,7 +361,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **platform** | **String**| Platform to connect ads for. Only platforms with ads support are accepted. | [enum: facebook, instagram, linkedin, tiktok, twitter, pinterest, googleads] |
 | **profileId** | **String**| Your Zernio profile ID | |
-| **accountId** | **String**| Existing SocialAccount ID. Required for separate-token platforms (tiktok, twitter). Ignored for same-token and ads-only platforms. | [optional] |
+| **accountId** | **String**| Existing SocialAccount ID. Required for separate-token platforms (tiktok, twitter). Ignored for same-token and standalone platforms. | [optional] |
 | **redirectUrl** | **URI**| Custom redirect URL after OAuth completes (same-token platforms only) | [optional] |
 | **headless** | **Boolean**| Enable headless mode (same-token platforms only) | [optional] [default to false] |
 
