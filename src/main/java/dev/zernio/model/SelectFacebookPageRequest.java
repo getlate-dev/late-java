@@ -41,7 +41,7 @@ import dev.zernio.ApiClient;
   SelectFacebookPageRequest.JSON_PROPERTY_USER_PROFILE,
   SelectFacebookPageRequest.JSON_PROPERTY_REDIRECT_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-10T16:29:54.019260460Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-12T10:13:16.072711654Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class SelectFacebookPageRequest {
   public static final String JSON_PROPERTY_PROFILE_ID = "profileId";
   @javax.annotation.Nonnull
@@ -56,7 +56,7 @@ public class SelectFacebookPageRequest {
   private String tempToken;
 
   public static final String JSON_PROPERTY_USER_PROFILE = "userProfile";
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private SelectFacebookPageRequestUserProfile userProfile;
 
   public static final String JSON_PROPERTY_REDIRECT_URL = "redirect_url";
@@ -138,7 +138,7 @@ public class SelectFacebookPageRequest {
   }
 
 
-  public SelectFacebookPageRequest userProfile(@javax.annotation.Nullable SelectFacebookPageRequestUserProfile userProfile) {
+  public SelectFacebookPageRequest userProfile(@javax.annotation.Nonnull SelectFacebookPageRequestUserProfile userProfile) {
     this.userProfile = userProfile;
     return this;
   }
@@ -147,17 +147,17 @@ public class SelectFacebookPageRequest {
    * Get userProfile
    * @return userProfile
    */
-  @javax.annotation.Nullable
-  @JsonProperty(value = JSON_PROPERTY_USER_PROFILE, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nonnull
+  @JsonProperty(value = JSON_PROPERTY_USER_PROFILE, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SelectFacebookPageRequestUserProfile getUserProfile() {
     return userProfile;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_USER_PROFILE, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUserProfile(@javax.annotation.Nullable SelectFacebookPageRequestUserProfile userProfile) {
+  @JsonProperty(value = JSON_PROPERTY_USER_PROFILE, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setUserProfile(@javax.annotation.Nonnull SelectFacebookPageRequestUserProfile userProfile) {
     this.userProfile = userProfile;
   }
 

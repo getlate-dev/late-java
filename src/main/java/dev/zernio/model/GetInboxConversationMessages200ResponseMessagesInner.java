@@ -52,7 +52,7 @@ import dev.zernio.ApiClient;
   GetInboxConversationMessages200ResponseMessagesInner.JSON_PROPERTY_STORY_REPLY,
   GetInboxConversationMessages200ResponseMessagesInner.JSON_PROPERTY_IS_STORY_MENTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-10T16:29:54.019260460Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-12T10:13:16.072711654Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetInboxConversationMessages200ResponseMessagesInner {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable

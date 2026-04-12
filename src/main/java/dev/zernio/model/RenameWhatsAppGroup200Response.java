@@ -37,7 +37,7 @@ import dev.zernio.ApiClient;
   RenameWhatsAppGroup200Response.JSON_PROPERTY_MESSAGE,
   RenameWhatsAppGroup200Response.JSON_PROPERTY_MODIFIED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-10T16:29:54.019260460Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-12T10:13:16.072711654Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class RenameWhatsAppGroup200Response {
   public static final String JSON_PROPERTY_SUCCESS = "success";
   @javax.annotation.Nullable
