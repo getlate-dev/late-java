@@ -4,7 +4,7 @@ Zernio API
 
 - API version: 1.0.1
 
-- Build date: 2026-04-13T11:13:13.015951855Z[Etc/UTC]
+- Build date: 2026-04-13T11:23:03.545448702Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -658,7 +658,6 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
- - [Account](docs/Account.md)
  - [AccountGetResponse](docs/AccountGetResponse.md)
  - [AccountWithFollowerStats](docs/AccountWithFollowerStats.md)
  - [AccountWithFollowerStatsAllOfAccountStats](docs/AccountWithFollowerStatsAllOfAccountStats.md)
@@ -729,7 +728,6 @@ Class | Method | HTTP request | Description
  - [ConnectionLogContext](docs/ConnectionLogContext.md)
  - [ConnectionLogError](docs/ConnectionLogError.md)
  - [ConnectionLogSuccess](docs/ConnectionLogSuccess.md)
- - [Conversation](docs/Conversation.md)
  - [CreateAccountGroup201Response](docs/CreateAccountGroup201Response.md)
  - [CreateAccountGroupRequest](docs/CreateAccountGroupRequest.md)
  - [CreateAdAudience201Response](docs/CreateAdAudience201Response.md)
@@ -1032,6 +1030,12 @@ Class | Method | HTTP request | Description
  - [ImportWhatsAppContacts200ResponseSummary](docs/ImportWhatsAppContacts200ResponseSummary.md)
  - [ImportWhatsAppContactsRequest](docs/ImportWhatsAppContactsRequest.md)
  - [ImportWhatsAppContactsRequestContactsInner](docs/ImportWhatsAppContactsRequestContactsInner.md)
+ - [InboxWebhookAccount](docs/InboxWebhookAccount.md)
+ - [InboxWebhookConversation](docs/InboxWebhookConversation.md)
+ - [InboxWebhookMessage](docs/InboxWebhookMessage.md)
+ - [InboxWebhookMessageAttachmentsInner](docs/InboxWebhookMessageAttachmentsInner.md)
+ - [InboxWebhookMessageSender](docs/InboxWebhookMessageSender.md)
+ - [InboxWebhookMessageSenderInstagramProfile](docs/InboxWebhookMessageSenderInstagramProfile.md)
  - [InitiateTelegramConnect200Response](docs/InitiateTelegramConnect200Response.md)
  - [InitiateTelegramConnect200ResponseAccount](docs/InitiateTelegramConnect200ResponseAccount.md)
  - [InitiateTelegramConnectRequest](docs/InitiateTelegramConnectRequest.md)
@@ -1132,7 +1136,6 @@ Class | Method | HTTP request | Description
  - [ListWhatsAppGroupJoinRequests200ResponseJoinRequestsInner](docs/ListWhatsAppGroupJoinRequests200ResponseJoinRequestsInner.md)
  - [MediaItem](docs/MediaItem.md)
  - [MediaUploadResponse](docs/MediaUploadResponse.md)
- - [Message](docs/Message.md)
  - [Money](docs/Money.md)
  - [Pagination](docs/Pagination.md)
  - [Pending](docs/Pending.md)
@@ -1401,7 +1404,6 @@ Class | Method | HTTP request | Description
  - [WebhookPayloadMessageEdited](docs/WebhookPayloadMessageEdited.md)
  - [WebhookPayloadMessageEditedEditHistoryInner](docs/WebhookPayloadMessageEditedEditHistoryInner.md)
  - [WebhookPayloadMessageMessage](docs/WebhookPayloadMessageMessage.md)
- - [WebhookPayloadMessageMessageAttachmentsInner](docs/WebhookPayloadMessageMessageAttachmentsInner.md)
  - [WebhookPayloadMessageMessageSender](docs/WebhookPayloadMessageMessageSender.md)
  - [WebhookPayloadMessageMessageSenderInstagramProfile](docs/WebhookPayloadMessageMessageSenderInstagramProfile.md)
  - [WebhookPayloadMessageMetadata](docs/WebhookPayloadMessageMetadata.md)

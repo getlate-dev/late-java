@@ -16795,6 +16795,136 @@ components:
       - id
       - post
       - timestamp
+    InboxWebhookMessage:
+      description: The `message` object included in inbox webhook payloads.
+      example:
+        attachments:
+        - payload: "{}"
+          type: type
+          url: url
+        - payload: "{}"
+          type: type
+          url: url
+        sender:
+          name: name
+          id: id
+          picture: picture
+          instagramProfile:
+            isFollowing: true
+            isVerified: true
+            isFollower: true
+            followerCount: 0
+          username: username
+        conversationId: conversationId
+        isRead: true
+        id: id
+        text: text
+        sentAt: 2000-01-23T04:56:07.000+00:00
+        platformMessageId: platformMessageId
+        platform: instagram
+        direction: incoming
+      properties:
+        id:
+          description: Internal message ID
+          type: string
+        conversationId:
+          description: Internal conversation ID
+          type: string
+        platform:
+          enum:
+          - instagram
+          - facebook
+          - telegram
+          - whatsapp
+          type: string
+        platformMessageId:
+          description: Platform's message ID
+          type: string
+        direction:
+          enum:
+          - incoming
+          - outgoing
+          type: string
+        text:
+          description: Message text content (retained on deleted messages for API
+            consumers; Zernio dashboard UI hides this)
+          type: string
+          nullable: true
+        attachments:
+          items:
+            $ref: "#/components/schemas/InboxWebhookMessage_attachments_inner"
+          type: array
+        sender:
+          $ref: "#/components/schemas/InboxWebhookMessage_sender"
+        sentAt:
+          format: date-time
+          type: string
+        isRead:
+          type: boolean
+      required:
+      - attachments
+      - conversationId
+      - direction
+      - id
+      - isRead
+      - platform
+      - platformMessageId
+      - sender
+      - sentAt
+      - text
+    InboxWebhookConversation:
+      description: The `conversation` context included in inbox webhook payloads.
+      example:
+        participantId: participantId
+        platformConversationId: platformConversationId
+        participantPicture: participantPicture
+        id: id
+        participantName: participantName
+        participantUsername: participantUsername
+        status: active
+      properties:
+        id:
+          type: string
+        platformConversationId:
+          type: string
+        participantId:
+          type: string
+        participantName:
+          type: string
+        participantUsername:
+          type: string
+        participantPicture:
+          type: string
+        status:
+          enum:
+          - active
+          - archived
+          type: string
+      required:
+      - id
+      - platformConversationId
+      - status
+    InboxWebhookAccount:
+      description: The `account` context included in inbox webhook payloads.
+      example:
+        displayName: displayName
+        id: id
+        platform: platform
+        username: username
+      properties:
+        id:
+          description: Social account ID
+          type: string
+        platform:
+          type: string
+        username:
+          type: string
+        displayName:
+          type: string
+      required:
+      - id
+      - platform
+      - username
     WebhookPayloadMessage:
       description: Webhook payload for message received events
       example:
@@ -17006,7 +17136,7 @@ components:
           id: id
           platform: platform
           username: username
-        editCount: 0
+        editCount: 6
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -17016,7 +17146,7 @@ components:
           - message.edited
           type: string
         message:
-          $ref: "#/components/schemas/WebhookPayloadMessage/properties/message"
+          $ref: "#/components/schemas/InboxWebhookMessage"
         editHistory:
           description: "Prior versions of the message, oldest first."
           items:
@@ -17030,9 +17160,9 @@ components:
           format: date-time
           type: string
         conversation:
-          $ref: "#/components/schemas/WebhookPayloadMessage/properties/conversation"
+          $ref: "#/components/schemas/InboxWebhookConversation"
         account:
-          $ref: "#/components/schemas/WebhookPayloadMessage/properties/account"
+          $ref: "#/components/schemas/InboxWebhookAccount"
         timestamp:
           format: date-time
           type: string
@@ -17109,14 +17239,14 @@ components:
           - message.deleted
           type: string
         message:
-          $ref: "#/components/schemas/WebhookPayloadMessage/properties/message"
+          $ref: "#/components/schemas/InboxWebhookMessage"
         deletedAt:
           format: date-time
           type: string
         conversation:
-          $ref: "#/components/schemas/WebhookPayloadMessage/properties/conversation"
+          $ref: "#/components/schemas/InboxWebhookConversation"
         account:
-          $ref: "#/components/schemas/WebhookPayloadMessage/properties/account"
+          $ref: "#/components/schemas/InboxWebhookAccount"
         timestamp:
           format: date-time
           type: string
@@ -17197,7 +17327,7 @@ components:
           - message.failed
           type: string
         message:
-          $ref: "#/components/schemas/WebhookPayloadMessage/properties/message"
+          $ref: "#/components/schemas/InboxWebhookMessage"
         statusAt:
           description: When the platform reported this status.
           format: date-time
@@ -17205,9 +17335,9 @@ components:
         error:
           $ref: "#/components/schemas/WebhookPayloadMessageDeliveryStatus_error"
         conversation:
-          $ref: "#/components/schemas/WebhookPayloadMessage/properties/conversation"
+          $ref: "#/components/schemas/InboxWebhookConversation"
         account:
-          $ref: "#/components/schemas/WebhookPayloadMessage/properties/account"
+          $ref: "#/components/schemas/InboxWebhookAccount"
         timestamp:
           format: date-time
           type: string
@@ -21403,132 +21533,6 @@ components:
         latestAd:
           format: date-time
           type: string
-    message:
-      example:
-        attachments:
-        - payload: "{}"
-          type: type
-          url: url
-        - payload: "{}"
-          type: type
-          url: url
-        sender:
-          name: name
-          id: id
-          picture: picture
-          instagramProfile:
-            isFollowing: true
-            isVerified: true
-            isFollower: true
-            followerCount: 0
-          username: username
-        conversationId: conversationId
-        isRead: true
-        id: id
-        text: text
-        sentAt: 2000-01-23T04:56:07.000+00:00
-        platformMessageId: platformMessageId
-        platform: instagram
-        direction: incoming
-      properties:
-        id:
-          description: Internal message ID
-          type: string
-        conversationId:
-          description: Internal conversation ID
-          type: string
-        platform:
-          enum:
-          - instagram
-          - facebook
-          - telegram
-          - whatsapp
-          type: string
-        platformMessageId:
-          description: Platform's message ID
-          type: string
-        direction:
-          enum:
-          - incoming
-          - outgoing
-          type: string
-        text:
-          description: Message text content
-          type: string
-          nullable: true
-        attachments:
-          items:
-            $ref: "#/components/schemas/WebhookPayloadMessage_message_attachments_inner"
-          type: array
-        sender:
-          $ref: "#/components/schemas/WebhookPayloadMessage_message_sender"
-        sentAt:
-          format: date-time
-          type: string
-        isRead:
-          type: boolean
-      required:
-      - attachments
-      - conversationId
-      - direction
-      - id
-      - isRead
-      - platform
-      - platformMessageId
-      - sender
-      - sentAt
-      - text
-    conversation:
-      example:
-        participantId: participantId
-        platformConversationId: platformConversationId
-        participantPicture: participantPicture
-        id: id
-        participantName: participantName
-        participantUsername: participantUsername
-        status: active
-      properties:
-        id:
-          type: string
-        platformConversationId:
-          type: string
-        participantId:
-          type: string
-        participantName:
-          type: string
-        participantUsername:
-          type: string
-        participantPicture:
-          type: string
-        status:
-          enum:
-          - active
-          - archived
-          type: string
-      required:
-      - id
-      - platformConversationId
-      - status
-    account:
-      example:
-        displayName: displayName
-        id: id
-        platform: platform
-        username: username
-      properties:
-        id:
-          description: Social account ID
-          type: string
-        platform:
-          type: string
-        username:
-          type: string
-        displayName:
-          type: string
-      required:
-      - id
-      - platform
-      - username
     validatePostLength_request:
       properties:
         text:
@@ -38044,7 +38048,7 @@ components:
       - id
       - platform
       - username
-    WebhookPayloadMessage_message_attachments_inner:
+    InboxWebhookMessage_attachments_inner:
       example:
         payload: "{}"
         type: type
@@ -38062,6 +38066,50 @@ components:
       required:
       - type
       - url
+    InboxWebhookMessage_sender_instagramProfile:
+      description: Instagram profile data. Only present for Instagram conversations.
+      example:
+        isFollowing: true
+        isVerified: true
+        isFollower: true
+        followerCount: 0
+      properties:
+        isFollower:
+          type: boolean
+          nullable: true
+        isFollowing:
+          type: boolean
+          nullable: true
+        followerCount:
+          type: integer
+          nullable: true
+        isVerified:
+          type: boolean
+          nullable: true
+    InboxWebhookMessage_sender:
+      example:
+        name: name
+        id: id
+        picture: picture
+        instagramProfile:
+          isFollowing: true
+          isVerified: true
+          isFollower: true
+          followerCount: 0
+        username: username
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        username:
+          type: string
+        picture:
+          type: string
+        instagramProfile:
+          $ref: "#/components/schemas/InboxWebhookMessage_sender_instagramProfile"
+      required:
+      - id
     WebhookPayloadMessage_message_sender_instagramProfile:
       description: Instagram profile data for the sender. Only present for Instagram
         conversations.
@@ -38166,7 +38214,7 @@ components:
           nullable: true
         attachments:
           items:
-            $ref: "#/components/schemas/WebhookPayloadMessage_message_attachments_inner"
+            $ref: "#/components/schemas/InboxWebhookMessage_attachments_inner"
           type: array
         sender:
           $ref: "#/components/schemas/WebhookPayloadMessage_message_sender"
@@ -38326,7 +38374,7 @@ components:
           nullable: true
         attachments:
           items:
-            $ref: "#/components/schemas/WebhookPayloadMessage_message_attachments_inner"
+            $ref: "#/components/schemas/InboxWebhookMessage_attachments_inner"
           type: array
         sender:
           $ref: "#/components/schemas/WebhookPayloadMessageSent_message_sender"

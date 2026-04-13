@@ -46,7 +46,7 @@ import dev.zernio.ApiClient;
   CreateCommentAutomationRequest.JSON_PROPERTY_DM_MESSAGE,
   CreateCommentAutomationRequest.JSON_PROPERTY_COMMENT_REPLY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-13T11:13:13.015951855Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-13T11:23:03.545448702Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateCommentAutomationRequest {
   public static final String JSON_PROPERTY_PROFILE_ID = "profileId";
   @javax.annotation.Nonnull

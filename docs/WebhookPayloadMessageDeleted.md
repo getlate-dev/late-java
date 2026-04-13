@@ -10,10 +10,10 @@ Webhook payload for `message.deleted` events. Fires when the sender deletes (uns
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  |
 |**event** | [**EventEnum**](#EventEnum) |  |  |
-|**message** | [**WebhookPayloadMessageMessage**](WebhookPayloadMessageMessage.md) |  |  |
+|**message** | [**InboxWebhookMessage**](InboxWebhookMessage.md) |  |  |
 |**deletedAt** | **OffsetDateTime** |  |  |
-|**conversation** | [**WebhookPayloadMessageConversation**](WebhookPayloadMessageConversation.md) |  |  |
-|**account** | [**WebhookPayloadMessageAccount**](WebhookPayloadMessageAccount.md) |  |  |
+|**conversation** | [**InboxWebhookConversation**](InboxWebhookConversation.md) |  |  |
+|**account** | [**InboxWebhookAccount**](InboxWebhookAccount.md) |  |  |
 |**timestamp** | **OffsetDateTime** |  |  |
 
 

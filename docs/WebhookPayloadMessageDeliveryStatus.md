@@ -10,11 +10,11 @@ Shared payload for `message.delivered`, `message.read`, and `message.failed` eve
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  |
 |**event** | [**EventEnum**](#EventEnum) |  |  |
-|**message** | [**WebhookPayloadMessageMessage**](WebhookPayloadMessageMessage.md) |  |  |
+|**message** | [**InboxWebhookMessage**](InboxWebhookMessage.md) |  |  |
 |**statusAt** | **OffsetDateTime** | When the platform reported this status. |  |
 |**error** | [**WebhookPayloadMessageDeliveryStatusError**](WebhookPayloadMessageDeliveryStatusError.md) |  |  [optional] |
-|**conversation** | [**WebhookPayloadMessageConversation**](WebhookPayloadMessageConversation.md) |  |  |
-|**account** | [**WebhookPayloadMessageAccount**](WebhookPayloadMessageAccount.md) |  |  |
+|**conversation** | [**InboxWebhookConversation**](InboxWebhookConversation.md) |  |  |
+|**account** | [**InboxWebhookAccount**](InboxWebhookAccount.md) |  |  |
 |**timestamp** | **OffsetDateTime** |  |  |
 
 

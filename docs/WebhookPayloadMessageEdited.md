@@ -10,12 +10,12 @@ Webhook payload for `message.edited` events. Fires when the sender edits a previ
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  |
 |**event** | [**EventEnum**](#EventEnum) |  |  |
-|**message** | [**WebhookPayloadMessageMessage**](WebhookPayloadMessageMessage.md) |  |  |
+|**message** | [**InboxWebhookMessage**](InboxWebhookMessage.md) |  |  |
 |**editHistory** | [**List&lt;WebhookPayloadMessageEditedEditHistoryInner&gt;**](WebhookPayloadMessageEditedEditHistoryInner.md) | Prior versions of the message, oldest first. |  |
 |**editCount** | **Integer** | Total number of edits applied to this message. |  |
 |**editedAt** | **OffsetDateTime** | When the most recent edit happened. |  |
-|**conversation** | [**WebhookPayloadMessageConversation**](WebhookPayloadMessageConversation.md) |  |  |
-|**account** | [**WebhookPayloadMessageAccount**](WebhookPayloadMessageAccount.md) |  |  |
+|**conversation** | [**InboxWebhookConversation**](InboxWebhookConversation.md) |  |  |
+|**account** | [**InboxWebhookAccount**](InboxWebhookAccount.md) |  |  |
 |**timestamp** | **OffsetDateTime** |  |  |
 
 
