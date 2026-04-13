@@ -5,6 +5,7 @@ README.md
 api/openapi.yaml
 build.gradle
 build.sbt
+docs/Account.md
 docs/AccountGetResponse.md
 docs/AccountGroupsApi.md
 docs/AccountSettingsApi.md
@@ -88,6 +89,7 @@ docs/ConnectionLogContext.md
 docs/ConnectionLogError.md
 docs/ConnectionLogSuccess.md
 docs/ContactsApi.md
+docs/Conversation.md
 docs/CreateAccountGroup201Response.md
 docs/CreateAccountGroupRequest.md
 docs/CreateAdAudience201Response.md
@@ -275,6 +277,9 @@ docs/GetInboxConversation200ResponseData.md
 docs/GetInboxConversationMessages200Response.md
 docs/GetInboxConversationMessages200ResponseMessagesInner.md
 docs/GetInboxConversationMessages200ResponseMessagesInnerAttachmentsInner.md
+docs/GetInboxConversationMessages200ResponseMessagesInnerDeliveryError.md
+docs/GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInner.md
+docs/GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInnerAttachmentsInner.md
 docs/GetInboxPostComments200Response.md
 docs/GetInboxPostComments200ResponseCommentsInner.md
 docs/GetInboxPostComments200ResponseCommentsInnerFrom.md
@@ -498,6 +503,7 @@ docs/LogsApi.md
 docs/MediaApi.md
 docs/MediaItem.md
 docs/MediaUploadResponse.md
+docs/Message.md
 docs/MessagesApi.md
 docs/Money.md
 docs/Pagination.md
@@ -772,6 +778,11 @@ docs/WebhookPayloadCommentPost.md
 docs/WebhookPayloadMessage.md
 docs/WebhookPayloadMessageAccount.md
 docs/WebhookPayloadMessageConversation.md
+docs/WebhookPayloadMessageDeleted.md
+docs/WebhookPayloadMessageDeliveryStatus.md
+docs/WebhookPayloadMessageDeliveryStatusError.md
+docs/WebhookPayloadMessageEdited.md
+docs/WebhookPayloadMessageEditedEditHistoryInner.md
 docs/WebhookPayloadMessageMessage.md
 docs/WebhookPayloadMessageMessageAttachmentsInner.md
 docs/WebhookPayloadMessageMessageSender.md
@@ -867,6 +878,7 @@ src/main/java/dev/zernio/api/WhatsAppApi.java
 src/main/java/dev/zernio/api/WhatsAppFlowsApi.java
 src/main/java/dev/zernio/api/WhatsAppPhoneNumbersApi.java
 src/main/java/dev/zernio/model/AbstractOpenApiSchema.java
+src/main/java/dev/zernio/model/Account.java
 src/main/java/dev/zernio/model/AccountGetResponse.java
 src/main/java/dev/zernio/model/AccountWithFollowerStats.java
 src/main/java/dev/zernio/model/AccountWithFollowerStatsAllOfAccountStats.java
@@ -937,6 +949,7 @@ src/main/java/dev/zernio/model/ConnectionLog.java
 src/main/java/dev/zernio/model/ConnectionLogContext.java
 src/main/java/dev/zernio/model/ConnectionLogError.java
 src/main/java/dev/zernio/model/ConnectionLogSuccess.java
+src/main/java/dev/zernio/model/Conversation.java
 src/main/java/dev/zernio/model/CreateAccountGroup201Response.java
 src/main/java/dev/zernio/model/CreateAccountGroupRequest.java
 src/main/java/dev/zernio/model/CreateAdAudience201Response.java
@@ -1123,6 +1136,9 @@ src/main/java/dev/zernio/model/GetInboxConversation200ResponseData.java
 src/main/java/dev/zernio/model/GetInboxConversationMessages200Response.java
 src/main/java/dev/zernio/model/GetInboxConversationMessages200ResponseMessagesInner.java
 src/main/java/dev/zernio/model/GetInboxConversationMessages200ResponseMessagesInnerAttachmentsInner.java
+src/main/java/dev/zernio/model/GetInboxConversationMessages200ResponseMessagesInnerDeliveryError.java
+src/main/java/dev/zernio/model/GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInner.java
+src/main/java/dev/zernio/model/GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInnerAttachmentsInner.java
 src/main/java/dev/zernio/model/GetInboxPostComments200Response.java
 src/main/java/dev/zernio/model/GetInboxPostComments200ResponseCommentsInner.java
 src/main/java/dev/zernio/model/GetInboxPostComments200ResponseCommentsInnerFrom.java
@@ -1336,6 +1352,7 @@ src/main/java/dev/zernio/model/ListWhatsAppGroupJoinRequests200Response.java
 src/main/java/dev/zernio/model/ListWhatsAppGroupJoinRequests200ResponseJoinRequestsInner.java
 src/main/java/dev/zernio/model/MediaItem.java
 src/main/java/dev/zernio/model/MediaUploadResponse.java
+src/main/java/dev/zernio/model/Message.java
 src/main/java/dev/zernio/model/Money.java
 src/main/java/dev/zernio/model/Pagination.java
 src/main/java/dev/zernio/model/Pending.java
@@ -1598,6 +1615,11 @@ src/main/java/dev/zernio/model/WebhookPayloadCommentPost.java
 src/main/java/dev/zernio/model/WebhookPayloadMessage.java
 src/main/java/dev/zernio/model/WebhookPayloadMessageAccount.java
 src/main/java/dev/zernio/model/WebhookPayloadMessageConversation.java
+src/main/java/dev/zernio/model/WebhookPayloadMessageDeleted.java
+src/main/java/dev/zernio/model/WebhookPayloadMessageDeliveryStatus.java
+src/main/java/dev/zernio/model/WebhookPayloadMessageDeliveryStatusError.java
+src/main/java/dev/zernio/model/WebhookPayloadMessageEdited.java
+src/main/java/dev/zernio/model/WebhookPayloadMessageEditedEditHistoryInner.java
 src/main/java/dev/zernio/model/WebhookPayloadMessageMessage.java
 src/main/java/dev/zernio/model/WebhookPayloadMessageMessageAttachmentsInner.java
 src/main/java/dev/zernio/model/WebhookPayloadMessageMessageSender.java
@@ -1628,3 +1650,14 @@ src/main/java/dev/zernio/model/YouTubeDemographicsResponseDemographicsValueInner
 src/main/java/dev/zernio/model/YouTubePlatformData.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponseScopeStatus.java
+src/test/java/dev/zernio/model/AccountTest.java
+src/test/java/dev/zernio/model/ConversationTest.java
+src/test/java/dev/zernio/model/GetInboxConversationMessages200ResponseMessagesInnerDeliveryErrorTest.java
+src/test/java/dev/zernio/model/GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInnerAttachmentsInnerTest.java
+src/test/java/dev/zernio/model/GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInnerTest.java
+src/test/java/dev/zernio/model/MessageTest.java
+src/test/java/dev/zernio/model/WebhookPayloadMessageDeletedTest.java
+src/test/java/dev/zernio/model/WebhookPayloadMessageDeliveryStatusErrorTest.java
+src/test/java/dev/zernio/model/WebhookPayloadMessageDeliveryStatusTest.java
+src/test/java/dev/zernio/model/WebhookPayloadMessageEditedEditHistoryInnerTest.java
+src/test/java/dev/zernio/model/WebhookPayloadMessageEditedTest.java

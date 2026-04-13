@@ -40,7 +40,7 @@ import dev.zernio.ApiClient;
   GetLinkedInPostReactions200ResponseReactionsInner.JSON_PROPERTY_REACTED_AT,
   GetLinkedInPostReactions200ResponseReactionsInner.JSON_PROPERTY_FROM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-12T10:13:16.072711654Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-13T10:07:07.330013060Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetLinkedInPostReactions200ResponseReactionsInner {
   public static final String JSON_PROPERTY_REACTION_TYPE = "reactionType";
   @javax.annotation.Nullable

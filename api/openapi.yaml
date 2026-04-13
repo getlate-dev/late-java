@@ -8320,6 +8320,11 @@ paths:
           - account.disconnected
           - message.received
           - message.sent
+          - message.edited
+          - message.deleted
+          - message.delivered
+          - message.read
+          - message.failed
           - comment.received
           - webhook.test
           type: string
@@ -16533,6 +16538,11 @@ components:
             - account.disconnected
             - message.received
             - message.sent
+            - message.edited
+            - message.deleted
+            - message.delivered
+            - message.read
+            - message.failed
             - comment.received
             type: string
           type: array
@@ -16588,6 +16598,11 @@ components:
           - account.disconnected
           - message.received
           - message.sent
+          - message.edited
+          - message.deleted
+          - message.delivered
+          - message.read
+          - message.failed
           - comment.received
           - webhook.test
           type: string
@@ -16920,6 +16935,133 @@ components:
       - event
       - id
       - message
+      - timestamp
+    WebhookPayloadMessageEdited:
+      description: |
+        Webhook payload for `message.edited` events. Fires when the sender
+        edits a previously-sent message. Supported platforms: Instagram,
+        Facebook Messenger, Telegram. The `message` object reflects the
+        LATEST state; `editHistory` contains every prior version in order
+        (oldest first), so the last entry is the version immediately before
+        the current content.
+      properties:
+        id:
+          type: string
+        event:
+          enum:
+          - message.edited
+          type: string
+        message:
+          $ref: "#/components/schemas/WebhookPayloadMessage/properties/message"
+        editHistory:
+          description: "Prior versions of the message, oldest first."
+          items:
+            $ref: "#/components/schemas/WebhookPayloadMessageEdited_editHistory_inner"
+          type: array
+        editCount:
+          description: Total number of edits applied to this message.
+          type: integer
+        editedAt:
+          description: When the most recent edit happened.
+          format: date-time
+          type: string
+        conversation:
+          $ref: "#/components/schemas/WebhookPayloadMessage/properties/conversation"
+        account:
+          $ref: "#/components/schemas/WebhookPayloadMessage/properties/account"
+        timestamp:
+          format: date-time
+          type: string
+      required:
+      - account
+      - conversation
+      - editCount
+      - editHistory
+      - editedAt
+      - event
+      - id
+      - message
+      - timestamp
+    WebhookPayloadMessageDeleted:
+      description: |
+        Webhook payload for `message.deleted` events. Fires when the sender
+        deletes (unsends) a message. Supported platforms: Instagram (incoming
+        unsend) and WhatsApp (when the business deletes an outgoing message
+        via the Cloud API).
+
+        The `message.text` and `message.attachments` fields retain the content
+        that existed before the delete. The Zernio dashboard UI does not show
+        this content, but authorized API consumers may access it for
+        moderation, compliance, or archival use cases.
+      properties:
+        id:
+          type: string
+        event:
+          enum:
+          - message.deleted
+          type: string
+        message:
+          $ref: "#/components/schemas/WebhookPayloadMessage/properties/message"
+        deletedAt:
+          format: date-time
+          type: string
+        conversation:
+          $ref: "#/components/schemas/WebhookPayloadMessage/properties/conversation"
+        account:
+          $ref: "#/components/schemas/WebhookPayloadMessage/properties/account"
+        timestamp:
+          format: date-time
+          type: string
+      required:
+      - account
+      - conversation
+      - deletedAt
+      - event
+      - id
+      - message
+      - timestamp
+    WebhookPayloadMessageDeliveryStatus:
+      description: |
+        Shared payload for `message.delivered`, `message.read`, and
+        `message.failed` events. Fires when the platform reports a new
+        delivery state for an outgoing message.
+
+        Platform support:
+          * `message.delivered` — WhatsApp, Facebook Messenger.
+          * `message.read`      — WhatsApp, Facebook Messenger, Instagram.
+          * `message.failed`    — WhatsApp only (other platforms don't expose
+            per-message failure via webhook).
+      properties:
+        id:
+          type: string
+        event:
+          enum:
+          - message.delivered
+          - message.read
+          - message.failed
+          type: string
+        message:
+          $ref: "#/components/schemas/WebhookPayloadMessage/properties/message"
+        statusAt:
+          description: When the platform reported this status.
+          format: date-time
+          type: string
+        error:
+          $ref: "#/components/schemas/WebhookPayloadMessageDeliveryStatus_error"
+        conversation:
+          $ref: "#/components/schemas/WebhookPayloadMessage/properties/conversation"
+        account:
+          $ref: "#/components/schemas/WebhookPayloadMessage/properties/account"
+        timestamp:
+          format: date-time
+          type: string
+      required:
+      - account
+      - conversation
+      - event
+      - id
+      - message
+      - statusAt
       - timestamp
     WebhookPayloadTest:
       description: Webhook payload for test deliveries
@@ -21105,6 +21247,132 @@ components:
         latestAd:
           format: date-time
           type: string
+    message:
+      example:
+        attachments:
+        - payload: "{}"
+          type: type
+          url: url
+        - payload: "{}"
+          type: type
+          url: url
+        sender:
+          name: name
+          id: id
+          picture: picture
+          instagramProfile:
+            isFollowing: true
+            isVerified: true
+            isFollower: true
+            followerCount: 0
+          username: username
+        conversationId: conversationId
+        isRead: true
+        id: id
+        text: text
+        sentAt: 2000-01-23T04:56:07.000+00:00
+        platformMessageId: platformMessageId
+        platform: instagram
+        direction: incoming
+      properties:
+        id:
+          description: Internal message ID
+          type: string
+        conversationId:
+          description: Internal conversation ID
+          type: string
+        platform:
+          enum:
+          - instagram
+          - facebook
+          - telegram
+          - whatsapp
+          type: string
+        platformMessageId:
+          description: Platform's message ID
+          type: string
+        direction:
+          enum:
+          - incoming
+          - outgoing
+          type: string
+        text:
+          description: Message text content
+          type: string
+          nullable: true
+        attachments:
+          items:
+            $ref: "#/components/schemas/WebhookPayloadMessage_message_attachments_inner"
+          type: array
+        sender:
+          $ref: "#/components/schemas/WebhookPayloadMessage_message_sender"
+        sentAt:
+          format: date-time
+          type: string
+        isRead:
+          type: boolean
+      required:
+      - attachments
+      - conversationId
+      - direction
+      - id
+      - isRead
+      - platform
+      - platformMessageId
+      - sender
+      - sentAt
+      - text
+    conversation:
+      example:
+        participantId: participantId
+        platformConversationId: platformConversationId
+        participantPicture: participantPicture
+        id: id
+        participantName: participantName
+        participantUsername: participantUsername
+        status: active
+      properties:
+        id:
+          type: string
+        platformConversationId:
+          type: string
+        participantId:
+          type: string
+        participantName:
+          type: string
+        participantUsername:
+          type: string
+        participantPicture:
+          type: string
+        status:
+          enum:
+          - active
+          - archived
+          type: string
+      required:
+      - id
+      - platformConversationId
+      - status
+    account:
+      example:
+        displayName: displayName
+        id: id
+        platform: platform
+        username: username
+      properties:
+        id:
+          description: Social account ID
+          type: string
+        platform:
+          type: string
+        username:
+          type: string
+        displayName:
+          type: string
+      required:
+      - id
+      - platform
+      - username
     validatePostLength_request:
       properties:
         text:
@@ -29280,6 +29548,54 @@ components:
         previewUrl:
           type: string
           nullable: true
+    getInboxConversationMessages_200_response_messages_inner_editHistory_inner_attachments_inner:
+      example:
+        payload: "{}"
+        type: type
+        url: url
+      properties:
+        type:
+          type: string
+        url:
+          type: string
+        payload:
+          type: object
+    getInboxConversationMessages_200_response_messages_inner_editHistory_inner:
+      example:
+        attachments:
+        - payload: "{}"
+          type: type
+          url: url
+        - payload: "{}"
+          type: type
+          url: url
+        editedAt: 2000-01-23T04:56:07.000+00:00
+        text: text
+      properties:
+        text:
+          type: string
+          nullable: true
+        attachments:
+          items:
+            $ref: "#/components/schemas/getInboxConversationMessages_200_response_messages_inner_editHistory_inner_attachments_inner"
+          type: array
+        editedAt:
+          format: date-time
+          type: string
+    getInboxConversationMessages_200_response_messages_inner_deliveryError:
+      description: Populated when `deliveryStatus === "failed"`.
+      example:
+        code: 6
+        title: title
+        message: message
+      properties:
+        code:
+          type: integer
+        title:
+          type: string
+        message:
+          type: string
+      nullable: true
     getInboxConversationMessages_200_response_messages_inner:
       example:
         attachments:
@@ -29293,19 +29609,51 @@ components:
           id: id
           type: image
           url: url
-        storyReply: true
-        conversationId: conversationId
         subject: subject
-        message: message
+        isEdited: true
         platform: platform
-        accountId: accountId
         createdAt: 2000-01-23T04:56:07.000+00:00
         senderId: senderId
         senderName: senderName
+        isDeleted: true
         isStoryMention: true
         senderVerifiedType: blue
+        editHistory:
+        - attachments:
+          - payload: "{}"
+            type: type
+            url: url
+          - payload: "{}"
+            type: type
+            url: url
+          editedAt: 2000-01-23T04:56:07.000+00:00
+          text: text
+        - attachments:
+          - payload: "{}"
+            type: type
+            url: url
+          - payload: "{}"
+            type: type
+            url: url
+          editedAt: 2000-01-23T04:56:07.000+00:00
+          text: text
         id: id
         direction: incoming
+        editCount: 0
+        storyReply: true
+        conversationId: conversationId
+        sentAt: 2000-01-23T04:56:07.000+00:00
+        message: message
+        readAt: 2000-01-23T04:56:07.000+00:00
+        deliveredAt: 2000-01-23T04:56:07.000+00:00
+        deliveryError:
+          code: 6
+          title: title
+          message: message
+        accountId: accountId
+        deletedAt: 2000-01-23T04:56:07.000+00:00
+        editedAt: 2000-01-23T04:56:07.000+00:00
+        deliveryStatus: sent
       properties:
         id:
           type: string
@@ -29355,6 +29703,57 @@ components:
           description: Instagram story mention
           type: boolean
           nullable: true
+        isEdited:
+          description: True if the sender has edited this message at least once.
+          type: boolean
+        editedAt:
+          description: When the most recent edit happened.
+          format: date-time
+          type: string
+          nullable: true
+        editCount:
+          description: Total number of edits applied.
+          type: integer
+        editHistory:
+          description: "Every prior version of the message, oldest first."
+          items:
+            $ref: "#/components/schemas/getInboxConversationMessages_200_response_messages_inner_editHistory_inner"
+          type: array
+        isDeleted:
+          description: True if the sender has deleted (unsent) this message. The original
+            `message` and `attachments` fields remain populated.
+          type: boolean
+        deletedAt:
+          format: date-time
+          type: string
+          nullable: true
+        deliveryStatus:
+          description: Lifecycle status for outgoing messages. Not all platforms emit
+            every state (see webhook support matrix).
+          enum:
+          - sent
+          - delivered
+          - read
+          - failed
+          - deleted
+          type: string
+          nullable: true
+        deliveredAt:
+          format: date-time
+          type: string
+          nullable: true
+        readAt:
+          format: date-time
+          type: string
+          nullable: true
+        sentAt:
+          description: Original send time for outgoing messages (used for Messenger
+            watermark queries).
+          format: date-time
+          type: string
+          nullable: true
+        deliveryError:
+          $ref: "#/components/schemas/getInboxConversationMessages_200_response_messages_inner_deliveryError"
     getInboxConversationMessages_200_response:
       example:
         lastUpdated: 2000-01-23T04:56:07.000+00:00
@@ -29370,19 +29769,51 @@ components:
             id: id
             type: image
             url: url
-          storyReply: true
-          conversationId: conversationId
           subject: subject
-          message: message
+          isEdited: true
           platform: platform
-          accountId: accountId
           createdAt: 2000-01-23T04:56:07.000+00:00
           senderId: senderId
           senderName: senderName
+          isDeleted: true
           isStoryMention: true
           senderVerifiedType: blue
+          editHistory:
+          - attachments:
+            - payload: "{}"
+              type: type
+              url: url
+            - payload: "{}"
+              type: type
+              url: url
+            editedAt: 2000-01-23T04:56:07.000+00:00
+            text: text
+          - attachments:
+            - payload: "{}"
+              type: type
+              url: url
+            - payload: "{}"
+              type: type
+              url: url
+            editedAt: 2000-01-23T04:56:07.000+00:00
+            text: text
           id: id
           direction: incoming
+          editCount: 0
+          storyReply: true
+          conversationId: conversationId
+          sentAt: 2000-01-23T04:56:07.000+00:00
+          message: message
+          readAt: 2000-01-23T04:56:07.000+00:00
+          deliveredAt: 2000-01-23T04:56:07.000+00:00
+          deliveryError:
+            code: 6
+            title: title
+            message: message
+          accountId: accountId
+          deletedAt: 2000-01-23T04:56:07.000+00:00
+          editedAt: 2000-01-23T04:56:07.000+00:00
+          deliveryStatus: sent
         - attachments:
           - filename: filename
             previewUrl: previewUrl
@@ -29394,19 +29825,51 @@ components:
             id: id
             type: image
             url: url
-          storyReply: true
-          conversationId: conversationId
           subject: subject
-          message: message
+          isEdited: true
           platform: platform
-          accountId: accountId
           createdAt: 2000-01-23T04:56:07.000+00:00
           senderId: senderId
           senderName: senderName
+          isDeleted: true
           isStoryMention: true
           senderVerifiedType: blue
+          editHistory:
+          - attachments:
+            - payload: "{}"
+              type: type
+              url: url
+            - payload: "{}"
+              type: type
+              url: url
+            editedAt: 2000-01-23T04:56:07.000+00:00
+            text: text
+          - attachments:
+            - payload: "{}"
+              type: type
+              url: url
+            - payload: "{}"
+              type: type
+              url: url
+            editedAt: 2000-01-23T04:56:07.000+00:00
+            text: text
           id: id
           direction: incoming
+          editCount: 0
+          storyReply: true
+          conversationId: conversationId
+          sentAt: 2000-01-23T04:56:07.000+00:00
+          message: message
+          readAt: 2000-01-23T04:56:07.000+00:00
+          deliveredAt: 2000-01-23T04:56:07.000+00:00
+          deliveryError:
+            code: 6
+            title: title
+            message: message
+          accountId: accountId
+          deletedAt: 2000-01-23T04:56:07.000+00:00
+          editedAt: 2000-01-23T04:56:07.000+00:00
+          deliveryStatus: sent
         status: status
       properties:
         status:
@@ -37727,6 +38190,32 @@ components:
       - sender
       - sentAt
       - text
+    WebhookPayloadMessageEdited_editHistory_inner:
+      properties:
+        text:
+          type: string
+          nullable: true
+        attachments:
+          items:
+            $ref: "#/components/schemas/getInboxConversationMessages_200_response_messages_inner_editHistory_inner_attachments_inner"
+          type: array
+        editedAt:
+          format: date-time
+          type: string
+      required:
+      - attachments
+      - editedAt
+      - text
+    WebhookPayloadMessageDeliveryStatus_error:
+      description: Populated only on `message.failed`.
+      properties:
+        code:
+          type: integer
+        title:
+          type: string
+        message:
+          type: string
+      nullable: true
     PostLog_postId_oneOf:
       description: Populated post reference
       properties:
@@ -38433,6 +38922,11 @@ x-documentation:
     - `account.disconnected` - Social account disconnected (token expired)
     - `message.received` - New DM received
     - `message.sent` - DM sent via the API
+    - `message.edited` - A sender edited a message (Instagram, Messenger, Telegram)
+    - `message.deleted` - A sender deleted ("unsent") a message (Instagram; WhatsApp when the business deletes a sent message)
+    - `message.delivered` - An outgoing message was delivered (WhatsApp, Messenger)
+    - `message.read` - An outgoing message was read by the recipient (WhatsApp, Messenger, Instagram)
+    - `message.failed` - An outgoing message failed delivery (WhatsApp)
     - `comment.received` - New comment received on a post
     - `webhook.test` - Test event sent when verifying a webhook endpoint
 

@@ -21,6 +21,17 @@
 |**subject** | **String** | Reddit message subject |  [optional] |
 |**storyReply** | **Boolean** | Instagram story reply |  [optional] |
 |**isStoryMention** | **Boolean** | Instagram story mention |  [optional] |
+|**isEdited** | **Boolean** | True if the sender has edited this message at least once. |  [optional] |
+|**editedAt** | **OffsetDateTime** | When the most recent edit happened. |  [optional] |
+|**editCount** | **Integer** | Total number of edits applied. |  [optional] |
+|**editHistory** | [**List&lt;GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInner&gt;**](GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInner.md) | Every prior version of the message, oldest first. |  [optional] |
+|**isDeleted** | **Boolean** | True if the sender has deleted (unsent) this message. The original &#x60;message&#x60; and &#x60;attachments&#x60; fields remain populated. |  [optional] |
+|**deletedAt** | **OffsetDateTime** |  |  [optional] |
+|**deliveryStatus** | [**DeliveryStatusEnum**](#DeliveryStatusEnum) | Lifecycle status for outgoing messages. Not all platforms emit every state (see webhook support matrix). |  [optional] |
+|**deliveredAt** | **OffsetDateTime** |  |  [optional] |
+|**readAt** | **OffsetDateTime** |  |  [optional] |
+|**sentAt** | **OffsetDateTime** | Original send time for outgoing messages (used for Messenger watermark queries). |  [optional] |
+|**deliveryError** | [**GetInboxConversationMessages200ResponseMessagesInnerDeliveryError**](GetInboxConversationMessages200ResponseMessagesInnerDeliveryError.md) |  |  [optional] |
 
 
 
@@ -41,6 +52,18 @@
 |---- | -----|
 | INCOMING | &quot;incoming&quot; |
 | OUTGOING | &quot;outgoing&quot; |
+
+
+
+## Enum: DeliveryStatusEnum
+
+| Name | Value |
+|---- | -----|
+| SENT | &quot;sent&quot; |
+| DELIVERED | &quot;delivered&quot; |
+| READ | &quot;read&quot; |
+| FAILED | &quot;failed&quot; |
+| DELETED | &quot;deleted&quot; |
 
 
 

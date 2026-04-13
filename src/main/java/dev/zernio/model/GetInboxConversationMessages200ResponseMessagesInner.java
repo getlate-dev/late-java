@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import dev.zernio.model.GetInboxConversationMessages200ResponseMessagesInnerAttachmentsInner;
+import dev.zernio.model.GetInboxConversationMessages200ResponseMessagesInnerDeliveryError;
+import dev.zernio.model.GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInner;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -50,9 +52,20 @@ import dev.zernio.ApiClient;
   GetInboxConversationMessages200ResponseMessagesInner.JSON_PROPERTY_ATTACHMENTS,
   GetInboxConversationMessages200ResponseMessagesInner.JSON_PROPERTY_SUBJECT,
   GetInboxConversationMessages200ResponseMessagesInner.JSON_PROPERTY_STORY_REPLY,
-  GetInboxConversationMessages200ResponseMessagesInner.JSON_PROPERTY_IS_STORY_MENTION
+  GetInboxConversationMessages200ResponseMessagesInner.JSON_PROPERTY_IS_STORY_MENTION,
+  GetInboxConversationMessages200ResponseMessagesInner.JSON_PROPERTY_IS_EDITED,
+  GetInboxConversationMessages200ResponseMessagesInner.JSON_PROPERTY_EDITED_AT,
+  GetInboxConversationMessages200ResponseMessagesInner.JSON_PROPERTY_EDIT_COUNT,
+  GetInboxConversationMessages200ResponseMessagesInner.JSON_PROPERTY_EDIT_HISTORY,
+  GetInboxConversationMessages200ResponseMessagesInner.JSON_PROPERTY_IS_DELETED,
+  GetInboxConversationMessages200ResponseMessagesInner.JSON_PROPERTY_DELETED_AT,
+  GetInboxConversationMessages200ResponseMessagesInner.JSON_PROPERTY_DELIVERY_STATUS,
+  GetInboxConversationMessages200ResponseMessagesInner.JSON_PROPERTY_DELIVERED_AT,
+  GetInboxConversationMessages200ResponseMessagesInner.JSON_PROPERTY_READ_AT,
+  GetInboxConversationMessages200ResponseMessagesInner.JSON_PROPERTY_SENT_AT,
+  GetInboxConversationMessages200ResponseMessagesInner.JSON_PROPERTY_DELIVERY_ERROR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-12T10:13:16.072711654Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-13T10:07:07.330013060Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetInboxConversationMessages200ResponseMessagesInner {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable
@@ -183,6 +196,91 @@ public class GetInboxConversationMessages200ResponseMessagesInner {
   public static final String JSON_PROPERTY_IS_STORY_MENTION = "isStoryMention";
   @javax.annotation.Nullable
   private Boolean isStoryMention;
+
+  public static final String JSON_PROPERTY_IS_EDITED = "isEdited";
+  @javax.annotation.Nullable
+  private Boolean isEdited;
+
+  public static final String JSON_PROPERTY_EDITED_AT = "editedAt";
+  @javax.annotation.Nullable
+  private OffsetDateTime editedAt;
+
+  public static final String JSON_PROPERTY_EDIT_COUNT = "editCount";
+  @javax.annotation.Nullable
+  private Integer editCount;
+
+  public static final String JSON_PROPERTY_EDIT_HISTORY = "editHistory";
+  @javax.annotation.Nullable
+  private List<GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInner> editHistory = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @javax.annotation.Nullable
+  private Boolean isDeleted;
+
+  public static final String JSON_PROPERTY_DELETED_AT = "deletedAt";
+  @javax.annotation.Nullable
+  private OffsetDateTime deletedAt;
+
+  /**
+   * Lifecycle status for outgoing messages. Not all platforms emit every state (see webhook support matrix).
+   */
+  public enum DeliveryStatusEnum {
+    SENT(String.valueOf("sent")),
+    
+    DELIVERED(String.valueOf("delivered")),
+    
+    READ(String.valueOf("read")),
+    
+    FAILED(String.valueOf("failed")),
+    
+    DELETED(String.valueOf("deleted"));
+
+    private String value;
+
+    DeliveryStatusEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static DeliveryStatusEnum fromValue(String value) {
+      for (DeliveryStatusEnum b : DeliveryStatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_DELIVERY_STATUS = "deliveryStatus";
+  @javax.annotation.Nullable
+  private DeliveryStatusEnum deliveryStatus;
+
+  public static final String JSON_PROPERTY_DELIVERED_AT = "deliveredAt";
+  @javax.annotation.Nullable
+  private OffsetDateTime deliveredAt;
+
+  public static final String JSON_PROPERTY_READ_AT = "readAt";
+  @javax.annotation.Nullable
+  private OffsetDateTime readAt;
+
+  public static final String JSON_PROPERTY_SENT_AT = "sentAt";
+  @javax.annotation.Nullable
+  private OffsetDateTime sentAt;
+
+  public static final String JSON_PROPERTY_DELIVERY_ERROR = "deliveryError";
+  @javax.annotation.Nullable
+  private GetInboxConversationMessages200ResponseMessagesInnerDeliveryError deliveryError;
 
   public GetInboxConversationMessages200ResponseMessagesInner() { 
   }
@@ -531,6 +629,278 @@ public class GetInboxConversationMessages200ResponseMessagesInner {
   }
 
 
+  public GetInboxConversationMessages200ResponseMessagesInner isEdited(@javax.annotation.Nullable Boolean isEdited) {
+    this.isEdited = isEdited;
+    return this;
+  }
+
+  /**
+   * True if the sender has edited this message at least once.
+   * @return isEdited
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_IS_EDITED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsEdited() {
+    return isEdited;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_IS_EDITED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsEdited(@javax.annotation.Nullable Boolean isEdited) {
+    this.isEdited = isEdited;
+  }
+
+
+  public GetInboxConversationMessages200ResponseMessagesInner editedAt(@javax.annotation.Nullable OffsetDateTime editedAt) {
+    this.editedAt = editedAt;
+    return this;
+  }
+
+  /**
+   * When the most recent edit happened.
+   * @return editedAt
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_EDITED_AT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getEditedAt() {
+    return editedAt;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_EDITED_AT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEditedAt(@javax.annotation.Nullable OffsetDateTime editedAt) {
+    this.editedAt = editedAt;
+  }
+
+
+  public GetInboxConversationMessages200ResponseMessagesInner editCount(@javax.annotation.Nullable Integer editCount) {
+    this.editCount = editCount;
+    return this;
+  }
+
+  /**
+   * Total number of edits applied.
+   * @return editCount
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_EDIT_COUNT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getEditCount() {
+    return editCount;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_EDIT_COUNT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEditCount(@javax.annotation.Nullable Integer editCount) {
+    this.editCount = editCount;
+  }
+
+
+  public GetInboxConversationMessages200ResponseMessagesInner editHistory(@javax.annotation.Nullable List<GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInner> editHistory) {
+    this.editHistory = editHistory;
+    return this;
+  }
+
+  public GetInboxConversationMessages200ResponseMessagesInner addEditHistoryItem(GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInner editHistoryItem) {
+    if (this.editHistory == null) {
+      this.editHistory = new ArrayList<>();
+    }
+    this.editHistory.add(editHistoryItem);
+    return this;
+  }
+
+  /**
+   * Every prior version of the message, oldest first.
+   * @return editHistory
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_EDIT_HISTORY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInner> getEditHistory() {
+    return editHistory;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_EDIT_HISTORY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEditHistory(@javax.annotation.Nullable List<GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInner> editHistory) {
+    this.editHistory = editHistory;
+  }
+
+
+  public GetInboxConversationMessages200ResponseMessagesInner isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+    this.isDeleted = isDeleted;
+    return this;
+  }
+
+  /**
+   * True if the sender has deleted (unsent) this message. The original &#x60;message&#x60; and &#x60;attachments&#x60; fields remain populated.
+   * @return isDeleted
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_IS_DELETED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsDeleted() {
+    return isDeleted;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_IS_DELETED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+    this.isDeleted = isDeleted;
+  }
+
+
+  public GetInboxConversationMessages200ResponseMessagesInner deletedAt(@javax.annotation.Nullable OffsetDateTime deletedAt) {
+    this.deletedAt = deletedAt;
+    return this;
+  }
+
+  /**
+   * Get deletedAt
+   * @return deletedAt
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_DELETED_AT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getDeletedAt() {
+    return deletedAt;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_DELETED_AT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDeletedAt(@javax.annotation.Nullable OffsetDateTime deletedAt) {
+    this.deletedAt = deletedAt;
+  }
+
+
+  public GetInboxConversationMessages200ResponseMessagesInner deliveryStatus(@javax.annotation.Nullable DeliveryStatusEnum deliveryStatus) {
+    this.deliveryStatus = deliveryStatus;
+    return this;
+  }
+
+  /**
+   * Lifecycle status for outgoing messages. Not all platforms emit every state (see webhook support matrix).
+   * @return deliveryStatus
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_DELIVERY_STATUS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DeliveryStatusEnum getDeliveryStatus() {
+    return deliveryStatus;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_DELIVERY_STATUS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDeliveryStatus(@javax.annotation.Nullable DeliveryStatusEnum deliveryStatus) {
+    this.deliveryStatus = deliveryStatus;
+  }
+
+
+  public GetInboxConversationMessages200ResponseMessagesInner deliveredAt(@javax.annotation.Nullable OffsetDateTime deliveredAt) {
+    this.deliveredAt = deliveredAt;
+    return this;
+  }
+
+  /**
+   * Get deliveredAt
+   * @return deliveredAt
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_DELIVERED_AT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getDeliveredAt() {
+    return deliveredAt;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_DELIVERED_AT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDeliveredAt(@javax.annotation.Nullable OffsetDateTime deliveredAt) {
+    this.deliveredAt = deliveredAt;
+  }
+
+
+  public GetInboxConversationMessages200ResponseMessagesInner readAt(@javax.annotation.Nullable OffsetDateTime readAt) {
+    this.readAt = readAt;
+    return this;
+  }
+
+  /**
+   * Get readAt
+   * @return readAt
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_READ_AT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getReadAt() {
+    return readAt;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_READ_AT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReadAt(@javax.annotation.Nullable OffsetDateTime readAt) {
+    this.readAt = readAt;
+  }
+
+
+  public GetInboxConversationMessages200ResponseMessagesInner sentAt(@javax.annotation.Nullable OffsetDateTime sentAt) {
+    this.sentAt = sentAt;
+    return this;
+  }
+
+  /**
+   * Original send time for outgoing messages (used for Messenger watermark queries).
+   * @return sentAt
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_SENT_AT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getSentAt() {
+    return sentAt;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SENT_AT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSentAt(@javax.annotation.Nullable OffsetDateTime sentAt) {
+    this.sentAt = sentAt;
+  }
+
+
+  public GetInboxConversationMessages200ResponseMessagesInner deliveryError(@javax.annotation.Nullable GetInboxConversationMessages200ResponseMessagesInnerDeliveryError deliveryError) {
+    this.deliveryError = deliveryError;
+    return this;
+  }
+
+  /**
+   * Get deliveryError
+   * @return deliveryError
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_DELIVERY_ERROR, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public GetInboxConversationMessages200ResponseMessagesInnerDeliveryError getDeliveryError() {
+    return deliveryError;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_DELIVERY_ERROR, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDeliveryError(@javax.annotation.Nullable GetInboxConversationMessages200ResponseMessagesInnerDeliveryError deliveryError) {
+    this.deliveryError = deliveryError;
+  }
+
+
   /**
    * Return true if this getInboxConversationMessages_200_response_messages_inner object is equal to o.
    */
@@ -556,12 +926,23 @@ public class GetInboxConversationMessages200ResponseMessagesInner {
         Objects.equals(this.attachments, getInboxConversationMessages200ResponseMessagesInner.attachments) &&
         Objects.equals(this.subject, getInboxConversationMessages200ResponseMessagesInner.subject) &&
         Objects.equals(this.storyReply, getInboxConversationMessages200ResponseMessagesInner.storyReply) &&
-        Objects.equals(this.isStoryMention, getInboxConversationMessages200ResponseMessagesInner.isStoryMention);
+        Objects.equals(this.isStoryMention, getInboxConversationMessages200ResponseMessagesInner.isStoryMention) &&
+        Objects.equals(this.isEdited, getInboxConversationMessages200ResponseMessagesInner.isEdited) &&
+        Objects.equals(this.editedAt, getInboxConversationMessages200ResponseMessagesInner.editedAt) &&
+        Objects.equals(this.editCount, getInboxConversationMessages200ResponseMessagesInner.editCount) &&
+        Objects.equals(this.editHistory, getInboxConversationMessages200ResponseMessagesInner.editHistory) &&
+        Objects.equals(this.isDeleted, getInboxConversationMessages200ResponseMessagesInner.isDeleted) &&
+        Objects.equals(this.deletedAt, getInboxConversationMessages200ResponseMessagesInner.deletedAt) &&
+        Objects.equals(this.deliveryStatus, getInboxConversationMessages200ResponseMessagesInner.deliveryStatus) &&
+        Objects.equals(this.deliveredAt, getInboxConversationMessages200ResponseMessagesInner.deliveredAt) &&
+        Objects.equals(this.readAt, getInboxConversationMessages200ResponseMessagesInner.readAt) &&
+        Objects.equals(this.sentAt, getInboxConversationMessages200ResponseMessagesInner.sentAt) &&
+        Objects.equals(this.deliveryError, getInboxConversationMessages200ResponseMessagesInner.deliveryError);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, conversationId, accountId, platform, message, senderId, senderName, senderVerifiedType, direction, createdAt, attachments, subject, storyReply, isStoryMention);
+    return Objects.hash(id, conversationId, accountId, platform, message, senderId, senderName, senderVerifiedType, direction, createdAt, attachments, subject, storyReply, isStoryMention, isEdited, editedAt, editCount, editHistory, isDeleted, deletedAt, deliveryStatus, deliveredAt, readAt, sentAt, deliveryError);
   }
 
   @Override
@@ -582,6 +963,17 @@ public class GetInboxConversationMessages200ResponseMessagesInner {
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
     sb.append("    storyReply: ").append(toIndentedString(storyReply)).append("\n");
     sb.append("    isStoryMention: ").append(toIndentedString(isStoryMention)).append("\n");
+    sb.append("    isEdited: ").append(toIndentedString(isEdited)).append("\n");
+    sb.append("    editedAt: ").append(toIndentedString(editedAt)).append("\n");
+    sb.append("    editCount: ").append(toIndentedString(editCount)).append("\n");
+    sb.append("    editHistory: ").append(toIndentedString(editHistory)).append("\n");
+    sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
+    sb.append("    deletedAt: ").append(toIndentedString(deletedAt)).append("\n");
+    sb.append("    deliveryStatus: ").append(toIndentedString(deliveryStatus)).append("\n");
+    sb.append("    deliveredAt: ").append(toIndentedString(deliveredAt)).append("\n");
+    sb.append("    readAt: ").append(toIndentedString(readAt)).append("\n");
+    sb.append("    sentAt: ").append(toIndentedString(sentAt)).append("\n");
+    sb.append("    deliveryError: ").append(toIndentedString(deliveryError)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -702,6 +1094,66 @@ public class GetInboxConversationMessages200ResponseMessagesInner {
     // add `isStoryMention` to the URL query string
     if (getIsStoryMention() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sisStoryMention%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getIsStoryMention()))));
+    }
+
+    // add `isEdited` to the URL query string
+    if (getIsEdited() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sisEdited%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getIsEdited()))));
+    }
+
+    // add `editedAt` to the URL query string
+    if (getEditedAt() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%seditedAt%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getEditedAt()))));
+    }
+
+    // add `editCount` to the URL query string
+    if (getEditCount() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%seditCount%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getEditCount()))));
+    }
+
+    // add `editHistory` to the URL query string
+    if (getEditHistory() != null) {
+      for (int i = 0; i < getEditHistory().size(); i++) {
+        if (getEditHistory().get(i) != null) {
+          joiner.add(getEditHistory().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%seditHistory%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `isDeleted` to the URL query string
+    if (getIsDeleted() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sisDeleted%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getIsDeleted()))));
+    }
+
+    // add `deletedAt` to the URL query string
+    if (getDeletedAt() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sdeletedAt%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDeletedAt()))));
+    }
+
+    // add `deliveryStatus` to the URL query string
+    if (getDeliveryStatus() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sdeliveryStatus%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDeliveryStatus()))));
+    }
+
+    // add `deliveredAt` to the URL query string
+    if (getDeliveredAt() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sdeliveredAt%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDeliveredAt()))));
+    }
+
+    // add `readAt` to the URL query string
+    if (getReadAt() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sreadAt%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getReadAt()))));
+    }
+
+    // add `sentAt` to the URL query string
+    if (getSentAt() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%ssentAt%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getSentAt()))));
+    }
+
+    // add `deliveryError` to the URL query string
+    if (getDeliveryError() != null) {
+      joiner.add(getDeliveryError().toUrlQueryString(prefix + "deliveryError" + suffix));
     }
 
     return joiner.toString();

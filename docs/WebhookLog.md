@@ -38,6 +38,11 @@ Webhook delivery log entry
 | ACCOUNT_DISCONNECTED | &quot;account.disconnected&quot; |
 | MESSAGE_RECEIVED | &quot;message.received&quot; |
 | MESSAGE_SENT | &quot;message.sent&quot; |
+| MESSAGE_EDITED | &quot;message.edited&quot; |
+| MESSAGE_DELETED | &quot;message.deleted&quot; |
+| MESSAGE_DELIVERED | &quot;message.delivered&quot; |
+| MESSAGE_READ | &quot;message.read&quot; |
+| MESSAGE_FAILED | &quot;message.failed&quot; |
 | COMMENT_RECEIVED | &quot;comment.received&quot; |
 | WEBHOOK_TEST | &quot;webhook.test&quot; |
 

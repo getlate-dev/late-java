@@ -4,7 +4,7 @@ Zernio API
 
 - API version: 1.0.1
 
-- Build date: 2026-04-12T10:13:16.072711654Z[Etc/UTC]
+- Build date: 2026-04-13T10:07:07.330013060Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -658,6 +658,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [Account](docs/Account.md)
  - [AccountGetResponse](docs/AccountGetResponse.md)
  - [AccountWithFollowerStats](docs/AccountWithFollowerStats.md)
  - [AccountWithFollowerStatsAllOfAccountStats](docs/AccountWithFollowerStatsAllOfAccountStats.md)
@@ -728,6 +729,7 @@ Class | Method | HTTP request | Description
  - [ConnectionLogContext](docs/ConnectionLogContext.md)
  - [ConnectionLogError](docs/ConnectionLogError.md)
  - [ConnectionLogSuccess](docs/ConnectionLogSuccess.md)
+ - [Conversation](docs/Conversation.md)
  - [CreateAccountGroup201Response](docs/CreateAccountGroup201Response.md)
  - [CreateAccountGroupRequest](docs/CreateAccountGroupRequest.md)
  - [CreateAdAudience201Response](docs/CreateAdAudience201Response.md)
@@ -914,6 +916,9 @@ Class | Method | HTTP request | Description
  - [GetInboxConversationMessages200Response](docs/GetInboxConversationMessages200Response.md)
  - [GetInboxConversationMessages200ResponseMessagesInner](docs/GetInboxConversationMessages200ResponseMessagesInner.md)
  - [GetInboxConversationMessages200ResponseMessagesInnerAttachmentsInner](docs/GetInboxConversationMessages200ResponseMessagesInnerAttachmentsInner.md)
+ - [GetInboxConversationMessages200ResponseMessagesInnerDeliveryError](docs/GetInboxConversationMessages200ResponseMessagesInnerDeliveryError.md)
+ - [GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInner](docs/GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInner.md)
+ - [GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInnerAttachmentsInner](docs/GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInnerAttachmentsInner.md)
  - [GetInboxPostComments200Response](docs/GetInboxPostComments200Response.md)
  - [GetInboxPostComments200ResponseCommentsInner](docs/GetInboxPostComments200ResponseCommentsInner.md)
  - [GetInboxPostComments200ResponseCommentsInnerFrom](docs/GetInboxPostComments200ResponseCommentsInnerFrom.md)
@@ -1127,6 +1132,7 @@ Class | Method | HTTP request | Description
  - [ListWhatsAppGroupJoinRequests200ResponseJoinRequestsInner](docs/ListWhatsAppGroupJoinRequests200ResponseJoinRequestsInner.md)
  - [MediaItem](docs/MediaItem.md)
  - [MediaUploadResponse](docs/MediaUploadResponse.md)
+ - [Message](docs/Message.md)
  - [Money](docs/Money.md)
  - [Pagination](docs/Pagination.md)
  - [Pending](docs/Pending.md)
@@ -1389,6 +1395,11 @@ Class | Method | HTTP request | Description
  - [WebhookPayloadMessage](docs/WebhookPayloadMessage.md)
  - [WebhookPayloadMessageAccount](docs/WebhookPayloadMessageAccount.md)
  - [WebhookPayloadMessageConversation](docs/WebhookPayloadMessageConversation.md)
+ - [WebhookPayloadMessageDeleted](docs/WebhookPayloadMessageDeleted.md)
+ - [WebhookPayloadMessageDeliveryStatus](docs/WebhookPayloadMessageDeliveryStatus.md)
+ - [WebhookPayloadMessageDeliveryStatusError](docs/WebhookPayloadMessageDeliveryStatusError.md)
+ - [WebhookPayloadMessageEdited](docs/WebhookPayloadMessageEdited.md)
+ - [WebhookPayloadMessageEditedEditHistoryInner](docs/WebhookPayloadMessageEditedEditHistoryInner.md)
  - [WebhookPayloadMessageMessage](docs/WebhookPayloadMessageMessage.md)
  - [WebhookPayloadMessageMessageAttachmentsInner](docs/WebhookPayloadMessageMessageAttachmentsInner.md)
  - [WebhookPayloadMessageMessageSender](docs/WebhookPayloadMessageMessageSender.md)
