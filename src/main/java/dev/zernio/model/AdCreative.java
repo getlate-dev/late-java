@@ -37,6 +37,9 @@ import dev.zernio.ApiClient;
 @JsonPropertyOrder({
   AdCreative.JSON_PROPERTY_THUMBNAIL_URL,
   AdCreative.JSON_PROPERTY_IMAGE_URL,
+  AdCreative.JSON_PROPERTY_VIDEO_ID,
+  AdCreative.JSON_PROPERTY_VIDEO_URL,
+  AdCreative.JSON_PROPERTY_OBJECT_TYPE,
   AdCreative.JSON_PROPERTY_MEDIA_URLS,
   AdCreative.JSON_PROPERTY_BODY,
   AdCreative.JSON_PROPERTY_GOOGLE_HEADLINE,
@@ -46,7 +49,7 @@ import dev.zernio.ApiClient;
   AdCreative.JSON_PROPERTY_PINTEREST_TITLE,
   AdCreative.JSON_PROPERTY_PINTEREST_DESCRIPTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-13T11:36:49.915355466Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-13T15:42:12.832981246Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AdCreative {
   public static final String JSON_PROPERTY_THUMBNAIL_URL = "thumbnailUrl";
   @javax.annotation.Nullable
@@ -55,6 +58,18 @@ public class AdCreative {
   public static final String JSON_PROPERTY_IMAGE_URL = "imageUrl";
   @javax.annotation.Nullable
   private String imageUrl;
+
+  public static final String JSON_PROPERTY_VIDEO_ID = "videoId";
+  @javax.annotation.Nullable
+  private String videoId;
+
+  public static final String JSON_PROPERTY_VIDEO_URL = "videoUrl";
+  @javax.annotation.Nullable
+  private String videoUrl;
+
+  public static final String JSON_PROPERTY_OBJECT_TYPE = "objectType";
+  @javax.annotation.Nullable
+  private String objectType;
 
   public static final String JSON_PROPERTY_MEDIA_URLS = "mediaUrls";
   @javax.annotation.Nullable
@@ -136,6 +151,78 @@ public class AdCreative {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setImageUrl(@javax.annotation.Nullable String imageUrl) {
     this.imageUrl = imageUrl;
+  }
+
+
+  public AdCreative videoId(@javax.annotation.Nullable String videoId) {
+    this.videoId = videoId;
+    return this;
+  }
+
+  /**
+   * Meta video ID for VIDEO-type ads. Null for non-video ads. Callers that need an embeddable MP4 can call GET /{videoId}?fields&#x3D;source with the page access token.
+   * @return videoId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_VIDEO_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getVideoId() {
+    return videoId;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_VIDEO_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVideoId(@javax.annotation.Nullable String videoId) {
+    this.videoId = videoId;
+  }
+
+
+  public AdCreative videoUrl(@javax.annotation.Nullable String videoUrl) {
+    this.videoUrl = videoUrl;
+    return this;
+  }
+
+  /**
+   * Public Facebook watch URL for VIDEO-type ads (https://www.facebook.com/watch/?v&#x3D;{videoId}). Null for non-video ads.
+   * @return videoUrl
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_VIDEO_URL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getVideoUrl() {
+    return videoUrl;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_VIDEO_URL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVideoUrl(@javax.annotation.Nullable String videoUrl) {
+    this.videoUrl = videoUrl;
+  }
+
+
+  public AdCreative objectType(@javax.annotation.Nullable String objectType) {
+    this.objectType = objectType;
+    return this;
+  }
+
+  /**
+   * Meta creative object_type (e.g. SHARE, VIDEO, PRIVACY_CHECK_FAIL, POST_DELETED). Use this to render state-aware previews — when Meta moderation strips image/video fields, only thumbnailUrl at 64x64 is available.
+   * @return objectType
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_OBJECT_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getObjectType() {
+    return objectType;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_OBJECT_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setObjectType(@javax.annotation.Nullable String objectType) {
+    this.objectType = objectType;
   }
 
 
@@ -353,6 +440,9 @@ public class AdCreative {
     AdCreative adCreative = (AdCreative) o;
     return Objects.equals(this.thumbnailUrl, adCreative.thumbnailUrl) &&
         Objects.equals(this.imageUrl, adCreative.imageUrl) &&
+        Objects.equals(this.videoId, adCreative.videoId) &&
+        Objects.equals(this.videoUrl, adCreative.videoUrl) &&
+        Objects.equals(this.objectType, adCreative.objectType) &&
         Objects.equals(this.mediaUrls, adCreative.mediaUrls) &&
         Objects.equals(this.body, adCreative.body) &&
         Objects.equals(this.googleHeadline, adCreative.googleHeadline) &&
@@ -365,7 +455,7 @@ public class AdCreative {
 
   @Override
   public int hashCode() {
-    return Objects.hash(thumbnailUrl, imageUrl, mediaUrls, body, googleHeadline, googleDescription, linkUrl, pinterestImageUrl, pinterestTitle, pinterestDescription);
+    return Objects.hash(thumbnailUrl, imageUrl, videoId, videoUrl, objectType, mediaUrls, body, googleHeadline, googleDescription, linkUrl, pinterestImageUrl, pinterestTitle, pinterestDescription);
   }
 
   @Override
@@ -374,6 +464,9 @@ public class AdCreative {
     sb.append("class AdCreative {\n");
     sb.append("    thumbnailUrl: ").append(toIndentedString(thumbnailUrl)).append("\n");
     sb.append("    imageUrl: ").append(toIndentedString(imageUrl)).append("\n");
+    sb.append("    videoId: ").append(toIndentedString(videoId)).append("\n");
+    sb.append("    videoUrl: ").append(toIndentedString(videoUrl)).append("\n");
+    sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
     sb.append("    mediaUrls: ").append(toIndentedString(mediaUrls)).append("\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    googleHeadline: ").append(toIndentedString(googleHeadline)).append("\n");
@@ -437,6 +530,21 @@ public class AdCreative {
     // add `imageUrl` to the URL query string
     if (getImageUrl() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%simageUrl%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getImageUrl()))));
+    }
+
+    // add `videoId` to the URL query string
+    if (getVideoId() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%svideoId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getVideoId()))));
+    }
+
+    // add `videoUrl` to the URL query string
+    if (getVideoUrl() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%svideoUrl%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getVideoUrl()))));
+    }
+
+    // add `objectType` to the URL query string
+    if (getObjectType() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sobjectType%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getObjectType()))));
     }
 
     // add `mediaUrls` to the URL query string

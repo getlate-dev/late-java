@@ -36,7 +36,7 @@ import dev.zernio.ApiClient;
   EditPostRequest.JSON_PROPERTY_PLATFORM,
   EditPostRequest.JSON_PROPERTY_CONTENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-13T11:36:49.915355466Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-13T15:42:12.832981246Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class EditPostRequest {
   /**
    * The platform to edit the post on. Currently only twitter is supported.
