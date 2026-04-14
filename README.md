@@ -4,7 +4,7 @@ Zernio API
 
 - API version: 1.0.1
 
-- Build date: 2026-04-14T14:23:14.639851249Z[Etc/UTC]
+- Build date: 2026-04-14T16:44:41.618708448Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -152,40 +152,40 @@ Class | Method | HTTP request | Description
 *AccountsApi* | [**listAccountsWithHttpInfo**](docs/AccountsApi.md#listAccountsWithHttpInfo) | **GET** /v1/accounts | List accounts
 *AccountsApi* | [**updateAccount**](docs/AccountsApi.md#updateAccount) | **PUT** /v1/accounts/{accountId} | Update account
 *AccountsApi* | [**updateAccountWithHttpInfo**](docs/AccountsApi.md#updateAccountWithHttpInfo) | **PUT** /v1/accounts/{accountId} | Update account
-*AdAudiencesApi* | [**addUsersToAdAudience**](docs/AdAudiencesApi.md#addUsersToAdAudience) | **POST** /v1/ads/audiences/{audienceId}/users | Add users to a customer list audience
-*AdAudiencesApi* | [**addUsersToAdAudienceWithHttpInfo**](docs/AdAudiencesApi.md#addUsersToAdAudienceWithHttpInfo) | **POST** /v1/ads/audiences/{audienceId}/users | Add users to a customer list audience
-*AdAudiencesApi* | [**createAdAudience**](docs/AdAudiencesApi.md#createAdAudience) | **POST** /v1/ads/audiences | Create a custom audience (Meta only)
-*AdAudiencesApi* | [**createAdAudienceWithHttpInfo**](docs/AdAudiencesApi.md#createAdAudienceWithHttpInfo) | **POST** /v1/ads/audiences | Create a custom audience (Meta only)
-*AdAudiencesApi* | [**deleteAdAudience**](docs/AdAudiencesApi.md#deleteAdAudience) | **DELETE** /v1/ads/audiences/{audienceId} | Delete a custom audience
-*AdAudiencesApi* | [**deleteAdAudienceWithHttpInfo**](docs/AdAudiencesApi.md#deleteAdAudienceWithHttpInfo) | **DELETE** /v1/ads/audiences/{audienceId} | Delete a custom audience
+*AdAudiencesApi* | [**addUsersToAdAudience**](docs/AdAudiencesApi.md#addUsersToAdAudience) | **POST** /v1/ads/audiences/{audienceId}/users | Add users to audience
+*AdAudiencesApi* | [**addUsersToAdAudienceWithHttpInfo**](docs/AdAudiencesApi.md#addUsersToAdAudienceWithHttpInfo) | **POST** /v1/ads/audiences/{audienceId}/users | Add users to audience
+*AdAudiencesApi* | [**createAdAudience**](docs/AdAudiencesApi.md#createAdAudience) | **POST** /v1/ads/audiences | Create custom audience
+*AdAudiencesApi* | [**createAdAudienceWithHttpInfo**](docs/AdAudiencesApi.md#createAdAudienceWithHttpInfo) | **POST** /v1/ads/audiences | Create custom audience
+*AdAudiencesApi* | [**deleteAdAudience**](docs/AdAudiencesApi.md#deleteAdAudience) | **DELETE** /v1/ads/audiences/{audienceId} | Delete custom audience
+*AdAudiencesApi* | [**deleteAdAudienceWithHttpInfo**](docs/AdAudiencesApi.md#deleteAdAudienceWithHttpInfo) | **DELETE** /v1/ads/audiences/{audienceId} | Delete custom audience
 *AdAudiencesApi* | [**getAdAudience**](docs/AdAudiencesApi.md#getAdAudience) | **GET** /v1/ads/audiences/{audienceId} | Get audience details
 *AdAudiencesApi* | [**getAdAudienceWithHttpInfo**](docs/AdAudiencesApi.md#getAdAudienceWithHttpInfo) | **GET** /v1/ads/audiences/{audienceId} | Get audience details
 *AdAudiencesApi* | [**listAdAudiences**](docs/AdAudiencesApi.md#listAdAudiences) | **GET** /v1/ads/audiences | List custom audiences
 *AdAudiencesApi* | [**listAdAudiencesWithHttpInfo**](docs/AdAudiencesApi.md#listAdAudiencesWithHttpInfo) | **GET** /v1/ads/audiences | List custom audiences
-*AdCampaignsApi* | [**getAdTree**](docs/AdCampaignsApi.md#getAdTree) | **GET** /v1/ads/tree | Get nested campaign/ad-set/ad tree
-*AdCampaignsApi* | [**getAdTreeWithHttpInfo**](docs/AdCampaignsApi.md#getAdTreeWithHttpInfo) | **GET** /v1/ads/tree | Get nested campaign/ad-set/ad tree
-*AdCampaignsApi* | [**listAdCampaigns**](docs/AdCampaignsApi.md#listAdCampaigns) | **GET** /v1/ads/campaigns | List campaigns with aggregate metrics
-*AdCampaignsApi* | [**listAdCampaignsWithHttpInfo**](docs/AdCampaignsApi.md#listAdCampaignsWithHttpInfo) | **GET** /v1/ads/campaigns | List campaigns with aggregate metrics
+*AdCampaignsApi* | [**getAdTree**](docs/AdCampaignsApi.md#getAdTree) | **GET** /v1/ads/tree | Get campaign tree
+*AdCampaignsApi* | [**getAdTreeWithHttpInfo**](docs/AdCampaignsApi.md#getAdTreeWithHttpInfo) | **GET** /v1/ads/tree | Get campaign tree
+*AdCampaignsApi* | [**listAdCampaigns**](docs/AdCampaignsApi.md#listAdCampaigns) | **GET** /v1/ads/campaigns | List campaigns
+*AdCampaignsApi* | [**listAdCampaignsWithHttpInfo**](docs/AdCampaignsApi.md#listAdCampaignsWithHttpInfo) | **GET** /v1/ads/campaigns | List campaigns
 *AdCampaignsApi* | [**updateAdCampaignStatus**](docs/AdCampaignsApi.md#updateAdCampaignStatus) | **PUT** /v1/ads/campaigns/{campaignId}/status | Pause or resume a campaign
 *AdCampaignsApi* | [**updateAdCampaignStatusWithHttpInfo**](docs/AdCampaignsApi.md#updateAdCampaignStatusWithHttpInfo) | **PUT** /v1/ads/campaigns/{campaignId}/status | Pause or resume a campaign
-*AdsApi* | [**boostPost**](docs/AdsApi.md#boostPost) | **POST** /v1/ads/boost | Boost an existing post as a paid ad
-*AdsApi* | [**boostPostWithHttpInfo**](docs/AdsApi.md#boostPostWithHttpInfo) | **POST** /v1/ads/boost | Boost an existing post as a paid ad
-*AdsApi* | [**createStandaloneAd**](docs/AdsApi.md#createStandaloneAd) | **POST** /v1/ads/create | Create a standalone ad with custom creative
-*AdsApi* | [**createStandaloneAdWithHttpInfo**](docs/AdsApi.md#createStandaloneAdWithHttpInfo) | **POST** /v1/ads/create | Create a standalone ad with custom creative
+*AdsApi* | [**boostPost**](docs/AdsApi.md#boostPost) | **POST** /v1/ads/boost | Boost post as ad
+*AdsApi* | [**boostPostWithHttpInfo**](docs/AdsApi.md#boostPostWithHttpInfo) | **POST** /v1/ads/boost | Boost post as ad
+*AdsApi* | [**createStandaloneAd**](docs/AdsApi.md#createStandaloneAd) | **POST** /v1/ads/create | Create standalone ad
+*AdsApi* | [**createStandaloneAdWithHttpInfo**](docs/AdsApi.md#createStandaloneAdWithHttpInfo) | **POST** /v1/ads/create | Create standalone ad
 *AdsApi* | [**deleteAd**](docs/AdsApi.md#deleteAd) | **DELETE** /v1/ads/{adId} | Cancel an ad
 *AdsApi* | [**deleteAdWithHttpInfo**](docs/AdsApi.md#deleteAdWithHttpInfo) | **DELETE** /v1/ads/{adId} | Cancel an ad
 *AdsApi* | [**getAd**](docs/AdsApi.md#getAd) | **GET** /v1/ads/{adId} | Get ad details
 *AdsApi* | [**getAdWithHttpInfo**](docs/AdsApi.md#getAdWithHttpInfo) | **GET** /v1/ads/{adId} | Get ad details
-*AdsApi* | [**getAdAnalytics**](docs/AdsApi.md#getAdAnalytics) | **GET** /v1/ads/{adId}/analytics | Get ad analytics with daily breakdown
-*AdsApi* | [**getAdAnalyticsWithHttpInfo**](docs/AdsApi.md#getAdAnalyticsWithHttpInfo) | **GET** /v1/ads/{adId}/analytics | Get ad analytics with daily breakdown
-*AdsApi* | [**listAdAccounts**](docs/AdsApi.md#listAdAccounts) | **GET** /v1/ads/accounts | List ad accounts for a social account
-*AdsApi* | [**listAdAccountsWithHttpInfo**](docs/AdsApi.md#listAdAccountsWithHttpInfo) | **GET** /v1/ads/accounts | List ad accounts for a social account
+*AdsApi* | [**getAdAnalytics**](docs/AdsApi.md#getAdAnalytics) | **GET** /v1/ads/{adId}/analytics | Get ad analytics
+*AdsApi* | [**getAdAnalyticsWithHttpInfo**](docs/AdsApi.md#getAdAnalyticsWithHttpInfo) | **GET** /v1/ads/{adId}/analytics | Get ad analytics
+*AdsApi* | [**listAdAccounts**](docs/AdsApi.md#listAdAccounts) | **GET** /v1/ads/accounts | List ad accounts
+*AdsApi* | [**listAdAccountsWithHttpInfo**](docs/AdsApi.md#listAdAccountsWithHttpInfo) | **GET** /v1/ads/accounts | List ad accounts
 *AdsApi* | [**listAds**](docs/AdsApi.md#listAds) | **GET** /v1/ads | List ads
 *AdsApi* | [**listAdsWithHttpInfo**](docs/AdsApi.md#listAdsWithHttpInfo) | **GET** /v1/ads | List ads
 *AdsApi* | [**searchAdInterests**](docs/AdsApi.md#searchAdInterests) | **GET** /v1/ads/interests | Search targeting interests
 *AdsApi* | [**searchAdInterestsWithHttpInfo**](docs/AdsApi.md#searchAdInterestsWithHttpInfo) | **GET** /v1/ads/interests | Search targeting interests
-*AdsApi* | [**updateAd**](docs/AdsApi.md#updateAd) | **PUT** /v1/ads/{adId} | Update ad (pause/resume, budget, targeting, name)
-*AdsApi* | [**updateAdWithHttpInfo**](docs/AdsApi.md#updateAdWithHttpInfo) | **PUT** /v1/ads/{adId} | Update ad (pause/resume, budget, targeting, name)
+*AdsApi* | [**updateAd**](docs/AdsApi.md#updateAd) | **PUT** /v1/ads/{adId} | Update ad
+*AdsApi* | [**updateAdWithHttpInfo**](docs/AdsApi.md#updateAdWithHttpInfo) | **PUT** /v1/ads/{adId} | Update ad
 *AnalyticsApi* | [**getAnalytics**](docs/AnalyticsApi.md#getAnalytics) | **GET** /v1/analytics | Get post analytics
 *AnalyticsApi* | [**getAnalyticsWithHttpInfo**](docs/AnalyticsApi.md#getAnalyticsWithHttpInfo) | **GET** /v1/analytics | Get post analytics
 *AnalyticsApi* | [**getBestTimeToPost**](docs/AnalyticsApi.md#getBestTimeToPost) | **GET** /v1/analytics/best-time | Get best times to post
@@ -196,14 +196,14 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**getDailyMetricsWithHttpInfo**](docs/AnalyticsApi.md#getDailyMetricsWithHttpInfo) | **GET** /v1/analytics/daily-metrics | Get daily aggregated metrics
 *AnalyticsApi* | [**getFollowerStats**](docs/AnalyticsApi.md#getFollowerStats) | **GET** /v1/accounts/follower-stats | Get follower stats
 *AnalyticsApi* | [**getFollowerStatsWithHttpInfo**](docs/AnalyticsApi.md#getFollowerStatsWithHttpInfo) | **GET** /v1/accounts/follower-stats | Get follower stats
-*AnalyticsApi* | [**getGoogleBusinessPerformance**](docs/AnalyticsApi.md#getGoogleBusinessPerformance) | **GET** /v1/analytics/googlebusiness/performance | Get Google Business Profile performance metrics
-*AnalyticsApi* | [**getGoogleBusinessPerformanceWithHttpInfo**](docs/AnalyticsApi.md#getGoogleBusinessPerformanceWithHttpInfo) | **GET** /v1/analytics/googlebusiness/performance | Get Google Business Profile performance metrics
-*AnalyticsApi* | [**getGoogleBusinessSearchKeywords**](docs/AnalyticsApi.md#getGoogleBusinessSearchKeywords) | **GET** /v1/analytics/googlebusiness/search-keywords | Get Google Business Profile search keywords
-*AnalyticsApi* | [**getGoogleBusinessSearchKeywordsWithHttpInfo**](docs/AnalyticsApi.md#getGoogleBusinessSearchKeywordsWithHttpInfo) | **GET** /v1/analytics/googlebusiness/search-keywords | Get Google Business Profile search keywords
-*AnalyticsApi* | [**getInstagramAccountInsights**](docs/AnalyticsApi.md#getInstagramAccountInsights) | **GET** /v1/analytics/instagram/account-insights | Get Instagram account-level insights
-*AnalyticsApi* | [**getInstagramAccountInsightsWithHttpInfo**](docs/AnalyticsApi.md#getInstagramAccountInsightsWithHttpInfo) | **GET** /v1/analytics/instagram/account-insights | Get Instagram account-level insights
-*AnalyticsApi* | [**getInstagramDemographics**](docs/AnalyticsApi.md#getInstagramDemographics) | **GET** /v1/analytics/instagram/demographics | Get Instagram audience demographics
-*AnalyticsApi* | [**getInstagramDemographicsWithHttpInfo**](docs/AnalyticsApi.md#getInstagramDemographicsWithHttpInfo) | **GET** /v1/analytics/instagram/demographics | Get Instagram audience demographics
+*AnalyticsApi* | [**getGoogleBusinessPerformance**](docs/AnalyticsApi.md#getGoogleBusinessPerformance) | **GET** /v1/analytics/googlebusiness/performance | Get GBP performance metrics
+*AnalyticsApi* | [**getGoogleBusinessPerformanceWithHttpInfo**](docs/AnalyticsApi.md#getGoogleBusinessPerformanceWithHttpInfo) | **GET** /v1/analytics/googlebusiness/performance | Get GBP performance metrics
+*AnalyticsApi* | [**getGoogleBusinessSearchKeywords**](docs/AnalyticsApi.md#getGoogleBusinessSearchKeywords) | **GET** /v1/analytics/googlebusiness/search-keywords | Get GBP search keywords
+*AnalyticsApi* | [**getGoogleBusinessSearchKeywordsWithHttpInfo**](docs/AnalyticsApi.md#getGoogleBusinessSearchKeywordsWithHttpInfo) | **GET** /v1/analytics/googlebusiness/search-keywords | Get GBP search keywords
+*AnalyticsApi* | [**getInstagramAccountInsights**](docs/AnalyticsApi.md#getInstagramAccountInsights) | **GET** /v1/analytics/instagram/account-insights | Get Instagram insights
+*AnalyticsApi* | [**getInstagramAccountInsightsWithHttpInfo**](docs/AnalyticsApi.md#getInstagramAccountInsightsWithHttpInfo) | **GET** /v1/analytics/instagram/account-insights | Get Instagram insights
+*AnalyticsApi* | [**getInstagramDemographics**](docs/AnalyticsApi.md#getInstagramDemographics) | **GET** /v1/analytics/instagram/demographics | Get Instagram demographics
+*AnalyticsApi* | [**getInstagramDemographicsWithHttpInfo**](docs/AnalyticsApi.md#getInstagramDemographicsWithHttpInfo) | **GET** /v1/analytics/instagram/demographics | Get Instagram demographics
 *AnalyticsApi* | [**getLinkedInAggregateAnalytics**](docs/AnalyticsApi.md#getLinkedInAggregateAnalytics) | **GET** /v1/accounts/{accountId}/linkedin-aggregate-analytics | Get LinkedIn aggregate stats
 *AnalyticsApi* | [**getLinkedInAggregateAnalyticsWithHttpInfo**](docs/AnalyticsApi.md#getLinkedInAggregateAnalyticsWithHttpInfo) | **GET** /v1/accounts/{accountId}/linkedin-aggregate-analytics | Get LinkedIn aggregate stats
 *AnalyticsApi* | [**getLinkedInPostAnalytics**](docs/AnalyticsApi.md#getLinkedInPostAnalytics) | **GET** /v1/accounts/{accountId}/linkedin-post-analytics | Get LinkedIn post stats
@@ -212,12 +212,12 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**getLinkedInPostReactionsWithHttpInfo**](docs/AnalyticsApi.md#getLinkedInPostReactionsWithHttpInfo) | **GET** /v1/accounts/{accountId}/linkedin-post-reactions | Get LinkedIn post reactions
 *AnalyticsApi* | [**getPostTimeline**](docs/AnalyticsApi.md#getPostTimeline) | **GET** /v1/analytics/post-timeline | Get post analytics timeline
 *AnalyticsApi* | [**getPostTimelineWithHttpInfo**](docs/AnalyticsApi.md#getPostTimelineWithHttpInfo) | **GET** /v1/analytics/post-timeline | Get post analytics timeline
-*AnalyticsApi* | [**getPostingFrequency**](docs/AnalyticsApi.md#getPostingFrequency) | **GET** /v1/analytics/posting-frequency | Get posting frequency vs engagement
-*AnalyticsApi* | [**getPostingFrequencyWithHttpInfo**](docs/AnalyticsApi.md#getPostingFrequencyWithHttpInfo) | **GET** /v1/analytics/posting-frequency | Get posting frequency vs engagement
+*AnalyticsApi* | [**getPostingFrequency**](docs/AnalyticsApi.md#getPostingFrequency) | **GET** /v1/analytics/posting-frequency | Get frequency vs engagement
+*AnalyticsApi* | [**getPostingFrequencyWithHttpInfo**](docs/AnalyticsApi.md#getPostingFrequencyWithHttpInfo) | **GET** /v1/analytics/posting-frequency | Get frequency vs engagement
 *AnalyticsApi* | [**getYouTubeDailyViews**](docs/AnalyticsApi.md#getYouTubeDailyViews) | **GET** /v1/analytics/youtube/daily-views | Get YouTube daily views
 *AnalyticsApi* | [**getYouTubeDailyViewsWithHttpInfo**](docs/AnalyticsApi.md#getYouTubeDailyViewsWithHttpInfo) | **GET** /v1/analytics/youtube/daily-views | Get YouTube daily views
-*AnalyticsApi* | [**getYouTubeDemographics**](docs/AnalyticsApi.md#getYouTubeDemographics) | **GET** /v1/analytics/youtube/demographics | Get YouTube audience demographics
-*AnalyticsApi* | [**getYouTubeDemographicsWithHttpInfo**](docs/AnalyticsApi.md#getYouTubeDemographicsWithHttpInfo) | **GET** /v1/analytics/youtube/demographics | Get YouTube audience demographics
+*AnalyticsApi* | [**getYouTubeDemographics**](docs/AnalyticsApi.md#getYouTubeDemographics) | **GET** /v1/analytics/youtube/demographics | Get YouTube demographics
+*AnalyticsApi* | [**getYouTubeDemographicsWithHttpInfo**](docs/AnalyticsApi.md#getYouTubeDemographicsWithHttpInfo) | **GET** /v1/analytics/youtube/demographics | Get YouTube demographics
 *ApiKeysApi* | [**createApiKey**](docs/ApiKeysApi.md#createApiKey) | **POST** /v1/api-keys | Create key
 *ApiKeysApi* | [**createApiKeyWithHttpInfo**](docs/ApiKeysApi.md#createApiKeyWithHttpInfo) | **POST** /v1/api-keys | Create key
 *ApiKeysApi* | [**deleteApiKey**](docs/ApiKeysApi.md#deleteApiKey) | **DELETE** /v1/api-keys/{keyId} | Delete key
@@ -226,12 +226,12 @@ Class | Method | HTTP request | Description
 *ApiKeysApi* | [**listApiKeysWithHttpInfo**](docs/ApiKeysApi.md#listApiKeysWithHttpInfo) | **GET** /v1/api-keys | List keys
 *BroadcastsApi* | [**addBroadcastRecipients**](docs/BroadcastsApi.md#addBroadcastRecipients) | **POST** /v1/broadcasts/{broadcastId}/recipients | Add recipients to a broadcast
 *BroadcastsApi* | [**addBroadcastRecipientsWithHttpInfo**](docs/BroadcastsApi.md#addBroadcastRecipientsWithHttpInfo) | **POST** /v1/broadcasts/{broadcastId}/recipients | Add recipients to a broadcast
-*BroadcastsApi* | [**cancelBroadcast**](docs/BroadcastsApi.md#cancelBroadcast) | **POST** /v1/broadcasts/{broadcastId}/cancel | Cancel a broadcast
-*BroadcastsApi* | [**cancelBroadcastWithHttpInfo**](docs/BroadcastsApi.md#cancelBroadcastWithHttpInfo) | **POST** /v1/broadcasts/{broadcastId}/cancel | Cancel a broadcast
-*BroadcastsApi* | [**createBroadcast**](docs/BroadcastsApi.md#createBroadcast) | **POST** /v1/broadcasts | Create a broadcast draft
-*BroadcastsApi* | [**createBroadcastWithHttpInfo**](docs/BroadcastsApi.md#createBroadcastWithHttpInfo) | **POST** /v1/broadcasts | Create a broadcast draft
-*BroadcastsApi* | [**deleteBroadcast**](docs/BroadcastsApi.md#deleteBroadcast) | **DELETE** /v1/broadcasts/{broadcastId} | Delete a broadcast (draft only)
-*BroadcastsApi* | [**deleteBroadcastWithHttpInfo**](docs/BroadcastsApi.md#deleteBroadcastWithHttpInfo) | **DELETE** /v1/broadcasts/{broadcastId} | Delete a broadcast (draft only)
+*BroadcastsApi* | [**cancelBroadcast**](docs/BroadcastsApi.md#cancelBroadcast) | **POST** /v1/broadcasts/{broadcastId}/cancel | Cancel broadcast
+*BroadcastsApi* | [**cancelBroadcastWithHttpInfo**](docs/BroadcastsApi.md#cancelBroadcastWithHttpInfo) | **POST** /v1/broadcasts/{broadcastId}/cancel | Cancel broadcast
+*BroadcastsApi* | [**createBroadcast**](docs/BroadcastsApi.md#createBroadcast) | **POST** /v1/broadcasts | Create broadcast draft
+*BroadcastsApi* | [**createBroadcastWithHttpInfo**](docs/BroadcastsApi.md#createBroadcastWithHttpInfo) | **POST** /v1/broadcasts | Create broadcast draft
+*BroadcastsApi* | [**deleteBroadcast**](docs/BroadcastsApi.md#deleteBroadcast) | **DELETE** /v1/broadcasts/{broadcastId} | Delete broadcast
+*BroadcastsApi* | [**deleteBroadcastWithHttpInfo**](docs/BroadcastsApi.md#deleteBroadcastWithHttpInfo) | **DELETE** /v1/broadcasts/{broadcastId} | Delete broadcast
 *BroadcastsApi* | [**getBroadcast**](docs/BroadcastsApi.md#getBroadcast) | **GET** /v1/broadcasts/{broadcastId} | Get broadcast details
 *BroadcastsApi* | [**getBroadcastWithHttpInfo**](docs/BroadcastsApi.md#getBroadcastWithHttpInfo) | **GET** /v1/broadcasts/{broadcastId} | Get broadcast details
 *BroadcastsApi* | [**listBroadcastRecipients**](docs/BroadcastsApi.md#listBroadcastRecipients) | **GET** /v1/broadcasts/{broadcastId}/recipients | List broadcast recipients
@@ -240,18 +240,18 @@ Class | Method | HTTP request | Description
 *BroadcastsApi* | [**listBroadcastsWithHttpInfo**](docs/BroadcastsApi.md#listBroadcastsWithHttpInfo) | **GET** /v1/broadcasts | List broadcasts
 *BroadcastsApi* | [**scheduleBroadcast**](docs/BroadcastsApi.md#scheduleBroadcast) | **POST** /v1/broadcasts/{broadcastId}/schedule | Schedule broadcast for later
 *BroadcastsApi* | [**scheduleBroadcastWithHttpInfo**](docs/BroadcastsApi.md#scheduleBroadcastWithHttpInfo) | **POST** /v1/broadcasts/{broadcastId}/schedule | Schedule broadcast for later
-*BroadcastsApi* | [**sendBroadcast**](docs/BroadcastsApi.md#sendBroadcast) | **POST** /v1/broadcasts/{broadcastId}/send | Trigger immediate send
-*BroadcastsApi* | [**sendBroadcastWithHttpInfo**](docs/BroadcastsApi.md#sendBroadcastWithHttpInfo) | **POST** /v1/broadcasts/{broadcastId}/send | Trigger immediate send
-*BroadcastsApi* | [**updateBroadcast**](docs/BroadcastsApi.md#updateBroadcast) | **PATCH** /v1/broadcasts/{broadcastId} | Update a broadcast
-*BroadcastsApi* | [**updateBroadcastWithHttpInfo**](docs/BroadcastsApi.md#updateBroadcastWithHttpInfo) | **PATCH** /v1/broadcasts/{broadcastId} | Update a broadcast
-*CommentAutomationsApi* | [**createCommentAutomation**](docs/CommentAutomationsApi.md#createCommentAutomation) | **POST** /v1/comment-automations | Create a comment-to-DM automation
-*CommentAutomationsApi* | [**createCommentAutomationWithHttpInfo**](docs/CommentAutomationsApi.md#createCommentAutomationWithHttpInfo) | **POST** /v1/comment-automations | Create a comment-to-DM automation
-*CommentAutomationsApi* | [**deleteCommentAutomation**](docs/CommentAutomationsApi.md#deleteCommentAutomation) | **DELETE** /v1/comment-automations/{automationId} | Delete automation and all logs
-*CommentAutomationsApi* | [**deleteCommentAutomationWithHttpInfo**](docs/CommentAutomationsApi.md#deleteCommentAutomationWithHttpInfo) | **DELETE** /v1/comment-automations/{automationId} | Delete automation and all logs
-*CommentAutomationsApi* | [**getCommentAutomation**](docs/CommentAutomationsApi.md#getCommentAutomation) | **GET** /v1/comment-automations/{automationId} | Get automation details with recent logs
-*CommentAutomationsApi* | [**getCommentAutomationWithHttpInfo**](docs/CommentAutomationsApi.md#getCommentAutomationWithHttpInfo) | **GET** /v1/comment-automations/{automationId} | Get automation details with recent logs
-*CommentAutomationsApi* | [**listCommentAutomationLogs**](docs/CommentAutomationsApi.md#listCommentAutomationLogs) | **GET** /v1/comment-automations/{automationId}/logs | List trigger logs for an automation
-*CommentAutomationsApi* | [**listCommentAutomationLogsWithHttpInfo**](docs/CommentAutomationsApi.md#listCommentAutomationLogsWithHttpInfo) | **GET** /v1/comment-automations/{automationId}/logs | List trigger logs for an automation
+*BroadcastsApi* | [**sendBroadcast**](docs/BroadcastsApi.md#sendBroadcast) | **POST** /v1/broadcasts/{broadcastId}/send | Send broadcast now
+*BroadcastsApi* | [**sendBroadcastWithHttpInfo**](docs/BroadcastsApi.md#sendBroadcastWithHttpInfo) | **POST** /v1/broadcasts/{broadcastId}/send | Send broadcast now
+*BroadcastsApi* | [**updateBroadcast**](docs/BroadcastsApi.md#updateBroadcast) | **PATCH** /v1/broadcasts/{broadcastId} | Update broadcast
+*BroadcastsApi* | [**updateBroadcastWithHttpInfo**](docs/BroadcastsApi.md#updateBroadcastWithHttpInfo) | **PATCH** /v1/broadcasts/{broadcastId} | Update broadcast
+*CommentAutomationsApi* | [**createCommentAutomation**](docs/CommentAutomationsApi.md#createCommentAutomation) | **POST** /v1/comment-automations | Create comment-to-DM automation
+*CommentAutomationsApi* | [**createCommentAutomationWithHttpInfo**](docs/CommentAutomationsApi.md#createCommentAutomationWithHttpInfo) | **POST** /v1/comment-automations | Create comment-to-DM automation
+*CommentAutomationsApi* | [**deleteCommentAutomation**](docs/CommentAutomationsApi.md#deleteCommentAutomation) | **DELETE** /v1/comment-automations/{automationId} | Delete automation
+*CommentAutomationsApi* | [**deleteCommentAutomationWithHttpInfo**](docs/CommentAutomationsApi.md#deleteCommentAutomationWithHttpInfo) | **DELETE** /v1/comment-automations/{automationId} | Delete automation
+*CommentAutomationsApi* | [**getCommentAutomation**](docs/CommentAutomationsApi.md#getCommentAutomation) | **GET** /v1/comment-automations/{automationId} | Get automation details
+*CommentAutomationsApi* | [**getCommentAutomationWithHttpInfo**](docs/CommentAutomationsApi.md#getCommentAutomationWithHttpInfo) | **GET** /v1/comment-automations/{automationId} | Get automation details
+*CommentAutomationsApi* | [**listCommentAutomationLogs**](docs/CommentAutomationsApi.md#listCommentAutomationLogs) | **GET** /v1/comment-automations/{automationId}/logs | List automation logs
+*CommentAutomationsApi* | [**listCommentAutomationLogsWithHttpInfo**](docs/CommentAutomationsApi.md#listCommentAutomationLogsWithHttpInfo) | **GET** /v1/comment-automations/{automationId}/logs | List automation logs
 *CommentAutomationsApi* | [**listCommentAutomations**](docs/CommentAutomationsApi.md#listCommentAutomations) | **GET** /v1/comment-automations | List comment-to-DM automations
 *CommentAutomationsApi* | [**listCommentAutomationsWithHttpInfo**](docs/CommentAutomationsApi.md#listCommentAutomationsWithHttpInfo) | **GET** /v1/comment-automations | List comment-to-DM automations
 *CommentAutomationsApi* | [**updateCommentAutomation**](docs/CommentAutomationsApi.md#updateCommentAutomation) | **PATCH** /v1/comment-automations/{automationId} | Update automation settings
@@ -340,30 +340,30 @@ Class | Method | HTTP request | Description
 *ConnectApi* | [**updateYoutubeDefaultPlaylistWithHttpInfo**](docs/ConnectApi.md#updateYoutubeDefaultPlaylistWithHttpInfo) | **PUT** /v1/accounts/{accountId}/youtube-playlists | Set default YouTube playlist
 *ContactsApi* | [**bulkCreateContacts**](docs/ContactsApi.md#bulkCreateContacts) | **POST** /v1/contacts/bulk | Bulk create contacts
 *ContactsApi* | [**bulkCreateContactsWithHttpInfo**](docs/ContactsApi.md#bulkCreateContactsWithHttpInfo) | **POST** /v1/contacts/bulk | Bulk create contacts
-*ContactsApi* | [**createContact**](docs/ContactsApi.md#createContact) | **POST** /v1/contacts | Create a contact
-*ContactsApi* | [**createContactWithHttpInfo**](docs/ContactsApi.md#createContactWithHttpInfo) | **POST** /v1/contacts | Create a contact
-*ContactsApi* | [**deleteContact**](docs/ContactsApi.md#deleteContact) | **DELETE** /v1/contacts/{contactId} | Delete a contact
-*ContactsApi* | [**deleteContactWithHttpInfo**](docs/ContactsApi.md#deleteContactWithHttpInfo) | **DELETE** /v1/contacts/{contactId} | Delete a contact
-*ContactsApi* | [**getContact**](docs/ContactsApi.md#getContact) | **GET** /v1/contacts/{contactId} | Get contact with channels
-*ContactsApi* | [**getContactWithHttpInfo**](docs/ContactsApi.md#getContactWithHttpInfo) | **GET** /v1/contacts/{contactId} | Get contact with channels
+*ContactsApi* | [**createContact**](docs/ContactsApi.md#createContact) | **POST** /v1/contacts | Create contact
+*ContactsApi* | [**createContactWithHttpInfo**](docs/ContactsApi.md#createContactWithHttpInfo) | **POST** /v1/contacts | Create contact
+*ContactsApi* | [**deleteContact**](docs/ContactsApi.md#deleteContact) | **DELETE** /v1/contacts/{contactId} | Delete contact
+*ContactsApi* | [**deleteContactWithHttpInfo**](docs/ContactsApi.md#deleteContactWithHttpInfo) | **DELETE** /v1/contacts/{contactId} | Delete contact
+*ContactsApi* | [**getContact**](docs/ContactsApi.md#getContact) | **GET** /v1/contacts/{contactId} | Get contact
+*ContactsApi* | [**getContactWithHttpInfo**](docs/ContactsApi.md#getContactWithHttpInfo) | **GET** /v1/contacts/{contactId} | Get contact
 *ContactsApi* | [**getContactChannels**](docs/ContactsApi.md#getContactChannels) | **GET** /v1/contacts/{contactId}/channels | List channels for a contact
 *ContactsApi* | [**getContactChannelsWithHttpInfo**](docs/ContactsApi.md#getContactChannelsWithHttpInfo) | **GET** /v1/contacts/{contactId}/channels | List channels for a contact
 *ContactsApi* | [**listContacts**](docs/ContactsApi.md#listContacts) | **GET** /v1/contacts | List contacts
 *ContactsApi* | [**listContactsWithHttpInfo**](docs/ContactsApi.md#listContactsWithHttpInfo) | **GET** /v1/contacts | List contacts
-*ContactsApi* | [**updateContact**](docs/ContactsApi.md#updateContact) | **PATCH** /v1/contacts/{contactId} | Update a contact
-*ContactsApi* | [**updateContactWithHttpInfo**](docs/ContactsApi.md#updateContactWithHttpInfo) | **PATCH** /v1/contacts/{contactId} | Update a contact
-*CustomFieldsApi* | [**clearContactFieldValue**](docs/CustomFieldsApi.md#clearContactFieldValue) | **DELETE** /v1/contacts/{contactId}/fields/{slug} | Clear a custom field value
-*CustomFieldsApi* | [**clearContactFieldValueWithHttpInfo**](docs/CustomFieldsApi.md#clearContactFieldValueWithHttpInfo) | **DELETE** /v1/contacts/{contactId}/fields/{slug} | Clear a custom field value
-*CustomFieldsApi* | [**createCustomField**](docs/CustomFieldsApi.md#createCustomField) | **POST** /v1/custom-fields | Create a custom field definition
-*CustomFieldsApi* | [**createCustomFieldWithHttpInfo**](docs/CustomFieldsApi.md#createCustomFieldWithHttpInfo) | **POST** /v1/custom-fields | Create a custom field definition
-*CustomFieldsApi* | [**deleteCustomField**](docs/CustomFieldsApi.md#deleteCustomField) | **DELETE** /v1/custom-fields/{fieldId} | Delete a custom field definition
-*CustomFieldsApi* | [**deleteCustomFieldWithHttpInfo**](docs/CustomFieldsApi.md#deleteCustomFieldWithHttpInfo) | **DELETE** /v1/custom-fields/{fieldId} | Delete a custom field definition
+*ContactsApi* | [**updateContact**](docs/ContactsApi.md#updateContact) | **PATCH** /v1/contacts/{contactId} | Update contact
+*ContactsApi* | [**updateContactWithHttpInfo**](docs/ContactsApi.md#updateContactWithHttpInfo) | **PATCH** /v1/contacts/{contactId} | Update contact
+*CustomFieldsApi* | [**clearContactFieldValue**](docs/CustomFieldsApi.md#clearContactFieldValue) | **DELETE** /v1/contacts/{contactId}/fields/{slug} | Clear custom field value
+*CustomFieldsApi* | [**clearContactFieldValueWithHttpInfo**](docs/CustomFieldsApi.md#clearContactFieldValueWithHttpInfo) | **DELETE** /v1/contacts/{contactId}/fields/{slug} | Clear custom field value
+*CustomFieldsApi* | [**createCustomField**](docs/CustomFieldsApi.md#createCustomField) | **POST** /v1/custom-fields | Create custom field
+*CustomFieldsApi* | [**createCustomFieldWithHttpInfo**](docs/CustomFieldsApi.md#createCustomFieldWithHttpInfo) | **POST** /v1/custom-fields | Create custom field
+*CustomFieldsApi* | [**deleteCustomField**](docs/CustomFieldsApi.md#deleteCustomField) | **DELETE** /v1/custom-fields/{fieldId} | Delete custom field
+*CustomFieldsApi* | [**deleteCustomFieldWithHttpInfo**](docs/CustomFieldsApi.md#deleteCustomFieldWithHttpInfo) | **DELETE** /v1/custom-fields/{fieldId} | Delete custom field
 *CustomFieldsApi* | [**listCustomFields**](docs/CustomFieldsApi.md#listCustomFields) | **GET** /v1/custom-fields | List custom field definitions
 *CustomFieldsApi* | [**listCustomFieldsWithHttpInfo**](docs/CustomFieldsApi.md#listCustomFieldsWithHttpInfo) | **GET** /v1/custom-fields | List custom field definitions
-*CustomFieldsApi* | [**setContactFieldValue**](docs/CustomFieldsApi.md#setContactFieldValue) | **PUT** /v1/contacts/{contactId}/fields/{slug} | Set a custom field value
-*CustomFieldsApi* | [**setContactFieldValueWithHttpInfo**](docs/CustomFieldsApi.md#setContactFieldValueWithHttpInfo) | **PUT** /v1/contacts/{contactId}/fields/{slug} | Set a custom field value
-*CustomFieldsApi* | [**updateCustomField**](docs/CustomFieldsApi.md#updateCustomField) | **PATCH** /v1/custom-fields/{fieldId} | Update a custom field definition
-*CustomFieldsApi* | [**updateCustomFieldWithHttpInfo**](docs/CustomFieldsApi.md#updateCustomFieldWithHttpInfo) | **PATCH** /v1/custom-fields/{fieldId} | Update a custom field definition
+*CustomFieldsApi* | [**setContactFieldValue**](docs/CustomFieldsApi.md#setContactFieldValue) | **PUT** /v1/contacts/{contactId}/fields/{slug} | Set custom field value
+*CustomFieldsApi* | [**setContactFieldValueWithHttpInfo**](docs/CustomFieldsApi.md#setContactFieldValueWithHttpInfo) | **PUT** /v1/contacts/{contactId}/fields/{slug} | Set custom field value
+*CustomFieldsApi* | [**updateCustomField**](docs/CustomFieldsApi.md#updateCustomField) | **PATCH** /v1/custom-fields/{fieldId} | Update custom field
+*CustomFieldsApi* | [**updateCustomFieldWithHttpInfo**](docs/CustomFieldsApi.md#updateCustomFieldWithHttpInfo) | **PATCH** /v1/custom-fields/{fieldId} | Update custom field
 *GmbAttributesApi* | [**getGoogleBusinessAttributes**](docs/GmbAttributesApi.md#getGoogleBusinessAttributes) | **GET** /v1/accounts/{accountId}/gmb-attributes | Get attributes
 *GmbAttributesApi* | [**getGoogleBusinessAttributesWithHttpInfo**](docs/GmbAttributesApi.md#getGoogleBusinessAttributesWithHttpInfo) | **GET** /v1/accounts/{accountId}/gmb-attributes | Get attributes
 *GmbAttributesApi* | [**updateGoogleBusinessAttributes**](docs/GmbAttributesApi.md#updateGoogleBusinessAttributes) | **PUT** /v1/accounts/{accountId}/gmb-attributes | Update attributes
@@ -394,12 +394,10 @@ Class | Method | HTTP request | Description
 *InvitesApi* | [**createInviteTokenWithHttpInfo**](docs/InvitesApi.md#createInviteTokenWithHttpInfo) | **POST** /v1/invite/tokens | Create invite token
 *LinkedInMentionsApi* | [**getLinkedInMentions**](docs/LinkedInMentionsApi.md#getLinkedInMentions) | **GET** /v1/accounts/{accountId}/linkedin-mentions | Resolve LinkedIn mention
 *LinkedInMentionsApi* | [**getLinkedInMentionsWithHttpInfo**](docs/LinkedInMentionsApi.md#getLinkedInMentionsWithHttpInfo) | **GET** /v1/accounts/{accountId}/linkedin-mentions | Resolve LinkedIn mention
-*LogsApi* | [**getPostLogs**](docs/LogsApi.md#getPostLogs) | **GET** /v1/posts/{postId}/logs | Get post logs
-*LogsApi* | [**getPostLogsWithHttpInfo**](docs/LogsApi.md#getPostLogsWithHttpInfo) | **GET** /v1/posts/{postId}/logs | Get post logs
 *LogsApi* | [**listLogs**](docs/LogsApi.md#listLogs) | **GET** /v1/logs | List activity logs
 *LogsApi* | [**listLogsWithHttpInfo**](docs/LogsApi.md#listLogsWithHttpInfo) | **GET** /v1/logs | List activity logs
-*MediaApi* | [**getMediaPresignedUrl**](docs/MediaApi.md#getMediaPresignedUrl) | **POST** /v1/media/presign | Get presigned upload URL
-*MediaApi* | [**getMediaPresignedUrlWithHttpInfo**](docs/MediaApi.md#getMediaPresignedUrlWithHttpInfo) | **POST** /v1/media/presign | Get presigned upload URL
+*MediaApi* | [**getMediaPresignedUrl**](docs/MediaApi.md#getMediaPresignedUrl) | **POST** /v1/media/presign | Get upload URL
+*MediaApi* | [**getMediaPresignedUrlWithHttpInfo**](docs/MediaApi.md#getMediaPresignedUrlWithHttpInfo) | **POST** /v1/media/presign | Get upload URL
 *MessagesApi* | [**addMessageReaction**](docs/MessagesApi.md#addMessageReaction) | **POST** /v1/inbox/conversations/{conversationId}/messages/{messageId}/reactions | Add reaction
 *MessagesApi* | [**addMessageReactionWithHttpInfo**](docs/MessagesApi.md#addMessageReactionWithHttpInfo) | **POST** /v1/inbox/conversations/{conversationId}/messages/{messageId}/reactions | Add reaction
 *MessagesApi* | [**createInboxConversation**](docs/MessagesApi.md#createInboxConversation) | **POST** /v1/inbox/conversations | Create conversation
@@ -476,12 +474,12 @@ Class | Method | HTTP request | Description
 *ReviewsApi* | [**listInboxReviewsWithHttpInfo**](docs/ReviewsApi.md#listInboxReviewsWithHttpInfo) | **GET** /v1/inbox/reviews | List reviews
 *ReviewsApi* | [**replyToInboxReview**](docs/ReviewsApi.md#replyToInboxReview) | **POST** /v1/inbox/reviews/{reviewId}/reply | Reply to review
 *ReviewsApi* | [**replyToInboxReviewWithHttpInfo**](docs/ReviewsApi.md#replyToInboxReviewWithHttpInfo) | **POST** /v1/inbox/reviews/{reviewId}/reply | Reply to review
-*SequencesApi* | [**activateSequence**](docs/SequencesApi.md#activateSequence) | **POST** /v1/sequences/{sequenceId}/activate | Activate a sequence
-*SequencesApi* | [**activateSequenceWithHttpInfo**](docs/SequencesApi.md#activateSequenceWithHttpInfo) | **POST** /v1/sequences/{sequenceId}/activate | Activate a sequence
-*SequencesApi* | [**createSequence**](docs/SequencesApi.md#createSequence) | **POST** /v1/sequences | Create a sequence
-*SequencesApi* | [**createSequenceWithHttpInfo**](docs/SequencesApi.md#createSequenceWithHttpInfo) | **POST** /v1/sequences | Create a sequence
-*SequencesApi* | [**deleteSequence**](docs/SequencesApi.md#deleteSequence) | **DELETE** /v1/sequences/{sequenceId} | Delete a sequence
-*SequencesApi* | [**deleteSequenceWithHttpInfo**](docs/SequencesApi.md#deleteSequenceWithHttpInfo) | **DELETE** /v1/sequences/{sequenceId} | Delete a sequence
+*SequencesApi* | [**activateSequence**](docs/SequencesApi.md#activateSequence) | **POST** /v1/sequences/{sequenceId}/activate | Activate sequence
+*SequencesApi* | [**activateSequenceWithHttpInfo**](docs/SequencesApi.md#activateSequenceWithHttpInfo) | **POST** /v1/sequences/{sequenceId}/activate | Activate sequence
+*SequencesApi* | [**createSequence**](docs/SequencesApi.md#createSequence) | **POST** /v1/sequences | Create sequence
+*SequencesApi* | [**createSequenceWithHttpInfo**](docs/SequencesApi.md#createSequenceWithHttpInfo) | **POST** /v1/sequences | Create sequence
+*SequencesApi* | [**deleteSequence**](docs/SequencesApi.md#deleteSequence) | **DELETE** /v1/sequences/{sequenceId} | Delete sequence
+*SequencesApi* | [**deleteSequenceWithHttpInfo**](docs/SequencesApi.md#deleteSequenceWithHttpInfo) | **DELETE** /v1/sequences/{sequenceId} | Delete sequence
 *SequencesApi* | [**enrollContacts**](docs/SequencesApi.md#enrollContacts) | **POST** /v1/sequences/{sequenceId}/enroll | Enroll contacts in a sequence
 *SequencesApi* | [**enrollContactsWithHttpInfo**](docs/SequencesApi.md#enrollContactsWithHttpInfo) | **POST** /v1/sequences/{sequenceId}/enroll | Enroll contacts in a sequence
 *SequencesApi* | [**getSequence**](docs/SequencesApi.md#getSequence) | **GET** /v1/sequences/{sequenceId} | Get sequence with steps
@@ -490,12 +488,12 @@ Class | Method | HTTP request | Description
 *SequencesApi* | [**listSequenceEnrollmentsWithHttpInfo**](docs/SequencesApi.md#listSequenceEnrollmentsWithHttpInfo) | **GET** /v1/sequences/{sequenceId}/enrollments | List enrollments for a sequence
 *SequencesApi* | [**listSequences**](docs/SequencesApi.md#listSequences) | **GET** /v1/sequences | List sequences
 *SequencesApi* | [**listSequencesWithHttpInfo**](docs/SequencesApi.md#listSequencesWithHttpInfo) | **GET** /v1/sequences | List sequences
-*SequencesApi* | [**pauseSequence**](docs/SequencesApi.md#pauseSequence) | **POST** /v1/sequences/{sequenceId}/pause | Pause a sequence
-*SequencesApi* | [**pauseSequenceWithHttpInfo**](docs/SequencesApi.md#pauseSequenceWithHttpInfo) | **POST** /v1/sequences/{sequenceId}/pause | Pause a sequence
-*SequencesApi* | [**unenrollContact**](docs/SequencesApi.md#unenrollContact) | **DELETE** /v1/sequences/{sequenceId}/enroll/{contactId} | Unenroll a contact from a sequence
-*SequencesApi* | [**unenrollContactWithHttpInfo**](docs/SequencesApi.md#unenrollContactWithHttpInfo) | **DELETE** /v1/sequences/{sequenceId}/enroll/{contactId} | Unenroll a contact from a sequence
-*SequencesApi* | [**updateSequence**](docs/SequencesApi.md#updateSequence) | **PATCH** /v1/sequences/{sequenceId} | Update a sequence
-*SequencesApi* | [**updateSequenceWithHttpInfo**](docs/SequencesApi.md#updateSequenceWithHttpInfo) | **PATCH** /v1/sequences/{sequenceId} | Update a sequence
+*SequencesApi* | [**pauseSequence**](docs/SequencesApi.md#pauseSequence) | **POST** /v1/sequences/{sequenceId}/pause | Pause sequence
+*SequencesApi* | [**pauseSequenceWithHttpInfo**](docs/SequencesApi.md#pauseSequenceWithHttpInfo) | **POST** /v1/sequences/{sequenceId}/pause | Pause sequence
+*SequencesApi* | [**unenrollContact**](docs/SequencesApi.md#unenrollContact) | **DELETE** /v1/sequences/{sequenceId}/enroll/{contactId} | Unenroll contact
+*SequencesApi* | [**unenrollContactWithHttpInfo**](docs/SequencesApi.md#unenrollContactWithHttpInfo) | **DELETE** /v1/sequences/{sequenceId}/enroll/{contactId} | Unenroll contact
+*SequencesApi* | [**updateSequence**](docs/SequencesApi.md#updateSequence) | **PATCH** /v1/sequences/{sequenceId} | Update sequence
+*SequencesApi* | [**updateSequenceWithHttpInfo**](docs/SequencesApi.md#updateSequenceWithHttpInfo) | **PATCH** /v1/sequences/{sequenceId} | Update sequence
 *TwitterEngagementApi* | [**bookmarkPost**](docs/TwitterEngagementApi.md#bookmarkPost) | **POST** /v1/twitter/bookmark | Bookmark a tweet
 *TwitterEngagementApi* | [**bookmarkPostWithHttpInfo**](docs/TwitterEngagementApi.md#bookmarkPostWithHttpInfo) | **POST** /v1/twitter/bookmark | Bookmark a tweet
 *TwitterEngagementApi* | [**followUser**](docs/TwitterEngagementApi.md#followUser) | **POST** /v1/twitter/follow | Follow a user
@@ -518,8 +516,8 @@ Class | Method | HTTP request | Description
 *ValidateApi* | [**validateMediaWithHttpInfo**](docs/ValidateApi.md#validateMediaWithHttpInfo) | **POST** /v1/tools/validate/media | Validate media URL
 *ValidateApi* | [**validatePost**](docs/ValidateApi.md#validatePost) | **POST** /v1/tools/validate/post | Validate post content
 *ValidateApi* | [**validatePostWithHttpInfo**](docs/ValidateApi.md#validatePostWithHttpInfo) | **POST** /v1/tools/validate/post | Validate post content
-*ValidateApi* | [**validatePostLength**](docs/ValidateApi.md#validatePostLength) | **POST** /v1/tools/validate/post-length | Validate post character count
-*ValidateApi* | [**validatePostLengthWithHttpInfo**](docs/ValidateApi.md#validatePostLengthWithHttpInfo) | **POST** /v1/tools/validate/post-length | Validate post character count
+*ValidateApi* | [**validatePostLength**](docs/ValidateApi.md#validatePostLength) | **POST** /v1/tools/validate/post-length | Validate character count
+*ValidateApi* | [**validatePostLengthWithHttpInfo**](docs/ValidateApi.md#validatePostLengthWithHttpInfo) | **POST** /v1/tools/validate/post-length | Validate character count
 *ValidateApi* | [**validateSubreddit**](docs/ValidateApi.md#validateSubreddit) | **GET** /v1/tools/validate/subreddit | Check subreddit existence
 *ValidateApi* | [**validateSubredditWithHttpInfo**](docs/ValidateApi.md#validateSubredditWithHttpInfo) | **GET** /v1/tools/validate/subreddit | Check subreddit existence
 *WebhooksApi* | [**createWebhookSettings**](docs/WebhooksApi.md#createWebhookSettings) | **POST** /v1/webhooks/settings | Create webhook
@@ -548,8 +546,8 @@ Class | Method | HTTP request | Description
 *WhatsAppApi* | [**deleteWhatsAppTemplateWithHttpInfo**](docs/WhatsAppApi.md#deleteWhatsAppTemplateWithHttpInfo) | **DELETE** /v1/whatsapp/templates/{templateName} | Delete template
 *WhatsAppApi* | [**getWhatsAppBusinessProfile**](docs/WhatsAppApi.md#getWhatsAppBusinessProfile) | **GET** /v1/whatsapp/business-profile | Get business profile
 *WhatsAppApi* | [**getWhatsAppBusinessProfileWithHttpInfo**](docs/WhatsAppApi.md#getWhatsAppBusinessProfileWithHttpInfo) | **GET** /v1/whatsapp/business-profile | Get business profile
-*WhatsAppApi* | [**getWhatsAppDisplayName**](docs/WhatsAppApi.md#getWhatsAppDisplayName) | **GET** /v1/whatsapp/business-profile/display-name | Get display name and review status
-*WhatsAppApi* | [**getWhatsAppDisplayNameWithHttpInfo**](docs/WhatsAppApi.md#getWhatsAppDisplayNameWithHttpInfo) | **GET** /v1/whatsapp/business-profile/display-name | Get display name and review status
+*WhatsAppApi* | [**getWhatsAppDisplayName**](docs/WhatsAppApi.md#getWhatsAppDisplayName) | **GET** /v1/whatsapp/business-profile/display-name | Get display name status
+*WhatsAppApi* | [**getWhatsAppDisplayNameWithHttpInfo**](docs/WhatsAppApi.md#getWhatsAppDisplayNameWithHttpInfo) | **GET** /v1/whatsapp/business-profile/display-name | Get display name status
 *WhatsAppApi* | [**getWhatsAppGroupChat**](docs/WhatsAppApi.md#getWhatsAppGroupChat) | **GET** /v1/whatsapp/wa-groups/{groupId} | Get group info
 *WhatsAppApi* | [**getWhatsAppGroupChatWithHttpInfo**](docs/WhatsAppApi.md#getWhatsAppGroupChatWithHttpInfo) | **GET** /v1/whatsapp/wa-groups/{groupId} | Get group info
 *WhatsAppApi* | [**getWhatsAppTemplate**](docs/WhatsAppApi.md#getWhatsAppTemplate) | **GET** /v1/whatsapp/templates/{templateName} | Get template
@@ -616,9 +614,13 @@ Class | Method | HTTP request | Description
  - [AdCampaign](docs/AdCampaign.md)
  - [AdCreative](docs/AdCreative.md)
  - [AdMetrics](docs/AdMetrics.md)
+ - [AdPromotedObject](docs/AdPromotedObject.md)
  - [AdSchedule](docs/AdSchedule.md)
+ - [AdStatus](docs/AdStatus.md)
  - [AdTreeAdSet](docs/AdTreeAdSet.md)
+ - [AdTreeAdSetPromotedObject](docs/AdTreeAdSetPromotedObject.md)
  - [AdTreeCampaign](docs/AdTreeCampaign.md)
+ - [AdTreeCampaignPromotedObject](docs/AdTreeCampaignPromotedObject.md)
  - [AddBroadcastRecipients200Response](docs/AddBroadcastRecipients200Response.md)
  - [AddBroadcastRecipientsRequest](docs/AddBroadcastRecipientsRequest.md)
  - [AddMessageReactionRequest](docs/AddMessageReactionRequest.md)
@@ -874,7 +876,6 @@ Class | Method | HTTP request | Description
  - [GetPendingOAuthData200ResponseOrganizationsInner](docs/GetPendingOAuthData200ResponseOrganizationsInner.md)
  - [GetPinterestBoards200Response](docs/GetPinterestBoards200Response.md)
  - [GetPinterestBoards200ResponseBoardsInner](docs/GetPinterestBoards200ResponseBoardsInner.md)
- - [GetPostLogs200Response](docs/GetPostLogs200Response.md)
  - [GetPostTimeline200Response](docs/GetPostTimeline200Response.md)
  - [GetPostTimeline200ResponseTimelineInner](docs/GetPostTimeline200ResponseTimelineInner.md)
  - [GetPostTimeline400Response](docs/GetPostTimeline400Response.md)
@@ -1051,11 +1052,6 @@ Class | Method | HTTP request | Description
  - [PostCreateResponse](docs/PostCreateResponse.md)
  - [PostDeleteResponse](docs/PostDeleteResponse.md)
  - [PostGetResponse](docs/PostGetResponse.md)
- - [PostLog](docs/PostLog.md)
- - [PostLogPostId](docs/PostLogPostId.md)
- - [PostLogPostIdOneOf](docs/PostLogPostIdOneOf.md)
- - [PostLogRequest](docs/PostLogRequest.md)
- - [PostLogResponse](docs/PostLogResponse.md)
  - [PostRetryResponse](docs/PostRetryResponse.md)
  - [PostUpdateResponse](docs/PostUpdateResponse.md)
  - [PostUserId](docs/PostUserId.md)
@@ -1172,6 +1168,7 @@ Class | Method | HTTP request | Description
  - [UpdateAdRequest](docs/UpdateAdRequest.md)
  - [UpdateAdRequestBudget](docs/UpdateAdRequestBudget.md)
  - [UpdateAdRequestTargeting](docs/UpdateAdRequestTargeting.md)
+ - [UpdateAdRequestTargetingInterestsInner](docs/UpdateAdRequestTargetingInterestsInner.md)
  - [UpdateBroadcast200Response](docs/UpdateBroadcast200Response.md)
  - [UpdateBroadcast200ResponseBroadcast](docs/UpdateBroadcast200ResponseBroadcast.md)
  - [UpdateCommentAutomation200Response](docs/UpdateCommentAutomation200Response.md)

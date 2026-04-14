@@ -4,24 +4,24 @@ All URIs are relative to *https://zernio.com/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**boostPost**](AdsApi.md#boostPost) | **POST** /v1/ads/boost | Boost an existing post as a paid ad |
-| [**boostPostWithHttpInfo**](AdsApi.md#boostPostWithHttpInfo) | **POST** /v1/ads/boost | Boost an existing post as a paid ad |
-| [**createStandaloneAd**](AdsApi.md#createStandaloneAd) | **POST** /v1/ads/create | Create a standalone ad with custom creative |
-| [**createStandaloneAdWithHttpInfo**](AdsApi.md#createStandaloneAdWithHttpInfo) | **POST** /v1/ads/create | Create a standalone ad with custom creative |
+| [**boostPost**](AdsApi.md#boostPost) | **POST** /v1/ads/boost | Boost post as ad |
+| [**boostPostWithHttpInfo**](AdsApi.md#boostPostWithHttpInfo) | **POST** /v1/ads/boost | Boost post as ad |
+| [**createStandaloneAd**](AdsApi.md#createStandaloneAd) | **POST** /v1/ads/create | Create standalone ad |
+| [**createStandaloneAdWithHttpInfo**](AdsApi.md#createStandaloneAdWithHttpInfo) | **POST** /v1/ads/create | Create standalone ad |
 | [**deleteAd**](AdsApi.md#deleteAd) | **DELETE** /v1/ads/{adId} | Cancel an ad |
 | [**deleteAdWithHttpInfo**](AdsApi.md#deleteAdWithHttpInfo) | **DELETE** /v1/ads/{adId} | Cancel an ad |
 | [**getAd**](AdsApi.md#getAd) | **GET** /v1/ads/{adId} | Get ad details |
 | [**getAdWithHttpInfo**](AdsApi.md#getAdWithHttpInfo) | **GET** /v1/ads/{adId} | Get ad details |
-| [**getAdAnalytics**](AdsApi.md#getAdAnalytics) | **GET** /v1/ads/{adId}/analytics | Get ad analytics with daily breakdown |
-| [**getAdAnalyticsWithHttpInfo**](AdsApi.md#getAdAnalyticsWithHttpInfo) | **GET** /v1/ads/{adId}/analytics | Get ad analytics with daily breakdown |
-| [**listAdAccounts**](AdsApi.md#listAdAccounts) | **GET** /v1/ads/accounts | List ad accounts for a social account |
-| [**listAdAccountsWithHttpInfo**](AdsApi.md#listAdAccountsWithHttpInfo) | **GET** /v1/ads/accounts | List ad accounts for a social account |
+| [**getAdAnalytics**](AdsApi.md#getAdAnalytics) | **GET** /v1/ads/{adId}/analytics | Get ad analytics |
+| [**getAdAnalyticsWithHttpInfo**](AdsApi.md#getAdAnalyticsWithHttpInfo) | **GET** /v1/ads/{adId}/analytics | Get ad analytics |
+| [**listAdAccounts**](AdsApi.md#listAdAccounts) | **GET** /v1/ads/accounts | List ad accounts |
+| [**listAdAccountsWithHttpInfo**](AdsApi.md#listAdAccountsWithHttpInfo) | **GET** /v1/ads/accounts | List ad accounts |
 | [**listAds**](AdsApi.md#listAds) | **GET** /v1/ads | List ads |
 | [**listAdsWithHttpInfo**](AdsApi.md#listAdsWithHttpInfo) | **GET** /v1/ads | List ads |
 | [**searchAdInterests**](AdsApi.md#searchAdInterests) | **GET** /v1/ads/interests | Search targeting interests |
 | [**searchAdInterestsWithHttpInfo**](AdsApi.md#searchAdInterestsWithHttpInfo) | **GET** /v1/ads/interests | Search targeting interests |
-| [**updateAd**](AdsApi.md#updateAd) | **PUT** /v1/ads/{adId} | Update ad (pause/resume, budget, targeting, name) |
-| [**updateAdWithHttpInfo**](AdsApi.md#updateAdWithHttpInfo) | **PUT** /v1/ads/{adId} | Update ad (pause/resume, budget, targeting, name) |
+| [**updateAd**](AdsApi.md#updateAd) | **PUT** /v1/ads/{adId} | Update ad |
+| [**updateAdWithHttpInfo**](AdsApi.md#updateAdWithHttpInfo) | **PUT** /v1/ads/{adId} | Update ad |
 
 
 
@@ -29,7 +29,7 @@ All URIs are relative to *https://zernio.com/api*
 
 > UpdateAd200Response boostPost(boostPostRequest)
 
-Boost an existing post as a paid ad
+Boost post as ad
 
 Creates a paid ad campaign from an existing published post. Creates the full platform campaign hierarchy (campaign, ad set, ad).
 
@@ -103,7 +103,7 @@ public class Example {
 
 > ApiResponse<UpdateAd200Response> boostPost boostPostWithHttpInfo(boostPostRequest)
 
-Boost an existing post as a paid ad
+Boost post as ad
 
 Creates a paid ad campaign from an existing published post. Creates the full platform campaign hierarchy (campaign, ad set, ad).
 
@@ -181,7 +181,7 @@ ApiResponse<[**UpdateAd200Response**](UpdateAd200Response.md)>
 
 > UpdateAd200Response createStandaloneAd(createStandaloneAdRequest)
 
-Create a standalone ad with custom creative
+Create standalone ad
 
 Creates a paid ad with custom creative (headline, body, image/video, link). Creates the full platform campaign hierarchy.
 
@@ -255,7 +255,7 @@ public class Example {
 
 > ApiResponse<UpdateAd200Response> createStandaloneAd createStandaloneAdWithHttpInfo(createStandaloneAdRequest)
 
-Create a standalone ad with custom creative
+Create standalone ad
 
 Creates a paid ad with custom creative (headline, body, image/video, link). Creates the full platform campaign hierarchy.
 
@@ -483,6 +483,8 @@ ApiResponse<[**DeleteAccountGroup200Response**](DeleteAccountGroup200Response.md
 
 Get ad details
 
+Returns an ad with its creative, targeting, status, and performance metrics.
+
 ### Example
 
 ```java
@@ -552,6 +554,8 @@ public class Example {
 > ApiResponse<GetAd200Response> getAd getAdWithHttpInfo(adId)
 
 Get ad details
+
+Returns an ad with its creative, targeting, status, and performance metrics.
 
 ### Example
 
@@ -625,7 +629,7 @@ ApiResponse<[**GetAd200Response**](GetAd200Response.md)>
 
 > GetAdAnalytics200Response getAdAnalytics(adId, fromDate, toDate, breakdowns)
 
-Get ad analytics with daily breakdown
+Get ad analytics
 
 Returns detailed performance analytics for an ad. Includes summary metrics, a daily timeline over the requested date range, and optional demographic breakdowns (Meta and TikTok only). If no date range is provided, defaults to the last 90 days. Date range is capped at 90 days max. 
 
@@ -704,7 +708,7 @@ public class Example {
 
 > ApiResponse<GetAdAnalytics200Response> getAdAnalytics getAdAnalyticsWithHttpInfo(adId, fromDate, toDate, breakdowns)
 
-Get ad analytics with daily breakdown
+Get ad analytics
 
 Returns detailed performance analytics for an ad. Includes summary metrics, a daily timeline over the requested date range, and optional demographic breakdowns (Meta and TikTok only). If no date range is provided, defaults to the last 90 days. Date range is capped at 90 days max. 
 
@@ -787,7 +791,7 @@ ApiResponse<[**GetAdAnalytics200Response**](GetAdAnalytics200Response.md)>
 
 > ListAdAccounts200Response listAdAccounts(accountId)
 
-List ad accounts for a social account
+List ad accounts
 
 Returns the platform ad accounts available for the given social account (e.g. Meta ad accounts, TikTok advertiser IDs, Google Ads customer IDs).
 
@@ -859,7 +863,7 @@ public class Example {
 
 > ApiResponse<ListAdAccounts200Response> listAdAccounts listAdAccountsWithHttpInfo(accountId)
 
-List ad accounts for a social account
+List ad accounts
 
 Returns the platform ad accounts available for the given social account (e.g. Meta ad accounts, TikTok advertiser IDs, Google Ads customer IDs).
 
@@ -937,7 +941,7 @@ ApiResponse<[**ListAdAccounts200Response**](ListAdAccounts200Response.md)>
 
 List ads
 
-Returns a paginated list of ads with metrics computed over an optional date range. Use &#x60;source&#x3D;all&#x60; to include externally-synced ads from platform ad managers. If no date range is provided, defaults to the last 90 days. Date range is capped at 90 days max. 
+Returns a paginated list of ads with metrics computed over an optional date range. Use source&#x3D;all to include externally-synced ads from platform ad managers. If no date range is provided, defaults to the last 90 days. Date range is capped at 90 days max. 
 
 ### Example
 
@@ -963,7 +967,7 @@ public class Example {
         Integer page = 1; // Integer | Page number (1-based)
         Integer limit = 50; // Integer | 
         String source = "zernio"; // String | zernio = Zernio-created only, all = include external ads
-        String status = "active"; // String | 
+        AdStatus status = AdStatus.fromValue("active"); // AdStatus | 
         String platform = "facebook"; // String | 
         String accountId = "accountId_example"; // String | Social account ID
         String adAccountId = "adAccountId_example"; // String | Platform ad account ID (e.g. act_123 for Meta). Mirrors the same filter on /v1/ads/campaigns and /v1/ads/tree.
@@ -993,7 +997,7 @@ public class Example {
 | **page** | **Integer**| Page number (1-based) | [optional] [default to 1] |
 | **limit** | **Integer**|  | [optional] [default to 50] |
 | **source** | **String**| zernio &#x3D; Zernio-created only, all &#x3D; include external ads | [optional] [default to zernio] [enum: zernio, all] |
-| **status** | **String**|  | [optional] [enum: active, paused, pending_review, rejected, completed, cancelled, error] |
+| **status** | [**AdStatus**](.md)|  | [optional] [enum: active, paused, pending_review, rejected, completed, cancelled, error] |
 | **platform** | **String**|  | [optional] [enum: facebook, instagram, tiktok, linkedin, pinterest, google, twitter] |
 | **accountId** | **String**| Social account ID | [optional] |
 | **adAccountId** | **String**| Platform ad account ID (e.g. act_123 for Meta). Mirrors the same filter on /v1/ads/campaigns and /v1/ads/tree. | [optional] |
@@ -1029,7 +1033,7 @@ public class Example {
 
 List ads
 
-Returns a paginated list of ads with metrics computed over an optional date range. Use &#x60;source&#x3D;all&#x60; to include externally-synced ads from platform ad managers. If no date range is provided, defaults to the last 90 days. Date range is capped at 90 days max. 
+Returns a paginated list of ads with metrics computed over an optional date range. Use source&#x3D;all to include externally-synced ads from platform ad managers. If no date range is provided, defaults to the last 90 days. Date range is capped at 90 days max. 
 
 ### Example
 
@@ -1056,7 +1060,7 @@ public class Example {
         Integer page = 1; // Integer | Page number (1-based)
         Integer limit = 50; // Integer | 
         String source = "zernio"; // String | zernio = Zernio-created only, all = include external ads
-        String status = "active"; // String | 
+        AdStatus status = AdStatus.fromValue("active"); // AdStatus | 
         String platform = "facebook"; // String | 
         String accountId = "accountId_example"; // String | Social account ID
         String adAccountId = "adAccountId_example"; // String | Platform ad account ID (e.g. act_123 for Meta). Mirrors the same filter on /v1/ads/campaigns and /v1/ads/tree.
@@ -1088,7 +1092,7 @@ public class Example {
 | **page** | **Integer**| Page number (1-based) | [optional] [default to 1] |
 | **limit** | **Integer**|  | [optional] [default to 50] |
 | **source** | **String**| zernio &#x3D; Zernio-created only, all &#x3D; include external ads | [optional] [default to zernio] [enum: zernio, all] |
-| **status** | **String**|  | [optional] [enum: active, paused, pending_review, rejected, completed, cancelled, error] |
+| **status** | [**AdStatus**](.md)|  | [optional] [enum: active, paused, pending_review, rejected, completed, cancelled, error] |
 | **platform** | **String**|  | [optional] [enum: facebook, instagram, tiktok, linkedin, pinterest, google, twitter] |
 | **accountId** | **String**| Social account ID | [optional] |
 | **adAccountId** | **String**| Platform ad account ID (e.g. act_123 for Meta). Mirrors the same filter on /v1/ads/campaigns and /v1/ads/tree. | [optional] |
@@ -1275,7 +1279,7 @@ ApiResponse<[**SearchAdInterests200Response**](SearchAdInterests200Response.md)>
 
 > UpdateAd200Response updateAd(adId, updateAdRequest)
 
-Update ad (pause/resume, budget, targeting, name)
+Update ad
 
 Update one or more fields on an ad. Status changes and budget updates are propagated to the platform. Targeting updates are Meta-only.
 
@@ -1350,7 +1354,7 @@ public class Example {
 
 > ApiResponse<UpdateAd200Response> updateAd updateAdWithHttpInfo(adId, updateAdRequest)
 
-Update ad (pause/resume, budget, targeting, name)
+Update ad
 
 Update one or more fields on an ad. Status changes and budget updates are propagated to the platform. Targeting updates are Meta-only.
 

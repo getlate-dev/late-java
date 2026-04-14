@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import dev.zernio.model.UpdateAdRequestTargetingInterestsInner;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -40,7 +41,7 @@ import dev.zernio.ApiClient;
   BoostPostRequestTargeting.JSON_PROPERTY_COUNTRIES,
   BoostPostRequestTargeting.JSON_PROPERTY_INTERESTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:23:14.639851249Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T16:44:41.618708448Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class BoostPostRequestTargeting {
   public static final String JSON_PROPERTY_AGE_MIN = "ageMin";
   @javax.annotation.Nullable
@@ -56,7 +57,7 @@ public class BoostPostRequestTargeting {
 
   public static final String JSON_PROPERTY_INTERESTS = "interests";
   @javax.annotation.Nullable
-  private List<String> interests = new ArrayList<>();
+  private List<UpdateAdRequestTargetingInterestsInner> interests = new ArrayList<>();
 
   public BoostPostRequestTargeting() { 
   }
@@ -145,12 +146,12 @@ public class BoostPostRequestTargeting {
   }
 
 
-  public BoostPostRequestTargeting interests(@javax.annotation.Nullable List<String> interests) {
+  public BoostPostRequestTargeting interests(@javax.annotation.Nullable List<UpdateAdRequestTargetingInterestsInner> interests) {
     this.interests = interests;
     return this;
   }
 
-  public BoostPostRequestTargeting addInterestsItem(String interestsItem) {
+  public BoostPostRequestTargeting addInterestsItem(UpdateAdRequestTargetingInterestsInner interestsItem) {
     if (this.interests == null) {
       this.interests = new ArrayList<>();
     }
@@ -159,20 +160,20 @@ public class BoostPostRequestTargeting {
   }
 
   /**
-   * Get interests
+   * Interest objects from /v1/ads/interests. Each must include id and name.
    * @return interests
    */
   @javax.annotation.Nullable
   @JsonProperty(value = JSON_PROPERTY_INTERESTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getInterests() {
+  public List<UpdateAdRequestTargetingInterestsInner> getInterests() {
     return interests;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_INTERESTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInterests(@javax.annotation.Nullable List<String> interests) {
+  public void setInterests(@javax.annotation.Nullable List<UpdateAdRequestTargetingInterestsInner> interests) {
     this.interests = interests;
   }
 
@@ -277,9 +278,10 @@ public class BoostPostRequestTargeting {
     // add `interests` to the URL query string
     if (getInterests() != null) {
       for (int i = 0; i < getInterests().size(); i++) {
-        joiner.add(String.format(java.util.Locale.ROOT, "%sinterests%s%s=%s", prefix, suffix,
-            "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix),
-            ApiClient.urlEncode(ApiClient.valueToString(getInterests().get(i)))));
+        if (getInterests().get(i) != null) {
+          joiner.add(getInterests().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%sinterests%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
+        }
       }
     }
 

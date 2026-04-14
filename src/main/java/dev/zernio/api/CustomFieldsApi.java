@@ -52,7 +52,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:23:14.639851249Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T16:44:41.618708448Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CustomFieldsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -170,8 +170,8 @@ public class CustomFieldsApi {
   }
 
   /**
-   * Clear a custom field value
-   * 
+   * Clear custom field value
+   * Remove a custom field value from a contact. The field definition is not affected.
    * @param contactId  (required)
    * @param slug  (required)
    * @throws ApiException if fails to make API call
@@ -181,8 +181,8 @@ public class CustomFieldsApi {
   }
 
   /**
-   * Clear a custom field value
-   * 
+   * Clear custom field value
+   * Remove a custom field value from a contact. The field definition is not affected.
    * @param contactId  (required)
    * @param slug  (required)
    * @param headers Optional headers to include in the request
@@ -193,8 +193,8 @@ public class CustomFieldsApi {
   }
 
   /**
-   * Clear a custom field value
-   * 
+   * Clear custom field value
+   * Remove a custom field value from a contact. The field definition is not affected.
    * @param contactId  (required)
    * @param slug  (required)
    * @return ApiResponse&lt;Void&gt;
@@ -205,8 +205,8 @@ public class CustomFieldsApi {
   }
 
   /**
-   * Clear a custom field value
-   * 
+   * Clear custom field value
+   * Remove a custom field value from a contact. The field definition is not affected.
    * @param contactId  (required)
    * @param slug  (required)
    * @param headers Optional headers to include in the request
@@ -283,8 +283,8 @@ public class CustomFieldsApi {
   }
 
   /**
-   * Create a custom field definition
-   * 
+   * Create custom field
+   * Create a new custom field definition. Supported types are text, number, date, boolean, and select.
    * @param createCustomFieldRequest  (required)
    * @return CreateCustomField200Response
    * @throws ApiException if fails to make API call
@@ -294,8 +294,8 @@ public class CustomFieldsApi {
   }
 
   /**
-   * Create a custom field definition
-   * 
+   * Create custom field
+   * Create a new custom field definition. Supported types are text, number, date, boolean, and select.
    * @param createCustomFieldRequest  (required)
    * @param headers Optional headers to include in the request
    * @return CreateCustomField200Response
@@ -307,8 +307,8 @@ public class CustomFieldsApi {
   }
 
   /**
-   * Create a custom field definition
-   * 
+   * Create custom field
+   * Create a new custom field definition. Supported types are text, number, date, boolean, and select.
    * @param createCustomFieldRequest  (required)
    * @return ApiResponse&lt;CreateCustomField200Response&gt;
    * @throws ApiException if fails to make API call
@@ -318,8 +318,8 @@ public class CustomFieldsApi {
   }
 
   /**
-   * Create a custom field definition
-   * 
+   * Create custom field
+   * Create a new custom field definition. Supported types are text, number, date, boolean, and select.
    * @param createCustomFieldRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;CreateCustomField200Response&gt;
@@ -406,8 +406,8 @@ public class CustomFieldsApi {
   }
 
   /**
-   * Delete a custom field definition
-   * 
+   * Delete custom field
+   * Delete a custom field definition and remove its values from all contacts.
    * @param fieldId  (required)
    * @throws ApiException if fails to make API call
    */
@@ -416,8 +416,8 @@ public class CustomFieldsApi {
   }
 
   /**
-   * Delete a custom field definition
-   * 
+   * Delete custom field
+   * Delete a custom field definition and remove its values from all contacts.
    * @param fieldId  (required)
    * @param headers Optional headers to include in the request
    * @throws ApiException if fails to make API call
@@ -427,8 +427,8 @@ public class CustomFieldsApi {
   }
 
   /**
-   * Delete a custom field definition
-   * 
+   * Delete custom field
+   * Delete a custom field definition and remove its values from all contacts.
    * @param fieldId  (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -438,8 +438,8 @@ public class CustomFieldsApi {
   }
 
   /**
-   * Delete a custom field definition
-   * 
+   * Delete custom field
+   * Delete a custom field definition and remove its values from all contacts.
    * @param fieldId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;Void&gt;
@@ -511,7 +511,7 @@ public class CustomFieldsApi {
 
   /**
    * List custom field definitions
-   * 
+   * Returns all custom field definitions. Optionally filter by profile.
    * @param profileId Filter by profile. Omit to list across all profiles (optional)
    * @return ListCustomFields200Response
    * @throws ApiException if fails to make API call
@@ -522,7 +522,7 @@ public class CustomFieldsApi {
 
   /**
    * List custom field definitions
-   * 
+   * Returns all custom field definitions. Optionally filter by profile.
    * @param profileId Filter by profile. Omit to list across all profiles (optional)
    * @param headers Optional headers to include in the request
    * @return ListCustomFields200Response
@@ -535,7 +535,7 @@ public class CustomFieldsApi {
 
   /**
    * List custom field definitions
-   * 
+   * Returns all custom field definitions. Optionally filter by profile.
    * @param profileId Filter by profile. Omit to list across all profiles (optional)
    * @return ApiResponse&lt;ListCustomFields200Response&gt;
    * @throws ApiException if fails to make API call
@@ -546,7 +546,7 @@ public class CustomFieldsApi {
 
   /**
    * List custom field definitions
-   * 
+   * Returns all custom field definitions. Optionally filter by profile.
    * @param profileId Filter by profile. Omit to list across all profiles (optional)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;ListCustomFields200Response&gt;
@@ -638,8 +638,8 @@ public class CustomFieldsApi {
   }
 
   /**
-   * Set a custom field value
-   * 
+   * Set custom field value
+   * Set or overwrite a custom field value on a contact. The value type must match the field definition.
    * @param contactId  (required)
    * @param slug  (required)
    * @param setContactFieldValueRequest  (required)
@@ -650,8 +650,8 @@ public class CustomFieldsApi {
   }
 
   /**
-   * Set a custom field value
-   * 
+   * Set custom field value
+   * Set or overwrite a custom field value on a contact. The value type must match the field definition.
    * @param contactId  (required)
    * @param slug  (required)
    * @param setContactFieldValueRequest  (required)
@@ -663,8 +663,8 @@ public class CustomFieldsApi {
   }
 
   /**
-   * Set a custom field value
-   * 
+   * Set custom field value
+   * Set or overwrite a custom field value on a contact. The value type must match the field definition.
    * @param contactId  (required)
    * @param slug  (required)
    * @param setContactFieldValueRequest  (required)
@@ -676,8 +676,8 @@ public class CustomFieldsApi {
   }
 
   /**
-   * Set a custom field value
-   * 
+   * Set custom field value
+   * Set or overwrite a custom field value on a contact. The value type must match the field definition.
    * @param contactId  (required)
    * @param slug  (required)
    * @param setContactFieldValueRequest  (required)
@@ -765,8 +765,8 @@ public class CustomFieldsApi {
   }
 
   /**
-   * Update a custom field definition
-   * 
+   * Update custom field
+   * Update a custom field definition. The field type cannot be changed after creation.
    * @param fieldId  (required)
    * @param updateCustomFieldRequest  (optional)
    * @return UpdateCustomField200Response
@@ -777,8 +777,8 @@ public class CustomFieldsApi {
   }
 
   /**
-   * Update a custom field definition
-   * 
+   * Update custom field
+   * Update a custom field definition. The field type cannot be changed after creation.
    * @param fieldId  (required)
    * @param updateCustomFieldRequest  (optional)
    * @param headers Optional headers to include in the request
@@ -791,8 +791,8 @@ public class CustomFieldsApi {
   }
 
   /**
-   * Update a custom field definition
-   * 
+   * Update custom field
+   * Update a custom field definition. The field type cannot be changed after creation.
    * @param fieldId  (required)
    * @param updateCustomFieldRequest  (optional)
    * @return ApiResponse&lt;UpdateCustomField200Response&gt;
@@ -803,8 +803,8 @@ public class CustomFieldsApi {
   }
 
   /**
-   * Update a custom field definition
-   * 
+   * Update custom field
+   * Update a custom field definition. The field type cannot be changed after creation.
    * @param fieldId  (required)
    * @param updateCustomFieldRequest  (optional)
    * @param headers Optional headers to include in the request

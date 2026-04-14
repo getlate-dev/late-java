@@ -2,7 +2,7 @@
 
 # InboxWebhookMessage
 
-The `message` object included in inbox webhook payloads.
+The message object included in inbox webhook payloads.
 
 ## Properties
 

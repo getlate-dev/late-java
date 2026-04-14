@@ -61,7 +61,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:23:14.639851249Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T16:44:41.618708448Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class SequencesApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -179,8 +179,8 @@ public class SequencesApi {
   }
 
   /**
-   * Activate a sequence
-   * 
+   * Activate sequence
+   * Start a draft or paused sequence. The sequence must have at least one step.
    * @param sequenceId  (required)
    * @return ActivateSequence200Response
    * @throws ApiException if fails to make API call
@@ -190,8 +190,8 @@ public class SequencesApi {
   }
 
   /**
-   * Activate a sequence
-   * 
+   * Activate sequence
+   * Start a draft or paused sequence. The sequence must have at least one step.
    * @param sequenceId  (required)
    * @param headers Optional headers to include in the request
    * @return ActivateSequence200Response
@@ -203,8 +203,8 @@ public class SequencesApi {
   }
 
   /**
-   * Activate a sequence
-   * 
+   * Activate sequence
+   * Start a draft or paused sequence. The sequence must have at least one step.
    * @param sequenceId  (required)
    * @return ApiResponse&lt;ActivateSequence200Response&gt;
    * @throws ApiException if fails to make API call
@@ -214,8 +214,8 @@ public class SequencesApi {
   }
 
   /**
-   * Activate a sequence
-   * 
+   * Activate sequence
+   * Start a draft or paused sequence. The sequence must have at least one step.
    * @param sequenceId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;ActivateSequence200Response&gt;
@@ -297,8 +297,8 @@ public class SequencesApi {
   }
 
   /**
-   * Create a sequence
-   * 
+   * Create sequence
+   * Create a multi-step messaging sequence. Each step has a delay and a message or WhatsApp template.
    * @param createSequenceRequest  (required)
    * @return CreateSequence200Response
    * @throws ApiException if fails to make API call
@@ -308,8 +308,8 @@ public class SequencesApi {
   }
 
   /**
-   * Create a sequence
-   * 
+   * Create sequence
+   * Create a multi-step messaging sequence. Each step has a delay and a message or WhatsApp template.
    * @param createSequenceRequest  (required)
    * @param headers Optional headers to include in the request
    * @return CreateSequence200Response
@@ -321,8 +321,8 @@ public class SequencesApi {
   }
 
   /**
-   * Create a sequence
-   * 
+   * Create sequence
+   * Create a multi-step messaging sequence. Each step has a delay and a message or WhatsApp template.
    * @param createSequenceRequest  (required)
    * @return ApiResponse&lt;CreateSequence200Response&gt;
    * @throws ApiException if fails to make API call
@@ -332,8 +332,8 @@ public class SequencesApi {
   }
 
   /**
-   * Create a sequence
-   * 
+   * Create sequence
+   * Create a multi-step messaging sequence. Each step has a delay and a message or WhatsApp template.
    * @param createSequenceRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;CreateSequence200Response&gt;
@@ -420,8 +420,8 @@ public class SequencesApi {
   }
 
   /**
-   * Delete a sequence
-   * 
+   * Delete sequence
+   * Permanently delete a sequence. Active enrollments are stopped.
    * @param sequenceId  (required)
    * @throws ApiException if fails to make API call
    */
@@ -430,8 +430,8 @@ public class SequencesApi {
   }
 
   /**
-   * Delete a sequence
-   * 
+   * Delete sequence
+   * Permanently delete a sequence. Active enrollments are stopped.
    * @param sequenceId  (required)
    * @param headers Optional headers to include in the request
    * @throws ApiException if fails to make API call
@@ -441,8 +441,8 @@ public class SequencesApi {
   }
 
   /**
-   * Delete a sequence
-   * 
+   * Delete sequence
+   * Permanently delete a sequence. Active enrollments are stopped.
    * @param sequenceId  (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -452,8 +452,8 @@ public class SequencesApi {
   }
 
   /**
-   * Delete a sequence
-   * 
+   * Delete sequence
+   * Permanently delete a sequence. Active enrollments are stopped.
    * @param sequenceId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;Void&gt;
@@ -525,7 +525,7 @@ public class SequencesApi {
 
   /**
    * Enroll contacts in a sequence
-   * 
+   * Enroll one or more contacts into a sequence. Contacts already enrolled are skipped.
    * @param sequenceId  (required)
    * @param enrollContactsRequest  (required)
    * @return EnrollContacts200Response
@@ -537,7 +537,7 @@ public class SequencesApi {
 
   /**
    * Enroll contacts in a sequence
-   * 
+   * Enroll one or more contacts into a sequence. Contacts already enrolled are skipped.
    * @param sequenceId  (required)
    * @param enrollContactsRequest  (required)
    * @param headers Optional headers to include in the request
@@ -551,7 +551,7 @@ public class SequencesApi {
 
   /**
    * Enroll contacts in a sequence
-   * 
+   * Enroll one or more contacts into a sequence. Contacts already enrolled are skipped.
    * @param sequenceId  (required)
    * @param enrollContactsRequest  (required)
    * @return ApiResponse&lt;EnrollContacts200Response&gt;
@@ -563,7 +563,7 @@ public class SequencesApi {
 
   /**
    * Enroll contacts in a sequence
-   * 
+   * Enroll one or more contacts into a sequence. Contacts already enrolled are skipped.
    * @param sequenceId  (required)
    * @param enrollContactsRequest  (required)
    * @param headers Optional headers to include in the request
@@ -657,7 +657,7 @@ public class SequencesApi {
 
   /**
    * Get sequence with steps
-   * 
+   * Returns a sequence with all its steps and enrollment stats.
    * @param sequenceId  (required)
    * @return GetSequence200Response
    * @throws ApiException if fails to make API call
@@ -668,7 +668,7 @@ public class SequencesApi {
 
   /**
    * Get sequence with steps
-   * 
+   * Returns a sequence with all its steps and enrollment stats.
    * @param sequenceId  (required)
    * @param headers Optional headers to include in the request
    * @return GetSequence200Response
@@ -681,7 +681,7 @@ public class SequencesApi {
 
   /**
    * Get sequence with steps
-   * 
+   * Returns a sequence with all its steps and enrollment stats.
    * @param sequenceId  (required)
    * @return ApiResponse&lt;GetSequence200Response&gt;
    * @throws ApiException if fails to make API call
@@ -692,7 +692,7 @@ public class SequencesApi {
 
   /**
    * Get sequence with steps
-   * 
+   * Returns a sequence with all its steps and enrollment stats.
    * @param sequenceId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetSequence200Response&gt;
@@ -775,7 +775,7 @@ public class SequencesApi {
 
   /**
    * List enrollments for a sequence
-   * 
+   * Returns enrolled contacts with their progress, status, and next scheduled step.
    * @param sequenceId  (required)
    * @param status  (optional)
    * @param limit  (optional, default to 50)
@@ -789,7 +789,7 @@ public class SequencesApi {
 
   /**
    * List enrollments for a sequence
-   * 
+   * Returns enrolled contacts with their progress, status, and next scheduled step.
    * @param sequenceId  (required)
    * @param status  (optional)
    * @param limit  (optional, default to 50)
@@ -805,7 +805,7 @@ public class SequencesApi {
 
   /**
    * List enrollments for a sequence
-   * 
+   * Returns enrolled contacts with their progress, status, and next scheduled step.
    * @param sequenceId  (required)
    * @param status  (optional)
    * @param limit  (optional, default to 50)
@@ -819,7 +819,7 @@ public class SequencesApi {
 
   /**
    * List enrollments for a sequence
-   * 
+   * Returns enrolled contacts with their progress, status, and next scheduled step.
    * @param sequenceId  (required)
    * @param status  (optional)
    * @param limit  (optional, default to 50)
@@ -924,7 +924,7 @@ public class SequencesApi {
 
   /**
    * List sequences
-   * 
+   * Returns sequences with enrollment stats. Filter by status, platform, or profile.
    * @param profileId Filter by profile. Omit to list across all profiles (optional)
    * @param status  (optional)
    * @param limit  (optional, default to 50)
@@ -938,7 +938,7 @@ public class SequencesApi {
 
   /**
    * List sequences
-   * 
+   * Returns sequences with enrollment stats. Filter by status, platform, or profile.
    * @param profileId Filter by profile. Omit to list across all profiles (optional)
    * @param status  (optional)
    * @param limit  (optional, default to 50)
@@ -954,7 +954,7 @@ public class SequencesApi {
 
   /**
    * List sequences
-   * 
+   * Returns sequences with enrollment stats. Filter by status, platform, or profile.
    * @param profileId Filter by profile. Omit to list across all profiles (optional)
    * @param status  (optional)
    * @param limit  (optional, default to 50)
@@ -968,7 +968,7 @@ public class SequencesApi {
 
   /**
    * List sequences
-   * 
+   * Returns sequences with enrollment stats. Filter by status, platform, or profile.
    * @param profileId Filter by profile. Omit to list across all profiles (optional)
    * @param status  (optional)
    * @param limit  (optional, default to 50)
@@ -1069,8 +1069,8 @@ public class SequencesApi {
   }
 
   /**
-   * Pause a sequence
-   * 
+   * Pause sequence
+   * Pause an active sequence. Enrolled contacts stop receiving messages until the sequence is reactivated.
    * @param sequenceId  (required)
    * @return ActivateSequence200Response
    * @throws ApiException if fails to make API call
@@ -1080,8 +1080,8 @@ public class SequencesApi {
   }
 
   /**
-   * Pause a sequence
-   * 
+   * Pause sequence
+   * Pause an active sequence. Enrolled contacts stop receiving messages until the sequence is reactivated.
    * @param sequenceId  (required)
    * @param headers Optional headers to include in the request
    * @return ActivateSequence200Response
@@ -1093,8 +1093,8 @@ public class SequencesApi {
   }
 
   /**
-   * Pause a sequence
-   * 
+   * Pause sequence
+   * Pause an active sequence. Enrolled contacts stop receiving messages until the sequence is reactivated.
    * @param sequenceId  (required)
    * @return ApiResponse&lt;ActivateSequence200Response&gt;
    * @throws ApiException if fails to make API call
@@ -1104,8 +1104,8 @@ public class SequencesApi {
   }
 
   /**
-   * Pause a sequence
-   * 
+   * Pause sequence
+   * Pause an active sequence. Enrolled contacts stop receiving messages until the sequence is reactivated.
    * @param sequenceId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;ActivateSequence200Response&gt;
@@ -1187,8 +1187,8 @@ public class SequencesApi {
   }
 
   /**
-   * Unenroll a contact from a sequence
-   * 
+   * Unenroll contact
+   * Remove a contact from a sequence. No further messages will be sent to this contact.
    * @param sequenceId  (required)
    * @param contactId  (required)
    * @throws ApiException if fails to make API call
@@ -1198,8 +1198,8 @@ public class SequencesApi {
   }
 
   /**
-   * Unenroll a contact from a sequence
-   * 
+   * Unenroll contact
+   * Remove a contact from a sequence. No further messages will be sent to this contact.
    * @param sequenceId  (required)
    * @param contactId  (required)
    * @param headers Optional headers to include in the request
@@ -1210,8 +1210,8 @@ public class SequencesApi {
   }
 
   /**
-   * Unenroll a contact from a sequence
-   * 
+   * Unenroll contact
+   * Remove a contact from a sequence. No further messages will be sent to this contact.
    * @param sequenceId  (required)
    * @param contactId  (required)
    * @return ApiResponse&lt;Void&gt;
@@ -1222,8 +1222,8 @@ public class SequencesApi {
   }
 
   /**
-   * Unenroll a contact from a sequence
-   * 
+   * Unenroll contact
+   * Remove a contact from a sequence. No further messages will be sent to this contact.
    * @param sequenceId  (required)
    * @param contactId  (required)
    * @param headers Optional headers to include in the request
@@ -1300,8 +1300,8 @@ public class SequencesApi {
   }
 
   /**
-   * Update a sequence
-   * 
+   * Update sequence
+   * Update a sequence&#39;s name, steps, or exit conditions. Active sequences can be updated without pausing.
    * @param sequenceId  (required)
    * @return UpdateSequence200Response
    * @throws ApiException if fails to make API call
@@ -1311,8 +1311,8 @@ public class SequencesApi {
   }
 
   /**
-   * Update a sequence
-   * 
+   * Update sequence
+   * Update a sequence&#39;s name, steps, or exit conditions. Active sequences can be updated without pausing.
    * @param sequenceId  (required)
    * @param headers Optional headers to include in the request
    * @return UpdateSequence200Response
@@ -1324,8 +1324,8 @@ public class SequencesApi {
   }
 
   /**
-   * Update a sequence
-   * 
+   * Update sequence
+   * Update a sequence&#39;s name, steps, or exit conditions. Active sequences can be updated without pausing.
    * @param sequenceId  (required)
    * @return ApiResponse&lt;UpdateSequence200Response&gt;
    * @throws ApiException if fails to make API call
@@ -1335,8 +1335,8 @@ public class SequencesApi {
   }
 
   /**
-   * Update a sequence
-   * 
+   * Update sequence
+   * Update a sequence&#39;s name, steps, or exit conditions. Active sequences can be updated without pausing.
    * @param sequenceId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;UpdateSequence200Response&gt;

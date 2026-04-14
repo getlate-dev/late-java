@@ -18,6 +18,7 @@ import dev.zernio.ApiResponse;
 import dev.zernio.Configuration;
 import dev.zernio.Pair;
 
+import dev.zernio.model.AdStatus;
 import dev.zernio.model.BoostPostRequest;
 import dev.zernio.model.CreateStandaloneAdRequest;
 import dev.zernio.model.DeleteAccountGroup200Response;
@@ -57,7 +58,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:23:14.639851249Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T16:44:41.618708448Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AdsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -175,7 +176,7 @@ public class AdsApi {
   }
 
   /**
-   * Boost an existing post as a paid ad
+   * Boost post as ad
    * Creates a paid ad campaign from an existing published post. Creates the full platform campaign hierarchy (campaign, ad set, ad).
    * @param boostPostRequest  (required)
    * @return UpdateAd200Response
@@ -186,7 +187,7 @@ public class AdsApi {
   }
 
   /**
-   * Boost an existing post as a paid ad
+   * Boost post as ad
    * Creates a paid ad campaign from an existing published post. Creates the full platform campaign hierarchy (campaign, ad set, ad).
    * @param boostPostRequest  (required)
    * @param headers Optional headers to include in the request
@@ -199,7 +200,7 @@ public class AdsApi {
   }
 
   /**
-   * Boost an existing post as a paid ad
+   * Boost post as ad
    * Creates a paid ad campaign from an existing published post. Creates the full platform campaign hierarchy (campaign, ad set, ad).
    * @param boostPostRequest  (required)
    * @return ApiResponse&lt;UpdateAd200Response&gt;
@@ -210,7 +211,7 @@ public class AdsApi {
   }
 
   /**
-   * Boost an existing post as a paid ad
+   * Boost post as ad
    * Creates a paid ad campaign from an existing published post. Creates the full platform campaign hierarchy (campaign, ad set, ad).
    * @param boostPostRequest  (required)
    * @param headers Optional headers to include in the request
@@ -298,7 +299,7 @@ public class AdsApi {
   }
 
   /**
-   * Create a standalone ad with custom creative
+   * Create standalone ad
    * Creates a paid ad with custom creative (headline, body, image/video, link). Creates the full platform campaign hierarchy.
    * @param createStandaloneAdRequest  (required)
    * @return UpdateAd200Response
@@ -309,7 +310,7 @@ public class AdsApi {
   }
 
   /**
-   * Create a standalone ad with custom creative
+   * Create standalone ad
    * Creates a paid ad with custom creative (headline, body, image/video, link). Creates the full platform campaign hierarchy.
    * @param createStandaloneAdRequest  (required)
    * @param headers Optional headers to include in the request
@@ -322,7 +323,7 @@ public class AdsApi {
   }
 
   /**
-   * Create a standalone ad with custom creative
+   * Create standalone ad
    * Creates a paid ad with custom creative (headline, body, image/video, link). Creates the full platform campaign hierarchy.
    * @param createStandaloneAdRequest  (required)
    * @return ApiResponse&lt;UpdateAd200Response&gt;
@@ -333,7 +334,7 @@ public class AdsApi {
   }
 
   /**
-   * Create a standalone ad with custom creative
+   * Create standalone ad
    * Creates a paid ad with custom creative (headline, body, image/video, link). Creates the full platform campaign hierarchy.
    * @param createStandaloneAdRequest  (required)
    * @param headers Optional headers to include in the request
@@ -540,7 +541,7 @@ public class AdsApi {
 
   /**
    * Get ad details
-   * 
+   * Returns an ad with its creative, targeting, status, and performance metrics.
    * @param adId  (required)
    * @return GetAd200Response
    * @throws ApiException if fails to make API call
@@ -551,7 +552,7 @@ public class AdsApi {
 
   /**
    * Get ad details
-   * 
+   * Returns an ad with its creative, targeting, status, and performance metrics.
    * @param adId  (required)
    * @param headers Optional headers to include in the request
    * @return GetAd200Response
@@ -564,7 +565,7 @@ public class AdsApi {
 
   /**
    * Get ad details
-   * 
+   * Returns an ad with its creative, targeting, status, and performance metrics.
    * @param adId  (required)
    * @return ApiResponse&lt;GetAd200Response&gt;
    * @throws ApiException if fails to make API call
@@ -575,7 +576,7 @@ public class AdsApi {
 
   /**
    * Get ad details
-   * 
+   * Returns an ad with its creative, targeting, status, and performance metrics.
    * @param adId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetAd200Response&gt;
@@ -657,7 +658,7 @@ public class AdsApi {
   }
 
   /**
-   * Get ad analytics with daily breakdown
+   * Get ad analytics
    * Returns detailed performance analytics for an ad. Includes summary metrics, a daily timeline over the requested date range, and optional demographic breakdowns (Meta and TikTok only). If no date range is provided, defaults to the last 90 days. Date range is capped at 90 days max. 
    * @param adId  (required)
    * @param fromDate Start of date range (YYYY-MM-DD). Defaults to 90 days ago. (optional)
@@ -671,7 +672,7 @@ public class AdsApi {
   }
 
   /**
-   * Get ad analytics with daily breakdown
+   * Get ad analytics
    * Returns detailed performance analytics for an ad. Includes summary metrics, a daily timeline over the requested date range, and optional demographic breakdowns (Meta and TikTok only). If no date range is provided, defaults to the last 90 days. Date range is capped at 90 days max. 
    * @param adId  (required)
    * @param fromDate Start of date range (YYYY-MM-DD). Defaults to 90 days ago. (optional)
@@ -687,7 +688,7 @@ public class AdsApi {
   }
 
   /**
-   * Get ad analytics with daily breakdown
+   * Get ad analytics
    * Returns detailed performance analytics for an ad. Includes summary metrics, a daily timeline over the requested date range, and optional demographic breakdowns (Meta and TikTok only). If no date range is provided, defaults to the last 90 days. Date range is capped at 90 days max. 
    * @param adId  (required)
    * @param fromDate Start of date range (YYYY-MM-DD). Defaults to 90 days ago. (optional)
@@ -701,7 +702,7 @@ public class AdsApi {
   }
 
   /**
-   * Get ad analytics with daily breakdown
+   * Get ad analytics
    * Returns detailed performance analytics for an ad. Includes summary metrics, a daily timeline over the requested date range, and optional demographic breakdowns (Meta and TikTok only). If no date range is provided, defaults to the last 90 days. Date range is capped at 90 days max. 
    * @param adId  (required)
    * @param fromDate Start of date range (YYYY-MM-DD). Defaults to 90 days ago. (optional)
@@ -806,7 +807,7 @@ public class AdsApi {
   }
 
   /**
-   * List ad accounts for a social account
+   * List ad accounts
    * Returns the platform ad accounts available for the given social account (e.g. Meta ad accounts, TikTok advertiser IDs, Google Ads customer IDs).
    * @param accountId Social account ID (required)
    * @return ListAdAccounts200Response
@@ -817,7 +818,7 @@ public class AdsApi {
   }
 
   /**
-   * List ad accounts for a social account
+   * List ad accounts
    * Returns the platform ad accounts available for the given social account (e.g. Meta ad accounts, TikTok advertiser IDs, Google Ads customer IDs).
    * @param accountId Social account ID (required)
    * @param headers Optional headers to include in the request
@@ -830,7 +831,7 @@ public class AdsApi {
   }
 
   /**
-   * List ad accounts for a social account
+   * List ad accounts
    * Returns the platform ad accounts available for the given social account (e.g. Meta ad accounts, TikTok advertiser IDs, Google Ads customer IDs).
    * @param accountId Social account ID (required)
    * @return ApiResponse&lt;ListAdAccounts200Response&gt;
@@ -841,7 +842,7 @@ public class AdsApi {
   }
 
   /**
-   * List ad accounts for a social account
+   * List ad accounts
    * Returns the platform ad accounts available for the given social account (e.g. Meta ad accounts, TikTok advertiser IDs, Google Ads customer IDs).
    * @param accountId Social account ID (required)
    * @param headers Optional headers to include in the request
@@ -939,7 +940,7 @@ public class AdsApi {
 
   /**
    * List ads
-   * Returns a paginated list of ads with metrics computed over an optional date range. Use &#x60;source&#x3D;all&#x60; to include externally-synced ads from platform ad managers. If no date range is provided, defaults to the last 90 days. Date range is capped at 90 days max. 
+   * Returns a paginated list of ads with metrics computed over an optional date range. Use source&#x3D;all to include externally-synced ads from platform ad managers. If no date range is provided, defaults to the last 90 days. Date range is capped at 90 days max. 
    * @param page Page number (1-based) (optional, default to 1)
    * @param limit  (optional, default to 50)
    * @param source zernio &#x3D; Zernio-created only, all &#x3D; include external ads (optional, default to zernio)
@@ -954,13 +955,13 @@ public class AdsApi {
    * @return ListAds200Response
    * @throws ApiException if fails to make API call
    */
-  public ListAds200Response listAds(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String source, @javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String accountId, @javax.annotation.Nullable String adAccountId, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String campaignId, @javax.annotation.Nullable LocalDate fromDate, @javax.annotation.Nullable LocalDate toDate) throws ApiException {
+  public ListAds200Response listAds(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String source, @javax.annotation.Nullable AdStatus status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String accountId, @javax.annotation.Nullable String adAccountId, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String campaignId, @javax.annotation.Nullable LocalDate fromDate, @javax.annotation.Nullable LocalDate toDate) throws ApiException {
     return listAds(page, limit, source, status, platform, accountId, adAccountId, profileId, campaignId, fromDate, toDate, null);
   }
 
   /**
    * List ads
-   * Returns a paginated list of ads with metrics computed over an optional date range. Use &#x60;source&#x3D;all&#x60; to include externally-synced ads from platform ad managers. If no date range is provided, defaults to the last 90 days. Date range is capped at 90 days max. 
+   * Returns a paginated list of ads with metrics computed over an optional date range. Use source&#x3D;all to include externally-synced ads from platform ad managers. If no date range is provided, defaults to the last 90 days. Date range is capped at 90 days max. 
    * @param page Page number (1-based) (optional, default to 1)
    * @param limit  (optional, default to 50)
    * @param source zernio &#x3D; Zernio-created only, all &#x3D; include external ads (optional, default to zernio)
@@ -976,14 +977,14 @@ public class AdsApi {
    * @return ListAds200Response
    * @throws ApiException if fails to make API call
    */
-  public ListAds200Response listAds(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String source, @javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String accountId, @javax.annotation.Nullable String adAccountId, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String campaignId, @javax.annotation.Nullable LocalDate fromDate, @javax.annotation.Nullable LocalDate toDate, Map<String, String> headers) throws ApiException {
+  public ListAds200Response listAds(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String source, @javax.annotation.Nullable AdStatus status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String accountId, @javax.annotation.Nullable String adAccountId, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String campaignId, @javax.annotation.Nullable LocalDate fromDate, @javax.annotation.Nullable LocalDate toDate, Map<String, String> headers) throws ApiException {
     ApiResponse<ListAds200Response> localVarResponse = listAdsWithHttpInfo(page, limit, source, status, platform, accountId, adAccountId, profileId, campaignId, fromDate, toDate, headers);
     return localVarResponse.getData();
   }
 
   /**
    * List ads
-   * Returns a paginated list of ads with metrics computed over an optional date range. Use &#x60;source&#x3D;all&#x60; to include externally-synced ads from platform ad managers. If no date range is provided, defaults to the last 90 days. Date range is capped at 90 days max. 
+   * Returns a paginated list of ads with metrics computed over an optional date range. Use source&#x3D;all to include externally-synced ads from platform ad managers. If no date range is provided, defaults to the last 90 days. Date range is capped at 90 days max. 
    * @param page Page number (1-based) (optional, default to 1)
    * @param limit  (optional, default to 50)
    * @param source zernio &#x3D; Zernio-created only, all &#x3D; include external ads (optional, default to zernio)
@@ -998,13 +999,13 @@ public class AdsApi {
    * @return ApiResponse&lt;ListAds200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListAds200Response> listAdsWithHttpInfo(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String source, @javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String accountId, @javax.annotation.Nullable String adAccountId, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String campaignId, @javax.annotation.Nullable LocalDate fromDate, @javax.annotation.Nullable LocalDate toDate) throws ApiException {
+  public ApiResponse<ListAds200Response> listAdsWithHttpInfo(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String source, @javax.annotation.Nullable AdStatus status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String accountId, @javax.annotation.Nullable String adAccountId, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String campaignId, @javax.annotation.Nullable LocalDate fromDate, @javax.annotation.Nullable LocalDate toDate) throws ApiException {
     return listAdsWithHttpInfo(page, limit, source, status, platform, accountId, adAccountId, profileId, campaignId, fromDate, toDate, null);
   }
 
   /**
    * List ads
-   * Returns a paginated list of ads with metrics computed over an optional date range. Use &#x60;source&#x3D;all&#x60; to include externally-synced ads from platform ad managers. If no date range is provided, defaults to the last 90 days. Date range is capped at 90 days max. 
+   * Returns a paginated list of ads with metrics computed over an optional date range. Use source&#x3D;all to include externally-synced ads from platform ad managers. If no date range is provided, defaults to the last 90 days. Date range is capped at 90 days max. 
    * @param page Page number (1-based) (optional, default to 1)
    * @param limit  (optional, default to 50)
    * @param source zernio &#x3D; Zernio-created only, all &#x3D; include external ads (optional, default to zernio)
@@ -1020,7 +1021,7 @@ public class AdsApi {
    * @return ApiResponse&lt;ListAds200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListAds200Response> listAdsWithHttpInfo(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String source, @javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String accountId, @javax.annotation.Nullable String adAccountId, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String campaignId, @javax.annotation.Nullable LocalDate fromDate, @javax.annotation.Nullable LocalDate toDate, Map<String, String> headers) throws ApiException {
+  public ApiResponse<ListAds200Response> listAdsWithHttpInfo(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String source, @javax.annotation.Nullable AdStatus status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String accountId, @javax.annotation.Nullable String adAccountId, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String campaignId, @javax.annotation.Nullable LocalDate fromDate, @javax.annotation.Nullable LocalDate toDate, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listAdsRequestBuilder(page, limit, source, status, platform, accountId, adAccountId, profileId, campaignId, fromDate, toDate, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -1068,7 +1069,7 @@ public class AdsApi {
     }
   }
 
-  private HttpRequest.Builder listAdsRequestBuilder(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String source, @javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String accountId, @javax.annotation.Nullable String adAccountId, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String campaignId, @javax.annotation.Nullable LocalDate fromDate, @javax.annotation.Nullable LocalDate toDate, Map<String, String> headers) throws ApiException {
+  private HttpRequest.Builder listAdsRequestBuilder(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String source, @javax.annotation.Nullable AdStatus status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String accountId, @javax.annotation.Nullable String adAccountId, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String campaignId, @javax.annotation.Nullable LocalDate fromDate, @javax.annotation.Nullable LocalDate toDate, Map<String, String> headers) throws ApiException {
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
@@ -1268,7 +1269,7 @@ public class AdsApi {
   }
 
   /**
-   * Update ad (pause/resume, budget, targeting, name)
+   * Update ad
    * Update one or more fields on an ad. Status changes and budget updates are propagated to the platform. Targeting updates are Meta-only.
    * @param adId  (required)
    * @param updateAdRequest  (required)
@@ -1280,7 +1281,7 @@ public class AdsApi {
   }
 
   /**
-   * Update ad (pause/resume, budget, targeting, name)
+   * Update ad
    * Update one or more fields on an ad. Status changes and budget updates are propagated to the platform. Targeting updates are Meta-only.
    * @param adId  (required)
    * @param updateAdRequest  (required)
@@ -1294,7 +1295,7 @@ public class AdsApi {
   }
 
   /**
-   * Update ad (pause/resume, budget, targeting, name)
+   * Update ad
    * Update one or more fields on an ad. Status changes and budget updates are propagated to the platform. Targeting updates are Meta-only.
    * @param adId  (required)
    * @param updateAdRequest  (required)
@@ -1306,7 +1307,7 @@ public class AdsApi {
   }
 
   /**
-   * Update ad (pause/resume, budget, targeting, name)
+   * Update ad
    * Update one or more fields on an ad. Status changes and budget updates are propagated to the platform. Targeting updates are Meta-only.
    * @param adId  (required)
    * @param updateAdRequest  (required)

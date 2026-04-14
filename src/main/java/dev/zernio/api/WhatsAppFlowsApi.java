@@ -63,7 +63,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:23:14.639851249Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T16:44:41.618708448Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WhatsAppFlowsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -446,7 +446,7 @@ public class WhatsAppFlowsApi {
 
   /**
    * Deprecate flow
-   * Deprecate a PUBLISHED flow. **This is irreversible.** Deprecated flows cannot be sent or opened, but existing active sessions may continue until they complete. 
+   * Deprecate a PUBLISHED flow. This is irreversible. Deprecated flows cannot be sent or opened, but existing active sessions may continue until they complete. 
    * @param flowId Flow ID (required)
    * @param publishWhatsAppFlowRequest  (required)
    * @return UpdateYoutubeDefaultPlaylist200Response
@@ -458,7 +458,7 @@ public class WhatsAppFlowsApi {
 
   /**
    * Deprecate flow
-   * Deprecate a PUBLISHED flow. **This is irreversible.** Deprecated flows cannot be sent or opened, but existing active sessions may continue until they complete. 
+   * Deprecate a PUBLISHED flow. This is irreversible. Deprecated flows cannot be sent or opened, but existing active sessions may continue until they complete. 
    * @param flowId Flow ID (required)
    * @param publishWhatsAppFlowRequest  (required)
    * @param headers Optional headers to include in the request
@@ -472,7 +472,7 @@ public class WhatsAppFlowsApi {
 
   /**
    * Deprecate flow
-   * Deprecate a PUBLISHED flow. **This is irreversible.** Deprecated flows cannot be sent or opened, but existing active sessions may continue until they complete. 
+   * Deprecate a PUBLISHED flow. This is irreversible. Deprecated flows cannot be sent or opened, but existing active sessions may continue until they complete. 
    * @param flowId Flow ID (required)
    * @param publishWhatsAppFlowRequest  (required)
    * @return ApiResponse&lt;UpdateYoutubeDefaultPlaylist200Response&gt;
@@ -484,7 +484,7 @@ public class WhatsAppFlowsApi {
 
   /**
    * Deprecate flow
-   * Deprecate a PUBLISHED flow. **This is irreversible.** Deprecated flows cannot be sent or opened, but existing active sessions may continue until they complete. 
+   * Deprecate a PUBLISHED flow. This is irreversible. Deprecated flows cannot be sent or opened, but existing active sessions may continue until they complete. 
    * @param flowId Flow ID (required)
    * @param publishWhatsAppFlowRequest  (required)
    * @param headers Optional headers to include in the request
@@ -998,7 +998,7 @@ public class WhatsAppFlowsApi {
 
   /**
    * Publish flow
-   * Publish a DRAFT flow. **This is irreversible.** Once published, the flow and its JSON become immutable and the flow can be sent to users. To update a published flow, create a new flow (optionally cloning this one via &#x60;cloneFlowId&#x60;). 
+   * Publish a DRAFT flow. This is irreversible. Once published, the flow and its JSON become immutable and the flow can be sent to users. To update a published flow, create a new flow (optionally cloning this one via cloneFlowId). 
    * @param flowId Flow ID (required)
    * @param publishWhatsAppFlowRequest  (required)
    * @return UpdateYoutubeDefaultPlaylist200Response
@@ -1010,7 +1010,7 @@ public class WhatsAppFlowsApi {
 
   /**
    * Publish flow
-   * Publish a DRAFT flow. **This is irreversible.** Once published, the flow and its JSON become immutable and the flow can be sent to users. To update a published flow, create a new flow (optionally cloning this one via &#x60;cloneFlowId&#x60;). 
+   * Publish a DRAFT flow. This is irreversible. Once published, the flow and its JSON become immutable and the flow can be sent to users. To update a published flow, create a new flow (optionally cloning this one via cloneFlowId). 
    * @param flowId Flow ID (required)
    * @param publishWhatsAppFlowRequest  (required)
    * @param headers Optional headers to include in the request
@@ -1024,7 +1024,7 @@ public class WhatsAppFlowsApi {
 
   /**
    * Publish flow
-   * Publish a DRAFT flow. **This is irreversible.** Once published, the flow and its JSON become immutable and the flow can be sent to users. To update a published flow, create a new flow (optionally cloning this one via &#x60;cloneFlowId&#x60;). 
+   * Publish a DRAFT flow. This is irreversible. Once published, the flow and its JSON become immutable and the flow can be sent to users. To update a published flow, create a new flow (optionally cloning this one via cloneFlowId). 
    * @param flowId Flow ID (required)
    * @param publishWhatsAppFlowRequest  (required)
    * @return ApiResponse&lt;UpdateYoutubeDefaultPlaylist200Response&gt;
@@ -1036,7 +1036,7 @@ public class WhatsAppFlowsApi {
 
   /**
    * Publish flow
-   * Publish a DRAFT flow. **This is irreversible.** Once published, the flow and its JSON become immutable and the flow can be sent to users. To update a published flow, create a new flow (optionally cloning this one via &#x60;cloneFlowId&#x60;). 
+   * Publish a DRAFT flow. This is irreversible. Once published, the flow and its JSON become immutable and the flow can be sent to users. To update a published flow, create a new flow (optionally cloning this one via cloneFlowId). 
    * @param flowId Flow ID (required)
    * @param publishWhatsAppFlowRequest  (required)
    * @param headers Optional headers to include in the request

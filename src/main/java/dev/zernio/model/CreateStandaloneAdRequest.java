@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import dev.zernio.model.UpdateAdRequestTargetingInterestsInner;
 import java.math.BigDecimal;
 import java.net.URI;
 import java.time.OffsetDateTime;
@@ -64,7 +65,7 @@ import dev.zernio.ApiClient;
   CreateStandaloneAdRequest.JSON_PROPERTY_ADDITIONAL_HEADLINES,
   CreateStandaloneAdRequest.JSON_PROPERTY_ADDITIONAL_DESCRIPTIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:23:14.639851249Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T16:44:41.618708448Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateStandaloneAdRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nonnull
@@ -265,7 +266,7 @@ public class CreateStandaloneAdRequest {
 
   public static final String JSON_PROPERTY_INTERESTS = "interests";
   @javax.annotation.Nullable
-  private List<String> interests = new ArrayList<>();
+  private List<UpdateAdRequestTargetingInterestsInner> interests = new ArrayList<>();
 
   public static final String JSON_PROPERTY_END_DATE = "endDate";
   @javax.annotation.Nullable
@@ -773,12 +774,12 @@ public class CreateStandaloneAdRequest {
   }
 
 
-  public CreateStandaloneAdRequest interests(@javax.annotation.Nullable List<String> interests) {
+  public CreateStandaloneAdRequest interests(@javax.annotation.Nullable List<UpdateAdRequestTargetingInterestsInner> interests) {
     this.interests = interests;
     return this;
   }
 
-  public CreateStandaloneAdRequest addInterestsItem(String interestsItem) {
+  public CreateStandaloneAdRequest addInterestsItem(UpdateAdRequestTargetingInterestsInner interestsItem) {
     if (this.interests == null) {
       this.interests = new ArrayList<>();
     }
@@ -787,20 +788,20 @@ public class CreateStandaloneAdRequest {
   }
 
   /**
-   * Get interests
+   * Interest objects from /v1/ads/interests. Each must include id and name.
    * @return interests
    */
   @javax.annotation.Nullable
   @JsonProperty(value = JSON_PROPERTY_INTERESTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getInterests() {
+  public List<UpdateAdRequestTargetingInterestsInner> getInterests() {
     return interests;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_INTERESTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInterests(@javax.annotation.Nullable List<String> interests) {
+  public void setInterests(@javax.annotation.Nullable List<UpdateAdRequestTargetingInterestsInner> interests) {
     this.interests = interests;
   }
 
@@ -1190,9 +1191,10 @@ public class CreateStandaloneAdRequest {
     // add `interests` to the URL query string
     if (getInterests() != null) {
       for (int i = 0; i < getInterests().size(); i++) {
-        joiner.add(String.format(java.util.Locale.ROOT, "%sinterests%s%s=%s", prefix, suffix,
-            "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix),
-            ApiClient.urlEncode(ApiClient.valueToString(getInterests().get(i)))));
+        if (getInterests().get(i) != null) {
+          joiner.add(getInterests().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%sinterests%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
+        }
       }
     }
 

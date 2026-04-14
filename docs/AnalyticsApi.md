@@ -14,14 +14,14 @@ All URIs are relative to *https://zernio.com/api*
 | [**getDailyMetricsWithHttpInfo**](AnalyticsApi.md#getDailyMetricsWithHttpInfo) | **GET** /v1/analytics/daily-metrics | Get daily aggregated metrics |
 | [**getFollowerStats**](AnalyticsApi.md#getFollowerStats) | **GET** /v1/accounts/follower-stats | Get follower stats |
 | [**getFollowerStatsWithHttpInfo**](AnalyticsApi.md#getFollowerStatsWithHttpInfo) | **GET** /v1/accounts/follower-stats | Get follower stats |
-| [**getGoogleBusinessPerformance**](AnalyticsApi.md#getGoogleBusinessPerformance) | **GET** /v1/analytics/googlebusiness/performance | Get Google Business Profile performance metrics |
-| [**getGoogleBusinessPerformanceWithHttpInfo**](AnalyticsApi.md#getGoogleBusinessPerformanceWithHttpInfo) | **GET** /v1/analytics/googlebusiness/performance | Get Google Business Profile performance metrics |
-| [**getGoogleBusinessSearchKeywords**](AnalyticsApi.md#getGoogleBusinessSearchKeywords) | **GET** /v1/analytics/googlebusiness/search-keywords | Get Google Business Profile search keywords |
-| [**getGoogleBusinessSearchKeywordsWithHttpInfo**](AnalyticsApi.md#getGoogleBusinessSearchKeywordsWithHttpInfo) | **GET** /v1/analytics/googlebusiness/search-keywords | Get Google Business Profile search keywords |
-| [**getInstagramAccountInsights**](AnalyticsApi.md#getInstagramAccountInsights) | **GET** /v1/analytics/instagram/account-insights | Get Instagram account-level insights |
-| [**getInstagramAccountInsightsWithHttpInfo**](AnalyticsApi.md#getInstagramAccountInsightsWithHttpInfo) | **GET** /v1/analytics/instagram/account-insights | Get Instagram account-level insights |
-| [**getInstagramDemographics**](AnalyticsApi.md#getInstagramDemographics) | **GET** /v1/analytics/instagram/demographics | Get Instagram audience demographics |
-| [**getInstagramDemographicsWithHttpInfo**](AnalyticsApi.md#getInstagramDemographicsWithHttpInfo) | **GET** /v1/analytics/instagram/demographics | Get Instagram audience demographics |
+| [**getGoogleBusinessPerformance**](AnalyticsApi.md#getGoogleBusinessPerformance) | **GET** /v1/analytics/googlebusiness/performance | Get GBP performance metrics |
+| [**getGoogleBusinessPerformanceWithHttpInfo**](AnalyticsApi.md#getGoogleBusinessPerformanceWithHttpInfo) | **GET** /v1/analytics/googlebusiness/performance | Get GBP performance metrics |
+| [**getGoogleBusinessSearchKeywords**](AnalyticsApi.md#getGoogleBusinessSearchKeywords) | **GET** /v1/analytics/googlebusiness/search-keywords | Get GBP search keywords |
+| [**getGoogleBusinessSearchKeywordsWithHttpInfo**](AnalyticsApi.md#getGoogleBusinessSearchKeywordsWithHttpInfo) | **GET** /v1/analytics/googlebusiness/search-keywords | Get GBP search keywords |
+| [**getInstagramAccountInsights**](AnalyticsApi.md#getInstagramAccountInsights) | **GET** /v1/analytics/instagram/account-insights | Get Instagram insights |
+| [**getInstagramAccountInsightsWithHttpInfo**](AnalyticsApi.md#getInstagramAccountInsightsWithHttpInfo) | **GET** /v1/analytics/instagram/account-insights | Get Instagram insights |
+| [**getInstagramDemographics**](AnalyticsApi.md#getInstagramDemographics) | **GET** /v1/analytics/instagram/demographics | Get Instagram demographics |
+| [**getInstagramDemographicsWithHttpInfo**](AnalyticsApi.md#getInstagramDemographicsWithHttpInfo) | **GET** /v1/analytics/instagram/demographics | Get Instagram demographics |
 | [**getLinkedInAggregateAnalytics**](AnalyticsApi.md#getLinkedInAggregateAnalytics) | **GET** /v1/accounts/{accountId}/linkedin-aggregate-analytics | Get LinkedIn aggregate stats |
 | [**getLinkedInAggregateAnalyticsWithHttpInfo**](AnalyticsApi.md#getLinkedInAggregateAnalyticsWithHttpInfo) | **GET** /v1/accounts/{accountId}/linkedin-aggregate-analytics | Get LinkedIn aggregate stats |
 | [**getLinkedInPostAnalytics**](AnalyticsApi.md#getLinkedInPostAnalytics) | **GET** /v1/accounts/{accountId}/linkedin-post-analytics | Get LinkedIn post stats |
@@ -30,12 +30,12 @@ All URIs are relative to *https://zernio.com/api*
 | [**getLinkedInPostReactionsWithHttpInfo**](AnalyticsApi.md#getLinkedInPostReactionsWithHttpInfo) | **GET** /v1/accounts/{accountId}/linkedin-post-reactions | Get LinkedIn post reactions |
 | [**getPostTimeline**](AnalyticsApi.md#getPostTimeline) | **GET** /v1/analytics/post-timeline | Get post analytics timeline |
 | [**getPostTimelineWithHttpInfo**](AnalyticsApi.md#getPostTimelineWithHttpInfo) | **GET** /v1/analytics/post-timeline | Get post analytics timeline |
-| [**getPostingFrequency**](AnalyticsApi.md#getPostingFrequency) | **GET** /v1/analytics/posting-frequency | Get posting frequency vs engagement |
-| [**getPostingFrequencyWithHttpInfo**](AnalyticsApi.md#getPostingFrequencyWithHttpInfo) | **GET** /v1/analytics/posting-frequency | Get posting frequency vs engagement |
+| [**getPostingFrequency**](AnalyticsApi.md#getPostingFrequency) | **GET** /v1/analytics/posting-frequency | Get frequency vs engagement |
+| [**getPostingFrequencyWithHttpInfo**](AnalyticsApi.md#getPostingFrequencyWithHttpInfo) | **GET** /v1/analytics/posting-frequency | Get frequency vs engagement |
 | [**getYouTubeDailyViews**](AnalyticsApi.md#getYouTubeDailyViews) | **GET** /v1/analytics/youtube/daily-views | Get YouTube daily views |
 | [**getYouTubeDailyViewsWithHttpInfo**](AnalyticsApi.md#getYouTubeDailyViewsWithHttpInfo) | **GET** /v1/analytics/youtube/daily-views | Get YouTube daily views |
-| [**getYouTubeDemographics**](AnalyticsApi.md#getYouTubeDemographics) | **GET** /v1/analytics/youtube/demographics | Get YouTube audience demographics |
-| [**getYouTubeDemographicsWithHttpInfo**](AnalyticsApi.md#getYouTubeDemographicsWithHttpInfo) | **GET** /v1/analytics/youtube/demographics | Get YouTube audience demographics |
+| [**getYouTubeDemographics**](AnalyticsApi.md#getYouTubeDemographics) | **GET** /v1/analytics/youtube/demographics | Get YouTube demographics |
+| [**getYouTubeDemographicsWithHttpInfo**](AnalyticsApi.md#getYouTubeDemographicsWithHttpInfo) | **GET** /v1/analytics/youtube/demographics | Get YouTube demographics |
 
 
 
@@ -45,7 +45,7 @@ All URIs are relative to *https://zernio.com/api*
 
 Get post analytics
 
-Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Zernio Post IDs and External Post IDs (auto-resolved). fromDate defaults to 90 days ago if omitted, max range 366 days. Single post lookups may return 202 (sync pending) or 424 (all platforms failed). For follower stats, use /v1/accounts/follower-stats.  **LinkedIn personal accounts:** Analytics are only available for posts published through Zernio. LinkedIn&#39;s API only returns metrics for posts authored by the authenticated user. Organization/company page analytics work for all posts. 
+Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Zernio Post IDs and External Post IDs (auto-resolved). fromDate defaults to 90 days ago if omitted, max range 366 days. Single post lookups may return 202 (sync pending) or 424 (all platforms failed). For follower stats, use /v1/accounts/follower-stats.  LinkedIn personal accounts: Analytics are only available for posts published through Zernio. LinkedIn&#39;s API only returns metrics for posts authored by the authenticated user. Organization/company page analytics work for all posts. 
 
 ### Example
 
@@ -142,7 +142,7 @@ public class Example {
 
 Get post analytics
 
-Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Zernio Post IDs and External Post IDs (auto-resolved). fromDate defaults to 90 days ago if omitted, max range 366 days. Single post lookups may return 202 (sync pending) or 424 (all platforms failed). For follower stats, use /v1/accounts/follower-stats.  **LinkedIn personal accounts:** Analytics are only available for posts published through Zernio. LinkedIn&#39;s API only returns metrics for posts authored by the authenticated user. Organization/company page analytics work for all posts. 
+Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Zernio Post IDs and External Post IDs (auto-resolved). fromDate defaults to 90 days ago if omitted, max range 366 days. Single post lookups may return 202 (sync pending) or 424 (all platforms failed). For follower stats, use /v1/accounts/follower-stats.  LinkedIn personal accounts: Analytics are only available for posts published through Zernio. LinkedIn&#39;s API only returns metrics for posts authored by the authenticated user. Organization/company page analytics work for all posts. 
 
 ### Example
 
@@ -885,7 +885,7 @@ ApiResponse<[**GetFollowerStats200Response**](GetFollowerStats200Response.md)>
 
 > GetGoogleBusinessPerformance200Response getGoogleBusinessPerformance(accountId, metrics, startDate, endDate)
 
-Get Google Business Profile performance metrics
+Get GBP performance metrics
 
 Returns daily performance metrics for a Google Business Profile location. Metrics include impressions (Maps/Search, desktop/mobile), website clicks, call clicks, direction requests, conversations, bookings, and food orders. Data may be delayed 2-3 days. Max 18 months of historical data. Requires the Analytics add-on. 
 
@@ -965,7 +965,7 @@ public class Example {
 
 > ApiResponse<GetGoogleBusinessPerformance200Response> getGoogleBusinessPerformance getGoogleBusinessPerformanceWithHttpInfo(accountId, metrics, startDate, endDate)
 
-Get Google Business Profile performance metrics
+Get GBP performance metrics
 
 Returns daily performance metrics for a Google Business Profile location. Metrics include impressions (Maps/Search, desktop/mobile), website clicks, call clicks, direction requests, conversations, bookings, and food orders. Data may be delayed 2-3 days. Max 18 months of historical data. Requires the Analytics add-on. 
 
@@ -1049,7 +1049,7 @@ ApiResponse<[**GetGoogleBusinessPerformance200Response**](GetGoogleBusinessPerfo
 
 > GetGoogleBusinessSearchKeywords200Response getGoogleBusinessSearchKeywords(accountId, startMonth, endMonth)
 
-Get Google Business Profile search keywords
+Get GBP search keywords
 
 Returns search keywords that triggered impressions for a Google Business Profile location. Data is aggregated monthly. Keywords below a minimum impression threshold set by Google are excluded. Max 18 months of historical data. Requires the Analytics add-on. 
 
@@ -1127,7 +1127,7 @@ public class Example {
 
 > ApiResponse<GetGoogleBusinessSearchKeywords200Response> getGoogleBusinessSearchKeywords getGoogleBusinessSearchKeywordsWithHttpInfo(accountId, startMonth, endMonth)
 
-Get Google Business Profile search keywords
+Get GBP search keywords
 
 Returns search keywords that triggered impressions for a Google Business Profile location. Data is aggregated monthly. Keywords below a minimum impression threshold set by Google are excluded. Max 18 months of historical data. Requires the Analytics add-on. 
 
@@ -1209,7 +1209,7 @@ ApiResponse<[**GetGoogleBusinessSearchKeywords200Response**](GetGoogleBusinessSe
 
 > InstagramAccountInsightsResponse getInstagramAccountInsights(accountId, metrics, since, until, metricType, breakdown)
 
-Get Instagram account-level insights
+Get Instagram insights
 
 Returns account-level Instagram insights such as reach, views, accounts engaged, and total interactions. These metrics reflect the entire account&#39;s performance across all content surfaces (feed, stories, explore, profile), and are fundamentally different from post-level metrics. Data may be delayed up to 48 hours. Max 90 days, defaults to last 30 days. Requires the Analytics add-on. 
 
@@ -1294,7 +1294,7 @@ public class Example {
 
 > ApiResponse<InstagramAccountInsightsResponse> getInstagramAccountInsights getInstagramAccountInsightsWithHttpInfo(accountId, metrics, since, until, metricType, breakdown)
 
-Get Instagram account-level insights
+Get Instagram insights
 
 Returns account-level Instagram insights such as reach, views, accounts engaged, and total interactions. These metrics reflect the entire account&#39;s performance across all content surfaces (feed, stories, explore, profile), and are fundamentally different from post-level metrics. Data may be delayed up to 48 hours. Max 90 days, defaults to last 30 days. Requires the Analytics add-on. 
 
@@ -1383,7 +1383,7 @@ ApiResponse<[**InstagramAccountInsightsResponse**](InstagramAccountInsightsRespo
 
 > InstagramDemographicsResponse getInstagramDemographics(accountId, metric, breakdown, timeframe)
 
-Get Instagram audience demographics
+Get Instagram demographics
 
 Returns audience demographic insights for an Instagram account, broken down by age, city, country, and/or gender. Requires at least 100 followers. Returns top 45 entries per dimension. Data may be delayed up to 48 hours. Requires the Analytics add-on. 
 
@@ -1464,7 +1464,7 @@ public class Example {
 
 > ApiResponse<InstagramDemographicsResponse> getInstagramDemographics getInstagramDemographicsWithHttpInfo(accountId, metric, breakdown, timeframe)
 
-Get Instagram audience demographics
+Get Instagram demographics
 
 Returns audience demographic insights for an Instagram account, broken down by age, city, country, and/or gender. Requires at least 100 followers. Returns top 45 entries per dimension. Data may be delayed up to 48 hours. Requires the Analytics add-on. 
 
@@ -1879,7 +1879,7 @@ ApiResponse<[**GetLinkedInPostAnalytics200Response**](GetLinkedInPostAnalytics20
 
 Get LinkedIn post reactions
 
-Returns individual reactions for a specific LinkedIn post, including reactor profiles (name, headline/job title, profile picture, profile URL, reaction type). Only works for **organization/company page** accounts. LinkedIn restricts reaction data for personal profiles (r_member_social_feed is a closed permission). 
+Returns individual reactions for a specific LinkedIn post, including reactor profiles (name, headline/job title, profile picture, profile URL, reaction type). Only works for organization/company page accounts. LinkedIn restricts reaction data for personal profiles (r_member_social_feed is a closed permission). 
 
 ### Example
 
@@ -1960,7 +1960,7 @@ public class Example {
 
 Get LinkedIn post reactions
 
-Returns individual reactions for a specific LinkedIn post, including reactor profiles (name, headline/job title, profile picture, profile URL, reaction type). Only works for **organization/company page** accounts. LinkedIn restricts reaction data for personal profiles (r_member_social_feed is a closed permission). 
+Returns individual reactions for a specific LinkedIn post, including reactor profiles (name, headline/job title, profile picture, profile URL, reaction type). Only works for organization/company page accounts. LinkedIn restricts reaction data for personal profiles (r_member_social_feed is a closed permission). 
 
 ### Example
 
@@ -2205,7 +2205,7 @@ ApiResponse<[**GetPostTimeline200Response**](GetPostTimeline200Response.md)>
 
 > GetPostingFrequency200Response getPostingFrequency(platform, profileId, source)
 
-Get posting frequency vs engagement
+Get frequency vs engagement
 
 Returns the correlation between posting frequency (posts per week) and engagement rate, broken down by platform. Helps find the optimal posting cadence for each platform. Each row represents a specific (platform, posts_per_week) combination with the average engagement rate observed across all weeks matching that frequency. Requires the Analytics add-on. 
 
@@ -2281,7 +2281,7 @@ public class Example {
 
 > ApiResponse<GetPostingFrequency200Response> getPostingFrequency getPostingFrequencyWithHttpInfo(platform, profileId, source)
 
-Get posting frequency vs engagement
+Get frequency vs engagement
 
 Returns the correlation between posting frequency (posts per week) and engagement rate, broken down by platform. Helps find the optimal posting cadence for each platform. Each row represents a specific (platform, posts_per_week) combination with the average engagement rate observed across all weeks matching that frequency. Requires the Analytics add-on. 
 
@@ -2529,7 +2529,7 @@ ApiResponse<[**YouTubeDailyViewsResponse**](YouTubeDailyViewsResponse.md)>
 
 > YouTubeDemographicsResponse getYouTubeDemographics(accountId, breakdown, startDate, endDate)
 
-Get YouTube audience demographics
+Get YouTube demographics
 
 Returns audience demographic insights for a YouTube channel, broken down by age, gender, and/or country. Age and gender values are viewer percentages (0-100). Country values are view counts. Data is based on signed-in viewers only, with a 2-3 day delay. Requires the Analytics add-on. 
 
@@ -2611,7 +2611,7 @@ public class Example {
 
 > ApiResponse<YouTubeDemographicsResponse> getYouTubeDemographics getYouTubeDemographicsWithHttpInfo(accountId, breakdown, startDate, endDate)
 
-Get YouTube audience demographics
+Get YouTube demographics
 
 Returns audience demographic insights for a YouTube channel, broken down by age, gender, and/or country. Age and gender values are viewer percentages (0-100). Country values are view counts. Data is based on signed-in viewers only, with a 2-3 day delay. Requires the Analytics add-on. 
 

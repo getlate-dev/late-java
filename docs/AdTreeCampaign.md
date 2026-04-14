@@ -11,7 +11,7 @@ Campaign with nested ad sets and rolled-up metrics
 |**platformCampaignId** | **String** |  |  [optional] |
 |**platform** | [**PlatformEnum**](#PlatformEnum) |  |  [optional] |
 |**campaignName** | **String** |  |  [optional] |
-|**status** | [**StatusEnum**](#StatusEnum) | Derived from child ad statuses |  [optional] |
+|**status** | **AdStatus** | Derived from child ad statuses |  [optional] |
 |**adCount** | **Integer** | Total ads across all ad sets |  [optional] |
 |**adSetCount** | **Integer** |  |  [optional] |
 |**budget** | [**AdBudget**](AdBudget.md) |  |  [optional] |
@@ -19,6 +19,10 @@ Campaign with nested ad sets and rolled-up metrics
 |**platformAdAccountId** | **String** |  |  [optional] |
 |**accountId** | **String** |  |  [optional] |
 |**profileId** | **String** |  |  [optional] |
+|**platformObjective** | **String** | Raw Meta campaign objective (e.g. OUTCOME_SALES, OUTCOME_LEADS, OUTCOME_TRAFFIC) |  [optional] |
+|**optimizationGoal** | **String** | Meta optimization goal shared across ad sets, or comma-separated values when ad sets differ (e.g. OFFSITE_CONVERSIONS, VALUE, LEAD_GENERATION) |  [optional] |
+|**bidStrategy** | **String** | Campaign-level bid strategy (e.g. LOWEST_COST_WITHOUT_CAP, COST_CAP, LOWEST_COST_WITH_MIN_ROAS) |  [optional] |
+|**promotedObject** | [**AdTreeCampaignPromotedObject**](AdTreeCampaignPromotedObject.md) |  |  [optional] |
 |**adSets** | [**List&lt;AdTreeAdSet&gt;**](AdTreeAdSet.md) |  |  [optional] |
 
 
@@ -34,20 +38,6 @@ Campaign with nested ad sets and rolled-up metrics
 | PINTEREST | &quot;pinterest&quot; |
 | GOOGLE | &quot;google&quot; |
 | TWITTER | &quot;twitter&quot; |
-
-
-
-## Enum: StatusEnum
-
-| Name | Value |
-|---- | -----|
-| ACTIVE | &quot;active&quot; |
-| PAUSED | &quot;paused&quot; |
-| PENDING_REVIEW | &quot;pending_review&quot; |
-| REJECTED | &quot;rejected&quot; |
-| COMPLETED | &quot;completed&quot; |
-| CANCELLED | &quot;cancelled&quot; |
-| ERROR | &quot;error&quot; |
 
 
 

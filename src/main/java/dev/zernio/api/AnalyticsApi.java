@@ -87,7 +87,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:23:14.639851249Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T16:44:41.618708448Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AnalyticsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -206,7 +206,7 @@ public class AnalyticsApi {
 
   /**
    * Get post analytics
-   * Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Zernio Post IDs and External Post IDs (auto-resolved). fromDate defaults to 90 days ago if omitted, max range 366 days. Single post lookups may return 202 (sync pending) or 424 (all platforms failed). For follower stats, use /v1/accounts/follower-stats.  **LinkedIn personal accounts:** Analytics are only available for posts published through Zernio. LinkedIn&#39;s API only returns metrics for posts authored by the authenticated user. Organization/company page analytics work for all posts. 
+   * Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Zernio Post IDs and External Post IDs (auto-resolved). fromDate defaults to 90 days ago if omitted, max range 366 days. Single post lookups may return 202 (sync pending) or 424 (all platforms failed). For follower stats, use /v1/accounts/follower-stats.  LinkedIn personal accounts: Analytics are only available for posts published through Zernio. LinkedIn&#39;s API only returns metrics for posts authored by the authenticated user. Organization/company page analytics work for all posts. 
    * @param postId Returns analytics for a single post. Accepts both Zernio Post IDs and External Post IDs. Zernio IDs are auto-resolved to External Post analytics. (optional)
    * @param platform Filter by platform (default \&quot;all\&quot;) (optional)
    * @param profileId Filter by profile ID (default \&quot;all\&quot;) (optional)
@@ -227,7 +227,7 @@ public class AnalyticsApi {
 
   /**
    * Get post analytics
-   * Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Zernio Post IDs and External Post IDs (auto-resolved). fromDate defaults to 90 days ago if omitted, max range 366 days. Single post lookups may return 202 (sync pending) or 424 (all platforms failed). For follower stats, use /v1/accounts/follower-stats.  **LinkedIn personal accounts:** Analytics are only available for posts published through Zernio. LinkedIn&#39;s API only returns metrics for posts authored by the authenticated user. Organization/company page analytics work for all posts. 
+   * Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Zernio Post IDs and External Post IDs (auto-resolved). fromDate defaults to 90 days ago if omitted, max range 366 days. Single post lookups may return 202 (sync pending) or 424 (all platforms failed). For follower stats, use /v1/accounts/follower-stats.  LinkedIn personal accounts: Analytics are only available for posts published through Zernio. LinkedIn&#39;s API only returns metrics for posts authored by the authenticated user. Organization/company page analytics work for all posts. 
    * @param postId Returns analytics for a single post. Accepts both Zernio Post IDs and External Post IDs. Zernio IDs are auto-resolved to External Post analytics. (optional)
    * @param platform Filter by platform (default \&quot;all\&quot;) (optional)
    * @param profileId Filter by profile ID (default \&quot;all\&quot;) (optional)
@@ -250,7 +250,7 @@ public class AnalyticsApi {
 
   /**
    * Get post analytics
-   * Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Zernio Post IDs and External Post IDs (auto-resolved). fromDate defaults to 90 days ago if omitted, max range 366 days. Single post lookups may return 202 (sync pending) or 424 (all platforms failed). For follower stats, use /v1/accounts/follower-stats.  **LinkedIn personal accounts:** Analytics are only available for posts published through Zernio. LinkedIn&#39;s API only returns metrics for posts authored by the authenticated user. Organization/company page analytics work for all posts. 
+   * Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Zernio Post IDs and External Post IDs (auto-resolved). fromDate defaults to 90 days ago if omitted, max range 366 days. Single post lookups may return 202 (sync pending) or 424 (all platforms failed). For follower stats, use /v1/accounts/follower-stats.  LinkedIn personal accounts: Analytics are only available for posts published through Zernio. LinkedIn&#39;s API only returns metrics for posts authored by the authenticated user. Organization/company page analytics work for all posts. 
    * @param postId Returns analytics for a single post. Accepts both Zernio Post IDs and External Post IDs. Zernio IDs are auto-resolved to External Post analytics. (optional)
    * @param platform Filter by platform (default \&quot;all\&quot;) (optional)
    * @param profileId Filter by profile ID (default \&quot;all\&quot;) (optional)
@@ -271,7 +271,7 @@ public class AnalyticsApi {
 
   /**
    * Get post analytics
-   * Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Zernio Post IDs and External Post IDs (auto-resolved). fromDate defaults to 90 days ago if omitted, max range 366 days. Single post lookups may return 202 (sync pending) or 424 (all platforms failed). For follower stats, use /v1/accounts/follower-stats.  **LinkedIn personal accounts:** Analytics are only available for posts published through Zernio. LinkedIn&#39;s API only returns metrics for posts authored by the authenticated user. Organization/company page analytics work for all posts. 
+   * Returns analytics for posts. With postId, returns a single post. Without it, returns a paginated list with overview stats. Accepts both Zernio Post IDs and External Post IDs (auto-resolved). fromDate defaults to 90 days ago if omitted, max range 366 days. Single post lookups may return 202 (sync pending) or 424 (all platforms failed). For follower stats, use /v1/accounts/follower-stats.  LinkedIn personal accounts: Analytics are only available for posts published through Zernio. LinkedIn&#39;s API only returns metrics for posts authored by the authenticated user. Organization/company page analytics work for all posts. 
    * @param postId Returns analytics for a single post. Accepts both Zernio Post IDs and External Post IDs. Zernio IDs are auto-resolved to External Post analytics. (optional)
    * @param platform Filter by platform (default \&quot;all\&quot;) (optional)
    * @param profileId Filter by profile ID (default \&quot;all\&quot;) (optional)
@@ -983,7 +983,7 @@ public class AnalyticsApi {
   }
 
   /**
-   * Get Google Business Profile performance metrics
+   * Get GBP performance metrics
    * Returns daily performance metrics for a Google Business Profile location. Metrics include impressions (Maps/Search, desktop/mobile), website clicks, call clicks, direction requests, conversations, bookings, and food orders. Data may be delayed 2-3 days. Max 18 months of historical data. Requires the Analytics add-on. 
    * @param accountId The Zernio SocialAccount ID for the Google Business Profile account. (required)
    * @param metrics Comma-separated metric names. Defaults to all available metrics. Valid values: BUSINESS_IMPRESSIONS_DESKTOP_MAPS, BUSINESS_IMPRESSIONS_DESKTOP_SEARCH, BUSINESS_IMPRESSIONS_MOBILE_MAPS, BUSINESS_IMPRESSIONS_MOBILE_SEARCH, BUSINESS_CONVERSATIONS, BUSINESS_DIRECTION_REQUESTS, CALL_CLICKS, WEBSITE_CLICKS, BUSINESS_BOOKINGS, BUSINESS_FOOD_ORDERS, BUSINESS_FOOD_MENU_CLICKS  (optional)
@@ -997,7 +997,7 @@ public class AnalyticsApi {
   }
 
   /**
-   * Get Google Business Profile performance metrics
+   * Get GBP performance metrics
    * Returns daily performance metrics for a Google Business Profile location. Metrics include impressions (Maps/Search, desktop/mobile), website clicks, call clicks, direction requests, conversations, bookings, and food orders. Data may be delayed 2-3 days. Max 18 months of historical data. Requires the Analytics add-on. 
    * @param accountId The Zernio SocialAccount ID for the Google Business Profile account. (required)
    * @param metrics Comma-separated metric names. Defaults to all available metrics. Valid values: BUSINESS_IMPRESSIONS_DESKTOP_MAPS, BUSINESS_IMPRESSIONS_DESKTOP_SEARCH, BUSINESS_IMPRESSIONS_MOBILE_MAPS, BUSINESS_IMPRESSIONS_MOBILE_SEARCH, BUSINESS_CONVERSATIONS, BUSINESS_DIRECTION_REQUESTS, CALL_CLICKS, WEBSITE_CLICKS, BUSINESS_BOOKINGS, BUSINESS_FOOD_ORDERS, BUSINESS_FOOD_MENU_CLICKS  (optional)
@@ -1013,7 +1013,7 @@ public class AnalyticsApi {
   }
 
   /**
-   * Get Google Business Profile performance metrics
+   * Get GBP performance metrics
    * Returns daily performance metrics for a Google Business Profile location. Metrics include impressions (Maps/Search, desktop/mobile), website clicks, call clicks, direction requests, conversations, bookings, and food orders. Data may be delayed 2-3 days. Max 18 months of historical data. Requires the Analytics add-on. 
    * @param accountId The Zernio SocialAccount ID for the Google Business Profile account. (required)
    * @param metrics Comma-separated metric names. Defaults to all available metrics. Valid values: BUSINESS_IMPRESSIONS_DESKTOP_MAPS, BUSINESS_IMPRESSIONS_DESKTOP_SEARCH, BUSINESS_IMPRESSIONS_MOBILE_MAPS, BUSINESS_IMPRESSIONS_MOBILE_SEARCH, BUSINESS_CONVERSATIONS, BUSINESS_DIRECTION_REQUESTS, CALL_CLICKS, WEBSITE_CLICKS, BUSINESS_BOOKINGS, BUSINESS_FOOD_ORDERS, BUSINESS_FOOD_MENU_CLICKS  (optional)
@@ -1027,7 +1027,7 @@ public class AnalyticsApi {
   }
 
   /**
-   * Get Google Business Profile performance metrics
+   * Get GBP performance metrics
    * Returns daily performance metrics for a Google Business Profile location. Metrics include impressions (Maps/Search, desktop/mobile), website clicks, call clicks, direction requests, conversations, bookings, and food orders. Data may be delayed 2-3 days. Max 18 months of historical data. Requires the Analytics add-on. 
    * @param accountId The Zernio SocialAccount ID for the Google Business Profile account. (required)
    * @param metrics Comma-separated metric names. Defaults to all available metrics. Valid values: BUSINESS_IMPRESSIONS_DESKTOP_MAPS, BUSINESS_IMPRESSIONS_DESKTOP_SEARCH, BUSINESS_IMPRESSIONS_MOBILE_MAPS, BUSINESS_IMPRESSIONS_MOBILE_SEARCH, BUSINESS_CONVERSATIONS, BUSINESS_DIRECTION_REQUESTS, CALL_CLICKS, WEBSITE_CLICKS, BUSINESS_BOOKINGS, BUSINESS_FOOD_ORDERS, BUSINESS_FOOD_MENU_CLICKS  (optional)
@@ -1133,7 +1133,7 @@ public class AnalyticsApi {
   }
 
   /**
-   * Get Google Business Profile search keywords
+   * Get GBP search keywords
    * Returns search keywords that triggered impressions for a Google Business Profile location. Data is aggregated monthly. Keywords below a minimum impression threshold set by Google are excluded. Max 18 months of historical data. Requires the Analytics add-on. 
    * @param accountId The Zernio SocialAccount ID for the Google Business Profile account. (required)
    * @param startMonth Start month (YYYY-MM). Defaults to 3 months ago. (optional)
@@ -1146,7 +1146,7 @@ public class AnalyticsApi {
   }
 
   /**
-   * Get Google Business Profile search keywords
+   * Get GBP search keywords
    * Returns search keywords that triggered impressions for a Google Business Profile location. Data is aggregated monthly. Keywords below a minimum impression threshold set by Google are excluded. Max 18 months of historical data. Requires the Analytics add-on. 
    * @param accountId The Zernio SocialAccount ID for the Google Business Profile account. (required)
    * @param startMonth Start month (YYYY-MM). Defaults to 3 months ago. (optional)
@@ -1161,7 +1161,7 @@ public class AnalyticsApi {
   }
 
   /**
-   * Get Google Business Profile search keywords
+   * Get GBP search keywords
    * Returns search keywords that triggered impressions for a Google Business Profile location. Data is aggregated monthly. Keywords below a minimum impression threshold set by Google are excluded. Max 18 months of historical data. Requires the Analytics add-on. 
    * @param accountId The Zernio SocialAccount ID for the Google Business Profile account. (required)
    * @param startMonth Start month (YYYY-MM). Defaults to 3 months ago. (optional)
@@ -1174,7 +1174,7 @@ public class AnalyticsApi {
   }
 
   /**
-   * Get Google Business Profile search keywords
+   * Get GBP search keywords
    * Returns search keywords that triggered impressions for a Google Business Profile location. Data is aggregated monthly. Keywords below a minimum impression threshold set by Google are excluded. Max 18 months of historical data. Requires the Analytics add-on. 
    * @param accountId The Zernio SocialAccount ID for the Google Business Profile account. (required)
    * @param startMonth Start month (YYYY-MM). Defaults to 3 months ago. (optional)
@@ -1277,7 +1277,7 @@ public class AnalyticsApi {
   }
 
   /**
-   * Get Instagram account-level insights
+   * Get Instagram insights
    * Returns account-level Instagram insights such as reach, views, accounts engaged, and total interactions. These metrics reflect the entire account&#39;s performance across all content surfaces (feed, stories, explore, profile), and are fundamentally different from post-level metrics. Data may be delayed up to 48 hours. Max 90 days, defaults to last 30 days. Requires the Analytics add-on. 
    * @param accountId The Zernio SocialAccount ID for the Instagram account (required)
    * @param metrics Comma-separated list of metrics. Defaults to \&quot;reach,views,accounts_engaged,total_interactions\&quot;. Valid metrics: reach, views, accounts_engaged, total_interactions, comments, likes, saves, shares, replies, reposts, follows_and_unfollows, profile_links_taps. Note: only \&quot;reach\&quot; supports metricType&#x3D;time_series. All other metrics are total_value only.  (optional)
@@ -1293,7 +1293,7 @@ public class AnalyticsApi {
   }
 
   /**
-   * Get Instagram account-level insights
+   * Get Instagram insights
    * Returns account-level Instagram insights such as reach, views, accounts engaged, and total interactions. These metrics reflect the entire account&#39;s performance across all content surfaces (feed, stories, explore, profile), and are fundamentally different from post-level metrics. Data may be delayed up to 48 hours. Max 90 days, defaults to last 30 days. Requires the Analytics add-on. 
    * @param accountId The Zernio SocialAccount ID for the Instagram account (required)
    * @param metrics Comma-separated list of metrics. Defaults to \&quot;reach,views,accounts_engaged,total_interactions\&quot;. Valid metrics: reach, views, accounts_engaged, total_interactions, comments, likes, saves, shares, replies, reposts, follows_and_unfollows, profile_links_taps. Note: only \&quot;reach\&quot; supports metricType&#x3D;time_series. All other metrics are total_value only.  (optional)
@@ -1311,7 +1311,7 @@ public class AnalyticsApi {
   }
 
   /**
-   * Get Instagram account-level insights
+   * Get Instagram insights
    * Returns account-level Instagram insights such as reach, views, accounts engaged, and total interactions. These metrics reflect the entire account&#39;s performance across all content surfaces (feed, stories, explore, profile), and are fundamentally different from post-level metrics. Data may be delayed up to 48 hours. Max 90 days, defaults to last 30 days. Requires the Analytics add-on. 
    * @param accountId The Zernio SocialAccount ID for the Instagram account (required)
    * @param metrics Comma-separated list of metrics. Defaults to \&quot;reach,views,accounts_engaged,total_interactions\&quot;. Valid metrics: reach, views, accounts_engaged, total_interactions, comments, likes, saves, shares, replies, reposts, follows_and_unfollows, profile_links_taps. Note: only \&quot;reach\&quot; supports metricType&#x3D;time_series. All other metrics are total_value only.  (optional)
@@ -1327,7 +1327,7 @@ public class AnalyticsApi {
   }
 
   /**
-   * Get Instagram account-level insights
+   * Get Instagram insights
    * Returns account-level Instagram insights such as reach, views, accounts engaged, and total interactions. These metrics reflect the entire account&#39;s performance across all content surfaces (feed, stories, explore, profile), and are fundamentally different from post-level metrics. Data may be delayed up to 48 hours. Max 90 days, defaults to last 30 days. Requires the Analytics add-on. 
    * @param accountId The Zernio SocialAccount ID for the Instagram account (required)
    * @param metrics Comma-separated list of metrics. Defaults to \&quot;reach,views,accounts_engaged,total_interactions\&quot;. Valid metrics: reach, views, accounts_engaged, total_interactions, comments, likes, saves, shares, replies, reposts, follows_and_unfollows, profile_links_taps. Note: only \&quot;reach\&quot; supports metricType&#x3D;time_series. All other metrics are total_value only.  (optional)
@@ -1439,7 +1439,7 @@ public class AnalyticsApi {
   }
 
   /**
-   * Get Instagram audience demographics
+   * Get Instagram demographics
    * Returns audience demographic insights for an Instagram account, broken down by age, city, country, and/or gender. Requires at least 100 followers. Returns top 45 entries per dimension. Data may be delayed up to 48 hours. Requires the Analytics add-on. 
    * @param accountId The Zernio SocialAccount ID for the Instagram account (required)
    * @param metric \&quot;follower_demographics\&quot; for follower audience data, or \&quot;engaged_audience_demographics\&quot; for engaged viewers.  (optional, default to follower_demographics)
@@ -1453,7 +1453,7 @@ public class AnalyticsApi {
   }
 
   /**
-   * Get Instagram audience demographics
+   * Get Instagram demographics
    * Returns audience demographic insights for an Instagram account, broken down by age, city, country, and/or gender. Requires at least 100 followers. Returns top 45 entries per dimension. Data may be delayed up to 48 hours. Requires the Analytics add-on. 
    * @param accountId The Zernio SocialAccount ID for the Instagram account (required)
    * @param metric \&quot;follower_demographics\&quot; for follower audience data, or \&quot;engaged_audience_demographics\&quot; for engaged viewers.  (optional, default to follower_demographics)
@@ -1469,7 +1469,7 @@ public class AnalyticsApi {
   }
 
   /**
-   * Get Instagram audience demographics
+   * Get Instagram demographics
    * Returns audience demographic insights for an Instagram account, broken down by age, city, country, and/or gender. Requires at least 100 followers. Returns top 45 entries per dimension. Data may be delayed up to 48 hours. Requires the Analytics add-on. 
    * @param accountId The Zernio SocialAccount ID for the Instagram account (required)
    * @param metric \&quot;follower_demographics\&quot; for follower audience data, or \&quot;engaged_audience_demographics\&quot; for engaged viewers.  (optional, default to follower_demographics)
@@ -1483,7 +1483,7 @@ public class AnalyticsApi {
   }
 
   /**
-   * Get Instagram audience demographics
+   * Get Instagram demographics
    * Returns audience demographic insights for an Instagram account, broken down by age, city, country, and/or gender. Requires at least 100 followers. Returns top 45 entries per dimension. Data may be delayed up to 48 hours. Requires the Analytics add-on. 
    * @param accountId The Zernio SocialAccount ID for the Instagram account (required)
    * @param metric \&quot;follower_demographics\&quot; for follower audience data, or \&quot;engaged_audience_demographics\&quot; for engaged viewers.  (optional, default to follower_demographics)
@@ -1886,7 +1886,7 @@ public class AnalyticsApi {
 
   /**
    * Get LinkedIn post reactions
-   * Returns individual reactions for a specific LinkedIn post, including reactor profiles (name, headline/job title, profile picture, profile URL, reaction type). Only works for **organization/company page** accounts. LinkedIn restricts reaction data for personal profiles (r_member_social_feed is a closed permission). 
+   * Returns individual reactions for a specific LinkedIn post, including reactor profiles (name, headline/job title, profile picture, profile URL, reaction type). Only works for organization/company page accounts. LinkedIn restricts reaction data for personal profiles (r_member_social_feed is a closed permission). 
    * @param accountId The ID of the LinkedIn organization account (required)
    * @param urn The LinkedIn post URN (required)
    * @param limit Maximum number of reactions to return per page (optional, default to 25)
@@ -1900,7 +1900,7 @@ public class AnalyticsApi {
 
   /**
    * Get LinkedIn post reactions
-   * Returns individual reactions for a specific LinkedIn post, including reactor profiles (name, headline/job title, profile picture, profile URL, reaction type). Only works for **organization/company page** accounts. LinkedIn restricts reaction data for personal profiles (r_member_social_feed is a closed permission). 
+   * Returns individual reactions for a specific LinkedIn post, including reactor profiles (name, headline/job title, profile picture, profile URL, reaction type). Only works for organization/company page accounts. LinkedIn restricts reaction data for personal profiles (r_member_social_feed is a closed permission). 
    * @param accountId The ID of the LinkedIn organization account (required)
    * @param urn The LinkedIn post URN (required)
    * @param limit Maximum number of reactions to return per page (optional, default to 25)
@@ -1916,7 +1916,7 @@ public class AnalyticsApi {
 
   /**
    * Get LinkedIn post reactions
-   * Returns individual reactions for a specific LinkedIn post, including reactor profiles (name, headline/job title, profile picture, profile URL, reaction type). Only works for **organization/company page** accounts. LinkedIn restricts reaction data for personal profiles (r_member_social_feed is a closed permission). 
+   * Returns individual reactions for a specific LinkedIn post, including reactor profiles (name, headline/job title, profile picture, profile URL, reaction type). Only works for organization/company page accounts. LinkedIn restricts reaction data for personal profiles (r_member_social_feed is a closed permission). 
    * @param accountId The ID of the LinkedIn organization account (required)
    * @param urn The LinkedIn post URN (required)
    * @param limit Maximum number of reactions to return per page (optional, default to 25)
@@ -1930,7 +1930,7 @@ public class AnalyticsApi {
 
   /**
    * Get LinkedIn post reactions
-   * Returns individual reactions for a specific LinkedIn post, including reactor profiles (name, headline/job title, profile picture, profile URL, reaction type). Only works for **organization/company page** accounts. LinkedIn restricts reaction data for personal profiles (r_member_social_feed is a closed permission). 
+   * Returns individual reactions for a specific LinkedIn post, including reactor profiles (name, headline/job title, profile picture, profile URL, reaction type). Only works for organization/company page accounts. LinkedIn restricts reaction data for personal profiles (r_member_social_feed is a closed permission). 
    * @param accountId The ID of the LinkedIn organization account (required)
    * @param urn The LinkedIn post URN (required)
    * @param limit Maximum number of reactions to return per page (optional, default to 25)
@@ -2182,7 +2182,7 @@ public class AnalyticsApi {
   }
 
   /**
-   * Get posting frequency vs engagement
+   * Get frequency vs engagement
    * Returns the correlation between posting frequency (posts per week) and engagement rate, broken down by platform. Helps find the optimal posting cadence for each platform. Each row represents a specific (platform, posts_per_week) combination with the average engagement rate observed across all weeks matching that frequency. Requires the Analytics add-on. 
    * @param platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms. (optional)
    * @param profileId Filter by profile ID. Omit for all profiles. (optional)
@@ -2195,7 +2195,7 @@ public class AnalyticsApi {
   }
 
   /**
-   * Get posting frequency vs engagement
+   * Get frequency vs engagement
    * Returns the correlation between posting frequency (posts per week) and engagement rate, broken down by platform. Helps find the optimal posting cadence for each platform. Each row represents a specific (platform, posts_per_week) combination with the average engagement rate observed across all weeks matching that frequency. Requires the Analytics add-on. 
    * @param platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms. (optional)
    * @param profileId Filter by profile ID. Omit for all profiles. (optional)
@@ -2210,7 +2210,7 @@ public class AnalyticsApi {
   }
 
   /**
-   * Get posting frequency vs engagement
+   * Get frequency vs engagement
    * Returns the correlation between posting frequency (posts per week) and engagement rate, broken down by platform. Helps find the optimal posting cadence for each platform. Each row represents a specific (platform, posts_per_week) combination with the average engagement rate observed across all weeks matching that frequency. Requires the Analytics add-on. 
    * @param platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms. (optional)
    * @param profileId Filter by profile ID. Omit for all profiles. (optional)
@@ -2223,7 +2223,7 @@ public class AnalyticsApi {
   }
 
   /**
-   * Get posting frequency vs engagement
+   * Get frequency vs engagement
    * Returns the correlation between posting frequency (posts per week) and engagement rate, broken down by platform. Helps find the optimal posting cadence for each platform. Each row represents a specific (platform, posts_per_week) combination with the average engagement rate observed across all weeks matching that frequency. Requires the Analytics add-on. 
    * @param platform Filter by platform (e.g. \&quot;instagram\&quot;, \&quot;tiktok\&quot;). Omit for all platforms. (optional)
    * @param profileId Filter by profile ID. Omit for all profiles. (optional)
@@ -2476,7 +2476,7 @@ public class AnalyticsApi {
   }
 
   /**
-   * Get YouTube audience demographics
+   * Get YouTube demographics
    * Returns audience demographic insights for a YouTube channel, broken down by age, gender, and/or country. Age and gender values are viewer percentages (0-100). Country values are view counts. Data is based on signed-in viewers only, with a 2-3 day delay. Requires the Analytics add-on. 
    * @param accountId The Zernio SocialAccount ID for the YouTube account (required)
    * @param breakdown Comma-separated list of demographic dimensions: age, gender, country. Defaults to all three if omitted.  (optional)
@@ -2490,7 +2490,7 @@ public class AnalyticsApi {
   }
 
   /**
-   * Get YouTube audience demographics
+   * Get YouTube demographics
    * Returns audience demographic insights for a YouTube channel, broken down by age, gender, and/or country. Age and gender values are viewer percentages (0-100). Country values are view counts. Data is based on signed-in viewers only, with a 2-3 day delay. Requires the Analytics add-on. 
    * @param accountId The Zernio SocialAccount ID for the YouTube account (required)
    * @param breakdown Comma-separated list of demographic dimensions: age, gender, country. Defaults to all three if omitted.  (optional)
@@ -2506,7 +2506,7 @@ public class AnalyticsApi {
   }
 
   /**
-   * Get YouTube audience demographics
+   * Get YouTube demographics
    * Returns audience demographic insights for a YouTube channel, broken down by age, gender, and/or country. Age and gender values are viewer percentages (0-100). Country values are view counts. Data is based on signed-in viewers only, with a 2-3 day delay. Requires the Analytics add-on. 
    * @param accountId The Zernio SocialAccount ID for the YouTube account (required)
    * @param breakdown Comma-separated list of demographic dimensions: age, gender, country. Defaults to all three if omitted.  (optional)
@@ -2520,7 +2520,7 @@ public class AnalyticsApi {
   }
 
   /**
-   * Get YouTube audience demographics
+   * Get YouTube demographics
    * Returns audience demographic insights for a YouTube channel, broken down by age, gender, and/or country. Age and gender values are viewer percentages (0-100). Country values are view counts. Data is based on signed-in viewers only, with a 2-3 day delay. Requires the Analytics add-on. 
    * @param accountId The Zernio SocialAccount ID for the YouTube account (required)
    * @param breakdown Comma-separated list of demographic dimensions: age, gender, country. Defaults to all three if omitted.  (optional)

@@ -39,7 +39,7 @@ import dev.zernio.ApiClient;
   CreateInboxConversationRequest.JSON_PROPERTY_MESSAGE,
   CreateInboxConversationRequest.JSON_PROPERTY_SKIP_DM_CHECK
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:23:14.639851249Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T16:44:41.618708448Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateInboxConversationRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nonnull
@@ -94,7 +94,7 @@ public class CreateInboxConversationRequest {
   }
 
   /**
-   * Twitter numeric user ID of the recipient. Provide either this or &#x60;participantUsername&#x60;.
+   * Twitter numeric user ID of the recipient. Provide either this or participantUsername.
    * @return participantId
    */
   @javax.annotation.Nullable
@@ -118,7 +118,7 @@ public class CreateInboxConversationRequest {
   }
 
   /**
-   * Twitter username (with or without @) of the recipient. Resolved to a user ID via lookup. Provide either this or &#x60;participantId&#x60;.
+   * Twitter username (with or without @) of the recipient. Resolved to a user ID via lookup. Provide either this or participantId.
    * @return participantUsername
    */
   @javax.annotation.Nullable
@@ -142,7 +142,7 @@ public class CreateInboxConversationRequest {
   }
 
   /**
-   * Text content of the message. At least one of &#x60;message&#x60; or attachment is required.
+   * Text content of the message. At least one of message or attachment is required.
    * @return message
    */
   @javax.annotation.Nullable
@@ -166,7 +166,7 @@ public class CreateInboxConversationRequest {
   }
 
   /**
-   * Skip the &#x60;receives_your_dm&#x60; eligibility check before sending. Use if you have already verified the recipient accepts DMs.
+   * Skip the receives_your_dm eligibility check before sending. Use if you have already verified the recipient accepts DMs.
    * @return skipDmCheck
    */
   @javax.annotation.Nullable

@@ -6,18 +6,18 @@ All URIs are relative to *https://zernio.com/api*
 |------------- | ------------- | -------------|
 | [**bulkCreateContacts**](ContactsApi.md#bulkCreateContacts) | **POST** /v1/contacts/bulk | Bulk create contacts |
 | [**bulkCreateContactsWithHttpInfo**](ContactsApi.md#bulkCreateContactsWithHttpInfo) | **POST** /v1/contacts/bulk | Bulk create contacts |
-| [**createContact**](ContactsApi.md#createContact) | **POST** /v1/contacts | Create a contact |
-| [**createContactWithHttpInfo**](ContactsApi.md#createContactWithHttpInfo) | **POST** /v1/contacts | Create a contact |
-| [**deleteContact**](ContactsApi.md#deleteContact) | **DELETE** /v1/contacts/{contactId} | Delete a contact |
-| [**deleteContactWithHttpInfo**](ContactsApi.md#deleteContactWithHttpInfo) | **DELETE** /v1/contacts/{contactId} | Delete a contact |
-| [**getContact**](ContactsApi.md#getContact) | **GET** /v1/contacts/{contactId} | Get contact with channels |
-| [**getContactWithHttpInfo**](ContactsApi.md#getContactWithHttpInfo) | **GET** /v1/contacts/{contactId} | Get contact with channels |
+| [**createContact**](ContactsApi.md#createContact) | **POST** /v1/contacts | Create contact |
+| [**createContactWithHttpInfo**](ContactsApi.md#createContactWithHttpInfo) | **POST** /v1/contacts | Create contact |
+| [**deleteContact**](ContactsApi.md#deleteContact) | **DELETE** /v1/contacts/{contactId} | Delete contact |
+| [**deleteContactWithHttpInfo**](ContactsApi.md#deleteContactWithHttpInfo) | **DELETE** /v1/contacts/{contactId} | Delete contact |
+| [**getContact**](ContactsApi.md#getContact) | **GET** /v1/contacts/{contactId} | Get contact |
+| [**getContactWithHttpInfo**](ContactsApi.md#getContactWithHttpInfo) | **GET** /v1/contacts/{contactId} | Get contact |
 | [**getContactChannels**](ContactsApi.md#getContactChannels) | **GET** /v1/contacts/{contactId}/channels | List channels for a contact |
 | [**getContactChannelsWithHttpInfo**](ContactsApi.md#getContactChannelsWithHttpInfo) | **GET** /v1/contacts/{contactId}/channels | List channels for a contact |
 | [**listContacts**](ContactsApi.md#listContacts) | **GET** /v1/contacts | List contacts |
 | [**listContactsWithHttpInfo**](ContactsApi.md#listContactsWithHttpInfo) | **GET** /v1/contacts | List contacts |
-| [**updateContact**](ContactsApi.md#updateContact) | **PATCH** /v1/contacts/{contactId} | Update a contact |
-| [**updateContactWithHttpInfo**](ContactsApi.md#updateContactWithHttpInfo) | **PATCH** /v1/contacts/{contactId} | Update a contact |
+| [**updateContact**](ContactsApi.md#updateContact) | **PATCH** /v1/contacts/{contactId} | Update contact |
+| [**updateContactWithHttpInfo**](ContactsApi.md#updateContactWithHttpInfo) | **PATCH** /v1/contacts/{contactId} | Update contact |
 
 
 
@@ -171,7 +171,7 @@ ApiResponse<[**BulkCreateContacts200Response**](BulkCreateContacts200Response.md
 
 > CreateContact200Response createContact(createContactRequest)
 
-Create a contact
+Create contact
 
 Create a new contact. Optionally create a platform channel in the same request by providing accountId, platform, and platformIdentifier.
 
@@ -243,7 +243,7 @@ public class Example {
 
 > ApiResponse<CreateContact200Response> createContact createContactWithHttpInfo(createContactRequest)
 
-Create a contact
+Create contact
 
 Create a new contact. Optionally create a platform channel in the same request by providing accountId, platform, and platformIdentifier.
 
@@ -319,7 +319,9 @@ ApiResponse<[**CreateContact200Response**](CreateContact200Response.md)>
 
 > void deleteContact(contactId)
 
-Delete a contact
+Delete contact
+
+Permanently deletes a contact and all associated channels.
 
 ### Example
 
@@ -388,7 +390,9 @@ null (empty response body)
 
 > ApiResponse<Void> deleteContact deleteContactWithHttpInfo(contactId)
 
-Delete a contact
+Delete contact
+
+Permanently deletes a contact and all associated channels.
 
 ### Example
 
@@ -461,7 +465,9 @@ ApiResponse<Void>
 
 > GetContact200Response getContact(contactId)
 
-Get contact with channels
+Get contact
+
+Returns a contact with all associated messaging channels.
 
 ### Example
 
@@ -531,7 +537,9 @@ public class Example {
 
 > ApiResponse<GetContact200Response> getContact getContactWithHttpInfo(contactId)
 
-Get contact with channels
+Get contact
+
+Returns a contact with all associated messaging channels.
 
 ### Example
 
@@ -607,6 +615,8 @@ ApiResponse<[**GetContact200Response**](GetContact200Response.md)>
 
 List channels for a contact
 
+Returns all messaging channels linked to a contact (e.g. Instagram DM, Telegram, WhatsApp).
+
 ### Example
 
 ```java
@@ -676,6 +686,8 @@ public class Example {
 > ApiResponse<GetContactChannels200Response> getContactChannels getContactChannelsWithHttpInfo(contactId)
 
 List channels for a contact
+
+Returns all messaging channels linked to a contact (e.g. Instagram DM, Telegram, WhatsApp).
 
 ### Example
 
@@ -919,7 +931,9 @@ ApiResponse<[**ListContacts200Response**](ListContacts200Response.md)>
 
 > UpdateContact200Response updateContact(contactId, updateContactRequest)
 
-Update a contact
+Update contact
+
+Update one or more fields on a contact. Only provided fields are changed.
 
 ### Example
 
@@ -991,7 +1005,9 @@ public class Example {
 
 > ApiResponse<UpdateContact200Response> updateContact updateContactWithHttpInfo(contactId, updateContactRequest)
 
-Update a contact
+Update contact
+
+Update one or more fields on a contact. Only provided fields are changed.
 
 ### Example
 

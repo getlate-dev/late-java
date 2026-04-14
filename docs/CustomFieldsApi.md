@@ -4,18 +4,18 @@ All URIs are relative to *https://zernio.com/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**clearContactFieldValue**](CustomFieldsApi.md#clearContactFieldValue) | **DELETE** /v1/contacts/{contactId}/fields/{slug} | Clear a custom field value |
-| [**clearContactFieldValueWithHttpInfo**](CustomFieldsApi.md#clearContactFieldValueWithHttpInfo) | **DELETE** /v1/contacts/{contactId}/fields/{slug} | Clear a custom field value |
-| [**createCustomField**](CustomFieldsApi.md#createCustomField) | **POST** /v1/custom-fields | Create a custom field definition |
-| [**createCustomFieldWithHttpInfo**](CustomFieldsApi.md#createCustomFieldWithHttpInfo) | **POST** /v1/custom-fields | Create a custom field definition |
-| [**deleteCustomField**](CustomFieldsApi.md#deleteCustomField) | **DELETE** /v1/custom-fields/{fieldId} | Delete a custom field definition |
-| [**deleteCustomFieldWithHttpInfo**](CustomFieldsApi.md#deleteCustomFieldWithHttpInfo) | **DELETE** /v1/custom-fields/{fieldId} | Delete a custom field definition |
+| [**clearContactFieldValue**](CustomFieldsApi.md#clearContactFieldValue) | **DELETE** /v1/contacts/{contactId}/fields/{slug} | Clear custom field value |
+| [**clearContactFieldValueWithHttpInfo**](CustomFieldsApi.md#clearContactFieldValueWithHttpInfo) | **DELETE** /v1/contacts/{contactId}/fields/{slug} | Clear custom field value |
+| [**createCustomField**](CustomFieldsApi.md#createCustomField) | **POST** /v1/custom-fields | Create custom field |
+| [**createCustomFieldWithHttpInfo**](CustomFieldsApi.md#createCustomFieldWithHttpInfo) | **POST** /v1/custom-fields | Create custom field |
+| [**deleteCustomField**](CustomFieldsApi.md#deleteCustomField) | **DELETE** /v1/custom-fields/{fieldId} | Delete custom field |
+| [**deleteCustomFieldWithHttpInfo**](CustomFieldsApi.md#deleteCustomFieldWithHttpInfo) | **DELETE** /v1/custom-fields/{fieldId} | Delete custom field |
 | [**listCustomFields**](CustomFieldsApi.md#listCustomFields) | **GET** /v1/custom-fields | List custom field definitions |
 | [**listCustomFieldsWithHttpInfo**](CustomFieldsApi.md#listCustomFieldsWithHttpInfo) | **GET** /v1/custom-fields | List custom field definitions |
-| [**setContactFieldValue**](CustomFieldsApi.md#setContactFieldValue) | **PUT** /v1/contacts/{contactId}/fields/{slug} | Set a custom field value |
-| [**setContactFieldValueWithHttpInfo**](CustomFieldsApi.md#setContactFieldValueWithHttpInfo) | **PUT** /v1/contacts/{contactId}/fields/{slug} | Set a custom field value |
-| [**updateCustomField**](CustomFieldsApi.md#updateCustomField) | **PATCH** /v1/custom-fields/{fieldId} | Update a custom field definition |
-| [**updateCustomFieldWithHttpInfo**](CustomFieldsApi.md#updateCustomFieldWithHttpInfo) | **PATCH** /v1/custom-fields/{fieldId} | Update a custom field definition |
+| [**setContactFieldValue**](CustomFieldsApi.md#setContactFieldValue) | **PUT** /v1/contacts/{contactId}/fields/{slug} | Set custom field value |
+| [**setContactFieldValueWithHttpInfo**](CustomFieldsApi.md#setContactFieldValueWithHttpInfo) | **PUT** /v1/contacts/{contactId}/fields/{slug} | Set custom field value |
+| [**updateCustomField**](CustomFieldsApi.md#updateCustomField) | **PATCH** /v1/custom-fields/{fieldId} | Update custom field |
+| [**updateCustomFieldWithHttpInfo**](CustomFieldsApi.md#updateCustomFieldWithHttpInfo) | **PATCH** /v1/custom-fields/{fieldId} | Update custom field |
 
 
 
@@ -23,7 +23,9 @@ All URIs are relative to *https://zernio.com/api*
 
 > void clearContactFieldValue(contactId, slug)
 
-Clear a custom field value
+Clear custom field value
+
+Remove a custom field value from a contact. The field definition is not affected.
 
 ### Example
 
@@ -94,7 +96,9 @@ null (empty response body)
 
 > ApiResponse<Void> clearContactFieldValue clearContactFieldValueWithHttpInfo(contactId, slug)
 
-Clear a custom field value
+Clear custom field value
+
+Remove a custom field value from a contact. The field definition is not affected.
 
 ### Example
 
@@ -169,7 +173,9 @@ ApiResponse<Void>
 
 > CreateCustomField200Response createCustomField(createCustomFieldRequest)
 
-Create a custom field definition
+Create custom field
+
+Create a new custom field definition. Supported types are text, number, date, boolean, and select.
 
 ### Example
 
@@ -239,7 +245,9 @@ public class Example {
 
 > ApiResponse<CreateCustomField200Response> createCustomField createCustomFieldWithHttpInfo(createCustomFieldRequest)
 
-Create a custom field definition
+Create custom field
+
+Create a new custom field definition. Supported types are text, number, date, boolean, and select.
 
 ### Example
 
@@ -313,7 +321,9 @@ ApiResponse<[**CreateCustomField200Response**](CreateCustomField200Response.md)>
 
 > void deleteCustomField(fieldId)
 
-Delete a custom field definition
+Delete custom field
+
+Delete a custom field definition and remove its values from all contacts.
 
 ### Example
 
@@ -382,7 +392,9 @@ null (empty response body)
 
 > ApiResponse<Void> deleteCustomField deleteCustomFieldWithHttpInfo(fieldId)
 
-Delete a custom field definition
+Delete custom field
+
+Delete a custom field definition and remove its values from all contacts.
 
 ### Example
 
@@ -457,6 +469,8 @@ ApiResponse<Void>
 
 List custom field definitions
 
+Returns all custom field definitions. Optionally filter by profile.
+
 ### Example
 
 ```java
@@ -525,6 +539,8 @@ public class Example {
 > ApiResponse<ListCustomFields200Response> listCustomFields listCustomFieldsWithHttpInfo(profileId)
 
 List custom field definitions
+
+Returns all custom field definitions. Optionally filter by profile.
 
 ### Example
 
@@ -597,7 +613,9 @@ ApiResponse<[**ListCustomFields200Response**](ListCustomFields200Response.md)>
 
 > void setContactFieldValue(contactId, slug, setContactFieldValueRequest)
 
-Set a custom field value
+Set custom field value
+
+Set or overwrite a custom field value on a contact. The value type must match the field definition.
 
 ### Example
 
@@ -670,7 +688,9 @@ null (empty response body)
 
 > ApiResponse<Void> setContactFieldValue setContactFieldValueWithHttpInfo(contactId, slug, setContactFieldValueRequest)
 
-Set a custom field value
+Set custom field value
+
+Set or overwrite a custom field value on a contact. The value type must match the field definition.
 
 ### Example
 
@@ -747,7 +767,9 @@ ApiResponse<Void>
 
 > UpdateCustomField200Response updateCustomField(fieldId, updateCustomFieldRequest)
 
-Update a custom field definition
+Update custom field
+
+Update a custom field definition. The field type cannot be changed after creation.
 
 ### Example
 
@@ -819,7 +841,9 @@ public class Example {
 
 > ApiResponse<UpdateCustomField200Response> updateCustomField updateCustomFieldWithHttpInfo(fieldId, updateCustomFieldRequest)
 
-Update a custom field definition
+Update custom field
+
+Update a custom field definition. The field type cannot be changed after creation.
 
 ### Example
 

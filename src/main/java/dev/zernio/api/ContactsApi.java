@@ -55,7 +55,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:23:14.639851249Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T16:44:41.618708448Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ContactsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -296,7 +296,7 @@ public class ContactsApi {
   }
 
   /**
-   * Create a contact
+   * Create contact
    * Create a new contact. Optionally create a platform channel in the same request by providing accountId, platform, and platformIdentifier.
    * @param createContactRequest  (required)
    * @return CreateContact200Response
@@ -307,7 +307,7 @@ public class ContactsApi {
   }
 
   /**
-   * Create a contact
+   * Create contact
    * Create a new contact. Optionally create a platform channel in the same request by providing accountId, platform, and platformIdentifier.
    * @param createContactRequest  (required)
    * @param headers Optional headers to include in the request
@@ -320,7 +320,7 @@ public class ContactsApi {
   }
 
   /**
-   * Create a contact
+   * Create contact
    * Create a new contact. Optionally create a platform channel in the same request by providing accountId, platform, and platformIdentifier.
    * @param createContactRequest  (required)
    * @return ApiResponse&lt;CreateContact200Response&gt;
@@ -331,7 +331,7 @@ public class ContactsApi {
   }
 
   /**
-   * Create a contact
+   * Create contact
    * Create a new contact. Optionally create a platform channel in the same request by providing accountId, platform, and platformIdentifier.
    * @param createContactRequest  (required)
    * @param headers Optional headers to include in the request
@@ -419,8 +419,8 @@ public class ContactsApi {
   }
 
   /**
-   * Delete a contact
-   * 
+   * Delete contact
+   * Permanently deletes a contact and all associated channels.
    * @param contactId  (required)
    * @throws ApiException if fails to make API call
    */
@@ -429,8 +429,8 @@ public class ContactsApi {
   }
 
   /**
-   * Delete a contact
-   * 
+   * Delete contact
+   * Permanently deletes a contact and all associated channels.
    * @param contactId  (required)
    * @param headers Optional headers to include in the request
    * @throws ApiException if fails to make API call
@@ -440,8 +440,8 @@ public class ContactsApi {
   }
 
   /**
-   * Delete a contact
-   * 
+   * Delete contact
+   * Permanently deletes a contact and all associated channels.
    * @param contactId  (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -451,8 +451,8 @@ public class ContactsApi {
   }
 
   /**
-   * Delete a contact
-   * 
+   * Delete contact
+   * Permanently deletes a contact and all associated channels.
    * @param contactId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;Void&gt;
@@ -523,8 +523,8 @@ public class ContactsApi {
   }
 
   /**
-   * Get contact with channels
-   * 
+   * Get contact
+   * Returns a contact with all associated messaging channels.
    * @param contactId  (required)
    * @return GetContact200Response
    * @throws ApiException if fails to make API call
@@ -534,8 +534,8 @@ public class ContactsApi {
   }
 
   /**
-   * Get contact with channels
-   * 
+   * Get contact
+   * Returns a contact with all associated messaging channels.
    * @param contactId  (required)
    * @param headers Optional headers to include in the request
    * @return GetContact200Response
@@ -547,8 +547,8 @@ public class ContactsApi {
   }
 
   /**
-   * Get contact with channels
-   * 
+   * Get contact
+   * Returns a contact with all associated messaging channels.
    * @param contactId  (required)
    * @return ApiResponse&lt;GetContact200Response&gt;
    * @throws ApiException if fails to make API call
@@ -558,8 +558,8 @@ public class ContactsApi {
   }
 
   /**
-   * Get contact with channels
-   * 
+   * Get contact
+   * Returns a contact with all associated messaging channels.
    * @param contactId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetContact200Response&gt;
@@ -642,7 +642,7 @@ public class ContactsApi {
 
   /**
    * List channels for a contact
-   * 
+   * Returns all messaging channels linked to a contact (e.g. Instagram DM, Telegram, WhatsApp).
    * @param contactId  (required)
    * @return GetContactChannels200Response
    * @throws ApiException if fails to make API call
@@ -653,7 +653,7 @@ public class ContactsApi {
 
   /**
    * List channels for a contact
-   * 
+   * Returns all messaging channels linked to a contact (e.g. Instagram DM, Telegram, WhatsApp).
    * @param contactId  (required)
    * @param headers Optional headers to include in the request
    * @return GetContactChannels200Response
@@ -666,7 +666,7 @@ public class ContactsApi {
 
   /**
    * List channels for a contact
-   * 
+   * Returns all messaging channels linked to a contact (e.g. Instagram DM, Telegram, WhatsApp).
    * @param contactId  (required)
    * @return ApiResponse&lt;GetContactChannels200Response&gt;
    * @throws ApiException if fails to make API call
@@ -677,7 +677,7 @@ public class ContactsApi {
 
   /**
    * List channels for a contact
-   * 
+   * Returns all messaging channels linked to a contact (e.g. Instagram DM, Telegram, WhatsApp).
    * @param contactId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetContactChannels200Response&gt;
@@ -923,8 +923,8 @@ public class ContactsApi {
   }
 
   /**
-   * Update a contact
-   * 
+   * Update contact
+   * Update one or more fields on a contact. Only provided fields are changed.
    * @param contactId  (required)
    * @param updateContactRequest  (optional)
    * @return UpdateContact200Response
@@ -935,8 +935,8 @@ public class ContactsApi {
   }
 
   /**
-   * Update a contact
-   * 
+   * Update contact
+   * Update one or more fields on a contact. Only provided fields are changed.
    * @param contactId  (required)
    * @param updateContactRequest  (optional)
    * @param headers Optional headers to include in the request
@@ -949,8 +949,8 @@ public class ContactsApi {
   }
 
   /**
-   * Update a contact
-   * 
+   * Update contact
+   * Update one or more fields on a contact. Only provided fields are changed.
    * @param contactId  (required)
    * @param updateContactRequest  (optional)
    * @return ApiResponse&lt;UpdateContact200Response&gt;
@@ -961,8 +961,8 @@ public class ContactsApi {
   }
 
   /**
-   * Update a contact
-   * 
+   * Update contact
+   * Update one or more fields on a contact. Only provided fields are changed.
    * @param contactId  (required)
    * @param updateContactRequest  (optional)
    * @param headers Optional headers to include in the request

@@ -76,7 +76,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:23:14.639851249Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T16:44:41.618708448Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WhatsAppApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -769,7 +769,7 @@ public class WhatsAppApi {
 
   /**
    * Create template
-   * Create a new message template. Supports two modes:  **Custom template:** Provide &#x60;components&#x60; with your own content. Submitted to Meta for review (can take up to 24h).  **Library template:** Provide &#x60;library_template_name&#x60; instead of &#x60;components&#x60; to use a pre-built template from Meta&#39;s template library. Library templates are **pre-approved** (no review wait). You can optionally customize parameters and buttons via &#x60;library_template_body_inputs&#x60; and &#x60;library_template_button_inputs&#x60;.  Browse available library templates at: https://business.facebook.com/wa/manage/message-templates/ 
+   * Create a new message template. Supports two modes:  Custom template: Provide components with your own content. Submitted to Meta for review (can take up to 24h).  Library template: Provide library_template_name instead of components to use a pre-built template from Meta&#39;s template library. Library templates are pre-approved (no review wait). You can optionally customize parameters and buttons via library_template_body_inputs and library_template_button_inputs.  Browse available library templates at: https://business.facebook.com/wa/manage/message-templates/ 
    * @param createWhatsAppTemplateRequest  (required)
    * @return CreateWhatsAppTemplate200Response
    * @throws ApiException if fails to make API call
@@ -780,7 +780,7 @@ public class WhatsAppApi {
 
   /**
    * Create template
-   * Create a new message template. Supports two modes:  **Custom template:** Provide &#x60;components&#x60; with your own content. Submitted to Meta for review (can take up to 24h).  **Library template:** Provide &#x60;library_template_name&#x60; instead of &#x60;components&#x60; to use a pre-built template from Meta&#39;s template library. Library templates are **pre-approved** (no review wait). You can optionally customize parameters and buttons via &#x60;library_template_body_inputs&#x60; and &#x60;library_template_button_inputs&#x60;.  Browse available library templates at: https://business.facebook.com/wa/manage/message-templates/ 
+   * Create a new message template. Supports two modes:  Custom template: Provide components with your own content. Submitted to Meta for review (can take up to 24h).  Library template: Provide library_template_name instead of components to use a pre-built template from Meta&#39;s template library. Library templates are pre-approved (no review wait). You can optionally customize parameters and buttons via library_template_body_inputs and library_template_button_inputs.  Browse available library templates at: https://business.facebook.com/wa/manage/message-templates/ 
    * @param createWhatsAppTemplateRequest  (required)
    * @param headers Optional headers to include in the request
    * @return CreateWhatsAppTemplate200Response
@@ -793,7 +793,7 @@ public class WhatsAppApi {
 
   /**
    * Create template
-   * Create a new message template. Supports two modes:  **Custom template:** Provide &#x60;components&#x60; with your own content. Submitted to Meta for review (can take up to 24h).  **Library template:** Provide &#x60;library_template_name&#x60; instead of &#x60;components&#x60; to use a pre-built template from Meta&#39;s template library. Library templates are **pre-approved** (no review wait). You can optionally customize parameters and buttons via &#x60;library_template_body_inputs&#x60; and &#x60;library_template_button_inputs&#x60;.  Browse available library templates at: https://business.facebook.com/wa/manage/message-templates/ 
+   * Create a new message template. Supports two modes:  Custom template: Provide components with your own content. Submitted to Meta for review (can take up to 24h).  Library template: Provide library_template_name instead of components to use a pre-built template from Meta&#39;s template library. Library templates are pre-approved (no review wait). You can optionally customize parameters and buttons via library_template_body_inputs and library_template_button_inputs.  Browse available library templates at: https://business.facebook.com/wa/manage/message-templates/ 
    * @param createWhatsAppTemplateRequest  (required)
    * @return ApiResponse&lt;CreateWhatsAppTemplate200Response&gt;
    * @throws ApiException if fails to make API call
@@ -804,7 +804,7 @@ public class WhatsAppApi {
 
   /**
    * Create template
-   * Create a new message template. Supports two modes:  **Custom template:** Provide &#x60;components&#x60; with your own content. Submitted to Meta for review (can take up to 24h).  **Library template:** Provide &#x60;library_template_name&#x60; instead of &#x60;components&#x60; to use a pre-built template from Meta&#39;s template library. Library templates are **pre-approved** (no review wait). You can optionally customize parameters and buttons via &#x60;library_template_body_inputs&#x60; and &#x60;library_template_button_inputs&#x60;.  Browse available library templates at: https://business.facebook.com/wa/manage/message-templates/ 
+   * Create a new message template. Supports two modes:  Custom template: Provide components with your own content. Submitted to Meta for review (can take up to 24h).  Library template: Provide library_template_name instead of components to use a pre-built template from Meta&#39;s template library. Library templates are pre-approved (no review wait). You can optionally customize parameters and buttons via library_template_body_inputs and library_template_button_inputs.  Browse available library templates at: https://business.facebook.com/wa/manage/message-templates/ 
    * @param createWhatsAppTemplateRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;CreateWhatsAppTemplate200Response&gt;
@@ -1305,7 +1305,7 @@ public class WhatsAppApi {
   }
 
   /**
-   * Get display name and review status
+   * Get display name status
    * Fetch the current display name and its Meta review status for a WhatsApp Business account. Display name changes require Meta approval and can take 1-3 business days. 
    * @param accountId WhatsApp social account ID (required)
    * @return GetWhatsAppDisplayName200Response
@@ -1316,7 +1316,7 @@ public class WhatsAppApi {
   }
 
   /**
-   * Get display name and review status
+   * Get display name status
    * Fetch the current display name and its Meta review status for a WhatsApp Business account. Display name changes require Meta approval and can take 1-3 business days. 
    * @param accountId WhatsApp social account ID (required)
    * @param headers Optional headers to include in the request
@@ -1329,7 +1329,7 @@ public class WhatsAppApi {
   }
 
   /**
-   * Get display name and review status
+   * Get display name status
    * Fetch the current display name and its Meta review status for a WhatsApp Business account. Display name changes require Meta approval and can take 1-3 business days. 
    * @param accountId WhatsApp social account ID (required)
    * @return ApiResponse&lt;GetWhatsAppDisplayName200Response&gt;
@@ -1340,7 +1340,7 @@ public class WhatsAppApi {
   }
 
   /**
-   * Get display name and review status
+   * Get display name status
    * Fetch the current display name and its Meta review status for a WhatsApp Business account. Display name changes require Meta approval and can take 1-3 business days. 
    * @param accountId WhatsApp social account ID (required)
    * @param headers Optional headers to include in the request

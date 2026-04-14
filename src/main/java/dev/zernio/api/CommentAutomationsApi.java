@@ -53,7 +53,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:23:14.639851249Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T16:44:41.618708448Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CommentAutomationsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -171,7 +171,7 @@ public class CommentAutomationsApi {
   }
 
   /**
-   * Create a comment-to-DM automation
+   * Create comment-to-DM automation
    * Create a keyword-triggered DM automation on an Instagram or Facebook post. When someone comments a matching keyword, they automatically receive a DM. Only one active automation per post is allowed. 
    * @param createCommentAutomationRequest  (required)
    * @return CreateCommentAutomation200Response
@@ -182,7 +182,7 @@ public class CommentAutomationsApi {
   }
 
   /**
-   * Create a comment-to-DM automation
+   * Create comment-to-DM automation
    * Create a keyword-triggered DM automation on an Instagram or Facebook post. When someone comments a matching keyword, they automatically receive a DM. Only one active automation per post is allowed. 
    * @param createCommentAutomationRequest  (required)
    * @param headers Optional headers to include in the request
@@ -195,7 +195,7 @@ public class CommentAutomationsApi {
   }
 
   /**
-   * Create a comment-to-DM automation
+   * Create comment-to-DM automation
    * Create a keyword-triggered DM automation on an Instagram or Facebook post. When someone comments a matching keyword, they automatically receive a DM. Only one active automation per post is allowed. 
    * @param createCommentAutomationRequest  (required)
    * @return ApiResponse&lt;CreateCommentAutomation200Response&gt;
@@ -206,7 +206,7 @@ public class CommentAutomationsApi {
   }
 
   /**
-   * Create a comment-to-DM automation
+   * Create comment-to-DM automation
    * Create a keyword-triggered DM automation on an Instagram or Facebook post. When someone comments a matching keyword, they automatically receive a DM. Only one active automation per post is allowed. 
    * @param createCommentAutomationRequest  (required)
    * @param headers Optional headers to include in the request
@@ -294,8 +294,8 @@ public class CommentAutomationsApi {
   }
 
   /**
-   * Delete automation and all logs
-   * 
+   * Delete automation
+   * Permanently delete an automation and all its trigger logs.
    * @param automationId  (required)
    * @throws ApiException if fails to make API call
    */
@@ -304,8 +304,8 @@ public class CommentAutomationsApi {
   }
 
   /**
-   * Delete automation and all logs
-   * 
+   * Delete automation
+   * Permanently delete an automation and all its trigger logs.
    * @param automationId  (required)
    * @param headers Optional headers to include in the request
    * @throws ApiException if fails to make API call
@@ -315,8 +315,8 @@ public class CommentAutomationsApi {
   }
 
   /**
-   * Delete automation and all logs
-   * 
+   * Delete automation
+   * Permanently delete an automation and all its trigger logs.
    * @param automationId  (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -326,8 +326,8 @@ public class CommentAutomationsApi {
   }
 
   /**
-   * Delete automation and all logs
-   * 
+   * Delete automation
+   * Permanently delete an automation and all its trigger logs.
    * @param automationId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;Void&gt;
@@ -398,8 +398,8 @@ public class CommentAutomationsApi {
   }
 
   /**
-   * Get automation details with recent logs
-   * 
+   * Get automation details
+   * Returns an automation with its configuration, stats, and recent trigger logs.
    * @param automationId  (required)
    * @return GetCommentAutomation200Response
    * @throws ApiException if fails to make API call
@@ -409,8 +409,8 @@ public class CommentAutomationsApi {
   }
 
   /**
-   * Get automation details with recent logs
-   * 
+   * Get automation details
+   * Returns an automation with its configuration, stats, and recent trigger logs.
    * @param automationId  (required)
    * @param headers Optional headers to include in the request
    * @return GetCommentAutomation200Response
@@ -422,8 +422,8 @@ public class CommentAutomationsApi {
   }
 
   /**
-   * Get automation details with recent logs
-   * 
+   * Get automation details
+   * Returns an automation with its configuration, stats, and recent trigger logs.
    * @param automationId  (required)
    * @return ApiResponse&lt;GetCommentAutomation200Response&gt;
    * @throws ApiException if fails to make API call
@@ -433,8 +433,8 @@ public class CommentAutomationsApi {
   }
 
   /**
-   * Get automation details with recent logs
-   * 
+   * Get automation details
+   * Returns an automation with its configuration, stats, and recent trigger logs.
    * @param automationId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetCommentAutomation200Response&gt;
@@ -516,7 +516,7 @@ public class CommentAutomationsApi {
   }
 
   /**
-   * List trigger logs for an automation
+   * List automation logs
    * Paginated list of every comment that triggered this automation, with send status and commenter info.
    * @param automationId  (required)
    * @param status Filter by result status (optional)
@@ -530,7 +530,7 @@ public class CommentAutomationsApi {
   }
 
   /**
-   * List trigger logs for an automation
+   * List automation logs
    * Paginated list of every comment that triggered this automation, with send status and commenter info.
    * @param automationId  (required)
    * @param status Filter by result status (optional)
@@ -546,7 +546,7 @@ public class CommentAutomationsApi {
   }
 
   /**
-   * List trigger logs for an automation
+   * List automation logs
    * Paginated list of every comment that triggered this automation, with send status and commenter info.
    * @param automationId  (required)
    * @param status Filter by result status (optional)
@@ -560,7 +560,7 @@ public class CommentAutomationsApi {
   }
 
   /**
-   * List trigger logs for an automation
+   * List automation logs
    * Paginated list of every comment that triggered this automation, with send status and commenter info.
    * @param automationId  (required)
    * @param status Filter by result status (optional)
@@ -794,7 +794,7 @@ public class CommentAutomationsApi {
 
   /**
    * Update automation settings
-   * 
+   * Update an automation&#39;s keywords, DM message, comment reply, or active status.
    * @param automationId  (required)
    * @param updateCommentAutomationRequest  (optional)
    * @return UpdateCommentAutomation200Response
@@ -806,7 +806,7 @@ public class CommentAutomationsApi {
 
   /**
    * Update automation settings
-   * 
+   * Update an automation&#39;s keywords, DM message, comment reply, or active status.
    * @param automationId  (required)
    * @param updateCommentAutomationRequest  (optional)
    * @param headers Optional headers to include in the request
@@ -820,7 +820,7 @@ public class CommentAutomationsApi {
 
   /**
    * Update automation settings
-   * 
+   * Update an automation&#39;s keywords, DM message, comment reply, or active status.
    * @param automationId  (required)
    * @param updateCommentAutomationRequest  (optional)
    * @return ApiResponse&lt;UpdateCommentAutomation200Response&gt;
@@ -832,7 +832,7 @@ public class CommentAutomationsApi {
 
   /**
    * Update automation settings
-   * 
+   * Update an automation&#39;s keywords, DM message, comment reply, or active status.
    * @param automationId  (required)
    * @param updateCommentAutomationRequest  (optional)
    * @param headers Optional headers to include in the request

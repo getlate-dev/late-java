@@ -53,7 +53,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:23:14.639851249Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T16:44:41.618708448Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AdAudiencesApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -171,7 +171,7 @@ public class AdAudiencesApi {
   }
 
   /**
-   * Add users to a customer list audience
+   * Add users to audience
    * Upload user data (emails and/or phone numbers) to a customer_list audience. Data is SHA256-hashed server-side before sending to Meta. Max 10,000 users per request.
    * @param audienceId  (required)
    * @param addUsersToAdAudienceRequest  (required)
@@ -183,7 +183,7 @@ public class AdAudiencesApi {
   }
 
   /**
-   * Add users to a customer list audience
+   * Add users to audience
    * Upload user data (emails and/or phone numbers) to a customer_list audience. Data is SHA256-hashed server-side before sending to Meta. Max 10,000 users per request.
    * @param audienceId  (required)
    * @param addUsersToAdAudienceRequest  (required)
@@ -197,7 +197,7 @@ public class AdAudiencesApi {
   }
 
   /**
-   * Add users to a customer list audience
+   * Add users to audience
    * Upload user data (emails and/or phone numbers) to a customer_list audience. Data is SHA256-hashed server-side before sending to Meta. Max 10,000 users per request.
    * @param audienceId  (required)
    * @param addUsersToAdAudienceRequest  (required)
@@ -209,7 +209,7 @@ public class AdAudiencesApi {
   }
 
   /**
-   * Add users to a customer list audience
+   * Add users to audience
    * Upload user data (emails and/or phone numbers) to a customer_list audience. Data is SHA256-hashed server-side before sending to Meta. Max 10,000 users per request.
    * @param audienceId  (required)
    * @param addUsersToAdAudienceRequest  (required)
@@ -303,7 +303,7 @@ public class AdAudiencesApi {
   }
 
   /**
-   * Create a custom audience (Meta only)
+   * Create custom audience
    * Create a customer list, website retargeting, or lookalike audience on Meta (Facebook/Instagram).
    * @param createAdAudienceRequest  (required)
    * @return CreateAdAudience201Response
@@ -314,7 +314,7 @@ public class AdAudiencesApi {
   }
 
   /**
-   * Create a custom audience (Meta only)
+   * Create custom audience
    * Create a customer list, website retargeting, or lookalike audience on Meta (Facebook/Instagram).
    * @param createAdAudienceRequest  (required)
    * @param headers Optional headers to include in the request
@@ -327,7 +327,7 @@ public class AdAudiencesApi {
   }
 
   /**
-   * Create a custom audience (Meta only)
+   * Create custom audience
    * Create a customer list, website retargeting, or lookalike audience on Meta (Facebook/Instagram).
    * @param createAdAudienceRequest  (required)
    * @return ApiResponse&lt;CreateAdAudience201Response&gt;
@@ -338,7 +338,7 @@ public class AdAudiencesApi {
   }
 
   /**
-   * Create a custom audience (Meta only)
+   * Create custom audience
    * Create a customer list, website retargeting, or lookalike audience on Meta (Facebook/Instagram).
    * @param createAdAudienceRequest  (required)
    * @param headers Optional headers to include in the request
@@ -426,7 +426,7 @@ public class AdAudiencesApi {
   }
 
   /**
-   * Delete a custom audience
+   * Delete custom audience
    * Deletes the audience from both Meta and the local database.
    * @param audienceId  (required)
    * @return DeleteAccountGroup200Response
@@ -437,7 +437,7 @@ public class AdAudiencesApi {
   }
 
   /**
-   * Delete a custom audience
+   * Delete custom audience
    * Deletes the audience from both Meta and the local database.
    * @param audienceId  (required)
    * @param headers Optional headers to include in the request
@@ -450,7 +450,7 @@ public class AdAudiencesApi {
   }
 
   /**
-   * Delete a custom audience
+   * Delete custom audience
    * Deletes the audience from both Meta and the local database.
    * @param audienceId  (required)
    * @return ApiResponse&lt;DeleteAccountGroup200Response&gt;
@@ -461,7 +461,7 @@ public class AdAudiencesApi {
   }
 
   /**
-   * Delete a custom audience
+   * Delete custom audience
    * Deletes the audience from both Meta and the local database.
    * @param audienceId  (required)
    * @param headers Optional headers to include in the request

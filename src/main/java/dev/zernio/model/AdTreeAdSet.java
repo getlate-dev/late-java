@@ -27,6 +27,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import dev.zernio.model.Ad;
 import dev.zernio.model.AdBudget;
 import dev.zernio.model.AdMetrics;
+import dev.zernio.model.AdStatus;
+import dev.zernio.model.AdTreeAdSetPromotedObject;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -44,9 +46,12 @@ import dev.zernio.ApiClient;
   AdTreeAdSet.JSON_PROPERTY_AD_COUNT,
   AdTreeAdSet.JSON_PROPERTY_BUDGET,
   AdTreeAdSet.JSON_PROPERTY_METRICS,
+  AdTreeAdSet.JSON_PROPERTY_OPTIMIZATION_GOAL,
+  AdTreeAdSet.JSON_PROPERTY_BID_STRATEGY,
+  AdTreeAdSet.JSON_PROPERTY_PROMOTED_OBJECT,
   AdTreeAdSet.JSON_PROPERTY_ADS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:23:14.639851249Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T16:44:41.618708448Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AdTreeAdSet {
   public static final String JSON_PROPERTY_PLATFORM_AD_SET_ID = "platformAdSetId";
   @javax.annotation.Nullable
@@ -56,54 +61,9 @@ public class AdTreeAdSet {
   @javax.annotation.Nullable
   private String adSetName;
 
-  /**
-   * Derived from child ad statuses
-   */
-  public enum StatusEnum {
-    ACTIVE(String.valueOf("active")),
-    
-    PAUSED(String.valueOf("paused")),
-    
-    PENDING_REVIEW(String.valueOf("pending_review")),
-    
-    REJECTED(String.valueOf("rejected")),
-    
-    COMPLETED(String.valueOf("completed")),
-    
-    CANCELLED(String.valueOf("cancelled")),
-    
-    ERROR(String.valueOf("error"));
-
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static StatusEnum fromValue(String value) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_STATUS = "status";
   @javax.annotation.Nullable
-  private StatusEnum status;
+  private AdStatus status;
 
   public static final String JSON_PROPERTY_AD_COUNT = "adCount";
   @javax.annotation.Nullable
@@ -116,6 +76,18 @@ public class AdTreeAdSet {
   public static final String JSON_PROPERTY_METRICS = "metrics";
   @javax.annotation.Nullable
   private AdMetrics metrics;
+
+  public static final String JSON_PROPERTY_OPTIMIZATION_GOAL = "optimizationGoal";
+  @javax.annotation.Nullable
+  private String optimizationGoal;
+
+  public static final String JSON_PROPERTY_BID_STRATEGY = "bidStrategy";
+  @javax.annotation.Nullable
+  private String bidStrategy;
+
+  public static final String JSON_PROPERTY_PROMOTED_OBJECT = "promotedObject";
+  @javax.annotation.Nullable
+  private AdTreeAdSetPromotedObject promotedObject;
 
   public static final String JSON_PROPERTY_ADS = "ads";
   @javax.annotation.Nullable
@@ -172,7 +144,7 @@ public class AdTreeAdSet {
   }
 
 
-  public AdTreeAdSet status(@javax.annotation.Nullable StatusEnum status) {
+  public AdTreeAdSet status(@javax.annotation.Nullable AdStatus status) {
     this.status = status;
     return this;
   }
@@ -184,14 +156,14 @@ public class AdTreeAdSet {
   @javax.annotation.Nullable
   @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public StatusEnum getStatus() {
+  public AdStatus getStatus() {
     return status;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatus(@javax.annotation.Nullable StatusEnum status) {
+  public void setStatus(@javax.annotation.Nullable AdStatus status) {
     this.status = status;
   }
 
@@ -268,6 +240,78 @@ public class AdTreeAdSet {
   }
 
 
+  public AdTreeAdSet optimizationGoal(@javax.annotation.Nullable String optimizationGoal) {
+    this.optimizationGoal = optimizationGoal;
+    return this;
+  }
+
+  /**
+   * Meta ad set optimization goal (e.g. OFFSITE_CONVERSIONS, VALUE, LEAD_GENERATION)
+   * @return optimizationGoal
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_OPTIMIZATION_GOAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOptimizationGoal() {
+    return optimizationGoal;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_OPTIMIZATION_GOAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOptimizationGoal(@javax.annotation.Nullable String optimizationGoal) {
+    this.optimizationGoal = optimizationGoal;
+  }
+
+
+  public AdTreeAdSet bidStrategy(@javax.annotation.Nullable String bidStrategy) {
+    this.bidStrategy = bidStrategy;
+    return this;
+  }
+
+  /**
+   * Bid strategy for this ad set (overrides campaign level when set)
+   * @return bidStrategy
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_BID_STRATEGY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getBidStrategy() {
+    return bidStrategy;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_BID_STRATEGY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBidStrategy(@javax.annotation.Nullable String bidStrategy) {
+    this.bidStrategy = bidStrategy;
+  }
+
+
+  public AdTreeAdSet promotedObject(@javax.annotation.Nullable AdTreeAdSetPromotedObject promotedObject) {
+    this.promotedObject = promotedObject;
+    return this;
+  }
+
+  /**
+   * Get promotedObject
+   * @return promotedObject
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_PROMOTED_OBJECT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AdTreeAdSetPromotedObject getPromotedObject() {
+    return promotedObject;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PROMOTED_OBJECT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPromotedObject(@javax.annotation.Nullable AdTreeAdSetPromotedObject promotedObject) {
+    this.promotedObject = promotedObject;
+  }
+
+
   public AdTreeAdSet ads(@javax.annotation.Nullable List<Ad> ads) {
     this.ads = ads;
     return this;
@@ -318,12 +362,15 @@ public class AdTreeAdSet {
         Objects.equals(this.adCount, adTreeAdSet.adCount) &&
         Objects.equals(this.budget, adTreeAdSet.budget) &&
         Objects.equals(this.metrics, adTreeAdSet.metrics) &&
+        Objects.equals(this.optimizationGoal, adTreeAdSet.optimizationGoal) &&
+        Objects.equals(this.bidStrategy, adTreeAdSet.bidStrategy) &&
+        Objects.equals(this.promotedObject, adTreeAdSet.promotedObject) &&
         Objects.equals(this.ads, adTreeAdSet.ads);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(platformAdSetId, adSetName, status, adCount, budget, metrics, ads);
+    return Objects.hash(platformAdSetId, adSetName, status, adCount, budget, metrics, optimizationGoal, bidStrategy, promotedObject, ads);
   }
 
   @Override
@@ -336,6 +383,9 @@ public class AdTreeAdSet {
     sb.append("    adCount: ").append(toIndentedString(adCount)).append("\n");
     sb.append("    budget: ").append(toIndentedString(budget)).append("\n");
     sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
+    sb.append("    optimizationGoal: ").append(toIndentedString(optimizationGoal)).append("\n");
+    sb.append("    bidStrategy: ").append(toIndentedString(bidStrategy)).append("\n");
+    sb.append("    promotedObject: ").append(toIndentedString(promotedObject)).append("\n");
     sb.append("    ads: ").append(toIndentedString(ads)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -412,6 +462,21 @@ public class AdTreeAdSet {
     // add `metrics` to the URL query string
     if (getMetrics() != null) {
       joiner.add(getMetrics().toUrlQueryString(prefix + "metrics" + suffix));
+    }
+
+    // add `optimizationGoal` to the URL query string
+    if (getOptimizationGoal() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%soptimizationGoal%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getOptimizationGoal()))));
+    }
+
+    // add `bidStrategy` to the URL query string
+    if (getBidStrategy() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sbidStrategy%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getBidStrategy()))));
+    }
+
+    // add `promotedObject` to the URL query string
+    if (getPromotedObject() != null) {
+      joiner.add(getPromotedObject().toUrlQueryString(prefix + "promotedObject" + suffix));
     }
 
     // add `ads` to the URL query string

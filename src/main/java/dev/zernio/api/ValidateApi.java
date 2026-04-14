@@ -57,7 +57,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:23:14.639851249Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T16:44:41.618708448Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ValidateApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -299,7 +299,7 @@ public class ValidateApi {
 
   /**
    * Validate post content
-   * Dry-run the full post validation pipeline without publishing. Catches issues like missing media for Instagram/TikTok/YouTube, hashtag limits, invalid thread formats, Facebook Reel requirements, and character limit violations.  Accepts the same body as &#x60;POST /v1/posts&#x60;. Does NOT validate accounts, process media, or track usage. This is content-only validation.  Returns errors for failures and warnings for near-limit content (&gt;90% of character limit). 
+   * Dry-run the full post validation pipeline without publishing. Catches issues like missing media for Instagram/TikTok/YouTube, hashtag limits, invalid thread formats, Facebook Reel requirements, and character limit violations.  Accepts the same body as POST /v1/posts. Does NOT validate accounts, process media, or track usage. This is content-only validation.  Returns errors for failures and warnings for near-limit content (&gt;90% of character limit). 
    * @param validatePostRequest  (required)
    * @return ValidatePost200Response
    * @throws ApiException if fails to make API call
@@ -310,7 +310,7 @@ public class ValidateApi {
 
   /**
    * Validate post content
-   * Dry-run the full post validation pipeline without publishing. Catches issues like missing media for Instagram/TikTok/YouTube, hashtag limits, invalid thread formats, Facebook Reel requirements, and character limit violations.  Accepts the same body as &#x60;POST /v1/posts&#x60;. Does NOT validate accounts, process media, or track usage. This is content-only validation.  Returns errors for failures and warnings for near-limit content (&gt;90% of character limit). 
+   * Dry-run the full post validation pipeline without publishing. Catches issues like missing media for Instagram/TikTok/YouTube, hashtag limits, invalid thread formats, Facebook Reel requirements, and character limit violations.  Accepts the same body as POST /v1/posts. Does NOT validate accounts, process media, or track usage. This is content-only validation.  Returns errors for failures and warnings for near-limit content (&gt;90% of character limit). 
    * @param validatePostRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ValidatePost200Response
@@ -323,7 +323,7 @@ public class ValidateApi {
 
   /**
    * Validate post content
-   * Dry-run the full post validation pipeline without publishing. Catches issues like missing media for Instagram/TikTok/YouTube, hashtag limits, invalid thread formats, Facebook Reel requirements, and character limit violations.  Accepts the same body as &#x60;POST /v1/posts&#x60;. Does NOT validate accounts, process media, or track usage. This is content-only validation.  Returns errors for failures and warnings for near-limit content (&gt;90% of character limit). 
+   * Dry-run the full post validation pipeline without publishing. Catches issues like missing media for Instagram/TikTok/YouTube, hashtag limits, invalid thread formats, Facebook Reel requirements, and character limit violations.  Accepts the same body as POST /v1/posts. Does NOT validate accounts, process media, or track usage. This is content-only validation.  Returns errors for failures and warnings for near-limit content (&gt;90% of character limit). 
    * @param validatePostRequest  (required)
    * @return ApiResponse&lt;ValidatePost200Response&gt;
    * @throws ApiException if fails to make API call
@@ -334,7 +334,7 @@ public class ValidateApi {
 
   /**
    * Validate post content
-   * Dry-run the full post validation pipeline without publishing. Catches issues like missing media for Instagram/TikTok/YouTube, hashtag limits, invalid thread formats, Facebook Reel requirements, and character limit violations.  Accepts the same body as &#x60;POST /v1/posts&#x60;. Does NOT validate accounts, process media, or track usage. This is content-only validation.  Returns errors for failures and warnings for near-limit content (&gt;90% of character limit). 
+   * Dry-run the full post validation pipeline without publishing. Catches issues like missing media for Instagram/TikTok/YouTube, hashtag limits, invalid thread formats, Facebook Reel requirements, and character limit violations.  Accepts the same body as POST /v1/posts. Does NOT validate accounts, process media, or track usage. This is content-only validation.  Returns errors for failures and warnings for near-limit content (&gt;90% of character limit). 
    * @param validatePostRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;ValidatePost200Response&gt;
@@ -421,7 +421,7 @@ public class ValidateApi {
   }
 
   /**
-   * Validate post character count
+   * Validate character count
    * Check weighted character count per platform and whether the text is within each platform&#39;s limit.  Twitter/X uses weighted counting (URLs &#x3D; 23 chars via t.co, emojis &#x3D; 2 chars). All other platforms use plain character length.  Returns counts and limits for all 15 supported platform variants. 
    * @param validatePostLengthRequest  (required)
    * @return ValidatePostLength200Response
@@ -432,7 +432,7 @@ public class ValidateApi {
   }
 
   /**
-   * Validate post character count
+   * Validate character count
    * Check weighted character count per platform and whether the text is within each platform&#39;s limit.  Twitter/X uses weighted counting (URLs &#x3D; 23 chars via t.co, emojis &#x3D; 2 chars). All other platforms use plain character length.  Returns counts and limits for all 15 supported platform variants. 
    * @param validatePostLengthRequest  (required)
    * @param headers Optional headers to include in the request
@@ -445,7 +445,7 @@ public class ValidateApi {
   }
 
   /**
-   * Validate post character count
+   * Validate character count
    * Check weighted character count per platform and whether the text is within each platform&#39;s limit.  Twitter/X uses weighted counting (URLs &#x3D; 23 chars via t.co, emojis &#x3D; 2 chars). All other platforms use plain character length.  Returns counts and limits for all 15 supported platform variants. 
    * @param validatePostLengthRequest  (required)
    * @return ApiResponse&lt;ValidatePostLength200Response&gt;
@@ -456,7 +456,7 @@ public class ValidateApi {
   }
 
   /**
-   * Validate post character count
+   * Validate character count
    * Check weighted character count per platform and whether the text is within each platform&#39;s limit.  Twitter/X uses weighted counting (URLs &#x3D; 23 chars via t.co, emojis &#x3D; 2 chars). All other platforms use plain character length.  Returns counts and limits for all 15 supported platform variants. 
    * @param validatePostLengthRequest  (required)
    * @param headers Optional headers to include in the request
@@ -545,7 +545,7 @@ public class ValidateApi {
 
   /**
    * Check subreddit existence
-   * Check if a subreddit exists and return basic info (title, subscriber count, NSFW status, post types allowed).  When accountId is provided, uses authenticated Reddit OAuth API with automatic token refresh (recommended). Falls back to Reddit&#39;s public JSON API, which may be unreliable from server IPs. Returns &#x60;exists: false&#x60; for private, banned, or nonexistent subreddits. 
+   * Check if a subreddit exists and return basic info (title, subscriber count, NSFW status, post types allowed).  When accountId is provided, uses authenticated Reddit OAuth API with automatic token refresh (recommended). Falls back to Reddit&#39;s public JSON API, which may be unreliable from server IPs. Returns exists: false for private, banned, or nonexistent subreddits. 
    * @param name Subreddit name (with or without \&quot;r/\&quot; prefix) (required)
    * @param accountId Reddit social account ID for authenticated lookup (recommended for reliable results) (optional)
    * @return ValidateSubreddit200Response
@@ -557,7 +557,7 @@ public class ValidateApi {
 
   /**
    * Check subreddit existence
-   * Check if a subreddit exists and return basic info (title, subscriber count, NSFW status, post types allowed).  When accountId is provided, uses authenticated Reddit OAuth API with automatic token refresh (recommended). Falls back to Reddit&#39;s public JSON API, which may be unreliable from server IPs. Returns &#x60;exists: false&#x60; for private, banned, or nonexistent subreddits. 
+   * Check if a subreddit exists and return basic info (title, subscriber count, NSFW status, post types allowed).  When accountId is provided, uses authenticated Reddit OAuth API with automatic token refresh (recommended). Falls back to Reddit&#39;s public JSON API, which may be unreliable from server IPs. Returns exists: false for private, banned, or nonexistent subreddits. 
    * @param name Subreddit name (with or without \&quot;r/\&quot; prefix) (required)
    * @param accountId Reddit social account ID for authenticated lookup (recommended for reliable results) (optional)
    * @param headers Optional headers to include in the request
@@ -571,7 +571,7 @@ public class ValidateApi {
 
   /**
    * Check subreddit existence
-   * Check if a subreddit exists and return basic info (title, subscriber count, NSFW status, post types allowed).  When accountId is provided, uses authenticated Reddit OAuth API with automatic token refresh (recommended). Falls back to Reddit&#39;s public JSON API, which may be unreliable from server IPs. Returns &#x60;exists: false&#x60; for private, banned, or nonexistent subreddits. 
+   * Check if a subreddit exists and return basic info (title, subscriber count, NSFW status, post types allowed).  When accountId is provided, uses authenticated Reddit OAuth API with automatic token refresh (recommended). Falls back to Reddit&#39;s public JSON API, which may be unreliable from server IPs. Returns exists: false for private, banned, or nonexistent subreddits. 
    * @param name Subreddit name (with or without \&quot;r/\&quot; prefix) (required)
    * @param accountId Reddit social account ID for authenticated lookup (recommended for reliable results) (optional)
    * @return ApiResponse&lt;ValidateSubreddit200Response&gt;
@@ -583,7 +583,7 @@ public class ValidateApi {
 
   /**
    * Check subreddit existence
-   * Check if a subreddit exists and return basic info (title, subscriber count, NSFW status, post types allowed).  When accountId is provided, uses authenticated Reddit OAuth API with automatic token refresh (recommended). Falls back to Reddit&#39;s public JSON API, which may be unreliable from server IPs. Returns &#x60;exists: false&#x60; for private, banned, or nonexistent subreddits. 
+   * Check if a subreddit exists and return basic info (title, subscriber count, NSFW status, post types allowed).  When accountId is provided, uses authenticated Reddit OAuth API with automatic token refresh (recommended). Falls back to Reddit&#39;s public JSON API, which may be unreliable from server IPs. Returns exists: false for private, banned, or nonexistent subreddits. 
    * @param name Subreddit name (with or without \&quot;r/\&quot; prefix) (required)
    * @param accountId Reddit social account ID for authenticated lookup (recommended for reliable results) (optional)
    * @param headers Optional headers to include in the request

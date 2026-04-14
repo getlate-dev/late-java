@@ -18,9 +18,7 @@ import dev.zernio.ApiResponse;
 import dev.zernio.Configuration;
 import dev.zernio.Pair;
 
-import dev.zernio.model.GetPostLogs200Response;
 import dev.zernio.model.InlineObject;
-import dev.zernio.model.InlineObject1;
 import dev.zernio.model.ListLogs200Response;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -48,7 +46,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:23:14.639851249Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T16:44:41.618708448Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class LogsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -163,143 +161,6 @@ public class LogsApi {
       file.deleteOnExit(); // best effort cleanup
     }
     return file;
-  }
-
-  /**
-   * Get post logs
-   * Retrieve all publishing logs for a specific post. Shows the complete history of publishing attempts for that post across all platforms. 
-   * @param postId The post ID (required)
-   * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
-   * @return GetPostLogs200Response
-   * @throws ApiException if fails to make API call
-   */
-  public GetPostLogs200Response getPostLogs(@javax.annotation.Nonnull String postId, @javax.annotation.Nullable Integer limit) throws ApiException {
-    return getPostLogs(postId, limit, null);
-  }
-
-  /**
-   * Get post logs
-   * Retrieve all publishing logs for a specific post. Shows the complete history of publishing attempts for that post across all platforms. 
-   * @param postId The post ID (required)
-   * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
-   * @param headers Optional headers to include in the request
-   * @return GetPostLogs200Response
-   * @throws ApiException if fails to make API call
-   */
-  public GetPostLogs200Response getPostLogs(@javax.annotation.Nonnull String postId, @javax.annotation.Nullable Integer limit, Map<String, String> headers) throws ApiException {
-    ApiResponse<GetPostLogs200Response> localVarResponse = getPostLogsWithHttpInfo(postId, limit, headers);
-    return localVarResponse.getData();
-  }
-
-  /**
-   * Get post logs
-   * Retrieve all publishing logs for a specific post. Shows the complete history of publishing attempts for that post across all platforms. 
-   * @param postId The post ID (required)
-   * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
-   * @return ApiResponse&lt;GetPostLogs200Response&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<GetPostLogs200Response> getPostLogsWithHttpInfo(@javax.annotation.Nonnull String postId, @javax.annotation.Nullable Integer limit) throws ApiException {
-    return getPostLogsWithHttpInfo(postId, limit, null);
-  }
-
-  /**
-   * Get post logs
-   * Retrieve all publishing logs for a specific post. Shows the complete history of publishing attempts for that post across all platforms. 
-   * @param postId The post ID (required)
-   * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
-   * @param headers Optional headers to include in the request
-   * @return ApiResponse&lt;GetPostLogs200Response&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<GetPostLogs200Response> getPostLogsWithHttpInfo(@javax.annotation.Nonnull String postId, @javax.annotation.Nullable Integer limit, Map<String, String> headers) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getPostLogsRequestBuilder(postId, limit, headers);
-    try {
-      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
-      if (memberVarResponseInterceptor != null) {
-        memberVarResponseInterceptor.accept(localVarResponse);
-      }
-      InputStream localVarResponseBody = null;
-      try {
-        if (localVarResponse.statusCode()/ 100 != 2) {
-          throw getApiException("getPostLogs", localVarResponse);
-        }
-        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
-        if (localVarResponseBody == null) {
-          return new ApiResponse<GetPostLogs200Response>(
-              localVarResponse.statusCode(),
-              localVarResponse.headers().map(),
-              null
-          );
-        }
-
-        
-        
-        String responseBody = new String(localVarResponseBody.readAllBytes());
-        GetPostLogs200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<GetPostLogs200Response>() {});
-        
-
-        return new ApiResponse<GetPostLogs200Response>(
-            localVarResponse.statusCode(),
-            localVarResponse.headers().map(),
-            responseValue
-        );
-      } finally {
-        if (localVarResponseBody != null) {
-          localVarResponseBody.close();
-        }
-      }
-    } catch (IOException e) {
-      throw new ApiException(e);
-    }
-    catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-      throw new ApiException(e);
-    }
-  }
-
-  private HttpRequest.Builder getPostLogsRequestBuilder(@javax.annotation.Nonnull String postId, @javax.annotation.Nullable Integer limit, Map<String, String> headers) throws ApiException {
-    // verify the required parameter 'postId' is set
-    if (postId == null) {
-      throw new ApiException(400, "Missing the required parameter 'postId' when calling getPostLogs");
-    }
-
-    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
-
-    String localVarPath = "/v1/posts/{postId}/logs"
-        .replace("{postId}", ApiClient.urlEncode(postId.toString()));
-
-    List<Pair> localVarQueryParams = new ArrayList<>();
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    localVarQueryParameterBaseName = "limit";
-    localVarQueryParams.addAll(ApiClient.parameterToPairs("limit", limit));
-
-    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
-      StringJoiner queryJoiner = new StringJoiner("&");
-      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
-      if (localVarQueryStringJoiner.length() != 0) {
-        queryJoiner.add(localVarQueryStringJoiner.toString());
-      }
-      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
-    } else {
-      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
-    }
-
-    localVarRequestBuilder.header("Accept", "application/json");
-
-    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
-    if (memberVarReadTimeout != null) {
-      localVarRequestBuilder.timeout(memberVarReadTimeout);
-    }
-    // Add custom headers if provided
-    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
-    if (memberVarInterceptor != null) {
-      memberVarInterceptor.accept(localVarRequestBuilder);
-    }
-    return localVarRequestBuilder;
   }
 
   /**

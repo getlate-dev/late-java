@@ -65,7 +65,7 @@ import dev.zernio.ApiClient;
   GetInboxConversationMessages200ResponseMessagesInner.JSON_PROPERTY_SENT_AT,
   GetInboxConversationMessages200ResponseMessagesInner.JSON_PROPERTY_DELIVERY_ERROR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:23:14.639851249Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T16:44:41.618708448Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetInboxConversationMessages200ResponseMessagesInner {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable
@@ -739,7 +739,7 @@ public class GetInboxConversationMessages200ResponseMessagesInner {
   }
 
   /**
-   * True if the sender has deleted (unsent) this message. The original &#x60;message&#x60; and &#x60;attachments&#x60; fields remain populated.
+   * True if the sender has deleted (unsent) this message. The original message and attachments fields remain populated.
    * @return isDeleted
    */
   @javax.annotation.Nullable

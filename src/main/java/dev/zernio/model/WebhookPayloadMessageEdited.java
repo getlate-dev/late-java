@@ -37,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.zernio.ApiClient;
 /**
- * Webhook payload for &#x60;message.edited&#x60; events. Fires when the sender edits a previously-sent message. Supported platforms: Instagram, Facebook Messenger, Telegram. The &#x60;message&#x60; object reflects the LATEST state; &#x60;editHistory&#x60; contains every prior version in order (oldest first), so the last entry is the version immediately before the current content. 
+ * Webhook payload for message.edited events. Fires when the sender edits a previously-sent message. Supported platforms: Instagram, Facebook Messenger, Telegram. The message object reflects the LATEST state; editHistory contains every prior version in order (oldest first), so the last entry is the version immediately before the current content. 
  */
 @JsonPropertyOrder({
   WebhookPayloadMessageEdited.JSON_PROPERTY_ID,
@@ -50,7 +50,7 @@ import dev.zernio.ApiClient;
   WebhookPayloadMessageEdited.JSON_PROPERTY_ACCOUNT,
   WebhookPayloadMessageEdited.JSON_PROPERTY_TIMESTAMP
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:23:14.639851249Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T16:44:41.618708448Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WebhookPayloadMessageEdited {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nonnull

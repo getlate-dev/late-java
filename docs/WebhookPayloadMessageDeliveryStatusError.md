@@ -2,7 +2,7 @@
 
 # WebhookPayloadMessageDeliveryStatusError
 
-Populated only on `message.failed`.
+Populated only on message.failed.
 
 ## Properties
 

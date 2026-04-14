@@ -4,10 +4,10 @@ All URIs are relative to *https://zernio.com/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**getAdTree**](AdCampaignsApi.md#getAdTree) | **GET** /v1/ads/tree | Get nested campaign/ad-set/ad tree |
-| [**getAdTreeWithHttpInfo**](AdCampaignsApi.md#getAdTreeWithHttpInfo) | **GET** /v1/ads/tree | Get nested campaign/ad-set/ad tree |
-| [**listAdCampaigns**](AdCampaignsApi.md#listAdCampaigns) | **GET** /v1/ads/campaigns | List campaigns with aggregate metrics |
-| [**listAdCampaignsWithHttpInfo**](AdCampaignsApi.md#listAdCampaignsWithHttpInfo) | **GET** /v1/ads/campaigns | List campaigns with aggregate metrics |
+| [**getAdTree**](AdCampaignsApi.md#getAdTree) | **GET** /v1/ads/tree | Get campaign tree |
+| [**getAdTreeWithHttpInfo**](AdCampaignsApi.md#getAdTreeWithHttpInfo) | **GET** /v1/ads/tree | Get campaign tree |
+| [**listAdCampaigns**](AdCampaignsApi.md#listAdCampaigns) | **GET** /v1/ads/campaigns | List campaigns |
+| [**listAdCampaignsWithHttpInfo**](AdCampaignsApi.md#listAdCampaignsWithHttpInfo) | **GET** /v1/ads/campaigns | List campaigns |
 | [**updateAdCampaignStatus**](AdCampaignsApi.md#updateAdCampaignStatus) | **PUT** /v1/ads/campaigns/{campaignId}/status | Pause or resume a campaign |
 | [**updateAdCampaignStatusWithHttpInfo**](AdCampaignsApi.md#updateAdCampaignStatusWithHttpInfo) | **PUT** /v1/ads/campaigns/{campaignId}/status | Pause or resume a campaign |
 
@@ -17,7 +17,7 @@ All URIs are relative to *https://zernio.com/api*
 
 > GetAdTree200Response getAdTree(page, limit, source, platform, status, adAccountId, accountId, profileId, fromDate, toDate)
 
-Get nested campaign/ad-set/ad tree
+Get campaign tree
 
 Returns a nested Campaign &gt; Ad Set &gt; Ad hierarchy with rolled-up metrics at each level. Uses a two-stage aggregation: ads are grouped into ad sets, then ad sets into campaigns. Metrics are computed over an optional date range, then rolled up from ad level to ad set and campaign levels. Pagination is at the campaign level. Ads without a campaign or ad set ID are grouped into synthetic \&quot;Ungrouped\&quot; buckets. If no date range is provided, defaults to the last 90 days. Date range is capped at 90 days max. 
 
@@ -46,7 +46,7 @@ public class Example {
         Integer limit = 20; // Integer | Campaigns per page
         String source = "zernio"; // String | 
         String platform = "facebook"; // String | 
-        String status = "active"; // String | Filter by derived campaign status (post-aggregation)
+        AdStatus status = AdStatus.fromValue("active"); // AdStatus | Filter by derived campaign status (post-aggregation)
         String adAccountId = "adAccountId_example"; // String | Platform ad account ID
         String accountId = "accountId_example"; // String | Social account ID
         String profileId = "profileId_example"; // String | Profile ID
@@ -75,7 +75,7 @@ public class Example {
 | **limit** | **Integer**| Campaigns per page | [optional] [default to 20] |
 | **source** | **String**|  | [optional] [default to zernio] [enum: zernio, all] |
 | **platform** | **String**|  | [optional] [enum: facebook, instagram, tiktok, linkedin, pinterest, google, twitter] |
-| **status** | **String**| Filter by derived campaign status (post-aggregation) | [optional] [enum: active, paused, pending_review, rejected, completed, cancelled, error] |
+| **status** | [**AdStatus**](.md)| Filter by derived campaign status (post-aggregation) | [optional] [enum: active, paused, pending_review, rejected, completed, cancelled, error] |
 | **adAccountId** | **String**| Platform ad account ID | [optional] |
 | **accountId** | **String**| Social account ID | [optional] |
 | **profileId** | **String**| Profile ID | [optional] |
@@ -107,7 +107,7 @@ public class Example {
 
 > ApiResponse<GetAdTree200Response> getAdTree getAdTreeWithHttpInfo(page, limit, source, platform, status, adAccountId, accountId, profileId, fromDate, toDate)
 
-Get nested campaign/ad-set/ad tree
+Get campaign tree
 
 Returns a nested Campaign &gt; Ad Set &gt; Ad hierarchy with rolled-up metrics at each level. Uses a two-stage aggregation: ads are grouped into ad sets, then ad sets into campaigns. Metrics are computed over an optional date range, then rolled up from ad level to ad set and campaign levels. Pagination is at the campaign level. Ads without a campaign or ad set ID are grouped into synthetic \&quot;Ungrouped\&quot; buckets. If no date range is provided, defaults to the last 90 days. Date range is capped at 90 days max. 
 
@@ -137,7 +137,7 @@ public class Example {
         Integer limit = 20; // Integer | Campaigns per page
         String source = "zernio"; // String | 
         String platform = "facebook"; // String | 
-        String status = "active"; // String | Filter by derived campaign status (post-aggregation)
+        AdStatus status = AdStatus.fromValue("active"); // AdStatus | Filter by derived campaign status (post-aggregation)
         String adAccountId = "adAccountId_example"; // String | Platform ad account ID
         String accountId = "accountId_example"; // String | Social account ID
         String profileId = "profileId_example"; // String | Profile ID
@@ -168,7 +168,7 @@ public class Example {
 | **limit** | **Integer**| Campaigns per page | [optional] [default to 20] |
 | **source** | **String**|  | [optional] [default to zernio] [enum: zernio, all] |
 | **platform** | **String**|  | [optional] [enum: facebook, instagram, tiktok, linkedin, pinterest, google, twitter] |
-| **status** | **String**| Filter by derived campaign status (post-aggregation) | [optional] [enum: active, paused, pending_review, rejected, completed, cancelled, error] |
+| **status** | [**AdStatus**](.md)| Filter by derived campaign status (post-aggregation) | [optional] [enum: active, paused, pending_review, rejected, completed, cancelled, error] |
 | **adAccountId** | **String**| Platform ad account ID | [optional] |
 | **accountId** | **String**| Social account ID | [optional] |
 | **profileId** | **String**| Profile ID | [optional] |
@@ -201,7 +201,7 @@ ApiResponse<[**GetAdTree200Response**](GetAdTree200Response.md)>
 
 > ListAdCampaigns200Response listAdCampaigns(page, limit, source, platform, status, adAccountId, accountId, profileId)
 
-List campaigns with aggregate metrics
+List campaigns
 
 Returns campaigns as virtual aggregations over ad documents grouped by platform campaign ID. Metrics (spend, impressions, clicks, etc.) are summed across all ads in each campaign. Campaign status is derived from child ad statuses (active &gt; pending_review &gt; paused &gt; error &gt; completed &gt; cancelled &gt; rejected). 
 
@@ -230,7 +230,7 @@ public class Example {
         Integer limit = 20; // Integer | 
         String source = "zernio"; // String | 
         String platform = "facebook"; // String | 
-        String status = "active"; // String | Filter by derived campaign status (post-aggregation)
+        AdStatus status = AdStatus.fromValue("active"); // AdStatus | Filter by derived campaign status (post-aggregation)
         String adAccountId = "adAccountId_example"; // String | Platform ad account ID (e.g. act_123 for Meta)
         String accountId = "accountId_example"; // String | Social account ID
         String profileId = "profileId_example"; // String | Profile ID
@@ -257,7 +257,7 @@ public class Example {
 | **limit** | **Integer**|  | [optional] [default to 20] |
 | **source** | **String**|  | [optional] [default to zernio] [enum: zernio, all] |
 | **platform** | **String**|  | [optional] [enum: facebook, instagram, tiktok, linkedin, pinterest, google, twitter] |
-| **status** | **String**| Filter by derived campaign status (post-aggregation) | [optional] [enum: active, paused, pending_review, rejected, completed, cancelled, error] |
+| **status** | [**AdStatus**](.md)| Filter by derived campaign status (post-aggregation) | [optional] [enum: active, paused, pending_review, rejected, completed, cancelled, error] |
 | **adAccountId** | **String**| Platform ad account ID (e.g. act_123 for Meta) | [optional] |
 | **accountId** | **String**| Social account ID | [optional] |
 | **profileId** | **String**| Profile ID | [optional] |
@@ -287,7 +287,7 @@ public class Example {
 
 > ApiResponse<ListAdCampaigns200Response> listAdCampaigns listAdCampaignsWithHttpInfo(page, limit, source, platform, status, adAccountId, accountId, profileId)
 
-List campaigns with aggregate metrics
+List campaigns
 
 Returns campaigns as virtual aggregations over ad documents grouped by platform campaign ID. Metrics (spend, impressions, clicks, etc.) are summed across all ads in each campaign. Campaign status is derived from child ad statuses (active &gt; pending_review &gt; paused &gt; error &gt; completed &gt; cancelled &gt; rejected). 
 
@@ -317,7 +317,7 @@ public class Example {
         Integer limit = 20; // Integer | 
         String source = "zernio"; // String | 
         String platform = "facebook"; // String | 
-        String status = "active"; // String | Filter by derived campaign status (post-aggregation)
+        AdStatus status = AdStatus.fromValue("active"); // AdStatus | Filter by derived campaign status (post-aggregation)
         String adAccountId = "adAccountId_example"; // String | Platform ad account ID (e.g. act_123 for Meta)
         String accountId = "accountId_example"; // String | Social account ID
         String profileId = "profileId_example"; // String | Profile ID
@@ -346,7 +346,7 @@ public class Example {
 | **limit** | **Integer**|  | [optional] [default to 20] |
 | **source** | **String**|  | [optional] [default to zernio] [enum: zernio, all] |
 | **platform** | **String**|  | [optional] [enum: facebook, instagram, tiktok, linkedin, pinterest, google, twitter] |
-| **status** | **String**| Filter by derived campaign status (post-aggregation) | [optional] [enum: active, paused, pending_review, rejected, completed, cancelled, error] |
+| **status** | [**AdStatus**](.md)| Filter by derived campaign status (post-aggregation) | [optional] [enum: active, paused, pending_review, rejected, completed, cancelled, error] |
 | **adAccountId** | **String**| Platform ad account ID (e.g. act_123 for Meta) | [optional] |
 | **accountId** | **String**| Social account ID | [optional] |
 | **profileId** | **String**| Profile ID | [optional] |

@@ -4,12 +4,12 @@ All URIs are relative to *https://zernio.com/api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**activateSequence**](SequencesApi.md#activateSequence) | **POST** /v1/sequences/{sequenceId}/activate | Activate a sequence |
-| [**activateSequenceWithHttpInfo**](SequencesApi.md#activateSequenceWithHttpInfo) | **POST** /v1/sequences/{sequenceId}/activate | Activate a sequence |
-| [**createSequence**](SequencesApi.md#createSequence) | **POST** /v1/sequences | Create a sequence |
-| [**createSequenceWithHttpInfo**](SequencesApi.md#createSequenceWithHttpInfo) | **POST** /v1/sequences | Create a sequence |
-| [**deleteSequence**](SequencesApi.md#deleteSequence) | **DELETE** /v1/sequences/{sequenceId} | Delete a sequence |
-| [**deleteSequenceWithHttpInfo**](SequencesApi.md#deleteSequenceWithHttpInfo) | **DELETE** /v1/sequences/{sequenceId} | Delete a sequence |
+| [**activateSequence**](SequencesApi.md#activateSequence) | **POST** /v1/sequences/{sequenceId}/activate | Activate sequence |
+| [**activateSequenceWithHttpInfo**](SequencesApi.md#activateSequenceWithHttpInfo) | **POST** /v1/sequences/{sequenceId}/activate | Activate sequence |
+| [**createSequence**](SequencesApi.md#createSequence) | **POST** /v1/sequences | Create sequence |
+| [**createSequenceWithHttpInfo**](SequencesApi.md#createSequenceWithHttpInfo) | **POST** /v1/sequences | Create sequence |
+| [**deleteSequence**](SequencesApi.md#deleteSequence) | **DELETE** /v1/sequences/{sequenceId} | Delete sequence |
+| [**deleteSequenceWithHttpInfo**](SequencesApi.md#deleteSequenceWithHttpInfo) | **DELETE** /v1/sequences/{sequenceId} | Delete sequence |
 | [**enrollContacts**](SequencesApi.md#enrollContacts) | **POST** /v1/sequences/{sequenceId}/enroll | Enroll contacts in a sequence |
 | [**enrollContactsWithHttpInfo**](SequencesApi.md#enrollContactsWithHttpInfo) | **POST** /v1/sequences/{sequenceId}/enroll | Enroll contacts in a sequence |
 | [**getSequence**](SequencesApi.md#getSequence) | **GET** /v1/sequences/{sequenceId} | Get sequence with steps |
@@ -18,12 +18,12 @@ All URIs are relative to *https://zernio.com/api*
 | [**listSequenceEnrollmentsWithHttpInfo**](SequencesApi.md#listSequenceEnrollmentsWithHttpInfo) | **GET** /v1/sequences/{sequenceId}/enrollments | List enrollments for a sequence |
 | [**listSequences**](SequencesApi.md#listSequences) | **GET** /v1/sequences | List sequences |
 | [**listSequencesWithHttpInfo**](SequencesApi.md#listSequencesWithHttpInfo) | **GET** /v1/sequences | List sequences |
-| [**pauseSequence**](SequencesApi.md#pauseSequence) | **POST** /v1/sequences/{sequenceId}/pause | Pause a sequence |
-| [**pauseSequenceWithHttpInfo**](SequencesApi.md#pauseSequenceWithHttpInfo) | **POST** /v1/sequences/{sequenceId}/pause | Pause a sequence |
-| [**unenrollContact**](SequencesApi.md#unenrollContact) | **DELETE** /v1/sequences/{sequenceId}/enroll/{contactId} | Unenroll a contact from a sequence |
-| [**unenrollContactWithHttpInfo**](SequencesApi.md#unenrollContactWithHttpInfo) | **DELETE** /v1/sequences/{sequenceId}/enroll/{contactId} | Unenroll a contact from a sequence |
-| [**updateSequence**](SequencesApi.md#updateSequence) | **PATCH** /v1/sequences/{sequenceId} | Update a sequence |
-| [**updateSequenceWithHttpInfo**](SequencesApi.md#updateSequenceWithHttpInfo) | **PATCH** /v1/sequences/{sequenceId} | Update a sequence |
+| [**pauseSequence**](SequencesApi.md#pauseSequence) | **POST** /v1/sequences/{sequenceId}/pause | Pause sequence |
+| [**pauseSequenceWithHttpInfo**](SequencesApi.md#pauseSequenceWithHttpInfo) | **POST** /v1/sequences/{sequenceId}/pause | Pause sequence |
+| [**unenrollContact**](SequencesApi.md#unenrollContact) | **DELETE** /v1/sequences/{sequenceId}/enroll/{contactId} | Unenroll contact |
+| [**unenrollContactWithHttpInfo**](SequencesApi.md#unenrollContactWithHttpInfo) | **DELETE** /v1/sequences/{sequenceId}/enroll/{contactId} | Unenroll contact |
+| [**updateSequence**](SequencesApi.md#updateSequence) | **PATCH** /v1/sequences/{sequenceId} | Update sequence |
+| [**updateSequenceWithHttpInfo**](SequencesApi.md#updateSequenceWithHttpInfo) | **PATCH** /v1/sequences/{sequenceId} | Update sequence |
 
 
 
@@ -31,7 +31,9 @@ All URIs are relative to *https://zernio.com/api*
 
 > ActivateSequence200Response activateSequence(sequenceId)
 
-Activate a sequence
+Activate sequence
+
+Start a draft or paused sequence. The sequence must have at least one step.
 
 ### Example
 
@@ -102,7 +104,9 @@ public class Example {
 
 > ApiResponse<ActivateSequence200Response> activateSequence activateSequenceWithHttpInfo(sequenceId)
 
-Activate a sequence
+Activate sequence
+
+Start a draft or paused sequence. The sequence must have at least one step.
 
 ### Example
 
@@ -177,7 +181,9 @@ ApiResponse<[**ActivateSequence200Response**](ActivateSequence200Response.md)>
 
 > CreateSequence200Response createSequence(createSequenceRequest)
 
-Create a sequence
+Create sequence
+
+Create a multi-step messaging sequence. Each step has a delay and a message or WhatsApp template.
 
 ### Example
 
@@ -246,7 +252,9 @@ public class Example {
 
 > ApiResponse<CreateSequence200Response> createSequence createSequenceWithHttpInfo(createSequenceRequest)
 
-Create a sequence
+Create sequence
+
+Create a multi-step messaging sequence. Each step has a delay and a message or WhatsApp template.
 
 ### Example
 
@@ -319,7 +327,9 @@ ApiResponse<[**CreateSequence200Response**](CreateSequence200Response.md)>
 
 > void deleteSequence(sequenceId)
 
-Delete a sequence
+Delete sequence
+
+Permanently delete a sequence. Active enrollments are stopped.
 
 ### Example
 
@@ -388,7 +398,9 @@ null (empty response body)
 
 > ApiResponse<Void> deleteSequence deleteSequenceWithHttpInfo(sequenceId)
 
-Delete a sequence
+Delete sequence
+
+Permanently delete a sequence. Active enrollments are stopped.
 
 ### Example
 
@@ -463,6 +475,8 @@ ApiResponse<Void>
 
 Enroll contacts in a sequence
 
+Enroll one or more contacts into a sequence. Contacts already enrolled are skipped.
+
 ### Example
 
 ```java
@@ -534,6 +548,8 @@ public class Example {
 > ApiResponse<EnrollContacts200Response> enrollContacts enrollContactsWithHttpInfo(sequenceId, enrollContactsRequest)
 
 Enroll contacts in a sequence
+
+Enroll one or more contacts into a sequence. Contacts already enrolled are skipped.
 
 ### Example
 
@@ -611,6 +627,8 @@ ApiResponse<[**EnrollContacts200Response**](EnrollContacts200Response.md)>
 
 Get sequence with steps
 
+Returns a sequence with all its steps and enrollment stats.
+
 ### Example
 
 ```java
@@ -680,6 +698,8 @@ public class Example {
 > ApiResponse<GetSequence200Response> getSequence getSequenceWithHttpInfo(sequenceId)
 
 Get sequence with steps
+
+Returns a sequence with all its steps and enrollment stats.
 
 ### Example
 
@@ -754,6 +774,8 @@ ApiResponse<[**GetSequence200Response**](GetSequence200Response.md)>
 > ListSequenceEnrollments200Response listSequenceEnrollments(sequenceId, status, limit, skip)
 
 List enrollments for a sequence
+
+Returns enrolled contacts with their progress, status, and next scheduled step.
 
 ### Example
 
@@ -830,6 +852,8 @@ public class Example {
 > ApiResponse<ListSequenceEnrollments200Response> listSequenceEnrollments listSequenceEnrollmentsWithHttpInfo(sequenceId, status, limit, skip)
 
 List enrollments for a sequence
+
+Returns enrolled contacts with their progress, status, and next scheduled step.
 
 ### Example
 
@@ -911,6 +935,8 @@ ApiResponse<[**ListSequenceEnrollments200Response**](ListSequenceEnrollments200R
 
 List sequences
 
+Returns sequences with enrollment stats. Filter by status, platform, or profile.
+
 ### Example
 
 ```java
@@ -985,6 +1011,8 @@ public class Example {
 > ApiResponse<ListSequences200Response> listSequences listSequencesWithHttpInfo(profileId, status, limit, skip)
 
 List sequences
+
+Returns sequences with enrollment stats. Filter by status, platform, or profile.
 
 ### Example
 
@@ -1063,7 +1091,9 @@ ApiResponse<[**ListSequences200Response**](ListSequences200Response.md)>
 
 > ActivateSequence200Response pauseSequence(sequenceId)
 
-Pause a sequence
+Pause sequence
+
+Pause an active sequence. Enrolled contacts stop receiving messages until the sequence is reactivated.
 
 ### Example
 
@@ -1134,7 +1164,9 @@ public class Example {
 
 > ApiResponse<ActivateSequence200Response> pauseSequence pauseSequenceWithHttpInfo(sequenceId)
 
-Pause a sequence
+Pause sequence
+
+Pause an active sequence. Enrolled contacts stop receiving messages until the sequence is reactivated.
 
 ### Example
 
@@ -1209,7 +1241,9 @@ ApiResponse<[**ActivateSequence200Response**](ActivateSequence200Response.md)>
 
 > void unenrollContact(sequenceId, contactId)
 
-Unenroll a contact from a sequence
+Unenroll contact
+
+Remove a contact from a sequence. No further messages will be sent to this contact.
 
 ### Example
 
@@ -1280,7 +1314,9 @@ null (empty response body)
 
 > ApiResponse<Void> unenrollContact unenrollContactWithHttpInfo(sequenceId, contactId)
 
-Unenroll a contact from a sequence
+Unenroll contact
+
+Remove a contact from a sequence. No further messages will be sent to this contact.
 
 ### Example
 
@@ -1355,7 +1391,9 @@ ApiResponse<Void>
 
 > UpdateSequence200Response updateSequence(sequenceId)
 
-Update a sequence
+Update sequence
+
+Update a sequence&#39;s name, steps, or exit conditions. Active sequences can be updated without pausing.
 
 ### Example
 
@@ -1425,7 +1463,9 @@ public class Example {
 
 > ApiResponse<UpdateSequence200Response> updateSequence updateSequenceWithHttpInfo(sequenceId)
 
-Update a sequence
+Update sequence
+
+Update a sequence&#39;s name, steps, or exit conditions. Active sequences can be updated without pausing.
 
 ### Example
 

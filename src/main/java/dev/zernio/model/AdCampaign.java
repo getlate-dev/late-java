@@ -26,6 +26,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import dev.zernio.model.AdBudget;
 import dev.zernio.model.AdMetrics;
+import dev.zernio.model.AdStatus;
+import dev.zernio.model.AdTreeCampaignPromotedObject;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -46,10 +48,14 @@ import dev.zernio.ApiClient;
   AdCampaign.JSON_PROPERTY_PLATFORM_AD_ACCOUNT_ID,
   AdCampaign.JSON_PROPERTY_ACCOUNT_ID,
   AdCampaign.JSON_PROPERTY_PROFILE_ID,
+  AdCampaign.JSON_PROPERTY_PLATFORM_OBJECTIVE,
+  AdCampaign.JSON_PROPERTY_OPTIMIZATION_GOAL,
+  AdCampaign.JSON_PROPERTY_BID_STRATEGY,
+  AdCampaign.JSON_PROPERTY_PROMOTED_OBJECT,
   AdCampaign.JSON_PROPERTY_EARLIEST_AD,
   AdCampaign.JSON_PROPERTY_LATEST_AD
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:23:14.639851249Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T16:44:41.618708448Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AdCampaign {
   public static final String JSON_PROPERTY_PLATFORM_CAMPAIGN_ID = "platformCampaignId";
   @javax.annotation.Nullable
@@ -108,54 +114,9 @@ public class AdCampaign {
   @javax.annotation.Nullable
   private String campaignName;
 
-  /**
-   * Derived from child ad statuses
-   */
-  public enum StatusEnum {
-    ACTIVE(String.valueOf("active")),
-    
-    PAUSED(String.valueOf("paused")),
-    
-    PENDING_REVIEW(String.valueOf("pending_review")),
-    
-    REJECTED(String.valueOf("rejected")),
-    
-    COMPLETED(String.valueOf("completed")),
-    
-    CANCELLED(String.valueOf("cancelled")),
-    
-    ERROR(String.valueOf("error"));
-
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static StatusEnum fromValue(String value) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_STATUS = "status";
   @javax.annotation.Nullable
-  private StatusEnum status;
+  private AdStatus status;
 
   public static final String JSON_PROPERTY_AD_COUNT = "adCount";
   @javax.annotation.Nullable
@@ -180,6 +141,22 @@ public class AdCampaign {
   public static final String JSON_PROPERTY_PROFILE_ID = "profileId";
   @javax.annotation.Nullable
   private String profileId;
+
+  public static final String JSON_PROPERTY_PLATFORM_OBJECTIVE = "platformObjective";
+  @javax.annotation.Nullable
+  private String platformObjective;
+
+  public static final String JSON_PROPERTY_OPTIMIZATION_GOAL = "optimizationGoal";
+  @javax.annotation.Nullable
+  private String optimizationGoal;
+
+  public static final String JSON_PROPERTY_BID_STRATEGY = "bidStrategy";
+  @javax.annotation.Nullable
+  private String bidStrategy;
+
+  public static final String JSON_PROPERTY_PROMOTED_OBJECT = "promotedObject";
+  @javax.annotation.Nullable
+  private AdTreeCampaignPromotedObject promotedObject;
 
   public static final String JSON_PROPERTY_EARLIEST_AD = "earliestAd";
   @javax.annotation.Nullable
@@ -264,7 +241,7 @@ public class AdCampaign {
   }
 
 
-  public AdCampaign status(@javax.annotation.Nullable StatusEnum status) {
+  public AdCampaign status(@javax.annotation.Nullable AdStatus status) {
     this.status = status;
     return this;
   }
@@ -276,14 +253,14 @@ public class AdCampaign {
   @javax.annotation.Nullable
   @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public StatusEnum getStatus() {
+  public AdStatus getStatus() {
     return status;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatus(@javax.annotation.Nullable StatusEnum status) {
+  public void setStatus(@javax.annotation.Nullable AdStatus status) {
     this.status = status;
   }
 
@@ -432,6 +409,102 @@ public class AdCampaign {
   }
 
 
+  public AdCampaign platformObjective(@javax.annotation.Nullable String platformObjective) {
+    this.platformObjective = platformObjective;
+    return this;
+  }
+
+  /**
+   * Raw Meta campaign objective (e.g. OUTCOME_SALES, OUTCOME_LEADS, OUTCOME_TRAFFIC)
+   * @return platformObjective
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_PLATFORM_OBJECTIVE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPlatformObjective() {
+    return platformObjective;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PLATFORM_OBJECTIVE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPlatformObjective(@javax.annotation.Nullable String platformObjective) {
+    this.platformObjective = platformObjective;
+  }
+
+
+  public AdCampaign optimizationGoal(@javax.annotation.Nullable String optimizationGoal) {
+    this.optimizationGoal = optimizationGoal;
+    return this;
+  }
+
+  /**
+   * Meta optimization goal shared across ad sets, or comma-separated values when ad sets differ (e.g. OFFSITE_CONVERSIONS, VALUE, LEAD_GENERATION)
+   * @return optimizationGoal
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_OPTIMIZATION_GOAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOptimizationGoal() {
+    return optimizationGoal;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_OPTIMIZATION_GOAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOptimizationGoal(@javax.annotation.Nullable String optimizationGoal) {
+    this.optimizationGoal = optimizationGoal;
+  }
+
+
+  public AdCampaign bidStrategy(@javax.annotation.Nullable String bidStrategy) {
+    this.bidStrategy = bidStrategy;
+    return this;
+  }
+
+  /**
+   * Campaign-level bid strategy (e.g. LOWEST_COST_WITHOUT_CAP, COST_CAP, LOWEST_COST_WITH_MIN_ROAS)
+   * @return bidStrategy
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_BID_STRATEGY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getBidStrategy() {
+    return bidStrategy;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_BID_STRATEGY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBidStrategy(@javax.annotation.Nullable String bidStrategy) {
+    this.bidStrategy = bidStrategy;
+  }
+
+
+  public AdCampaign promotedObject(@javax.annotation.Nullable AdTreeCampaignPromotedObject promotedObject) {
+    this.promotedObject = promotedObject;
+    return this;
+  }
+
+  /**
+   * Get promotedObject
+   * @return promotedObject
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_PROMOTED_OBJECT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AdTreeCampaignPromotedObject getPromotedObject() {
+    return promotedObject;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PROMOTED_OBJECT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPromotedObject(@javax.annotation.Nullable AdTreeCampaignPromotedObject promotedObject) {
+    this.promotedObject = promotedObject;
+  }
+
+
   public AdCampaign earliestAd(@javax.annotation.Nullable OffsetDateTime earliestAd) {
     this.earliestAd = earliestAd;
     return this;
@@ -502,13 +575,17 @@ public class AdCampaign {
         Objects.equals(this.platformAdAccountId, adCampaign.platformAdAccountId) &&
         Objects.equals(this.accountId, adCampaign.accountId) &&
         Objects.equals(this.profileId, adCampaign.profileId) &&
+        Objects.equals(this.platformObjective, adCampaign.platformObjective) &&
+        Objects.equals(this.optimizationGoal, adCampaign.optimizationGoal) &&
+        Objects.equals(this.bidStrategy, adCampaign.bidStrategy) &&
+        Objects.equals(this.promotedObject, adCampaign.promotedObject) &&
         Objects.equals(this.earliestAd, adCampaign.earliestAd) &&
         Objects.equals(this.latestAd, adCampaign.latestAd);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(platformCampaignId, platform, campaignName, status, adCount, budget, metrics, platformAdAccountId, accountId, profileId, earliestAd, latestAd);
+    return Objects.hash(platformCampaignId, platform, campaignName, status, adCount, budget, metrics, platformAdAccountId, accountId, profileId, platformObjective, optimizationGoal, bidStrategy, promotedObject, earliestAd, latestAd);
   }
 
   @Override
@@ -525,6 +602,10 @@ public class AdCampaign {
     sb.append("    platformAdAccountId: ").append(toIndentedString(platformAdAccountId)).append("\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    profileId: ").append(toIndentedString(profileId)).append("\n");
+    sb.append("    platformObjective: ").append(toIndentedString(platformObjective)).append("\n");
+    sb.append("    optimizationGoal: ").append(toIndentedString(optimizationGoal)).append("\n");
+    sb.append("    bidStrategy: ").append(toIndentedString(bidStrategy)).append("\n");
+    sb.append("    promotedObject: ").append(toIndentedString(promotedObject)).append("\n");
     sb.append("    earliestAd: ").append(toIndentedString(earliestAd)).append("\n");
     sb.append("    latestAd: ").append(toIndentedString(latestAd)).append("\n");
     sb.append("}");
@@ -622,6 +703,26 @@ public class AdCampaign {
     // add `profileId` to the URL query string
     if (getProfileId() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sprofileId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getProfileId()))));
+    }
+
+    // add `platformObjective` to the URL query string
+    if (getPlatformObjective() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%splatformObjective%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getPlatformObjective()))));
+    }
+
+    // add `optimizationGoal` to the URL query string
+    if (getOptimizationGoal() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%soptimizationGoal%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getOptimizationGoal()))));
+    }
+
+    // add `bidStrategy` to the URL query string
+    if (getBidStrategy() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sbidStrategy%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getBidStrategy()))));
+    }
+
+    // add `promotedObject` to the URL query string
+    if (getPromotedObject() != null) {
+      joiner.add(getPromotedObject().toUrlQueryString(prefix + "promotedObject" + suffix));
     }
 
     // add `earliestAd` to the URL query string

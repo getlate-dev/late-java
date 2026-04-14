@@ -20,9 +20,13 @@ docs/AdCampaign.md
 docs/AdCampaignsApi.md
 docs/AdCreative.md
 docs/AdMetrics.md
+docs/AdPromotedObject.md
 docs/AdSchedule.md
+docs/AdStatus.md
 docs/AdTreeAdSet.md
+docs/AdTreeAdSetPromotedObject.md
 docs/AdTreeCampaign.md
+docs/AdTreeCampaignPromotedObject.md
 docs/AddBroadcastRecipients200Response.md
 docs/AddBroadcastRecipientsRequest.md
 docs/AddMessageReactionRequest.md
@@ -287,7 +291,6 @@ docs/GetPendingOAuthData200Response.md
 docs/GetPendingOAuthData200ResponseOrganizationsInner.md
 docs/GetPinterestBoards200Response.md
 docs/GetPinterestBoards200ResponseBoardsInner.md
-docs/GetPostLogs200Response.md
 docs/GetPostTimeline200Response.md
 docs/GetPostTimeline200ResponseTimelineInner.md
 docs/GetPostTimeline400Response.md
@@ -475,11 +478,6 @@ docs/PostAnalytics.md
 docs/PostCreateResponse.md
 docs/PostDeleteResponse.md
 docs/PostGetResponse.md
-docs/PostLog.md
-docs/PostLogPostId.md
-docs/PostLogPostIdOneOf.md
-docs/PostLogRequest.md
-docs/PostLogResponse.md
 docs/PostRetryResponse.md
 docs/PostUpdateResponse.md
 docs/PostUserId.md
@@ -603,6 +601,7 @@ docs/UpdateAdCampaignStatusRequest.md
 docs/UpdateAdRequest.md
 docs/UpdateAdRequestBudget.md
 docs/UpdateAdRequestTargeting.md
+docs/UpdateAdRequestTargetingInterestsInner.md
 docs/UpdateBroadcast200Response.md
 docs/UpdateBroadcast200ResponseBroadcast.md
 docs/UpdateCommentAutomation200Response.md
@@ -826,9 +825,13 @@ src/main/java/dev/zernio/model/AdBudget.java
 src/main/java/dev/zernio/model/AdCampaign.java
 src/main/java/dev/zernio/model/AdCreative.java
 src/main/java/dev/zernio/model/AdMetrics.java
+src/main/java/dev/zernio/model/AdPromotedObject.java
 src/main/java/dev/zernio/model/AdSchedule.java
+src/main/java/dev/zernio/model/AdStatus.java
 src/main/java/dev/zernio/model/AdTreeAdSet.java
+src/main/java/dev/zernio/model/AdTreeAdSetPromotedObject.java
 src/main/java/dev/zernio/model/AdTreeCampaign.java
+src/main/java/dev/zernio/model/AdTreeCampaignPromotedObject.java
 src/main/java/dev/zernio/model/AddBroadcastRecipients200Response.java
 src/main/java/dev/zernio/model/AddBroadcastRecipientsRequest.java
 src/main/java/dev/zernio/model/AddMessageReactionRequest.java
@@ -1084,7 +1087,6 @@ src/main/java/dev/zernio/model/GetPendingOAuthData200Response.java
 src/main/java/dev/zernio/model/GetPendingOAuthData200ResponseOrganizationsInner.java
 src/main/java/dev/zernio/model/GetPinterestBoards200Response.java
 src/main/java/dev/zernio/model/GetPinterestBoards200ResponseBoardsInner.java
-src/main/java/dev/zernio/model/GetPostLogs200Response.java
 src/main/java/dev/zernio/model/GetPostTimeline200Response.java
 src/main/java/dev/zernio/model/GetPostTimeline200ResponseTimelineInner.java
 src/main/java/dev/zernio/model/GetPostTimeline400Response.java
@@ -1261,11 +1263,6 @@ src/main/java/dev/zernio/model/PostAnalytics.java
 src/main/java/dev/zernio/model/PostCreateResponse.java
 src/main/java/dev/zernio/model/PostDeleteResponse.java
 src/main/java/dev/zernio/model/PostGetResponse.java
-src/main/java/dev/zernio/model/PostLog.java
-src/main/java/dev/zernio/model/PostLogPostId.java
-src/main/java/dev/zernio/model/PostLogPostIdOneOf.java
-src/main/java/dev/zernio/model/PostLogRequest.java
-src/main/java/dev/zernio/model/PostLogResponse.java
 src/main/java/dev/zernio/model/PostRetryResponse.java
 src/main/java/dev/zernio/model/PostUpdateResponse.java
 src/main/java/dev/zernio/model/PostUserId.java
@@ -1382,6 +1379,7 @@ src/main/java/dev/zernio/model/UpdateAdCampaignStatusRequest.java
 src/main/java/dev/zernio/model/UpdateAdRequest.java
 src/main/java/dev/zernio/model/UpdateAdRequestBudget.java
 src/main/java/dev/zernio/model/UpdateAdRequestTargeting.java
+src/main/java/dev/zernio/model/UpdateAdRequestTargetingInterestsInner.java
 src/main/java/dev/zernio/model/UpdateBroadcast200Response.java
 src/main/java/dev/zernio/model/UpdateBroadcast200ResponseBroadcast.java
 src/main/java/dev/zernio/model/UpdateCommentAutomation200Response.java
@@ -1526,5 +1524,8 @@ src/main/java/dev/zernio/model/YouTubeDemographicsResponseDemographicsValueInner
 src/main/java/dev/zernio/model/YouTubePlatformData.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponseScopeStatus.java
-src/test/java/dev/zernio/model/GetBroadcast200ResponseBroadcastTemplateTest.java
-src/test/java/dev/zernio/model/ListContacts200ResponsePaginationTest.java
+src/test/java/dev/zernio/model/AdPromotedObjectTest.java
+src/test/java/dev/zernio/model/AdStatusTest.java
+src/test/java/dev/zernio/model/AdTreeAdSetPromotedObjectTest.java
+src/test/java/dev/zernio/model/AdTreeCampaignPromotedObjectTest.java
+src/test/java/dev/zernio/model/UpdateAdRequestTargetingInterestsInnerTest.java

@@ -48,7 +48,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:23:14.639851249Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T16:44:41.618708448Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class MediaApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -166,7 +166,7 @@ public class MediaApi {
   }
 
   /**
-   * Get presigned upload URL
+   * Get upload URL
    * Get a presigned URL to upload files directly to cloud storage (up to 5GB). Returns an uploadUrl and publicUrl. PUT your file to the uploadUrl, then use the publicUrl in your posts.
    * @param getMediaPresignedUrlRequest  (required)
    * @return GetMediaPresignedUrl200Response
@@ -177,7 +177,7 @@ public class MediaApi {
   }
 
   /**
-   * Get presigned upload URL
+   * Get upload URL
    * Get a presigned URL to upload files directly to cloud storage (up to 5GB). Returns an uploadUrl and publicUrl. PUT your file to the uploadUrl, then use the publicUrl in your posts.
    * @param getMediaPresignedUrlRequest  (required)
    * @param headers Optional headers to include in the request
@@ -190,7 +190,7 @@ public class MediaApi {
   }
 
   /**
-   * Get presigned upload URL
+   * Get upload URL
    * Get a presigned URL to upload files directly to cloud storage (up to 5GB). Returns an uploadUrl and publicUrl. PUT your file to the uploadUrl, then use the publicUrl in your posts.
    * @param getMediaPresignedUrlRequest  (required)
    * @return ApiResponse&lt;GetMediaPresignedUrl200Response&gt;
@@ -201,7 +201,7 @@ public class MediaApi {
   }
 
   /**
-   * Get presigned upload URL
+   * Get upload URL
    * Get a presigned URL to upload files directly to cloud storage (up to 5GB). Returns an uploadUrl and publicUrl. PUT your file to the uploadUrl, then use the publicUrl in your posts.
    * @param getMediaPresignedUrlRequest  (required)
    * @param headers Optional headers to include in the request

@@ -6,12 +6,12 @@ All URIs are relative to *https://zernio.com/api*
 |------------- | ------------- | -------------|
 | [**addBroadcastRecipients**](BroadcastsApi.md#addBroadcastRecipients) | **POST** /v1/broadcasts/{broadcastId}/recipients | Add recipients to a broadcast |
 | [**addBroadcastRecipientsWithHttpInfo**](BroadcastsApi.md#addBroadcastRecipientsWithHttpInfo) | **POST** /v1/broadcasts/{broadcastId}/recipients | Add recipients to a broadcast |
-| [**cancelBroadcast**](BroadcastsApi.md#cancelBroadcast) | **POST** /v1/broadcasts/{broadcastId}/cancel | Cancel a broadcast |
-| [**cancelBroadcastWithHttpInfo**](BroadcastsApi.md#cancelBroadcastWithHttpInfo) | **POST** /v1/broadcasts/{broadcastId}/cancel | Cancel a broadcast |
-| [**createBroadcast**](BroadcastsApi.md#createBroadcast) | **POST** /v1/broadcasts | Create a broadcast draft |
-| [**createBroadcastWithHttpInfo**](BroadcastsApi.md#createBroadcastWithHttpInfo) | **POST** /v1/broadcasts | Create a broadcast draft |
-| [**deleteBroadcast**](BroadcastsApi.md#deleteBroadcast) | **DELETE** /v1/broadcasts/{broadcastId} | Delete a broadcast (draft only) |
-| [**deleteBroadcastWithHttpInfo**](BroadcastsApi.md#deleteBroadcastWithHttpInfo) | **DELETE** /v1/broadcasts/{broadcastId} | Delete a broadcast (draft only) |
+| [**cancelBroadcast**](BroadcastsApi.md#cancelBroadcast) | **POST** /v1/broadcasts/{broadcastId}/cancel | Cancel broadcast |
+| [**cancelBroadcastWithHttpInfo**](BroadcastsApi.md#cancelBroadcastWithHttpInfo) | **POST** /v1/broadcasts/{broadcastId}/cancel | Cancel broadcast |
+| [**createBroadcast**](BroadcastsApi.md#createBroadcast) | **POST** /v1/broadcasts | Create broadcast draft |
+| [**createBroadcastWithHttpInfo**](BroadcastsApi.md#createBroadcastWithHttpInfo) | **POST** /v1/broadcasts | Create broadcast draft |
+| [**deleteBroadcast**](BroadcastsApi.md#deleteBroadcast) | **DELETE** /v1/broadcasts/{broadcastId} | Delete broadcast |
+| [**deleteBroadcastWithHttpInfo**](BroadcastsApi.md#deleteBroadcastWithHttpInfo) | **DELETE** /v1/broadcasts/{broadcastId} | Delete broadcast |
 | [**getBroadcast**](BroadcastsApi.md#getBroadcast) | **GET** /v1/broadcasts/{broadcastId} | Get broadcast details |
 | [**getBroadcastWithHttpInfo**](BroadcastsApi.md#getBroadcastWithHttpInfo) | **GET** /v1/broadcasts/{broadcastId} | Get broadcast details |
 | [**listBroadcastRecipients**](BroadcastsApi.md#listBroadcastRecipients) | **GET** /v1/broadcasts/{broadcastId}/recipients | List broadcast recipients |
@@ -20,10 +20,10 @@ All URIs are relative to *https://zernio.com/api*
 | [**listBroadcastsWithHttpInfo**](BroadcastsApi.md#listBroadcastsWithHttpInfo) | **GET** /v1/broadcasts | List broadcasts |
 | [**scheduleBroadcast**](BroadcastsApi.md#scheduleBroadcast) | **POST** /v1/broadcasts/{broadcastId}/schedule | Schedule broadcast for later |
 | [**scheduleBroadcastWithHttpInfo**](BroadcastsApi.md#scheduleBroadcastWithHttpInfo) | **POST** /v1/broadcasts/{broadcastId}/schedule | Schedule broadcast for later |
-| [**sendBroadcast**](BroadcastsApi.md#sendBroadcast) | **POST** /v1/broadcasts/{broadcastId}/send | Trigger immediate send |
-| [**sendBroadcastWithHttpInfo**](BroadcastsApi.md#sendBroadcastWithHttpInfo) | **POST** /v1/broadcasts/{broadcastId}/send | Trigger immediate send |
-| [**updateBroadcast**](BroadcastsApi.md#updateBroadcast) | **PATCH** /v1/broadcasts/{broadcastId} | Update a broadcast |
-| [**updateBroadcastWithHttpInfo**](BroadcastsApi.md#updateBroadcastWithHttpInfo) | **PATCH** /v1/broadcasts/{broadcastId} | Update a broadcast |
+| [**sendBroadcast**](BroadcastsApi.md#sendBroadcast) | **POST** /v1/broadcasts/{broadcastId}/send | Send broadcast now |
+| [**sendBroadcastWithHttpInfo**](BroadcastsApi.md#sendBroadcastWithHttpInfo) | **POST** /v1/broadcasts/{broadcastId}/send | Send broadcast now |
+| [**updateBroadcast**](BroadcastsApi.md#updateBroadcast) | **PATCH** /v1/broadcasts/{broadcastId} | Update broadcast |
+| [**updateBroadcastWithHttpInfo**](BroadcastsApi.md#updateBroadcastWithHttpInfo) | **PATCH** /v1/broadcasts/{broadcastId} | Update broadcast |
 
 
 
@@ -32,6 +32,8 @@ All URIs are relative to *https://zernio.com/api*
 > AddBroadcastRecipients200Response addBroadcastRecipients(broadcastId, addBroadcastRecipientsRequest)
 
 Add recipients to a broadcast
+
+Add recipients by contact IDs, raw phone numbers, or from the broadcast&#39;s segment filters.
 
 ### Example
 
@@ -104,6 +106,8 @@ public class Example {
 > ApiResponse<AddBroadcastRecipients200Response> addBroadcastRecipients addBroadcastRecipientsWithHttpInfo(broadcastId, addBroadcastRecipientsRequest)
 
 Add recipients to a broadcast
+
+Add recipients by contact IDs, raw phone numbers, or from the broadcast&#39;s segment filters.
 
 ### Example
 
@@ -179,7 +183,9 @@ ApiResponse<[**AddBroadcastRecipients200Response**](AddBroadcastRecipients200Res
 
 > CancelBroadcast200Response cancelBroadcast(broadcastId)
 
-Cancel a broadcast
+Cancel broadcast
+
+Cancel a scheduled or in-progress broadcast. Already-sent messages are not affected.
 
 ### Example
 
@@ -250,7 +256,9 @@ public class Example {
 
 > ApiResponse<CancelBroadcast200Response> cancelBroadcast cancelBroadcastWithHttpInfo(broadcastId)
 
-Cancel a broadcast
+Cancel broadcast
+
+Cancel a scheduled or in-progress broadcast. Already-sent messages are not affected.
 
 ### Example
 
@@ -325,7 +333,9 @@ ApiResponse<[**CancelBroadcast200Response**](CancelBroadcast200Response.md)>
 
 > CreateBroadcast200Response createBroadcast(createBroadcastRequest)
 
-Create a broadcast draft
+Create broadcast draft
+
+Create a broadcast in draft status. Add recipients and then send or schedule it.
 
 ### Example
 
@@ -394,7 +404,9 @@ public class Example {
 
 > ApiResponse<CreateBroadcast200Response> createBroadcast createBroadcastWithHttpInfo(createBroadcastRequest)
 
-Create a broadcast draft
+Create broadcast draft
+
+Create a broadcast in draft status. Add recipients and then send or schedule it.
 
 ### Example
 
@@ -467,7 +479,9 @@ ApiResponse<[**CreateBroadcast200Response**](CreateBroadcast200Response.md)>
 
 > void deleteBroadcast(broadcastId)
 
-Delete a broadcast (draft only)
+Delete broadcast
+
+Permanently delete a broadcast. Only drafts can be deleted.
 
 ### Example
 
@@ -536,7 +550,9 @@ null (empty response body)
 
 > ApiResponse<Void> deleteBroadcast deleteBroadcastWithHttpInfo(broadcastId)
 
-Delete a broadcast (draft only)
+Delete broadcast
+
+Permanently delete a broadcast. Only drafts can be deleted.
 
 ### Example
 
@@ -611,6 +627,8 @@ ApiResponse<Void>
 
 Get broadcast details
 
+Returns a broadcast with its full configuration and delivery stats.
+
 ### Example
 
 ```java
@@ -680,6 +698,8 @@ public class Example {
 > ApiResponse<GetBroadcast200Response> getBroadcast getBroadcastWithHttpInfo(broadcastId)
 
 Get broadcast details
+
+Returns a broadcast with its full configuration and delivery stats.
 
 ### Example
 
@@ -754,6 +774,8 @@ ApiResponse<[**GetBroadcast200Response**](GetBroadcast200Response.md)>
 > ListBroadcastRecipients200Response listBroadcastRecipients(broadcastId, status, limit, skip)
 
 List broadcast recipients
+
+Returns recipients for a broadcast with individual delivery status. Filter by status.
 
 ### Example
 
@@ -830,6 +852,8 @@ public class Example {
 > ApiResponse<ListBroadcastRecipients200Response> listBroadcastRecipients listBroadcastRecipientsWithHttpInfo(broadcastId, status, limit, skip)
 
 List broadcast recipients
+
+Returns recipients for a broadcast with individual delivery status. Filter by status.
 
 ### Example
 
@@ -911,6 +935,8 @@ ApiResponse<[**ListBroadcastRecipients200Response**](ListBroadcastRecipients200R
 
 List broadcasts
 
+Returns broadcasts with delivery stats. Filter by status, platform, or profile.
+
 ### Example
 
 ```java
@@ -987,6 +1013,8 @@ public class Example {
 > ApiResponse<ListBroadcasts200Response> listBroadcasts listBroadcastsWithHttpInfo(profileId, status, platform, limit, skip)
 
 List broadcasts
+
+Returns broadcasts with delivery stats. Filter by status, platform, or profile.
 
 ### Example
 
@@ -1069,6 +1097,8 @@ ApiResponse<[**ListBroadcasts200Response**](ListBroadcasts200Response.md)>
 
 Schedule broadcast for later
 
+Schedule a draft broadcast to be sent at a future date and time.
+
 ### Example
 
 ```java
@@ -1141,6 +1171,8 @@ public class Example {
 > ApiResponse<ScheduleBroadcast200Response> scheduleBroadcast scheduleBroadcastWithHttpInfo(broadcastId, scheduleBroadcastRequest)
 
 Schedule broadcast for later
+
+Schedule a draft broadcast to be sent at a future date and time.
 
 ### Example
 
@@ -1217,7 +1249,9 @@ ApiResponse<[**ScheduleBroadcast200Response**](ScheduleBroadcast200Response.md)>
 
 > SendBroadcast200Response sendBroadcast(broadcastId)
 
-Trigger immediate send
+Send broadcast now
+
+Immediately start sending a draft broadcast to its recipients.
 
 ### Example
 
@@ -1288,7 +1322,9 @@ public class Example {
 
 > ApiResponse<SendBroadcast200Response> sendBroadcast sendBroadcastWithHttpInfo(broadcastId)
 
-Trigger immediate send
+Send broadcast now
+
+Immediately start sending a draft broadcast to its recipients.
 
 ### Example
 
@@ -1363,7 +1399,9 @@ ApiResponse<[**SendBroadcast200Response**](SendBroadcast200Response.md)>
 
 > UpdateBroadcast200Response updateBroadcast(broadcastId)
 
-Update a broadcast
+Update broadcast
+
+Update a broadcast&#39;s name, message, template, or segment filters. Only draft broadcasts can be updated.
 
 ### Example
 
@@ -1433,7 +1471,9 @@ public class Example {
 
 > ApiResponse<UpdateBroadcast200Response> updateBroadcast updateBroadcastWithHttpInfo(broadcastId)
 
-Update a broadcast
+Update broadcast
+
+Update a broadcast&#39;s name, message, template, or segment filters. Only draft broadcasts can be updated.
 
 ### Example
 

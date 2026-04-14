@@ -42,6 +42,7 @@ import dev.zernio.ApiClient;
   AccountWithFollowerStats.JSON_PROPERTY_PROFILE_ID,
   AccountWithFollowerStats.JSON_PROPERTY_USERNAME,
   AccountWithFollowerStats.JSON_PROPERTY_DISPLAY_NAME,
+  AccountWithFollowerStats.JSON_PROPERTY_PROFILE_PICTURE,
   AccountWithFollowerStats.JSON_PROPERTY_PROFILE_URL,
   AccountWithFollowerStats.JSON_PROPERTY_IS_ACTIVE,
   AccountWithFollowerStats.JSON_PROPERTY_FOLLOWERS_COUNT,
@@ -49,7 +50,6 @@ import dev.zernio.ApiClient;
   AccountWithFollowerStats.JSON_PROPERTY_PARENT_ACCOUNT_ID,
   AccountWithFollowerStats.JSON_PROPERTY_ENABLED,
   AccountWithFollowerStats.JSON_PROPERTY_METADATA,
-  AccountWithFollowerStats.JSON_PROPERTY_PROFILE_PICTURE,
   AccountWithFollowerStats.JSON_PROPERTY_CURRENT_FOLLOWERS,
   AccountWithFollowerStats.JSON_PROPERTY_LAST_UPDATED,
   AccountWithFollowerStats.JSON_PROPERTY_GROWTH,
@@ -57,7 +57,7 @@ import dev.zernio.ApiClient;
   AccountWithFollowerStats.JSON_PROPERTY_DATA_POINTS,
   AccountWithFollowerStats.JSON_PROPERTY_ACCOUNT_STATS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:23:14.639851249Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T16:44:41.618708448Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AccountWithFollowerStats {
   public static final String JSON_PROPERTY_ID = "_id";
   @javax.annotation.Nullable
@@ -152,6 +152,10 @@ public class AccountWithFollowerStats {
   @javax.annotation.Nullable
   private String displayName;
 
+  public static final String JSON_PROPERTY_PROFILE_PICTURE = "profilePicture";
+  @javax.annotation.Nullable
+  private String profilePicture;
+
   public static final String JSON_PROPERTY_PROFILE_URL = "profileUrl";
   @javax.annotation.Nullable
   private String profileUrl;
@@ -179,10 +183,6 @@ public class AccountWithFollowerStats {
   public static final String JSON_PROPERTY_METADATA = "metadata";
   @javax.annotation.Nullable
   private Object metadata;
-
-  public static final String JSON_PROPERTY_PROFILE_PICTURE = "profilePicture";
-  @javax.annotation.Nullable
-  private String profilePicture;
 
   public static final String JSON_PROPERTY_CURRENT_FOLLOWERS = "currentFollowers";
   @javax.annotation.Nullable
@@ -328,6 +328,30 @@ public class AccountWithFollowerStats {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayName(@javax.annotation.Nullable String displayName) {
     this.displayName = displayName;
+  }
+
+
+  public AccountWithFollowerStats profilePicture(@javax.annotation.Nullable String profilePicture) {
+    this.profilePicture = profilePicture;
+    return this;
+  }
+
+  /**
+   * URL to the account&#39;s profile picture on the platform. May be null if the platform does not provide one.
+   * @return profilePicture
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_PROFILE_PICTURE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getProfilePicture() {
+    return profilePicture;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PROFILE_PICTURE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setProfilePicture(@javax.annotation.Nullable String profilePicture) {
+    this.profilePicture = profilePicture;
   }
 
 
@@ -481,7 +505,7 @@ public class AccountWithFollowerStats {
   }
 
   /**
-   * Platform-specific metadata. Fields vary by platform. For WhatsApp accounts, includes: - &#x60;qualityRating&#x60;: Phone number quality rating from Meta (&#x60;GREEN&#x60;, &#x60;YELLOW&#x60;, &#x60;RED&#x60;, or &#x60;UNKNOWN&#x60;) - &#x60;nameStatus&#x60;: Display name review status (&#x60;APPROVED&#x60;, &#x60;PENDING_REVIEW&#x60;, &#x60;DECLINED&#x60;, or &#x60;NONE&#x60;). Messages cannot be sent until the display name is approved by Meta. - &#x60;messagingLimitTier&#x60;: Maximum unique business-initiated conversations per 24h rolling window (&#x60;TIER_250&#x60;, &#x60;TIER_1K&#x60;, &#x60;TIER_10K&#x60;, &#x60;TIER_100K&#x60;, or &#x60;TIER_UNLIMITED&#x60;). Scales automatically as quality rating improves. - &#x60;verifiedName&#x60;: Meta-verified business display name - &#x60;displayPhoneNumber&#x60;: Formatted phone number (e.g., \&quot;+1 555-123-4567\&quot;) - &#x60;wabaId&#x60;: WhatsApp Business Account ID - &#x60;phoneNumberId&#x60;: Meta phone number ID 
+   * Platform-specific metadata. Fields vary by platform. For WhatsApp accounts, includes: - qualityRating: Phone number quality rating from Meta (GREEN, YELLOW, RED, or UNKNOWN) - nameStatus: Display name review status (APPROVED, PENDING_REVIEW, DECLINED, or NONE). Messages cannot be sent until the display name is approved by Meta. - messagingLimitTier: Maximum unique business-initiated conversations per 24h rolling window (TIER_250, TIER_1K, TIER_10K, TIER_100K, or TIER_UNLIMITED). Scales automatically as quality rating improves. - verifiedName: Meta-verified business display name - displayPhoneNumber: Formatted phone number (e.g., \&quot;+1 555-123-4567\&quot;) - wabaId: WhatsApp Business Account ID - phoneNumberId: Meta phone number ID 
    * @return metadata
    */
   @javax.annotation.Nullable
@@ -496,30 +520,6 @@ public class AccountWithFollowerStats {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(@javax.annotation.Nullable Object metadata) {
     this.metadata = metadata;
-  }
-
-
-  public AccountWithFollowerStats profilePicture(@javax.annotation.Nullable String profilePicture) {
-    this.profilePicture = profilePicture;
-    return this;
-  }
-
-  /**
-   * Get profilePicture
-   * @return profilePicture
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(value = JSON_PROPERTY_PROFILE_PICTURE, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getProfilePicture() {
-    return profilePicture;
-  }
-
-
-  @JsonProperty(value = JSON_PROPERTY_PROFILE_PICTURE, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProfilePicture(@javax.annotation.Nullable String profilePicture) {
-    this.profilePicture = profilePicture;
   }
 
 
@@ -684,6 +684,7 @@ public class AccountWithFollowerStats {
         Objects.equals(this.profileId, accountWithFollowerStats.profileId) &&
         Objects.equals(this.username, accountWithFollowerStats.username) &&
         Objects.equals(this.displayName, accountWithFollowerStats.displayName) &&
+        Objects.equals(this.profilePicture, accountWithFollowerStats.profilePicture) &&
         Objects.equals(this.profileUrl, accountWithFollowerStats.profileUrl) &&
         Objects.equals(this.isActive, accountWithFollowerStats.isActive) &&
         Objects.equals(this.followersCount, accountWithFollowerStats.followersCount) &&
@@ -691,7 +692,6 @@ public class AccountWithFollowerStats {
         Objects.equals(this.parentAccountId, accountWithFollowerStats.parentAccountId) &&
         Objects.equals(this.enabled, accountWithFollowerStats.enabled) &&
         Objects.equals(this.metadata, accountWithFollowerStats.metadata) &&
-        Objects.equals(this.profilePicture, accountWithFollowerStats.profilePicture) &&
         Objects.equals(this.currentFollowers, accountWithFollowerStats.currentFollowers) &&
         Objects.equals(this.lastUpdated, accountWithFollowerStats.lastUpdated) &&
         Objects.equals(this.growth, accountWithFollowerStats.growth) &&
@@ -702,7 +702,7 @@ public class AccountWithFollowerStats {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, platform, profileId, username, displayName, profileUrl, isActive, followersCount, followersLastUpdated, parentAccountId, enabled, metadata, profilePicture, currentFollowers, lastUpdated, growth, growthPercentage, dataPoints, accountStats);
+    return Objects.hash(id, platform, profileId, username, displayName, profilePicture, profileUrl, isActive, followersCount, followersLastUpdated, parentAccountId, enabled, metadata, currentFollowers, lastUpdated, growth, growthPercentage, dataPoints, accountStats);
   }
 
   @Override
@@ -714,6 +714,7 @@ public class AccountWithFollowerStats {
     sb.append("    profileId: ").append(toIndentedString(profileId)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    profilePicture: ").append(toIndentedString(profilePicture)).append("\n");
     sb.append("    profileUrl: ").append(toIndentedString(profileUrl)).append("\n");
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
     sb.append("    followersCount: ").append(toIndentedString(followersCount)).append("\n");
@@ -721,7 +722,6 @@ public class AccountWithFollowerStats {
     sb.append("    parentAccountId: ").append(toIndentedString(parentAccountId)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    profilePicture: ").append(toIndentedString(profilePicture)).append("\n");
     sb.append("    currentFollowers: ").append(toIndentedString(currentFollowers)).append("\n");
     sb.append("    lastUpdated: ").append(toIndentedString(lastUpdated)).append("\n");
     sb.append("    growth: ").append(toIndentedString(growth)).append("\n");
@@ -800,6 +800,11 @@ public class AccountWithFollowerStats {
       joiner.add(String.format(java.util.Locale.ROOT, "%sdisplayName%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDisplayName()))));
     }
 
+    // add `profilePicture` to the URL query string
+    if (getProfilePicture() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sprofilePicture%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getProfilePicture()))));
+    }
+
     // add `profileUrl` to the URL query string
     if (getProfileUrl() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sprofileUrl%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getProfileUrl()))));
@@ -833,11 +838,6 @@ public class AccountWithFollowerStats {
     // add `metadata` to the URL query string
     if (getMetadata() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%smetadata%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getMetadata()))));
-    }
-
-    // add `profilePicture` to the URL query string
-    if (getProfilePicture() != null) {
-      joiner.add(String.format(java.util.Locale.ROOT, "%sprofilePicture%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getProfilePicture()))));
     }
 
     // add `currentFollowers` to the URL query string

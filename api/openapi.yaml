@@ -193,7 +193,7 @@ paths:
           description: Character counts per platform
       security:
       - bearerAuth: []
-      summary: Validate post character count
+      summary: Validate character count
       tags:
       - Validate
       x-content-type: application/json
@@ -204,7 +204,7 @@ paths:
       description: |
         Dry-run the full post validation pipeline without publishing. Catches issues like missing media for Instagram/TikTok/YouTube, hashtag limits, invalid thread formats, Facebook Reel requirements, and character limit violations.
 
-        Accepts the same body as `POST /v1/posts`. Does NOT validate accounts, process media, or track usage. This is content-only validation.
+        Accepts the same body as POST /v1/posts. Does NOT validate accounts, process media, or track usage. This is content-only validation.
 
         Returns errors for failures and warnings for near-limit content (>90% of character limit).
       operationId: validatePost
@@ -264,7 +264,7 @@ paths:
       description: |
         Check if a subreddit exists and return basic info (title, subscriber count, NSFW status, post types allowed).
 
-        When accountId is provided, uses authenticated Reddit OAuth API with automatic token refresh (recommended). Falls back to Reddit's public JSON API, which may be unreliable from server IPs. Returns `exists: false` for private, banned, or nonexistent subreddits.
+        When accountId is provided, uses authenticated Reddit OAuth API with automatic token refresh (recommended). Falls back to Reddit's public JSON API, which may be unreliable from server IPs. Returns exists: false for private, banned, or nonexistent subreddits.
       operationId: validateSubreddit
       parameters:
       - description: Subreddit name (with or without "r/" prefix)
@@ -306,7 +306,7 @@ paths:
         Accepts both Zernio Post IDs and External Post IDs (auto-resolved). fromDate defaults to 90 days ago if omitted, max range 366 days.
         Single post lookups may return 202 (sync pending) or 424 (all platforms failed). For follower stats, use /v1/accounts/follower-stats.
 
-        **LinkedIn personal accounts:** Analytics are only available for posts published through Zernio. LinkedIn's API only returns metrics for posts authored by the authenticated user. Organization/company page analytics work for all posts.
+        LinkedIn personal accounts: Analytics are only available for posts published through Zernio. LinkedIn's API only returns metrics for posts authored by the authenticated user. Organization/company page analytics work for all posts.
       operationId: getAnalytics
       parameters:
       - description: Returns analytics for a single post. Accepts both Zernio Post
@@ -913,7 +913,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/getInstagramAccountInsights_404_response"
           description: Account not found
-      summary: Get Instagram account-level insights
+      summary: Get Instagram insights
       tags:
       - Analytics
       x-accepts:
@@ -1049,7 +1049,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/getInstagramAccountInsights_404_response"
           description: Account not found
-      summary: Get Instagram audience demographics
+      summary: Get Instagram demographics
       tags:
       - Analytics
       x-accepts:
@@ -1168,7 +1168,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/getYouTubeDemographics_412_response"
           description: YouTube Analytics scope not granted
-      summary: Get YouTube audience demographics
+      summary: Get YouTube demographics
       tags:
       - Analytics
       x-accepts:
@@ -1528,7 +1528,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/getBestTimeToPost_403_response"
           description: Analytics add-on required
-      summary: Get posting frequency vs engagement
+      summary: Get frequency vs engagement
       tags:
       - Analytics
       x-accepts:
@@ -1740,7 +1740,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/getYouTubeDailyViews_403_response"
           description: Access denied
-      summary: Get Google Business Profile performance metrics
+      summary: Get GBP performance metrics
       tags:
       - Analytics
       x-accepts:
@@ -1825,7 +1825,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/getYouTubeDailyViews_403_response"
           description: Access denied
-      summary: Get Google Business Profile search keywords
+      summary: Get GBP search keywords
       tags:
       - Analytics
       x-accepts:
@@ -2030,7 +2030,7 @@ paths:
             \ content type)"
         "401":
           $ref: "#/components/responses/Unauthorized"
-      summary: Get presigned upload URL
+      summary: Get upload URL
       tags:
       - Media
       x-content-type: application/json
@@ -3132,7 +3132,7 @@ paths:
       description: |
         Edit a published post on a social media platform. Currently only supported for X (Twitter).
 
-        **Requirements:**
+        Requirements:
         - Connected X account must have an active X Premium subscription
         - Must be within 1 hour of original publish time
         - Maximum 5 edits per tweet (enforced by X)
@@ -3192,11 +3192,11 @@ paths:
         Updates metadata of a published video on the specified platform without re-uploading.
         Currently only supported for YouTube. At least one updatable field is required.
 
-        **Two modes:**
+        Two modes:
 
-        1. **Post-based** (video published through Zernio): pass the Zernio postId in the URL and `platform` in the body.
-        2. **Direct video ID** (video uploaded outside Zernio, e.g. directly to YouTube): use `_` as the postId,
-           and pass `videoId` + `accountId` + `platform` in the body. The accountId is the Zernio social account ID
+        1. Post-based (video published through Zernio): pass the Zernio postId in the URL and platform in the body.
+        2. Direct video ID (video uploaded outside Zernio, e.g. directly to YouTube): use _ as the postId,
+           and pass videoId + accountId + platform in the body. The accountId is the Zernio social account ID
            for the connected YouTube channel.
       operationId: updatePostMetadata
       parameters:
@@ -4329,13 +4329,13 @@ paths:
       description: |
         Unified ads connection endpoint. Creates a dedicated ads SocialAccount for the specified platform.
 
-        **Same-token platforms** (facebook, instagram, linkedin, pinterest): Creates an ads SocialAccount (`metaads`, `linkedinads`, `pinterestads`) with a copied OAuth token from the parent posting account. If the ads account already exists, returns `alreadyConnected: true`. No extra OAuth needed.
+        Same-token platforms (facebook, instagram, linkedin, pinterest): Creates an ads SocialAccount (metaads, linkedinads, pinterestads) with a copied OAuth token from the parent posting account. If the ads account already exists, returns alreadyConnected: true. No extra OAuth needed.
 
-        **Separate-token platforms** (tiktok, twitter): Starts the platform-specific marketing API OAuth flow and creates an ads SocialAccount (`tiktokads`, `xads`) with its own token. Requires an existing posting account (`accountId` param). If the ads account already exists, returns `alreadyConnected: true`.
+        Separate-token platforms (tiktok, twitter): Starts the platform-specific marketing API OAuth flow and creates an ads SocialAccount (tiktokads, xads) with its own token. Requires an existing posting account (accountId param). If the ads account already exists, returns alreadyConnected: true.
 
-        **Standalone platforms** (googleads): Starts the Google Ads OAuth flow and creates a standalone ads SocialAccount (`googleads`) with no parent. If the account already exists, returns `alreadyConnected: true`.
+        Standalone platforms (googleads): Starts the Google Ads OAuth flow and creates a standalone ads SocialAccount (googleads) with no parent. If the account already exists, returns alreadyConnected: true.
 
-        Ads accounts appear as regular SocialAccount documents with ads platform values (e.g., `metaads`, `tiktokads`) in `GET /v1/accounts`.
+        Ads accounts appear as regular SocialAccount documents with ads platform values (e.g., metaads, tiktokads) in GET /v1/accounts.
       operationId: connectAds
       parameters:
       - description: Platform to connect ads for. Only platforms with ads support
@@ -6231,7 +6231,7 @@ paths:
         1. Go to Meta Business Suite (business.facebook.com)
         2. Create or select a WhatsApp Business Account
         3. In Business Settings > System Users, create a System User
-        4. Assign it the `whatsapp_business_management` and `whatsapp_business_messaging` permissions
+        4. Assign it the whatsapp_business_management and whatsapp_business_messaging permissions
         5. Generate a permanent access token
         6. Get the WABA ID from WhatsApp Manager > Account Tools > Phone Numbers
         7. Get the Phone Number ID from the same page (click on the number)
@@ -6267,7 +6267,7 @@ paths:
           description: |
             Invalid request. Either missing fields or the phoneNumberId was not found
             in the specified WABA. If the phone was not found, the response includes
-            `availablePhoneNumbers` to help identify the correct ID.
+            availablePhoneNumbers to help identify the correct ID.
         "401":
           description: Invalid or expired access token
         "403":
@@ -6873,7 +6873,7 @@ paths:
       description: |
         Returns individual reactions for a specific LinkedIn post, including reactor profiles
         (name, headline/job title, profile picture, profile URL, reaction type).
-        Only works for **organization/company page** accounts. LinkedIn restricts reaction
+        Only works for organization/company page accounts. LinkedIn restricts reaction
         data for personal profiles (r_member_social_feed is a closed permission).
       operationId: getLinkedInPostReactions
       parameters:
@@ -7018,22 +7018,22 @@ paths:
       description: |
         Converts a LinkedIn profile or company URL to a URN for @mentions in posts.
 
-        **How to use LinkedIn @mentions (2-step workflow):**
+        How to use LinkedIn @mentions (2-step workflow):
 
         1. Call this endpoint with the LinkedIn profile/company URL to get the mention URN and format.
-        2. Embed the returned `mentionFormat` (e.g. `@[Vincent Jong](urn:li:person:xxx)`) directly in your post's `content` field.
+        2. Embed the returned mentionFormat (e.g. @[Vincent Jong](urn:li:person:xxx)) directly in your post's content field.
 
-        **Example:**
-        - Resolve: `GET /v1/accounts/{id}/linkedin-mentions?url=linkedin.com/in/vincentjong&displayName=Vincent Jong`
-        - Returns: `mentionFormat: "@[Vincent Jong](urn:li:person:xxx)"`
-        - Use in post content: `"Great talk with @[Vincent Jong](urn:li:person:xxx) today!"`
+        Example:
+        - Resolve: GET /v1/accounts/{id}/linkedin-mentions?url=linkedin.com/in/vincentjong&displayName=Vincent Jong
+        - Returns: mentionFormat: "@[Vincent Jong](urn:li:person:xxx)"
+        - Use in post content: "Great talk with @[Vincent Jong](urn:li:person:xxx) today!"
 
-        **Important:** The `mentions` array field in POST /v1/posts is stored for reference only and does NOT trigger @mentions on LinkedIn. You must embed the mention format directly in the content text.
+        Important: The mentions array field in POST /v1/posts is stored for reference only and does NOT trigger @mentions on LinkedIn. You must embed the mention format directly in the content text.
 
-        **Requirements:**
-        - **Person mentions** require the LinkedIn account to be admin of at least one organization. This is a LinkedIn API limitation: the only endpoints that resolve profile URLs to member URNs (`vanityUrl`, `peopleTypeahead`) are scoped to organization followers. There is no public LinkedIn API to resolve a vanity URL without organization context.
-        - **Organization mentions** (e.g. @Microsoft) work without this requirement.
-        - For person mentions to be clickable, the `displayName` parameter must exactly match the name shown on their LinkedIn profile.
+        Requirements:
+        - Person mentions require the LinkedIn account to be admin of at least one organization. This is a LinkedIn API limitation: the only endpoints that resolve profile URLs to member URNs (vanityUrl, peopleTypeahead) are scoped to organization followers. There is no public LinkedIn API to resolve a vanity URL without organization context.
+        - Organization mentions (e.g. @Microsoft) work without this requirement.
+        - For person mentions to be clickable, the displayName parameter must exactly match the name shown on their LinkedIn profile.
         - Person mentions DO work when published from personal profiles (the URN just needs to be valid). The limitation is only in the resolution step (URL to URN), not in publishing.
       operationId: getLinkedInMentions
       parameters:
@@ -7241,7 +7241,7 @@ paths:
   /v1/accounts/{accountId}/youtube-playlists:
     get:
       description: Returns the playlists available for a connected YouTube account.
-        Use this to get a playlist ID when creating a YouTube post with the `playlistId`
+        Use this to get a playlist ID when creating a YouTube post with the playlistId
         field.
       operationId: getYoutubePlaylists
       parameters:
@@ -7287,7 +7287,7 @@ paths:
       - application/json
     put:
       description: "Sets the default playlist used when publishing videos for this\
-        \ account. When a post does not specify a `playlistId`, the default playlist\
+        \ account. When a post does not specify a playlistId, the default playlist\
         \ is not automatically used (it is stored for client-side convenience)."
       operationId: updateYoutubeDefaultPlaylist
       parameters:
@@ -8227,87 +8227,13 @@ paths:
       - Logs
       x-accepts:
       - application/json
-  /v1/posts/{postId}/logs:
-    get:
-      description: |
-        Retrieve all publishing logs for a specific post. Shows the complete history
-        of publishing attempts for that post across all platforms.
-      operationId: getPostLogs
-      parameters:
-      - description: The post ID
-        explode: false
-        in: path
-        name: postId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: Maximum number of logs to return (max 100)
-        explode: true
-        in: query
-        name: limit
-        required: false
-        schema:
-          default: 50
-          maximum: 100
-          minimum: 1
-          type: integer
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              example:
-                logs:
-                - _id: 675f1c0a9e2b5af0012ab34cd
-                  postId: 65f1c0a9e2b5af0012ab34cd
-                  userId: 64e1f0a9e2b5af0012ab34de
-                  platform: instagram
-                  accountUsername: '@acmecorp'
-                  action: publish
-                  status: success
-                  statusCode: 200
-                  durationMs: 2340
-                  createdAt: 2024-11-01T10:00:05Z
-                - _id: 675f1c0a9e2b5af0012ab34ce
-                  postId: 65f1c0a9e2b5af0012ab34cd
-                  userId: 64e1f0a9e2b5af0012ab34de
-                  platform: twitter
-                  accountUsername: '@acme'
-                  action: publish
-                  status: failed
-                  statusCode: 429
-                  response:
-                    errorMessage: Rate limit exceeded
-                    errorCode: RATE_LIMITED
-                  durationMs: 150
-                  attemptNumber: 1
-                  createdAt: 2024-11-01T10:00:03Z
-                count: 2
-                postId: 65f1c0a9e2b5af0012ab34cd
-              schema:
-                $ref: "#/components/schemas/getPostLogs_200_response"
-          description: Post logs retrieved successfully
-        "401":
-          $ref: "#/components/responses/Unauthorized"
-        "403":
-          description: Forbidden - not authorized to view this post
-        "404":
-          $ref: "#/components/responses/NotFound"
-      security:
-      - bearerAuth: []
-      summary: Get post logs
-      tags:
-      - Logs
-      x-accepts:
-      - application/json
   /v1/inbox/conversations:
     get:
       description: |
         Fetch conversations (DMs) from all connected messaging accounts in a single API call. Supports filtering by profile and platform. Results are aggregated and deduplicated.
         Supported platforms: Facebook, Instagram, Twitter/X, Bluesky, Reddit, Telegram.
 
-        **Twitter/X limitation:** X has replaced traditional DMs with encrypted "X Chat" for many accounts. Messages sent or received through encrypted X Chat are not accessible via X's API (the `/2/dm_events` endpoint only returns legacy unencrypted DMs). This means some Twitter/X conversations may show only outgoing messages or appear empty. This is an X platform limitation that affects all third-party applications. See [X's docs on encrypted messaging](https://help.x.com/en/using-x/about-chat) for more details.
+        Twitter/X limitation: X has replaced traditional DMs with encrypted "X Chat" for many accounts. Messages sent or received through encrypted X Chat are not accessible via X's API (the /2/dm_events endpoint only returns legacy unencrypted DMs). This means some Twitter/X conversations may show only outgoing messages or appear empty. This is an X platform limitation that affects all third-party applications. See X's docs on encrypted messaging for more details.
       operationId: listInboxConversations
       parameters:
       - description: Filter by profile ID
@@ -8405,13 +8331,13 @@ paths:
       description: |
         Initiate a new direct message conversation with a specified user. If a conversation already exists with the recipient, the message is added to the existing thread.
 
-        **Currently supported platforms:** Twitter/X only. Other platforms will return `PLATFORM_NOT_SUPPORTED`.
+        Currently supported platforms: Twitter/X only. Other platforms will return PLATFORM_NOT_SUPPORTED.
 
-        **DM eligibility:** Before sending, the endpoint checks if the recipient accepts DMs from your account (via the `receives_your_dm` field). If not, a 422 error with code `DM_NOT_ALLOWED` is returned. You can skip this check with `skipDmCheck: true` if you have already verified eligibility.
+        DM eligibility: Before sending, the endpoint checks if the recipient accepts DMs from your account (via the receives_your_dm field). If not, a 422 error with code DM_NOT_ALLOWED is returned. You can skip this check with skipDmCheck: true if you have already verified eligibility.
 
-        **X API tier requirement:** DM write endpoints require X API Pro tier ($5,000/month) or Enterprise access. This applies to BYOK (Bring Your Own Key) users who provide their own X API credentials.
+        X API tier requirement: DM write endpoints require X API Pro tier ($5,000/month) or Enterprise access. This applies to BYOK (Bring Your Own Key) users who provide their own X API credentials.
 
-        **Rate limits:** 200 requests per 15 minutes, 1,000 per 24 hours per user, 15,000 per 24 hours per app (shared across all DM endpoints).
+        Rate limits: 200 requests per 15 minutes, 1,000 per 24 hours per user, 15,000 per 24 hours per app (shared across all DM endpoints).
       operationId: createInboxConversation
       requestBody:
         content:
@@ -8546,7 +8472,7 @@ paths:
       description: |
         Fetch messages for a specific conversation. Requires accountId query parameter.
 
-        **Twitter/X limitation:** X's encrypted "X Chat" messages are not accessible via the API. Conversations where the other participant uses encrypted X Chat may only show your outgoing messages. See the [list conversations endpoint](#/Messages/listInboxConversations) for more details.
+        Twitter/X limitation: X's encrypted "X Chat" messages are not accessible via the API. Conversations where the other participant uses encrypted X Chat may only show your outgoing messages. See the list conversations endpoint for more details.
       operationId: getInboxConversationMessages
       parameters:
       - description: "The conversation ID (id field from list conversations endpoint).\
@@ -8640,11 +8566,11 @@ paths:
     delete:
       description: |
         Delete a message from a conversation. Platform support varies:
-        - **Telegram**: Full delete (bot's own messages anytime, others if admin)
-        - **X/Twitter**: Full delete (own DM events only)
-        - **Bluesky**: Delete for self only (recipient still sees it)
-        - **Reddit**: Delete from sender's view only
-        - **Facebook, Instagram, WhatsApp**: Not supported (returns 400)
+        - Telegram: Full delete (bot's own messages anytime, others if admin)
+        - X/Twitter: Full delete (own DM events only)
+        - Bluesky: Delete for self only (recipient still sees it)
+        - Reddit: Delete from sender's view only
+        - Facebook, Instagram, WhatsApp: Not supported (returns 400)
       operationId: deleteInboxMessage
       parameters:
       - description: The conversation ID
@@ -8746,9 +8672,9 @@ paths:
     post:
       description: |
         Show a typing indicator in a conversation. Platform support:
-        - **Facebook Messenger**: Shows "Page is typing..." for 20 seconds
-        - **Telegram**: Shows "Bot is typing..." for 5 seconds
-        - **All others**: Returns 200 but no-op (platform doesn't support it)
+        - Facebook Messenger: Shows "Page is typing..." for 20 seconds
+        - Telegram: Shows "Bot is typing..." for 5 seconds
+        - All others: Returns 200 but no-op (platform doesn't support it)
 
         Typing indicators are best-effort. The endpoint always returns 200 even if the platform call fails.
       operationId: sendTypingIndicator
@@ -8792,9 +8718,9 @@ paths:
     delete:
       description: |
         Remove a reaction from a message. Platform support:
-        - **Telegram**: Send empty reaction array to clear
-        - **WhatsApp**: Send empty emoji to remove
-        - **All others**: Returns 400 (not supported)
+        - Telegram: Send empty reaction array to clear
+        - WhatsApp: Send empty emoji to remove
+        - All others: Returns 400 (not supported)
       operationId: removeMessageReaction
       parameters:
       - description: The conversation ID
@@ -8846,9 +8772,9 @@ paths:
     post:
       description: |
         Add an emoji reaction to a message. Platform support:
-        - **Telegram**: Supports a subset of Unicode emoji reactions
-        - **WhatsApp**: Supports any standard emoji (one reaction per message per sender)
-        - **All others**: Returns 400 (not supported)
+        - Telegram: Supports a subset of Unicode emoji reactions
+        - WhatsApp: Supports any standard emoji (one reaction per message per sender)
+        - All others: Returns 400 (not supported)
       operationId: addMessageReaction
       parameters:
       - description: The conversation ID
@@ -8900,12 +8826,12 @@ paths:
     post:
       description: |
         Upload a media file using API key authentication and get back a publicly accessible URL.
-        The URL can be used as `attachmentUrl` when sending inbox messages.
+        The URL can be used as attachmentUrl when sending inbox messages.
 
         Files are stored in temporary storage and auto-delete after 7 days.
         Maximum file size is 25MB.
 
-        Unlike `/v1/media/upload` (which uses upload tokens for end-user flows),
+        Unlike /v1/media/upload (which uses upload tokens for end-user flows),
         this endpoint uses standard Bearer token authentication for programmatic use.
       operationId: uploadMediaDirect
       requestBody:
@@ -10206,11 +10132,11 @@ paths:
       description: |
         Create a new message template. Supports two modes:
 
-        **Custom template:** Provide `components` with your own content. Submitted to Meta for review (can take up to 24h).
+        Custom template: Provide components with your own content. Submitted to Meta for review (can take up to 24h).
 
-        **Library template:** Provide `library_template_name` instead of `components` to use a pre-built template
-        from Meta's template library. Library templates are **pre-approved** (no review wait). You can optionally
-        customize parameters and buttons via `library_template_body_inputs` and `library_template_button_inputs`.
+        Library template: Provide library_template_name instead of components to use a pre-built template
+        from Meta's template library. Library templates are pre-approved (no review wait). You can optionally
+        customize parameters and buttons via library_template_body_inputs and library_template_button_inputs.
 
         Browse available library templates at: https://business.facebook.com/wa/manage/message-templates/
       operationId: createWhatsAppTemplate
@@ -10559,7 +10485,7 @@ paths:
           description: WhatsApp account not found
       security:
       - bearerAuth: []
-      summary: Get display name and review status
+      summary: Get display name status
       tags:
       - WhatsApp
       x-accepts:
@@ -11532,9 +11458,9 @@ paths:
   /v1/whatsapp/flows/{flowId}/publish:
     post:
       description: |
-        Publish a DRAFT flow. **This is irreversible.** Once published, the flow and its JSON
+        Publish a DRAFT flow. This is irreversible. Once published, the flow and its JSON
         become immutable and the flow can be sent to users. To update a published flow,
-        create a new flow (optionally cloning this one via `cloneFlowId`).
+        create a new flow (optionally cloning this one via cloneFlowId).
       operationId: publishWhatsAppFlow
       parameters:
       - description: Flow ID
@@ -11575,7 +11501,7 @@ paths:
   /v1/whatsapp/flows/{flowId}/deprecate:
     post:
       description: |
-        Deprecate a PUBLISHED flow. **This is irreversible.** Deprecated flows cannot be sent
+        Deprecate a PUBLISHED flow. This is irreversible. Deprecated flows cannot be sent
         or opened, but existing active sessions may continue until they complete.
       operationId: deprecateWhatsAppFlow
       parameters:
@@ -11765,7 +11691,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "409":
           description: Duplicate contact
-      summary: Create a contact
+      summary: Create contact
       tags:
       - Contacts
       x-content-type: application/json
@@ -11773,6 +11699,7 @@ paths:
       - application/json
   /v1/contacts/{contactId}:
     delete:
+      description: Permanently deletes a contact and all associated channels.
       operationId: deleteContact
       parameters:
       - explode: false
@@ -11789,12 +11716,13 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Delete a contact
+      summary: Delete contact
       tags:
       - Contacts
       x-accepts:
       - application/json
     get:
+      description: Returns a contact with all associated messaging channels.
       operationId: getContact
       parameters:
       - explode: false
@@ -11815,12 +11743,14 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Get contact with channels
+      summary: Get contact
       tags:
       - Contacts
       x-accepts:
       - application/json
     patch:
+      description: Update one or more fields on a contact. Only provided fields are
+        changed.
       operationId: updateContact
       parameters:
       - explode: false
@@ -11846,7 +11776,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Update a contact
+      summary: Update contact
       tags:
       - Contacts
       x-content-type: application/json
@@ -11854,6 +11784,8 @@ paths:
       - application/json
   /v1/contacts/{contactId}/channels:
     get:
+      description: "Returns all messaging channels linked to a contact (e.g. Instagram\
+        \ DM, Telegram, WhatsApp)."
       operationId: getContactChannels
       parameters:
       - explode: false
@@ -11906,6 +11838,8 @@ paths:
       - application/json
   /v1/contacts/{contactId}/fields/{slug}:
     delete:
+      description: Remove a custom field value from a contact. The field definition
+        is not affected.
       operationId: clearContactFieldValue
       parameters:
       - explode: false
@@ -11929,12 +11863,14 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Clear a custom field value
+      summary: Clear custom field value
       tags:
       - Custom Fields
       x-accepts:
       - application/json
     put:
+      description: Set or overwrite a custom field value on a contact. The value type
+        must match the field definition.
       operationId: setContactFieldValue
       parameters:
       - explode: false
@@ -11964,7 +11900,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Set a custom field value
+      summary: Set custom field value
       tags:
       - Custom Fields
       x-content-type: application/json
@@ -11972,6 +11908,7 @@ paths:
       - application/json
   /v1/custom-fields:
     get:
+      description: Returns all custom field definitions. Optionally filter by profile.
       operationId: listCustomFields
       parameters:
       - description: Filter by profile. Omit to list across all profiles
@@ -11997,6 +11934,8 @@ paths:
       x-accepts:
       - application/json
     post:
+      description: "Create a new custom field definition. Supported types are text,\
+        \ number, date, boolean, and select."
       operationId: createCustomField
       requestBody:
         content:
@@ -12015,7 +11954,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "409":
           description: Duplicate slug
-      summary: Create a custom field definition
+      summary: Create custom field
       tags:
       - Custom Fields
       x-content-type: application/json
@@ -12023,6 +11962,8 @@ paths:
       - application/json
   /v1/custom-fields/{fieldId}:
     delete:
+      description: Delete a custom field definition and remove its values from all
+        contacts.
       operationId: deleteCustomField
       parameters:
       - explode: false
@@ -12039,12 +11980,14 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Delete a custom field definition
+      summary: Delete custom field
       tags:
       - Custom Fields
       x-accepts:
       - application/json
     patch:
+      description: Update a custom field definition. The field type cannot be changed
+        after creation.
       operationId: updateCustomField
       parameters:
       - explode: false
@@ -12070,7 +12013,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Update a custom field definition
+      summary: Update custom field
       tags:
       - Custom Fields
       x-content-type: application/json
@@ -12078,6 +12021,8 @@ paths:
       - application/json
   /v1/broadcasts:
     get:
+      description: "Returns broadcasts with delivery stats. Filter by status, platform,\
+        \ or profile."
       operationId: listBroadcasts
       parameters:
       - description: Filter by profile. Omit to list across all profiles
@@ -12140,6 +12085,8 @@ paths:
       x-accepts:
       - application/json
     post:
+      description: Create a broadcast in draft status. Add recipients and then send
+        or schedule it.
       operationId: createBroadcast
       requestBody:
         content:
@@ -12156,7 +12103,7 @@ paths:
           description: Broadcast created
         "401":
           $ref: "#/components/responses/Unauthorized"
-      summary: Create a broadcast draft
+      summary: Create broadcast draft
       tags:
       - Broadcasts
       x-content-type: application/json
@@ -12164,6 +12111,7 @@ paths:
       - application/json
   /v1/broadcasts/{broadcastId}:
     delete:
+      description: Permanently delete a broadcast. Only drafts can be deleted.
       operationId: deleteBroadcast
       parameters:
       - explode: false
@@ -12180,12 +12128,13 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Delete a broadcast (draft only)
+      summary: Delete broadcast
       tags:
       - Broadcasts
       x-accepts:
       - application/json
     get:
+      description: Returns a broadcast with its full configuration and delivery stats.
       operationId: getBroadcast
       parameters:
       - explode: false
@@ -12212,6 +12161,8 @@ paths:
       x-accepts:
       - application/json
     patch:
+      description: "Update a broadcast's name, message, template, or segment filters.\
+        \ Only draft broadcasts can be updated."
       operationId: updateBroadcast
       parameters:
       - explode: false
@@ -12232,13 +12183,14 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Update a broadcast
+      summary: Update broadcast
       tags:
       - Broadcasts
       x-accepts:
       - application/json
   /v1/broadcasts/{broadcastId}/send:
     post:
+      description: Immediately start sending a draft broadcast to its recipients.
       operationId: sendBroadcast
       parameters:
       - explode: false
@@ -12261,13 +12213,14 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Trigger immediate send
+      summary: Send broadcast now
       tags:
       - Broadcasts
       x-accepts:
       - application/json
   /v1/broadcasts/{broadcastId}/schedule:
     post:
+      description: Schedule a draft broadcast to be sent at a future date and time.
       operationId: scheduleBroadcast
       parameters:
       - explode: false
@@ -12304,6 +12257,8 @@ paths:
       - application/json
   /v1/broadcasts/{broadcastId}/cancel:
     post:
+      description: Cancel a scheduled or in-progress broadcast. Already-sent messages
+        are not affected.
       operationId: cancelBroadcast
       parameters:
       - explode: false
@@ -12326,13 +12281,15 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Cancel a broadcast
+      summary: Cancel broadcast
       tags:
       - Broadcasts
       x-accepts:
       - application/json
   /v1/broadcasts/{broadcastId}/recipients:
     get:
+      description: Returns recipients for a broadcast with individual delivery status.
+        Filter by status.
       operationId: listBroadcastRecipients
       parameters:
       - explode: false
@@ -12388,6 +12345,8 @@ paths:
       x-accepts:
       - application/json
     post:
+      description: "Add recipients by contact IDs, raw phone numbers, or from the\
+        \ broadcast's segment filters."
       operationId: addBroadcastRecipients
       parameters:
       - explode: false
@@ -12422,6 +12381,8 @@ paths:
       - application/json
   /v1/sequences:
     get:
+      description: "Returns sequences with enrollment stats. Filter by status, platform,\
+        \ or profile."
       operationId: listSequences
       parameters:
       - description: Filter by profile. Omit to list across all profiles
@@ -12474,6 +12435,8 @@ paths:
       x-accepts:
       - application/json
     post:
+      description: Create a multi-step messaging sequence. Each step has a delay and
+        a message or WhatsApp template.
       operationId: createSequence
       requestBody:
         content:
@@ -12490,7 +12453,7 @@ paths:
           description: Sequence created
         "401":
           $ref: "#/components/responses/Unauthorized"
-      summary: Create a sequence
+      summary: Create sequence
       tags:
       - Sequences
       x-content-type: application/json
@@ -12498,6 +12461,7 @@ paths:
       - application/json
   /v1/sequences/{sequenceId}:
     delete:
+      description: Permanently delete a sequence. Active enrollments are stopped.
       operationId: deleteSequence
       parameters:
       - explode: false
@@ -12514,12 +12478,13 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Delete a sequence
+      summary: Delete sequence
       tags:
       - Sequences
       x-accepts:
       - application/json
     get:
+      description: Returns a sequence with all its steps and enrollment stats.
       operationId: getSequence
       parameters:
       - explode: false
@@ -12546,6 +12511,8 @@ paths:
       x-accepts:
       - application/json
     patch:
+      description: "Update a sequence's name, steps, or exit conditions. Active sequences\
+        \ can be updated without pausing."
       operationId: updateSequence
       parameters:
       - explode: false
@@ -12566,13 +12533,15 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Update a sequence
+      summary: Update sequence
       tags:
       - Sequences
       x-accepts:
       - application/json
   /v1/sequences/{sequenceId}/activate:
     post:
+      description: Start a draft or paused sequence. The sequence must have at least
+        one step.
       operationId: activateSequence
       parameters:
       - explode: false
@@ -12595,13 +12564,15 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Activate a sequence
+      summary: Activate sequence
       tags:
       - Sequences
       x-accepts:
       - application/json
   /v1/sequences/{sequenceId}/pause:
     post:
+      description: Pause an active sequence. Enrolled contacts stop receiving messages
+        until the sequence is reactivated.
       operationId: pauseSequence
       parameters:
       - explode: false
@@ -12624,13 +12595,15 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Pause a sequence
+      summary: Pause sequence
       tags:
       - Sequences
       x-accepts:
       - application/json
   /v1/sequences/{sequenceId}/enroll:
     post:
+      description: Enroll one or more contacts into a sequence. Contacts already enrolled
+        are skipped.
       operationId: enrollContacts
       parameters:
       - explode: false
@@ -12665,6 +12638,8 @@ paths:
       - application/json
   /v1/sequences/{sequenceId}/enroll/{contactId}:
     delete:
+      description: Remove a contact from a sequence. No further messages will be sent
+        to this contact.
       operationId: unenrollContact
       parameters:
       - explode: false
@@ -12688,13 +12663,15 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
-      summary: Unenroll a contact from a sequence
+      summary: Unenroll contact
       tags:
       - Sequences
       x-accepts:
       - application/json
   /v1/sequences/{sequenceId}/enrollments:
     get:
+      description: "Returns enrolled contacts with their progress, status, and next\
+        \ scheduled step."
       operationId: listSequenceEnrollments
       parameters:
       - explode: false
@@ -12805,7 +12782,7 @@ paths:
           description: Active automation already exists for this post
       security:
       - bearerAuth: []
-      summary: Create a comment-to-DM automation
+      summary: Create comment-to-DM automation
       tags:
       - Comment Automations
       x-content-type: application/json
@@ -12813,6 +12790,7 @@ paths:
       - application/json
   /v1/comment-automations/{automationId}:
     delete:
+      description: Permanently delete an automation and all its trigger logs.
       operationId: deleteCommentAutomation
       parameters:
       - explode: false
@@ -12831,12 +12809,14 @@ paths:
           $ref: "#/components/responses/NotFound"
       security:
       - bearerAuth: []
-      summary: Delete automation and all logs
+      summary: Delete automation
       tags:
       - Comment Automations
       x-accepts:
       - application/json
     get:
+      description: "Returns an automation with its configuration, stats, and recent\
+        \ trigger logs."
       operationId: getCommentAutomation
       parameters:
       - explode: false
@@ -12859,12 +12839,14 @@ paths:
           $ref: "#/components/responses/NotFound"
       security:
       - bearerAuth: []
-      summary: Get automation details with recent logs
+      summary: Get automation details
       tags:
       - Comment Automations
       x-accepts:
       - application/json
     patch:
+      description: "Update an automation's keywords, DM message, comment reply, or\
+        \ active status."
       operationId: updateCommentAutomation
       parameters:
       - explode: false
@@ -12952,7 +12934,7 @@ paths:
           $ref: "#/components/responses/NotFound"
       security:
       - bearerAuth: []
-      summary: List trigger logs for an automation
+      summary: List automation logs
       tags:
       - Comment Automations
       x-accepts:
@@ -12961,7 +12943,7 @@ paths:
     get:
       description: |
         Returns a paginated list of ads with metrics computed over an optional date range.
-        Use `source=all` to include externally-synced ads from platform ad managers.
+        Use source=all to include externally-synced ads from platform ad managers.
         If no date range is provided, defaults to the last 90 days. Date range is capped at 90 days max.
       operationId: listAds
       parameters:
@@ -12993,15 +12975,7 @@ paths:
         name: status
         required: false
         schema:
-          enum:
-          - active
-          - paused
-          - pending_review
-          - rejected
-          - completed
-          - cancelled
-          - error
-          type: string
+          $ref: "#/components/schemas/AdStatus"
         style: form
       - explode: true
         in: query
@@ -13140,15 +13114,7 @@ paths:
         name: status
         required: false
         schema:
-          enum:
-          - active
-          - paused
-          - pending_review
-          - rejected
-          - completed
-          - cancelled
-          - error
-          type: string
+          $ref: "#/components/schemas/AdStatus"
         style: form
       - description: Platform ad account ID (e.g. act_123 for Meta)
         explode: true
@@ -13187,7 +13153,7 @@ paths:
           description: Ads add-on required
       security:
       - bearerAuth: []
-      summary: List campaigns with aggregate metrics
+      summary: List campaigns
       tags:
       - Ad Campaigns
       x-accepts:
@@ -13289,15 +13255,7 @@ paths:
         name: status
         required: false
         schema:
-          enum:
-          - active
-          - paused
-          - pending_review
-          - rejected
-          - completed
-          - cancelled
-          - error
-          type: string
+          $ref: "#/components/schemas/AdStatus"
         style: form
       - description: Platform ad account ID
         explode: true
@@ -13356,7 +13314,7 @@ paths:
           description: Ads add-on required
       security:
       - bearerAuth: []
-      summary: Get nested campaign/ad-set/ad tree
+      summary: Get campaign tree
       tags:
       - Ad Campaigns
       x-accepts:
@@ -13393,6 +13351,8 @@ paths:
       x-accepts:
       - application/json
     get:
+      description: "Returns an ad with its creative, targeting, status, and performance\
+        \ metrics."
       operationId: getAd
       parameters:
       - explode: false
@@ -13453,7 +13413,7 @@ paths:
           $ref: "#/components/responses/NotFound"
       security:
       - bearerAuth: []
-      summary: "Update ad (pause/resume, budget, targeting, name)"
+      summary: Update ad
       tags:
       - Ads
       x-content-type: application/json
@@ -13518,7 +13478,7 @@ paths:
           $ref: "#/components/responses/NotFound"
       security:
       - bearerAuth: []
-      summary: Get ad analytics with daily breakdown
+      summary: Get ad analytics
       tags:
       - Ads
       x-accepts:
@@ -13552,7 +13512,7 @@ paths:
             \ missing linked Facebook account"
       security:
       - bearerAuth: []
-      summary: List ad accounts for a social account
+      summary: List ad accounts
       tags:
       - Ads
       x-accepts:
@@ -13586,7 +13546,7 @@ paths:
             \ linked account"
       security:
       - bearerAuth: []
-      summary: Boost an existing post as a paid ad
+      summary: Boost post as ad
       tags:
       - Ads
       x-content-type: application/json
@@ -13621,7 +13581,7 @@ paths:
             \ linked account"
       security:
       - bearerAuth: []
-      summary: Create a standalone ad with custom creative
+      summary: Create standalone ad
       tags:
       - Ads
       x-content-type: application/json
@@ -13744,7 +13704,7 @@ paths:
           description: Ads add-on required
       security:
       - bearerAuth: []
-      summary: Create a custom audience (Meta only)
+      summary: Create custom audience
       tags:
       - Ad Audiences
       x-content-type: application/json
@@ -13777,7 +13737,7 @@ paths:
           $ref: "#/components/responses/NotFound"
       security:
       - bearerAuth: []
-      summary: Delete a custom audience
+      summary: Delete custom audience
       tags:
       - Ad Audiences
       x-accepts:
@@ -13854,7 +13814,7 @@ paths:
             yet
       security:
       - bearerAuth: []
-      summary: Add users to a customer list audience
+      summary: Add users to audience
       tags:
       - Ad Audiences
       x-content-type: application/json
@@ -15277,7 +15237,7 @@ components:
       - post
       - timestamp
     InboxWebhookMessage:
-      description: The `message` object included in inbox webhook payloads.
+      description: The message object included in inbox webhook payloads.
       example:
         attachments:
         - payload: "{}"
@@ -15354,7 +15314,7 @@ components:
       - sentAt
       - text
     InboxWebhookConversation:
-      description: The `conversation` context included in inbox webhook payloads.
+      description: The conversation context included in inbox webhook payloads.
       example:
         participantId: participantId
         platformConversationId: platformConversationId
@@ -15386,7 +15346,7 @@ components:
       - platformConversationId
       - status
     InboxWebhookAccount:
-      description: The `account` context included in inbox webhook payloads.
+      description: The account context included in inbox webhook payloads.
       example:
         displayName: displayName
         id: id
@@ -15549,10 +15509,10 @@ components:
       - timestamp
     WebhookPayloadMessageEdited:
       description: |
-        Webhook payload for `message.edited` events. Fires when the sender
+        Webhook payload for message.edited events. Fires when the sender
         edits a previously-sent message. Supported platforms: Instagram,
-        Facebook Messenger, Telegram. The `message` object reflects the
-        LATEST state; `editHistory` contains every prior version in order
+        Facebook Messenger, Telegram. The message object reflects the
+        LATEST state; editHistory contains every prior version in order
         (oldest first), so the last entry is the version immediately before
         the current content.
       example:
@@ -15659,12 +15619,12 @@ components:
       - timestamp
     WebhookPayloadMessageDeleted:
       description: |
-        Webhook payload for `message.deleted` events. Fires when the sender
+        Webhook payload for message.deleted events. Fires when the sender
         deletes (unsends) a message. Supported platforms: Instagram (incoming
         unsend) and WhatsApp (when the business deletes an outgoing message
         via the Cloud API).
 
-        The `message.text` and `message.attachments` fields retain the content
+        The message.text and message.attachments fields retain the content
         that existed before the delete. The Zernio dashboard UI does not show
         this content, but authorized API consumers may access it for
         moderation, compliance, or archival use cases.
@@ -15741,14 +15701,14 @@ components:
       - timestamp
     WebhookPayloadMessageDeliveryStatus:
       description: |
-        Shared payload for `message.delivered`, `message.read`, and
-        `message.failed` events. Fires when the platform reports a new
+        Shared payload for message.delivered, message.read, and
+        message.failed events. Fires when the platform reports a new
         delivery state for an outgoing message.
 
         Platform support:
-          * `message.delivered` — WhatsApp, Facebook Messenger.
-          * `message.read`      — WhatsApp, Facebook Messenger, Instagram.
-          * `message.failed`    — WhatsApp only (other platforms don't expose
+          * message.delivered — WhatsApp, Facebook Messenger.
+          * message.read      — WhatsApp, Facebook Messenger, Instagram.
+          * message.failed    — WhatsApp only (other platforms don't expose
             per-message failure via webhook).
       example:
         id: id
@@ -15856,107 +15816,6 @@ components:
       - id
       - message
       - timestamp
-    PostLog:
-      description: Publishing log entry showing details of a post publishing attempt
-      example:
-        attemptNumber: 5
-        request:
-          mediaTypes:
-          - mediaTypes
-          - mediaTypes
-          rawBody: rawBody
-          scheduledFor: 2000-01-23T04:56:07.000+00:00
-          mediaCount: 6
-          contentPreview: contentPreview
-          mediaUrls:
-          - mediaUrls
-          - mediaUrls
-        postId: PostLog_postId
-        userId: userId
-        platform: tiktok
-        accountId: accountId
-        createdAt: 2000-01-23T04:56:07.000+00:00
-        endpoint: endpoint
-        profileId: profileId
-        response:
-          rawBody: rawBody
-          platformPostUrl: platformPostUrl
-          errorMessage: errorMessage
-          errorCode: errorCode
-          platformPostId: platformPostId
-        accountUsername: accountUsername
-        action: publish
-        _id: _id
-        durationMs: 1
-        status: success
-        statusCode: 0
-      properties:
-        _id:
-          type: string
-        postId:
-          $ref: "#/components/schemas/PostLog_postId"
-        userId:
-          type: string
-        profileId:
-          type: string
-        platform:
-          enum:
-          - tiktok
-          - instagram
-          - facebook
-          - youtube
-          - linkedin
-          - twitter
-          - threads
-          - pinterest
-          - reddit
-          - bluesky
-          - googlebusiness
-          - telegram
-          - snapchat
-          - discord
-          type: string
-        accountId:
-          type: string
-        accountUsername:
-          type: string
-        action:
-          description: "Type of action logged: publish (initial attempt), retry (after\
-            \ failure), media_upload, rate_limit_pause, token_refresh, cancelled"
-          enum:
-          - publish
-          - retry
-          - media_upload
-          - rate_limit_pause
-          - token_refresh
-          - cancelled
-          type: string
-        status:
-          enum:
-          - success
-          - failed
-          - pending
-          - skipped
-          type: string
-        statusCode:
-          description: HTTP status code from platform API
-          type: integer
-        endpoint:
-          description: Platform API endpoint called
-          type: string
-        request:
-          $ref: "#/components/schemas/PostLog_request"
-        response:
-          $ref: "#/components/schemas/PostLog_response"
-        durationMs:
-          description: How long the operation took in milliseconds
-          type: integer
-        attemptNumber:
-          description: "Attempt number (1 for first try, 2+ for retries)"
-          type: integer
-        createdAt:
-          format: date-time
-          type: string
     MediaItem:
       description: Media referenced in posts. URLs must be publicly reachable over
         HTTPS. Use POST /v1/media/presign for uploads up to 5GB. Zernio auto-compresses
@@ -16890,26 +16749,26 @@ components:
         Photo carousels up to 35 images. Video titles up to 2200 chars, photo titles truncated to 90 chars.
         privacyLevel must match creator_info options. Both camelCase and snake_case accepted.
 
-        **Creator Inbox (draft mode):** Set `draft: true` to send content to the TikTok Creator Inbox
+        Creator Inbox (draft mode): Set draft: true to send content to the TikTok Creator Inbox
         instead of publishing immediately. The creator receives an inbox notification and completes
-        the post using TikTok's editing flow. This maps to TikTok's `post_mode: "MEDIA_UPLOAD"` internally.
+        the post using TikTok's editing flow. This maps to TikTok's post_mode: "MEDIA_UPLOAD" internally.
 
-        **Important:** The field `publish_type` is NOT supported. Use `draft: true` for Creator Inbox flow.
+        Important: The field publish_type is NOT supported. Use draft: true for Creator Inbox flow.
 
-        **Photo drafts** use the `/v2/post/publish/content/init/` endpoint with `post_mode: "MEDIA_UPLOAD"`.
-        **Video drafts** use the dedicated `/v2/post/publish/inbox/video/init/` endpoint.
+        Photo drafts use the /v2/post/publish/content/init/ endpoint with post_mode: "MEDIA_UPLOAD".
+        Video drafts use the dedicated /v2/post/publish/inbox/video/init/ endpoint.
 
-        When `draft: true`, the `video.upload` scope is required. When `draft` is false or omitted
-        (direct post), the `video.publish` scope is required. For Creator Inbox, TikTok app version
+        When draft: true, the video.upload scope is required. When draft is false or omitted
+        (direct post), the video.publish scope is required. For Creator Inbox, TikTok app version
         must be 31.8 or higher.
       properties:
         draft:
           description: |
             When true, sends the post to the TikTok Creator Inbox as a draft instead of publishing
             immediately. The creator receives an inbox notification to complete posting via TikTok's
-            editing flow. Maps to TikTok API `post_mode: "MEDIA_UPLOAD"` (photos) or the dedicated
-            inbox endpoint (videos). When false or omitted, publishes directly via `post_mode: "DIRECT_POST"`.
-            Note: `publish_type` is not a supported field. Use this field instead.
+            editing flow. Maps to TikTok API post_mode: "MEDIA_UPLOAD" (photos) or the dedicated
+            inbox endpoint (videos). When false or omitted, publishes directly via post_mode: "DIRECT_POST".
+            Note: publish_type is not a supported field. Use this field instead.
           type: boolean
         privacyLevel:
           description: One of the values returned by the TikTok creator info API for
@@ -17159,16 +17018,17 @@ components:
     SocialAccount:
       example:
         profileUrl: profileUrl
-        parentAccountId: parentAccountId
         metadata: "{}"
         followersLastUpdated: 2000-01-23T04:56:07.000+00:00
-        profileId: SocialAccount_profileId
         displayName: displayName
-        _id: _id
-        followersCount: 0.8008281904610115
         isActive: true
         platform: tiktok
         enabled: true
+        parentAccountId: parentAccountId
+        profilePicture: profilePicture
+        profileId: SocialAccount_profileId
+        _id: _id
+        followersCount: 0.8008281904610115
         username: username
       properties:
         _id:
@@ -17203,6 +17063,11 @@ components:
           type: string
         displayName:
           type: string
+        profilePicture:
+          description: URL to the account's profile picture on the platform. May be
+            null if the platform does not provide one.
+          type: string
+          nullable: true
         profileUrl:
           description: Full profile URL for the connected account on its platform.
           type: string
@@ -17232,20 +17097,18 @@ components:
         metadata:
           description: |
             Platform-specific metadata. Fields vary by platform. For WhatsApp accounts, includes:
-            - `qualityRating`: Phone number quality rating from Meta (`GREEN`, `YELLOW`, `RED`, or `UNKNOWN`)
-            - `nameStatus`: Display name review status (`APPROVED`, `PENDING_REVIEW`, `DECLINED`, or `NONE`). Messages cannot be sent until the display name is approved by Meta.
-            - `messagingLimitTier`: Maximum unique business-initiated conversations per 24h rolling window (`TIER_250`, `TIER_1K`, `TIER_10K`, `TIER_100K`, or `TIER_UNLIMITED`). Scales automatically as quality rating improves.
-            - `verifiedName`: Meta-verified business display name
-            - `displayPhoneNumber`: Formatted phone number (e.g., "+1 555-123-4567")
-            - `wabaId`: WhatsApp Business Account ID
-            - `phoneNumberId`: Meta phone number ID
+            - qualityRating: Phone number quality rating from Meta (GREEN, YELLOW, RED, or UNKNOWN)
+            - nameStatus: Display name review status (APPROVED, PENDING_REVIEW, DECLINED, or NONE). Messages cannot be sent until the display name is approved by Meta.
+            - messagingLimitTier: Maximum unique business-initiated conversations per 24h rolling window (TIER_250, TIER_1K, TIER_10K, TIER_100K, or TIER_UNLIMITED). Scales automatically as quality rating improves.
+            - verifiedName: Meta-verified business display name
+            - displayPhoneNumber: Formatted phone number (e.g., "+1 555-123-4567")
+            - wabaId: WhatsApp Business Account ID
+            - phoneNumberId: Meta phone number ID
           type: object
     AccountWithFollowerStats:
       allOf:
       - $ref: "#/components/schemas/SocialAccount"
       - properties:
-          profilePicture:
-            type: string
           currentFollowers:
             description: Current follower count
             type: number
@@ -19344,14 +19207,40 @@ components:
           description: "Present on individual ads only, not on campaign aggregations"
           format: date-time
           type: string
+    AdStatus:
+      enum:
+      - active
+      - paused
+      - pending_review
+      - rejected
+      - completed
+      - cancelled
+      - error
+      type: string
     Ad:
       example:
-        goal: engagement
+        bidStrategy: LOWEST_COST_WITHOUT_CAP
         adSetName: adSetName
-        isExternal: true
         platformCampaignId: platformCampaignId
+        optimizationGoal: OFFSITE_CONVERSIONS
         platformAdId: platformAdId
         platform: facebook
+        promotedObject:
+          page_id: page_id
+          custom_event_type: PURCHASE
+          product_set_id: product_set_id
+          pixel_id: pixel_id
+          application_id: application_id
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        adType: boost
+        targeting: "{}"
+        platformAdSetId: platformAdSetId
+        budget:
+          amount: 0.8008281904610115
+          type: daily
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+        goal: engagement
+        isExternal: true
         creative:
           videoId: videoId
           pinterestTitle: pinterestTitle
@@ -19371,21 +19260,14 @@ components:
         schedule:
           endDate: 2000-01-23T04:56:07.000+00:00
           startDate: 2000-01-23T04:56:07.000+00:00
-        createdAt: 2000-01-23T04:56:07.000+00:00
-        adType: boost
-        targeting: "{}"
         name: name
-        platformAdSetId: platformAdSetId
+        platformObjective: OUTCOME_SALES
         _id: _id
         metrics: ""
         rejectionReason: rejectionReason
         campaignName: campaignName
         platformAdAccountId: platformAdAccountId
         status: active
-        budget:
-          amount: 0.8008281904610115
-          type: daily
-        updatedAt: 2000-01-23T04:56:07.000+00:00
       properties:
         _id:
           type: string
@@ -19402,15 +19284,7 @@ components:
           - twitter
           type: string
         status:
-          enum:
-          - active
-          - paused
-          - pending_review
-          - rejected
-          - completed
-          - cancelled
-          - error
-          type: string
+          $ref: "#/components/schemas/AdStatus"
         adType:
           enum:
           - boost
@@ -19444,6 +19318,26 @@ components:
           type: string
         adSetName:
           type: string
+        platformObjective:
+          description: "Raw Meta campaign objective (e.g. OUTCOME_SALES, OUTCOME_LEADS,\
+            \ OUTCOME_TRAFFIC). Only present for Meta ads."
+          example: OUTCOME_SALES
+          type: string
+          nullable: true
+        optimizationGoal:
+          description: "Meta ad set optimization goal (e.g. OFFSITE_CONVERSIONS, VALUE,\
+            \ LEAD_GENERATION, LINK_CLICKS). Only present for Meta ads."
+          example: OFFSITE_CONVERSIONS
+          type: string
+          nullable: true
+        bidStrategy:
+          description: "Bid strategy (e.g. LOWEST_COST_WITHOUT_CAP, COST_CAP, LOWEST_COST_WITH_MIN_ROAS).\
+            \ Ad set level overrides campaign level. Only present for Meta ads."
+          example: LOWEST_COST_WITHOUT_CAP
+          type: string
+          nullable: true
+        promotedObject:
+          $ref: "#/components/schemas/Ad_promotedObject"
         creative:
           $ref: "#/components/schemas/Ad_creative"
         targeting:
@@ -19462,13 +19356,30 @@ components:
       description: Ad set (or ad group/line item depending on platform) with rolled-up
         metrics and child ads
       example:
+        bidStrategy: bidStrategy
         ads:
-        - goal: engagement
+        - bidStrategy: LOWEST_COST_WITHOUT_CAP
           adSetName: adSetName
-          isExternal: true
           platformCampaignId: platformCampaignId
+          optimizationGoal: OFFSITE_CONVERSIONS
           platformAdId: platformAdId
           platform: facebook
+          promotedObject:
+            page_id: page_id
+            custom_event_type: PURCHASE
+            product_set_id: product_set_id
+            pixel_id: pixel_id
+            application_id: application_id
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          adType: boost
+          targeting: "{}"
+          platformAdSetId: platformAdSetId
+          budget:
+            amount: 0.8008281904610115
+            type: daily
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+          goal: engagement
+          isExternal: true
           creative:
             videoId: videoId
             pinterestTitle: pinterestTitle
@@ -19488,27 +19399,36 @@ components:
           schedule:
             endDate: 2000-01-23T04:56:07.000+00:00
             startDate: 2000-01-23T04:56:07.000+00:00
-          createdAt: 2000-01-23T04:56:07.000+00:00
-          adType: boost
-          targeting: "{}"
           name: name
-          platformAdSetId: platformAdSetId
+          platformObjective: OUTCOME_SALES
           _id: _id
           metrics: ""
           rejectionReason: rejectionReason
           campaignName: campaignName
           platformAdAccountId: platformAdAccountId
           status: active
+        - bidStrategy: LOWEST_COST_WITHOUT_CAP
+          adSetName: adSetName
+          platformCampaignId: platformCampaignId
+          optimizationGoal: OFFSITE_CONVERSIONS
+          platformAdId: platformAdId
+          platform: facebook
+          promotedObject:
+            page_id: page_id
+            custom_event_type: PURCHASE
+            product_set_id: product_set_id
+            pixel_id: pixel_id
+            application_id: application_id
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          adType: boost
+          targeting: "{}"
+          platformAdSetId: platformAdSetId
           budget:
             amount: 0.8008281904610115
             type: daily
           updatedAt: 2000-01-23T04:56:07.000+00:00
-        - goal: engagement
-          adSetName: adSetName
+          goal: engagement
           isExternal: true
-          platformCampaignId: platformCampaignId
-          platformAdId: platformAdId
-          platform: facebook
           creative:
             videoId: videoId
             pinterestTitle: pinterestTitle
@@ -19528,24 +19448,18 @@ components:
           schedule:
             endDate: 2000-01-23T04:56:07.000+00:00
             startDate: 2000-01-23T04:56:07.000+00:00
-          createdAt: 2000-01-23T04:56:07.000+00:00
-          adType: boost
-          targeting: "{}"
           name: name
-          platformAdSetId: platformAdSetId
+          platformObjective: OUTCOME_SALES
           _id: _id
           metrics: ""
           rejectionReason: rejectionReason
           campaignName: campaignName
           platformAdAccountId: platformAdAccountId
           status: active
-          budget:
-            amount: 0.8008281904610115
-            type: daily
-          updatedAt: 2000-01-23T04:56:07.000+00:00
         adSetName: adSetName
         platformAdSetId: platformAdSetId
         adCount: 1
+        optimizationGoal: optimizationGoal
         metrics:
           ctr: 2.3021358869347655
           cpm: 9.301444243932576
@@ -19556,7 +19470,11 @@ components:
           lastSyncedAt: 2000-01-23T04:56:07.000+00:00
           clicks: 5
           impressions: 1
-        status: active
+        promotedObject:
+          page_id: page_id
+          custom_event_type: custom_event_type
+          pixel_id: pixel_id
+        status: ""
         budget:
           amount: 0.8008281904610115
           type: daily
@@ -19566,22 +19484,27 @@ components:
         adSetName:
           type: string
         status:
+          allOf:
+          - $ref: "#/components/schemas/AdStatus"
           description: Derived from child ad statuses
-          enum:
-          - active
-          - paused
-          - pending_review
-          - rejected
-          - completed
-          - cancelled
-          - error
-          type: string
         adCount:
           type: integer
         budget:
           $ref: "#/components/schemas/Ad_budget"
         metrics:
           $ref: "#/components/schemas/AdMetrics"
+        optimizationGoal:
+          description: "Meta ad set optimization goal (e.g. OFFSITE_CONVERSIONS, VALUE,\
+            \ LEAD_GENERATION)"
+          type: string
+          nullable: true
+        bidStrategy:
+          description: Bid strategy for this ad set (overrides campaign level when
+            set)
+          type: string
+          nullable: true
+        promotedObject:
+          $ref: "#/components/schemas/AdTreeAdSet_promotedObject"
         ads:
           description: "Individual ads within this ad set (capped at 100). Returns\
             \ a subset of Ad fields from the aggregation (core fields like _id, name,\
@@ -19593,18 +19516,44 @@ components:
     AdTreeCampaign:
       description: Campaign with nested ad sets and rolled-up metrics
       example:
-        accountId: accountId
-        profileId: profileId
+        bidStrategy: bidStrategy
         platformCampaignId: platformCampaignId
         adCount: 0
+        optimizationGoal: optimizationGoal
+        adSetCount: 6
+        platform: facebook
+        promotedObject:
+          page_id: page_id
+          custom_event_type: custom_event_type
+          pixel_id: pixel_id
+        accountId: accountId
+        profileId: profileId
+        platformObjective: platformObjective
         adSets:
-        - ads:
-          - goal: engagement
+        - bidStrategy: bidStrategy
+          ads:
+          - bidStrategy: LOWEST_COST_WITHOUT_CAP
             adSetName: adSetName
-            isExternal: true
             platformCampaignId: platformCampaignId
+            optimizationGoal: OFFSITE_CONVERSIONS
             platformAdId: platformAdId
             platform: facebook
+            promotedObject:
+              page_id: page_id
+              custom_event_type: PURCHASE
+              product_set_id: product_set_id
+              pixel_id: pixel_id
+              application_id: application_id
+            createdAt: 2000-01-23T04:56:07.000+00:00
+            adType: boost
+            targeting: "{}"
+            platformAdSetId: platformAdSetId
+            budget:
+              amount: 0.8008281904610115
+              type: daily
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+            goal: engagement
+            isExternal: true
             creative:
               videoId: videoId
               pinterestTitle: pinterestTitle
@@ -19624,27 +19573,36 @@ components:
             schedule:
               endDate: 2000-01-23T04:56:07.000+00:00
               startDate: 2000-01-23T04:56:07.000+00:00
-            createdAt: 2000-01-23T04:56:07.000+00:00
-            adType: boost
-            targeting: "{}"
             name: name
-            platformAdSetId: platformAdSetId
+            platformObjective: OUTCOME_SALES
             _id: _id
             metrics: ""
             rejectionReason: rejectionReason
             campaignName: campaignName
             platformAdAccountId: platformAdAccountId
             status: active
+          - bidStrategy: LOWEST_COST_WITHOUT_CAP
+            adSetName: adSetName
+            platformCampaignId: platformCampaignId
+            optimizationGoal: OFFSITE_CONVERSIONS
+            platformAdId: platformAdId
+            platform: facebook
+            promotedObject:
+              page_id: page_id
+              custom_event_type: PURCHASE
+              product_set_id: product_set_id
+              pixel_id: pixel_id
+              application_id: application_id
+            createdAt: 2000-01-23T04:56:07.000+00:00
+            adType: boost
+            targeting: "{}"
+            platformAdSetId: platformAdSetId
             budget:
               amount: 0.8008281904610115
               type: daily
             updatedAt: 2000-01-23T04:56:07.000+00:00
-          - goal: engagement
-            adSetName: adSetName
+            goal: engagement
             isExternal: true
-            platformCampaignId: platformCampaignId
-            platformAdId: platformAdId
-            platform: facebook
             creative:
               videoId: videoId
               pinterestTitle: pinterestTitle
@@ -19664,24 +19622,18 @@ components:
             schedule:
               endDate: 2000-01-23T04:56:07.000+00:00
               startDate: 2000-01-23T04:56:07.000+00:00
-            createdAt: 2000-01-23T04:56:07.000+00:00
-            adType: boost
-            targeting: "{}"
             name: name
-            platformAdSetId: platformAdSetId
+            platformObjective: OUTCOME_SALES
             _id: _id
             metrics: ""
             rejectionReason: rejectionReason
             campaignName: campaignName
             platformAdAccountId: platformAdAccountId
             status: active
-            budget:
-              amount: 0.8008281904610115
-              type: daily
-            updatedAt: 2000-01-23T04:56:07.000+00:00
           adSetName: adSetName
           platformAdSetId: platformAdSetId
           adCount: 1
+          optimizationGoal: optimizationGoal
           metrics:
             ctr: 2.3021358869347655
             cpm: 9.301444243932576
@@ -19692,17 +19644,38 @@ components:
             lastSyncedAt: 2000-01-23T04:56:07.000+00:00
             clicks: 5
             impressions: 1
-          status: active
+          promotedObject:
+            page_id: page_id
+            custom_event_type: custom_event_type
+            pixel_id: pixel_id
+          status: ""
           budget:
             amount: 0.8008281904610115
             type: daily
-        - ads:
-          - goal: engagement
+        - bidStrategy: bidStrategy
+          ads:
+          - bidStrategy: LOWEST_COST_WITHOUT_CAP
             adSetName: adSetName
-            isExternal: true
             platformCampaignId: platformCampaignId
+            optimizationGoal: OFFSITE_CONVERSIONS
             platformAdId: platformAdId
             platform: facebook
+            promotedObject:
+              page_id: page_id
+              custom_event_type: PURCHASE
+              product_set_id: product_set_id
+              pixel_id: pixel_id
+              application_id: application_id
+            createdAt: 2000-01-23T04:56:07.000+00:00
+            adType: boost
+            targeting: "{}"
+            platformAdSetId: platformAdSetId
+            budget:
+              amount: 0.8008281904610115
+              type: daily
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+            goal: engagement
+            isExternal: true
             creative:
               videoId: videoId
               pinterestTitle: pinterestTitle
@@ -19722,27 +19695,36 @@ components:
             schedule:
               endDate: 2000-01-23T04:56:07.000+00:00
               startDate: 2000-01-23T04:56:07.000+00:00
-            createdAt: 2000-01-23T04:56:07.000+00:00
-            adType: boost
-            targeting: "{}"
             name: name
-            platformAdSetId: platformAdSetId
+            platformObjective: OUTCOME_SALES
             _id: _id
             metrics: ""
             rejectionReason: rejectionReason
             campaignName: campaignName
             platformAdAccountId: platformAdAccountId
             status: active
+          - bidStrategy: LOWEST_COST_WITHOUT_CAP
+            adSetName: adSetName
+            platformCampaignId: platformCampaignId
+            optimizationGoal: OFFSITE_CONVERSIONS
+            platformAdId: platformAdId
+            platform: facebook
+            promotedObject:
+              page_id: page_id
+              custom_event_type: PURCHASE
+              product_set_id: product_set_id
+              pixel_id: pixel_id
+              application_id: application_id
+            createdAt: 2000-01-23T04:56:07.000+00:00
+            adType: boost
+            targeting: "{}"
+            platformAdSetId: platformAdSetId
             budget:
               amount: 0.8008281904610115
               type: daily
             updatedAt: 2000-01-23T04:56:07.000+00:00
-          - goal: engagement
-            adSetName: adSetName
+            goal: engagement
             isExternal: true
-            platformCampaignId: platformCampaignId
-            platformAdId: platformAdId
-            platform: facebook
             creative:
               videoId: videoId
               pinterestTitle: pinterestTitle
@@ -19762,24 +19744,18 @@ components:
             schedule:
               endDate: 2000-01-23T04:56:07.000+00:00
               startDate: 2000-01-23T04:56:07.000+00:00
-            createdAt: 2000-01-23T04:56:07.000+00:00
-            adType: boost
-            targeting: "{}"
             name: name
-            platformAdSetId: platformAdSetId
+            platformObjective: OUTCOME_SALES
             _id: _id
             metrics: ""
             rejectionReason: rejectionReason
             campaignName: campaignName
             platformAdAccountId: platformAdAccountId
             status: active
-            budget:
-              amount: 0.8008281904610115
-              type: daily
-            updatedAt: 2000-01-23T04:56:07.000+00:00
           adSetName: adSetName
           platformAdSetId: platformAdSetId
           adCount: 1
+          optimizationGoal: optimizationGoal
           metrics:
             ctr: 2.3021358869347655
             cpm: 9.301444243932576
@@ -19790,7 +19766,11 @@ components:
             lastSyncedAt: 2000-01-23T04:56:07.000+00:00
             clicks: 5
             impressions: 1
-          status: active
+          promotedObject:
+            page_id: page_id
+            custom_event_type: custom_event_type
+            pixel_id: pixel_id
+          status: ""
           budget:
             amount: 0.8008281904610115
             type: daily
@@ -19804,11 +19784,9 @@ components:
           lastSyncedAt: 2000-01-23T04:56:07.000+00:00
           clicks: 5
           impressions: 1
-        adSetCount: 6
         campaignName: campaignName
-        platform: facebook
         platformAdAccountId: platformAdAccountId
-        status: active
+        status: ""
         budget:
           amount: 0.8008281904610115
           type: daily
@@ -19828,16 +19806,9 @@ components:
         campaignName:
           type: string
         status:
+          allOf:
+          - $ref: "#/components/schemas/AdStatus"
           description: Derived from child ad statuses
-          enum:
-          - active
-          - paused
-          - pending_review
-          - rejected
-          - completed
-          - cancelled
-          - error
-          type: string
         adCount:
           description: Total ads across all ad sets
           type: integer
@@ -19853,18 +19824,43 @@ components:
           type: string
         profileId:
           type: string
+        platformObjective:
+          description: "Raw Meta campaign objective (e.g. OUTCOME_SALES, OUTCOME_LEADS,\
+            \ OUTCOME_TRAFFIC)"
+          type: string
+          nullable: true
+        optimizationGoal:
+          description: "Meta optimization goal shared across ad sets, or comma-separated\
+            \ values when ad sets differ (e.g. OFFSITE_CONVERSIONS, VALUE, LEAD_GENERATION)"
+          type: string
+          nullable: true
+        bidStrategy:
+          description: "Campaign-level bid strategy (e.g. LOWEST_COST_WITHOUT_CAP,\
+            \ COST_CAP, LOWEST_COST_WITH_MIN_ROAS)"
+          type: string
+          nullable: true
+        promotedObject:
+          $ref: "#/components/schemas/AdTreeCampaign_promotedObject"
         adSets:
           items:
             $ref: "#/components/schemas/AdTreeAdSet"
           type: array
     AdCampaign:
       example:
+        bidStrategy: bidStrategy
+        platformCampaignId: platformCampaignId
+        adCount: 0
+        optimizationGoal: optimizationGoal
+        platform: facebook
+        promotedObject:
+          page_id: page_id
+          custom_event_type: custom_event_type
+          pixel_id: pixel_id
         accountId: accountId
         profileId: profileId
         earliestAd: 2000-01-23T04:56:07.000+00:00
-        platformCampaignId: platformCampaignId
+        platformObjective: platformObjective
         latestAd: 2000-01-23T04:56:07.000+00:00
-        adCount: 0
         metrics:
           ctr: 2.3021358869347655
           cpm: 9.301444243932576
@@ -19876,9 +19872,8 @@ components:
           clicks: 5
           impressions: 1
         campaignName: campaignName
-        platform: facebook
         platformAdAccountId: platformAdAccountId
-        status: active
+        status: ""
         budget:
           amount: 0.8008281904610115
           type: daily
@@ -19898,16 +19893,9 @@ components:
         campaignName:
           type: string
         status:
+          allOf:
+          - $ref: "#/components/schemas/AdStatus"
           description: Derived from child ad statuses
-          enum:
-          - active
-          - paused
-          - pending_review
-          - rejected
-          - completed
-          - cancelled
-          - error
-          type: string
         adCount:
           type: integer
         budget:
@@ -19920,6 +19908,23 @@ components:
           type: string
         profileId:
           type: string
+        platformObjective:
+          description: "Raw Meta campaign objective (e.g. OUTCOME_SALES, OUTCOME_LEADS,\
+            \ OUTCOME_TRAFFIC)"
+          type: string
+          nullable: true
+        optimizationGoal:
+          description: "Meta optimization goal shared across ad sets, or comma-separated\
+            \ values when ad sets differ (e.g. OFFSITE_CONVERSIONS, VALUE, LEAD_GENERATION)"
+          type: string
+          nullable: true
+        bidStrategy:
+          description: "Campaign-level bid strategy (e.g. LOWEST_COST_WITHOUT_CAP,\
+            \ COST_CAP, LOWEST_COST_WITH_MIN_ROAS)"
+          type: string
+          nullable: true
+        promotedObject:
+          $ref: "#/components/schemas/AdTreeCampaign_promotedObject"
         earliestAd:
           format: date-time
           type: string
@@ -22058,28 +22063,30 @@ components:
         pagination: ""
         accounts:
         - profileUrl: profileUrl
-          parentAccountId: parentAccountId
           metadata: "{}"
           followersLastUpdated: 2000-01-23T04:56:07.000+00:00
-          profileId: SocialAccount_profileId
           displayName: displayName
-          _id: _id
-          followersCount: 0.8008281904610115
           isActive: true
           platform: tiktok
           enabled: true
+          parentAccountId: parentAccountId
+          profilePicture: profilePicture
+          profileId: SocialAccount_profileId
+          _id: _id
+          followersCount: 0.8008281904610115
           username: username
         - profileUrl: profileUrl
-          parentAccountId: parentAccountId
           metadata: "{}"
           followersLastUpdated: 2000-01-23T04:56:07.000+00:00
-          profileId: SocialAccount_profileId
           displayName: displayName
-          _id: _id
-          followersCount: 0.8008281904610115
           isActive: true
           platform: tiktok
           enabled: true
+          parentAccountId: parentAccountId
+          profilePicture: profilePicture
+          profileId: SocialAccount_profileId
+          _id: _id
+          followersCount: 0.8008281904610115
           username: username
       properties:
         accounts:
@@ -25903,16 +25910,17 @@ components:
         message: message
         account:
           profileUrl: profileUrl
-          parentAccountId: parentAccountId
           metadata: "{}"
           followersLastUpdated: 2000-01-23T04:56:07.000+00:00
-          profileId: SocialAccount_profileId
           displayName: displayName
-          _id: _id
-          followersCount: 0.8008281904610115
           isActive: true
           platform: tiktok
           enabled: true
+          parentAccountId: parentAccountId
+          profilePicture: profilePicture
+          profileId: SocialAccount_profileId
+          _id: _id
+          followersCount: 0.8008281904610115
           username: username
       properties:
         message:
@@ -27285,83 +27293,6 @@ components:
           type: array
         pagination:
           $ref: "#/components/schemas/listLogs_200_response_pagination"
-    getPostLogs_200_response:
-      example:
-        count: 5
-        postId: postId
-        logs:
-        - attemptNumber: 5
-          request:
-            mediaTypes:
-            - mediaTypes
-            - mediaTypes
-            rawBody: rawBody
-            scheduledFor: 2000-01-23T04:56:07.000+00:00
-            mediaCount: 6
-            contentPreview: contentPreview
-            mediaUrls:
-            - mediaUrls
-            - mediaUrls
-          postId: PostLog_postId
-          userId: userId
-          platform: tiktok
-          accountId: accountId
-          createdAt: 2000-01-23T04:56:07.000+00:00
-          endpoint: endpoint
-          profileId: profileId
-          response:
-            rawBody: rawBody
-            platformPostUrl: platformPostUrl
-            errorMessage: errorMessage
-            errorCode: errorCode
-            platformPostId: platformPostId
-          accountUsername: accountUsername
-          action: publish
-          _id: _id
-          durationMs: 1
-          status: success
-          statusCode: 0
-        - attemptNumber: 5
-          request:
-            mediaTypes:
-            - mediaTypes
-            - mediaTypes
-            rawBody: rawBody
-            scheduledFor: 2000-01-23T04:56:07.000+00:00
-            mediaCount: 6
-            contentPreview: contentPreview
-            mediaUrls:
-            - mediaUrls
-            - mediaUrls
-          postId: PostLog_postId
-          userId: userId
-          platform: tiktok
-          accountId: accountId
-          createdAt: 2000-01-23T04:56:07.000+00:00
-          endpoint: endpoint
-          profileId: profileId
-          response:
-            rawBody: rawBody
-            platformPostUrl: platformPostUrl
-            errorMessage: errorMessage
-            errorCode: errorCode
-            platformPostId: platformPostId
-          accountUsername: accountUsername
-          action: publish
-          _id: _id
-          durationMs: 1
-          status: success
-          statusCode: 0
-      properties:
-        logs:
-          items:
-            $ref: "#/components/schemas/PostLog"
-          type: array
-        count:
-          description: Number of logs returned
-          type: integer
-        postId:
-          type: string
     listInboxConversations_200_response_data_inner_instagramProfile:
       description: Instagram profile data for the participant. Only present for Instagram
         conversations.
@@ -27603,19 +27534,19 @@ components:
           type: string
         participantId:
           description: Twitter numeric user ID of the recipient. Provide either this
-            or `participantUsername`.
+            or participantUsername.
           type: string
         participantUsername:
           description: Twitter username (with or without @) of the recipient. Resolved
-            to a user ID via lookup. Provide either this or `participantId`.
+            to a user ID via lookup. Provide either this or participantId.
           type: string
         message:
-          description: Text content of the message. At least one of `message` or attachment
+          description: Text content of the message. At least one of message or attachment
             is required.
           type: string
         skipDmCheck:
           default: false
-          description: Skip the `receives_your_dm` eligibility check before sending.
+          description: Skip the receives_your_dm eligibility check before sending.
             Use if you have already verified the recipient accepts DMs.
           type: boolean
       required:
@@ -27913,7 +27844,7 @@ components:
           format: date-time
           type: string
     getInboxConversationMessages_200_response_messages_inner_deliveryError:
-      description: Populated when `deliveryStatus === "failed"`.
+      description: Populated when deliveryStatus === "failed".
       example:
         code: 6
         title: title
@@ -28051,7 +27982,7 @@ components:
           type: array
         isDeleted:
           description: True if the sender has deleted (unsent) this message. The original
-            `message` and `attachments` fields remain populated.
+            message and attachments fields remain populated.
           type: boolean
         deletedAt:
           format: date-time
@@ -29605,7 +29536,7 @@ components:
           description: |
             Name of a pre-built template from Meta's template library (e.g., "appointment_reminder",
             "auto_pay_reminder_1", "address_update"). When provided, the template is pre-approved
-            by Meta with no review wait. Omit `components` when using this field.
+            by Meta with no review wait. Omit components when using this field.
           type: string
         library_template_body_inputs:
           description: |
@@ -33089,12 +33020,28 @@ components:
     listAds_200_response:
       example:
         ads:
-        - goal: engagement
+        - bidStrategy: LOWEST_COST_WITHOUT_CAP
           adSetName: adSetName
-          isExternal: true
           platformCampaignId: platformCampaignId
+          optimizationGoal: OFFSITE_CONVERSIONS
           platformAdId: platformAdId
           platform: facebook
+          promotedObject:
+            page_id: page_id
+            custom_event_type: PURCHASE
+            product_set_id: product_set_id
+            pixel_id: pixel_id
+            application_id: application_id
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          adType: boost
+          targeting: "{}"
+          platformAdSetId: platformAdSetId
+          budget:
+            amount: 0.8008281904610115
+            type: daily
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+          goal: engagement
+          isExternal: true
           creative:
             videoId: videoId
             pinterestTitle: pinterestTitle
@@ -33114,27 +33061,36 @@ components:
           schedule:
             endDate: 2000-01-23T04:56:07.000+00:00
             startDate: 2000-01-23T04:56:07.000+00:00
-          createdAt: 2000-01-23T04:56:07.000+00:00
-          adType: boost
-          targeting: "{}"
           name: name
-          platformAdSetId: platformAdSetId
+          platformObjective: OUTCOME_SALES
           _id: _id
           metrics: ""
           rejectionReason: rejectionReason
           campaignName: campaignName
           platformAdAccountId: platformAdAccountId
           status: active
+        - bidStrategy: LOWEST_COST_WITHOUT_CAP
+          adSetName: adSetName
+          platformCampaignId: platformCampaignId
+          optimizationGoal: OFFSITE_CONVERSIONS
+          platformAdId: platformAdId
+          platform: facebook
+          promotedObject:
+            page_id: page_id
+            custom_event_type: PURCHASE
+            product_set_id: product_set_id
+            pixel_id: pixel_id
+            application_id: application_id
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          adType: boost
+          targeting: "{}"
+          platformAdSetId: platformAdSetId
           budget:
             amount: 0.8008281904610115
             type: daily
           updatedAt: 2000-01-23T04:56:07.000+00:00
-        - goal: engagement
-          adSetName: adSetName
+          goal: engagement
           isExternal: true
-          platformCampaignId: platformCampaignId
-          platformAdId: platformAdId
-          platform: facebook
           creative:
             videoId: videoId
             pinterestTitle: pinterestTitle
@@ -33154,21 +33110,14 @@ components:
           schedule:
             endDate: 2000-01-23T04:56:07.000+00:00
             startDate: 2000-01-23T04:56:07.000+00:00
-          createdAt: 2000-01-23T04:56:07.000+00:00
-          adType: boost
-          targeting: "{}"
           name: name
-          platformAdSetId: platformAdSetId
+          platformObjective: OUTCOME_SALES
           _id: _id
           metrics: ""
           rejectionReason: rejectionReason
           campaignName: campaignName
           platformAdAccountId: platformAdAccountId
           status: active
-          budget:
-            amount: 0.8008281904610115
-            type: daily
-          updatedAt: 2000-01-23T04:56:07.000+00:00
         pagination:
           total: 3
           pages: 2
@@ -33189,12 +33138,20 @@ components:
           limit: 9
           page: 7
         campaigns:
-        - accountId: accountId
+        - bidStrategy: bidStrategy
+          platformCampaignId: platformCampaignId
+          adCount: 0
+          optimizationGoal: optimizationGoal
+          platform: facebook
+          promotedObject:
+            page_id: page_id
+            custom_event_type: custom_event_type
+            pixel_id: pixel_id
+          accountId: accountId
           profileId: profileId
           earliestAd: 2000-01-23T04:56:07.000+00:00
-          platformCampaignId: platformCampaignId
+          platformObjective: platformObjective
           latestAd: 2000-01-23T04:56:07.000+00:00
-          adCount: 0
           metrics:
             ctr: 2.3021358869347655
             cpm: 9.301444243932576
@@ -33206,18 +33163,25 @@ components:
             clicks: 5
             impressions: 1
           campaignName: campaignName
-          platform: facebook
           platformAdAccountId: platformAdAccountId
-          status: active
+          status: ""
           budget:
             amount: 0.8008281904610115
             type: daily
-        - accountId: accountId
+        - bidStrategy: bidStrategy
+          platformCampaignId: platformCampaignId
+          adCount: 0
+          optimizationGoal: optimizationGoal
+          platform: facebook
+          promotedObject:
+            page_id: page_id
+            custom_event_type: custom_event_type
+            pixel_id: pixel_id
+          accountId: accountId
           profileId: profileId
           earliestAd: 2000-01-23T04:56:07.000+00:00
-          platformCampaignId: platformCampaignId
+          platformObjective: platformObjective
           latestAd: 2000-01-23T04:56:07.000+00:00
-          adCount: 0
           metrics:
             ctr: 2.3021358869347655
             cpm: 9.301444243932576
@@ -33229,9 +33193,8 @@ components:
             clicks: 5
             impressions: 1
           campaignName: campaignName
-          platform: facebook
           platformAdAccountId: platformAdAccountId
-          status: active
+          status: ""
           budget:
             amount: 0.8008281904610115
             type: daily
@@ -33292,18 +33255,44 @@ components:
           limit: 9
           page: 7
         campaigns:
-        - accountId: accountId
-          profileId: profileId
+        - bidStrategy: bidStrategy
           platformCampaignId: platformCampaignId
           adCount: 0
+          optimizationGoal: optimizationGoal
+          adSetCount: 6
+          platform: facebook
+          promotedObject:
+            page_id: page_id
+            custom_event_type: custom_event_type
+            pixel_id: pixel_id
+          accountId: accountId
+          profileId: profileId
+          platformObjective: platformObjective
           adSets:
-          - ads:
-            - goal: engagement
+          - bidStrategy: bidStrategy
+            ads:
+            - bidStrategy: LOWEST_COST_WITHOUT_CAP
               adSetName: adSetName
-              isExternal: true
               platformCampaignId: platformCampaignId
+              optimizationGoal: OFFSITE_CONVERSIONS
               platformAdId: platformAdId
               platform: facebook
+              promotedObject:
+                page_id: page_id
+                custom_event_type: PURCHASE
+                product_set_id: product_set_id
+                pixel_id: pixel_id
+                application_id: application_id
+              createdAt: 2000-01-23T04:56:07.000+00:00
+              adType: boost
+              targeting: "{}"
+              platformAdSetId: platformAdSetId
+              budget:
+                amount: 0.8008281904610115
+                type: daily
+              updatedAt: 2000-01-23T04:56:07.000+00:00
+              goal: engagement
+              isExternal: true
               creative:
                 videoId: videoId
                 pinterestTitle: pinterestTitle
@@ -33323,27 +33312,36 @@ components:
               schedule:
                 endDate: 2000-01-23T04:56:07.000+00:00
                 startDate: 2000-01-23T04:56:07.000+00:00
-              createdAt: 2000-01-23T04:56:07.000+00:00
-              adType: boost
-              targeting: "{}"
               name: name
-              platformAdSetId: platformAdSetId
+              platformObjective: OUTCOME_SALES
               _id: _id
               metrics: ""
               rejectionReason: rejectionReason
               campaignName: campaignName
               platformAdAccountId: platformAdAccountId
               status: active
+            - bidStrategy: LOWEST_COST_WITHOUT_CAP
+              adSetName: adSetName
+              platformCampaignId: platformCampaignId
+              optimizationGoal: OFFSITE_CONVERSIONS
+              platformAdId: platformAdId
+              platform: facebook
+              promotedObject:
+                page_id: page_id
+                custom_event_type: PURCHASE
+                product_set_id: product_set_id
+                pixel_id: pixel_id
+                application_id: application_id
+              createdAt: 2000-01-23T04:56:07.000+00:00
+              adType: boost
+              targeting: "{}"
+              platformAdSetId: platformAdSetId
               budget:
                 amount: 0.8008281904610115
                 type: daily
               updatedAt: 2000-01-23T04:56:07.000+00:00
-            - goal: engagement
-              adSetName: adSetName
+              goal: engagement
               isExternal: true
-              platformCampaignId: platformCampaignId
-              platformAdId: platformAdId
-              platform: facebook
               creative:
                 videoId: videoId
                 pinterestTitle: pinterestTitle
@@ -33363,24 +33361,18 @@ components:
               schedule:
                 endDate: 2000-01-23T04:56:07.000+00:00
                 startDate: 2000-01-23T04:56:07.000+00:00
-              createdAt: 2000-01-23T04:56:07.000+00:00
-              adType: boost
-              targeting: "{}"
               name: name
-              platformAdSetId: platformAdSetId
+              platformObjective: OUTCOME_SALES
               _id: _id
               metrics: ""
               rejectionReason: rejectionReason
               campaignName: campaignName
               platformAdAccountId: platformAdAccountId
               status: active
-              budget:
-                amount: 0.8008281904610115
-                type: daily
-              updatedAt: 2000-01-23T04:56:07.000+00:00
             adSetName: adSetName
             platformAdSetId: platformAdSetId
             adCount: 1
+            optimizationGoal: optimizationGoal
             metrics:
               ctr: 2.3021358869347655
               cpm: 9.301444243932576
@@ -33391,17 +33383,38 @@ components:
               lastSyncedAt: 2000-01-23T04:56:07.000+00:00
               clicks: 5
               impressions: 1
-            status: active
+            promotedObject:
+              page_id: page_id
+              custom_event_type: custom_event_type
+              pixel_id: pixel_id
+            status: ""
             budget:
               amount: 0.8008281904610115
               type: daily
-          - ads:
-            - goal: engagement
+          - bidStrategy: bidStrategy
+            ads:
+            - bidStrategy: LOWEST_COST_WITHOUT_CAP
               adSetName: adSetName
-              isExternal: true
               platformCampaignId: platformCampaignId
+              optimizationGoal: OFFSITE_CONVERSIONS
               platformAdId: platformAdId
               platform: facebook
+              promotedObject:
+                page_id: page_id
+                custom_event_type: PURCHASE
+                product_set_id: product_set_id
+                pixel_id: pixel_id
+                application_id: application_id
+              createdAt: 2000-01-23T04:56:07.000+00:00
+              adType: boost
+              targeting: "{}"
+              platformAdSetId: platformAdSetId
+              budget:
+                amount: 0.8008281904610115
+                type: daily
+              updatedAt: 2000-01-23T04:56:07.000+00:00
+              goal: engagement
+              isExternal: true
               creative:
                 videoId: videoId
                 pinterestTitle: pinterestTitle
@@ -33421,27 +33434,36 @@ components:
               schedule:
                 endDate: 2000-01-23T04:56:07.000+00:00
                 startDate: 2000-01-23T04:56:07.000+00:00
-              createdAt: 2000-01-23T04:56:07.000+00:00
-              adType: boost
-              targeting: "{}"
               name: name
-              platformAdSetId: platformAdSetId
+              platformObjective: OUTCOME_SALES
               _id: _id
               metrics: ""
               rejectionReason: rejectionReason
               campaignName: campaignName
               platformAdAccountId: platformAdAccountId
               status: active
+            - bidStrategy: LOWEST_COST_WITHOUT_CAP
+              adSetName: adSetName
+              platformCampaignId: platformCampaignId
+              optimizationGoal: OFFSITE_CONVERSIONS
+              platformAdId: platformAdId
+              platform: facebook
+              promotedObject:
+                page_id: page_id
+                custom_event_type: PURCHASE
+                product_set_id: product_set_id
+                pixel_id: pixel_id
+                application_id: application_id
+              createdAt: 2000-01-23T04:56:07.000+00:00
+              adType: boost
+              targeting: "{}"
+              platformAdSetId: platformAdSetId
               budget:
                 amount: 0.8008281904610115
                 type: daily
               updatedAt: 2000-01-23T04:56:07.000+00:00
-            - goal: engagement
-              adSetName: adSetName
+              goal: engagement
               isExternal: true
-              platformCampaignId: platformCampaignId
-              platformAdId: platformAdId
-              platform: facebook
               creative:
                 videoId: videoId
                 pinterestTitle: pinterestTitle
@@ -33461,24 +33483,18 @@ components:
               schedule:
                 endDate: 2000-01-23T04:56:07.000+00:00
                 startDate: 2000-01-23T04:56:07.000+00:00
-              createdAt: 2000-01-23T04:56:07.000+00:00
-              adType: boost
-              targeting: "{}"
               name: name
-              platformAdSetId: platformAdSetId
+              platformObjective: OUTCOME_SALES
               _id: _id
               metrics: ""
               rejectionReason: rejectionReason
               campaignName: campaignName
               platformAdAccountId: platformAdAccountId
               status: active
-              budget:
-                amount: 0.8008281904610115
-                type: daily
-              updatedAt: 2000-01-23T04:56:07.000+00:00
             adSetName: adSetName
             platformAdSetId: platformAdSetId
             adCount: 1
+            optimizationGoal: optimizationGoal
             metrics:
               ctr: 2.3021358869347655
               cpm: 9.301444243932576
@@ -33489,7 +33505,11 @@ components:
               lastSyncedAt: 2000-01-23T04:56:07.000+00:00
               clicks: 5
               impressions: 1
-            status: active
+            promotedObject:
+              page_id: page_id
+              custom_event_type: custom_event_type
+              pixel_id: pixel_id
+            status: ""
             budget:
               amount: 0.8008281904610115
               type: daily
@@ -33503,26 +33523,50 @@ components:
             lastSyncedAt: 2000-01-23T04:56:07.000+00:00
             clicks: 5
             impressions: 1
-          adSetCount: 6
           campaignName: campaignName
-          platform: facebook
           platformAdAccountId: platformAdAccountId
-          status: active
+          status: ""
           budget:
             amount: 0.8008281904610115
             type: daily
-        - accountId: accountId
-          profileId: profileId
+        - bidStrategy: bidStrategy
           platformCampaignId: platformCampaignId
           adCount: 0
+          optimizationGoal: optimizationGoal
+          adSetCount: 6
+          platform: facebook
+          promotedObject:
+            page_id: page_id
+            custom_event_type: custom_event_type
+            pixel_id: pixel_id
+          accountId: accountId
+          profileId: profileId
+          platformObjective: platformObjective
           adSets:
-          - ads:
-            - goal: engagement
+          - bidStrategy: bidStrategy
+            ads:
+            - bidStrategy: LOWEST_COST_WITHOUT_CAP
               adSetName: adSetName
-              isExternal: true
               platformCampaignId: platformCampaignId
+              optimizationGoal: OFFSITE_CONVERSIONS
               platformAdId: platformAdId
               platform: facebook
+              promotedObject:
+                page_id: page_id
+                custom_event_type: PURCHASE
+                product_set_id: product_set_id
+                pixel_id: pixel_id
+                application_id: application_id
+              createdAt: 2000-01-23T04:56:07.000+00:00
+              adType: boost
+              targeting: "{}"
+              platformAdSetId: platformAdSetId
+              budget:
+                amount: 0.8008281904610115
+                type: daily
+              updatedAt: 2000-01-23T04:56:07.000+00:00
+              goal: engagement
+              isExternal: true
               creative:
                 videoId: videoId
                 pinterestTitle: pinterestTitle
@@ -33542,27 +33586,36 @@ components:
               schedule:
                 endDate: 2000-01-23T04:56:07.000+00:00
                 startDate: 2000-01-23T04:56:07.000+00:00
-              createdAt: 2000-01-23T04:56:07.000+00:00
-              adType: boost
-              targeting: "{}"
               name: name
-              platformAdSetId: platformAdSetId
+              platformObjective: OUTCOME_SALES
               _id: _id
               metrics: ""
               rejectionReason: rejectionReason
               campaignName: campaignName
               platformAdAccountId: platformAdAccountId
               status: active
+            - bidStrategy: LOWEST_COST_WITHOUT_CAP
+              adSetName: adSetName
+              platformCampaignId: platformCampaignId
+              optimizationGoal: OFFSITE_CONVERSIONS
+              platformAdId: platformAdId
+              platform: facebook
+              promotedObject:
+                page_id: page_id
+                custom_event_type: PURCHASE
+                product_set_id: product_set_id
+                pixel_id: pixel_id
+                application_id: application_id
+              createdAt: 2000-01-23T04:56:07.000+00:00
+              adType: boost
+              targeting: "{}"
+              platformAdSetId: platformAdSetId
               budget:
                 amount: 0.8008281904610115
                 type: daily
               updatedAt: 2000-01-23T04:56:07.000+00:00
-            - goal: engagement
-              adSetName: adSetName
+              goal: engagement
               isExternal: true
-              platformCampaignId: platformCampaignId
-              platformAdId: platformAdId
-              platform: facebook
               creative:
                 videoId: videoId
                 pinterestTitle: pinterestTitle
@@ -33582,24 +33635,18 @@ components:
               schedule:
                 endDate: 2000-01-23T04:56:07.000+00:00
                 startDate: 2000-01-23T04:56:07.000+00:00
-              createdAt: 2000-01-23T04:56:07.000+00:00
-              adType: boost
-              targeting: "{}"
               name: name
-              platformAdSetId: platformAdSetId
+              platformObjective: OUTCOME_SALES
               _id: _id
               metrics: ""
               rejectionReason: rejectionReason
               campaignName: campaignName
               platformAdAccountId: platformAdAccountId
               status: active
-              budget:
-                amount: 0.8008281904610115
-                type: daily
-              updatedAt: 2000-01-23T04:56:07.000+00:00
             adSetName: adSetName
             platformAdSetId: platformAdSetId
             adCount: 1
+            optimizationGoal: optimizationGoal
             metrics:
               ctr: 2.3021358869347655
               cpm: 9.301444243932576
@@ -33610,17 +33657,38 @@ components:
               lastSyncedAt: 2000-01-23T04:56:07.000+00:00
               clicks: 5
               impressions: 1
-            status: active
+            promotedObject:
+              page_id: page_id
+              custom_event_type: custom_event_type
+              pixel_id: pixel_id
+            status: ""
             budget:
               amount: 0.8008281904610115
               type: daily
-          - ads:
-            - goal: engagement
+          - bidStrategy: bidStrategy
+            ads:
+            - bidStrategy: LOWEST_COST_WITHOUT_CAP
               adSetName: adSetName
-              isExternal: true
               platformCampaignId: platformCampaignId
+              optimizationGoal: OFFSITE_CONVERSIONS
               platformAdId: platformAdId
               platform: facebook
+              promotedObject:
+                page_id: page_id
+                custom_event_type: PURCHASE
+                product_set_id: product_set_id
+                pixel_id: pixel_id
+                application_id: application_id
+              createdAt: 2000-01-23T04:56:07.000+00:00
+              adType: boost
+              targeting: "{}"
+              platformAdSetId: platformAdSetId
+              budget:
+                amount: 0.8008281904610115
+                type: daily
+              updatedAt: 2000-01-23T04:56:07.000+00:00
+              goal: engagement
+              isExternal: true
               creative:
                 videoId: videoId
                 pinterestTitle: pinterestTitle
@@ -33640,27 +33708,36 @@ components:
               schedule:
                 endDate: 2000-01-23T04:56:07.000+00:00
                 startDate: 2000-01-23T04:56:07.000+00:00
-              createdAt: 2000-01-23T04:56:07.000+00:00
-              adType: boost
-              targeting: "{}"
               name: name
-              platformAdSetId: platformAdSetId
+              platformObjective: OUTCOME_SALES
               _id: _id
               metrics: ""
               rejectionReason: rejectionReason
               campaignName: campaignName
               platformAdAccountId: platformAdAccountId
               status: active
+            - bidStrategy: LOWEST_COST_WITHOUT_CAP
+              adSetName: adSetName
+              platformCampaignId: platformCampaignId
+              optimizationGoal: OFFSITE_CONVERSIONS
+              platformAdId: platformAdId
+              platform: facebook
+              promotedObject:
+                page_id: page_id
+                custom_event_type: PURCHASE
+                product_set_id: product_set_id
+                pixel_id: pixel_id
+                application_id: application_id
+              createdAt: 2000-01-23T04:56:07.000+00:00
+              adType: boost
+              targeting: "{}"
+              platformAdSetId: platformAdSetId
               budget:
                 amount: 0.8008281904610115
                 type: daily
               updatedAt: 2000-01-23T04:56:07.000+00:00
-            - goal: engagement
-              adSetName: adSetName
+              goal: engagement
               isExternal: true
-              platformCampaignId: platformCampaignId
-              platformAdId: platformAdId
-              platform: facebook
               creative:
                 videoId: videoId
                 pinterestTitle: pinterestTitle
@@ -33680,24 +33757,18 @@ components:
               schedule:
                 endDate: 2000-01-23T04:56:07.000+00:00
                 startDate: 2000-01-23T04:56:07.000+00:00
-              createdAt: 2000-01-23T04:56:07.000+00:00
-              adType: boost
-              targeting: "{}"
               name: name
-              platformAdSetId: platformAdSetId
+              platformObjective: OUTCOME_SALES
               _id: _id
               metrics: ""
               rejectionReason: rejectionReason
               campaignName: campaignName
               platformAdAccountId: platformAdAccountId
               status: active
-              budget:
-                amount: 0.8008281904610115
-                type: daily
-              updatedAt: 2000-01-23T04:56:07.000+00:00
             adSetName: adSetName
             platformAdSetId: platformAdSetId
             adCount: 1
+            optimizationGoal: optimizationGoal
             metrics:
               ctr: 2.3021358869347655
               cpm: 9.301444243932576
@@ -33708,7 +33779,11 @@ components:
               lastSyncedAt: 2000-01-23T04:56:07.000+00:00
               clicks: 5
               impressions: 1
-            status: active
+            promotedObject:
+              page_id: page_id
+              custom_event_type: custom_event_type
+              pixel_id: pixel_id
+            status: ""
             budget:
               amount: 0.8008281904610115
               type: daily
@@ -33722,11 +33797,9 @@ components:
             lastSyncedAt: 2000-01-23T04:56:07.000+00:00
             clicks: 5
             impressions: 1
-          adSetCount: 6
           campaignName: campaignName
-          platform: facebook
           platformAdAccountId: platformAdAccountId
-          status: active
+          status: ""
           budget:
             amount: 0.8008281904610115
             type: daily
@@ -33740,12 +33813,28 @@ components:
     getAd_200_response:
       example:
         ad:
-          goal: engagement
+          bidStrategy: LOWEST_COST_WITHOUT_CAP
           adSetName: adSetName
-          isExternal: true
           platformCampaignId: platformCampaignId
+          optimizationGoal: OFFSITE_CONVERSIONS
           platformAdId: platformAdId
           platform: facebook
+          promotedObject:
+            page_id: page_id
+            custom_event_type: PURCHASE
+            product_set_id: product_set_id
+            pixel_id: pixel_id
+            application_id: application_id
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          adType: boost
+          targeting: "{}"
+          platformAdSetId: platformAdSetId
+          budget:
+            amount: 0.8008281904610115
+            type: daily
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+          goal: engagement
+          isExternal: true
           creative:
             videoId: videoId
             pinterestTitle: pinterestTitle
@@ -33765,21 +33854,14 @@ components:
           schedule:
             endDate: 2000-01-23T04:56:07.000+00:00
             startDate: 2000-01-23T04:56:07.000+00:00
-          createdAt: 2000-01-23T04:56:07.000+00:00
-          adType: boost
-          targeting: "{}"
           name: name
-          platformAdSetId: platformAdSetId
+          platformObjective: OUTCOME_SALES
           _id: _id
           metrics: ""
           rejectionReason: rejectionReason
           campaignName: campaignName
           platformAdAccountId: platformAdAccountId
           status: active
-          budget:
-            amount: 0.8008281904610115
-            type: daily
-          updatedAt: 2000-01-23T04:56:07.000+00:00
       properties:
         ad:
           $ref: "#/components/schemas/Ad"
@@ -33793,6 +33875,15 @@ components:
           - daily
           - lifetime
           type: string
+    updateAd_request_targeting_interests_inner:
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - id
+      - name
     updateAd_request_targeting:
       description: Meta-only. Targeting updates for other platforms are not supported
         after creation.
@@ -33810,8 +33901,10 @@ components:
             type: string
           type: array
         interests:
+          description: Interest objects from /v1/ads/interests. Each must include
+            id and name.
           items:
-            type: string
+            $ref: "#/components/schemas/updateAd_request_targeting_interests_inner"
           type: array
     updateAd_request:
       properties:
@@ -33829,12 +33922,28 @@ components:
     updateAd_200_response:
       example:
         ad:
-          goal: engagement
+          bidStrategy: LOWEST_COST_WITHOUT_CAP
           adSetName: adSetName
-          isExternal: true
           platformCampaignId: platformCampaignId
+          optimizationGoal: OFFSITE_CONVERSIONS
           platformAdId: platformAdId
           platform: facebook
+          promotedObject:
+            page_id: page_id
+            custom_event_type: PURCHASE
+            product_set_id: product_set_id
+            pixel_id: pixel_id
+            application_id: application_id
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          adType: boost
+          targeting: "{}"
+          platformAdSetId: platformAdSetId
+          budget:
+            amount: 0.8008281904610115
+            type: daily
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+          goal: engagement
+          isExternal: true
           creative:
             videoId: videoId
             pinterestTitle: pinterestTitle
@@ -33854,21 +33963,14 @@ components:
           schedule:
             endDate: 2000-01-23T04:56:07.000+00:00
             startDate: 2000-01-23T04:56:07.000+00:00
-          createdAt: 2000-01-23T04:56:07.000+00:00
-          adType: boost
-          targeting: "{}"
           name: name
-          platformAdSetId: platformAdSetId
+          platformObjective: OUTCOME_SALES
           _id: _id
           metrics: ""
           rejectionReason: rejectionReason
           campaignName: campaignName
           platformAdAccountId: platformAdAccountId
           status: active
-          budget:
-            amount: 0.8008281904610115
-            type: daily
-          updatedAt: 2000-01-23T04:56:07.000+00:00
         message: message
       properties:
         ad:
@@ -34073,8 +34175,10 @@ components:
             type: string
           type: array
         interests:
+          description: Interest objects from /v1/ads/interests. Each must include
+            id and name.
           items:
-            type: string
+            $ref: "#/components/schemas/updateAd_request_targeting_interests_inner"
           type: array
     boostPost_request_tracking:
       description: "Meta only. Tracking specs (pixel, URL tags)."
@@ -34215,8 +34319,10 @@ components:
           minimum: 13
           type: integer
         interests:
+          description: Interest objects from /v1/ads/interests. Each must include
+            id and name.
           items:
-            type: string
+            $ref: "#/components/schemas/updateAd_request_targeting_interests_inner"
           type: array
         endDate:
           description: Required for lifetime budgets
@@ -35261,7 +35367,7 @@ components:
       - editedAt
       - text
     WebhookPayloadMessageDeliveryStatus_error:
-      description: Populated only on `message.failed`.
+      description: Populated only on message.failed.
       example:
         code: 0
         title: title
@@ -35274,75 +35380,6 @@ components:
         message:
           type: string
       nullable: true
-    PostLog_postId_oneOf:
-      description: Populated post reference
-      properties:
-        _id:
-          type: string
-        content:
-          type: string
-        status:
-          type: string
-    PostLog_postId:
-      oneOf:
-      - type: string
-      - $ref: "#/components/schemas/PostLog_postId_oneOf"
-    PostLog_request:
-      example:
-        mediaTypes:
-        - mediaTypes
-        - mediaTypes
-        rawBody: rawBody
-        scheduledFor: 2000-01-23T04:56:07.000+00:00
-        mediaCount: 6
-        contentPreview: contentPreview
-        mediaUrls:
-        - mediaUrls
-        - mediaUrls
-      properties:
-        contentPreview:
-          description: First 200 chars of caption
-          type: string
-        mediaCount:
-          type: integer
-        mediaTypes:
-          items:
-            type: string
-          type: array
-        mediaUrls:
-          description: URLs of media items sent to platform
-          items:
-            type: string
-          type: array
-        scheduledFor:
-          format: date-time
-          type: string
-        rawBody:
-          description: Full request body JSON (max 5000 chars)
-          type: string
-    PostLog_response:
-      example:
-        rawBody: rawBody
-        platformPostUrl: platformPostUrl
-        errorMessage: errorMessage
-        errorCode: errorCode
-        platformPostId: platformPostId
-      properties:
-        platformPostId:
-          description: ID returned by platform on success
-          type: string
-        platformPostUrl:
-          description: URL of published post
-          type: string
-        errorMessage:
-          description: Error message on failure
-          type: string
-        errorCode:
-          description: Platform-specific error code
-          type: string
-        rawBody:
-          description: Full response body JSON (max 5000 chars)
-          type: string
     PlatformTarget_accountId:
       oneOf:
       - type: string
@@ -35736,6 +35773,34 @@ components:
           - lifetime
           type: string
       nullable: true
+    Ad_promotedObject:
+      description: Meta promoted object containing conversion event details. Structure
+        varies by objective. Only present for Meta ads.
+      example:
+        page_id: page_id
+        custom_event_type: PURCHASE
+        product_set_id: product_set_id
+        pixel_id: pixel_id
+        application_id: application_id
+      properties:
+        custom_event_type:
+          description: "Conversion event type (e.g. PURCHASE, LEAD, COMPLETE_REGISTRATION,\
+            \ ADD_TO_CART)"
+          example: PURCHASE
+          type: string
+        pixel_id:
+          description: Meta pixel ID
+          type: string
+        page_id:
+          description: Facebook page ID
+          type: string
+        application_id:
+          description: Facebook app ID
+          type: string
+        product_set_id:
+          description: Product catalog set ID
+          type: string
+      nullable: true
     Ad_creative:
       description: Platform-specific creative data. Fields vary by platform.
       example:
@@ -35813,6 +35878,34 @@ components:
           type: string
         endDate:
           format: date-time
+          type: string
+      nullable: true
+    AdTreeAdSet_promotedObject:
+      description: Meta promoted object for this ad set (conversion event details)
+      example:
+        page_id: page_id
+        custom_event_type: custom_event_type
+        pixel_id: pixel_id
+      properties:
+        custom_event_type:
+          type: string
+        pixel_id:
+          type: string
+        page_id:
+          type: string
+      nullable: true
+    AdTreeCampaign_promotedObject:
+      description: Meta promoted object at campaign level (conversion event details)
+      example:
+        page_id: page_id
+        custom_event_type: custom_event_type
+        pixel_id: pixel_id
+      properties:
+        custom_event_type:
+          type: string
+        pixel_id:
+          type: string
+        page_id:
           type: string
       nullable: true
     inline_object:

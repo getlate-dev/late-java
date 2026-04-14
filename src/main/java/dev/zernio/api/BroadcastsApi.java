@@ -58,7 +58,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:23:14.639851249Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T16:44:41.618708448Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class BroadcastsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -177,7 +177,7 @@ public class BroadcastsApi {
 
   /**
    * Add recipients to a broadcast
-   * 
+   * Add recipients by contact IDs, raw phone numbers, or from the broadcast&#39;s segment filters.
    * @param broadcastId  (required)
    * @param addBroadcastRecipientsRequest  (required)
    * @return AddBroadcastRecipients200Response
@@ -189,7 +189,7 @@ public class BroadcastsApi {
 
   /**
    * Add recipients to a broadcast
-   * 
+   * Add recipients by contact IDs, raw phone numbers, or from the broadcast&#39;s segment filters.
    * @param broadcastId  (required)
    * @param addBroadcastRecipientsRequest  (required)
    * @param headers Optional headers to include in the request
@@ -203,7 +203,7 @@ public class BroadcastsApi {
 
   /**
    * Add recipients to a broadcast
-   * 
+   * Add recipients by contact IDs, raw phone numbers, or from the broadcast&#39;s segment filters.
    * @param broadcastId  (required)
    * @param addBroadcastRecipientsRequest  (required)
    * @return ApiResponse&lt;AddBroadcastRecipients200Response&gt;
@@ -215,7 +215,7 @@ public class BroadcastsApi {
 
   /**
    * Add recipients to a broadcast
-   * 
+   * Add recipients by contact IDs, raw phone numbers, or from the broadcast&#39;s segment filters.
    * @param broadcastId  (required)
    * @param addBroadcastRecipientsRequest  (required)
    * @param headers Optional headers to include in the request
@@ -308,8 +308,8 @@ public class BroadcastsApi {
   }
 
   /**
-   * Cancel a broadcast
-   * 
+   * Cancel broadcast
+   * Cancel a scheduled or in-progress broadcast. Already-sent messages are not affected.
    * @param broadcastId  (required)
    * @return CancelBroadcast200Response
    * @throws ApiException if fails to make API call
@@ -319,8 +319,8 @@ public class BroadcastsApi {
   }
 
   /**
-   * Cancel a broadcast
-   * 
+   * Cancel broadcast
+   * Cancel a scheduled or in-progress broadcast. Already-sent messages are not affected.
    * @param broadcastId  (required)
    * @param headers Optional headers to include in the request
    * @return CancelBroadcast200Response
@@ -332,8 +332,8 @@ public class BroadcastsApi {
   }
 
   /**
-   * Cancel a broadcast
-   * 
+   * Cancel broadcast
+   * Cancel a scheduled or in-progress broadcast. Already-sent messages are not affected.
    * @param broadcastId  (required)
    * @return ApiResponse&lt;CancelBroadcast200Response&gt;
    * @throws ApiException if fails to make API call
@@ -343,8 +343,8 @@ public class BroadcastsApi {
   }
 
   /**
-   * Cancel a broadcast
-   * 
+   * Cancel broadcast
+   * Cancel a scheduled or in-progress broadcast. Already-sent messages are not affected.
    * @param broadcastId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;CancelBroadcast200Response&gt;
@@ -426,8 +426,8 @@ public class BroadcastsApi {
   }
 
   /**
-   * Create a broadcast draft
-   * 
+   * Create broadcast draft
+   * Create a broadcast in draft status. Add recipients and then send or schedule it.
    * @param createBroadcastRequest  (required)
    * @return CreateBroadcast200Response
    * @throws ApiException if fails to make API call
@@ -437,8 +437,8 @@ public class BroadcastsApi {
   }
 
   /**
-   * Create a broadcast draft
-   * 
+   * Create broadcast draft
+   * Create a broadcast in draft status. Add recipients and then send or schedule it.
    * @param createBroadcastRequest  (required)
    * @param headers Optional headers to include in the request
    * @return CreateBroadcast200Response
@@ -450,8 +450,8 @@ public class BroadcastsApi {
   }
 
   /**
-   * Create a broadcast draft
-   * 
+   * Create broadcast draft
+   * Create a broadcast in draft status. Add recipients and then send or schedule it.
    * @param createBroadcastRequest  (required)
    * @return ApiResponse&lt;CreateBroadcast200Response&gt;
    * @throws ApiException if fails to make API call
@@ -461,8 +461,8 @@ public class BroadcastsApi {
   }
 
   /**
-   * Create a broadcast draft
-   * 
+   * Create broadcast draft
+   * Create a broadcast in draft status. Add recipients and then send or schedule it.
    * @param createBroadcastRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;CreateBroadcast200Response&gt;
@@ -549,8 +549,8 @@ public class BroadcastsApi {
   }
 
   /**
-   * Delete a broadcast (draft only)
-   * 
+   * Delete broadcast
+   * Permanently delete a broadcast. Only drafts can be deleted.
    * @param broadcastId  (required)
    * @throws ApiException if fails to make API call
    */
@@ -559,8 +559,8 @@ public class BroadcastsApi {
   }
 
   /**
-   * Delete a broadcast (draft only)
-   * 
+   * Delete broadcast
+   * Permanently delete a broadcast. Only drafts can be deleted.
    * @param broadcastId  (required)
    * @param headers Optional headers to include in the request
    * @throws ApiException if fails to make API call
@@ -570,8 +570,8 @@ public class BroadcastsApi {
   }
 
   /**
-   * Delete a broadcast (draft only)
-   * 
+   * Delete broadcast
+   * Permanently delete a broadcast. Only drafts can be deleted.
    * @param broadcastId  (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -581,8 +581,8 @@ public class BroadcastsApi {
   }
 
   /**
-   * Delete a broadcast (draft only)
-   * 
+   * Delete broadcast
+   * Permanently delete a broadcast. Only drafts can be deleted.
    * @param broadcastId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;Void&gt;
@@ -654,7 +654,7 @@ public class BroadcastsApi {
 
   /**
    * Get broadcast details
-   * 
+   * Returns a broadcast with its full configuration and delivery stats.
    * @param broadcastId  (required)
    * @return GetBroadcast200Response
    * @throws ApiException if fails to make API call
@@ -665,7 +665,7 @@ public class BroadcastsApi {
 
   /**
    * Get broadcast details
-   * 
+   * Returns a broadcast with its full configuration and delivery stats.
    * @param broadcastId  (required)
    * @param headers Optional headers to include in the request
    * @return GetBroadcast200Response
@@ -678,7 +678,7 @@ public class BroadcastsApi {
 
   /**
    * Get broadcast details
-   * 
+   * Returns a broadcast with its full configuration and delivery stats.
    * @param broadcastId  (required)
    * @return ApiResponse&lt;GetBroadcast200Response&gt;
    * @throws ApiException if fails to make API call
@@ -689,7 +689,7 @@ public class BroadcastsApi {
 
   /**
    * Get broadcast details
-   * 
+   * Returns a broadcast with its full configuration and delivery stats.
    * @param broadcastId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetBroadcast200Response&gt;
@@ -772,7 +772,7 @@ public class BroadcastsApi {
 
   /**
    * List broadcast recipients
-   * 
+   * Returns recipients for a broadcast with individual delivery status. Filter by status.
    * @param broadcastId  (required)
    * @param status  (optional)
    * @param limit  (optional, default to 50)
@@ -786,7 +786,7 @@ public class BroadcastsApi {
 
   /**
    * List broadcast recipients
-   * 
+   * Returns recipients for a broadcast with individual delivery status. Filter by status.
    * @param broadcastId  (required)
    * @param status  (optional)
    * @param limit  (optional, default to 50)
@@ -802,7 +802,7 @@ public class BroadcastsApi {
 
   /**
    * List broadcast recipients
-   * 
+   * Returns recipients for a broadcast with individual delivery status. Filter by status.
    * @param broadcastId  (required)
    * @param status  (optional)
    * @param limit  (optional, default to 50)
@@ -816,7 +816,7 @@ public class BroadcastsApi {
 
   /**
    * List broadcast recipients
-   * 
+   * Returns recipients for a broadcast with individual delivery status. Filter by status.
    * @param broadcastId  (required)
    * @param status  (optional)
    * @param limit  (optional, default to 50)
@@ -921,7 +921,7 @@ public class BroadcastsApi {
 
   /**
    * List broadcasts
-   * 
+   * Returns broadcasts with delivery stats. Filter by status, platform, or profile.
    * @param profileId Filter by profile. Omit to list across all profiles (optional)
    * @param status  (optional)
    * @param platform  (optional)
@@ -936,7 +936,7 @@ public class BroadcastsApi {
 
   /**
    * List broadcasts
-   * 
+   * Returns broadcasts with delivery stats. Filter by status, platform, or profile.
    * @param profileId Filter by profile. Omit to list across all profiles (optional)
    * @param status  (optional)
    * @param platform  (optional)
@@ -953,7 +953,7 @@ public class BroadcastsApi {
 
   /**
    * List broadcasts
-   * 
+   * Returns broadcasts with delivery stats. Filter by status, platform, or profile.
    * @param profileId Filter by profile. Omit to list across all profiles (optional)
    * @param status  (optional)
    * @param platform  (optional)
@@ -968,7 +968,7 @@ public class BroadcastsApi {
 
   /**
    * List broadcasts
-   * 
+   * Returns broadcasts with delivery stats. Filter by status, platform, or profile.
    * @param profileId Filter by profile. Omit to list across all profiles (optional)
    * @param status  (optional)
    * @param platform  (optional)
@@ -1073,7 +1073,7 @@ public class BroadcastsApi {
 
   /**
    * Schedule broadcast for later
-   * 
+   * Schedule a draft broadcast to be sent at a future date and time.
    * @param broadcastId  (required)
    * @param scheduleBroadcastRequest  (required)
    * @return ScheduleBroadcast200Response
@@ -1085,7 +1085,7 @@ public class BroadcastsApi {
 
   /**
    * Schedule broadcast for later
-   * 
+   * Schedule a draft broadcast to be sent at a future date and time.
    * @param broadcastId  (required)
    * @param scheduleBroadcastRequest  (required)
    * @param headers Optional headers to include in the request
@@ -1099,7 +1099,7 @@ public class BroadcastsApi {
 
   /**
    * Schedule broadcast for later
-   * 
+   * Schedule a draft broadcast to be sent at a future date and time.
    * @param broadcastId  (required)
    * @param scheduleBroadcastRequest  (required)
    * @return ApiResponse&lt;ScheduleBroadcast200Response&gt;
@@ -1111,7 +1111,7 @@ public class BroadcastsApi {
 
   /**
    * Schedule broadcast for later
-   * 
+   * Schedule a draft broadcast to be sent at a future date and time.
    * @param broadcastId  (required)
    * @param scheduleBroadcastRequest  (required)
    * @param headers Optional headers to include in the request
@@ -1204,8 +1204,8 @@ public class BroadcastsApi {
   }
 
   /**
-   * Trigger immediate send
-   * 
+   * Send broadcast now
+   * Immediately start sending a draft broadcast to its recipients.
    * @param broadcastId  (required)
    * @return SendBroadcast200Response
    * @throws ApiException if fails to make API call
@@ -1215,8 +1215,8 @@ public class BroadcastsApi {
   }
 
   /**
-   * Trigger immediate send
-   * 
+   * Send broadcast now
+   * Immediately start sending a draft broadcast to its recipients.
    * @param broadcastId  (required)
    * @param headers Optional headers to include in the request
    * @return SendBroadcast200Response
@@ -1228,8 +1228,8 @@ public class BroadcastsApi {
   }
 
   /**
-   * Trigger immediate send
-   * 
+   * Send broadcast now
+   * Immediately start sending a draft broadcast to its recipients.
    * @param broadcastId  (required)
    * @return ApiResponse&lt;SendBroadcast200Response&gt;
    * @throws ApiException if fails to make API call
@@ -1239,8 +1239,8 @@ public class BroadcastsApi {
   }
 
   /**
-   * Trigger immediate send
-   * 
+   * Send broadcast now
+   * Immediately start sending a draft broadcast to its recipients.
    * @param broadcastId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;SendBroadcast200Response&gt;
@@ -1322,8 +1322,8 @@ public class BroadcastsApi {
   }
 
   /**
-   * Update a broadcast
-   * 
+   * Update broadcast
+   * Update a broadcast&#39;s name, message, template, or segment filters. Only draft broadcasts can be updated.
    * @param broadcastId  (required)
    * @return UpdateBroadcast200Response
    * @throws ApiException if fails to make API call
@@ -1333,8 +1333,8 @@ public class BroadcastsApi {
   }
 
   /**
-   * Update a broadcast
-   * 
+   * Update broadcast
+   * Update a broadcast&#39;s name, message, template, or segment filters. Only draft broadcasts can be updated.
    * @param broadcastId  (required)
    * @param headers Optional headers to include in the request
    * @return UpdateBroadcast200Response
@@ -1346,8 +1346,8 @@ public class BroadcastsApi {
   }
 
   /**
-   * Update a broadcast
-   * 
+   * Update broadcast
+   * Update a broadcast&#39;s name, message, template, or segment filters. Only draft broadcasts can be updated.
    * @param broadcastId  (required)
    * @return ApiResponse&lt;UpdateBroadcast200Response&gt;
    * @throws ApiException if fails to make API call
@@ -1357,8 +1357,8 @@ public class BroadcastsApi {
   }
 
   /**
-   * Update a broadcast
-   * 
+   * Update broadcast
+   * Update a broadcast&#39;s name, message, template, or segment filters. Only draft broadcasts can be updated.
    * @param broadcastId  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;UpdateBroadcast200Response&gt;
