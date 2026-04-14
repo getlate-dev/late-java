@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import dev.zernio.model.GetBroadcast200ResponseBroadcastMessage;
-import dev.zernio.model.GetWhatsAppBroadcasts200ResponseBroadcastsInnerTemplate;
+import dev.zernio.model.GetBroadcast200ResponseBroadcastTemplate;
 import dev.zernio.model.ListContacts200ResponseFilters;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -57,7 +57,7 @@ import dev.zernio.ApiClient;
   GetBroadcast200ResponseBroadcast.JSON_PROPERTY_CREATED_AT,
   GetBroadcast200ResponseBroadcast.JSON_PROPERTY_UPDATED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T11:43:39.105583357Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:23:14.639851249Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetBroadcast200ResponseBroadcast {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable
@@ -85,7 +85,7 @@ public class GetBroadcast200ResponseBroadcast {
 
   public static final String JSON_PROPERTY_TEMPLATE = "template";
   @javax.annotation.Nullable
-  private GetWhatsAppBroadcasts200ResponseBroadcastsInnerTemplate template;
+  private GetBroadcast200ResponseBroadcastTemplate template;
 
   public static final String JSON_PROPERTY_SEGMENT_FILTERS = "segmentFilters";
   @javax.annotation.Nullable
@@ -325,7 +325,7 @@ public class GetBroadcast200ResponseBroadcast {
   }
 
 
-  public GetBroadcast200ResponseBroadcast template(@javax.annotation.Nullable GetWhatsAppBroadcasts200ResponseBroadcastsInnerTemplate template) {
+  public GetBroadcast200ResponseBroadcast template(@javax.annotation.Nullable GetBroadcast200ResponseBroadcastTemplate template) {
     this.template = template;
     return this;
   }
@@ -337,14 +337,14 @@ public class GetBroadcast200ResponseBroadcast {
   @javax.annotation.Nullable
   @JsonProperty(value = JSON_PROPERTY_TEMPLATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GetWhatsAppBroadcasts200ResponseBroadcastsInnerTemplate getTemplate() {
+  public GetBroadcast200ResponseBroadcastTemplate getTemplate() {
     return template;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_TEMPLATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTemplate(@javax.annotation.Nullable GetWhatsAppBroadcasts200ResponseBroadcastsInnerTemplate template) {
+  public void setTemplate(@javax.annotation.Nullable GetBroadcast200ResponseBroadcastTemplate template) {
     this.template = template;
   }
 

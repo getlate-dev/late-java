@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**success** | **Boolean** |  |  [optional] |
 |**sequences** | [**List&lt;ListSequences200ResponseSequencesInner&gt;**](ListSequences200ResponseSequencesInner.md) |  |  [optional] |
-|**pagination** | [**GetWhatsAppContacts200ResponsePagination**](GetWhatsAppContacts200ResponsePagination.md) |  |  [optional] |
+|**pagination** | [**ListContacts200ResponsePagination**](ListContacts200ResponsePagination.md) |  |  [optional] |
 
 
 

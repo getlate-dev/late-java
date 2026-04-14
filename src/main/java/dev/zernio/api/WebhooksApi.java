@@ -19,7 +19,6 @@ import dev.zernio.Configuration;
 import dev.zernio.Pair;
 
 import dev.zernio.model.CreateWebhookSettingsRequest;
-import dev.zernio.model.GetWebhookLogs200Response;
 import dev.zernio.model.GetWebhookSettings200Response;
 import dev.zernio.model.InlineObject;
 import dev.zernio.model.TestWebhookRequest;
@@ -59,7 +58,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T11:43:39.105583357Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:23:14.639851249Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WebhooksApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -420,160 +419,6 @@ public class WebhooksApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
     localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.noBody());
-    if (memberVarReadTimeout != null) {
-      localVarRequestBuilder.timeout(memberVarReadTimeout);
-    }
-    // Add custom headers if provided
-    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
-    if (memberVarInterceptor != null) {
-      memberVarInterceptor.accept(localVarRequestBuilder);
-    }
-    return localVarRequestBuilder;
-  }
-
-  /**
-   * Get delivery logs
-   * **Deprecated.** Use &#x60;GET /v1/logs?type&#x3D;webhooks&#x60; instead. Retrieve webhook delivery history. Logs are retained for 90 days. 
-   * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
-   * @param status Filter by delivery status (optional)
-   * @param event Filter by event type (optional)
-   * @param webhookId Filter by webhook ID (optional)
-   * @return GetWebhookLogs200Response
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public GetWebhookLogs200Response getWebhookLogs(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String status, @javax.annotation.Nullable String event, @javax.annotation.Nullable String webhookId) throws ApiException {
-    return getWebhookLogs(limit, status, event, webhookId, null);
-  }
-
-  /**
-   * Get delivery logs
-   * **Deprecated.** Use &#x60;GET /v1/logs?type&#x3D;webhooks&#x60; instead. Retrieve webhook delivery history. Logs are retained for 90 days. 
-   * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
-   * @param status Filter by delivery status (optional)
-   * @param event Filter by event type (optional)
-   * @param webhookId Filter by webhook ID (optional)
-   * @param headers Optional headers to include in the request
-   * @return GetWebhookLogs200Response
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public GetWebhookLogs200Response getWebhookLogs(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String status, @javax.annotation.Nullable String event, @javax.annotation.Nullable String webhookId, Map<String, String> headers) throws ApiException {
-    ApiResponse<GetWebhookLogs200Response> localVarResponse = getWebhookLogsWithHttpInfo(limit, status, event, webhookId, headers);
-    return localVarResponse.getData();
-  }
-
-  /**
-   * Get delivery logs
-   * **Deprecated.** Use &#x60;GET /v1/logs?type&#x3D;webhooks&#x60; instead. Retrieve webhook delivery history. Logs are retained for 90 days. 
-   * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
-   * @param status Filter by delivery status (optional)
-   * @param event Filter by event type (optional)
-   * @param webhookId Filter by webhook ID (optional)
-   * @return ApiResponse&lt;GetWebhookLogs200Response&gt;
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public ApiResponse<GetWebhookLogs200Response> getWebhookLogsWithHttpInfo(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String status, @javax.annotation.Nullable String event, @javax.annotation.Nullable String webhookId) throws ApiException {
-    return getWebhookLogsWithHttpInfo(limit, status, event, webhookId, null);
-  }
-
-  /**
-   * Get delivery logs
-   * **Deprecated.** Use &#x60;GET /v1/logs?type&#x3D;webhooks&#x60; instead. Retrieve webhook delivery history. Logs are retained for 90 days. 
-   * @param limit Maximum number of logs to return (max 100) (optional, default to 50)
-   * @param status Filter by delivery status (optional)
-   * @param event Filter by event type (optional)
-   * @param webhookId Filter by webhook ID (optional)
-   * @param headers Optional headers to include in the request
-   * @return ApiResponse&lt;GetWebhookLogs200Response&gt;
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public ApiResponse<GetWebhookLogs200Response> getWebhookLogsWithHttpInfo(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String status, @javax.annotation.Nullable String event, @javax.annotation.Nullable String webhookId, Map<String, String> headers) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getWebhookLogsRequestBuilder(limit, status, event, webhookId, headers);
-    try {
-      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
-      if (memberVarResponseInterceptor != null) {
-        memberVarResponseInterceptor.accept(localVarResponse);
-      }
-      InputStream localVarResponseBody = null;
-      try {
-        if (localVarResponse.statusCode()/ 100 != 2) {
-          throw getApiException("getWebhookLogs", localVarResponse);
-        }
-        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
-        if (localVarResponseBody == null) {
-          return new ApiResponse<GetWebhookLogs200Response>(
-              localVarResponse.statusCode(),
-              localVarResponse.headers().map(),
-              null
-          );
-        }
-
-        
-        
-        String responseBody = new String(localVarResponseBody.readAllBytes());
-        GetWebhookLogs200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<GetWebhookLogs200Response>() {});
-        
-
-        return new ApiResponse<GetWebhookLogs200Response>(
-            localVarResponse.statusCode(),
-            localVarResponse.headers().map(),
-            responseValue
-        );
-      } finally {
-        if (localVarResponseBody != null) {
-          localVarResponseBody.close();
-        }
-      }
-    } catch (IOException e) {
-      throw new ApiException(e);
-    }
-    catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-      throw new ApiException(e);
-    }
-  }
-
-  private HttpRequest.Builder getWebhookLogsRequestBuilder(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String status, @javax.annotation.Nullable String event, @javax.annotation.Nullable String webhookId, Map<String, String> headers) throws ApiException {
-
-    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
-
-    String localVarPath = "/v1/webhooks/logs";
-
-    List<Pair> localVarQueryParams = new ArrayList<>();
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    localVarQueryParameterBaseName = "limit";
-    localVarQueryParams.addAll(ApiClient.parameterToPairs("limit", limit));
-    localVarQueryParameterBaseName = "status";
-    localVarQueryParams.addAll(ApiClient.parameterToPairs("status", status));
-    localVarQueryParameterBaseName = "event";
-    localVarQueryParams.addAll(ApiClient.parameterToPairs("event", event));
-    localVarQueryParameterBaseName = "webhookId";
-    localVarQueryParams.addAll(ApiClient.parameterToPairs("webhookId", webhookId));
-
-    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
-      StringJoiner queryJoiner = new StringJoiner("&");
-      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
-      if (localVarQueryStringJoiner.length() != 0) {
-        queryJoiner.add(localVarQueryStringJoiner.toString());
-      }
-      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
-    } else {
-      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
-    }
-
-    localVarRequestBuilder.header("Accept", "application/json");
-
-    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }

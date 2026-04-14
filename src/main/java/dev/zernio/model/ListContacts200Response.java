@@ -24,9 +24,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import dev.zernio.model.GetWhatsAppContacts200ResponsePagination;
 import dev.zernio.model.ListContacts200ResponseContactsInner;
 import dev.zernio.model.ListContacts200ResponseFilters;
+import dev.zernio.model.ListContacts200ResponsePagination;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -43,7 +43,7 @@ import dev.zernio.ApiClient;
   ListContacts200Response.JSON_PROPERTY_FILTERS,
   ListContacts200Response.JSON_PROPERTY_PAGINATION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T11:43:39.105583357Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:23:14.639851249Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ListContacts200Response {
   public static final String JSON_PROPERTY_SUCCESS = "success";
   @javax.annotation.Nullable
@@ -59,7 +59,7 @@ public class ListContacts200Response {
 
   public static final String JSON_PROPERTY_PAGINATION = "pagination";
   @javax.annotation.Nullable
-  private GetWhatsAppContacts200ResponsePagination pagination;
+  private ListContacts200ResponsePagination pagination;
 
   public ListContacts200Response() { 
   }
@@ -144,7 +144,7 @@ public class ListContacts200Response {
   }
 
 
-  public ListContacts200Response pagination(@javax.annotation.Nullable GetWhatsAppContacts200ResponsePagination pagination) {
+  public ListContacts200Response pagination(@javax.annotation.Nullable ListContacts200ResponsePagination pagination) {
     this.pagination = pagination;
     return this;
   }
@@ -156,14 +156,14 @@ public class ListContacts200Response {
   @javax.annotation.Nullable
   @JsonProperty(value = JSON_PROPERTY_PAGINATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GetWhatsAppContacts200ResponsePagination getPagination() {
+  public ListContacts200ResponsePagination getPagination() {
     return pagination;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_PAGINATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPagination(@javax.annotation.Nullable GetWhatsAppContacts200ResponsePagination pagination) {
+  public void setPagination(@javax.annotation.Nullable ListContacts200ResponsePagination pagination) {
     this.pagination = pagination;
   }
 

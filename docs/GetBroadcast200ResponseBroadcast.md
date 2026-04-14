@@ -13,7 +13,7 @@
 |**platform** | **String** |  |  [optional] |
 |**accountId** | **String** |  |  [optional] |
 |**message** | [**GetBroadcast200ResponseBroadcastMessage**](GetBroadcast200ResponseBroadcastMessage.md) |  |  [optional] |
-|**template** | [**GetWhatsAppBroadcasts200ResponseBroadcastsInnerTemplate**](GetWhatsAppBroadcasts200ResponseBroadcastsInnerTemplate.md) |  |  [optional] |
+|**template** | [**GetBroadcast200ResponseBroadcastTemplate**](GetBroadcast200ResponseBroadcastTemplate.md) |  |  [optional] |
 |**segmentFilters** | [**ListContacts200ResponseFilters**](ListContacts200ResponseFilters.md) |  |  [optional] |
 |**status** | [**StatusEnum**](#StatusEnum) |  |  [optional] |
 |**scheduledAt** | **OffsetDateTime** |  |  [optional] |

@@ -19,7 +19,6 @@ import dev.zernio.Configuration;
 import dev.zernio.Pair;
 
 import dev.zernio.model.DeleteAccountGroup200Response;
-import dev.zernio.model.DisconnectAdsRequest;
 import dev.zernio.model.GetAccountHealth200Response;
 import dev.zernio.model.GetAllAccountsHealth200Response;
 import dev.zernio.model.GetFollowerStats200Response;
@@ -58,7 +57,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T11:43:39.105583357Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:23:14.639851249Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AccountsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -282,142 +281,6 @@ public class AccountsApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
     localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.noBody());
-    if (memberVarReadTimeout != null) {
-      localVarRequestBuilder.timeout(memberVarReadTimeout);
-    }
-    // Add custom headers if provided
-    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
-    if (memberVarInterceptor != null) {
-      memberVarInterceptor.accept(localVarRequestBuilder);
-    }
-    return localVarRequestBuilder;
-  }
-
-  /**
-   * Disconnect ads from an account
-   * **Deprecated.** Ads accounts are now standalone SocialAccount documents. Use &#x60;DELETE /v1/accounts/{accountId}&#x60; instead, passing the ads account&#39;s own ID.  This endpoint is kept for backward compatibility. It soft-deletes the ads SocialAccount identified by &#x60;accountId&#x60; (which must be an ads account, not a posting account). The parent posting account is left untouched. 
-   * @param accountId The ads SocialAccount ID to disconnect (required)
-   * @param disconnectAdsRequest  (optional)
-   * @return DeleteAccountGroup200Response
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public DeleteAccountGroup200Response disconnectAds(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable DisconnectAdsRequest disconnectAdsRequest) throws ApiException {
-    return disconnectAds(accountId, disconnectAdsRequest, null);
-  }
-
-  /**
-   * Disconnect ads from an account
-   * **Deprecated.** Ads accounts are now standalone SocialAccount documents. Use &#x60;DELETE /v1/accounts/{accountId}&#x60; instead, passing the ads account&#39;s own ID.  This endpoint is kept for backward compatibility. It soft-deletes the ads SocialAccount identified by &#x60;accountId&#x60; (which must be an ads account, not a posting account). The parent posting account is left untouched. 
-   * @param accountId The ads SocialAccount ID to disconnect (required)
-   * @param disconnectAdsRequest  (optional)
-   * @param headers Optional headers to include in the request
-   * @return DeleteAccountGroup200Response
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public DeleteAccountGroup200Response disconnectAds(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable DisconnectAdsRequest disconnectAdsRequest, Map<String, String> headers) throws ApiException {
-    ApiResponse<DeleteAccountGroup200Response> localVarResponse = disconnectAdsWithHttpInfo(accountId, disconnectAdsRequest, headers);
-    return localVarResponse.getData();
-  }
-
-  /**
-   * Disconnect ads from an account
-   * **Deprecated.** Ads accounts are now standalone SocialAccount documents. Use &#x60;DELETE /v1/accounts/{accountId}&#x60; instead, passing the ads account&#39;s own ID.  This endpoint is kept for backward compatibility. It soft-deletes the ads SocialAccount identified by &#x60;accountId&#x60; (which must be an ads account, not a posting account). The parent posting account is left untouched. 
-   * @param accountId The ads SocialAccount ID to disconnect (required)
-   * @param disconnectAdsRequest  (optional)
-   * @return ApiResponse&lt;DeleteAccountGroup200Response&gt;
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public ApiResponse<DeleteAccountGroup200Response> disconnectAdsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable DisconnectAdsRequest disconnectAdsRequest) throws ApiException {
-    return disconnectAdsWithHttpInfo(accountId, disconnectAdsRequest, null);
-  }
-
-  /**
-   * Disconnect ads from an account
-   * **Deprecated.** Ads accounts are now standalone SocialAccount documents. Use &#x60;DELETE /v1/accounts/{accountId}&#x60; instead, passing the ads account&#39;s own ID.  This endpoint is kept for backward compatibility. It soft-deletes the ads SocialAccount identified by &#x60;accountId&#x60; (which must be an ads account, not a posting account). The parent posting account is left untouched. 
-   * @param accountId The ads SocialAccount ID to disconnect (required)
-   * @param disconnectAdsRequest  (optional)
-   * @param headers Optional headers to include in the request
-   * @return ApiResponse&lt;DeleteAccountGroup200Response&gt;
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public ApiResponse<DeleteAccountGroup200Response> disconnectAdsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable DisconnectAdsRequest disconnectAdsRequest, Map<String, String> headers) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = disconnectAdsRequestBuilder(accountId, disconnectAdsRequest, headers);
-    try {
-      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
-      if (memberVarResponseInterceptor != null) {
-        memberVarResponseInterceptor.accept(localVarResponse);
-      }
-      InputStream localVarResponseBody = null;
-      try {
-        if (localVarResponse.statusCode()/ 100 != 2) {
-          throw getApiException("disconnectAds", localVarResponse);
-        }
-        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
-        if (localVarResponseBody == null) {
-          return new ApiResponse<DeleteAccountGroup200Response>(
-              localVarResponse.statusCode(),
-              localVarResponse.headers().map(),
-              null
-          );
-        }
-
-        
-        
-        String responseBody = new String(localVarResponseBody.readAllBytes());
-        DeleteAccountGroup200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<DeleteAccountGroup200Response>() {});
-        
-
-        return new ApiResponse<DeleteAccountGroup200Response>(
-            localVarResponse.statusCode(),
-            localVarResponse.headers().map(),
-            responseValue
-        );
-      } finally {
-        if (localVarResponseBody != null) {
-          localVarResponseBody.close();
-        }
-      }
-    } catch (IOException e) {
-      throw new ApiException(e);
-    }
-    catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-      throw new ApiException(e);
-    }
-  }
-
-  private HttpRequest.Builder disconnectAdsRequestBuilder(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable DisconnectAdsRequest disconnectAdsRequest, Map<String, String> headers) throws ApiException {
-    // verify the required parameter 'accountId' is set
-    if (accountId == null) {
-      throw new ApiException(400, "Missing the required parameter 'accountId' when calling disconnectAds");
-    }
-
-    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
-
-    String localVarPath = "/v1/accounts/{accountId}/disconnect-ads"
-        .replace("{accountId}", ApiClient.urlEncode(accountId.toString()));
-
-    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
-
-    localVarRequestBuilder.header("Content-Type", "application/json");
-    localVarRequestBuilder.header("Accept", "application/json");
-
-    try {
-      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(disconnectAdsRequest);
-      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
-    } catch (IOException e) {
-      throw new ApiException(e);
-    }
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
