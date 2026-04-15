@@ -1546,14 +1546,3 @@ src/main/java/dev/zernio/model/YouTubeDemographicsResponseDemographicsValueInner
 src/main/java/dev/zernio/model/YouTubePlatformData.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponseScopeStatus.java
-src/test/java/dev/zernio/model/ConversionEventItemsInnerTest.java
-src/test/java/dev/zernio/model/ConversionEventTest.java
-src/test/java/dev/zernio/model/ConversionEventUserClickIdsTest.java
-src/test/java/dev/zernio/model/ConversionEventUserTest.java
-src/test/java/dev/zernio/model/ListConversionDestinations200ResponseDestinationsInnerTest.java
-src/test/java/dev/zernio/model/ListConversionDestinations200ResponseTest.java
-src/test/java/dev/zernio/model/SendConversions200ResponseFailuresInnerCodeTest.java
-src/test/java/dev/zernio/model/SendConversions200ResponseFailuresInnerTest.java
-src/test/java/dev/zernio/model/SendConversions200ResponseTest.java
-src/test/java/dev/zernio/model/SendConversionsRequestConsentTest.java
-src/test/java/dev/zernio/model/SendConversionsRequestTest.java
