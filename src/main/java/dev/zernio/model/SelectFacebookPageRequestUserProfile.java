@@ -37,7 +37,7 @@ import dev.zernio.ApiClient;
   SelectFacebookPageRequestUserProfile.JSON_PROPERTY_NAME,
   SelectFacebookPageRequestUserProfile.JSON_PROPERTY_PROFILE_PICTURE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T16:44:41.618708448Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-15T11:29:46.029822151Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class SelectFacebookPageRequestUserProfile {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable

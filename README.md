@@ -4,7 +4,7 @@ Zernio API
 
 - API version: 1.0.1
 
-- Build date: 2026-04-14T16:44:41.618708448Z[Etc/UTC]
+- Build date: 2026-04-15T11:29:46.029822151Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -182,8 +182,12 @@ Class | Method | HTTP request | Description
 *AdsApi* | [**listAdAccountsWithHttpInfo**](docs/AdsApi.md#listAdAccountsWithHttpInfo) | **GET** /v1/ads/accounts | List ad accounts
 *AdsApi* | [**listAds**](docs/AdsApi.md#listAds) | **GET** /v1/ads | List ads
 *AdsApi* | [**listAdsWithHttpInfo**](docs/AdsApi.md#listAdsWithHttpInfo) | **GET** /v1/ads | List ads
+*AdsApi* | [**listConversionDestinations**](docs/AdsApi.md#listConversionDestinations) | **GET** /v1/accounts/{accountId}/conversion-destinations | List destinations for the Conversions API
+*AdsApi* | [**listConversionDestinationsWithHttpInfo**](docs/AdsApi.md#listConversionDestinationsWithHttpInfo) | **GET** /v1/accounts/{accountId}/conversion-destinations | List destinations for the Conversions API
 *AdsApi* | [**searchAdInterests**](docs/AdsApi.md#searchAdInterests) | **GET** /v1/ads/interests | Search targeting interests
 *AdsApi* | [**searchAdInterestsWithHttpInfo**](docs/AdsApi.md#searchAdInterestsWithHttpInfo) | **GET** /v1/ads/interests | Search targeting interests
+*AdsApi* | [**sendConversions**](docs/AdsApi.md#sendConversions) | **POST** /v1/ads/conversions | Send conversion events to an ad platform
+*AdsApi* | [**sendConversionsWithHttpInfo**](docs/AdsApi.md#sendConversionsWithHttpInfo) | **POST** /v1/ads/conversions | Send conversion events to an ad platform
 *AdsApi* | [**updateAd**](docs/AdsApi.md#updateAd) | **PUT** /v1/ads/{adId} | Update ad
 *AdsApi* | [**updateAdWithHttpInfo**](docs/AdsApi.md#updateAdWithHttpInfo) | **PUT** /v1/ads/{adId} | Update ad
 *AnalyticsApi* | [**getAnalytics**](docs/AnalyticsApi.md#getAnalytics) | **GET** /v1/analytics | Get post analytics
@@ -665,6 +669,10 @@ Class | Method | HTTP request | Description
  - [ConnectWhatsAppCredentialsRequest](docs/ConnectWhatsAppCredentialsRequest.md)
  - [Connected](docs/Connected.md)
  - [ConnectedAccount](docs/ConnectedAccount.md)
+ - [ConversionEvent](docs/ConversionEvent.md)
+ - [ConversionEventItemsInner](docs/ConversionEventItemsInner.md)
+ - [ConversionEventUser](docs/ConversionEventUser.md)
+ - [ConversionEventUserClickIds](docs/ConversionEventUserClickIds.md)
  - [CreateAccountGroup201Response](docs/CreateAccountGroup201Response.md)
  - [CreateAccountGroupRequest](docs/CreateAccountGroupRequest.md)
  - [CreateAdAudience201Response](docs/CreateAdAudience201Response.md)
@@ -987,6 +995,8 @@ Class | Method | HTTP request | Description
  - [ListContacts200ResponseContactsInner](docs/ListContacts200ResponseContactsInner.md)
  - [ListContacts200ResponseFilters](docs/ListContacts200ResponseFilters.md)
  - [ListContacts200ResponsePagination](docs/ListContacts200ResponsePagination.md)
+ - [ListConversionDestinations200Response](docs/ListConversionDestinations200Response.md)
+ - [ListConversionDestinations200ResponseDestinationsInner](docs/ListConversionDestinations200ResponseDestinationsInner.md)
  - [ListCustomFields200Response](docs/ListCustomFields200Response.md)
  - [ListCustomFields200ResponseFieldsInner](docs/ListCustomFields200ResponseFieldsInner.md)
  - [ListFacebookPages200Response](docs/ListFacebookPages200Response.md)
@@ -1118,6 +1128,11 @@ Class | Method | HTTP request | Description
  - [SelectSnapchatProfileRequest](docs/SelectSnapchatProfileRequest.md)
  - [SelectSnapchatProfileRequestSelectedPublicProfile](docs/SelectSnapchatProfileRequestSelectedPublicProfile.md)
  - [SendBroadcast200Response](docs/SendBroadcast200Response.md)
+ - [SendConversions200Response](docs/SendConversions200Response.md)
+ - [SendConversions200ResponseFailuresInner](docs/SendConversions200ResponseFailuresInner.md)
+ - [SendConversions200ResponseFailuresInnerCode](docs/SendConversions200ResponseFailuresInnerCode.md)
+ - [SendConversionsRequest](docs/SendConversionsRequest.md)
+ - [SendConversionsRequestConsent](docs/SendConversionsRequestConsent.md)
  - [SendInboxMessage200Response](docs/SendInboxMessage200Response.md)
  - [SendInboxMessage200ResponseData](docs/SendInboxMessage200ResponseData.md)
  - [SendInboxMessage400Response](docs/SendInboxMessage400Response.md)
