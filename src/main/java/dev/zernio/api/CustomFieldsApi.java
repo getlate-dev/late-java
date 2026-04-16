@@ -52,7 +52,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T08:25:26.022254336Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T08:33:57.818543406Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CustomFieldsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.

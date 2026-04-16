@@ -36,7 +36,7 @@ import dev.zernio.ApiClient;
   DeleteQueueSlot200Response.JSON_PROPERTY_SUCCESS,
   DeleteQueueSlot200Response.JSON_PROPERTY_DELETED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T08:25:26.022254336Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T08:33:57.818543406Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class DeleteQueueSlot200Response {
   public static final String JSON_PROPERTY_SUCCESS = "success";
   @javax.annotation.Nullable
