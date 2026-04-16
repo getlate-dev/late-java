@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import dev.zernio.model.GeoRestriction;
 import dev.zernio.model.TwitterPlatformDataPoll;
 import dev.zernio.model.TwitterPlatformDataThreadItemsInner;
 import java.util.ArrayList;
@@ -34,16 +35,17 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.zernio.ApiClient;
 /**
- * TwitterPlatformData
+ * X (Twitter) geo-restriction applies at the media level. Media in geo-restricted tweets will be hidden for users outside the specified countries; the tweet text itself remains visible globally. Requires media to be attached (ignored for text-only tweets). 
  */
 @JsonPropertyOrder({
   TwitterPlatformData.JSON_PROPERTY_REPLY_TO_TWEET_ID,
   TwitterPlatformData.JSON_PROPERTY_REPLY_SETTINGS,
   TwitterPlatformData.JSON_PROPERTY_THREAD_ITEMS,
   TwitterPlatformData.JSON_PROPERTY_POLL,
-  TwitterPlatformData.JSON_PROPERTY_LONG_VIDEO
+  TwitterPlatformData.JSON_PROPERTY_LONG_VIDEO,
+  TwitterPlatformData.JSON_PROPERTY_GEO_RESTRICTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T09:02:59.930725623Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T09:26:48.841027988Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class TwitterPlatformData {
   public static final String JSON_PROPERTY_REPLY_TO_TWEET_ID = "replyToTweetId";
   @javax.annotation.Nullable
@@ -103,6 +105,10 @@ public class TwitterPlatformData {
   public static final String JSON_PROPERTY_LONG_VIDEO = "longVideo";
   @javax.annotation.Nullable
   private Boolean longVideo = false;
+
+  public static final String JSON_PROPERTY_GEO_RESTRICTION = "geoRestriction";
+  @javax.annotation.Nullable
+  private GeoRestriction geoRestriction;
 
   public TwitterPlatformData() { 
   }
@@ -235,6 +241,30 @@ public class TwitterPlatformData {
   }
 
 
+  public TwitterPlatformData geoRestriction(@javax.annotation.Nullable GeoRestriction geoRestriction) {
+    this.geoRestriction = geoRestriction;
+    return this;
+  }
+
+  /**
+   * Get geoRestriction
+   * @return geoRestriction
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_GEO_RESTRICTION, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public GeoRestriction getGeoRestriction() {
+    return geoRestriction;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_GEO_RESTRICTION, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGeoRestriction(@javax.annotation.Nullable GeoRestriction geoRestriction) {
+    this.geoRestriction = geoRestriction;
+  }
+
+
   /**
    * Return true if this TwitterPlatformData object is equal to o.
    */
@@ -251,12 +281,13 @@ public class TwitterPlatformData {
         Objects.equals(this.replySettings, twitterPlatformData.replySettings) &&
         Objects.equals(this.threadItems, twitterPlatformData.threadItems) &&
         Objects.equals(this.poll, twitterPlatformData.poll) &&
-        Objects.equals(this.longVideo, twitterPlatformData.longVideo);
+        Objects.equals(this.longVideo, twitterPlatformData.longVideo) &&
+        Objects.equals(this.geoRestriction, twitterPlatformData.geoRestriction);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(replyToTweetId, replySettings, threadItems, poll, longVideo);
+    return Objects.hash(replyToTweetId, replySettings, threadItems, poll, longVideo, geoRestriction);
   }
 
   @Override
@@ -268,6 +299,7 @@ public class TwitterPlatformData {
     sb.append("    threadItems: ").append(toIndentedString(threadItems)).append("\n");
     sb.append("    poll: ").append(toIndentedString(poll)).append("\n");
     sb.append("    longVideo: ").append(toIndentedString(longVideo)).append("\n");
+    sb.append("    geoRestriction: ").append(toIndentedString(geoRestriction)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -343,6 +375,11 @@ public class TwitterPlatformData {
     // add `longVideo` to the URL query string
     if (getLongVideo() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%slongVideo%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getLongVideo()))));
+    }
+
+    // add `geoRestriction` to the URL query string
+    if (getGeoRestriction() != null) {
+      joiner.add(getGeoRestriction().toUrlQueryString(prefix + "geoRestriction" + suffix));
     }
 
     return joiner.toString();

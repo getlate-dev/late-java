@@ -4,7 +4,7 @@ Zernio API
 
 - API version: 1.0.1
 
-- Build date: 2026-04-16T09:02:59.930725623Z[Etc/UTC]
+- Build date: 2026-04-16T09:26:48.841027988Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -783,6 +783,7 @@ Class | Method | HTTP request | Description
  - [FoodMenuItemOptionsInner](docs/FoodMenuItemOptionsInner.md)
  - [FoodMenuLabel](docs/FoodMenuLabel.md)
  - [FoodMenuSection](docs/FoodMenuSection.md)
+ - [GeoRestriction](docs/GeoRestriction.md)
  - [GetAccountHealth200Response](docs/GetAccountHealth200Response.md)
  - [GetAccountHealth200ResponsePermissions](docs/GetAccountHealth200ResponsePermissions.md)
  - [GetAccountHealth200ResponsePermissionsPostingInner](docs/GetAccountHealth200ResponsePermissionsPostingInner.md)

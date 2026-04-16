@@ -38,7 +38,7 @@ import dev.zernio.ApiClient;
 @JsonPropertyOrder({
   GetWebhookSettings200Response.JSON_PROPERTY_WEBHOOKS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T09:02:59.930725623Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T09:26:48.841027988Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetWebhookSettings200Response {
   public static final String JSON_PROPERTY_WEBHOOKS = "webhooks";
   @javax.annotation.Nullable

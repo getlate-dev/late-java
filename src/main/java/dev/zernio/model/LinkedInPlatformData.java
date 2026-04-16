@@ -24,21 +24,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import dev.zernio.model.GeoRestriction;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 import dev.zernio.ApiClient;
 /**
- * Up to 20 images, no multi-video. Single PDF supported (max 100MB). Link previews auto-generated when no media attached. Use organizationUrn for multi-org posting.
+ * Up to 20 images, no multi-video. Single PDF supported (max 100MB). Link previews auto-generated when no media attached. Use organizationUrn for multi-org posting. Geo-restriction only works for organization pages (not personal profiles) and requires the targeted audience to exceed 300 followers. 
  */
 @JsonPropertyOrder({
   LinkedInPlatformData.JSON_PROPERTY_DOCUMENT_TITLE,
   LinkedInPlatformData.JSON_PROPERTY_ORGANIZATION_URN,
   LinkedInPlatformData.JSON_PROPERTY_FIRST_COMMENT,
-  LinkedInPlatformData.JSON_PROPERTY_DISABLE_LINK_PREVIEW
+  LinkedInPlatformData.JSON_PROPERTY_DISABLE_LINK_PREVIEW,
+  LinkedInPlatformData.JSON_PROPERTY_GEO_RESTRICTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T09:02:59.930725623Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T09:26:48.841027988Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class LinkedInPlatformData {
   public static final String JSON_PROPERTY_DOCUMENT_TITLE = "documentTitle";
   @javax.annotation.Nullable
@@ -55,6 +57,10 @@ public class LinkedInPlatformData {
   public static final String JSON_PROPERTY_DISABLE_LINK_PREVIEW = "disableLinkPreview";
   @javax.annotation.Nullable
   private Boolean disableLinkPreview;
+
+  public static final String JSON_PROPERTY_GEO_RESTRICTION = "geoRestriction";
+  @javax.annotation.Nullable
+  private GeoRestriction geoRestriction;
 
   public LinkedInPlatformData() { 
   }
@@ -155,6 +161,30 @@ public class LinkedInPlatformData {
   }
 
 
+  public LinkedInPlatformData geoRestriction(@javax.annotation.Nullable GeoRestriction geoRestriction) {
+    this.geoRestriction = geoRestriction;
+    return this;
+  }
+
+  /**
+   * Get geoRestriction
+   * @return geoRestriction
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_GEO_RESTRICTION, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public GeoRestriction getGeoRestriction() {
+    return geoRestriction;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_GEO_RESTRICTION, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGeoRestriction(@javax.annotation.Nullable GeoRestriction geoRestriction) {
+    this.geoRestriction = geoRestriction;
+  }
+
+
   /**
    * Return true if this LinkedInPlatformData object is equal to o.
    */
@@ -170,12 +200,13 @@ public class LinkedInPlatformData {
     return Objects.equals(this.documentTitle, linkedInPlatformData.documentTitle) &&
         Objects.equals(this.organizationUrn, linkedInPlatformData.organizationUrn) &&
         Objects.equals(this.firstComment, linkedInPlatformData.firstComment) &&
-        Objects.equals(this.disableLinkPreview, linkedInPlatformData.disableLinkPreview);
+        Objects.equals(this.disableLinkPreview, linkedInPlatformData.disableLinkPreview) &&
+        Objects.equals(this.geoRestriction, linkedInPlatformData.geoRestriction);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentTitle, organizationUrn, firstComment, disableLinkPreview);
+    return Objects.hash(documentTitle, organizationUrn, firstComment, disableLinkPreview, geoRestriction);
   }
 
   @Override
@@ -186,6 +217,7 @@ public class LinkedInPlatformData {
     sb.append("    organizationUrn: ").append(toIndentedString(organizationUrn)).append("\n");
     sb.append("    firstComment: ").append(toIndentedString(firstComment)).append("\n");
     sb.append("    disableLinkPreview: ").append(toIndentedString(disableLinkPreview)).append("\n");
+    sb.append("    geoRestriction: ").append(toIndentedString(geoRestriction)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -251,6 +283,11 @@ public class LinkedInPlatformData {
     // add `disableLinkPreview` to the URL query string
     if (getDisableLinkPreview() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sdisableLinkPreview%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDisableLinkPreview()))));
+    }
+
+    // add `geoRestriction` to the URL query string
+    if (getGeoRestriction() != null) {
+      joiner.add(getGeoRestriction().toUrlQueryString(prefix + "geoRestriction" + suffix));
     }
 
     return joiner.toString();

@@ -24,22 +24,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import dev.zernio.model.GeoRestriction;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 import dev.zernio.ApiClient;
 /**
- * Feed posts support up to 10 images (no mixed video+image). Stories require single media (24h, no captions). Reels require single vertical video (9:16, 3-60s).
+ * Feed posts support up to 10 images (no mixed video+image). Stories require single media (24h, no captions). Reels require single vertical video (9:16, 3-60s). Geo-restriction is a hard visibility restriction: users outside the specified countries cannot see the post. Not supported for stories. 
  */
 @JsonPropertyOrder({
   FacebookPlatformData.JSON_PROPERTY_DRAFT,
   FacebookPlatformData.JSON_PROPERTY_CONTENT_TYPE,
   FacebookPlatformData.JSON_PROPERTY_TITLE,
   FacebookPlatformData.JSON_PROPERTY_FIRST_COMMENT,
-  FacebookPlatformData.JSON_PROPERTY_PAGE_ID
+  FacebookPlatformData.JSON_PROPERTY_PAGE_ID,
+  FacebookPlatformData.JSON_PROPERTY_GEO_RESTRICTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T09:02:59.930725623Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T09:26:48.841027988Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class FacebookPlatformData {
   public static final String JSON_PROPERTY_DRAFT = "draft";
   @javax.annotation.Nullable
@@ -95,6 +97,10 @@ public class FacebookPlatformData {
   public static final String JSON_PROPERTY_PAGE_ID = "pageId";
   @javax.annotation.Nullable
   private String pageId;
+
+  public static final String JSON_PROPERTY_GEO_RESTRICTION = "geoRestriction";
+  @javax.annotation.Nullable
+  private GeoRestriction geoRestriction;
 
   public FacebookPlatformData() { 
   }
@@ -219,6 +225,30 @@ public class FacebookPlatformData {
   }
 
 
+  public FacebookPlatformData geoRestriction(@javax.annotation.Nullable GeoRestriction geoRestriction) {
+    this.geoRestriction = geoRestriction;
+    return this;
+  }
+
+  /**
+   * Get geoRestriction
+   * @return geoRestriction
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_GEO_RESTRICTION, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public GeoRestriction getGeoRestriction() {
+    return geoRestriction;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_GEO_RESTRICTION, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGeoRestriction(@javax.annotation.Nullable GeoRestriction geoRestriction) {
+    this.geoRestriction = geoRestriction;
+  }
+
+
   /**
    * Return true if this FacebookPlatformData object is equal to o.
    */
@@ -235,12 +265,13 @@ public class FacebookPlatformData {
         Objects.equals(this.contentType, facebookPlatformData.contentType) &&
         Objects.equals(this.title, facebookPlatformData.title) &&
         Objects.equals(this.firstComment, facebookPlatformData.firstComment) &&
-        Objects.equals(this.pageId, facebookPlatformData.pageId);
+        Objects.equals(this.pageId, facebookPlatformData.pageId) &&
+        Objects.equals(this.geoRestriction, facebookPlatformData.geoRestriction);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(draft, contentType, title, firstComment, pageId);
+    return Objects.hash(draft, contentType, title, firstComment, pageId, geoRestriction);
   }
 
   @Override
@@ -252,6 +283,7 @@ public class FacebookPlatformData {
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    firstComment: ").append(toIndentedString(firstComment)).append("\n");
     sb.append("    pageId: ").append(toIndentedString(pageId)).append("\n");
+    sb.append("    geoRestriction: ").append(toIndentedString(geoRestriction)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -322,6 +354,11 @@ public class FacebookPlatformData {
     // add `pageId` to the URL query string
     if (getPageId() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%spageId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getPageId()))));
+    }
+
+    // add `geoRestriction` to the URL query string
+    if (getGeoRestriction() != null) {
+      joiner.add(getGeoRestriction().toUrlQueryString(prefix + "geoRestriction" + suffix));
     }
 
     return joiner.toString();
