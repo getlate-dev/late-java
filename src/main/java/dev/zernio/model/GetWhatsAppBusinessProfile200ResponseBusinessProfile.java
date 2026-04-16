@@ -44,7 +44,7 @@ import dev.zernio.ApiClient;
   GetWhatsAppBusinessProfile200ResponseBusinessProfile.JSON_PROPERTY_WEBSITES,
   GetWhatsAppBusinessProfile200ResponseBusinessProfile.JSON_PROPERTY_VERTICAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T11:41:42.511730451Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T14:36:47.459373889Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetWhatsAppBusinessProfile200ResponseBusinessProfile {
   public static final String JSON_PROPERTY_ABOUT = "about";
   @javax.annotation.Nullable
