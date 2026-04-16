@@ -17031,9 +17031,9 @@ components:
             \ uploads. Quota cost: 50 YouTube API units per call."
           type: string
     GoogleBusinessPlatformData:
-      description: "Text and single image only (no videos). Optional call-to-action\
-        \ button. Posts appear on GBP, Google Search, and Maps. Use locationId for\
-        \ multi-location posting."
+      description: "Text and single image only (no videos). Supports STANDARD, EVENT,\
+        \ and OFFER post types. Posts appear on GBP, Google Search, and Maps. Use\
+        \ locationId for multi-location posting."
       properties:
         locationId:
           description: "Target GBP location ID (e.g. \"locations/123456789\"). If\
@@ -17045,8 +17045,22 @@ components:
             \ if omitted. Set explicitly for short or mixed-language posts."
           example: de
           type: string
+        topicType:
+          default: STANDARD
+          description: Post type. STANDARD is a regular update. EVENT requires the
+            event object. OFFER requires the offer object. Defaults to STANDARD if
+            omitted.
+          enum:
+          - STANDARD
+          - EVENT
+          - OFFER
+          type: string
         callToAction:
           $ref: "#/components/schemas/GoogleBusinessPlatformData_callToAction"
+        event:
+          $ref: "#/components/schemas/GoogleBusinessPlatformData_event"
+        offer:
+          $ref: "#/components/schemas/GoogleBusinessPlatformData_offer"
     TikTokPlatformData:
       description: |
         Photo carousels up to 35 images. Video titles up to 2200 chars, photo titles truncated to 90 chars.
@@ -36375,6 +36389,121 @@ components:
       required:
       - type
       - url
+    GoogleBusinessPlatformData_event_schedule_startDate:
+      description: "Event start date as { year, month, day }"
+      properties:
+        year:
+          example: 2026
+          type: integer
+        month:
+          example: 5
+          maximum: 12
+          minimum: 1
+          type: integer
+        day:
+          example: 15
+          maximum: 31
+          minimum: 1
+          type: integer
+      required:
+      - day
+      - month
+      - year
+    GoogleBusinessPlatformData_event_schedule_startTime:
+      description: "Optional start time as { hours, minutes } in 24h format"
+      properties:
+        hours:
+          example: 9
+          maximum: 23
+          minimum: 0
+          type: integer
+        minutes:
+          example: 0
+          maximum: 59
+          minimum: 0
+          type: integer
+    GoogleBusinessPlatformData_event_schedule_endDate:
+      description: "Event end date as { year, month, day }"
+      properties:
+        year:
+          example: 2026
+          type: integer
+        month:
+          example: 5
+          maximum: 12
+          minimum: 1
+          type: integer
+        day:
+          example: 16
+          maximum: 31
+          minimum: 1
+          type: integer
+      required:
+      - day
+      - month
+      - year
+    GoogleBusinessPlatformData_event_schedule_endTime:
+      description: "Optional end time as { hours, minutes } in 24h format"
+      properties:
+        hours:
+          example: 17
+          maximum: 23
+          minimum: 0
+          type: integer
+        minutes:
+          example: 0
+          maximum: 59
+          minimum: 0
+          type: integer
+    GoogleBusinessPlatformData_event_schedule:
+      description: Event date/time range. Uses Google's date format (NOT ISO 8601).
+      properties:
+        startDate:
+          $ref: "#/components/schemas/GoogleBusinessPlatformData_event_schedule_startDate"
+        startTime:
+          $ref: "#/components/schemas/GoogleBusinessPlatformData_event_schedule_startTime"
+        endDate:
+          $ref: "#/components/schemas/GoogleBusinessPlatformData_event_schedule_endDate"
+        endTime:
+          $ref: "#/components/schemas/GoogleBusinessPlatformData_event_schedule_endTime"
+      required:
+      - endDate
+      - startDate
+    GoogleBusinessPlatformData_event:
+      description: Event details. Required when topicType is EVENT. Google returns
+        400 if omitted for EVENT posts.
+      properties:
+        title:
+          description: Event name (displayed as the event heading on Google Search
+            and Maps)
+          example: Grand Opening Weekend
+          type: string
+        schedule:
+          $ref: "#/components/schemas/GoogleBusinessPlatformData_event_schedule"
+      required:
+      - schedule
+      - title
+    GoogleBusinessPlatformData_offer:
+      description: "Offer details. Required when topicType is OFFER. All fields are\
+        \ optional per Google's API, but at least one is recommended."
+      properties:
+        offerType:
+          description: Type of offer
+          enum:
+          - OFFER
+          - BUY_ONE_GET_ONE
+          type: string
+        redeemOnlineUrl:
+          description: URL where the offer can be redeemed online
+          format: uri
+          type: string
+        termsConditions:
+          description: Terms and conditions for the offer
+          type: string
+        couponCode:
+          description: Coupon code for the offer
+          example: SAVE20
+          type: string
     DiscordPlatformData_embeds_inner_image:
       properties:
         url:

@@ -25,20 +25,25 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import dev.zernio.model.GoogleBusinessPlatformDataCallToAction;
+import dev.zernio.model.GoogleBusinessPlatformDataEvent;
+import dev.zernio.model.GoogleBusinessPlatformDataOffer;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 import dev.zernio.ApiClient;
 /**
- * Text and single image only (no videos). Optional call-to-action button. Posts appear on GBP, Google Search, and Maps. Use locationId for multi-location posting.
+ * Text and single image only (no videos). Supports STANDARD, EVENT, and OFFER post types. Posts appear on GBP, Google Search, and Maps. Use locationId for multi-location posting.
  */
 @JsonPropertyOrder({
   GoogleBusinessPlatformData.JSON_PROPERTY_LOCATION_ID,
   GoogleBusinessPlatformData.JSON_PROPERTY_LANGUAGE_CODE,
-  GoogleBusinessPlatformData.JSON_PROPERTY_CALL_TO_ACTION
+  GoogleBusinessPlatformData.JSON_PROPERTY_TOPIC_TYPE,
+  GoogleBusinessPlatformData.JSON_PROPERTY_CALL_TO_ACTION,
+  GoogleBusinessPlatformData.JSON_PROPERTY_EVENT,
+  GoogleBusinessPlatformData.JSON_PROPERTY_OFFER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T10:17:33.539898049Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T10:56:32.804843189Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GoogleBusinessPlatformData {
   public static final String JSON_PROPERTY_LOCATION_ID = "locationId";
   @javax.annotation.Nullable
@@ -48,9 +53,58 @@ public class GoogleBusinessPlatformData {
   @javax.annotation.Nullable
   private String languageCode;
 
+  /**
+   * Post type. STANDARD is a regular update. EVENT requires the event object. OFFER requires the offer object. Defaults to STANDARD if omitted.
+   */
+  public enum TopicTypeEnum {
+    STANDARD(String.valueOf("STANDARD")),
+    
+    EVENT(String.valueOf("EVENT")),
+    
+    OFFER(String.valueOf("OFFER"));
+
+    private String value;
+
+    TopicTypeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static TopicTypeEnum fromValue(String value) {
+      for (TopicTypeEnum b : TopicTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_TOPIC_TYPE = "topicType";
+  @javax.annotation.Nullable
+  private TopicTypeEnum topicType = TopicTypeEnum.STANDARD;
+
   public static final String JSON_PROPERTY_CALL_TO_ACTION = "callToAction";
   @javax.annotation.Nullable
   private GoogleBusinessPlatformDataCallToAction callToAction;
+
+  public static final String JSON_PROPERTY_EVENT = "event";
+  @javax.annotation.Nullable
+  private GoogleBusinessPlatformDataEvent event;
+
+  public static final String JSON_PROPERTY_OFFER = "offer";
+  @javax.annotation.Nullable
+  private GoogleBusinessPlatformDataOffer offer;
 
   public GoogleBusinessPlatformData() { 
   }
@@ -103,6 +157,30 @@ public class GoogleBusinessPlatformData {
   }
 
 
+  public GoogleBusinessPlatformData topicType(@javax.annotation.Nullable TopicTypeEnum topicType) {
+    this.topicType = topicType;
+    return this;
+  }
+
+  /**
+   * Post type. STANDARD is a regular update. EVENT requires the event object. OFFER requires the offer object. Defaults to STANDARD if omitted.
+   * @return topicType
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_TOPIC_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TopicTypeEnum getTopicType() {
+    return topicType;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_TOPIC_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTopicType(@javax.annotation.Nullable TopicTypeEnum topicType) {
+    this.topicType = topicType;
+  }
+
+
   public GoogleBusinessPlatformData callToAction(@javax.annotation.Nullable GoogleBusinessPlatformDataCallToAction callToAction) {
     this.callToAction = callToAction;
     return this;
@@ -127,6 +205,54 @@ public class GoogleBusinessPlatformData {
   }
 
 
+  public GoogleBusinessPlatformData event(@javax.annotation.Nullable GoogleBusinessPlatformDataEvent event) {
+    this.event = event;
+    return this;
+  }
+
+  /**
+   * Get event
+   * @return event
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_EVENT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public GoogleBusinessPlatformDataEvent getEvent() {
+    return event;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_EVENT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEvent(@javax.annotation.Nullable GoogleBusinessPlatformDataEvent event) {
+    this.event = event;
+  }
+
+
+  public GoogleBusinessPlatformData offer(@javax.annotation.Nullable GoogleBusinessPlatformDataOffer offer) {
+    this.offer = offer;
+    return this;
+  }
+
+  /**
+   * Get offer
+   * @return offer
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_OFFER, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public GoogleBusinessPlatformDataOffer getOffer() {
+    return offer;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_OFFER, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOffer(@javax.annotation.Nullable GoogleBusinessPlatformDataOffer offer) {
+    this.offer = offer;
+  }
+
+
   /**
    * Return true if this GoogleBusinessPlatformData object is equal to o.
    */
@@ -141,12 +267,15 @@ public class GoogleBusinessPlatformData {
     GoogleBusinessPlatformData googleBusinessPlatformData = (GoogleBusinessPlatformData) o;
     return Objects.equals(this.locationId, googleBusinessPlatformData.locationId) &&
         Objects.equals(this.languageCode, googleBusinessPlatformData.languageCode) &&
-        Objects.equals(this.callToAction, googleBusinessPlatformData.callToAction);
+        Objects.equals(this.topicType, googleBusinessPlatformData.topicType) &&
+        Objects.equals(this.callToAction, googleBusinessPlatformData.callToAction) &&
+        Objects.equals(this.event, googleBusinessPlatformData.event) &&
+        Objects.equals(this.offer, googleBusinessPlatformData.offer);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(locationId, languageCode, callToAction);
+    return Objects.hash(locationId, languageCode, topicType, callToAction, event, offer);
   }
 
   @Override
@@ -155,7 +284,10 @@ public class GoogleBusinessPlatformData {
     sb.append("class GoogleBusinessPlatformData {\n");
     sb.append("    locationId: ").append(toIndentedString(locationId)).append("\n");
     sb.append("    languageCode: ").append(toIndentedString(languageCode)).append("\n");
+    sb.append("    topicType: ").append(toIndentedString(topicType)).append("\n");
     sb.append("    callToAction: ").append(toIndentedString(callToAction)).append("\n");
+    sb.append("    event: ").append(toIndentedString(event)).append("\n");
+    sb.append("    offer: ").append(toIndentedString(offer)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -213,9 +345,24 @@ public class GoogleBusinessPlatformData {
       joiner.add(String.format(java.util.Locale.ROOT, "%slanguageCode%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getLanguageCode()))));
     }
 
+    // add `topicType` to the URL query string
+    if (getTopicType() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%stopicType%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getTopicType()))));
+    }
+
     // add `callToAction` to the URL query string
     if (getCallToAction() != null) {
       joiner.add(getCallToAction().toUrlQueryString(prefix + "callToAction" + suffix));
+    }
+
+    // add `event` to the URL query string
+    if (getEvent() != null) {
+      joiner.add(getEvent().toUrlQueryString(prefix + "event" + suffix));
+    }
+
+    // add `offer` to the URL query string
+    if (getOffer() != null) {
+      joiner.add(getOffer().toUrlQueryString(prefix + "offer" + suffix));
     }
 
     return joiner.toString();

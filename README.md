@@ -4,7 +4,7 @@ Zernio API
 
 - API version: 1.0.1
 
-- Build date: 2026-04-16T10:17:33.539898049Z[Etc/UTC]
+- Build date: 2026-04-16T10:56:32.804843189Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -962,6 +962,13 @@ Class | Method | HTTP request | Description
  - [GetYoutubePlaylists200ResponsePlaylistsInner](docs/GetYoutubePlaylists200ResponsePlaylistsInner.md)
  - [GoogleBusinessPlatformData](docs/GoogleBusinessPlatformData.md)
  - [GoogleBusinessPlatformDataCallToAction](docs/GoogleBusinessPlatformDataCallToAction.md)
+ - [GoogleBusinessPlatformDataEvent](docs/GoogleBusinessPlatformDataEvent.md)
+ - [GoogleBusinessPlatformDataEventSchedule](docs/GoogleBusinessPlatformDataEventSchedule.md)
+ - [GoogleBusinessPlatformDataEventScheduleEndDate](docs/GoogleBusinessPlatformDataEventScheduleEndDate.md)
+ - [GoogleBusinessPlatformDataEventScheduleEndTime](docs/GoogleBusinessPlatformDataEventScheduleEndTime.md)
+ - [GoogleBusinessPlatformDataEventScheduleStartDate](docs/GoogleBusinessPlatformDataEventScheduleStartDate.md)
+ - [GoogleBusinessPlatformDataEventScheduleStartTime](docs/GoogleBusinessPlatformDataEventScheduleStartTime.md)
+ - [GoogleBusinessPlatformDataOffer](docs/GoogleBusinessPlatformDataOffer.md)
  - [HandleOAuthCallbackRequest](docs/HandleOAuthCallbackRequest.md)
  - [HideInboxComment200Response](docs/HideInboxComment200Response.md)
  - [HideInboxCommentRequest](docs/HideInboxCommentRequest.md)

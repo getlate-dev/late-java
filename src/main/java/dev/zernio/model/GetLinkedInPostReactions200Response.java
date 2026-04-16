@@ -47,7 +47,7 @@ import dev.zernio.ApiClient;
   GetLinkedInPostReactions200Response.JSON_PROPERTY_PAGINATION,
   GetLinkedInPostReactions200Response.JSON_PROPERTY_LAST_UPDATED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T10:17:33.539898049Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T10:56:32.804843189Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetLinkedInPostReactions200Response {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nullable
