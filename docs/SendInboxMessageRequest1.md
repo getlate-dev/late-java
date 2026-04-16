@@ -16,7 +16,7 @@
 |**replyMarkup** | **String** | JSON string of replyMarkup object (same schema as application/json body) |  [optional] |
 |**messagingType** | **String** | Messaging type (Facebook only). RESPONSE, UPDATE, or MESSAGE_TAG. |  [optional] |
 |**messageTag** | **String** | Message tag (requires messagingType MESSAGE_TAG) |  [optional] |
-|**replyTo** | **String** | Platform message ID to reply to (Telegram only) |  [optional] |
+|**replyTo** | **String** | Platform message ID to quote-reply to. For WhatsApp, pass the wamid (available in message.platformMessageId from webhooks). For Telegram, pass the Telegram message ID. |  [optional] |
 
 
 

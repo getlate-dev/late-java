@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** | Platform comment ID |  |
-|**postId** | **String** | Internal post ID |  |
+|**postId** | **String** | Internal post ID (null for posts not published through Zernio) |  |
 |**platformPostId** | **String** | Platform&#39;s post ID |  |
 |**platform** | [**PlatformEnum**](#PlatformEnum) |  |  |
 |**text** | **String** | Comment text content |  |

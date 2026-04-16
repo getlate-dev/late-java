@@ -29001,7 +29001,9 @@ components:
           - HUMAN_AGENT
           type: string
         replyTo:
-          description: Platform message ID to reply to (Telegram only).
+          description: "Platform message ID to quote-reply to. For WhatsApp, pass\
+            \ the wamid (available in message.platformMessageId from webhooks). For\
+            \ Telegram, pass the Telegram message ID."
           type: string
       required:
       - accountId
@@ -29041,7 +29043,9 @@ components:
           description: Message tag (requires messagingType MESSAGE_TAG)
           type: string
         replyTo:
-          description: Platform message ID to reply to (Telegram only)
+          description: "Platform message ID to quote-reply to. For WhatsApp, pass\
+            \ the wamid (available in message.platformMessageId from webhooks). For\
+            \ Telegram, pass the Telegram message ID."
           type: string
       required:
       - accountId
@@ -35764,8 +35768,9 @@ components:
           description: Platform comment ID
           type: string
         postId:
-          description: Internal post ID
+          description: Internal post ID (null for posts not published through Zernio)
           type: string
+          nullable: true
         platformPostId:
           description: Platform's post ID
           type: string
@@ -35810,8 +35815,9 @@ components:
         platformPostId: platformPostId
       properties:
         id:
-          description: Internal post ID
+          description: Internal post ID (null for posts not published through Zernio)
           type: string
+          nullable: true
         platformPostId:
           description: Platform's post ID
           type: string

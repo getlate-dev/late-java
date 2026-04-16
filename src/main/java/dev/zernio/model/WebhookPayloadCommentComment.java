@@ -45,7 +45,7 @@ import dev.zernio.ApiClient;
   WebhookPayloadCommentComment.JSON_PROPERTY_IS_REPLY,
   WebhookPayloadCommentComment.JSON_PROPERTY_PARENT_COMMENT_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T09:58:25.580484380Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T10:17:33.539898049Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WebhookPayloadCommentComment {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nonnull
@@ -161,7 +161,7 @@ public class WebhookPayloadCommentComment {
   }
 
   /**
-   * Internal post ID
+   * Internal post ID (null for posts not published through Zernio)
    * @return postId
    */
   @javax.annotation.Nonnull

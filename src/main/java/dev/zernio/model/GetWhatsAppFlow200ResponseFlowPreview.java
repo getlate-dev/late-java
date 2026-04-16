@@ -36,7 +36,7 @@ import dev.zernio.ApiClient;
   GetWhatsAppFlow200ResponseFlowPreview.JSON_PROPERTY_PREVIEW_URL,
   GetWhatsAppFlow200ResponseFlowPreview.JSON_PROPERTY_EXPIRES_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T09:58:25.580484380Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T10:17:33.539898049Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetWhatsAppFlow200ResponseFlowPreview {
   public static final String JSON_PROPERTY_PREVIEW_URL = "preview_url";
   @javax.annotation.Nullable

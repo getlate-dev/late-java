@@ -40,7 +40,7 @@ import dev.zernio.ApiClient;
   ListWhatsAppGroupChats200Response.JSON_PROPERTY_GROUPS,
   ListWhatsAppGroupChats200Response.JSON_PROPERTY_PAGING
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T09:58:25.580484380Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T10:17:33.539898049Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ListWhatsAppGroupChats200Response {
   public static final String JSON_PROPERTY_GROUPS = "groups";
   @javax.annotation.Nullable
