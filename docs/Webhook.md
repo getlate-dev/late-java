@@ -40,6 +40,8 @@ Individual webhook configuration for receiving real-time notifications
 | MESSAGE_READ | &quot;message.read&quot; |
 | MESSAGE_FAILED | &quot;message.failed&quot; |
 | COMMENT_RECEIVED | &quot;comment.received&quot; |
+| REVIEW_NEW | &quot;review.new&quot; |
+| REVIEW_UPDATED | &quot;review.updated&quot; |
 
 
 

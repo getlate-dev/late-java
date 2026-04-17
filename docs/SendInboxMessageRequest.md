@@ -14,6 +14,7 @@
 |**quickReplies** | [**List&lt;SendInboxMessageRequestQuickRepliesInner&gt;**](SendInboxMessageRequestQuickRepliesInner.md) | Quick reply buttons. Mutually exclusive with buttons. Max 13 items. |  [optional] |
 |**buttons** | [**List&lt;SendInboxMessageRequestButtonsInner&gt;**](SendInboxMessageRequestButtonsInner.md) | Action buttons. Mutually exclusive with quickReplies. Max 3 items. |  [optional] |
 |**template** | [**SendInboxMessageRequestTemplate**](SendInboxMessageRequestTemplate.md) |  |  [optional] |
+|**interactive** | [**SendInboxMessageRequestInteractive**](SendInboxMessageRequestInteractive.md) |  |  [optional] |
 |**replyMarkup** | [**SendInboxMessageRequestReplyMarkup**](SendInboxMessageRequestReplyMarkup.md) |  |  [optional] |
 |**messagingType** | [**MessagingTypeEnum**](#MessagingTypeEnum) | Facebook messaging type. Required when using messageTag. |  [optional] |
 |**messageTag** | [**MessageTagEnum**](#MessageTagEnum) | Facebook message tag for messaging outside 24h window. Requires messagingType MESSAGE_TAG. Instagram only supports HUMAN_AGENT. |  [optional] |

@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import dev.zernio.model.SendInboxMessageRequestButtonsInner;
+import dev.zernio.model.SendInboxMessageRequestInteractive;
 import dev.zernio.model.SendInboxMessageRequestQuickRepliesInner;
 import dev.zernio.model.SendInboxMessageRequestReplyMarkup;
 import dev.zernio.model.SendInboxMessageRequestTemplate;
@@ -46,12 +47,13 @@ import dev.zernio.ApiClient;
   SendInboxMessageRequest.JSON_PROPERTY_QUICK_REPLIES,
   SendInboxMessageRequest.JSON_PROPERTY_BUTTONS,
   SendInboxMessageRequest.JSON_PROPERTY_TEMPLATE,
+  SendInboxMessageRequest.JSON_PROPERTY_INTERACTIVE,
   SendInboxMessageRequest.JSON_PROPERTY_REPLY_MARKUP,
   SendInboxMessageRequest.JSON_PROPERTY_MESSAGING_TYPE,
   SendInboxMessageRequest.JSON_PROPERTY_MESSAGE_TAG,
   SendInboxMessageRequest.JSON_PROPERTY_REPLY_TO
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T14:36:47.459373889Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-17T11:23:37.226123413Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class SendInboxMessageRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nonnull
@@ -119,6 +121,10 @@ public class SendInboxMessageRequest {
   public static final String JSON_PROPERTY_TEMPLATE = "template";
   @javax.annotation.Nullable
   private SendInboxMessageRequestTemplate template;
+
+  public static final String JSON_PROPERTY_INTERACTIVE = "interactive";
+  @javax.annotation.Nullable
+  private SendInboxMessageRequestInteractive interactive;
 
   public static final String JSON_PROPERTY_REPLY_MARKUP = "replyMarkup";
   @javax.annotation.Nullable
@@ -399,6 +405,30 @@ public class SendInboxMessageRequest {
   }
 
 
+  public SendInboxMessageRequest interactive(@javax.annotation.Nullable SendInboxMessageRequestInteractive interactive) {
+    this.interactive = interactive;
+    return this;
+  }
+
+  /**
+   * Get interactive
+   * @return interactive
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_INTERACTIVE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SendInboxMessageRequestInteractive getInteractive() {
+    return interactive;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_INTERACTIVE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInteractive(@javax.annotation.Nullable SendInboxMessageRequestInteractive interactive) {
+    this.interactive = interactive;
+  }
+
+
   public SendInboxMessageRequest replyMarkup(@javax.annotation.Nullable SendInboxMessageRequestReplyMarkup replyMarkup) {
     this.replyMarkup = replyMarkup;
     return this;
@@ -514,6 +544,7 @@ public class SendInboxMessageRequest {
         Objects.equals(this.quickReplies, sendInboxMessageRequest.quickReplies) &&
         Objects.equals(this.buttons, sendInboxMessageRequest.buttons) &&
         Objects.equals(this.template, sendInboxMessageRequest.template) &&
+        Objects.equals(this.interactive, sendInboxMessageRequest.interactive) &&
         Objects.equals(this.replyMarkup, sendInboxMessageRequest.replyMarkup) &&
         Objects.equals(this.messagingType, sendInboxMessageRequest.messagingType) &&
         Objects.equals(this.messageTag, sendInboxMessageRequest.messageTag) &&
@@ -522,7 +553,7 @@ public class SendInboxMessageRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, message, attachmentUrl, attachmentType, quickReplies, buttons, template, replyMarkup, messagingType, messageTag, replyTo);
+    return Objects.hash(accountId, message, attachmentUrl, attachmentType, quickReplies, buttons, template, interactive, replyMarkup, messagingType, messageTag, replyTo);
   }
 
   @Override
@@ -536,6 +567,7 @@ public class SendInboxMessageRequest {
     sb.append("    quickReplies: ").append(toIndentedString(quickReplies)).append("\n");
     sb.append("    buttons: ").append(toIndentedString(buttons)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
+    sb.append("    interactive: ").append(toIndentedString(interactive)).append("\n");
     sb.append("    replyMarkup: ").append(toIndentedString(replyMarkup)).append("\n");
     sb.append("    messagingType: ").append(toIndentedString(messagingType)).append("\n");
     sb.append("    messageTag: ").append(toIndentedString(messageTag)).append("\n");
@@ -630,6 +662,11 @@ public class SendInboxMessageRequest {
     // add `template` to the URL query string
     if (getTemplate() != null) {
       joiner.add(getTemplate().toUrlQueryString(prefix + "template" + suffix));
+    }
+
+    // add `interactive` to the URL query string
+    if (getInteractive() != null) {
+      joiner.add(getInteractive().toUrlQueryString(prefix + "interactive" + suffix));
     }
 
     // add `replyMarkup` to the URL query string

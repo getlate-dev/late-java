@@ -4,7 +4,7 @@ Zernio API
 
 - API version: 1.0.1
 
-- Build date: 2026-04-16T14:36:47.459373889Z[Etc/UTC]
+- Build date: 2026-04-17T11:23:37.226123413Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -1184,6 +1184,20 @@ Class | Method | HTTP request | Description
  - [SendInboxMessageRequest](docs/SendInboxMessageRequest.md)
  - [SendInboxMessageRequest1](docs/SendInboxMessageRequest1.md)
  - [SendInboxMessageRequestButtonsInner](docs/SendInboxMessageRequestButtonsInner.md)
+ - [SendInboxMessageRequestInteractive](docs/SendInboxMessageRequestInteractive.md)
+ - [SendInboxMessageRequestInteractiveAction](docs/SendInboxMessageRequestInteractiveAction.md)
+ - [SendInboxMessageRequestInteractiveActionOneOf](docs/SendInboxMessageRequestInteractiveActionOneOf.md)
+ - [SendInboxMessageRequestInteractiveActionOneOf1](docs/SendInboxMessageRequestInteractiveActionOneOf1.md)
+ - [SendInboxMessageRequestInteractiveActionOneOf1Parameters](docs/SendInboxMessageRequestInteractiveActionOneOf1Parameters.md)
+ - [SendInboxMessageRequestInteractiveActionOneOf2](docs/SendInboxMessageRequestInteractiveActionOneOf2.md)
+ - [SendInboxMessageRequestInteractiveActionOneOf2Parameters](docs/SendInboxMessageRequestInteractiveActionOneOf2Parameters.md)
+ - [SendInboxMessageRequestInteractiveActionOneOf2ParametersFlowActionPayload](docs/SendInboxMessageRequestInteractiveActionOneOf2ParametersFlowActionPayload.md)
+ - [SendInboxMessageRequestInteractiveActionOneOfSectionsInner](docs/SendInboxMessageRequestInteractiveActionOneOfSectionsInner.md)
+ - [SendInboxMessageRequestInteractiveActionOneOfSectionsInnerRowsInner](docs/SendInboxMessageRequestInteractiveActionOneOfSectionsInnerRowsInner.md)
+ - [SendInboxMessageRequestInteractiveBody](docs/SendInboxMessageRequestInteractiveBody.md)
+ - [SendInboxMessageRequestInteractiveFooter](docs/SendInboxMessageRequestInteractiveFooter.md)
+ - [SendInboxMessageRequestInteractiveHeader](docs/SendInboxMessageRequestInteractiveHeader.md)
+ - [SendInboxMessageRequestInteractiveHeaderImage](docs/SendInboxMessageRequestInteractiveHeaderImage.md)
  - [SendInboxMessageRequestQuickRepliesInner](docs/SendInboxMessageRequestQuickRepliesInner.md)
  - [SendInboxMessageRequestReplyMarkup](docs/SendInboxMessageRequestReplyMarkup.md)
  - [SendInboxMessageRequestReplyMarkupKeyboardInnerInner](docs/SendInboxMessageRequestReplyMarkupKeyboardInnerInner.md)

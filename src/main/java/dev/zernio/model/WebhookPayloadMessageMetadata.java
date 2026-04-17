@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -36,9 +38,14 @@ import dev.zernio.ApiClient;
   WebhookPayloadMessageMetadata.JSON_PROPERTY_QUICK_REPLY_PAYLOAD,
   WebhookPayloadMessageMetadata.JSON_PROPERTY_POSTBACK_PAYLOAD,
   WebhookPayloadMessageMetadata.JSON_PROPERTY_POSTBACK_TITLE,
-  WebhookPayloadMessageMetadata.JSON_PROPERTY_CALLBACK_DATA
+  WebhookPayloadMessageMetadata.JSON_PROPERTY_CALLBACK_DATA,
+  WebhookPayloadMessageMetadata.JSON_PROPERTY_INTERACTIVE_TYPE,
+  WebhookPayloadMessageMetadata.JSON_PROPERTY_INTERACTIVE_ID,
+  WebhookPayloadMessageMetadata.JSON_PROPERTY_BUTTON_PAYLOAD,
+  WebhookPayloadMessageMetadata.JSON_PROPERTY_FLOW_RESPONSE_JSON,
+  WebhookPayloadMessageMetadata.JSON_PROPERTY_FLOW_RESPONSE_DATA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T14:36:47.459373889Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-17T11:23:37.226123413Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WebhookPayloadMessageMetadata {
   public static final String JSON_PROPERTY_QUICK_REPLY_PAYLOAD = "quickReplyPayload";
   @javax.annotation.Nullable
@@ -56,6 +63,63 @@ public class WebhookPayloadMessageMetadata {
   @javax.annotation.Nullable
   private String callbackData;
 
+  /**
+   * WhatsApp only. Which kind of interactive reply the user sent: &#x60;button_reply&#x60; (tap on an interactive button), &#x60;list_reply&#x60; (tap on a list row), or &#x60;nfm_reply&#x60; (a WhatsApp Flow submission). 
+   */
+  public enum InteractiveTypeEnum {
+    BUTTON_REPLY(String.valueOf("button_reply")),
+    
+    LIST_REPLY(String.valueOf("list_reply")),
+    
+    NFM_REPLY(String.valueOf("nfm_reply"));
+
+    private String value;
+
+    InteractiveTypeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static InteractiveTypeEnum fromValue(String value) {
+      for (InteractiveTypeEnum b : InteractiveTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_INTERACTIVE_TYPE = "interactiveType";
+  @javax.annotation.Nullable
+  private InteractiveTypeEnum interactiveType;
+
+  public static final String JSON_PROPERTY_INTERACTIVE_ID = "interactiveId";
+  @javax.annotation.Nullable
+  private String interactiveId;
+
+  public static final String JSON_PROPERTY_BUTTON_PAYLOAD = "buttonPayload";
+  @javax.annotation.Nullable
+  private String buttonPayload;
+
+  public static final String JSON_PROPERTY_FLOW_RESPONSE_JSON = "flowResponseJson";
+  @javax.annotation.Nullable
+  private String flowResponseJson;
+
+  public static final String JSON_PROPERTY_FLOW_RESPONSE_DATA = "flowResponseData";
+  @javax.annotation.Nullable
+  private Map<String, Object> flowResponseData = new HashMap<>();
+
   public WebhookPayloadMessageMetadata() { 
   }
 
@@ -65,7 +129,7 @@ public class WebhookPayloadMessageMetadata {
   }
 
   /**
-   * Payload from a quick reply tap (Meta platforms)
+   * Payload from a quick reply tap (Facebook/Instagram Messenger).
    * @return quickReplyPayload
    */
   @javax.annotation.Nullable
@@ -89,7 +153,7 @@ public class WebhookPayloadMessageMetadata {
   }
 
   /**
-   * Payload from a postback button tap (Meta platforms)
+   * Payload from a postback button tap (Facebook/Instagram Messenger).
    * @return postbackPayload
    */
   @javax.annotation.Nullable
@@ -113,7 +177,7 @@ public class WebhookPayloadMessageMetadata {
   }
 
   /**
-   * Title of the tapped postback button (Meta platforms)
+   * Title of the tapped postback button (Facebook/Instagram Messenger).
    * @return postbackTitle
    */
   @javax.annotation.Nullable
@@ -137,7 +201,7 @@ public class WebhookPayloadMessageMetadata {
   }
 
   /**
-   * Callback data from an inline keyboard button tap (Telegram)
+   * Callback data from an inline keyboard button tap (Telegram).
    * @return callbackData
    */
   @javax.annotation.Nullable
@@ -152,6 +216,134 @@ public class WebhookPayloadMessageMetadata {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCallbackData(@javax.annotation.Nullable String callbackData) {
     this.callbackData = callbackData;
+  }
+
+
+  public WebhookPayloadMessageMetadata interactiveType(@javax.annotation.Nullable InteractiveTypeEnum interactiveType) {
+    this.interactiveType = interactiveType;
+    return this;
+  }
+
+  /**
+   * WhatsApp only. Which kind of interactive reply the user sent: &#x60;button_reply&#x60; (tap on an interactive button), &#x60;list_reply&#x60; (tap on a list row), or &#x60;nfm_reply&#x60; (a WhatsApp Flow submission). 
+   * @return interactiveType
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_INTERACTIVE_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public InteractiveTypeEnum getInteractiveType() {
+    return interactiveType;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_INTERACTIVE_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInteractiveType(@javax.annotation.Nullable InteractiveTypeEnum interactiveType) {
+    this.interactiveType = interactiveType;
+  }
+
+
+  public WebhookPayloadMessageMetadata interactiveId(@javax.annotation.Nullable String interactiveId) {
+    this.interactiveId = interactiveId;
+    return this;
+  }
+
+  /**
+   * WhatsApp only. The &#x60;id&#x60; of the tapped button or list row, matching the &#x60;id&#x60; you supplied when the message was sent. Not set for Flow responses. 
+   * @return interactiveId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_INTERACTIVE_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getInteractiveId() {
+    return interactiveId;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_INTERACTIVE_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInteractiveId(@javax.annotation.Nullable String interactiveId) {
+    this.interactiveId = interactiveId;
+  }
+
+
+  public WebhookPayloadMessageMetadata buttonPayload(@javax.annotation.Nullable String buttonPayload) {
+    this.buttonPayload = buttonPayload;
+    return this;
+  }
+
+  /**
+   * WhatsApp only. Payload attached to a tapped template button. Template buttons emit a plain &#x60;button&#x60; webhook (not an interactive reply), so &#x60;interactiveType&#x60; is empty while this field is populated. 
+   * @return buttonPayload
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_BUTTON_PAYLOAD, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getButtonPayload() {
+    return buttonPayload;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_BUTTON_PAYLOAD, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setButtonPayload(@javax.annotation.Nullable String buttonPayload) {
+    this.buttonPayload = buttonPayload;
+  }
+
+
+  public WebhookPayloadMessageMetadata flowResponseJson(@javax.annotation.Nullable String flowResponseJson) {
+    this.flowResponseJson = flowResponseJson;
+    return this;
+  }
+
+  /**
+   * WhatsApp only. Raw &#x60;nfm_reply.response_json&#x60; string returned by a Flow submission. Useful if you need the exact wire payload; for typed access use &#x60;flowResponseData&#x60; instead. 
+   * @return flowResponseJson
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_FLOW_RESPONSE_JSON, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getFlowResponseJson() {
+    return flowResponseJson;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_FLOW_RESPONSE_JSON, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFlowResponseJson(@javax.annotation.Nullable String flowResponseJson) {
+    this.flowResponseJson = flowResponseJson;
+  }
+
+
+  public WebhookPayloadMessageMetadata flowResponseData(@javax.annotation.Nullable Map<String, Object> flowResponseData) {
+    this.flowResponseData = flowResponseData;
+    return this;
+  }
+
+  public WebhookPayloadMessageMetadata putFlowResponseDataItem(String key, Object flowResponseDataItem) {
+    if (this.flowResponseData == null) {
+      this.flowResponseData = new HashMap<>();
+    }
+    this.flowResponseData.put(key, flowResponseDataItem);
+    return this;
+  }
+
+  /**
+   * WhatsApp only. Parsed Flow response JSON. Populated when &#x60;flowResponseJson&#x60; is valid JSON; otherwise omitted. Keys and value types depend on the specific Flow that was submitted. 
+   * @return flowResponseData
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_FLOW_RESPONSE_DATA, required = false)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getFlowResponseData() {
+    return flowResponseData;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_FLOW_RESPONSE_DATA, required = false)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFlowResponseData(@javax.annotation.Nullable Map<String, Object> flowResponseData) {
+    this.flowResponseData = flowResponseData;
   }
 
 
@@ -170,12 +362,17 @@ public class WebhookPayloadMessageMetadata {
     return Objects.equals(this.quickReplyPayload, webhookPayloadMessageMetadata.quickReplyPayload) &&
         Objects.equals(this.postbackPayload, webhookPayloadMessageMetadata.postbackPayload) &&
         Objects.equals(this.postbackTitle, webhookPayloadMessageMetadata.postbackTitle) &&
-        Objects.equals(this.callbackData, webhookPayloadMessageMetadata.callbackData);
+        Objects.equals(this.callbackData, webhookPayloadMessageMetadata.callbackData) &&
+        Objects.equals(this.interactiveType, webhookPayloadMessageMetadata.interactiveType) &&
+        Objects.equals(this.interactiveId, webhookPayloadMessageMetadata.interactiveId) &&
+        Objects.equals(this.buttonPayload, webhookPayloadMessageMetadata.buttonPayload) &&
+        Objects.equals(this.flowResponseJson, webhookPayloadMessageMetadata.flowResponseJson) &&
+        Objects.equals(this.flowResponseData, webhookPayloadMessageMetadata.flowResponseData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(quickReplyPayload, postbackPayload, postbackTitle, callbackData);
+    return Objects.hash(quickReplyPayload, postbackPayload, postbackTitle, callbackData, interactiveType, interactiveId, buttonPayload, flowResponseJson, flowResponseData);
   }
 
   @Override
@@ -186,6 +383,11 @@ public class WebhookPayloadMessageMetadata {
     sb.append("    postbackPayload: ").append(toIndentedString(postbackPayload)).append("\n");
     sb.append("    postbackTitle: ").append(toIndentedString(postbackTitle)).append("\n");
     sb.append("    callbackData: ").append(toIndentedString(callbackData)).append("\n");
+    sb.append("    interactiveType: ").append(toIndentedString(interactiveType)).append("\n");
+    sb.append("    interactiveId: ").append(toIndentedString(interactiveId)).append("\n");
+    sb.append("    buttonPayload: ").append(toIndentedString(buttonPayload)).append("\n");
+    sb.append("    flowResponseJson: ").append(toIndentedString(flowResponseJson)).append("\n");
+    sb.append("    flowResponseData: ").append(toIndentedString(flowResponseData)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -251,6 +453,35 @@ public class WebhookPayloadMessageMetadata {
     // add `callbackData` to the URL query string
     if (getCallbackData() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%scallbackData%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getCallbackData()))));
+    }
+
+    // add `interactiveType` to the URL query string
+    if (getInteractiveType() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sinteractiveType%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getInteractiveType()))));
+    }
+
+    // add `interactiveId` to the URL query string
+    if (getInteractiveId() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sinteractiveId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getInteractiveId()))));
+    }
+
+    // add `buttonPayload` to the URL query string
+    if (getButtonPayload() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sbuttonPayload%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getButtonPayload()))));
+    }
+
+    // add `flowResponseJson` to the URL query string
+    if (getFlowResponseJson() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sflowResponseJson%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getFlowResponseJson()))));
+    }
+
+    // add `flowResponseData` to the URL query string
+    if (getFlowResponseData() != null) {
+      for (String _key : getFlowResponseData().keySet()) {
+        joiner.add(String.format(java.util.Locale.ROOT, "%sflowResponseData%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, _key, containerSuffix),
+            getFlowResponseData().get(_key), ApiClient.urlEncode(ApiClient.valueToString(getFlowResponseData().get(_key)))));
+      }
     }
 
     return joiner.toString();

@@ -148,7 +148,7 @@ tags:
     Requires the Ads add-on.
   name: Ad Audiences
 - description: |
-    Configure webhooks for real-time notifications. Events: post.scheduled, post.published, post.failed, post.partial, post.cancelled, post.recycled, account.connected, account.disconnected, message.received, message.sent, comment.received, webhook.test.
+    Configure webhooks for real-time notifications. Events: post.scheduled, post.published, post.failed, post.partial, post.cancelled, post.recycled, account.connected, account.disconnected, message.received, message.sent, comment.received, review.new, review.updated, webhook.test.
     Security: optional HMAC-SHA256 signature in X-Zernio-Signature header. Configure a secret key to enable verification. Custom headers supported.
   name: Webhooks
 - description: |
@@ -8354,6 +8354,8 @@ paths:
                   - account.disconnected
                   - message.received
                   - comment.received
+                  - review.new
+                  - review.updated
                   isActive: true
             schema:
               $ref: "#/components/schemas/createWebhookSettings_request"
@@ -8877,9 +8879,15 @@ paths:
       x-accepts:
       - application/json
     post:
-      description: "Send a message in a conversation. Supports text, attachments,\
-        \ quick replies, buttons, and message tags. Attachment and interactive message\
-        \ support varies by platform."
+      description: |
+        Send a message in a conversation. Supports text, attachments, quick replies,
+        buttons, templates, and message tags. Attachment and interactive message
+        support varies by platform.
+
+        WhatsApp rich interactive messages (list, CTA URL, Flow) are available via
+        the `interactive` field. Tap events are delivered through the
+        `message.received` webhook with WhatsApp-specific `metadata` fields
+        (`interactiveType`, `interactiveId`, `flowResponseJson`, `flowResponseData`).
       operationId: sendInboxMessage
       parameters:
       - description: "The conversation ID (id field from list conversations endpoint).\
@@ -15531,6 +15539,8 @@ components:
             - message.read
             - message.failed
             - comment.received
+            - review.new
+            - review.updated
             type: string
           type: array
         isActive:
@@ -15843,9 +15853,15 @@ components:
       example:
         metadata:
           quickReplyPayload: quickReplyPayload
+          interactiveType: button_reply
           postbackTitle: postbackTitle
+          flowResponseJson: flowResponseJson
           callbackData: callbackData
+          flowResponseData:
+            key: ""
           postbackPayload: postbackPayload
+          interactiveId: interactiveId
+          buttonPayload: buttonPayload
         id: id
         event: message.received
         message:
@@ -28239,6 +28255,8 @@ components:
             - account.disconnected
             - message.received
             - comment.received
+            - review.new
+            - review.updated
             type: string
           type: array
         isActive:
@@ -28298,6 +28316,8 @@ components:
             - account.disconnected
             - message.received
             - comment.received
+            - review.new
+            - review.updated
             type: string
           type: array
         isActive:
@@ -29375,6 +29395,207 @@ components:
             $ref: "#/components/schemas/sendInboxMessage_request_template_elements_inner"
           maxItems: 10
           type: array
+    sendInboxMessage_request_interactive_header_image:
+      properties:
+        link:
+          type: string
+    sendInboxMessage_request_interactive_header:
+      description: Optional header shown above the body.
+      properties:
+        type:
+          enum:
+          - text
+          - image
+          - video
+          - document
+          type: string
+        text:
+          description: Required when header type is text.
+          type: string
+        image:
+          $ref: "#/components/schemas/sendInboxMessage_request_interactive_header_image"
+        video:
+          $ref: "#/components/schemas/sendInboxMessage_request_interactive_header_image"
+        document:
+          $ref: "#/components/schemas/sendInboxMessage_request_interactive_header_image"
+    sendInboxMessage_request_interactive_body:
+      properties:
+        text:
+          description: Main body text.
+          type: string
+      required:
+      - text
+    sendInboxMessage_request_interactive_footer:
+      description: Optional footer shown below the action.
+      properties:
+        text:
+          type: string
+    sendInboxMessage_request_interactive_action_oneOf_sections_inner_rows_inner:
+      properties:
+        id:
+          description: Identifier returned in the webhook as metadata.interactiveId
+            (max 200 chars).
+          type: string
+        title:
+          description: Row label (max 24 chars).
+          type: string
+        description:
+          description: Optional description below the title (max 72 chars).
+          type: string
+      required:
+      - id
+      - title
+    sendInboxMessage_request_interactive_action_oneOf_sections_inner:
+      properties:
+        title:
+          description: Optional section header (max 24 chars).
+          type: string
+        rows:
+          items:
+            $ref: "#/components/schemas/sendInboxMessage_request_interactive_action_oneOf_sections_inner_rows_inner"
+          maxItems: 10
+          minItems: 1
+          type: array
+      required:
+      - rows
+    sendInboxMessage_request_interactive_action_oneOf:
+      description: List action. `type` on the parent must be `list`.
+      properties:
+        button:
+          description: CTA label that opens the list (max ~20 chars).
+          type: string
+        sections:
+          description: 1-10 sections. Total rows across all sections cannot exceed
+            10.
+          items:
+            $ref: "#/components/schemas/sendInboxMessage_request_interactive_action_oneOf_sections_inner"
+          maxItems: 10
+          minItems: 1
+          type: array
+      required:
+      - button
+      - sections
+    sendInboxMessage_request_interactive_action_oneOf_1_parameters:
+      properties:
+        display_text:
+          description: Button label (max 20 chars).
+          type: string
+        url:
+          description: Target URL opened when the user taps the button.
+          format: uri
+          type: string
+      required:
+      - display_text
+      - url
+    sendInboxMessage_request_interactive_action_oneOf_1:
+      description: CTA URL action. `type` on the parent must be `cta_url`.
+      properties:
+        name:
+          enum:
+          - cta_url
+          type: string
+        parameters:
+          $ref: "#/components/schemas/sendInboxMessage_request_interactive_action_oneOf_1_parameters"
+      required:
+      - name
+      - parameters
+    sendInboxMessage_request_interactive_action_oneOf_2_parameters_flow_action_payload:
+      description: Required when flow_action is `navigate`.
+      properties:
+        screen:
+          description: First screen to show.
+          type: string
+        data:
+          additionalProperties: {}
+          description: Optional pre-filled data passed to the screen.
+    sendInboxMessage_request_interactive_action_oneOf_2_parameters:
+      properties:
+        flow_message_version:
+          description: Defaults to "3" when omitted.
+          enum:
+          - "3"
+          type: string
+        flow_token:
+          description: Opaque token you choose to correlate Flow responses with your
+            own state (max 200 chars).
+          type: string
+        flow_id:
+          description: Published Flow ID from Meta Business Manager.
+          type: string
+        flow_cta:
+          description: Button label that opens the Flow (max 20 chars).
+          type: string
+        flow_action:
+          description: '`navigate` sends the user to `flow_action_payload.screen`;
+            `data_exchange` posts data to your Flow endpoint.'
+          enum:
+          - navigate
+          - data_exchange
+          type: string
+        flow_action_payload:
+          $ref: "#/components/schemas/sendInboxMessage_request_interactive_action_oneOf_2_parameters_flow_action_payload"
+        mode:
+          description: Set to `draft` to test an unpublished Flow.
+          enum:
+          - draft
+          type: string
+      required:
+      - flow_action
+      - flow_cta
+      - flow_id
+      - flow_token
+    sendInboxMessage_request_interactive_action_oneOf_2:
+      description: Flow action. `type` on the parent must be `flow`.
+      properties:
+        name:
+          enum:
+          - flow
+          type: string
+        parameters:
+          $ref: "#/components/schemas/sendInboxMessage_request_interactive_action_oneOf_2_parameters"
+      required:
+      - name
+      - parameters
+    sendInboxMessage_request_interactive_action:
+      oneOf:
+      - $ref: "#/components/schemas/sendInboxMessage_request_interactive_action_oneOf"
+      - $ref: "#/components/schemas/sendInboxMessage_request_interactive_action_oneOf_1"
+      - $ref: "#/components/schemas/sendInboxMessage_request_interactive_action_oneOf_2"
+    sendInboxMessage_request_interactive:
+      description: |
+        WhatsApp-only. Rich interactive payload for list messages, CTA URL
+        buttons, and Flow prompts. When set, takes priority over `buttons`
+        and `quickReplies`. The shape mirrors Meta's Cloud API `interactive`
+        object verbatim, so any payload that works against Meta directly
+        will also work here.
+
+        Use `buttons` / `quickReplies` for simple button replies
+        (WhatsApp's `interactive.type: "button"`) — the abstraction caps at
+        3 buttons and handles the auto-conversion for you. Use this field
+        only for `list`, `cta_url`, or `flow` messages.
+
+        Tap events come back via the `message.received` webhook with
+        `metadata.interactiveType` set to `list_reply` or `nfm_reply`.
+      properties:
+        type:
+          description: Which interactive layout to render.
+          enum:
+          - list
+          - cta_url
+          - flow
+          type: string
+        header:
+          $ref: "#/components/schemas/sendInboxMessage_request_interactive_header"
+        body:
+          $ref: "#/components/schemas/sendInboxMessage_request_interactive_body"
+        footer:
+          $ref: "#/components/schemas/sendInboxMessage_request_interactive_footer"
+        action:
+          $ref: "#/components/schemas/sendInboxMessage_request_interactive_action"
+      required:
+      - action
+      - body
+      - type
     sendInboxMessage_request_replyMarkup_keyboard_inner_inner:
       properties:
         text:
@@ -29444,6 +29665,8 @@ components:
           type: array
         template:
           $ref: "#/components/schemas/sendInboxMessage_request_template"
+        interactive:
+          $ref: "#/components/schemas/sendInboxMessage_request_interactive"
         replyMarkup:
           $ref: "#/components/schemas/sendInboxMessage_request_replyMarkup"
         messagingType:
@@ -36545,22 +36768,62 @@ components:
         \ reply tap, postback button tap, or inline keyboard callback)"
       example:
         quickReplyPayload: quickReplyPayload
+        interactiveType: button_reply
         postbackTitle: postbackTitle
+        flowResponseJson: flowResponseJson
         callbackData: callbackData
+        flowResponseData:
+          key: ""
         postbackPayload: postbackPayload
+        interactiveId: interactiveId
+        buttonPayload: buttonPayload
       properties:
         quickReplyPayload:
-          description: Payload from a quick reply tap (Meta platforms)
+          description: Payload from a quick reply tap (Facebook/Instagram Messenger).
           type: string
         postbackPayload:
-          description: Payload from a postback button tap (Meta platforms)
+          description: Payload from a postback button tap (Facebook/Instagram Messenger).
           type: string
         postbackTitle:
-          description: Title of the tapped postback button (Meta platforms)
+          description: Title of the tapped postback button (Facebook/Instagram Messenger).
           type: string
         callbackData:
-          description: Callback data from an inline keyboard button tap (Telegram)
+          description: Callback data from an inline keyboard button tap (Telegram).
           type: string
+        interactiveType:
+          description: |
+            WhatsApp only. Which kind of interactive reply the user sent:
+            `button_reply` (tap on an interactive button), `list_reply` (tap on a
+            list row), or `nfm_reply` (a WhatsApp Flow submission).
+          enum:
+          - button_reply
+          - list_reply
+          - nfm_reply
+          type: string
+        interactiveId:
+          description: |
+            WhatsApp only. The `id` of the tapped button or list row, matching the
+            `id` you supplied when the message was sent. Not set for Flow responses.
+          type: string
+        buttonPayload:
+          description: |
+            WhatsApp only. Payload attached to a tapped template button. Template
+            buttons emit a plain `button` webhook (not an interactive reply), so
+            `interactiveType` is empty while this field is populated.
+          type: string
+        flowResponseJson:
+          description: |
+            WhatsApp only. Raw `nfm_reply.response_json` string returned by a
+            Flow submission. Useful if you need the exact wire payload; for
+            typed access use `flowResponseData` instead.
+          type: string
+        flowResponseData:
+          additionalProperties: true
+          description: |
+            WhatsApp only. Parsed Flow response JSON. Populated when
+            `flowResponseJson` is valid JSON; otherwise omitted. Keys and
+            value types depend on the specific Flow that was submitted.
+          type: object
       nullable: true
     WebhookPayloadMessageSent_message_sender:
       example:
@@ -37632,6 +37895,8 @@ x-documentation:
     - `message.read` - An outgoing message was read by the recipient (WhatsApp, Messenger, Instagram)
     - `message.failed` - An outgoing message failed delivery (WhatsApp)
     - `comment.received` - New comment received on a post
+    - `review.new` - New review posted on a connected account (Google Business Profile)
+    - `review.updated` - Review updated or reply added (Google Business Profile, or via reply API)
     - `webhook.test` - Test event sent when verifying a webhook endpoint
 
     Webhook payloads are signed with HMAC-SHA256 via the `X-Zernio-Signature` header.
