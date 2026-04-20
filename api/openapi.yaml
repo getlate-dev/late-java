@@ -8830,6 +8830,8 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "403":
           description: Inbox addon required
+        "404":
+          description: Conversation not found (WhatsApp only; other platforms upsert)
       security:
       - bearerAuth: []
       summary: Update conversation status

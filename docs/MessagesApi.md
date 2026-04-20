@@ -1684,6 +1684,7 @@ public class Example {
 | **200** | Conversation updated |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Inbox addon required |  -  |
+| **404** | Conversation not found (WhatsApp only; other platforms upsert) |  -  |
 
 ## updateInboxConversationWithHttpInfo
 
@@ -1761,6 +1762,7 @@ ApiResponse<[**UpdateInboxConversation200Response**](UpdateInboxConversation200R
 | **200** | Conversation updated |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Inbox addon required |  -  |
+| **404** | Conversation not found (WhatsApp only; other platforms upsert) |  -  |
 
 
 ## uploadMediaDirect

@@ -43,7 +43,7 @@ import dev.zernio.ApiClient;
   GetAdAnalytics200ResponseAnalytics.JSON_PROPERTY_DAILY,
   GetAdAnalytics200ResponseAnalytics.JSON_PROPERTY_BREAKDOWNS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-20T07:18:42.061867304Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-20T08:07:55.274877889Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetAdAnalytics200ResponseAnalytics {
   public static final String JSON_PROPERTY_SUMMARY = "summary";
   @javax.annotation.Nullable
