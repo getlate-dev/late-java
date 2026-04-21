@@ -514,7 +514,7 @@ public class Example {
         AdCampaignsApi apiInstance = new AdCampaignsApi(defaultClient);
         Integer page = 1; // Integer | Page number (1-based)
         Integer limit = 20; // Integer | Campaigns per page
-        String source = "zernio"; // String | `zernio` (default) returns only ads created via Zernio (isExternal=false). `all` additionally returns ads discovered from the platform's ad manager (isExternal=true). Status is NOT filtered by default — use the `status` param for that.
+        String source = "zernio"; // String | `all` (default) returns both Zernio-created ads and those discovered from the platform's ad manager — matches the web UI's default view. Pass `zernio` to restrict to isExternal=false only. Status is NOT filtered by default — use the `status` param for that.
         String platform = "facebook"; // String | 
         AdStatus status = AdStatus.fromValue("active"); // AdStatus | Filter by derived campaign status (post-aggregation)
         String adAccountId = "adAccountId_example"; // String | Platform ad account ID
@@ -543,7 +543,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **page** | **Integer**| Page number (1-based) | [optional] [default to 1] |
 | **limit** | **Integer**| Campaigns per page | [optional] [default to 20] |
-| **source** | **String**| &#x60;zernio&#x60; (default) returns only ads created via Zernio (isExternal&#x3D;false). &#x60;all&#x60; additionally returns ads discovered from the platform&#39;s ad manager (isExternal&#x3D;true). Status is NOT filtered by default — use the &#x60;status&#x60; param for that. | [optional] [default to zernio] [enum: zernio, all] |
+| **source** | **String**| &#x60;all&#x60; (default) returns both Zernio-created ads and those discovered from the platform&#39;s ad manager — matches the web UI&#39;s default view. Pass &#x60;zernio&#x60; to restrict to isExternal&#x3D;false only. Status is NOT filtered by default — use the &#x60;status&#x60; param for that. | [optional] [default to all] [enum: zernio, all] |
 | **platform** | **String**|  | [optional] [enum: facebook, instagram, tiktok, linkedin, pinterest, google, twitter] |
 | **status** | [**AdStatus**](.md)| Filter by derived campaign status (post-aggregation) | [optional] [enum: active, paused, pending_review, rejected, completed, cancelled, error] |
 | **adAccountId** | **String**| Platform ad account ID | [optional] |
@@ -605,7 +605,7 @@ public class Example {
         AdCampaignsApi apiInstance = new AdCampaignsApi(defaultClient);
         Integer page = 1; // Integer | Page number (1-based)
         Integer limit = 20; // Integer | Campaigns per page
-        String source = "zernio"; // String | `zernio` (default) returns only ads created via Zernio (isExternal=false). `all` additionally returns ads discovered from the platform's ad manager (isExternal=true). Status is NOT filtered by default — use the `status` param for that.
+        String source = "zernio"; // String | `all` (default) returns both Zernio-created ads and those discovered from the platform's ad manager — matches the web UI's default view. Pass `zernio` to restrict to isExternal=false only. Status is NOT filtered by default — use the `status` param for that.
         String platform = "facebook"; // String | 
         AdStatus status = AdStatus.fromValue("active"); // AdStatus | Filter by derived campaign status (post-aggregation)
         String adAccountId = "adAccountId_example"; // String | Platform ad account ID
@@ -636,7 +636,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **page** | **Integer**| Page number (1-based) | [optional] [default to 1] |
 | **limit** | **Integer**| Campaigns per page | [optional] [default to 20] |
-| **source** | **String**| &#x60;zernio&#x60; (default) returns only ads created via Zernio (isExternal&#x3D;false). &#x60;all&#x60; additionally returns ads discovered from the platform&#39;s ad manager (isExternal&#x3D;true). Status is NOT filtered by default — use the &#x60;status&#x60; param for that. | [optional] [default to zernio] [enum: zernio, all] |
+| **source** | **String**| &#x60;all&#x60; (default) returns both Zernio-created ads and those discovered from the platform&#39;s ad manager — matches the web UI&#39;s default view. Pass &#x60;zernio&#x60; to restrict to isExternal&#x3D;false only. Status is NOT filtered by default — use the &#x60;status&#x60; param for that. | [optional] [default to all] [enum: zernio, all] |
 | **platform** | **String**|  | [optional] [enum: facebook, instagram, tiktok, linkedin, pinterest, google, twitter] |
 | **status** | [**AdStatus**](.md)| Filter by derived campaign status (post-aggregation) | [optional] [enum: active, paused, pending_review, rejected, completed, cancelled, error] |
 | **adAccountId** | **String**| Platform ad account ID | [optional] |
@@ -698,7 +698,7 @@ public class Example {
         AdCampaignsApi apiInstance = new AdCampaignsApi(defaultClient);
         Integer page = 1; // Integer | Page number (1-based)
         Integer limit = 20; // Integer | 
-        String source = "zernio"; // String | `zernio` (default) returns only ads created via Zernio (isExternal=false). `all` additionally returns ads discovered from the platform's ad manager (isExternal=true). Status is NOT filtered by default — use the `status` param for that.
+        String source = "zernio"; // String | `all` (default) returns both Zernio-created ads and those discovered from the platform's ad manager — matches the web UI's default view. Pass `zernio` to restrict to isExternal=false only. Status is NOT filtered by default — use the `status` param for that.
         String platform = "facebook"; // String | 
         AdStatus status = AdStatus.fromValue("active"); // AdStatus | Filter by derived campaign status (post-aggregation)
         String adAccountId = "adAccountId_example"; // String | Platform ad account ID (e.g. act_123 for Meta)
@@ -725,7 +725,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **page** | **Integer**| Page number (1-based) | [optional] [default to 1] |
 | **limit** | **Integer**|  | [optional] [default to 20] |
-| **source** | **String**| &#x60;zernio&#x60; (default) returns only ads created via Zernio (isExternal&#x3D;false). &#x60;all&#x60; additionally returns ads discovered from the platform&#39;s ad manager (isExternal&#x3D;true). Status is NOT filtered by default — use the &#x60;status&#x60; param for that. | [optional] [default to zernio] [enum: zernio, all] |
+| **source** | **String**| &#x60;all&#x60; (default) returns both Zernio-created ads and those discovered from the platform&#39;s ad manager — matches the web UI&#39;s default view. Pass &#x60;zernio&#x60; to restrict to isExternal&#x3D;false only. Status is NOT filtered by default — use the &#x60;status&#x60; param for that. | [optional] [default to all] [enum: zernio, all] |
 | **platform** | **String**|  | [optional] [enum: facebook, instagram, tiktok, linkedin, pinterest, google, twitter] |
 | **status** | [**AdStatus**](.md)| Filter by derived campaign status (post-aggregation) | [optional] [enum: active, paused, pending_review, rejected, completed, cancelled, error] |
 | **adAccountId** | **String**| Platform ad account ID (e.g. act_123 for Meta) | [optional] |
@@ -785,7 +785,7 @@ public class Example {
         AdCampaignsApi apiInstance = new AdCampaignsApi(defaultClient);
         Integer page = 1; // Integer | Page number (1-based)
         Integer limit = 20; // Integer | 
-        String source = "zernio"; // String | `zernio` (default) returns only ads created via Zernio (isExternal=false). `all` additionally returns ads discovered from the platform's ad manager (isExternal=true). Status is NOT filtered by default — use the `status` param for that.
+        String source = "zernio"; // String | `all` (default) returns both Zernio-created ads and those discovered from the platform's ad manager — matches the web UI's default view. Pass `zernio` to restrict to isExternal=false only. Status is NOT filtered by default — use the `status` param for that.
         String platform = "facebook"; // String | 
         AdStatus status = AdStatus.fromValue("active"); // AdStatus | Filter by derived campaign status (post-aggregation)
         String adAccountId = "adAccountId_example"; // String | Platform ad account ID (e.g. act_123 for Meta)
@@ -814,7 +814,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **page** | **Integer**| Page number (1-based) | [optional] [default to 1] |
 | **limit** | **Integer**|  | [optional] [default to 20] |
-| **source** | **String**| &#x60;zernio&#x60; (default) returns only ads created via Zernio (isExternal&#x3D;false). &#x60;all&#x60; additionally returns ads discovered from the platform&#39;s ad manager (isExternal&#x3D;true). Status is NOT filtered by default — use the &#x60;status&#x60; param for that. | [optional] [default to zernio] [enum: zernio, all] |
+| **source** | **String**| &#x60;all&#x60; (default) returns both Zernio-created ads and those discovered from the platform&#39;s ad manager — matches the web UI&#39;s default view. Pass &#x60;zernio&#x60; to restrict to isExternal&#x3D;false only. Status is NOT filtered by default — use the &#x60;status&#x60; param for that. | [optional] [default to all] [enum: zernio, all] |
 | **platform** | **String**|  | [optional] [enum: facebook, instagram, tiktok, linkedin, pinterest, google, twitter] |
 | **status** | [**AdStatus**](.md)| Filter by derived campaign status (post-aggregation) | [optional] [enum: active, paused, pending_review, rejected, completed, cancelled, error] |
 | **adAccountId** | **String**| Platform ad account ID (e.g. act_123 for Meta) | [optional] |

@@ -7837,13 +7837,11 @@ paths:
               identity:
                 summary: Update webhook identity
                 value:
-                  accountId: abc123
                   webhookUsername: My Brand
                   webhookAvatarUrl: https://example.com/logo.png
               channel:
                 summary: Switch channel
                 value:
-                  accountId: abc123
                   channelId: "9999999999999999999"
             schema:
               $ref: "#/components/schemas/updateDiscordSettings_request"
@@ -13337,13 +13335,14 @@ paths:
           minimum: 1
           type: integer
         style: form
-      - description: "zernio = Zernio-created only, all = include external ads"
+      - description: all (default) = Zernio-created + platform-discovered ads. zernio
+          = restrict to Zernio-created only.
         explode: true
         in: query
         name: source
         required: false
         schema:
-          default: zernio
+          default: all
           enum:
           - zernio
           - all
@@ -13461,16 +13460,16 @@ paths:
           minimum: 1
           type: integer
         style: form
-      - description: '`zernio` (default) returns only ads created via Zernio (isExternal=false).
-          `all` additionally returns ads discovered from the platform''s ad manager
-          (isExternal=true). Status is NOT filtered by default — use the `status`
-          param for that.'
+      - description: '`all` (default) returns both Zernio-created ads and those discovered
+          from the platform''s ad manager — matches the web UI''s default view. Pass
+          `zernio` to restrict to isExternal=false only. Status is NOT filtered by
+          default — use the `status` param for that.'
         explode: true
         in: query
         name: source
         required: false
         schema:
-          default: zernio
+          default: all
           enum:
           - zernio
           - all
@@ -13877,16 +13876,16 @@ paths:
           minimum: 1
           type: integer
         style: form
-      - description: '`zernio` (default) returns only ads created via Zernio (isExternal=false).
-          `all` additionally returns ads discovered from the platform''s ad manager
-          (isExternal=true). Status is NOT filtered by default — use the `status`
-          param for that.'
+      - description: '`all` (default) returns both Zernio-created ads and those discovered
+          from the platform''s ad manager — matches the web UI''s default view. Pass
+          `zernio` to restrict to isExternal=false only. Status is NOT filtered by
+          default — use the `status` param for that.'
         explode: true
         in: query
         name: source
         required: false
         schema:
-          default: zernio
+          default: all
           enum:
           - zernio
           - all
@@ -28402,9 +28401,6 @@ components:
           $ref: "#/components/schemas/getDiscordSettings_200_response_account"
     updateDiscordSettings_request:
       properties:
-        accountId:
-          description: Discord account ID
-          type: string
         webhookUsername:
           description: Custom display name for the webhook (1-80 chars). Empty string
             resets to default ("Zernio"). Cannot contain "clyde" or "discord".
@@ -28416,8 +28412,6 @@ components:
           description: "Switch to a different channel in the same guild. Must be a\
             \ text (0), announcement (5), or forum (15) channel."
           type: string
-      required:
-      - accountId
     updateDiscordSettings_200_response_account:
       example:
         profilePicture: profilePicture

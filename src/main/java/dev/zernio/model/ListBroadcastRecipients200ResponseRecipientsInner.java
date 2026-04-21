@@ -46,7 +46,7 @@ import dev.zernio.ApiClient;
   ListBroadcastRecipients200ResponseRecipientsInner.JSON_PROPERTY_DELIVERED_AT,
   ListBroadcastRecipients200ResponseRecipientsInner.JSON_PROPERTY_READ_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-21T16:25:38.385086731Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-21T16:43:36.055356681Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ListBroadcastRecipients200ResponseRecipientsInner {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable

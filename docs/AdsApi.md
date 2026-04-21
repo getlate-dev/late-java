@@ -970,7 +970,7 @@ public class Example {
         AdsApi apiInstance = new AdsApi(defaultClient);
         Integer page = 1; // Integer | Page number (1-based)
         Integer limit = 50; // Integer | 
-        String source = "zernio"; // String | zernio = Zernio-created only, all = include external ads
+        String source = "zernio"; // String | all (default) = Zernio-created + platform-discovered ads. zernio = restrict to Zernio-created only.
         AdStatus status = AdStatus.fromValue("active"); // AdStatus | 
         String platform = "facebook"; // String | 
         String accountId = "accountId_example"; // String | Social account ID
@@ -1000,7 +1000,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **page** | **Integer**| Page number (1-based) | [optional] [default to 1] |
 | **limit** | **Integer**|  | [optional] [default to 50] |
-| **source** | **String**| zernio &#x3D; Zernio-created only, all &#x3D; include external ads | [optional] [default to zernio] [enum: zernio, all] |
+| **source** | **String**| all (default) &#x3D; Zernio-created + platform-discovered ads. zernio &#x3D; restrict to Zernio-created only. | [optional] [default to all] [enum: zernio, all] |
 | **status** | [**AdStatus**](.md)|  | [optional] [enum: active, paused, pending_review, rejected, completed, cancelled, error] |
 | **platform** | **String**|  | [optional] [enum: facebook, instagram, tiktok, linkedin, pinterest, google, twitter] |
 | **accountId** | **String**| Social account ID | [optional] |
@@ -1063,7 +1063,7 @@ public class Example {
         AdsApi apiInstance = new AdsApi(defaultClient);
         Integer page = 1; // Integer | Page number (1-based)
         Integer limit = 50; // Integer | 
-        String source = "zernio"; // String | zernio = Zernio-created only, all = include external ads
+        String source = "zernio"; // String | all (default) = Zernio-created + platform-discovered ads. zernio = restrict to Zernio-created only.
         AdStatus status = AdStatus.fromValue("active"); // AdStatus | 
         String platform = "facebook"; // String | 
         String accountId = "accountId_example"; // String | Social account ID
@@ -1095,7 +1095,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **page** | **Integer**| Page number (1-based) | [optional] [default to 1] |
 | **limit** | **Integer**|  | [optional] [default to 50] |
-| **source** | **String**| zernio &#x3D; Zernio-created only, all &#x3D; include external ads | [optional] [default to zernio] [enum: zernio, all] |
+| **source** | **String**| all (default) &#x3D; Zernio-created + platform-discovered ads. zernio &#x3D; restrict to Zernio-created only. | [optional] [default to all] [enum: zernio, all] |
 | **status** | [**AdStatus**](.md)|  | [optional] [enum: active, paused, pending_review, rejected, completed, cancelled, error] |
 | **platform** | **String**|  | [optional] [enum: facebook, instagram, tiktok, linkedin, pinterest, google, twitter] |
 | **accountId** | **String**| Social account ID | [optional] |

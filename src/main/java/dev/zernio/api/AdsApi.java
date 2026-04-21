@@ -61,7 +61,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-21T16:25:38.385086731Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-21T16:43:36.055356681Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AdsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -946,7 +946,7 @@ public class AdsApi {
    * Returns a paginated list of ads with metrics computed over an optional date range. Use source&#x3D;all to include externally-synced ads from platform ad managers. If no date range is provided, defaults to the last 90 days. Date range is capped at 90 days max. 
    * @param page Page number (1-based) (optional, default to 1)
    * @param limit  (optional, default to 50)
-   * @param source zernio &#x3D; Zernio-created only, all &#x3D; include external ads (optional, default to zernio)
+   * @param source all (default) &#x3D; Zernio-created + platform-discovered ads. zernio &#x3D; restrict to Zernio-created only. (optional, default to all)
    * @param status  (optional)
    * @param platform  (optional)
    * @param accountId Social account ID (optional)
@@ -967,7 +967,7 @@ public class AdsApi {
    * Returns a paginated list of ads with metrics computed over an optional date range. Use source&#x3D;all to include externally-synced ads from platform ad managers. If no date range is provided, defaults to the last 90 days. Date range is capped at 90 days max. 
    * @param page Page number (1-based) (optional, default to 1)
    * @param limit  (optional, default to 50)
-   * @param source zernio &#x3D; Zernio-created only, all &#x3D; include external ads (optional, default to zernio)
+   * @param source all (default) &#x3D; Zernio-created + platform-discovered ads. zernio &#x3D; restrict to Zernio-created only. (optional, default to all)
    * @param status  (optional)
    * @param platform  (optional)
    * @param accountId Social account ID (optional)
@@ -990,7 +990,7 @@ public class AdsApi {
    * Returns a paginated list of ads with metrics computed over an optional date range. Use source&#x3D;all to include externally-synced ads from platform ad managers. If no date range is provided, defaults to the last 90 days. Date range is capped at 90 days max. 
    * @param page Page number (1-based) (optional, default to 1)
    * @param limit  (optional, default to 50)
-   * @param source zernio &#x3D; Zernio-created only, all &#x3D; include external ads (optional, default to zernio)
+   * @param source all (default) &#x3D; Zernio-created + platform-discovered ads. zernio &#x3D; restrict to Zernio-created only. (optional, default to all)
    * @param status  (optional)
    * @param platform  (optional)
    * @param accountId Social account ID (optional)
@@ -1011,7 +1011,7 @@ public class AdsApi {
    * Returns a paginated list of ads with metrics computed over an optional date range. Use source&#x3D;all to include externally-synced ads from platform ad managers. If no date range is provided, defaults to the last 90 days. Date range is capped at 90 days max. 
    * @param page Page number (1-based) (optional, default to 1)
    * @param limit  (optional, default to 50)
-   * @param source zernio &#x3D; Zernio-created only, all &#x3D; include external ads (optional, default to zernio)
+   * @param source all (default) &#x3D; Zernio-created + platform-discovered ads. zernio &#x3D; restrict to Zernio-created only. (optional, default to all)
    * @param status  (optional)
    * @param platform  (optional)
    * @param accountId Social account ID (optional)

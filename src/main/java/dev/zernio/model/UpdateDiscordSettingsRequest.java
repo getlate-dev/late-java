@@ -33,17 +33,12 @@ import dev.zernio.ApiClient;
  * UpdateDiscordSettingsRequest
  */
 @JsonPropertyOrder({
-  UpdateDiscordSettingsRequest.JSON_PROPERTY_ACCOUNT_ID,
   UpdateDiscordSettingsRequest.JSON_PROPERTY_WEBHOOK_USERNAME,
   UpdateDiscordSettingsRequest.JSON_PROPERTY_WEBHOOK_AVATAR_URL,
   UpdateDiscordSettingsRequest.JSON_PROPERTY_CHANNEL_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-21T16:25:38.385086731Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-21T16:43:36.055356681Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UpdateDiscordSettingsRequest {
-  public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
-  @javax.annotation.Nonnull
-  private String accountId;
-
   public static final String JSON_PROPERTY_WEBHOOK_USERNAME = "webhookUsername";
   @javax.annotation.Nullable
   private String webhookUsername;
@@ -58,30 +53,6 @@ public class UpdateDiscordSettingsRequest {
 
   public UpdateDiscordSettingsRequest() { 
   }
-
-  public UpdateDiscordSettingsRequest accountId(@javax.annotation.Nonnull String accountId) {
-    this.accountId = accountId;
-    return this;
-  }
-
-  /**
-   * Discord account ID
-   * @return accountId
-   */
-  @javax.annotation.Nonnull
-  @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getAccountId() {
-    return accountId;
-  }
-
-
-  @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAccountId(@javax.annotation.Nonnull String accountId) {
-    this.accountId = accountId;
-  }
-
 
   public UpdateDiscordSettingsRequest webhookUsername(@javax.annotation.Nullable String webhookUsername) {
     this.webhookUsername = webhookUsername;
@@ -167,22 +138,20 @@ public class UpdateDiscordSettingsRequest {
       return false;
     }
     UpdateDiscordSettingsRequest updateDiscordSettingsRequest = (UpdateDiscordSettingsRequest) o;
-    return Objects.equals(this.accountId, updateDiscordSettingsRequest.accountId) &&
-        Objects.equals(this.webhookUsername, updateDiscordSettingsRequest.webhookUsername) &&
+    return Objects.equals(this.webhookUsername, updateDiscordSettingsRequest.webhookUsername) &&
         Objects.equals(this.webhookAvatarUrl, updateDiscordSettingsRequest.webhookAvatarUrl) &&
         Objects.equals(this.channelId, updateDiscordSettingsRequest.channelId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, webhookUsername, webhookAvatarUrl, channelId);
+    return Objects.hash(webhookUsername, webhookAvatarUrl, channelId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateDiscordSettingsRequest {\n");
-    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    webhookUsername: ").append(toIndentedString(webhookUsername)).append("\n");
     sb.append("    webhookAvatarUrl: ").append(toIndentedString(webhookAvatarUrl)).append("\n");
     sb.append("    channelId: ").append(toIndentedString(channelId)).append("\n");
@@ -232,11 +201,6 @@ public class UpdateDiscordSettingsRequest {
     }
 
     StringJoiner joiner = new StringJoiner("&");
-
-    // add `accountId` to the URL query string
-    if (getAccountId() != null) {
-      joiner.add(String.format(java.util.Locale.ROOT, "%saccountId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getAccountId()))));
-    }
 
     // add `webhookUsername` to the URL query string
     if (getWebhookUsername() != null) {
