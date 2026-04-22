@@ -44,7 +44,7 @@ import dev.zernio.ApiClient;
   DuplicateAdCampaignRequest.JSON_PROPERTY_RENAME_SUFFIX,
   DuplicateAdCampaignRequest.JSON_PROPERTY_SYNC_AFTER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-22T08:19:24.539208718Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-22T08:56:23.414494207Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class DuplicateAdCampaignRequest {
   /**
    * Gets or Sets platform

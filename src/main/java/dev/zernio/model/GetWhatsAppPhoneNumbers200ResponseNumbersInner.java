@@ -44,7 +44,7 @@ import dev.zernio.ApiClient;
   GetWhatsAppPhoneNumbers200ResponseNumbersInner.JSON_PROPERTY_META_VERIFICATION_STATUS,
   GetWhatsAppPhoneNumbers200ResponseNumbersInner.JSON_PROPERTY_CREATED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-22T08:19:24.539208718Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-22T08:56:23.414494207Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetWhatsAppPhoneNumbers200ResponseNumbersInner {
   public static final String JSON_PROPERTY_ID = "_id";
   @javax.annotation.Nullable

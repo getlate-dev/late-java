@@ -14211,8 +14211,14 @@ paths:
       - application/json
   /v1/ads/create:
     post:
-      description: "Creates a paid ad with custom creative (headline, body, image/video,\
-        \ link). Creates the full platform campaign hierarchy."
+      description: |
+        Creates a paid ad with custom creative. The request body supports three mutually-exclusive shapes:
+
+        1. **Legacy single-creative** (all platforms). Top-level `headline` + `body` + `imageUrl` + `linkUrl` + `callToAction` create 1 campaign + 1 ad set + 1 ad.
+        2. **Multi-creative** (Meta only — use `creatives[]` array). Creates 1 campaign + 1 ad set + N ads sharing the same budget / targeting / schedule. This is the standard performance-marketing creative-testing flow — Meta's delivery algorithm A/B tests the creatives inside a single ad set so budget isn't fragmented across N parallel campaigns.
+        3. **Attach to existing ad set** (Meta only — pass `adSetId` + a single creative). Adds one new ad to an existing ad set without creating a new campaign. Budget, targeting, goal are inherited from the ad set on Meta.
+
+        `creatives[]` and `adSetId` are mutually exclusive; specifying both returns 400.
       operationId: createStandaloneAd
       requestBody:
         content:
@@ -14225,10 +14231,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/updateAd_200_response"
-          description: Ad created
+                $ref: "#/components/schemas/createStandaloneAd_201_response"
+          description: Ad(s) created
         "400":
-          description: Missing required fields or invalid values
+          description: "Missing required fields, invalid values, or non-Meta platform\
+            \ used with creatives[] / adSetId"
         "401":
           $ref: "#/components/responses/Unauthorized"
         "403":
@@ -36716,6 +36723,38 @@ components:
       - budget
       - goal
       - name
+    createStandaloneAd_request_creatives_inner:
+      properties:
+        headline:
+          maxLength: 255
+          type: string
+        body:
+          type: string
+        imageUrl:
+          format: uri
+          type: string
+        linkUrl:
+          format: uri
+          type: string
+        callToAction:
+          enum:
+          - LEARN_MORE
+          - SHOP_NOW
+          - SIGN_UP
+          - BOOK_TRAVEL
+          - CONTACT_US
+          - DOWNLOAD
+          - GET_OFFER
+          - GET_QUOTE
+          - SUBSCRIBE
+          - WATCH_MORE
+          type: string
+      required:
+      - body
+      - callToAction
+      - headline
+      - imageUrl
+      - linkUrl
     createStandaloneAd_request:
       properties:
         accountId:
@@ -36726,11 +36765,8 @@ components:
           maxLength: 255
           type: string
         goal:
-          description: "Available goals vary by platform. Meta (Facebook/Instagram)\
-            \ and TikTok support all 7. LinkedIn supports all except app_promotion.\
-            \ Twitter/X supports engagement, traffic, awareness, video_views, app_promotion.\
-            \ Pinterest and Google Ads support only engagement, traffic, awareness,\
-            \ video_views."
+          description: Required on legacy + multi-creative shapes. Inherited from
+            the ad set on the attach shape. Available goals vary by platform.
           enum:
           - engagement
           - traffic
@@ -36741,8 +36777,10 @@ components:
           - app_promotion
           type: string
         budgetAmount:
+          description: Required on legacy + multi-creative shapes. Inherited on attach.
           type: number
         budgetType:
+          description: Required on legacy + multi-creative shapes. Inherited on attach.
           enum:
           - daily
           - lifetime
@@ -36750,17 +36788,18 @@ components:
         currency:
           type: string
         headline:
-          description: "Required for most platforms. Max: Meta=255, Google=30, Pinterest=100"
+          description: "Required on legacy + attach shapes (skip for multi-creative\
+            \ — use `creatives[].headline`). Max: Meta=255, Google=30, Pinterest=100"
           type: string
         longHeadline:
           description: Google Display only
           maxLength: 90
           type: string
         body:
-          description: "Max: Google=90, Pinterest=500"
+          description: "Required on legacy + attach shapes. Max: Google=90, Pinterest=500"
           type: string
         callToAction:
-          description: Meta only
+          description: Required on legacy + attach shapes. Meta only.
           enum:
           - LEARN_MORE
           - SHOP_NOW
@@ -36774,12 +36813,30 @@ components:
           - WATCH_MORE
           type: string
         linkUrl:
+          description: Required on legacy + attach shapes. Skip for multi-creative.
           format: uri
           type: string
         imageUrl:
-          description: Image URL (or video URL for TikTok). Not required for Google
+          description: Required on legacy + attach shapes. Not required for Google
             Search campaigns.
           format: uri
+          type: string
+        creatives:
+          description: |
+            Meta-only. When present, switches to the multi-creative shape:
+            creates 1 campaign + 1 ad set + N ads (one per entry here).
+            Top-level `headline` / `body` / `imageUrl` / `linkUrl` /
+            `callToAction` are ignored in this mode. Mutually exclusive with `adSetId`.
+          items:
+            $ref: "#/components/schemas/createStandaloneAd_request_creatives_inner"
+          minItems: 1
+          type: array
+        adSetId:
+          description: |
+            Meta-only. When present, switches to the attach shape: adds
+            one new ad to this existing ad set without creating a new
+            campaign. Budget, targeting, goal, and schedule are inherited
+            from the ad set on Meta. Mutually exclusive with `creatives[]`.
           type: string
         businessName:
           description: Google Display only
@@ -36846,11 +36903,84 @@ components:
       required:
       - accountId
       - adAccountId
-      - body
-      - budgetAmount
-      - budgetType
-      - goal
       - name
+    createStandaloneAd_201_response_oneOf:
+      description: Legacy + attach shapes — one ad returned.
+      example:
+        ad:
+          bidStrategy: LOWEST_COST_WITHOUT_CAP
+          adSetName: adSetName
+          platformCampaignId: platformCampaignId
+          optimizationGoal: OFFSITE_CONVERSIONS
+          platformAdId: platformAdId
+          platform: facebook
+          promotedObject:
+            page_id: page_id
+            custom_event_type: PURCHASE
+            product_set_id: product_set_id
+            pixel_id: pixel_id
+            application_id: application_id
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          adType: boost
+          targeting: "{}"
+          platformAdSetId: platformAdSetId
+          budget:
+            amount: 0.8008281904610115
+            type: daily
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+          goal: engagement
+          isExternal: true
+          creative:
+            videoId: videoId
+            pinterestTitle: pinterestTitle
+            body: body
+            objectType: objectType
+            googleDescription: googleDescription
+            videoUrl: videoUrl
+            pinterestDescription: pinterestDescription
+            imageUrl: imageUrl
+            linkUrl: linkUrl
+            googleHeadline: googleHeadline
+            mediaUrls:
+            - mediaUrls
+            - mediaUrls
+            thumbnailUrl: thumbnailUrl
+            pinterestImageUrl: pinterestImageUrl
+          schedule:
+            endDate: 2000-01-23T04:56:07.000+00:00
+            startDate: 2000-01-23T04:56:07.000+00:00
+          name: name
+          platformObjective: OUTCOME_SALES
+          _id: _id
+          metrics: ""
+          rejectionReason: rejectionReason
+          campaignName: campaignName
+          platformAdAccountId: platformAdAccountId
+          status: active
+        message: message
+      properties:
+        ad:
+          $ref: "#/components/schemas/Ad"
+        message:
+          type: string
+    createStandaloneAd_201_response_oneOf_1:
+      description: Multi-creative shape — N ads returned sharing platformCampaignId
+        / platformAdSetId.
+      properties:
+        ads:
+          items:
+            $ref: "#/components/schemas/Ad"
+          type: array
+        platformCampaignId:
+          type: string
+        platformAdSetId:
+          type: string
+        message:
+          type: string
+    createStandaloneAd_201_response:
+      oneOf:
+      - $ref: "#/components/schemas/createStandaloneAd_201_response_oneOf"
+      - $ref: "#/components/schemas/createStandaloneAd_201_response_oneOf_1"
     searchAdInterests_200_response_interests_inner:
       example:
         name: name

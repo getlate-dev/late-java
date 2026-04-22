@@ -45,7 +45,7 @@ import dev.zernio.ApiClient;
   WebhookPayloadMessageMetadata.JSON_PROPERTY_FLOW_RESPONSE_JSON,
   WebhookPayloadMessageMetadata.JSON_PROPERTY_FLOW_RESPONSE_DATA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-22T08:19:24.539208718Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-22T08:56:23.414494207Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WebhookPayloadMessageMetadata {
   public static final String JSON_PROPERTY_QUICK_REPLY_PAYLOAD = "quickReplyPayload";
   @javax.annotation.Nullable

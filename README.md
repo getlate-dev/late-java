@@ -4,7 +4,7 @@ Zernio API
 
 - API version: 1.0.1
 
-- Build date: 2026-04-22T08:19:24.539208718Z[Etc/UTC]
+- Build date: 2026-04-22T08:56:23.414494207Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -764,7 +764,11 @@ Class | Method | HTTP request | Description
  - [CreateSequenceRequestStepsInner](docs/CreateSequenceRequestStepsInner.md)
  - [CreateSequenceRequestStepsInnerTemplate](docs/CreateSequenceRequestStepsInnerTemplate.md)
  - [CreateSequenceRequestStepsInnerTemplateVariableMappingValue](docs/CreateSequenceRequestStepsInnerTemplateVariableMappingValue.md)
+ - [CreateStandaloneAd201Response](docs/CreateStandaloneAd201Response.md)
+ - [CreateStandaloneAd201ResponseOneOf](docs/CreateStandaloneAd201ResponseOneOf.md)
+ - [CreateStandaloneAd201ResponseOneOf1](docs/CreateStandaloneAd201ResponseOneOf1.md)
  - [CreateStandaloneAdRequest](docs/CreateStandaloneAdRequest.md)
+ - [CreateStandaloneAdRequestCreativesInner](docs/CreateStandaloneAdRequestCreativesInner.md)
  - [CreateWebhookSettingsRequest](docs/CreateWebhookSettingsRequest.md)
  - [CreateWhatsAppFlow200Response](docs/CreateWhatsAppFlow200Response.md)
  - [CreateWhatsAppFlow200ResponseFlow](docs/CreateWhatsAppFlow200ResponseFlow.md)

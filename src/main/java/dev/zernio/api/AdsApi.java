@@ -20,6 +20,7 @@ import dev.zernio.Pair;
 
 import dev.zernio.model.AdStatus;
 import dev.zernio.model.BoostPostRequest;
+import dev.zernio.model.CreateStandaloneAd201Response;
 import dev.zernio.model.CreateStandaloneAdRequest;
 import dev.zernio.model.DeleteAccountGroup200Response;
 import dev.zernio.model.GetAd200Response;
@@ -61,7 +62,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-22T08:19:24.539208718Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-22T08:56:23.414494207Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AdsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -303,48 +304,48 @@ public class AdsApi {
 
   /**
    * Create standalone ad
-   * Creates a paid ad with custom creative (headline, body, image/video, link). Creates the full platform campaign hierarchy.
+   * Creates a paid ad with custom creative. The request body supports three mutually-exclusive shapes:  1. **Legacy single-creative** (all platforms). Top-level &#x60;headline&#x60; + &#x60;body&#x60; + &#x60;imageUrl&#x60; + &#x60;linkUrl&#x60; + &#x60;callToAction&#x60; create 1 campaign + 1 ad set + 1 ad. 2. **Multi-creative** (Meta only — use &#x60;creatives[]&#x60; array). Creates 1 campaign + 1 ad set + N ads sharing the same budget / targeting / schedule. This is the standard performance-marketing creative-testing flow — Meta&#39;s delivery algorithm A/B tests the creatives inside a single ad set so budget isn&#39;t fragmented across N parallel campaigns. 3. **Attach to existing ad set** (Meta only — pass &#x60;adSetId&#x60; + a single creative). Adds one new ad to an existing ad set without creating a new campaign. Budget, targeting, goal are inherited from the ad set on Meta.  &#x60;creatives[]&#x60; and &#x60;adSetId&#x60; are mutually exclusive; specifying both returns 400. 
    * @param createStandaloneAdRequest  (required)
-   * @return UpdateAd200Response
+   * @return CreateStandaloneAd201Response
    * @throws ApiException if fails to make API call
    */
-  public UpdateAd200Response createStandaloneAd(@javax.annotation.Nonnull CreateStandaloneAdRequest createStandaloneAdRequest) throws ApiException {
+  public CreateStandaloneAd201Response createStandaloneAd(@javax.annotation.Nonnull CreateStandaloneAdRequest createStandaloneAdRequest) throws ApiException {
     return createStandaloneAd(createStandaloneAdRequest, null);
   }
 
   /**
    * Create standalone ad
-   * Creates a paid ad with custom creative (headline, body, image/video, link). Creates the full platform campaign hierarchy.
+   * Creates a paid ad with custom creative. The request body supports three mutually-exclusive shapes:  1. **Legacy single-creative** (all platforms). Top-level &#x60;headline&#x60; + &#x60;body&#x60; + &#x60;imageUrl&#x60; + &#x60;linkUrl&#x60; + &#x60;callToAction&#x60; create 1 campaign + 1 ad set + 1 ad. 2. **Multi-creative** (Meta only — use &#x60;creatives[]&#x60; array). Creates 1 campaign + 1 ad set + N ads sharing the same budget / targeting / schedule. This is the standard performance-marketing creative-testing flow — Meta&#39;s delivery algorithm A/B tests the creatives inside a single ad set so budget isn&#39;t fragmented across N parallel campaigns. 3. **Attach to existing ad set** (Meta only — pass &#x60;adSetId&#x60; + a single creative). Adds one new ad to an existing ad set without creating a new campaign. Budget, targeting, goal are inherited from the ad set on Meta.  &#x60;creatives[]&#x60; and &#x60;adSetId&#x60; are mutually exclusive; specifying both returns 400. 
    * @param createStandaloneAdRequest  (required)
    * @param headers Optional headers to include in the request
-   * @return UpdateAd200Response
+   * @return CreateStandaloneAd201Response
    * @throws ApiException if fails to make API call
    */
-  public UpdateAd200Response createStandaloneAd(@javax.annotation.Nonnull CreateStandaloneAdRequest createStandaloneAdRequest, Map<String, String> headers) throws ApiException {
-    ApiResponse<UpdateAd200Response> localVarResponse = createStandaloneAdWithHttpInfo(createStandaloneAdRequest, headers);
+  public CreateStandaloneAd201Response createStandaloneAd(@javax.annotation.Nonnull CreateStandaloneAdRequest createStandaloneAdRequest, Map<String, String> headers) throws ApiException {
+    ApiResponse<CreateStandaloneAd201Response> localVarResponse = createStandaloneAdWithHttpInfo(createStandaloneAdRequest, headers);
     return localVarResponse.getData();
   }
 
   /**
    * Create standalone ad
-   * Creates a paid ad with custom creative (headline, body, image/video, link). Creates the full platform campaign hierarchy.
+   * Creates a paid ad with custom creative. The request body supports three mutually-exclusive shapes:  1. **Legacy single-creative** (all platforms). Top-level &#x60;headline&#x60; + &#x60;body&#x60; + &#x60;imageUrl&#x60; + &#x60;linkUrl&#x60; + &#x60;callToAction&#x60; create 1 campaign + 1 ad set + 1 ad. 2. **Multi-creative** (Meta only — use &#x60;creatives[]&#x60; array). Creates 1 campaign + 1 ad set + N ads sharing the same budget / targeting / schedule. This is the standard performance-marketing creative-testing flow — Meta&#39;s delivery algorithm A/B tests the creatives inside a single ad set so budget isn&#39;t fragmented across N parallel campaigns. 3. **Attach to existing ad set** (Meta only — pass &#x60;adSetId&#x60; + a single creative). Adds one new ad to an existing ad set without creating a new campaign. Budget, targeting, goal are inherited from the ad set on Meta.  &#x60;creatives[]&#x60; and &#x60;adSetId&#x60; are mutually exclusive; specifying both returns 400. 
    * @param createStandaloneAdRequest  (required)
-   * @return ApiResponse&lt;UpdateAd200Response&gt;
+   * @return ApiResponse&lt;CreateStandaloneAd201Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UpdateAd200Response> createStandaloneAdWithHttpInfo(@javax.annotation.Nonnull CreateStandaloneAdRequest createStandaloneAdRequest) throws ApiException {
+  public ApiResponse<CreateStandaloneAd201Response> createStandaloneAdWithHttpInfo(@javax.annotation.Nonnull CreateStandaloneAdRequest createStandaloneAdRequest) throws ApiException {
     return createStandaloneAdWithHttpInfo(createStandaloneAdRequest, null);
   }
 
   /**
    * Create standalone ad
-   * Creates a paid ad with custom creative (headline, body, image/video, link). Creates the full platform campaign hierarchy.
+   * Creates a paid ad with custom creative. The request body supports three mutually-exclusive shapes:  1. **Legacy single-creative** (all platforms). Top-level &#x60;headline&#x60; + &#x60;body&#x60; + &#x60;imageUrl&#x60; + &#x60;linkUrl&#x60; + &#x60;callToAction&#x60; create 1 campaign + 1 ad set + 1 ad. 2. **Multi-creative** (Meta only — use &#x60;creatives[]&#x60; array). Creates 1 campaign + 1 ad set + N ads sharing the same budget / targeting / schedule. This is the standard performance-marketing creative-testing flow — Meta&#39;s delivery algorithm A/B tests the creatives inside a single ad set so budget isn&#39;t fragmented across N parallel campaigns. 3. **Attach to existing ad set** (Meta only — pass &#x60;adSetId&#x60; + a single creative). Adds one new ad to an existing ad set without creating a new campaign. Budget, targeting, goal are inherited from the ad set on Meta.  &#x60;creatives[]&#x60; and &#x60;adSetId&#x60; are mutually exclusive; specifying both returns 400. 
    * @param createStandaloneAdRequest  (required)
    * @param headers Optional headers to include in the request
-   * @return ApiResponse&lt;UpdateAd200Response&gt;
+   * @return ApiResponse&lt;CreateStandaloneAd201Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UpdateAd200Response> createStandaloneAdWithHttpInfo(@javax.annotation.Nonnull CreateStandaloneAdRequest createStandaloneAdRequest, Map<String, String> headers) throws ApiException {
+  public ApiResponse<CreateStandaloneAd201Response> createStandaloneAdWithHttpInfo(@javax.annotation.Nonnull CreateStandaloneAdRequest createStandaloneAdRequest, Map<String, String> headers) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createStandaloneAdRequestBuilder(createStandaloneAdRequest, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -360,7 +361,7 @@ public class AdsApi {
         }
         localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
         if (localVarResponseBody == null) {
-          return new ApiResponse<UpdateAd200Response>(
+          return new ApiResponse<CreateStandaloneAd201Response>(
               localVarResponse.statusCode(),
               localVarResponse.headers().map(),
               null
@@ -370,10 +371,10 @@ public class AdsApi {
         
         
         String responseBody = new String(localVarResponseBody.readAllBytes());
-        UpdateAd200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<UpdateAd200Response>() {});
+        CreateStandaloneAd201Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<CreateStandaloneAd201Response>() {});
         
 
-        return new ApiResponse<UpdateAd200Response>(
+        return new ApiResponse<CreateStandaloneAd201Response>(
             localVarResponse.statusCode(),
             localVarResponse.headers().map(),
             responseValue

@@ -39,7 +39,7 @@ import dev.zernio.ApiClient;
   SendInboxMessageRequestButtonsInner.JSON_PROPERTY_PAYLOAD,
   SendInboxMessageRequestButtonsInner.JSON_PROPERTY_PHONE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-22T08:19:24.539208718Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-22T08:56:23.414494207Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class SendInboxMessageRequestButtonsInner {
   /**
    * Button type. phone is Facebook only.

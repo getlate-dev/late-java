@@ -183,11 +183,11 @@ ApiResponse<[**UpdateAd200Response**](UpdateAd200Response.md)>
 
 ## createStandaloneAd
 
-> UpdateAd200Response createStandaloneAd(createStandaloneAdRequest)
+> CreateStandaloneAd201Response createStandaloneAd(createStandaloneAdRequest)
 
 Create standalone ad
 
-Creates a paid ad with custom creative (headline, body, image/video, link). Creates the full platform campaign hierarchy.
+Creates a paid ad with custom creative. The request body supports three mutually-exclusive shapes:  1. **Legacy single-creative** (all platforms). Top-level &#x60;headline&#x60; + &#x60;body&#x60; + &#x60;imageUrl&#x60; + &#x60;linkUrl&#x60; + &#x60;callToAction&#x60; create 1 campaign + 1 ad set + 1 ad. 2. **Multi-creative** (Meta only — use &#x60;creatives[]&#x60; array). Creates 1 campaign + 1 ad set + N ads sharing the same budget / targeting / schedule. This is the standard performance-marketing creative-testing flow — Meta&#39;s delivery algorithm A/B tests the creatives inside a single ad set so budget isn&#39;t fragmented across N parallel campaigns. 3. **Attach to existing ad set** (Meta only — pass &#x60;adSetId&#x60; + a single creative). Adds one new ad to an existing ad set without creating a new campaign. Budget, targeting, goal are inherited from the ad set on Meta.  &#x60;creatives[]&#x60; and &#x60;adSetId&#x60; are mutually exclusive; specifying both returns 400. 
 
 ### Example
 
@@ -212,7 +212,7 @@ public class Example {
         AdsApi apiInstance = new AdsApi(defaultClient);
         CreateStandaloneAdRequest createStandaloneAdRequest = new CreateStandaloneAdRequest(); // CreateStandaloneAdRequest | 
         try {
-            UpdateAd200Response result = apiInstance.createStandaloneAd(createStandaloneAdRequest);
+            CreateStandaloneAd201Response result = apiInstance.createStandaloneAd(createStandaloneAdRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AdsApi#createStandaloneAd");
@@ -234,7 +234,7 @@ public class Example {
 
 ### Return type
 
-[**UpdateAd200Response**](UpdateAd200Response.md)
+[**CreateStandaloneAd201Response**](CreateStandaloneAd201Response.md)
 
 
 ### Authorization
@@ -249,19 +249,19 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Ad created |  -  |
-| **400** | Missing required fields or invalid values |  -  |
+| **201** | Ad(s) created |  -  |
+| **400** | Missing required fields, invalid values, or non-Meta platform used with creatives[] / adSetId |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Ads add-on required |  -  |
 | **422** | Platform ads connection required (TikTok Ads, X Ads) or missing linked account |  -  |
 
 ## createStandaloneAdWithHttpInfo
 
-> ApiResponse<UpdateAd200Response> createStandaloneAd createStandaloneAdWithHttpInfo(createStandaloneAdRequest)
+> ApiResponse<CreateStandaloneAd201Response> createStandaloneAd createStandaloneAdWithHttpInfo(createStandaloneAdRequest)
 
 Create standalone ad
 
-Creates a paid ad with custom creative (headline, body, image/video, link). Creates the full platform campaign hierarchy.
+Creates a paid ad with custom creative. The request body supports three mutually-exclusive shapes:  1. **Legacy single-creative** (all platforms). Top-level &#x60;headline&#x60; + &#x60;body&#x60; + &#x60;imageUrl&#x60; + &#x60;linkUrl&#x60; + &#x60;callToAction&#x60; create 1 campaign + 1 ad set + 1 ad. 2. **Multi-creative** (Meta only — use &#x60;creatives[]&#x60; array). Creates 1 campaign + 1 ad set + N ads sharing the same budget / targeting / schedule. This is the standard performance-marketing creative-testing flow — Meta&#39;s delivery algorithm A/B tests the creatives inside a single ad set so budget isn&#39;t fragmented across N parallel campaigns. 3. **Attach to existing ad set** (Meta only — pass &#x60;adSetId&#x60; + a single creative). Adds one new ad to an existing ad set without creating a new campaign. Budget, targeting, goal are inherited from the ad set on Meta.  &#x60;creatives[]&#x60; and &#x60;adSetId&#x60; are mutually exclusive; specifying both returns 400. 
 
 ### Example
 
@@ -287,7 +287,7 @@ public class Example {
         AdsApi apiInstance = new AdsApi(defaultClient);
         CreateStandaloneAdRequest createStandaloneAdRequest = new CreateStandaloneAdRequest(); // CreateStandaloneAdRequest | 
         try {
-            ApiResponse<UpdateAd200Response> response = apiInstance.createStandaloneAdWithHttpInfo(createStandaloneAdRequest);
+            ApiResponse<CreateStandaloneAd201Response> response = apiInstance.createStandaloneAdWithHttpInfo(createStandaloneAdRequest);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
             System.out.println("Response body: " + response.getData());
@@ -311,7 +311,7 @@ public class Example {
 
 ### Return type
 
-ApiResponse<[**UpdateAd200Response**](UpdateAd200Response.md)>
+ApiResponse<[**CreateStandaloneAd201Response**](CreateStandaloneAd201Response.md)>
 
 
 ### Authorization
@@ -326,8 +326,8 @@ ApiResponse<[**UpdateAd200Response**](UpdateAd200Response.md)>
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Ad created |  -  |
-| **400** | Missing required fields or invalid values |  -  |
+| **201** | Ad(s) created |  -  |
+| **400** | Missing required fields, invalid values, or non-Meta platform used with creatives[] / adSetId |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Ads add-on required |  -  |
 | **422** | Platform ads connection required (TikTok Ads, X Ads) or missing linked account |  -  |

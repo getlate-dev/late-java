@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import dev.zernio.model.CreateStandaloneAdRequestCreativesInner;
 import dev.zernio.model.UpdateAdRequestTargetingInterestsInner;
 import java.math.BigDecimal;
 import java.net.URI;
@@ -52,6 +53,8 @@ import dev.zernio.ApiClient;
   CreateStandaloneAdRequest.JSON_PROPERTY_CALL_TO_ACTION,
   CreateStandaloneAdRequest.JSON_PROPERTY_LINK_URL,
   CreateStandaloneAdRequest.JSON_PROPERTY_IMAGE_URL,
+  CreateStandaloneAdRequest.JSON_PROPERTY_CREATIVES,
+  CreateStandaloneAdRequest.JSON_PROPERTY_AD_SET_ID,
   CreateStandaloneAdRequest.JSON_PROPERTY_BUSINESS_NAME,
   CreateStandaloneAdRequest.JSON_PROPERTY_BOARD_ID,
   CreateStandaloneAdRequest.JSON_PROPERTY_COUNTRIES,
@@ -66,7 +69,7 @@ import dev.zernio.ApiClient;
   CreateStandaloneAdRequest.JSON_PROPERTY_ADDITIONAL_DESCRIPTIONS,
   CreateStandaloneAdRequest.JSON_PROPERTY_ADVANTAGE_AUDIENCE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-22T08:19:24.539208718Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-22T08:56:23.414494207Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateStandaloneAdRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nonnull
@@ -81,7 +84,7 @@ public class CreateStandaloneAdRequest {
   private String name;
 
   /**
-   * Available goals vary by platform. Meta (Facebook/Instagram) and TikTok support all 7. LinkedIn supports all except app_promotion. Twitter/X supports engagement, traffic, awareness, video_views, app_promotion. Pinterest and Google Ads support only engagement, traffic, awareness, video_views.
+   * Required on legacy + multi-creative shapes. Inherited from the ad set on the attach shape. Available goals vary by platform.
    */
   public enum GoalEnum {
     ENGAGEMENT(String.valueOf("engagement")),
@@ -126,15 +129,15 @@ public class CreateStandaloneAdRequest {
   }
 
   public static final String JSON_PROPERTY_GOAL = "goal";
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private GoalEnum goal;
 
   public static final String JSON_PROPERTY_BUDGET_AMOUNT = "budgetAmount";
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private BigDecimal budgetAmount;
 
   /**
-   * Gets or Sets budgetType
+   * Required on legacy + multi-creative shapes. Inherited on attach.
    */
   public enum BudgetTypeEnum {
     DAILY(String.valueOf("daily")),
@@ -169,7 +172,7 @@ public class CreateStandaloneAdRequest {
   }
 
   public static final String JSON_PROPERTY_BUDGET_TYPE = "budgetType";
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private BudgetTypeEnum budgetType;
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
@@ -185,11 +188,11 @@ public class CreateStandaloneAdRequest {
   private String longHeadline;
 
   public static final String JSON_PROPERTY_BODY = "body";
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String body;
 
   /**
-   * Meta only
+   * Required on legacy + attach shapes. Meta only.
    */
   public enum CallToActionEnum {
     LEARN_MORE(String.valueOf("LEARN_MORE")),
@@ -250,6 +253,14 @@ public class CreateStandaloneAdRequest {
   public static final String JSON_PROPERTY_IMAGE_URL = "imageUrl";
   @javax.annotation.Nullable
   private URI imageUrl;
+
+  public static final String JSON_PROPERTY_CREATIVES = "creatives";
+  @javax.annotation.Nullable
+  private List<CreateStandaloneAdRequestCreativesInner> creatives = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_AD_SET_ID = "adSetId";
+  @javax.annotation.Nullable
+  private String adSetId;
 
   public static final String JSON_PROPERTY_BUSINESS_NAME = "businessName";
   @javax.annotation.Nullable
@@ -448,74 +459,74 @@ public class CreateStandaloneAdRequest {
   }
 
 
-  public CreateStandaloneAdRequest goal(@javax.annotation.Nonnull GoalEnum goal) {
+  public CreateStandaloneAdRequest goal(@javax.annotation.Nullable GoalEnum goal) {
     this.goal = goal;
     return this;
   }
 
   /**
-   * Available goals vary by platform. Meta (Facebook/Instagram) and TikTok support all 7. LinkedIn supports all except app_promotion. Twitter/X supports engagement, traffic, awareness, video_views, app_promotion. Pinterest and Google Ads support only engagement, traffic, awareness, video_views.
+   * Required on legacy + multi-creative shapes. Inherited from the ad set on the attach shape. Available goals vary by platform.
    * @return goal
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(value = JSON_PROPERTY_GOAL, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_GOAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public GoalEnum getGoal() {
     return goal;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_GOAL, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGoal(@javax.annotation.Nonnull GoalEnum goal) {
+  @JsonProperty(value = JSON_PROPERTY_GOAL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGoal(@javax.annotation.Nullable GoalEnum goal) {
     this.goal = goal;
   }
 
 
-  public CreateStandaloneAdRequest budgetAmount(@javax.annotation.Nonnull BigDecimal budgetAmount) {
+  public CreateStandaloneAdRequest budgetAmount(@javax.annotation.Nullable BigDecimal budgetAmount) {
     this.budgetAmount = budgetAmount;
     return this;
   }
 
   /**
-   * Get budgetAmount
+   * Required on legacy + multi-creative shapes. Inherited on attach.
    * @return budgetAmount
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(value = JSON_PROPERTY_BUDGET_AMOUNT, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_BUDGET_AMOUNT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public BigDecimal getBudgetAmount() {
     return budgetAmount;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_BUDGET_AMOUNT, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setBudgetAmount(@javax.annotation.Nonnull BigDecimal budgetAmount) {
+  @JsonProperty(value = JSON_PROPERTY_BUDGET_AMOUNT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBudgetAmount(@javax.annotation.Nullable BigDecimal budgetAmount) {
     this.budgetAmount = budgetAmount;
   }
 
 
-  public CreateStandaloneAdRequest budgetType(@javax.annotation.Nonnull BudgetTypeEnum budgetType) {
+  public CreateStandaloneAdRequest budgetType(@javax.annotation.Nullable BudgetTypeEnum budgetType) {
     this.budgetType = budgetType;
     return this;
   }
 
   /**
-   * Get budgetType
+   * Required on legacy + multi-creative shapes. Inherited on attach.
    * @return budgetType
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(value = JSON_PROPERTY_BUDGET_TYPE, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_BUDGET_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public BudgetTypeEnum getBudgetType() {
     return budgetType;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_BUDGET_TYPE, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setBudgetType(@javax.annotation.Nonnull BudgetTypeEnum budgetType) {
+  @JsonProperty(value = JSON_PROPERTY_BUDGET_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBudgetType(@javax.annotation.Nullable BudgetTypeEnum budgetType) {
     this.budgetType = budgetType;
   }
 
@@ -550,7 +561,7 @@ public class CreateStandaloneAdRequest {
   }
 
   /**
-   * Required for most platforms. Max: Meta&#x3D;255, Google&#x3D;30, Pinterest&#x3D;100
+   * Required on legacy + attach shapes (skip for multi-creative — use &#x60;creatives[].headline&#x60;). Max: Meta&#x3D;255, Google&#x3D;30, Pinterest&#x3D;100
    * @return headline
    */
   @javax.annotation.Nullable
@@ -592,26 +603,26 @@ public class CreateStandaloneAdRequest {
   }
 
 
-  public CreateStandaloneAdRequest body(@javax.annotation.Nonnull String body) {
+  public CreateStandaloneAdRequest body(@javax.annotation.Nullable String body) {
     this.body = body;
     return this;
   }
 
   /**
-   * Max: Google&#x3D;90, Pinterest&#x3D;500
+   * Required on legacy + attach shapes. Max: Google&#x3D;90, Pinterest&#x3D;500
    * @return body
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(value = JSON_PROPERTY_BODY, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_BODY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBody() {
     return body;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_BODY, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setBody(@javax.annotation.Nonnull String body) {
+  @JsonProperty(value = JSON_PROPERTY_BODY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBody(@javax.annotation.Nullable String body) {
     this.body = body;
   }
 
@@ -622,7 +633,7 @@ public class CreateStandaloneAdRequest {
   }
 
   /**
-   * Meta only
+   * Required on legacy + attach shapes. Meta only.
    * @return callToAction
    */
   @javax.annotation.Nullable
@@ -646,7 +657,7 @@ public class CreateStandaloneAdRequest {
   }
 
   /**
-   * Get linkUrl
+   * Required on legacy + attach shapes. Skip for multi-creative.
    * @return linkUrl
    */
   @javax.annotation.Nullable
@@ -670,7 +681,7 @@ public class CreateStandaloneAdRequest {
   }
 
   /**
-   * Image URL (or video URL for TikTok). Not required for Google Search campaigns.
+   * Required on legacy + attach shapes. Not required for Google Search campaigns.
    * @return imageUrl
    */
   @javax.annotation.Nullable
@@ -685,6 +696,62 @@ public class CreateStandaloneAdRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setImageUrl(@javax.annotation.Nullable URI imageUrl) {
     this.imageUrl = imageUrl;
+  }
+
+
+  public CreateStandaloneAdRequest creatives(@javax.annotation.Nullable List<CreateStandaloneAdRequestCreativesInner> creatives) {
+    this.creatives = creatives;
+    return this;
+  }
+
+  public CreateStandaloneAdRequest addCreativesItem(CreateStandaloneAdRequestCreativesInner creativesItem) {
+    if (this.creatives == null) {
+      this.creatives = new ArrayList<>();
+    }
+    this.creatives.add(creativesItem);
+    return this;
+  }
+
+  /**
+   * Meta-only. When present, switches to the multi-creative shape: creates 1 campaign + 1 ad set + N ads (one per entry here). Top-level &#x60;headline&#x60; / &#x60;body&#x60; / &#x60;imageUrl&#x60; / &#x60;linkUrl&#x60; / &#x60;callToAction&#x60; are ignored in this mode. Mutually exclusive with &#x60;adSetId&#x60;. 
+   * @return creatives
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_CREATIVES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<CreateStandaloneAdRequestCreativesInner> getCreatives() {
+    return creatives;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_CREATIVES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCreatives(@javax.annotation.Nullable List<CreateStandaloneAdRequestCreativesInner> creatives) {
+    this.creatives = creatives;
+  }
+
+
+  public CreateStandaloneAdRequest adSetId(@javax.annotation.Nullable String adSetId) {
+    this.adSetId = adSetId;
+    return this;
+  }
+
+  /**
+   * Meta-only. When present, switches to the attach shape: adds one new ad to this existing ad set without creating a new campaign. Budget, targeting, goal, and schedule are inherited from the ad set on Meta. Mutually exclusive with &#x60;creatives[]&#x60;. 
+   * @return adSetId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_AD_SET_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAdSetId() {
+    return adSetId;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_AD_SET_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAdSetId(@javax.annotation.Nullable String adSetId) {
+    this.adSetId = adSetId;
   }
 
 
@@ -1069,6 +1136,8 @@ public class CreateStandaloneAdRequest {
         Objects.equals(this.callToAction, createStandaloneAdRequest.callToAction) &&
         Objects.equals(this.linkUrl, createStandaloneAdRequest.linkUrl) &&
         Objects.equals(this.imageUrl, createStandaloneAdRequest.imageUrl) &&
+        Objects.equals(this.creatives, createStandaloneAdRequest.creatives) &&
+        Objects.equals(this.adSetId, createStandaloneAdRequest.adSetId) &&
         Objects.equals(this.businessName, createStandaloneAdRequest.businessName) &&
         Objects.equals(this.boardId, createStandaloneAdRequest.boardId) &&
         Objects.equals(this.countries, createStandaloneAdRequest.countries) &&
@@ -1086,7 +1155,7 @@ public class CreateStandaloneAdRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, adAccountId, name, goal, budgetAmount, budgetType, currency, headline, longHeadline, body, callToAction, linkUrl, imageUrl, businessName, boardId, countries, ageMin, ageMax, interests, endDate, audienceId, campaignType, keywords, additionalHeadlines, additionalDescriptions, advantageAudience);
+    return Objects.hash(accountId, adAccountId, name, goal, budgetAmount, budgetType, currency, headline, longHeadline, body, callToAction, linkUrl, imageUrl, creatives, adSetId, businessName, boardId, countries, ageMin, ageMax, interests, endDate, audienceId, campaignType, keywords, additionalHeadlines, additionalDescriptions, advantageAudience);
   }
 
   @Override
@@ -1106,6 +1175,8 @@ public class CreateStandaloneAdRequest {
     sb.append("    callToAction: ").append(toIndentedString(callToAction)).append("\n");
     sb.append("    linkUrl: ").append(toIndentedString(linkUrl)).append("\n");
     sb.append("    imageUrl: ").append(toIndentedString(imageUrl)).append("\n");
+    sb.append("    creatives: ").append(toIndentedString(creatives)).append("\n");
+    sb.append("    adSetId: ").append(toIndentedString(adSetId)).append("\n");
     sb.append("    businessName: ").append(toIndentedString(businessName)).append("\n");
     sb.append("    boardId: ").append(toIndentedString(boardId)).append("\n");
     sb.append("    countries: ").append(toIndentedString(countries)).append("\n");
@@ -1229,6 +1300,21 @@ public class CreateStandaloneAdRequest {
     // add `imageUrl` to the URL query string
     if (getImageUrl() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%simageUrl%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getImageUrl()))));
+    }
+
+    // add `creatives` to the URL query string
+    if (getCreatives() != null) {
+      for (int i = 0; i < getCreatives().size(); i++) {
+        if (getCreatives().get(i) != null) {
+          joiner.add(getCreatives().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%screatives%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `adSetId` to the URL query string
+    if (getAdSetId() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sadSetId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getAdSetId()))));
     }
 
     // add `businessName` to the URL query string

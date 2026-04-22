@@ -36,7 +36,7 @@ import dev.zernio.ApiClient;
   CreateGoogleBusinessPlaceActionRequest.JSON_PROPERTY_URI,
   CreateGoogleBusinessPlaceActionRequest.JSON_PROPERTY_PLACE_ACTION_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-22T08:19:24.539208718Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-22T08:56:23.414494207Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateGoogleBusinessPlaceActionRequest {
   public static final String JSON_PROPERTY_URI = "uri";
   @javax.annotation.Nonnull
