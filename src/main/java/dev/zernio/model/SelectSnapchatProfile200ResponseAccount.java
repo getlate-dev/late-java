@@ -41,7 +41,7 @@ import dev.zernio.ApiClient;
   SelectSnapchatProfile200ResponseAccount.JSON_PROPERTY_IS_ACTIVE,
   SelectSnapchatProfile200ResponseAccount.JSON_PROPERTY_PUBLIC_PROFILE_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-23T15:11:57.637395042Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-23T15:23:05.809025109Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class SelectSnapchatProfile200ResponseAccount {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nullable
