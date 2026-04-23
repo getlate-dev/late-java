@@ -806,6 +806,7 @@ docs/WebhookPayloadAccountDisconnectedAccount.md
 docs/WebhookPayloadComment.md
 docs/WebhookPayloadCommentAccount.md
 docs/WebhookPayloadCommentComment.md
+docs/WebhookPayloadCommentCommentAd.md
 docs/WebhookPayloadCommentCommentAuthor.md
 docs/WebhookPayloadCommentPost.md
 docs/WebhookPayloadMessage.md
@@ -1675,6 +1676,7 @@ src/main/java/dev/zernio/model/WebhookPayloadAccountDisconnectedAccount.java
 src/main/java/dev/zernio/model/WebhookPayloadComment.java
 src/main/java/dev/zernio/model/WebhookPayloadCommentAccount.java
 src/main/java/dev/zernio/model/WebhookPayloadCommentComment.java
+src/main/java/dev/zernio/model/WebhookPayloadCommentCommentAd.java
 src/main/java/dev/zernio/model/WebhookPayloadCommentCommentAuthor.java
 src/main/java/dev/zernio/model/WebhookPayloadCommentPost.java
 src/main/java/dev/zernio/model/WebhookPayloadMessage.java
@@ -1714,3 +1716,4 @@ src/main/java/dev/zernio/model/YouTubeDemographicsResponseDemographicsValueInner
 src/main/java/dev/zernio/model/YouTubePlatformData.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponseScopeStatus.java
+src/test/java/dev/zernio/model/WebhookPayloadCommentCommentAdTest.java

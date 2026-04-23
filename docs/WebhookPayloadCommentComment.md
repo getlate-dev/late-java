@@ -16,6 +16,7 @@
 |**createdAt** | **OffsetDateTime** |  |  |
 |**isReply** | **Boolean** | Whether this is a reply to another comment |  |
 |**parentCommentId** | **String** | Parent comment ID if this is a reply |  |
+|**ad** | [**WebhookPayloadCommentCommentAd**](WebhookPayloadCommentCommentAd.md) |  |  [optional] |
 
 
 

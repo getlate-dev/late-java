@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import dev.zernio.model.WebhookPayloadCommentCommentAd;
 import dev.zernio.model.WebhookPayloadCommentCommentAuthor;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -43,9 +44,10 @@ import dev.zernio.ApiClient;
   WebhookPayloadCommentComment.JSON_PROPERTY_AUTHOR,
   WebhookPayloadCommentComment.JSON_PROPERTY_CREATED_AT,
   WebhookPayloadCommentComment.JSON_PROPERTY_IS_REPLY,
-  WebhookPayloadCommentComment.JSON_PROPERTY_PARENT_COMMENT_ID
+  WebhookPayloadCommentComment.JSON_PROPERTY_PARENT_COMMENT_ID,
+  WebhookPayloadCommentComment.JSON_PROPERTY_AD
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-23T14:00:55.187095242Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-23T14:13:42.892017552Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WebhookPayloadCommentComment {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nonnull
@@ -127,6 +129,10 @@ public class WebhookPayloadCommentComment {
   public static final String JSON_PROPERTY_PARENT_COMMENT_ID = "parentCommentId";
   @javax.annotation.Nonnull
   private String parentCommentId;
+
+  public static final String JSON_PROPERTY_AD = "ad";
+  @javax.annotation.Nullable
+  private WebhookPayloadCommentCommentAd ad;
 
   public WebhookPayloadCommentComment() { 
   }
@@ -347,6 +353,30 @@ public class WebhookPayloadCommentComment {
   }
 
 
+  public WebhookPayloadCommentComment ad(@javax.annotation.Nullable WebhookPayloadCommentCommentAd ad) {
+    this.ad = ad;
+    return this;
+  }
+
+  /**
+   * Get ad
+   * @return ad
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_AD, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WebhookPayloadCommentCommentAd getAd() {
+    return ad;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_AD, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAd(@javax.annotation.Nullable WebhookPayloadCommentCommentAd ad) {
+    this.ad = ad;
+  }
+
+
   /**
    * Return true if this WebhookPayloadComment_comment object is equal to o.
    */
@@ -367,12 +397,13 @@ public class WebhookPayloadCommentComment {
         Objects.equals(this.author, webhookPayloadCommentComment.author) &&
         Objects.equals(this.createdAt, webhookPayloadCommentComment.createdAt) &&
         Objects.equals(this.isReply, webhookPayloadCommentComment.isReply) &&
-        Objects.equals(this.parentCommentId, webhookPayloadCommentComment.parentCommentId);
+        Objects.equals(this.parentCommentId, webhookPayloadCommentComment.parentCommentId) &&
+        Objects.equals(this.ad, webhookPayloadCommentComment.ad);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, postId, platformPostId, platform, text, author, createdAt, isReply, parentCommentId);
+    return Objects.hash(id, postId, platformPostId, platform, text, author, createdAt, isReply, parentCommentId, ad);
   }
 
   @Override
@@ -388,6 +419,7 @@ public class WebhookPayloadCommentComment {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    isReply: ").append(toIndentedString(isReply)).append("\n");
     sb.append("    parentCommentId: ").append(toIndentedString(parentCommentId)).append("\n");
+    sb.append("    ad: ").append(toIndentedString(ad)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -478,6 +510,11 @@ public class WebhookPayloadCommentComment {
     // add `parentCommentId` to the URL query string
     if (getParentCommentId() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sparentCommentId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getParentCommentId()))));
+    }
+
+    // add `ad` to the URL query string
+    if (getAd() != null) {
+      joiner.add(getAd().toUrlQueryString(prefix + "ad" + suffix));
     }
 
     return joiner.toString();

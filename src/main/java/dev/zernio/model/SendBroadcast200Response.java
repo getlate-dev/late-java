@@ -39,7 +39,7 @@ import dev.zernio.ApiClient;
   SendBroadcast200Response.JSON_PROPERTY_FAILED,
   SendBroadcast200Response.JSON_PROPERTY_RECIPIENT_COUNT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-23T14:00:55.187095242Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-23T14:13:42.892017552Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class SendBroadcast200Response {
   public static final String JSON_PROPERTY_SUCCESS = "success";
   @javax.annotation.Nullable
