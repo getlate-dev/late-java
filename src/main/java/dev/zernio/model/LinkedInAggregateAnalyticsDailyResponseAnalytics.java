@@ -39,9 +39,11 @@ import dev.zernio.ApiClient;
   LinkedInAggregateAnalyticsDailyResponseAnalytics.JSON_PROPERTY_IMPRESSIONS,
   LinkedInAggregateAnalyticsDailyResponseAnalytics.JSON_PROPERTY_REACTIONS,
   LinkedInAggregateAnalyticsDailyResponseAnalytics.JSON_PROPERTY_COMMENTS,
-  LinkedInAggregateAnalyticsDailyResponseAnalytics.JSON_PROPERTY_SHARES
+  LinkedInAggregateAnalyticsDailyResponseAnalytics.JSON_PROPERTY_SHARES,
+  LinkedInAggregateAnalyticsDailyResponseAnalytics.JSON_PROPERTY_SAVES,
+  LinkedInAggregateAnalyticsDailyResponseAnalytics.JSON_PROPERTY_SENDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-23T16:08:26.586383632Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T09:56:51.792635768Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class LinkedInAggregateAnalyticsDailyResponseAnalytics {
   public static final String JSON_PROPERTY_IMPRESSIONS = "impressions";
   @javax.annotation.Nullable
@@ -58,6 +60,14 @@ public class LinkedInAggregateAnalyticsDailyResponseAnalytics {
   public static final String JSON_PROPERTY_SHARES = "shares";
   @javax.annotation.Nullable
   private List<LinkedInAggregateAnalyticsDailyResponseAnalyticsImpressionsInner> shares = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_SAVES = "saves";
+  @javax.annotation.Nullable
+  private List<LinkedInAggregateAnalyticsDailyResponseAnalyticsImpressionsInner> saves = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_SENDS = "sends";
+  @javax.annotation.Nullable
+  private List<LinkedInAggregateAnalyticsDailyResponseAnalyticsImpressionsInner> sends = new ArrayList<>();
 
   public LinkedInAggregateAnalyticsDailyResponseAnalytics() { 
   }
@@ -190,6 +200,70 @@ public class LinkedInAggregateAnalyticsDailyResponseAnalytics {
   }
 
 
+  public LinkedInAggregateAnalyticsDailyResponseAnalytics saves(@javax.annotation.Nullable List<LinkedInAggregateAnalyticsDailyResponseAnalyticsImpressionsInner> saves) {
+    this.saves = saves;
+    return this;
+  }
+
+  public LinkedInAggregateAnalyticsDailyResponseAnalytics addSavesItem(LinkedInAggregateAnalyticsDailyResponseAnalyticsImpressionsInner savesItem) {
+    if (this.saves == null) {
+      this.saves = new ArrayList<>();
+    }
+    this.saves.add(savesItem);
+    return this;
+  }
+
+  /**
+   * Daily saves (personal accounts only)
+   * @return saves
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_SAVES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<LinkedInAggregateAnalyticsDailyResponseAnalyticsImpressionsInner> getSaves() {
+    return saves;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SAVES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSaves(@javax.annotation.Nullable List<LinkedInAggregateAnalyticsDailyResponseAnalyticsImpressionsInner> saves) {
+    this.saves = saves;
+  }
+
+
+  public LinkedInAggregateAnalyticsDailyResponseAnalytics sends(@javax.annotation.Nullable List<LinkedInAggregateAnalyticsDailyResponseAnalyticsImpressionsInner> sends) {
+    this.sends = sends;
+    return this;
+  }
+
+  public LinkedInAggregateAnalyticsDailyResponseAnalytics addSendsItem(LinkedInAggregateAnalyticsDailyResponseAnalyticsImpressionsInner sendsItem) {
+    if (this.sends == null) {
+      this.sends = new ArrayList<>();
+    }
+    this.sends.add(sendsItem);
+    return this;
+  }
+
+  /**
+   * Daily sends via LinkedIn messaging (personal accounts only)
+   * @return sends
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_SENDS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<LinkedInAggregateAnalyticsDailyResponseAnalyticsImpressionsInner> getSends() {
+    return sends;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SENDS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSends(@javax.annotation.Nullable List<LinkedInAggregateAnalyticsDailyResponseAnalyticsImpressionsInner> sends) {
+    this.sends = sends;
+  }
+
+
   /**
    * Return true if this LinkedInAggregateAnalyticsDailyResponse_analytics object is equal to o.
    */
@@ -205,12 +279,14 @@ public class LinkedInAggregateAnalyticsDailyResponseAnalytics {
     return Objects.equals(this.impressions, linkedInAggregateAnalyticsDailyResponseAnalytics.impressions) &&
         Objects.equals(this.reactions, linkedInAggregateAnalyticsDailyResponseAnalytics.reactions) &&
         Objects.equals(this.comments, linkedInAggregateAnalyticsDailyResponseAnalytics.comments) &&
-        Objects.equals(this.shares, linkedInAggregateAnalyticsDailyResponseAnalytics.shares);
+        Objects.equals(this.shares, linkedInAggregateAnalyticsDailyResponseAnalytics.shares) &&
+        Objects.equals(this.saves, linkedInAggregateAnalyticsDailyResponseAnalytics.saves) &&
+        Objects.equals(this.sends, linkedInAggregateAnalyticsDailyResponseAnalytics.sends);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(impressions, reactions, comments, shares);
+    return Objects.hash(impressions, reactions, comments, shares, saves, sends);
   }
 
   @Override
@@ -221,6 +297,8 @@ public class LinkedInAggregateAnalyticsDailyResponseAnalytics {
     sb.append("    reactions: ").append(toIndentedString(reactions)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
     sb.append("    shares: ").append(toIndentedString(shares)).append("\n");
+    sb.append("    saves: ").append(toIndentedString(saves)).append("\n");
+    sb.append("    sends: ").append(toIndentedString(sends)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -303,6 +381,26 @@ public class LinkedInAggregateAnalyticsDailyResponseAnalytics {
       for (int i = 0; i < getShares().size(); i++) {
         if (getShares().get(i) != null) {
           joiner.add(getShares().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%sshares%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `saves` to the URL query string
+    if (getSaves() != null) {
+      for (int i = 0; i < getSaves().size(); i++) {
+        if (getSaves().get(i) != null) {
+          joiner.add(getSaves().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%ssaves%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `sends` to the URL query string
+    if (getSends() != null) {
+      for (int i = 0; i < getSends().size(); i++) {
+        if (getSends().get(i) != null) {
+          joiner.add(getSends().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%ssends%s%s", prefix, suffix,
           "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }

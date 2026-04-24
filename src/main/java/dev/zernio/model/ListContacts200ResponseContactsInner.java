@@ -55,7 +55,7 @@ import dev.zernio.ApiClient;
   ListContacts200ResponseContactsInner.JSON_PROPERTY_PLATFORM_IDENTIFIER,
   ListContacts200ResponseContactsInner.JSON_PROPERTY_DISPLAY_IDENTIFIER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-23T16:08:26.586383632Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T09:56:51.792635768Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ListContacts200ResponseContactsInner {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable

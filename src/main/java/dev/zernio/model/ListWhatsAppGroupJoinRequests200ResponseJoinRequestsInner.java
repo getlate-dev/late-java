@@ -36,7 +36,7 @@ import dev.zernio.ApiClient;
   ListWhatsAppGroupJoinRequests200ResponseJoinRequestsInner.JSON_PROPERTY_USER,
   ListWhatsAppGroupJoinRequests200ResponseJoinRequestsInner.JSON_PROPERTY_TIMESTAMP
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-23T16:08:26.586383632Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T09:56:51.792635768Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ListWhatsAppGroupJoinRequests200ResponseJoinRequestsInner {
   public static final String JSON_PROPERTY_USER = "user";
   @javax.annotation.Nullable

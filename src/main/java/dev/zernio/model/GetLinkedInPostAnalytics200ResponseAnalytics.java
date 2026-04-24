@@ -39,11 +39,13 @@ import dev.zernio.ApiClient;
   GetLinkedInPostAnalytics200ResponseAnalytics.JSON_PROPERTY_LIKES,
   GetLinkedInPostAnalytics200ResponseAnalytics.JSON_PROPERTY_COMMENTS,
   GetLinkedInPostAnalytics200ResponseAnalytics.JSON_PROPERTY_SHARES,
+  GetLinkedInPostAnalytics200ResponseAnalytics.JSON_PROPERTY_SAVES,
+  GetLinkedInPostAnalytics200ResponseAnalytics.JSON_PROPERTY_SENDS,
   GetLinkedInPostAnalytics200ResponseAnalytics.JSON_PROPERTY_CLICKS,
   GetLinkedInPostAnalytics200ResponseAnalytics.JSON_PROPERTY_VIEWS,
   GetLinkedInPostAnalytics200ResponseAnalytics.JSON_PROPERTY_ENGAGEMENT_RATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-23T16:08:26.586383632Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T09:56:51.792635768Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetLinkedInPostAnalytics200ResponseAnalytics {
   public static final String JSON_PROPERTY_IMPRESSIONS = "impressions";
   @javax.annotation.Nullable
@@ -64,6 +66,14 @@ public class GetLinkedInPostAnalytics200ResponseAnalytics {
   public static final String JSON_PROPERTY_SHARES = "shares";
   @javax.annotation.Nullable
   private Integer shares;
+
+  public static final String JSON_PROPERTY_SAVES = "saves";
+  @javax.annotation.Nullable
+  private Integer saves;
+
+  public static final String JSON_PROPERTY_SENDS = "sends";
+  @javax.annotation.Nullable
+  private Integer sends;
 
   public static final String JSON_PROPERTY_CLICKS = "clicks";
   @javax.annotation.Nullable
@@ -200,6 +210,54 @@ public class GetLinkedInPostAnalytics200ResponseAnalytics {
   }
 
 
+  public GetLinkedInPostAnalytics200ResponseAnalytics saves(@javax.annotation.Nullable Integer saves) {
+    this.saves = saves;
+    return this;
+  }
+
+  /**
+   * Times the post was saved (personal accounts only; 0 for organization accounts)
+   * @return saves
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_SAVES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getSaves() {
+    return saves;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SAVES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSaves(@javax.annotation.Nullable Integer saves) {
+    this.saves = saves;
+  }
+
+
+  public GetLinkedInPostAnalytics200ResponseAnalytics sends(@javax.annotation.Nullable Integer sends) {
+    this.sends = sends;
+    return this;
+  }
+
+  /**
+   * Times the post was sent via LinkedIn messaging (personal accounts only; 0 for organization accounts)
+   * @return sends
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_SENDS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getSends() {
+    return sends;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SENDS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSends(@javax.annotation.Nullable Integer sends) {
+    this.sends = sends;
+  }
+
+
   public GetLinkedInPostAnalytics200ResponseAnalytics clicks(@javax.annotation.Nullable Integer clicks) {
     this.clicks = clicks;
     return this;
@@ -289,6 +347,8 @@ public class GetLinkedInPostAnalytics200ResponseAnalytics {
         Objects.equals(this.likes, getLinkedInPostAnalytics200ResponseAnalytics.likes) &&
         Objects.equals(this.comments, getLinkedInPostAnalytics200ResponseAnalytics.comments) &&
         Objects.equals(this.shares, getLinkedInPostAnalytics200ResponseAnalytics.shares) &&
+        Objects.equals(this.saves, getLinkedInPostAnalytics200ResponseAnalytics.saves) &&
+        Objects.equals(this.sends, getLinkedInPostAnalytics200ResponseAnalytics.sends) &&
         Objects.equals(this.clicks, getLinkedInPostAnalytics200ResponseAnalytics.clicks) &&
         Objects.equals(this.views, getLinkedInPostAnalytics200ResponseAnalytics.views) &&
         Objects.equals(this.engagementRate, getLinkedInPostAnalytics200ResponseAnalytics.engagementRate);
@@ -296,7 +356,7 @@ public class GetLinkedInPostAnalytics200ResponseAnalytics {
 
   @Override
   public int hashCode() {
-    return Objects.hash(impressions, reach, likes, comments, shares, clicks, views, engagementRate);
+    return Objects.hash(impressions, reach, likes, comments, shares, saves, sends, clicks, views, engagementRate);
   }
 
   @Override
@@ -308,6 +368,8 @@ public class GetLinkedInPostAnalytics200ResponseAnalytics {
     sb.append("    likes: ").append(toIndentedString(likes)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
     sb.append("    shares: ").append(toIndentedString(shares)).append("\n");
+    sb.append("    saves: ").append(toIndentedString(saves)).append("\n");
+    sb.append("    sends: ").append(toIndentedString(sends)).append("\n");
     sb.append("    clicks: ").append(toIndentedString(clicks)).append("\n");
     sb.append("    views: ").append(toIndentedString(views)).append("\n");
     sb.append("    engagementRate: ").append(toIndentedString(engagementRate)).append("\n");
@@ -381,6 +443,16 @@ public class GetLinkedInPostAnalytics200ResponseAnalytics {
     // add `shares` to the URL query string
     if (getShares() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sshares%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getShares()))));
+    }
+
+    // add `saves` to the URL query string
+    if (getSaves() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%ssaves%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getSaves()))));
+    }
+
+    // add `sends` to the URL query string
+    if (getSends() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%ssends%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getSends()))));
     }
 
     // add `clicks` to the URL query string

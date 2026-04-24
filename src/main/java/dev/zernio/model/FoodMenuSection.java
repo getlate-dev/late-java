@@ -40,7 +40,7 @@ import dev.zernio.ApiClient;
   FoodMenuSection.JSON_PROPERTY_LABELS,
   FoodMenuSection.JSON_PROPERTY_ITEMS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-23T16:08:26.586383632Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T09:56:51.792635768Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class FoodMenuSection {
   public static final String JSON_PROPERTY_LABELS = "labels";
   @javax.annotation.Nonnull

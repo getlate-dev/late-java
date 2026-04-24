@@ -39,9 +39,11 @@ import dev.zernio.ApiClient;
   LinkedInAggregateAnalyticsTotalResponseAnalytics.JSON_PROPERTY_REACTIONS,
   LinkedInAggregateAnalyticsTotalResponseAnalytics.JSON_PROPERTY_COMMENTS,
   LinkedInAggregateAnalyticsTotalResponseAnalytics.JSON_PROPERTY_SHARES,
+  LinkedInAggregateAnalyticsTotalResponseAnalytics.JSON_PROPERTY_SAVES,
+  LinkedInAggregateAnalyticsTotalResponseAnalytics.JSON_PROPERTY_SENDS,
   LinkedInAggregateAnalyticsTotalResponseAnalytics.JSON_PROPERTY_ENGAGEMENT_RATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-23T16:08:26.586383632Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T09:56:51.792635768Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class LinkedInAggregateAnalyticsTotalResponseAnalytics {
   public static final String JSON_PROPERTY_IMPRESSIONS = "impressions";
   @javax.annotation.Nullable
@@ -62,6 +64,14 @@ public class LinkedInAggregateAnalyticsTotalResponseAnalytics {
   public static final String JSON_PROPERTY_SHARES = "shares";
   @javax.annotation.Nullable
   private Integer shares;
+
+  public static final String JSON_PROPERTY_SAVES = "saves";
+  @javax.annotation.Nullable
+  private Integer saves;
+
+  public static final String JSON_PROPERTY_SENDS = "sends";
+  @javax.annotation.Nullable
+  private Integer sends;
 
   public static final String JSON_PROPERTY_ENGAGEMENT_RATE = "engagementRate";
   @javax.annotation.Nullable
@@ -190,6 +200,54 @@ public class LinkedInAggregateAnalyticsTotalResponseAnalytics {
   }
 
 
+  public LinkedInAggregateAnalyticsTotalResponseAnalytics saves(@javax.annotation.Nullable Integer saves) {
+    this.saves = saves;
+    return this;
+  }
+
+  /**
+   * Total times posts were saved (personal accounts only)
+   * @return saves
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_SAVES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getSaves() {
+    return saves;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SAVES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSaves(@javax.annotation.Nullable Integer saves) {
+    this.saves = saves;
+  }
+
+
+  public LinkedInAggregateAnalyticsTotalResponseAnalytics sends(@javax.annotation.Nullable Integer sends) {
+    this.sends = sends;
+    return this;
+  }
+
+  /**
+   * Total times posts were sent via LinkedIn messaging (personal accounts only)
+   * @return sends
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_SENDS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getSends() {
+    return sends;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SENDS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSends(@javax.annotation.Nullable Integer sends) {
+    this.sends = sends;
+  }
+
+
   public LinkedInAggregateAnalyticsTotalResponseAnalytics engagementRate(@javax.annotation.Nullable BigDecimal engagementRate) {
     this.engagementRate = engagementRate;
     return this;
@@ -231,12 +289,14 @@ public class LinkedInAggregateAnalyticsTotalResponseAnalytics {
         Objects.equals(this.reactions, linkedInAggregateAnalyticsTotalResponseAnalytics.reactions) &&
         Objects.equals(this.comments, linkedInAggregateAnalyticsTotalResponseAnalytics.comments) &&
         Objects.equals(this.shares, linkedInAggregateAnalyticsTotalResponseAnalytics.shares) &&
+        Objects.equals(this.saves, linkedInAggregateAnalyticsTotalResponseAnalytics.saves) &&
+        Objects.equals(this.sends, linkedInAggregateAnalyticsTotalResponseAnalytics.sends) &&
         Objects.equals(this.engagementRate, linkedInAggregateAnalyticsTotalResponseAnalytics.engagementRate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(impressions, reach, reactions, comments, shares, engagementRate);
+    return Objects.hash(impressions, reach, reactions, comments, shares, saves, sends, engagementRate);
   }
 
   @Override
@@ -248,6 +308,8 @@ public class LinkedInAggregateAnalyticsTotalResponseAnalytics {
     sb.append("    reactions: ").append(toIndentedString(reactions)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
     sb.append("    shares: ").append(toIndentedString(shares)).append("\n");
+    sb.append("    saves: ").append(toIndentedString(saves)).append("\n");
+    sb.append("    sends: ").append(toIndentedString(sends)).append("\n");
     sb.append("    engagementRate: ").append(toIndentedString(engagementRate)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -319,6 +381,16 @@ public class LinkedInAggregateAnalyticsTotalResponseAnalytics {
     // add `shares` to the URL query string
     if (getShares() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sshares%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getShares()))));
+    }
+
+    // add `saves` to the URL query string
+    if (getSaves() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%ssaves%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getSaves()))));
+    }
+
+    // add `sends` to the URL query string
+    if (getSends() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%ssends%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getSends()))));
     }
 
     // add `engagementRate` to the URL query string

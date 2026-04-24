@@ -87,7 +87,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-23T16:08:26.586383632Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T09:56:51.792635768Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AnalyticsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -831,6 +831,162 @@ public class AnalyticsApi {
   }
 
   /**
+   * Get Facebook Page insights
+   * Returns page-level Facebook insights (media views, views, post engagements, video metrics, follower counts). Response shape matches /v1/analytics/instagram/account-insights so the same client handling works across platforms.  Metric names track the current (post-November 2025) Meta Graph API. The legacy page_impressions / page_fans / page_fan_adds / page_fan_removes metrics were deprecated by Meta on November 15, 2025 and are NOT accepted by this endpoint. Use the replacements below. Because Meta did not provide direct adds/removes replacements, Zernio synthesizes followers_gained / followers_lost from the daily follower snapshotter.  Max 89 days, defaults to last 30 days. Requires the Analytics add-on. 
+   * @param accountId The Zernio SocialAccount ID for the connected Facebook Page. (required)
+   * @param metrics Comma-separated list of metrics. Defaults to \&quot;page_media_view,page_post_engagements,page_follows,followers_gained,followers_lost\&quot;.  Live Meta metrics (current names, post-Nov-2025):   - page_media_view       (replaces deprecated page_impressions)   - page_views_total   - page_post_engagements   - page_video_views   - page_video_view_time   - page_follows          (replaces deprecated page_fans)  Zernio-synthesized from daily follower snapshots (filling the Nov-2025 gap left by the page_fan_adds / page_fan_removes deprecation):   - followers_gained   - followers_lost  (optional)
+   * @param since Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
+   * @param until End date (YYYY-MM-DD). Defaults to today. (optional)
+   * @param metricType \&quot;total_value\&quot; (default) returns aggregated totals only. \&quot;time_series\&quot; returns daily values in the \&quot;values\&quot; array.  (optional, default to total_value)
+   * @return InstagramAccountInsightsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public InstagramAccountInsightsResponse getFacebookPageInsights(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String metrics, @javax.annotation.Nullable LocalDate since, @javax.annotation.Nullable LocalDate until, @javax.annotation.Nullable String metricType) throws ApiException {
+    return getFacebookPageInsights(accountId, metrics, since, until, metricType, null);
+  }
+
+  /**
+   * Get Facebook Page insights
+   * Returns page-level Facebook insights (media views, views, post engagements, video metrics, follower counts). Response shape matches /v1/analytics/instagram/account-insights so the same client handling works across platforms.  Metric names track the current (post-November 2025) Meta Graph API. The legacy page_impressions / page_fans / page_fan_adds / page_fan_removes metrics were deprecated by Meta on November 15, 2025 and are NOT accepted by this endpoint. Use the replacements below. Because Meta did not provide direct adds/removes replacements, Zernio synthesizes followers_gained / followers_lost from the daily follower snapshotter.  Max 89 days, defaults to last 30 days. Requires the Analytics add-on. 
+   * @param accountId The Zernio SocialAccount ID for the connected Facebook Page. (required)
+   * @param metrics Comma-separated list of metrics. Defaults to \&quot;page_media_view,page_post_engagements,page_follows,followers_gained,followers_lost\&quot;.  Live Meta metrics (current names, post-Nov-2025):   - page_media_view       (replaces deprecated page_impressions)   - page_views_total   - page_post_engagements   - page_video_views   - page_video_view_time   - page_follows          (replaces deprecated page_fans)  Zernio-synthesized from daily follower snapshots (filling the Nov-2025 gap left by the page_fan_adds / page_fan_removes deprecation):   - followers_gained   - followers_lost  (optional)
+   * @param since Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
+   * @param until End date (YYYY-MM-DD). Defaults to today. (optional)
+   * @param metricType \&quot;total_value\&quot; (default) returns aggregated totals only. \&quot;time_series\&quot; returns daily values in the \&quot;values\&quot; array.  (optional, default to total_value)
+   * @param headers Optional headers to include in the request
+   * @return InstagramAccountInsightsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public InstagramAccountInsightsResponse getFacebookPageInsights(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String metrics, @javax.annotation.Nullable LocalDate since, @javax.annotation.Nullable LocalDate until, @javax.annotation.Nullable String metricType, Map<String, String> headers) throws ApiException {
+    ApiResponse<InstagramAccountInsightsResponse> localVarResponse = getFacebookPageInsightsWithHttpInfo(accountId, metrics, since, until, metricType, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Get Facebook Page insights
+   * Returns page-level Facebook insights (media views, views, post engagements, video metrics, follower counts). Response shape matches /v1/analytics/instagram/account-insights so the same client handling works across platforms.  Metric names track the current (post-November 2025) Meta Graph API. The legacy page_impressions / page_fans / page_fan_adds / page_fan_removes metrics were deprecated by Meta on November 15, 2025 and are NOT accepted by this endpoint. Use the replacements below. Because Meta did not provide direct adds/removes replacements, Zernio synthesizes followers_gained / followers_lost from the daily follower snapshotter.  Max 89 days, defaults to last 30 days. Requires the Analytics add-on. 
+   * @param accountId The Zernio SocialAccount ID for the connected Facebook Page. (required)
+   * @param metrics Comma-separated list of metrics. Defaults to \&quot;page_media_view,page_post_engagements,page_follows,followers_gained,followers_lost\&quot;.  Live Meta metrics (current names, post-Nov-2025):   - page_media_view       (replaces deprecated page_impressions)   - page_views_total   - page_post_engagements   - page_video_views   - page_video_view_time   - page_follows          (replaces deprecated page_fans)  Zernio-synthesized from daily follower snapshots (filling the Nov-2025 gap left by the page_fan_adds / page_fan_removes deprecation):   - followers_gained   - followers_lost  (optional)
+   * @param since Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
+   * @param until End date (YYYY-MM-DD). Defaults to today. (optional)
+   * @param metricType \&quot;total_value\&quot; (default) returns aggregated totals only. \&quot;time_series\&quot; returns daily values in the \&quot;values\&quot; array.  (optional, default to total_value)
+   * @return ApiResponse&lt;InstagramAccountInsightsResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<InstagramAccountInsightsResponse> getFacebookPageInsightsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String metrics, @javax.annotation.Nullable LocalDate since, @javax.annotation.Nullable LocalDate until, @javax.annotation.Nullable String metricType) throws ApiException {
+    return getFacebookPageInsightsWithHttpInfo(accountId, metrics, since, until, metricType, null);
+  }
+
+  /**
+   * Get Facebook Page insights
+   * Returns page-level Facebook insights (media views, views, post engagements, video metrics, follower counts). Response shape matches /v1/analytics/instagram/account-insights so the same client handling works across platforms.  Metric names track the current (post-November 2025) Meta Graph API. The legacy page_impressions / page_fans / page_fan_adds / page_fan_removes metrics were deprecated by Meta on November 15, 2025 and are NOT accepted by this endpoint. Use the replacements below. Because Meta did not provide direct adds/removes replacements, Zernio synthesizes followers_gained / followers_lost from the daily follower snapshotter.  Max 89 days, defaults to last 30 days. Requires the Analytics add-on. 
+   * @param accountId The Zernio SocialAccount ID for the connected Facebook Page. (required)
+   * @param metrics Comma-separated list of metrics. Defaults to \&quot;page_media_view,page_post_engagements,page_follows,followers_gained,followers_lost\&quot;.  Live Meta metrics (current names, post-Nov-2025):   - page_media_view       (replaces deprecated page_impressions)   - page_views_total   - page_post_engagements   - page_video_views   - page_video_view_time   - page_follows          (replaces deprecated page_fans)  Zernio-synthesized from daily follower snapshots (filling the Nov-2025 gap left by the page_fan_adds / page_fan_removes deprecation):   - followers_gained   - followers_lost  (optional)
+   * @param since Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
+   * @param until End date (YYYY-MM-DD). Defaults to today. (optional)
+   * @param metricType \&quot;total_value\&quot; (default) returns aggregated totals only. \&quot;time_series\&quot; returns daily values in the \&quot;values\&quot; array.  (optional, default to total_value)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;InstagramAccountInsightsResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<InstagramAccountInsightsResponse> getFacebookPageInsightsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String metrics, @javax.annotation.Nullable LocalDate since, @javax.annotation.Nullable LocalDate until, @javax.annotation.Nullable String metricType, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getFacebookPageInsightsRequestBuilder(accountId, metrics, since, until, metricType, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getFacebookPageInsights", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<InstagramAccountInsightsResponse>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        InstagramAccountInsightsResponse responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<InstagramAccountInsightsResponse>() {});
+        
+
+        return new ApiResponse<InstagramAccountInsightsResponse>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getFacebookPageInsightsRequestBuilder(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String metrics, @javax.annotation.Nullable LocalDate since, @javax.annotation.Nullable LocalDate until, @javax.annotation.Nullable String metricType, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling getFacebookPageInsights");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/analytics/facebook/page-insights";
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "accountId";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("accountId", accountId));
+    localVarQueryParameterBaseName = "metrics";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("metrics", metrics));
+    localVarQueryParameterBaseName = "since";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("since", since));
+    localVarQueryParameterBaseName = "until";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("until", until));
+    localVarQueryParameterBaseName = "metricType";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("metricType", metricType));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
    * Get follower stats
    * Returns follower count history and growth metrics for connected social accounts. Requires analytics add-on subscription. Follower counts are refreshed once per day. 
    * @param accountIds Comma-separated list of account IDs (optional, defaults to all user&#39;s accounts) (optional)
@@ -1280,7 +1436,7 @@ public class AnalyticsApi {
    * Get Instagram insights
    * Returns account-level Instagram insights such as reach, views, accounts engaged, and total interactions. These metrics reflect the entire account&#39;s performance across all content surfaces (feed, stories, explore, profile), and are fundamentally different from post-level metrics. Data may be delayed up to 48 hours. Max 90 days, defaults to last 30 days. Requires the Analytics add-on. 
    * @param accountId The Zernio SocialAccount ID for the Instagram account (required)
-   * @param metrics Comma-separated list of metrics. Defaults to \&quot;reach,views,accounts_engaged,total_interactions\&quot;. Valid metrics: reach, views, accounts_engaged, total_interactions, comments, likes, saves, shares, replies, reposts, follows_and_unfollows, profile_links_taps. Note: only \&quot;reach\&quot; supports metricType&#x3D;time_series. All other metrics are total_value only.  (optional)
+   * @param metrics Comma-separated list of metrics. Defaults to \&quot;reach,views,accounts_engaged,total_interactions\&quot;. Valid metrics: reach, views, accounts_engaged, total_interactions, comments, likes, saves, shares, replies, reposts, follows_and_unfollows, profile_links_taps. Note: only \&quot;reach\&quot; supports metricType&#x3D;time_series. All other metrics (including follows_and_unfollows) are total_value only. This is an Instagram Graph API limitation, not a Zernio limitation - the IG API does not return time-series data for these metrics. For a daily running follower count, use /v1/analytics/instagram/follower-history instead.  (optional)
    * @param since Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
    * @param until End date (YYYY-MM-DD). Defaults to today. (optional)
    * @param metricType \&quot;total_value\&quot; (default) returns aggregated totals and supports breakdowns. \&quot;time_series\&quot; returns daily values but only works with the \&quot;reach\&quot; metric.  (optional, default to total_value)
@@ -1296,7 +1452,7 @@ public class AnalyticsApi {
    * Get Instagram insights
    * Returns account-level Instagram insights such as reach, views, accounts engaged, and total interactions. These metrics reflect the entire account&#39;s performance across all content surfaces (feed, stories, explore, profile), and are fundamentally different from post-level metrics. Data may be delayed up to 48 hours. Max 90 days, defaults to last 30 days. Requires the Analytics add-on. 
    * @param accountId The Zernio SocialAccount ID for the Instagram account (required)
-   * @param metrics Comma-separated list of metrics. Defaults to \&quot;reach,views,accounts_engaged,total_interactions\&quot;. Valid metrics: reach, views, accounts_engaged, total_interactions, comments, likes, saves, shares, replies, reposts, follows_and_unfollows, profile_links_taps. Note: only \&quot;reach\&quot; supports metricType&#x3D;time_series. All other metrics are total_value only.  (optional)
+   * @param metrics Comma-separated list of metrics. Defaults to \&quot;reach,views,accounts_engaged,total_interactions\&quot;. Valid metrics: reach, views, accounts_engaged, total_interactions, comments, likes, saves, shares, replies, reposts, follows_and_unfollows, profile_links_taps. Note: only \&quot;reach\&quot; supports metricType&#x3D;time_series. All other metrics (including follows_and_unfollows) are total_value only. This is an Instagram Graph API limitation, not a Zernio limitation - the IG API does not return time-series data for these metrics. For a daily running follower count, use /v1/analytics/instagram/follower-history instead.  (optional)
    * @param since Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
    * @param until End date (YYYY-MM-DD). Defaults to today. (optional)
    * @param metricType \&quot;total_value\&quot; (default) returns aggregated totals and supports breakdowns. \&quot;time_series\&quot; returns daily values but only works with the \&quot;reach\&quot; metric.  (optional, default to total_value)
@@ -1314,7 +1470,7 @@ public class AnalyticsApi {
    * Get Instagram insights
    * Returns account-level Instagram insights such as reach, views, accounts engaged, and total interactions. These metrics reflect the entire account&#39;s performance across all content surfaces (feed, stories, explore, profile), and are fundamentally different from post-level metrics. Data may be delayed up to 48 hours. Max 90 days, defaults to last 30 days. Requires the Analytics add-on. 
    * @param accountId The Zernio SocialAccount ID for the Instagram account (required)
-   * @param metrics Comma-separated list of metrics. Defaults to \&quot;reach,views,accounts_engaged,total_interactions\&quot;. Valid metrics: reach, views, accounts_engaged, total_interactions, comments, likes, saves, shares, replies, reposts, follows_and_unfollows, profile_links_taps. Note: only \&quot;reach\&quot; supports metricType&#x3D;time_series. All other metrics are total_value only.  (optional)
+   * @param metrics Comma-separated list of metrics. Defaults to \&quot;reach,views,accounts_engaged,total_interactions\&quot;. Valid metrics: reach, views, accounts_engaged, total_interactions, comments, likes, saves, shares, replies, reposts, follows_and_unfollows, profile_links_taps. Note: only \&quot;reach\&quot; supports metricType&#x3D;time_series. All other metrics (including follows_and_unfollows) are total_value only. This is an Instagram Graph API limitation, not a Zernio limitation - the IG API does not return time-series data for these metrics. For a daily running follower count, use /v1/analytics/instagram/follower-history instead.  (optional)
    * @param since Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
    * @param until End date (YYYY-MM-DD). Defaults to today. (optional)
    * @param metricType \&quot;total_value\&quot; (default) returns aggregated totals and supports breakdowns. \&quot;time_series\&quot; returns daily values but only works with the \&quot;reach\&quot; metric.  (optional, default to total_value)
@@ -1330,7 +1486,7 @@ public class AnalyticsApi {
    * Get Instagram insights
    * Returns account-level Instagram insights such as reach, views, accounts engaged, and total interactions. These metrics reflect the entire account&#39;s performance across all content surfaces (feed, stories, explore, profile), and are fundamentally different from post-level metrics. Data may be delayed up to 48 hours. Max 90 days, defaults to last 30 days. Requires the Analytics add-on. 
    * @param accountId The Zernio SocialAccount ID for the Instagram account (required)
-   * @param metrics Comma-separated list of metrics. Defaults to \&quot;reach,views,accounts_engaged,total_interactions\&quot;. Valid metrics: reach, views, accounts_engaged, total_interactions, comments, likes, saves, shares, replies, reposts, follows_and_unfollows, profile_links_taps. Note: only \&quot;reach\&quot; supports metricType&#x3D;time_series. All other metrics are total_value only.  (optional)
+   * @param metrics Comma-separated list of metrics. Defaults to \&quot;reach,views,accounts_engaged,total_interactions\&quot;. Valid metrics: reach, views, accounts_engaged, total_interactions, comments, likes, saves, shares, replies, reposts, follows_and_unfollows, profile_links_taps. Note: only \&quot;reach\&quot; supports metricType&#x3D;time_series. All other metrics (including follows_and_unfollows) are total_value only. This is an Instagram Graph API limitation, not a Zernio limitation - the IG API does not return time-series data for these metrics. For a daily running follower count, use /v1/analytics/instagram/follower-history instead.  (optional)
    * @param since Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
    * @param until End date (YYYY-MM-DD). Defaults to today. (optional)
    * @param metricType \&quot;total_value\&quot; (default) returns aggregated totals and supports breakdowns. \&quot;time_series\&quot; returns daily values but only works with the \&quot;reach\&quot; metric.  (optional, default to total_value)
@@ -1589,13 +1745,169 @@ public class AnalyticsApi {
   }
 
   /**
+   * Get Instagram follower history
+   * Returns a daily running Instagram follower count time series, served from Zernio&#39;s cross-platform daily snapshotter. Exists because Meta removed follower_count from the /insights endpoint in Graph API v22+ and never exposed a historical daily series via any public API.  Response envelope matches /v1/analytics/instagram/account-insights so the same client handling works. Max 89 days, defaults to last 30 days. Requires the Analytics add-on. 
+   * @param accountId The Zernio SocialAccount ID for the Instagram account. (required)
+   * @param metrics Comma-separated list. Defaults to \&quot;follower_count,followers_gained,followers_lost\&quot;.   - follower_count   : per-day raw follower count   - followers_gained : sum of positive daily deltas   - followers_lost   : sum of absolute negative daily deltas  (optional)
+   * @param since Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
+   * @param until End date (YYYY-MM-DD). Defaults to today. (optional)
+   * @param metricType \&quot;total_value\&quot; returns aggregated totals (latest for follower_count, sum for gained/lost). \&quot;time_series\&quot; returns per-day values in the \&quot;values\&quot; array.  (optional, default to total_value)
+   * @return InstagramAccountInsightsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public InstagramAccountInsightsResponse getInstagramFollowerHistory(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String metrics, @javax.annotation.Nullable LocalDate since, @javax.annotation.Nullable LocalDate until, @javax.annotation.Nullable String metricType) throws ApiException {
+    return getInstagramFollowerHistory(accountId, metrics, since, until, metricType, null);
+  }
+
+  /**
+   * Get Instagram follower history
+   * Returns a daily running Instagram follower count time series, served from Zernio&#39;s cross-platform daily snapshotter. Exists because Meta removed follower_count from the /insights endpoint in Graph API v22+ and never exposed a historical daily series via any public API.  Response envelope matches /v1/analytics/instagram/account-insights so the same client handling works. Max 89 days, defaults to last 30 days. Requires the Analytics add-on. 
+   * @param accountId The Zernio SocialAccount ID for the Instagram account. (required)
+   * @param metrics Comma-separated list. Defaults to \&quot;follower_count,followers_gained,followers_lost\&quot;.   - follower_count   : per-day raw follower count   - followers_gained : sum of positive daily deltas   - followers_lost   : sum of absolute negative daily deltas  (optional)
+   * @param since Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
+   * @param until End date (YYYY-MM-DD). Defaults to today. (optional)
+   * @param metricType \&quot;total_value\&quot; returns aggregated totals (latest for follower_count, sum for gained/lost). \&quot;time_series\&quot; returns per-day values in the \&quot;values\&quot; array.  (optional, default to total_value)
+   * @param headers Optional headers to include in the request
+   * @return InstagramAccountInsightsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public InstagramAccountInsightsResponse getInstagramFollowerHistory(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String metrics, @javax.annotation.Nullable LocalDate since, @javax.annotation.Nullable LocalDate until, @javax.annotation.Nullable String metricType, Map<String, String> headers) throws ApiException {
+    ApiResponse<InstagramAccountInsightsResponse> localVarResponse = getInstagramFollowerHistoryWithHttpInfo(accountId, metrics, since, until, metricType, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Get Instagram follower history
+   * Returns a daily running Instagram follower count time series, served from Zernio&#39;s cross-platform daily snapshotter. Exists because Meta removed follower_count from the /insights endpoint in Graph API v22+ and never exposed a historical daily series via any public API.  Response envelope matches /v1/analytics/instagram/account-insights so the same client handling works. Max 89 days, defaults to last 30 days. Requires the Analytics add-on. 
+   * @param accountId The Zernio SocialAccount ID for the Instagram account. (required)
+   * @param metrics Comma-separated list. Defaults to \&quot;follower_count,followers_gained,followers_lost\&quot;.   - follower_count   : per-day raw follower count   - followers_gained : sum of positive daily deltas   - followers_lost   : sum of absolute negative daily deltas  (optional)
+   * @param since Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
+   * @param until End date (YYYY-MM-DD). Defaults to today. (optional)
+   * @param metricType \&quot;total_value\&quot; returns aggregated totals (latest for follower_count, sum for gained/lost). \&quot;time_series\&quot; returns per-day values in the \&quot;values\&quot; array.  (optional, default to total_value)
+   * @return ApiResponse&lt;InstagramAccountInsightsResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<InstagramAccountInsightsResponse> getInstagramFollowerHistoryWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String metrics, @javax.annotation.Nullable LocalDate since, @javax.annotation.Nullable LocalDate until, @javax.annotation.Nullable String metricType) throws ApiException {
+    return getInstagramFollowerHistoryWithHttpInfo(accountId, metrics, since, until, metricType, null);
+  }
+
+  /**
+   * Get Instagram follower history
+   * Returns a daily running Instagram follower count time series, served from Zernio&#39;s cross-platform daily snapshotter. Exists because Meta removed follower_count from the /insights endpoint in Graph API v22+ and never exposed a historical daily series via any public API.  Response envelope matches /v1/analytics/instagram/account-insights so the same client handling works. Max 89 days, defaults to last 30 days. Requires the Analytics add-on. 
+   * @param accountId The Zernio SocialAccount ID for the Instagram account. (required)
+   * @param metrics Comma-separated list. Defaults to \&quot;follower_count,followers_gained,followers_lost\&quot;.   - follower_count   : per-day raw follower count   - followers_gained : sum of positive daily deltas   - followers_lost   : sum of absolute negative daily deltas  (optional)
+   * @param since Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
+   * @param until End date (YYYY-MM-DD). Defaults to today. (optional)
+   * @param metricType \&quot;total_value\&quot; returns aggregated totals (latest for follower_count, sum for gained/lost). \&quot;time_series\&quot; returns per-day values in the \&quot;values\&quot; array.  (optional, default to total_value)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;InstagramAccountInsightsResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<InstagramAccountInsightsResponse> getInstagramFollowerHistoryWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String metrics, @javax.annotation.Nullable LocalDate since, @javax.annotation.Nullable LocalDate until, @javax.annotation.Nullable String metricType, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getInstagramFollowerHistoryRequestBuilder(accountId, metrics, since, until, metricType, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getInstagramFollowerHistory", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<InstagramAccountInsightsResponse>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        InstagramAccountInsightsResponse responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<InstagramAccountInsightsResponse>() {});
+        
+
+        return new ApiResponse<InstagramAccountInsightsResponse>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getInstagramFollowerHistoryRequestBuilder(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String metrics, @javax.annotation.Nullable LocalDate since, @javax.annotation.Nullable LocalDate until, @javax.annotation.Nullable String metricType, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling getInstagramFollowerHistory");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/analytics/instagram/follower-history";
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "accountId";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("accountId", accountId));
+    localVarQueryParameterBaseName = "metrics";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("metrics", metrics));
+    localVarQueryParameterBaseName = "since";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("since", since));
+    localVarQueryParameterBaseName = "until";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("until", until));
+    localVarQueryParameterBaseName = "metricType";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("metricType", metricType));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
    * Get LinkedIn aggregate stats
-   * Returns aggregate analytics across all posts for a LinkedIn personal account. Only includes posts published through Zernio (LinkedIn API limitation). Org accounts should use /v1/analytics instead. Requires r_member_postAnalytics scope.
+   * Returns aggregate analytics across all posts for a LinkedIn personal account. Only includes posts published through Zernio (LinkedIn API limitation). Org accounts should use /v1/analytics instead. Requires r_member_postAnalytics scope. Saves (POST_SAVE) and sends (POST_SEND) are available for personal accounts; organization pages always return 0 for these two metrics because LinkedIn does not expose them on the organization analytics endpoint.
    * @param accountId The ID of the LinkedIn personal account (required)
    * @param aggregation TOTAL (default, lifetime totals) or DAILY (time series). MEMBERS_REACHED not available with DAILY. (optional, default to TOTAL)
    * @param startDate Start date (YYYY-MM-DD). If omitted, returns lifetime analytics. (optional)
    * @param endDate End date (YYYY-MM-DD, exclusive). Defaults to today if omitted. (optional)
-   * @param metrics Comma-separated metrics: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE. Omit for all. (optional)
+   * @param metrics Comma-separated metrics: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE, POST_SAVE, POST_SEND. Omit for all. (optional)
    * @return GetLinkedInAggregateAnalytics200Response
    * @throws ApiException if fails to make API call
    */
@@ -1605,12 +1917,12 @@ public class AnalyticsApi {
 
   /**
    * Get LinkedIn aggregate stats
-   * Returns aggregate analytics across all posts for a LinkedIn personal account. Only includes posts published through Zernio (LinkedIn API limitation). Org accounts should use /v1/analytics instead. Requires r_member_postAnalytics scope.
+   * Returns aggregate analytics across all posts for a LinkedIn personal account. Only includes posts published through Zernio (LinkedIn API limitation). Org accounts should use /v1/analytics instead. Requires r_member_postAnalytics scope. Saves (POST_SAVE) and sends (POST_SEND) are available for personal accounts; organization pages always return 0 for these two metrics because LinkedIn does not expose them on the organization analytics endpoint.
    * @param accountId The ID of the LinkedIn personal account (required)
    * @param aggregation TOTAL (default, lifetime totals) or DAILY (time series). MEMBERS_REACHED not available with DAILY. (optional, default to TOTAL)
    * @param startDate Start date (YYYY-MM-DD). If omitted, returns lifetime analytics. (optional)
    * @param endDate End date (YYYY-MM-DD, exclusive). Defaults to today if omitted. (optional)
-   * @param metrics Comma-separated metrics: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE. Omit for all. (optional)
+   * @param metrics Comma-separated metrics: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE, POST_SAVE, POST_SEND. Omit for all. (optional)
    * @param headers Optional headers to include in the request
    * @return GetLinkedInAggregateAnalytics200Response
    * @throws ApiException if fails to make API call
@@ -1622,12 +1934,12 @@ public class AnalyticsApi {
 
   /**
    * Get LinkedIn aggregate stats
-   * Returns aggregate analytics across all posts for a LinkedIn personal account. Only includes posts published through Zernio (LinkedIn API limitation). Org accounts should use /v1/analytics instead. Requires r_member_postAnalytics scope.
+   * Returns aggregate analytics across all posts for a LinkedIn personal account. Only includes posts published through Zernio (LinkedIn API limitation). Org accounts should use /v1/analytics instead. Requires r_member_postAnalytics scope. Saves (POST_SAVE) and sends (POST_SEND) are available for personal accounts; organization pages always return 0 for these two metrics because LinkedIn does not expose them on the organization analytics endpoint.
    * @param accountId The ID of the LinkedIn personal account (required)
    * @param aggregation TOTAL (default, lifetime totals) or DAILY (time series). MEMBERS_REACHED not available with DAILY. (optional, default to TOTAL)
    * @param startDate Start date (YYYY-MM-DD). If omitted, returns lifetime analytics. (optional)
    * @param endDate End date (YYYY-MM-DD, exclusive). Defaults to today if omitted. (optional)
-   * @param metrics Comma-separated metrics: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE. Omit for all. (optional)
+   * @param metrics Comma-separated metrics: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE, POST_SAVE, POST_SEND. Omit for all. (optional)
    * @return ApiResponse&lt;GetLinkedInAggregateAnalytics200Response&gt;
    * @throws ApiException if fails to make API call
    */
@@ -1637,12 +1949,12 @@ public class AnalyticsApi {
 
   /**
    * Get LinkedIn aggregate stats
-   * Returns aggregate analytics across all posts for a LinkedIn personal account. Only includes posts published through Zernio (LinkedIn API limitation). Org accounts should use /v1/analytics instead. Requires r_member_postAnalytics scope.
+   * Returns aggregate analytics across all posts for a LinkedIn personal account. Only includes posts published through Zernio (LinkedIn API limitation). Org accounts should use /v1/analytics instead. Requires r_member_postAnalytics scope. Saves (POST_SAVE) and sends (POST_SEND) are available for personal accounts; organization pages always return 0 for these two metrics because LinkedIn does not expose them on the organization analytics endpoint.
    * @param accountId The ID of the LinkedIn personal account (required)
    * @param aggregation TOTAL (default, lifetime totals) or DAILY (time series). MEMBERS_REACHED not available with DAILY. (optional, default to TOTAL)
    * @param startDate Start date (YYYY-MM-DD). If omitted, returns lifetime analytics. (optional)
    * @param endDate End date (YYYY-MM-DD, exclusive). Defaults to today if omitted. (optional)
-   * @param metrics Comma-separated metrics: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE. Omit for all. (optional)
+   * @param metrics Comma-separated metrics: IMPRESSION, MEMBERS_REACHED, REACTION, COMMENT, RESHARE, POST_SAVE, POST_SEND. Omit for all. (optional)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetLinkedInAggregateAnalytics200Response&gt;
    * @throws ApiException if fails to make API call
@@ -1744,8 +2056,164 @@ public class AnalyticsApi {
   }
 
   /**
+   * Get LinkedIn organization page aggregate analytics
+   * Returns aggregate analytics for a LinkedIn organization page. Parallel to /v1/accounts/{id}/linkedin-aggregate-analytics (which handles personal accounts only). Backed by LinkedIn&#39;s organizationalEntityShareStatistics, organizationalEntityFollowerStatistics, and organizationPageStatistics endpoints.  Response shape matches /v1/analytics/instagram/account-insights. Max 89 days, defaults to last 30 days. Requires the Analytics add-on.  Scope requirements: r_organization_social, r_organization_followers, and r_organization_admin must all be present on the account. Accounts connected before these scopes were included in the OAuth flow will return 412 with a reauth hint.  Enforced by this endpoint:   - Page-view metrics accept only metricType&#x3D;total_value (LinkedIn omits per-day     segmentation even when the API is called with DAY granularity, so a time-series     response would be meaningless).   - Date range capped at 89 days.  LinkedIn-side platform limits (not re-enforced here, but worth knowing for larger ranges in a future release):   - Follower stats: rolling 12-month window, end must be no later than 2 days ago.   - Share stats: rolling 12-month window. 
+   * @param accountId The Zernio SocialAccount ID for the LinkedIn organization account. (required)
+   * @param metrics Comma-separated list. Defaults to \&quot;impressions,clicks,engagement_rate,organic_followers_gained,followers_gained,followers_lost\&quot;.  Share statistics (support both total_value and time_series):   - impressions   - unique_impressions   - clicks   - likes   - comments   - shares   - engagement_rate       (0..1, LinkedIn-computed)  Follower-gain statistics (support total_value and time_series):   - organic_followers_gained   (per-day organic gains for time_series; sum of organic gains over the range for total_value)   - paid_followers_gained      (per-day paid gains for time_series; sum of paid gains over the range for total_value)  Page-view statistics (total_value ONLY - LinkedIn platform limit):   - page_views_total   - page_views_overview   - page_views_careers   - page_views_jobs   - page_views_life  Zernio-synthesized from daily follower snapshots:   - followers_gained   - followers_lost  (optional)
+   * @param since Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
+   * @param until End date (YYYY-MM-DD). Defaults to today. (optional)
+   * @param metricType  (optional, default to total_value)
+   * @return InstagramAccountInsightsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public InstagramAccountInsightsResponse getLinkedInOrgAggregateAnalytics(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String metrics, @javax.annotation.Nullable LocalDate since, @javax.annotation.Nullable LocalDate until, @javax.annotation.Nullable String metricType) throws ApiException {
+    return getLinkedInOrgAggregateAnalytics(accountId, metrics, since, until, metricType, null);
+  }
+
+  /**
+   * Get LinkedIn organization page aggregate analytics
+   * Returns aggregate analytics for a LinkedIn organization page. Parallel to /v1/accounts/{id}/linkedin-aggregate-analytics (which handles personal accounts only). Backed by LinkedIn&#39;s organizationalEntityShareStatistics, organizationalEntityFollowerStatistics, and organizationPageStatistics endpoints.  Response shape matches /v1/analytics/instagram/account-insights. Max 89 days, defaults to last 30 days. Requires the Analytics add-on.  Scope requirements: r_organization_social, r_organization_followers, and r_organization_admin must all be present on the account. Accounts connected before these scopes were included in the OAuth flow will return 412 with a reauth hint.  Enforced by this endpoint:   - Page-view metrics accept only metricType&#x3D;total_value (LinkedIn omits per-day     segmentation even when the API is called with DAY granularity, so a time-series     response would be meaningless).   - Date range capped at 89 days.  LinkedIn-side platform limits (not re-enforced here, but worth knowing for larger ranges in a future release):   - Follower stats: rolling 12-month window, end must be no later than 2 days ago.   - Share stats: rolling 12-month window. 
+   * @param accountId The Zernio SocialAccount ID for the LinkedIn organization account. (required)
+   * @param metrics Comma-separated list. Defaults to \&quot;impressions,clicks,engagement_rate,organic_followers_gained,followers_gained,followers_lost\&quot;.  Share statistics (support both total_value and time_series):   - impressions   - unique_impressions   - clicks   - likes   - comments   - shares   - engagement_rate       (0..1, LinkedIn-computed)  Follower-gain statistics (support total_value and time_series):   - organic_followers_gained   (per-day organic gains for time_series; sum of organic gains over the range for total_value)   - paid_followers_gained      (per-day paid gains for time_series; sum of paid gains over the range for total_value)  Page-view statistics (total_value ONLY - LinkedIn platform limit):   - page_views_total   - page_views_overview   - page_views_careers   - page_views_jobs   - page_views_life  Zernio-synthesized from daily follower snapshots:   - followers_gained   - followers_lost  (optional)
+   * @param since Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
+   * @param until End date (YYYY-MM-DD). Defaults to today. (optional)
+   * @param metricType  (optional, default to total_value)
+   * @param headers Optional headers to include in the request
+   * @return InstagramAccountInsightsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public InstagramAccountInsightsResponse getLinkedInOrgAggregateAnalytics(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String metrics, @javax.annotation.Nullable LocalDate since, @javax.annotation.Nullable LocalDate until, @javax.annotation.Nullable String metricType, Map<String, String> headers) throws ApiException {
+    ApiResponse<InstagramAccountInsightsResponse> localVarResponse = getLinkedInOrgAggregateAnalyticsWithHttpInfo(accountId, metrics, since, until, metricType, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Get LinkedIn organization page aggregate analytics
+   * Returns aggregate analytics for a LinkedIn organization page. Parallel to /v1/accounts/{id}/linkedin-aggregate-analytics (which handles personal accounts only). Backed by LinkedIn&#39;s organizationalEntityShareStatistics, organizationalEntityFollowerStatistics, and organizationPageStatistics endpoints.  Response shape matches /v1/analytics/instagram/account-insights. Max 89 days, defaults to last 30 days. Requires the Analytics add-on.  Scope requirements: r_organization_social, r_organization_followers, and r_organization_admin must all be present on the account. Accounts connected before these scopes were included in the OAuth flow will return 412 with a reauth hint.  Enforced by this endpoint:   - Page-view metrics accept only metricType&#x3D;total_value (LinkedIn omits per-day     segmentation even when the API is called with DAY granularity, so a time-series     response would be meaningless).   - Date range capped at 89 days.  LinkedIn-side platform limits (not re-enforced here, but worth knowing for larger ranges in a future release):   - Follower stats: rolling 12-month window, end must be no later than 2 days ago.   - Share stats: rolling 12-month window. 
+   * @param accountId The Zernio SocialAccount ID for the LinkedIn organization account. (required)
+   * @param metrics Comma-separated list. Defaults to \&quot;impressions,clicks,engagement_rate,organic_followers_gained,followers_gained,followers_lost\&quot;.  Share statistics (support both total_value and time_series):   - impressions   - unique_impressions   - clicks   - likes   - comments   - shares   - engagement_rate       (0..1, LinkedIn-computed)  Follower-gain statistics (support total_value and time_series):   - organic_followers_gained   (per-day organic gains for time_series; sum of organic gains over the range for total_value)   - paid_followers_gained      (per-day paid gains for time_series; sum of paid gains over the range for total_value)  Page-view statistics (total_value ONLY - LinkedIn platform limit):   - page_views_total   - page_views_overview   - page_views_careers   - page_views_jobs   - page_views_life  Zernio-synthesized from daily follower snapshots:   - followers_gained   - followers_lost  (optional)
+   * @param since Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
+   * @param until End date (YYYY-MM-DD). Defaults to today. (optional)
+   * @param metricType  (optional, default to total_value)
+   * @return ApiResponse&lt;InstagramAccountInsightsResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<InstagramAccountInsightsResponse> getLinkedInOrgAggregateAnalyticsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String metrics, @javax.annotation.Nullable LocalDate since, @javax.annotation.Nullable LocalDate until, @javax.annotation.Nullable String metricType) throws ApiException {
+    return getLinkedInOrgAggregateAnalyticsWithHttpInfo(accountId, metrics, since, until, metricType, null);
+  }
+
+  /**
+   * Get LinkedIn organization page aggregate analytics
+   * Returns aggregate analytics for a LinkedIn organization page. Parallel to /v1/accounts/{id}/linkedin-aggregate-analytics (which handles personal accounts only). Backed by LinkedIn&#39;s organizationalEntityShareStatistics, organizationalEntityFollowerStatistics, and organizationPageStatistics endpoints.  Response shape matches /v1/analytics/instagram/account-insights. Max 89 days, defaults to last 30 days. Requires the Analytics add-on.  Scope requirements: r_organization_social, r_organization_followers, and r_organization_admin must all be present on the account. Accounts connected before these scopes were included in the OAuth flow will return 412 with a reauth hint.  Enforced by this endpoint:   - Page-view metrics accept only metricType&#x3D;total_value (LinkedIn omits per-day     segmentation even when the API is called with DAY granularity, so a time-series     response would be meaningless).   - Date range capped at 89 days.  LinkedIn-side platform limits (not re-enforced here, but worth knowing for larger ranges in a future release):   - Follower stats: rolling 12-month window, end must be no later than 2 days ago.   - Share stats: rolling 12-month window. 
+   * @param accountId The Zernio SocialAccount ID for the LinkedIn organization account. (required)
+   * @param metrics Comma-separated list. Defaults to \&quot;impressions,clicks,engagement_rate,organic_followers_gained,followers_gained,followers_lost\&quot;.  Share statistics (support both total_value and time_series):   - impressions   - unique_impressions   - clicks   - likes   - comments   - shares   - engagement_rate       (0..1, LinkedIn-computed)  Follower-gain statistics (support total_value and time_series):   - organic_followers_gained   (per-day organic gains for time_series; sum of organic gains over the range for total_value)   - paid_followers_gained      (per-day paid gains for time_series; sum of paid gains over the range for total_value)  Page-view statistics (total_value ONLY - LinkedIn platform limit):   - page_views_total   - page_views_overview   - page_views_careers   - page_views_jobs   - page_views_life  Zernio-synthesized from daily follower snapshots:   - followers_gained   - followers_lost  (optional)
+   * @param since Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
+   * @param until End date (YYYY-MM-DD). Defaults to today. (optional)
+   * @param metricType  (optional, default to total_value)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;InstagramAccountInsightsResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<InstagramAccountInsightsResponse> getLinkedInOrgAggregateAnalyticsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String metrics, @javax.annotation.Nullable LocalDate since, @javax.annotation.Nullable LocalDate until, @javax.annotation.Nullable String metricType, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getLinkedInOrgAggregateAnalyticsRequestBuilder(accountId, metrics, since, until, metricType, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getLinkedInOrgAggregateAnalytics", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<InstagramAccountInsightsResponse>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        InstagramAccountInsightsResponse responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<InstagramAccountInsightsResponse>() {});
+        
+
+        return new ApiResponse<InstagramAccountInsightsResponse>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getLinkedInOrgAggregateAnalyticsRequestBuilder(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String metrics, @javax.annotation.Nullable LocalDate since, @javax.annotation.Nullable LocalDate until, @javax.annotation.Nullable String metricType, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling getLinkedInOrgAggregateAnalytics");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/analytics/linkedin/org-aggregate-analytics";
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "accountId";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("accountId", accountId));
+    localVarQueryParameterBaseName = "metrics";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("metrics", metrics));
+    localVarQueryParameterBaseName = "since";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("since", since));
+    localVarQueryParameterBaseName = "until";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("until", until));
+    localVarQueryParameterBaseName = "metricType";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("metricType", metricType));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
    * Get LinkedIn post stats
-   * Returns analytics for a specific LinkedIn post by URN. Works for both personal and organization accounts.
+   * Returns analytics for a specific LinkedIn post by URN. Works for both personal and organization accounts. Saves and sends are only populated for personal accounts (LinkedIn does not expose these metrics on the organization analytics endpoint).
    * @param accountId The ID of the LinkedIn account (required)
    * @param urn The LinkedIn post URN (required)
    * @return GetLinkedInPostAnalytics200Response
@@ -1757,7 +2225,7 @@ public class AnalyticsApi {
 
   /**
    * Get LinkedIn post stats
-   * Returns analytics for a specific LinkedIn post by URN. Works for both personal and organization accounts.
+   * Returns analytics for a specific LinkedIn post by URN. Works for both personal and organization accounts. Saves and sends are only populated for personal accounts (LinkedIn does not expose these metrics on the organization analytics endpoint).
    * @param accountId The ID of the LinkedIn account (required)
    * @param urn The LinkedIn post URN (required)
    * @param headers Optional headers to include in the request
@@ -1771,7 +2239,7 @@ public class AnalyticsApi {
 
   /**
    * Get LinkedIn post stats
-   * Returns analytics for a specific LinkedIn post by URN. Works for both personal and organization accounts.
+   * Returns analytics for a specific LinkedIn post by URN. Works for both personal and organization accounts. Saves and sends are only populated for personal accounts (LinkedIn does not expose these metrics on the organization analytics endpoint).
    * @param accountId The ID of the LinkedIn account (required)
    * @param urn The LinkedIn post URN (required)
    * @return ApiResponse&lt;GetLinkedInPostAnalytics200Response&gt;
@@ -1783,7 +2251,7 @@ public class AnalyticsApi {
 
   /**
    * Get LinkedIn post stats
-   * Returns analytics for a specific LinkedIn post by URN. Works for both personal and organization accounts.
+   * Returns analytics for a specific LinkedIn post by URN. Works for both personal and organization accounts. Saves and sends are only populated for personal accounts (LinkedIn does not expose these metrics on the organization analytics endpoint).
    * @param accountId The ID of the LinkedIn account (required)
    * @param urn The LinkedIn post URN (required)
    * @param headers Optional headers to include in the request
@@ -2295,6 +2763,318 @@ public class AnalyticsApi {
     localVarQueryParams.addAll(ApiClient.parameterToPairs("profileId", profileId));
     localVarQueryParameterBaseName = "source";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("source", source));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Get TikTok account-level insights
+   * Returns account-level TikTok insights from /v2/user/info/ (live) plus historical time series joined from Zernio&#39;s daily snapshotter (AccountStats).  Response shape matches /v1/analytics/instagram/account-insights. Max 89 days, defaults to last 30 days. Requires the Analytics add-on and the user.info.stats scope on the account (412 if missing).  Scope intentionally narrow. TikTok&#39;s public API exposes only the four counter metrics below. The deep metrics that live in TikTok Studio are NOT available on any public TikTok API, even for Business accounts:   - profile_views   - account-level impressions / reach   - follower inflow / outflow breakdown   - video watch time, average watch time, full-watched rate   - impression_sources (FYP / Following / Hashtag / Search / Personal profile)  TikTok&#39;s Research API doesn&#39;t expose those fields either, and is restricted to non-commercial academic use per TikTok&#39;s eligibility policy. There is no public API workaround. Post-level metrics (views, likes, comments, shares per video) are available via /v1/analytics?postId&#x3D;... from TikTok&#39;s /v2/video/query/. 
+   * @param accountId The Zernio SocialAccount ID for the TikTok account. (required)
+   * @param metrics Comma-separated list. Defaults to \&quot;follower_count,likes_count,video_count,followers_gained,followers_lost\&quot;.  Live from /v2/user/info/ (requires user.info.stats scope):   - follower_count  (cumulative; time series joined from AccountStats)   - following_count (cumulative; time series joined from AccountStats.metadata)   - likes_count     (cumulative; time series joined from AccountStats.metadata)   - video_count     (cumulative; time series joined from AccountStats.metadata)  Zernio-synthesized:   - followers_gained  (sum of positive daily follower deltas)   - followers_lost    (sum of absolute negative daily deltas)  (optional)
+   * @param since Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
+   * @param until End date (YYYY-MM-DD). Defaults to today. (optional)
+   * @param metricType \&quot;total_value\&quot; returns the latest cumulative counter value. \&quot;time_series\&quot; returns daily values joined from AccountStats snapshots.  (optional, default to total_value)
+   * @return InstagramAccountInsightsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public InstagramAccountInsightsResponse getTikTokAccountInsights(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String metrics, @javax.annotation.Nullable LocalDate since, @javax.annotation.Nullable LocalDate until, @javax.annotation.Nullable String metricType) throws ApiException {
+    return getTikTokAccountInsights(accountId, metrics, since, until, metricType, null);
+  }
+
+  /**
+   * Get TikTok account-level insights
+   * Returns account-level TikTok insights from /v2/user/info/ (live) plus historical time series joined from Zernio&#39;s daily snapshotter (AccountStats).  Response shape matches /v1/analytics/instagram/account-insights. Max 89 days, defaults to last 30 days. Requires the Analytics add-on and the user.info.stats scope on the account (412 if missing).  Scope intentionally narrow. TikTok&#39;s public API exposes only the four counter metrics below. The deep metrics that live in TikTok Studio are NOT available on any public TikTok API, even for Business accounts:   - profile_views   - account-level impressions / reach   - follower inflow / outflow breakdown   - video watch time, average watch time, full-watched rate   - impression_sources (FYP / Following / Hashtag / Search / Personal profile)  TikTok&#39;s Research API doesn&#39;t expose those fields either, and is restricted to non-commercial academic use per TikTok&#39;s eligibility policy. There is no public API workaround. Post-level metrics (views, likes, comments, shares per video) are available via /v1/analytics?postId&#x3D;... from TikTok&#39;s /v2/video/query/. 
+   * @param accountId The Zernio SocialAccount ID for the TikTok account. (required)
+   * @param metrics Comma-separated list. Defaults to \&quot;follower_count,likes_count,video_count,followers_gained,followers_lost\&quot;.  Live from /v2/user/info/ (requires user.info.stats scope):   - follower_count  (cumulative; time series joined from AccountStats)   - following_count (cumulative; time series joined from AccountStats.metadata)   - likes_count     (cumulative; time series joined from AccountStats.metadata)   - video_count     (cumulative; time series joined from AccountStats.metadata)  Zernio-synthesized:   - followers_gained  (sum of positive daily follower deltas)   - followers_lost    (sum of absolute negative daily deltas)  (optional)
+   * @param since Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
+   * @param until End date (YYYY-MM-DD). Defaults to today. (optional)
+   * @param metricType \&quot;total_value\&quot; returns the latest cumulative counter value. \&quot;time_series\&quot; returns daily values joined from AccountStats snapshots.  (optional, default to total_value)
+   * @param headers Optional headers to include in the request
+   * @return InstagramAccountInsightsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public InstagramAccountInsightsResponse getTikTokAccountInsights(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String metrics, @javax.annotation.Nullable LocalDate since, @javax.annotation.Nullable LocalDate until, @javax.annotation.Nullable String metricType, Map<String, String> headers) throws ApiException {
+    ApiResponse<InstagramAccountInsightsResponse> localVarResponse = getTikTokAccountInsightsWithHttpInfo(accountId, metrics, since, until, metricType, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Get TikTok account-level insights
+   * Returns account-level TikTok insights from /v2/user/info/ (live) plus historical time series joined from Zernio&#39;s daily snapshotter (AccountStats).  Response shape matches /v1/analytics/instagram/account-insights. Max 89 days, defaults to last 30 days. Requires the Analytics add-on and the user.info.stats scope on the account (412 if missing).  Scope intentionally narrow. TikTok&#39;s public API exposes only the four counter metrics below. The deep metrics that live in TikTok Studio are NOT available on any public TikTok API, even for Business accounts:   - profile_views   - account-level impressions / reach   - follower inflow / outflow breakdown   - video watch time, average watch time, full-watched rate   - impression_sources (FYP / Following / Hashtag / Search / Personal profile)  TikTok&#39;s Research API doesn&#39;t expose those fields either, and is restricted to non-commercial academic use per TikTok&#39;s eligibility policy. There is no public API workaround. Post-level metrics (views, likes, comments, shares per video) are available via /v1/analytics?postId&#x3D;... from TikTok&#39;s /v2/video/query/. 
+   * @param accountId The Zernio SocialAccount ID for the TikTok account. (required)
+   * @param metrics Comma-separated list. Defaults to \&quot;follower_count,likes_count,video_count,followers_gained,followers_lost\&quot;.  Live from /v2/user/info/ (requires user.info.stats scope):   - follower_count  (cumulative; time series joined from AccountStats)   - following_count (cumulative; time series joined from AccountStats.metadata)   - likes_count     (cumulative; time series joined from AccountStats.metadata)   - video_count     (cumulative; time series joined from AccountStats.metadata)  Zernio-synthesized:   - followers_gained  (sum of positive daily follower deltas)   - followers_lost    (sum of absolute negative daily deltas)  (optional)
+   * @param since Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
+   * @param until End date (YYYY-MM-DD). Defaults to today. (optional)
+   * @param metricType \&quot;total_value\&quot; returns the latest cumulative counter value. \&quot;time_series\&quot; returns daily values joined from AccountStats snapshots.  (optional, default to total_value)
+   * @return ApiResponse&lt;InstagramAccountInsightsResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<InstagramAccountInsightsResponse> getTikTokAccountInsightsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String metrics, @javax.annotation.Nullable LocalDate since, @javax.annotation.Nullable LocalDate until, @javax.annotation.Nullable String metricType) throws ApiException {
+    return getTikTokAccountInsightsWithHttpInfo(accountId, metrics, since, until, metricType, null);
+  }
+
+  /**
+   * Get TikTok account-level insights
+   * Returns account-level TikTok insights from /v2/user/info/ (live) plus historical time series joined from Zernio&#39;s daily snapshotter (AccountStats).  Response shape matches /v1/analytics/instagram/account-insights. Max 89 days, defaults to last 30 days. Requires the Analytics add-on and the user.info.stats scope on the account (412 if missing).  Scope intentionally narrow. TikTok&#39;s public API exposes only the four counter metrics below. The deep metrics that live in TikTok Studio are NOT available on any public TikTok API, even for Business accounts:   - profile_views   - account-level impressions / reach   - follower inflow / outflow breakdown   - video watch time, average watch time, full-watched rate   - impression_sources (FYP / Following / Hashtag / Search / Personal profile)  TikTok&#39;s Research API doesn&#39;t expose those fields either, and is restricted to non-commercial academic use per TikTok&#39;s eligibility policy. There is no public API workaround. Post-level metrics (views, likes, comments, shares per video) are available via /v1/analytics?postId&#x3D;... from TikTok&#39;s /v2/video/query/. 
+   * @param accountId The Zernio SocialAccount ID for the TikTok account. (required)
+   * @param metrics Comma-separated list. Defaults to \&quot;follower_count,likes_count,video_count,followers_gained,followers_lost\&quot;.  Live from /v2/user/info/ (requires user.info.stats scope):   - follower_count  (cumulative; time series joined from AccountStats)   - following_count (cumulative; time series joined from AccountStats.metadata)   - likes_count     (cumulative; time series joined from AccountStats.metadata)   - video_count     (cumulative; time series joined from AccountStats.metadata)  Zernio-synthesized:   - followers_gained  (sum of positive daily follower deltas)   - followers_lost    (sum of absolute negative daily deltas)  (optional)
+   * @param since Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
+   * @param until End date (YYYY-MM-DD). Defaults to today. (optional)
+   * @param metricType \&quot;total_value\&quot; returns the latest cumulative counter value. \&quot;time_series\&quot; returns daily values joined from AccountStats snapshots.  (optional, default to total_value)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;InstagramAccountInsightsResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<InstagramAccountInsightsResponse> getTikTokAccountInsightsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String metrics, @javax.annotation.Nullable LocalDate since, @javax.annotation.Nullable LocalDate until, @javax.annotation.Nullable String metricType, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getTikTokAccountInsightsRequestBuilder(accountId, metrics, since, until, metricType, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getTikTokAccountInsights", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<InstagramAccountInsightsResponse>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        InstagramAccountInsightsResponse responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<InstagramAccountInsightsResponse>() {});
+        
+
+        return new ApiResponse<InstagramAccountInsightsResponse>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getTikTokAccountInsightsRequestBuilder(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String metrics, @javax.annotation.Nullable LocalDate since, @javax.annotation.Nullable LocalDate until, @javax.annotation.Nullable String metricType, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling getTikTokAccountInsights");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/analytics/tiktok/account-insights";
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "accountId";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("accountId", accountId));
+    localVarQueryParameterBaseName = "metrics";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("metrics", metrics));
+    localVarQueryParameterBaseName = "since";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("since", since));
+    localVarQueryParameterBaseName = "until";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("until", until));
+    localVarQueryParameterBaseName = "metricType";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("metricType", metricType));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Get YouTube channel-level insights
+   * Returns channel-scoped aggregate metrics from YouTube Analytics API v2. Saves you from looping /v1/analytics/youtube/daily-views over every video when you only need channel totals.  Response shape matches /v1/analytics/instagram/account-insights so the same client handling works. Requires yt-analytics.readonly scope (412 with reauthorizeUrl if missing). Data has a 2-3 day delay (endDate is clamped accordingly). Max 89 days, defaults to last 30 days. Requires the Analytics add-on.  NOT exposed: impressions (Studio thumbnail impressions) and impressionsClickThroughRate. YouTube Analytics API v2 does not expose these for any principal type, not channel owners, not Partner Program channels, not content owners with CMS access. The only way to get them is Studio CSV export. This is a Google-side limitation. 
+   * @param accountId The Zernio SocialAccount ID for the YouTube account. (required)
+   * @param metrics Comma-separated list. Defaults to \&quot;views,estimatedMinutesWatched,subscribersGained,subscribersLost\&quot;.  Live YouTube Analytics v2 metrics:   - views   - estimatedMinutesWatched   - averageViewDuration          (ratio - weighted mean computed across days)   - subscribersGained   - subscribersLost  Zernio-synthesized from daily follower snapshots (cross-platform parity):   - followers_gained   - followers_lost  (optional)
+   * @param since Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
+   * @param until End date (YYYY-MM-DD). Defaults to today. YouTube Analytics has a 2-3 day delay, so the fetch is internally clamped to 3 days ago; any requested range extending beyond that returns zero values for the tail days. The response&#39;s dateRange.until field reflects your requested value.  (optional)
+   * @param metricType \&quot;total_value\&quot; (default) returns aggregated totals. \&quot;time_series\&quot; returns per-day values in the \&quot;values\&quot; array.  (optional, default to total_value)
+   * @return InstagramAccountInsightsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public InstagramAccountInsightsResponse getYouTubeChannelInsights(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String metrics, @javax.annotation.Nullable LocalDate since, @javax.annotation.Nullable LocalDate until, @javax.annotation.Nullable String metricType) throws ApiException {
+    return getYouTubeChannelInsights(accountId, metrics, since, until, metricType, null);
+  }
+
+  /**
+   * Get YouTube channel-level insights
+   * Returns channel-scoped aggregate metrics from YouTube Analytics API v2. Saves you from looping /v1/analytics/youtube/daily-views over every video when you only need channel totals.  Response shape matches /v1/analytics/instagram/account-insights so the same client handling works. Requires yt-analytics.readonly scope (412 with reauthorizeUrl if missing). Data has a 2-3 day delay (endDate is clamped accordingly). Max 89 days, defaults to last 30 days. Requires the Analytics add-on.  NOT exposed: impressions (Studio thumbnail impressions) and impressionsClickThroughRate. YouTube Analytics API v2 does not expose these for any principal type, not channel owners, not Partner Program channels, not content owners with CMS access. The only way to get them is Studio CSV export. This is a Google-side limitation. 
+   * @param accountId The Zernio SocialAccount ID for the YouTube account. (required)
+   * @param metrics Comma-separated list. Defaults to \&quot;views,estimatedMinutesWatched,subscribersGained,subscribersLost\&quot;.  Live YouTube Analytics v2 metrics:   - views   - estimatedMinutesWatched   - averageViewDuration          (ratio - weighted mean computed across days)   - subscribersGained   - subscribersLost  Zernio-synthesized from daily follower snapshots (cross-platform parity):   - followers_gained   - followers_lost  (optional)
+   * @param since Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
+   * @param until End date (YYYY-MM-DD). Defaults to today. YouTube Analytics has a 2-3 day delay, so the fetch is internally clamped to 3 days ago; any requested range extending beyond that returns zero values for the tail days. The response&#39;s dateRange.until field reflects your requested value.  (optional)
+   * @param metricType \&quot;total_value\&quot; (default) returns aggregated totals. \&quot;time_series\&quot; returns per-day values in the \&quot;values\&quot; array.  (optional, default to total_value)
+   * @param headers Optional headers to include in the request
+   * @return InstagramAccountInsightsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public InstagramAccountInsightsResponse getYouTubeChannelInsights(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String metrics, @javax.annotation.Nullable LocalDate since, @javax.annotation.Nullable LocalDate until, @javax.annotation.Nullable String metricType, Map<String, String> headers) throws ApiException {
+    ApiResponse<InstagramAccountInsightsResponse> localVarResponse = getYouTubeChannelInsightsWithHttpInfo(accountId, metrics, since, until, metricType, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Get YouTube channel-level insights
+   * Returns channel-scoped aggregate metrics from YouTube Analytics API v2. Saves you from looping /v1/analytics/youtube/daily-views over every video when you only need channel totals.  Response shape matches /v1/analytics/instagram/account-insights so the same client handling works. Requires yt-analytics.readonly scope (412 with reauthorizeUrl if missing). Data has a 2-3 day delay (endDate is clamped accordingly). Max 89 days, defaults to last 30 days. Requires the Analytics add-on.  NOT exposed: impressions (Studio thumbnail impressions) and impressionsClickThroughRate. YouTube Analytics API v2 does not expose these for any principal type, not channel owners, not Partner Program channels, not content owners with CMS access. The only way to get them is Studio CSV export. This is a Google-side limitation. 
+   * @param accountId The Zernio SocialAccount ID for the YouTube account. (required)
+   * @param metrics Comma-separated list. Defaults to \&quot;views,estimatedMinutesWatched,subscribersGained,subscribersLost\&quot;.  Live YouTube Analytics v2 metrics:   - views   - estimatedMinutesWatched   - averageViewDuration          (ratio - weighted mean computed across days)   - subscribersGained   - subscribersLost  Zernio-synthesized from daily follower snapshots (cross-platform parity):   - followers_gained   - followers_lost  (optional)
+   * @param since Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
+   * @param until End date (YYYY-MM-DD). Defaults to today. YouTube Analytics has a 2-3 day delay, so the fetch is internally clamped to 3 days ago; any requested range extending beyond that returns zero values for the tail days. The response&#39;s dateRange.until field reflects your requested value.  (optional)
+   * @param metricType \&quot;total_value\&quot; (default) returns aggregated totals. \&quot;time_series\&quot; returns per-day values in the \&quot;values\&quot; array.  (optional, default to total_value)
+   * @return ApiResponse&lt;InstagramAccountInsightsResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<InstagramAccountInsightsResponse> getYouTubeChannelInsightsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String metrics, @javax.annotation.Nullable LocalDate since, @javax.annotation.Nullable LocalDate until, @javax.annotation.Nullable String metricType) throws ApiException {
+    return getYouTubeChannelInsightsWithHttpInfo(accountId, metrics, since, until, metricType, null);
+  }
+
+  /**
+   * Get YouTube channel-level insights
+   * Returns channel-scoped aggregate metrics from YouTube Analytics API v2. Saves you from looping /v1/analytics/youtube/daily-views over every video when you only need channel totals.  Response shape matches /v1/analytics/instagram/account-insights so the same client handling works. Requires yt-analytics.readonly scope (412 with reauthorizeUrl if missing). Data has a 2-3 day delay (endDate is clamped accordingly). Max 89 days, defaults to last 30 days. Requires the Analytics add-on.  NOT exposed: impressions (Studio thumbnail impressions) and impressionsClickThroughRate. YouTube Analytics API v2 does not expose these for any principal type, not channel owners, not Partner Program channels, not content owners with CMS access. The only way to get them is Studio CSV export. This is a Google-side limitation. 
+   * @param accountId The Zernio SocialAccount ID for the YouTube account. (required)
+   * @param metrics Comma-separated list. Defaults to \&quot;views,estimatedMinutesWatched,subscribersGained,subscribersLost\&quot;.  Live YouTube Analytics v2 metrics:   - views   - estimatedMinutesWatched   - averageViewDuration          (ratio - weighted mean computed across days)   - subscribersGained   - subscribersLost  Zernio-synthesized from daily follower snapshots (cross-platform parity):   - followers_gained   - followers_lost  (optional)
+   * @param since Start date (YYYY-MM-DD). Defaults to 30 days ago. (optional)
+   * @param until End date (YYYY-MM-DD). Defaults to today. YouTube Analytics has a 2-3 day delay, so the fetch is internally clamped to 3 days ago; any requested range extending beyond that returns zero values for the tail days. The response&#39;s dateRange.until field reflects your requested value.  (optional)
+   * @param metricType \&quot;total_value\&quot; (default) returns aggregated totals. \&quot;time_series\&quot; returns per-day values in the \&quot;values\&quot; array.  (optional, default to total_value)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;InstagramAccountInsightsResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<InstagramAccountInsightsResponse> getYouTubeChannelInsightsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String metrics, @javax.annotation.Nullable LocalDate since, @javax.annotation.Nullable LocalDate until, @javax.annotation.Nullable String metricType, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getYouTubeChannelInsightsRequestBuilder(accountId, metrics, since, until, metricType, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getYouTubeChannelInsights", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<InstagramAccountInsightsResponse>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        InstagramAccountInsightsResponse responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<InstagramAccountInsightsResponse>() {});
+        
+
+        return new ApiResponse<InstagramAccountInsightsResponse>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getYouTubeChannelInsightsRequestBuilder(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String metrics, @javax.annotation.Nullable LocalDate since, @javax.annotation.Nullable LocalDate until, @javax.annotation.Nullable String metricType, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling getYouTubeChannelInsights");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/analytics/youtube/channel-insights";
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "accountId";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("accountId", accountId));
+    localVarQueryParameterBaseName = "metrics";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("metrics", metrics));
+    localVarQueryParameterBaseName = "since";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("since", since));
+    localVarQueryParameterBaseName = "until";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("until", until));
+    localVarQueryParameterBaseName = "metricType";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("metricType", metricType));
 
     if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
       StringJoiner queryJoiner = new StringJoiner("&");

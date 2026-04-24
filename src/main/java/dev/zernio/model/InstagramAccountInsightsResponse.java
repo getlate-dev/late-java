@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.zernio.ApiClient;
 /**
- * InstagramAccountInsightsResponse
+ * Shared account-insights response envelope used by every platform-level analytics endpoint (/v1/analytics/{facebook|instagram|youtube|linkedin|tiktok}/_*). The name is historical - the shape was first shipped for Instagram and every new platform endpoint reuses it for response-shape consistency. The platform field echoes back which platform served the response. 
  */
 @JsonPropertyOrder({
   InstagramAccountInsightsResponse.JSON_PROPERTY_SUCCESS,
@@ -46,7 +46,7 @@ import dev.zernio.ApiClient;
   InstagramAccountInsightsResponse.JSON_PROPERTY_METRICS,
   InstagramAccountInsightsResponse.JSON_PROPERTY_DATA_DELAY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-23T16:08:26.586383632Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T09:56:51.792635768Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class InstagramAccountInsightsResponse {
   public static final String JSON_PROPERTY_SUCCESS = "success";
   @javax.annotation.Nullable
@@ -56,9 +56,50 @@ public class InstagramAccountInsightsResponse {
   @javax.annotation.Nullable
   private String accountId;
 
+  /**
+   * Platform that served this response.
+   */
+  public enum PlatformEnum {
+    FACEBOOK(String.valueOf("facebook")),
+    
+    INSTAGRAM(String.valueOf("instagram")),
+    
+    YOUTUBE(String.valueOf("youtube")),
+    
+    LINKEDIN(String.valueOf("linkedin")),
+    
+    TIKTOK(String.valueOf("tiktok"));
+
+    private String value;
+
+    PlatformEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static PlatformEnum fromValue(String value) {
+      for (PlatformEnum b : PlatformEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
   public static final String JSON_PROPERTY_PLATFORM = "platform";
   @javax.annotation.Nullable
-  private String platform;
+  private PlatformEnum platform;
 
   public static final String JSON_PROPERTY_DATE_RANGE = "dateRange";
   @javax.annotation.Nullable
@@ -166,26 +207,26 @@ public class InstagramAccountInsightsResponse {
   }
 
 
-  public InstagramAccountInsightsResponse platform(@javax.annotation.Nullable String platform) {
+  public InstagramAccountInsightsResponse platform(@javax.annotation.Nullable PlatformEnum platform) {
     this.platform = platform;
     return this;
   }
 
   /**
-   * Get platform
+   * Platform that served this response.
    * @return platform
    */
   @javax.annotation.Nullable
   @JsonProperty(value = JSON_PROPERTY_PLATFORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPlatform() {
+  public PlatformEnum getPlatform() {
     return platform;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_PLATFORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPlatform(@javax.annotation.Nullable String platform) {
+  public void setPlatform(@javax.annotation.Nullable PlatformEnum platform) {
     this.platform = platform;
   }
 

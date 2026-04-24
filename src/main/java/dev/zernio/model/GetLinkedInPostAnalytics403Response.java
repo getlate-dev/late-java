@@ -38,7 +38,7 @@ import dev.zernio.ApiClient;
   GetLinkedInPostAnalytics403Response.JSON_PROPERTY_REQUIRED_SCOPE,
   GetLinkedInPostAnalytics403Response.JSON_PROPERTY_ACTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-23T16:08:26.586383632Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T09:56:51.792635768Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetLinkedInPostAnalytics403Response {
   public static final String JSON_PROPERTY_ERROR = "error";
   @javax.annotation.Nullable
