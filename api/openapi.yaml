@@ -2959,6 +2959,15 @@ paths:
           - platform
           type: string
         style: form
+      - description: Filter posts to those published via a specific social account
+          (24-char hex ObjectId).
+        explode: true
+        in: query
+        name: accountId
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:

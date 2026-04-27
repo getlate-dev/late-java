@@ -799,7 +799,7 @@ ApiResponse<[**PostGetResponse**](PostGetResponse.md)>
 
 ## listPosts
 
-> PostsListResponse listPosts(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden, search, sortBy)
+> PostsListResponse listPosts(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden, search, sortBy, accountId)
 
 List posts
 
@@ -837,8 +837,9 @@ public class Example {
         Boolean includeHidden = false; // Boolean | 
         String search = "search_example"; // String | Search posts by text content.
         String sortBy = "scheduled-desc"; // String | Sort order for results.
+        String accountId = "accountId_example"; // String | Filter posts to those published via a specific social account (24-char hex ObjectId).
         try {
-            PostsListResponse result = apiInstance.listPosts(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden, search, sortBy);
+            PostsListResponse result = apiInstance.listPosts(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden, search, sortBy, accountId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling PostsApi#listPosts");
@@ -867,6 +868,7 @@ public class Example {
 | **includeHidden** | **Boolean**|  | [optional] [default to false] |
 | **search** | **String**| Search posts by text content. | [optional] |
 | **sortBy** | **String**| Sort order for results. | [optional] [default to scheduled-desc] [enum: scheduled-desc, scheduled-asc, created-desc, created-asc, status, platform] |
+| **accountId** | **String**| Filter posts to those published via a specific social account (24-char hex ObjectId). | [optional] |
 
 ### Return type
 
@@ -890,7 +892,7 @@ public class Example {
 
 ## listPostsWithHttpInfo
 
-> ApiResponse<PostsListResponse> listPosts listPostsWithHttpInfo(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden, search, sortBy)
+> ApiResponse<PostsListResponse> listPosts listPostsWithHttpInfo(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden, search, sortBy, accountId)
 
 List posts
 
@@ -929,8 +931,9 @@ public class Example {
         Boolean includeHidden = false; // Boolean | 
         String search = "search_example"; // String | Search posts by text content.
         String sortBy = "scheduled-desc"; // String | Sort order for results.
+        String accountId = "accountId_example"; // String | Filter posts to those published via a specific social account (24-char hex ObjectId).
         try {
-            ApiResponse<PostsListResponse> response = apiInstance.listPostsWithHttpInfo(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden, search, sortBy);
+            ApiResponse<PostsListResponse> response = apiInstance.listPostsWithHttpInfo(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden, search, sortBy, accountId);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
             System.out.println("Response body: " + response.getData());
@@ -961,6 +964,7 @@ public class Example {
 | **includeHidden** | **Boolean**|  | [optional] [default to false] |
 | **search** | **String**| Search posts by text content. | [optional] |
 | **sortBy** | **String**| Sort order for results. | [optional] [default to scheduled-desc] [enum: scheduled-desc, scheduled-asc, created-desc, created-asc, status, platform] |
+| **accountId** | **String**| Filter posts to those published via a specific social account (24-char hex ObjectId). | [optional] |
 
 ### Return type
 

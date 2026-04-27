@@ -73,7 +73,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-27T09:19:06.088210201Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-27T09:37:19.613769670Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class PostsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -861,11 +861,12 @@ public class PostsApi {
    * @param includeHidden  (optional, default to false)
    * @param search Search posts by text content. (optional)
    * @param sortBy Sort order for results. (optional, default to scheduled-desc)
+   * @param accountId Filter posts to those published via a specific social account (24-char hex ObjectId). (optional)
    * @return PostsListResponse
    * @throws ApiException if fails to make API call
    */
-  public PostsListResponse listPosts(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String createdBy, @javax.annotation.Nullable LocalDate dateFrom, @javax.annotation.Nullable LocalDate dateTo, @javax.annotation.Nullable Boolean includeHidden, @javax.annotation.Nullable String search, @javax.annotation.Nullable String sortBy) throws ApiException {
-    return listPosts(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden, search, sortBy, null);
+  public PostsListResponse listPosts(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String createdBy, @javax.annotation.Nullable LocalDate dateFrom, @javax.annotation.Nullable LocalDate dateTo, @javax.annotation.Nullable Boolean includeHidden, @javax.annotation.Nullable String search, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable String accountId) throws ApiException {
+    return listPosts(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden, search, sortBy, accountId, null);
   }
 
   /**
@@ -882,12 +883,13 @@ public class PostsApi {
    * @param includeHidden  (optional, default to false)
    * @param search Search posts by text content. (optional)
    * @param sortBy Sort order for results. (optional, default to scheduled-desc)
+   * @param accountId Filter posts to those published via a specific social account (24-char hex ObjectId). (optional)
    * @param headers Optional headers to include in the request
    * @return PostsListResponse
    * @throws ApiException if fails to make API call
    */
-  public PostsListResponse listPosts(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String createdBy, @javax.annotation.Nullable LocalDate dateFrom, @javax.annotation.Nullable LocalDate dateTo, @javax.annotation.Nullable Boolean includeHidden, @javax.annotation.Nullable String search, @javax.annotation.Nullable String sortBy, Map<String, String> headers) throws ApiException {
-    ApiResponse<PostsListResponse> localVarResponse = listPostsWithHttpInfo(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden, search, sortBy, headers);
+  public PostsListResponse listPosts(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String createdBy, @javax.annotation.Nullable LocalDate dateFrom, @javax.annotation.Nullable LocalDate dateTo, @javax.annotation.Nullable Boolean includeHidden, @javax.annotation.Nullable String search, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable String accountId, Map<String, String> headers) throws ApiException {
+    ApiResponse<PostsListResponse> localVarResponse = listPostsWithHttpInfo(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden, search, sortBy, accountId, headers);
     return localVarResponse.getData();
   }
 
@@ -905,11 +907,12 @@ public class PostsApi {
    * @param includeHidden  (optional, default to false)
    * @param search Search posts by text content. (optional)
    * @param sortBy Sort order for results. (optional, default to scheduled-desc)
+   * @param accountId Filter posts to those published via a specific social account (24-char hex ObjectId). (optional)
    * @return ApiResponse&lt;PostsListResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<PostsListResponse> listPostsWithHttpInfo(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String createdBy, @javax.annotation.Nullable LocalDate dateFrom, @javax.annotation.Nullable LocalDate dateTo, @javax.annotation.Nullable Boolean includeHidden, @javax.annotation.Nullable String search, @javax.annotation.Nullable String sortBy) throws ApiException {
-    return listPostsWithHttpInfo(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden, search, sortBy, null);
+  public ApiResponse<PostsListResponse> listPostsWithHttpInfo(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String createdBy, @javax.annotation.Nullable LocalDate dateFrom, @javax.annotation.Nullable LocalDate dateTo, @javax.annotation.Nullable Boolean includeHidden, @javax.annotation.Nullable String search, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable String accountId) throws ApiException {
+    return listPostsWithHttpInfo(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden, search, sortBy, accountId, null);
   }
 
   /**
@@ -926,12 +929,13 @@ public class PostsApi {
    * @param includeHidden  (optional, default to false)
    * @param search Search posts by text content. (optional)
    * @param sortBy Sort order for results. (optional, default to scheduled-desc)
+   * @param accountId Filter posts to those published via a specific social account (24-char hex ObjectId). (optional)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;PostsListResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<PostsListResponse> listPostsWithHttpInfo(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String createdBy, @javax.annotation.Nullable LocalDate dateFrom, @javax.annotation.Nullable LocalDate dateTo, @javax.annotation.Nullable Boolean includeHidden, @javax.annotation.Nullable String search, @javax.annotation.Nullable String sortBy, Map<String, String> headers) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = listPostsRequestBuilder(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden, search, sortBy, headers);
+  public ApiResponse<PostsListResponse> listPostsWithHttpInfo(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String createdBy, @javax.annotation.Nullable LocalDate dateFrom, @javax.annotation.Nullable LocalDate dateTo, @javax.annotation.Nullable Boolean includeHidden, @javax.annotation.Nullable String search, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable String accountId, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listPostsRequestBuilder(page, limit, status, platform, profileId, createdBy, dateFrom, dateTo, includeHidden, search, sortBy, accountId, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -978,7 +982,7 @@ public class PostsApi {
     }
   }
 
-  private HttpRequest.Builder listPostsRequestBuilder(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String createdBy, @javax.annotation.Nullable LocalDate dateFrom, @javax.annotation.Nullable LocalDate dateTo, @javax.annotation.Nullable Boolean includeHidden, @javax.annotation.Nullable String search, @javax.annotation.Nullable String sortBy, Map<String, String> headers) throws ApiException {
+  private HttpRequest.Builder listPostsRequestBuilder(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String status, @javax.annotation.Nullable String platform, @javax.annotation.Nullable String profileId, @javax.annotation.Nullable String createdBy, @javax.annotation.Nullable LocalDate dateFrom, @javax.annotation.Nullable LocalDate dateTo, @javax.annotation.Nullable Boolean includeHidden, @javax.annotation.Nullable String search, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable String accountId, Map<String, String> headers) throws ApiException {
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
@@ -1009,6 +1013,8 @@ public class PostsApi {
     localVarQueryParams.addAll(ApiClient.parameterToPairs("search", search));
     localVarQueryParameterBaseName = "sortBy";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("sortBy", sortBy));
+    localVarQueryParameterBaseName = "accountId";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("accountId", accountId));
 
     if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
       StringJoiner queryJoiner = new StringJoiner("&");
