@@ -41,7 +41,7 @@ import dev.zernio.ApiClient;
   BatchGetGoogleBusinessReviews200ResponseLocationReviewsInner.JSON_PROPERTY_AVERAGE_RATING,
   BatchGetGoogleBusinessReviews200ResponseLocationReviewsInner.JSON_PROPERTY_TOTAL_REVIEW_COUNT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-27T14:58:26.897653046Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-27T17:49:04.055764684Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class BatchGetGoogleBusinessReviews200ResponseLocationReviewsInner {
   public static final String JSON_PROPERTY_LOCATION_NAME = "locationName";
   @javax.annotation.Nullable

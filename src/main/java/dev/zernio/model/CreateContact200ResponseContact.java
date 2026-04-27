@@ -47,7 +47,7 @@ import dev.zernio.ApiClient;
   CreateContact200ResponseContact.JSON_PROPERTY_NOTES,
   CreateContact200ResponseContact.JSON_PROPERTY_CREATED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-27T14:58:26.897653046Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-27T17:49:04.055764684Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateContact200ResponseContact {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable
