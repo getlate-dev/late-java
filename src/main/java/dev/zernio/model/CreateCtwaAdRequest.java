@@ -59,7 +59,7 @@ import dev.zernio.ApiClient;
   CreateCtwaAdRequest.JSON_PROPERTY_ADVANTAGE_AUDIENCE,
   CreateCtwaAdRequest.JSON_PROPERTY_OBJECTIVE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-27T10:11:32.880417392Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-27T10:20:27.067841747Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateCtwaAdRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nonnull
@@ -417,7 +417,8 @@ public class CreateCtwaAdRequest {
   }
 
   /**
-   * Budget amount in the ad account&#39;s currency major units (e.g. dollars for USD, not cents). Must be positive. 
+   * Budget amount in the ad account&#39;s currency major units (e.g. dollars for USD, not cents). Must be &gt; 0. 
+   * minimum: 0
    * @return budgetAmount
    */
   @javax.annotation.Nonnull
