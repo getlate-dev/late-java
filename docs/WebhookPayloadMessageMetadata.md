@@ -17,6 +17,7 @@ Interactive message metadata (present when message is a quick reply tap, postbac
 |**buttonPayload** | **String** | WhatsApp only. Payload attached to a tapped template button. Template buttons emit a plain &#x60;button&#x60; webhook (not an interactive reply), so &#x60;interactiveType&#x60; is empty while this field is populated.  |  [optional] |
 |**flowResponseJson** | **String** | WhatsApp only. Raw &#x60;nfm_reply.response_json&#x60; string returned by a Flow submission. Useful if you need the exact wire payload; for typed access use &#x60;flowResponseData&#x60; instead.  |  [optional] |
 |**flowResponseData** | **Map&lt;String, Object&gt;** | WhatsApp only. Parsed Flow response JSON. Populated when &#x60;flowResponseJson&#x60; is valid JSON; otherwise omitted. Keys and value types depend on the specific Flow that was submitted.  |  [optional] |
+|**referral** | [**WebhookPayloadMessageMetadataReferral**](WebhookPayloadMessageMetadataReferral.md) |  |  [optional] |
 
 
 

@@ -72,7 +72,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-27T17:49:04.055764684Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-27T19:25:24.081402738Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class MessagesApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -887,53 +887,65 @@ public class MessagesApi {
 
   /**
    * List messages
-   * Fetch messages for a specific conversation. Requires accountId query parameter.  Twitter/X limitation: X&#39;s encrypted \&quot;X Chat\&quot; messages are not accessible via the API. Conversations where the other participant uses encrypted X Chat may only show your outgoing messages. See the list conversations endpoint for more details. 
+   * Fetch messages for a specific conversation, with cursor-based pagination and ordering control.  Pagination: pass &#x60;pagination.nextCursor&#x60; from a prior response back as the &#x60;cursor&#x60; query param to fetch the next page. The cursor is opaque; do not parse or construct it client-side.  Sort order: defaults to &#x60;asc&#x60; (oldest first, chat style). For the \&quot;show me the latest messages\&quot; pattern, pass &#x60;?sortOrder&#x3D;desc&amp;limit&#x3D;N&#x60;. For Twitter, Facebook and Bluesky, the upstream APIs only return newest-first and have no order parameter — sort order is best-effort and only reverses items within a single page (pages still walk newest→oldest). The response field &#x60;sortOrderApplied&#x60; tells you what was actually applied.  Reddit threads are paginated client-side because Reddit&#39;s API has no per-thread cursor. Very long threads may be upstream-truncated by Reddit&#39;s inbox/sent windows (~100 most-recent items each); this is a Reddit platform limitation.  Twitter/X limitation: X&#39;s encrypted \&quot;X Chat\&quot; messages are not accessible via the API. Conversations where the other participant uses encrypted X Chat may only show your outgoing messages. See the list conversations endpoint for more details. 
    * @param conversationId The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID. (required)
    * @param accountId Social account ID (required)
+   * @param limit Number of messages to return per page. Default 100, max 100. (optional, default to 100)
+   * @param cursor Opaque pagination cursor. Pass &#x60;pagination.nextCursor&#x60; from a prior response. (optional)
+   * @param sortOrder Order of returned messages. Default &#x60;asc&#x60; (oldest first, chat style). For Twitter, Facebook and Bluesky, only intra-page ordering is affected — pages always walk newest→oldest. See &#x60;sortOrderApplied&#x60; in the response.  (optional, default to asc)
    * @return GetInboxConversationMessages200Response
    * @throws ApiException if fails to make API call
    */
-  public GetInboxConversationMessages200Response getInboxConversationMessages(@javax.annotation.Nonnull String conversationId, @javax.annotation.Nonnull String accountId) throws ApiException {
-    return getInboxConversationMessages(conversationId, accountId, null);
+  public GetInboxConversationMessages200Response getInboxConversationMessages(@javax.annotation.Nonnull String conversationId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String cursor, @javax.annotation.Nullable String sortOrder) throws ApiException {
+    return getInboxConversationMessages(conversationId, accountId, limit, cursor, sortOrder, null);
   }
 
   /**
    * List messages
-   * Fetch messages for a specific conversation. Requires accountId query parameter.  Twitter/X limitation: X&#39;s encrypted \&quot;X Chat\&quot; messages are not accessible via the API. Conversations where the other participant uses encrypted X Chat may only show your outgoing messages. See the list conversations endpoint for more details. 
+   * Fetch messages for a specific conversation, with cursor-based pagination and ordering control.  Pagination: pass &#x60;pagination.nextCursor&#x60; from a prior response back as the &#x60;cursor&#x60; query param to fetch the next page. The cursor is opaque; do not parse or construct it client-side.  Sort order: defaults to &#x60;asc&#x60; (oldest first, chat style). For the \&quot;show me the latest messages\&quot; pattern, pass &#x60;?sortOrder&#x3D;desc&amp;limit&#x3D;N&#x60;. For Twitter, Facebook and Bluesky, the upstream APIs only return newest-first and have no order parameter — sort order is best-effort and only reverses items within a single page (pages still walk newest→oldest). The response field &#x60;sortOrderApplied&#x60; tells you what was actually applied.  Reddit threads are paginated client-side because Reddit&#39;s API has no per-thread cursor. Very long threads may be upstream-truncated by Reddit&#39;s inbox/sent windows (~100 most-recent items each); this is a Reddit platform limitation.  Twitter/X limitation: X&#39;s encrypted \&quot;X Chat\&quot; messages are not accessible via the API. Conversations where the other participant uses encrypted X Chat may only show your outgoing messages. See the list conversations endpoint for more details. 
    * @param conversationId The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID. (required)
    * @param accountId Social account ID (required)
+   * @param limit Number of messages to return per page. Default 100, max 100. (optional, default to 100)
+   * @param cursor Opaque pagination cursor. Pass &#x60;pagination.nextCursor&#x60; from a prior response. (optional)
+   * @param sortOrder Order of returned messages. Default &#x60;asc&#x60; (oldest first, chat style). For Twitter, Facebook and Bluesky, only intra-page ordering is affected — pages always walk newest→oldest. See &#x60;sortOrderApplied&#x60; in the response.  (optional, default to asc)
    * @param headers Optional headers to include in the request
    * @return GetInboxConversationMessages200Response
    * @throws ApiException if fails to make API call
    */
-  public GetInboxConversationMessages200Response getInboxConversationMessages(@javax.annotation.Nonnull String conversationId, @javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
-    ApiResponse<GetInboxConversationMessages200Response> localVarResponse = getInboxConversationMessagesWithHttpInfo(conversationId, accountId, headers);
+  public GetInboxConversationMessages200Response getInboxConversationMessages(@javax.annotation.Nonnull String conversationId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String cursor, @javax.annotation.Nullable String sortOrder, Map<String, String> headers) throws ApiException {
+    ApiResponse<GetInboxConversationMessages200Response> localVarResponse = getInboxConversationMessagesWithHttpInfo(conversationId, accountId, limit, cursor, sortOrder, headers);
     return localVarResponse.getData();
   }
 
   /**
    * List messages
-   * Fetch messages for a specific conversation. Requires accountId query parameter.  Twitter/X limitation: X&#39;s encrypted \&quot;X Chat\&quot; messages are not accessible via the API. Conversations where the other participant uses encrypted X Chat may only show your outgoing messages. See the list conversations endpoint for more details. 
+   * Fetch messages for a specific conversation, with cursor-based pagination and ordering control.  Pagination: pass &#x60;pagination.nextCursor&#x60; from a prior response back as the &#x60;cursor&#x60; query param to fetch the next page. The cursor is opaque; do not parse or construct it client-side.  Sort order: defaults to &#x60;asc&#x60; (oldest first, chat style). For the \&quot;show me the latest messages\&quot; pattern, pass &#x60;?sortOrder&#x3D;desc&amp;limit&#x3D;N&#x60;. For Twitter, Facebook and Bluesky, the upstream APIs only return newest-first and have no order parameter — sort order is best-effort and only reverses items within a single page (pages still walk newest→oldest). The response field &#x60;sortOrderApplied&#x60; tells you what was actually applied.  Reddit threads are paginated client-side because Reddit&#39;s API has no per-thread cursor. Very long threads may be upstream-truncated by Reddit&#39;s inbox/sent windows (~100 most-recent items each); this is a Reddit platform limitation.  Twitter/X limitation: X&#39;s encrypted \&quot;X Chat\&quot; messages are not accessible via the API. Conversations where the other participant uses encrypted X Chat may only show your outgoing messages. See the list conversations endpoint for more details. 
    * @param conversationId The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID. (required)
    * @param accountId Social account ID (required)
+   * @param limit Number of messages to return per page. Default 100, max 100. (optional, default to 100)
+   * @param cursor Opaque pagination cursor. Pass &#x60;pagination.nextCursor&#x60; from a prior response. (optional)
+   * @param sortOrder Order of returned messages. Default &#x60;asc&#x60; (oldest first, chat style). For Twitter, Facebook and Bluesky, only intra-page ordering is affected — pages always walk newest→oldest. See &#x60;sortOrderApplied&#x60; in the response.  (optional, default to asc)
    * @return ApiResponse&lt;GetInboxConversationMessages200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GetInboxConversationMessages200Response> getInboxConversationMessagesWithHttpInfo(@javax.annotation.Nonnull String conversationId, @javax.annotation.Nonnull String accountId) throws ApiException {
-    return getInboxConversationMessagesWithHttpInfo(conversationId, accountId, null);
+  public ApiResponse<GetInboxConversationMessages200Response> getInboxConversationMessagesWithHttpInfo(@javax.annotation.Nonnull String conversationId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String cursor, @javax.annotation.Nullable String sortOrder) throws ApiException {
+    return getInboxConversationMessagesWithHttpInfo(conversationId, accountId, limit, cursor, sortOrder, null);
   }
 
   /**
    * List messages
-   * Fetch messages for a specific conversation. Requires accountId query parameter.  Twitter/X limitation: X&#39;s encrypted \&quot;X Chat\&quot; messages are not accessible via the API. Conversations where the other participant uses encrypted X Chat may only show your outgoing messages. See the list conversations endpoint for more details. 
+   * Fetch messages for a specific conversation, with cursor-based pagination and ordering control.  Pagination: pass &#x60;pagination.nextCursor&#x60; from a prior response back as the &#x60;cursor&#x60; query param to fetch the next page. The cursor is opaque; do not parse or construct it client-side.  Sort order: defaults to &#x60;asc&#x60; (oldest first, chat style). For the \&quot;show me the latest messages\&quot; pattern, pass &#x60;?sortOrder&#x3D;desc&amp;limit&#x3D;N&#x60;. For Twitter, Facebook and Bluesky, the upstream APIs only return newest-first and have no order parameter — sort order is best-effort and only reverses items within a single page (pages still walk newest→oldest). The response field &#x60;sortOrderApplied&#x60; tells you what was actually applied.  Reddit threads are paginated client-side because Reddit&#39;s API has no per-thread cursor. Very long threads may be upstream-truncated by Reddit&#39;s inbox/sent windows (~100 most-recent items each); this is a Reddit platform limitation.  Twitter/X limitation: X&#39;s encrypted \&quot;X Chat\&quot; messages are not accessible via the API. Conversations where the other participant uses encrypted X Chat may only show your outgoing messages. See the list conversations endpoint for more details. 
    * @param conversationId The conversation ID (id field from list conversations endpoint). This is the platform-specific conversation identifier, not an internal database ID. (required)
    * @param accountId Social account ID (required)
+   * @param limit Number of messages to return per page. Default 100, max 100. (optional, default to 100)
+   * @param cursor Opaque pagination cursor. Pass &#x60;pagination.nextCursor&#x60; from a prior response. (optional)
+   * @param sortOrder Order of returned messages. Default &#x60;asc&#x60; (oldest first, chat style). For Twitter, Facebook and Bluesky, only intra-page ordering is affected — pages always walk newest→oldest. See &#x60;sortOrderApplied&#x60; in the response.  (optional, default to asc)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetInboxConversationMessages200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GetInboxConversationMessages200Response> getInboxConversationMessagesWithHttpInfo(@javax.annotation.Nonnull String conversationId, @javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getInboxConversationMessagesRequestBuilder(conversationId, accountId, headers);
+  public ApiResponse<GetInboxConversationMessages200Response> getInboxConversationMessagesWithHttpInfo(@javax.annotation.Nonnull String conversationId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String cursor, @javax.annotation.Nullable String sortOrder, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getInboxConversationMessagesRequestBuilder(conversationId, accountId, limit, cursor, sortOrder, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -980,7 +992,7 @@ public class MessagesApi {
     }
   }
 
-  private HttpRequest.Builder getInboxConversationMessagesRequestBuilder(@javax.annotation.Nonnull String conversationId, @javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
+  private HttpRequest.Builder getInboxConversationMessagesRequestBuilder(@javax.annotation.Nonnull String conversationId, @javax.annotation.Nonnull String accountId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String cursor, @javax.annotation.Nullable String sortOrder, Map<String, String> headers) throws ApiException {
     // verify the required parameter 'conversationId' is set
     if (conversationId == null) {
       throw new ApiException(400, "Missing the required parameter 'conversationId' when calling getInboxConversationMessages");
@@ -1000,6 +1012,12 @@ public class MessagesApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "accountId";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("accountId", accountId));
+    localVarQueryParameterBaseName = "limit";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("limit", limit));
+    localVarQueryParameterBaseName = "cursor";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("cursor", cursor));
+    localVarQueryParameterBaseName = "sortOrder";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("sortOrder", sortOrder));
 
     if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
       StringJoiner queryJoiner = new StringJoiner("&");

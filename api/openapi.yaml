@@ -9448,7 +9448,25 @@ paths:
   /v1/inbox/conversations/{conversationId}/messages:
     get:
       description: |
-        Fetch messages for a specific conversation. Requires accountId query parameter.
+        Fetch messages for a specific conversation, with cursor-based pagination
+        and ordering control.
+
+        Pagination: pass `pagination.nextCursor` from a prior response back as
+        the `cursor` query param to fetch the next page. The cursor is opaque;
+        do not parse or construct it client-side.
+
+        Sort order: defaults to `asc` (oldest first, chat style). For the
+        "show me the latest messages" pattern, pass `?sortOrder=desc&limit=N`.
+        For Twitter, Facebook and Bluesky, the upstream APIs only return
+        newest-first and have no order parameter — sort order is best-effort
+        and only reverses items within a single page (pages still walk
+        newest→oldest). The response field `sortOrderApplied` tells you what
+        was actually applied.
+
+        Reddit threads are paginated client-side because Reddit's API has no
+        per-thread cursor. Very long threads may be upstream-truncated by
+        Reddit's inbox/sent windows (~100 most-recent items each); this is a
+        Reddit platform limitation.
 
         Twitter/X limitation: X's encrypted "X Chat" messages are not accessible via the API. Conversations where the other participant uses encrypted X Chat may only show your outgoing messages. See the list conversations endpoint for more details.
       operationId: getInboxConversationMessages
@@ -9469,6 +9487,42 @@ paths:
         name: accountId
         required: true
         schema:
+          type: string
+        style: form
+      - description: "Number of messages to return per page. Default 100, max 100."
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 100
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: Opaque pagination cursor. Pass `pagination.nextCursor` from a
+          prior response.
+        explode: true
+        in: query
+        name: cursor
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          Order of returned messages. Default `asc` (oldest first, chat style).
+          For Twitter, Facebook and Bluesky, only intra-page ordering is
+          affected — pages always walk newest→oldest. See `sortOrderApplied`
+          in the response.
+        explode: true
+        in: query
+        name: sortOrder
+        required: false
+        schema:
+          default: asc
+          enum:
+          - asc
+          - desc
           type: string
         style: form
       responses:
@@ -17189,6 +17243,17 @@ components:
           quickReplyPayload: quickReplyPayload
           interactiveType: button_reply
           postbackTitle: postbackTitle
+          referral:
+            video_url: video_url
+            media_type: media_type
+            image_url: image_url
+            source_type: source_type
+            source_id: source_id
+            ctwa_clid: ctwa_clid
+            body: body
+            thumbnail_url: thumbnail_url
+            headline: headline
+            source_url: source_url
           flowResponseJson: flowResponseJson
           callbackData: callbackData
           flowResponseData:
@@ -30590,6 +30655,18 @@ components:
           type: boolean
         data:
           $ref: "#/components/schemas/updateInboxConversation_200_response_data"
+    getInboxConversationMessages_200_response_pagination:
+      example:
+        nextCursor: nextCursor
+        hasMore: true
+      properties:
+        hasMore:
+          description: Whether more messages are available beyond this page.
+          type: boolean
+        nextCursor:
+          description: Opaque cursor to fetch the next page. `null` on the last page.
+          type: string
+          nullable: true
     getInboxConversationMessages_200_response_messages_inner_attachments_inner:
       example:
         filename: filename
@@ -30825,7 +30902,11 @@ components:
           $ref: "#/components/schemas/getInboxConversationMessages_200_response_messages_inner_deliveryError"
     getInboxConversationMessages_200_response:
       example:
+        sortOrderApplied: asc
         lastUpdated: 2000-01-23T04:56:07.000+00:00
+        pagination:
+          nextCursor: nextCursor
+          hasMore: true
         messages:
         - attachments:
           - filename: filename
@@ -30942,6 +31023,17 @@ components:
         status: status
       properties:
         status:
+          type: string
+        pagination:
+          $ref: "#/components/schemas/getInboxConversationMessages_200_response_pagination"
+        sortOrderApplied:
+          description: |
+            Sort order actually applied to the returned page. May
+            differ from the requested `sortOrder` for Twitter,
+            Facebook and Bluesky (always `desc` regardless of request).
+          enum:
+          - asc
+          - desc
           type: string
         messages:
           items:
@@ -39728,6 +39820,46 @@ components:
       - id
       - platform
       - username
+    WebhookPayloadMessage_metadata_referral:
+      description: |
+        WhatsApp only. Click-to-WhatsApp (CTWA) ad attribution. Present
+        only on the FIRST inbound message after a user reaches the
+        business via a CTWA ad. Forwarded verbatim from Meta's referral
+        envelope so it can be replayed to the Conversions API for
+        Business Messaging. Attribution window is 7 days from click.
+      example:
+        video_url: video_url
+        media_type: media_type
+        image_url: image_url
+        source_type: source_type
+        source_id: source_id
+        ctwa_clid: ctwa_clid
+        body: body
+        thumbnail_url: thumbnail_url
+        headline: headline
+        source_url: source_url
+      properties:
+        ctwa_clid:
+          description: Meta's GCLID-equivalent click identifier.
+          type: string
+        source_id:
+          type: string
+        source_type:
+          type: string
+        source_url:
+          type: string
+        headline:
+          type: string
+        body:
+          type: string
+        media_type:
+          type: string
+        image_url:
+          type: string
+        video_url:
+          type: string
+        thumbnail_url:
+          type: string
     WebhookPayloadMessage_metadata:
       description: "Interactive message metadata (present when message is a quick\
         \ reply tap, postback button tap, or inline keyboard callback)"
@@ -39735,6 +39867,17 @@ components:
         quickReplyPayload: quickReplyPayload
         interactiveType: button_reply
         postbackTitle: postbackTitle
+        referral:
+          video_url: video_url
+          media_type: media_type
+          image_url: image_url
+          source_type: source_type
+          source_id: source_id
+          ctwa_clid: ctwa_clid
+          body: body
+          thumbnail_url: thumbnail_url
+          headline: headline
+          source_url: source_url
         flowResponseJson: flowResponseJson
         callbackData: callbackData
         flowResponseData:
@@ -39789,6 +39932,8 @@ components:
             `flowResponseJson` is valid JSON; otherwise omitted. Keys and
             value types depend on the specific Flow that was submitted.
           type: object
+        referral:
+          $ref: "#/components/schemas/WebhookPayloadMessage_metadata_referral"
       nullable: true
     WebhookPayloadMessageSent_message_sender:
       example:

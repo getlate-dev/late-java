@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import dev.zernio.model.GetInboxConversationMessages200ResponseMessagesInner;
+import dev.zernio.model.GetInboxConversationMessages200ResponsePagination;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,14 +39,59 @@ import dev.zernio.ApiClient;
  */
 @JsonPropertyOrder({
   GetInboxConversationMessages200Response.JSON_PROPERTY_STATUS,
+  GetInboxConversationMessages200Response.JSON_PROPERTY_PAGINATION,
+  GetInboxConversationMessages200Response.JSON_PROPERTY_SORT_ORDER_APPLIED,
   GetInboxConversationMessages200Response.JSON_PROPERTY_MESSAGES,
   GetInboxConversationMessages200Response.JSON_PROPERTY_LAST_UPDATED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-27T17:49:04.055764684Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-27T19:25:24.081402738Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetInboxConversationMessages200Response {
   public static final String JSON_PROPERTY_STATUS = "status";
   @javax.annotation.Nullable
   private String status;
+
+  public static final String JSON_PROPERTY_PAGINATION = "pagination";
+  @javax.annotation.Nullable
+  private GetInboxConversationMessages200ResponsePagination pagination;
+
+  /**
+   * Sort order actually applied to the returned page. May differ from the requested &#x60;sortOrder&#x60; for Twitter, Facebook and Bluesky (always &#x60;desc&#x60; regardless of request). 
+   */
+  public enum SortOrderAppliedEnum {
+    ASC(String.valueOf("asc")),
+    
+    DESC(String.valueOf("desc"));
+
+    private String value;
+
+    SortOrderAppliedEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static SortOrderAppliedEnum fromValue(String value) {
+      for (SortOrderAppliedEnum b : SortOrderAppliedEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_SORT_ORDER_APPLIED = "sortOrderApplied";
+  @javax.annotation.Nullable
+  private SortOrderAppliedEnum sortOrderApplied;
 
   public static final String JSON_PROPERTY_MESSAGES = "messages";
   @javax.annotation.Nullable
@@ -79,6 +125,54 @@ public class GetInboxConversationMessages200Response {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(@javax.annotation.Nullable String status) {
     this.status = status;
+  }
+
+
+  public GetInboxConversationMessages200Response pagination(@javax.annotation.Nullable GetInboxConversationMessages200ResponsePagination pagination) {
+    this.pagination = pagination;
+    return this;
+  }
+
+  /**
+   * Get pagination
+   * @return pagination
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_PAGINATION, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public GetInboxConversationMessages200ResponsePagination getPagination() {
+    return pagination;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PAGINATION, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPagination(@javax.annotation.Nullable GetInboxConversationMessages200ResponsePagination pagination) {
+    this.pagination = pagination;
+  }
+
+
+  public GetInboxConversationMessages200Response sortOrderApplied(@javax.annotation.Nullable SortOrderAppliedEnum sortOrderApplied) {
+    this.sortOrderApplied = sortOrderApplied;
+    return this;
+  }
+
+  /**
+   * Sort order actually applied to the returned page. May differ from the requested &#x60;sortOrder&#x60; for Twitter, Facebook and Bluesky (always &#x60;desc&#x60; regardless of request). 
+   * @return sortOrderApplied
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_SORT_ORDER_APPLIED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SortOrderAppliedEnum getSortOrderApplied() {
+    return sortOrderApplied;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SORT_ORDER_APPLIED, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSortOrderApplied(@javax.annotation.Nullable SortOrderAppliedEnum sortOrderApplied) {
+    this.sortOrderApplied = sortOrderApplied;
   }
 
 
@@ -151,13 +245,15 @@ public class GetInboxConversationMessages200Response {
     }
     GetInboxConversationMessages200Response getInboxConversationMessages200Response = (GetInboxConversationMessages200Response) o;
     return Objects.equals(this.status, getInboxConversationMessages200Response.status) &&
+        Objects.equals(this.pagination, getInboxConversationMessages200Response.pagination) &&
+        Objects.equals(this.sortOrderApplied, getInboxConversationMessages200Response.sortOrderApplied) &&
         Objects.equals(this.messages, getInboxConversationMessages200Response.messages) &&
         Objects.equals(this.lastUpdated, getInboxConversationMessages200Response.lastUpdated);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, messages, lastUpdated);
+    return Objects.hash(status, pagination, sortOrderApplied, messages, lastUpdated);
   }
 
   @Override
@@ -165,6 +261,8 @@ public class GetInboxConversationMessages200Response {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetInboxConversationMessages200Response {\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
+    sb.append("    sortOrderApplied: ").append(toIndentedString(sortOrderApplied)).append("\n");
     sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
     sb.append("    lastUpdated: ").append(toIndentedString(lastUpdated)).append("\n");
     sb.append("}");
@@ -217,6 +315,16 @@ public class GetInboxConversationMessages200Response {
     // add `status` to the URL query string
     if (getStatus() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sstatus%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getStatus()))));
+    }
+
+    // add `pagination` to the URL query string
+    if (getPagination() != null) {
+      joiner.add(getPagination().toUrlQueryString(prefix + "pagination" + suffix));
+    }
+
+    // add `sortOrderApplied` to the URL query string
+    if (getSortOrderApplied() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%ssortOrderApplied%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getSortOrderApplied()))));
     }
 
     // add `messages` to the URL query string

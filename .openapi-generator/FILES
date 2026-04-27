@@ -319,6 +319,7 @@ docs/GetInboxConversationMessages200ResponseMessagesInnerAttachmentsInner.md
 docs/GetInboxConversationMessages200ResponseMessagesInnerDeliveryError.md
 docs/GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInner.md
 docs/GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInnerAttachmentsInner.md
+docs/GetInboxConversationMessages200ResponsePagination.md
 docs/GetInboxPostComments200Response.md
 docs/GetInboxPostComments200ResponseCommentsInner.md
 docs/GetInboxPostComments200ResponseCommentsInnerFrom.md
@@ -836,6 +837,7 @@ docs/WebhookPayloadMessageMessage.md
 docs/WebhookPayloadMessageMessageSender.md
 docs/WebhookPayloadMessageMessageSenderInstagramProfile.md
 docs/WebhookPayloadMessageMetadata.md
+docs/WebhookPayloadMessageMetadataReferral.md
 docs/WebhookPayloadMessageSent.md
 docs/WebhookPayloadMessageSentMessage.md
 docs/WebhookPayloadMessageSentMessageSender.md
@@ -1230,6 +1232,7 @@ src/main/java/dev/zernio/model/GetInboxConversationMessages200ResponseMessagesIn
 src/main/java/dev/zernio/model/GetInboxConversationMessages200ResponseMessagesInnerDeliveryError.java
 src/main/java/dev/zernio/model/GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInner.java
 src/main/java/dev/zernio/model/GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInnerAttachmentsInner.java
+src/main/java/dev/zernio/model/GetInboxConversationMessages200ResponsePagination.java
 src/main/java/dev/zernio/model/GetInboxPostComments200Response.java
 src/main/java/dev/zernio/model/GetInboxPostComments200ResponseCommentsInner.java
 src/main/java/dev/zernio/model/GetInboxPostComments200ResponseCommentsInnerFrom.java
@@ -1724,6 +1727,7 @@ src/main/java/dev/zernio/model/WebhookPayloadMessageMessage.java
 src/main/java/dev/zernio/model/WebhookPayloadMessageMessageSender.java
 src/main/java/dev/zernio/model/WebhookPayloadMessageMessageSenderInstagramProfile.java
 src/main/java/dev/zernio/model/WebhookPayloadMessageMetadata.java
+src/main/java/dev/zernio/model/WebhookPayloadMessageMetadataReferral.java
 src/main/java/dev/zernio/model/WebhookPayloadMessageSent.java
 src/main/java/dev/zernio/model/WebhookPayloadMessageSentMessage.java
 src/main/java/dev/zernio/model/WebhookPayloadMessageSentMessageSender.java
@@ -1752,3 +1756,5 @@ src/main/java/dev/zernio/model/YouTubeDemographicsResponseDemographicsValueInner
 src/main/java/dev/zernio/model/YouTubePlatformData.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponseScopeStatus.java
+src/test/java/dev/zernio/model/GetInboxConversationMessages200ResponsePaginationTest.java
+src/test/java/dev/zernio/model/WebhookPayloadMessageMetadataReferralTest.java

@@ -4,7 +4,7 @@ Zernio API
 
 - API version: 1.0.1
 
-- Build date: 2026-04-27T17:49:04.055764684Z[Etc/UTC]
+- Build date: 2026-04-27T19:25:24.081402738Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -951,6 +951,7 @@ Class | Method | HTTP request | Description
  - [GetInboxConversationMessages200ResponseMessagesInnerDeliveryError](docs/GetInboxConversationMessages200ResponseMessagesInnerDeliveryError.md)
  - [GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInner](docs/GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInner.md)
  - [GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInnerAttachmentsInner](docs/GetInboxConversationMessages200ResponseMessagesInnerEditHistoryInnerAttachmentsInner.md)
+ - [GetInboxConversationMessages200ResponsePagination](docs/GetInboxConversationMessages200ResponsePagination.md)
  - [GetInboxPostComments200Response](docs/GetInboxPostComments200Response.md)
  - [GetInboxPostComments200ResponseCommentsInner](docs/GetInboxPostComments200ResponseCommentsInner.md)
  - [GetInboxPostComments200ResponseCommentsInnerFrom](docs/GetInboxPostComments200ResponseCommentsInnerFrom.md)
@@ -1445,6 +1446,7 @@ Class | Method | HTTP request | Description
  - [WebhookPayloadMessageMessageSender](docs/WebhookPayloadMessageMessageSender.md)
  - [WebhookPayloadMessageMessageSenderInstagramProfile](docs/WebhookPayloadMessageMessageSenderInstagramProfile.md)
  - [WebhookPayloadMessageMetadata](docs/WebhookPayloadMessageMetadata.md)
+ - [WebhookPayloadMessageMetadataReferral](docs/WebhookPayloadMessageMetadataReferral.md)
  - [WebhookPayloadMessageSent](docs/WebhookPayloadMessageSent.md)
  - [WebhookPayloadMessageSentMessage](docs/WebhookPayloadMessageSentMessage.md)
  - [WebhookPayloadMessageSentMessageSender](docs/WebhookPayloadMessageSentMessageSender.md)
