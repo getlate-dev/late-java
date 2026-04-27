@@ -4,7 +4,7 @@ Zernio API
 
 - API version: 1.0.1
 
-- Build date: 2026-04-27T09:37:19.613769670Z[Etc/UTC]
+- Build date: 2026-04-27T10:11:32.880417392Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -182,6 +182,8 @@ Class | Method | HTTP request | Description
 *AdCampaignsApi* | [**updateAdSetStatusWithHttpInfo**](docs/AdCampaignsApi.md#updateAdSetStatusWithHttpInfo) | **PUT** /v1/ads/ad-sets/{adSetId}/status | Pause or resume a single ad set
 *AdsApi* | [**boostPost**](docs/AdsApi.md#boostPost) | **POST** /v1/ads/boost | Boost post as ad
 *AdsApi* | [**boostPostWithHttpInfo**](docs/AdsApi.md#boostPostWithHttpInfo) | **POST** /v1/ads/boost | Boost post as ad
+*AdsApi* | [**createCtwaAd**](docs/AdsApi.md#createCtwaAd) | **POST** /v1/ads/ctwa | Create a Click-to-WhatsApp (CTWA) ad
+*AdsApi* | [**createCtwaAdWithHttpInfo**](docs/AdsApi.md#createCtwaAdWithHttpInfo) | **POST** /v1/ads/ctwa | Create a Click-to-WhatsApp (CTWA) ad
 *AdsApi* | [**createStandaloneAd**](docs/AdsApi.md#createStandaloneAd) | **POST** /v1/ads/create | Create standalone ad
 *AdsApi* | [**createStandaloneAdWithHttpInfo**](docs/AdsApi.md#createStandaloneAdWithHttpInfo) | **POST** /v1/ads/create | Create standalone ad
 *AdsApi* | [**deleteAd**](docs/AdsApi.md#deleteAd) | **DELETE** /v1/ads/{adId} | Cancel an ad
@@ -202,6 +204,8 @@ Class | Method | HTTP request | Description
 *AdsApi* | [**searchAdInterestsWithHttpInfo**](docs/AdsApi.md#searchAdInterestsWithHttpInfo) | **GET** /v1/ads/interests | Search targeting interests
 *AdsApi* | [**sendConversions**](docs/AdsApi.md#sendConversions) | **POST** /v1/ads/conversions | Send conversion events to an ad platform
 *AdsApi* | [**sendConversionsWithHttpInfo**](docs/AdsApi.md#sendConversionsWithHttpInfo) | **POST** /v1/ads/conversions | Send conversion events to an ad platform
+*AdsApi* | [**sendWhatsAppConversion**](docs/AdsApi.md#sendWhatsAppConversion) | **POST** /v1/whatsapp/conversions | Send a WhatsApp conversation event to Meta CAPI for Business Messaging
+*AdsApi* | [**sendWhatsAppConversionWithHttpInfo**](docs/AdsApi.md#sendWhatsAppConversionWithHttpInfo) | **POST** /v1/whatsapp/conversions | Send a WhatsApp conversation event to Meta CAPI for Business Messaging
 *AdsApi* | [**updateAd**](docs/AdsApi.md#updateAd) | **PUT** /v1/ads/{adId} | Update ad
 *AdsApi* | [**updateAdWithHttpInfo**](docs/AdsApi.md#updateAdWithHttpInfo) | **PUT** /v1/ads/{adId} | Update ad
 *AnalyticsApi* | [**getAnalytics**](docs/AnalyticsApi.md#getAnalytics) | **GET** /v1/analytics | Get post analytics
@@ -604,6 +608,8 @@ Class | Method | HTTP request | Description
 *WhatsAppApi* | [**rejectWhatsAppGroupJoinRequestsWithHttpInfo**](docs/WhatsAppApi.md#rejectWhatsAppGroupJoinRequestsWithHttpInfo) | **DELETE** /v1/whatsapp/wa-groups/{groupId}/join-requests | Reject join requests
 *WhatsAppApi* | [**removeWhatsAppGroupParticipants**](docs/WhatsAppApi.md#removeWhatsAppGroupParticipants) | **DELETE** /v1/whatsapp/wa-groups/{groupId}/participants | Remove participants
 *WhatsAppApi* | [**removeWhatsAppGroupParticipantsWithHttpInfo**](docs/WhatsAppApi.md#removeWhatsAppGroupParticipantsWithHttpInfo) | **DELETE** /v1/whatsapp/wa-groups/{groupId}/participants | Remove participants
+*WhatsAppApi* | [**sendWhatsAppConversion**](docs/WhatsAppApi.md#sendWhatsAppConversion) | **POST** /v1/whatsapp/conversions | Send a WhatsApp conversation event to Meta CAPI for Business Messaging
+*WhatsAppApi* | [**sendWhatsAppConversionWithHttpInfo**](docs/WhatsAppApi.md#sendWhatsAppConversionWithHttpInfo) | **POST** /v1/whatsapp/conversions | Send a WhatsApp conversation event to Meta CAPI for Business Messaging
 *WhatsAppApi* | [**updateWhatsAppBusinessProfile**](docs/WhatsAppApi.md#updateWhatsAppBusinessProfile) | **POST** /v1/whatsapp/business-profile | Update business profile
 *WhatsAppApi* | [**updateWhatsAppBusinessProfileWithHttpInfo**](docs/WhatsAppApi.md#updateWhatsAppBusinessProfileWithHttpInfo) | **POST** /v1/whatsapp/business-profile | Update business profile
 *WhatsAppApi* | [**updateWhatsAppDisplayName**](docs/WhatsAppApi.md#updateWhatsAppDisplayName) | **POST** /v1/whatsapp/business-profile/display-name | Request display name change
@@ -746,6 +752,10 @@ Class | Method | HTTP request | Description
  - [CreateContact200ResponseChannel](docs/CreateContact200ResponseChannel.md)
  - [CreateContact200ResponseContact](docs/CreateContact200ResponseContact.md)
  - [CreateContactRequest](docs/CreateContactRequest.md)
+ - [CreateCtwaAd201Response](docs/CreateCtwaAd201Response.md)
+ - [CreateCtwaAdRequest](docs/CreateCtwaAdRequest.md)
+ - [CreateCtwaAdRequestInterestsInner](docs/CreateCtwaAdRequestInterestsInner.md)
+ - [CreateCtwaAdRequestVideo](docs/CreateCtwaAdRequestVideo.md)
  - [CreateCustomField200Response](docs/CreateCustomField200Response.md)
  - [CreateCustomFieldRequest](docs/CreateCustomFieldRequest.md)
  - [CreateGoogleBusinessMedia200Response](docs/CreateGoogleBusinessMedia200Response.md)
@@ -1259,6 +1269,8 @@ Class | Method | HTTP request | Description
  - [SendPrivateReplyToComment200Response](docs/SendPrivateReplyToComment200Response.md)
  - [SendPrivateReplyToCommentRequest](docs/SendPrivateReplyToCommentRequest.md)
  - [SendTypingIndicatorRequest](docs/SendTypingIndicatorRequest.md)
+ - [SendWhatsAppConversion200Response](docs/SendWhatsAppConversion200Response.md)
+ - [SendWhatsAppConversionRequest](docs/SendWhatsAppConversionRequest.md)
  - [SendWhatsAppFlowMessage200Response](docs/SendWhatsAppFlowMessage200Response.md)
  - [SendWhatsAppFlowMessageRequest](docs/SendWhatsAppFlowMessageRequest.md)
  - [SendWhatsAppFlowMessageRequestFlowActionPayload](docs/SendWhatsAppFlowMessageRequestFlowActionPayload.md)

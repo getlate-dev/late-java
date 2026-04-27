@@ -36,6 +36,8 @@ All URIs are relative to *https://zernio.com/api*
 | [**rejectWhatsAppGroupJoinRequestsWithHttpInfo**](WhatsAppApi.md#rejectWhatsAppGroupJoinRequestsWithHttpInfo) | **DELETE** /v1/whatsapp/wa-groups/{groupId}/join-requests | Reject join requests |
 | [**removeWhatsAppGroupParticipants**](WhatsAppApi.md#removeWhatsAppGroupParticipants) | **DELETE** /v1/whatsapp/wa-groups/{groupId}/participants | Remove participants |
 | [**removeWhatsAppGroupParticipantsWithHttpInfo**](WhatsAppApi.md#removeWhatsAppGroupParticipantsWithHttpInfo) | **DELETE** /v1/whatsapp/wa-groups/{groupId}/participants | Remove participants |
+| [**sendWhatsAppConversion**](WhatsAppApi.md#sendWhatsAppConversion) | **POST** /v1/whatsapp/conversions | Send a WhatsApp conversation event to Meta CAPI for Business Messaging |
+| [**sendWhatsAppConversionWithHttpInfo**](WhatsAppApi.md#sendWhatsAppConversionWithHttpInfo) | **POST** /v1/whatsapp/conversions | Send a WhatsApp conversation event to Meta CAPI for Business Messaging |
 | [**updateWhatsAppBusinessProfile**](WhatsAppApi.md#updateWhatsAppBusinessProfile) | **POST** /v1/whatsapp/business-profile | Update business profile |
 | [**updateWhatsAppBusinessProfileWithHttpInfo**](WhatsAppApi.md#updateWhatsAppBusinessProfileWithHttpInfo) | **POST** /v1/whatsapp/business-profile | Update business profile |
 | [**updateWhatsAppDisplayName**](WhatsAppApi.md#updateWhatsAppDisplayName) | **POST** /v1/whatsapp/business-profile/display-name | Request display name change |
@@ -2473,6 +2475,158 @@ ApiResponse<[**UnpublishPost200Response**](UnpublishPost200Response.md)>
 |-------------|-------------|------------------|
 | **200** | Participants removed |  -  |
 | **401** | Unauthorized |  -  |
+
+
+## sendWhatsAppConversion
+
+> SendWhatsAppConversion200Response sendWhatsAppConversion(sendWhatsAppConversionRequest)
+
+Send a WhatsApp conversation event to Meta CAPI for Business Messaging
+
+Forward a WhatsApp Business Messaging conversion event (&#x60;LeadSubmitted&#x60;, &#x60;Purchase&#x60;, &#x60;AddToCart&#x60;, &#x60;InitiateCheckout&#x60;, &#x60;ViewContent&#x60;) to Meta&#39;s Conversions API with &#x60;action_source &#x3D; business_messaging&#x60; and &#x60;messaging_channel &#x3D; whatsapp&#x60;. The endpoint looks up the originating CTWA click ID (&#x60;ctwa_clid&#x60;) captured on the first inbound message of the conversation and replays it on every event so Meta can attribute the conversion back to the Click-to-WhatsApp ad that drove the chat.  Configuration prerequisites on the WhatsApp account metadata:   - &#x60;metaCapiDatasetId&#x60;: the Meta Pixel/Dataset ID linked to the WABA.   - &#x60;connectedFacebookPageId&#x60;: the Facebook Page paired with the     WhatsApp Business number.  Identify the conversation by either &#x60;conversationId&#x60; (preferred) or &#x60;phoneE164&#x60; (digits only, no &#39;+&#39;) — at least one is required. If the conversation has no captured &#x60;ctwa_clid&#x60;, the request returns 422 — there&#39;s nothing to attribute.  Token + dataset coupling: the WhatsApp account&#39;s accessToken must have access to the configured &#x60;metaCapiDatasetId&#x60;. By default a WABA&#39;s system-user token is scoped to the WABA&#39;s own Business Manager and cannot post to a pixel owned by a different Business — Meta returns code 100 in that case. Either share the dataset with the WhatsApp app&#39;s Business in BM, or use a dataset already in the same Business as the WABA. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        SendWhatsAppConversionRequest sendWhatsAppConversionRequest = new SendWhatsAppConversionRequest(); // SendWhatsAppConversionRequest | 
+        try {
+            SendWhatsAppConversion200Response result = apiInstance.sendWhatsAppConversion(sendWhatsAppConversionRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#sendWhatsAppConversion");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sendWhatsAppConversionRequest** | [**SendWhatsAppConversionRequest**](SendWhatsAppConversionRequest.md)|  | |
+
+### Return type
+
+[**SendWhatsAppConversion200Response**](SendWhatsAppConversion200Response.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Event submitted to Meta. **Inspect &#x60;eventsFailed&#x60; and &#x60;failures[]&#x60; to detect partial failures** — a 200 does NOT mean Meta accepted the event. The status reflects \&quot;request reached Meta\&quot; only.  |  -  |
+| **400** | Invalid body. |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Conversation not found. |  -  |
+| **422** | Configuration missing (no &#x60;metaCapiDatasetId&#x60; / &#x60;connectedFacebookPageId&#x60; on the account) OR the resolved conversation has no captured &#x60;ctwa_clid&#x60;.  |  -  |
+
+## sendWhatsAppConversionWithHttpInfo
+
+> ApiResponse<SendWhatsAppConversion200Response> sendWhatsAppConversion sendWhatsAppConversionWithHttpInfo(sendWhatsAppConversionRequest)
+
+Send a WhatsApp conversation event to Meta CAPI for Business Messaging
+
+Forward a WhatsApp Business Messaging conversion event (&#x60;LeadSubmitted&#x60;, &#x60;Purchase&#x60;, &#x60;AddToCart&#x60;, &#x60;InitiateCheckout&#x60;, &#x60;ViewContent&#x60;) to Meta&#39;s Conversions API with &#x60;action_source &#x3D; business_messaging&#x60; and &#x60;messaging_channel &#x3D; whatsapp&#x60;. The endpoint looks up the originating CTWA click ID (&#x60;ctwa_clid&#x60;) captured on the first inbound message of the conversation and replays it on every event so Meta can attribute the conversion back to the Click-to-WhatsApp ad that drove the chat.  Configuration prerequisites on the WhatsApp account metadata:   - &#x60;metaCapiDatasetId&#x60;: the Meta Pixel/Dataset ID linked to the WABA.   - &#x60;connectedFacebookPageId&#x60;: the Facebook Page paired with the     WhatsApp Business number.  Identify the conversation by either &#x60;conversationId&#x60; (preferred) or &#x60;phoneE164&#x60; (digits only, no &#39;+&#39;) — at least one is required. If the conversation has no captured &#x60;ctwa_clid&#x60;, the request returns 422 — there&#39;s nothing to attribute.  Token + dataset coupling: the WhatsApp account&#39;s accessToken must have access to the configured &#x60;metaCapiDatasetId&#x60;. By default a WABA&#39;s system-user token is scoped to the WABA&#39;s own Business Manager and cannot post to a pixel owned by a different Business — Meta returns code 100 in that case. Either share the dataset with the WhatsApp app&#39;s Business in BM, or use a dataset already in the same Business as the WABA. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.ApiResponse;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.WhatsAppApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        WhatsAppApi apiInstance = new WhatsAppApi(defaultClient);
+        SendWhatsAppConversionRequest sendWhatsAppConversionRequest = new SendWhatsAppConversionRequest(); // SendWhatsAppConversionRequest | 
+        try {
+            ApiResponse<SendWhatsAppConversion200Response> response = apiInstance.sendWhatsAppConversionWithHttpInfo(sendWhatsAppConversionRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WhatsAppApi#sendWhatsAppConversion");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sendWhatsAppConversionRequest** | [**SendWhatsAppConversionRequest**](SendWhatsAppConversionRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**SendWhatsAppConversion200Response**](SendWhatsAppConversion200Response.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Event submitted to Meta. **Inspect &#x60;eventsFailed&#x60; and &#x60;failures[]&#x60; to detect partial failures** — a 200 does NOT mean Meta accepted the event. The status reflects \&quot;request reached Meta\&quot; only.  |  -  |
+| **400** | Invalid body. |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Conversation not found. |  -  |
+| **422** | Configuration missing (no &#x60;metaCapiDatasetId&#x60; / &#x60;connectedFacebookPageId&#x60; on the account) OR the resolved conversation has no captured &#x60;ctwa_clid&#x60;.  |  -  |
 
 
 ## updateWhatsAppBusinessProfile

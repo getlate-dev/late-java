@@ -37,6 +37,8 @@ import dev.zernio.model.ListWhatsAppGroupChats200Response;
 import dev.zernio.model.ListWhatsAppGroupJoinRequests200Response;
 import dev.zernio.model.RejectWhatsAppGroupJoinRequestsRequest;
 import dev.zernio.model.RemoveWhatsAppGroupParticipantsRequest;
+import dev.zernio.model.SendWhatsAppConversion200Response;
+import dev.zernio.model.SendWhatsAppConversionRequest;
 import dev.zernio.model.UnpublishPost200Response;
 import dev.zernio.model.UpdateWhatsAppBusinessProfileRequest;
 import dev.zernio.model.UpdateWhatsAppDisplayName200Response;
@@ -76,7 +78,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-27T09:37:19.613769670Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-27T10:11:32.880417392Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WhatsAppApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -2431,6 +2433,129 @@ public class WhatsAppApi {
     try {
       byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(removeWhatsAppGroupParticipantsRequest);
       localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Send a WhatsApp conversation event to Meta CAPI for Business Messaging
+   * Forward a WhatsApp Business Messaging conversion event (&#x60;LeadSubmitted&#x60;, &#x60;Purchase&#x60;, &#x60;AddToCart&#x60;, &#x60;InitiateCheckout&#x60;, &#x60;ViewContent&#x60;) to Meta&#39;s Conversions API with &#x60;action_source &#x3D; business_messaging&#x60; and &#x60;messaging_channel &#x3D; whatsapp&#x60;. The endpoint looks up the originating CTWA click ID (&#x60;ctwa_clid&#x60;) captured on the first inbound message of the conversation and replays it on every event so Meta can attribute the conversion back to the Click-to-WhatsApp ad that drove the chat.  Configuration prerequisites on the WhatsApp account metadata:   - &#x60;metaCapiDatasetId&#x60;: the Meta Pixel/Dataset ID linked to the WABA.   - &#x60;connectedFacebookPageId&#x60;: the Facebook Page paired with the     WhatsApp Business number.  Identify the conversation by either &#x60;conversationId&#x60; (preferred) or &#x60;phoneE164&#x60; (digits only, no &#39;+&#39;) — at least one is required. If the conversation has no captured &#x60;ctwa_clid&#x60;, the request returns 422 — there&#39;s nothing to attribute.  Token + dataset coupling: the WhatsApp account&#39;s accessToken must have access to the configured &#x60;metaCapiDatasetId&#x60;. By default a WABA&#39;s system-user token is scoped to the WABA&#39;s own Business Manager and cannot post to a pixel owned by a different Business — Meta returns code 100 in that case. Either share the dataset with the WhatsApp app&#39;s Business in BM, or use a dataset already in the same Business as the WABA. 
+   * @param sendWhatsAppConversionRequest  (required)
+   * @return SendWhatsAppConversion200Response
+   * @throws ApiException if fails to make API call
+   */
+  public SendWhatsAppConversion200Response sendWhatsAppConversion(@javax.annotation.Nonnull SendWhatsAppConversionRequest sendWhatsAppConversionRequest) throws ApiException {
+    return sendWhatsAppConversion(sendWhatsAppConversionRequest, null);
+  }
+
+  /**
+   * Send a WhatsApp conversation event to Meta CAPI for Business Messaging
+   * Forward a WhatsApp Business Messaging conversion event (&#x60;LeadSubmitted&#x60;, &#x60;Purchase&#x60;, &#x60;AddToCart&#x60;, &#x60;InitiateCheckout&#x60;, &#x60;ViewContent&#x60;) to Meta&#39;s Conversions API with &#x60;action_source &#x3D; business_messaging&#x60; and &#x60;messaging_channel &#x3D; whatsapp&#x60;. The endpoint looks up the originating CTWA click ID (&#x60;ctwa_clid&#x60;) captured on the first inbound message of the conversation and replays it on every event so Meta can attribute the conversion back to the Click-to-WhatsApp ad that drove the chat.  Configuration prerequisites on the WhatsApp account metadata:   - &#x60;metaCapiDatasetId&#x60;: the Meta Pixel/Dataset ID linked to the WABA.   - &#x60;connectedFacebookPageId&#x60;: the Facebook Page paired with the     WhatsApp Business number.  Identify the conversation by either &#x60;conversationId&#x60; (preferred) or &#x60;phoneE164&#x60; (digits only, no &#39;+&#39;) — at least one is required. If the conversation has no captured &#x60;ctwa_clid&#x60;, the request returns 422 — there&#39;s nothing to attribute.  Token + dataset coupling: the WhatsApp account&#39;s accessToken must have access to the configured &#x60;metaCapiDatasetId&#x60;. By default a WABA&#39;s system-user token is scoped to the WABA&#39;s own Business Manager and cannot post to a pixel owned by a different Business — Meta returns code 100 in that case. Either share the dataset with the WhatsApp app&#39;s Business in BM, or use a dataset already in the same Business as the WABA. 
+   * @param sendWhatsAppConversionRequest  (required)
+   * @param headers Optional headers to include in the request
+   * @return SendWhatsAppConversion200Response
+   * @throws ApiException if fails to make API call
+   */
+  public SendWhatsAppConversion200Response sendWhatsAppConversion(@javax.annotation.Nonnull SendWhatsAppConversionRequest sendWhatsAppConversionRequest, Map<String, String> headers) throws ApiException {
+    ApiResponse<SendWhatsAppConversion200Response> localVarResponse = sendWhatsAppConversionWithHttpInfo(sendWhatsAppConversionRequest, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Send a WhatsApp conversation event to Meta CAPI for Business Messaging
+   * Forward a WhatsApp Business Messaging conversion event (&#x60;LeadSubmitted&#x60;, &#x60;Purchase&#x60;, &#x60;AddToCart&#x60;, &#x60;InitiateCheckout&#x60;, &#x60;ViewContent&#x60;) to Meta&#39;s Conversions API with &#x60;action_source &#x3D; business_messaging&#x60; and &#x60;messaging_channel &#x3D; whatsapp&#x60;. The endpoint looks up the originating CTWA click ID (&#x60;ctwa_clid&#x60;) captured on the first inbound message of the conversation and replays it on every event so Meta can attribute the conversion back to the Click-to-WhatsApp ad that drove the chat.  Configuration prerequisites on the WhatsApp account metadata:   - &#x60;metaCapiDatasetId&#x60;: the Meta Pixel/Dataset ID linked to the WABA.   - &#x60;connectedFacebookPageId&#x60;: the Facebook Page paired with the     WhatsApp Business number.  Identify the conversation by either &#x60;conversationId&#x60; (preferred) or &#x60;phoneE164&#x60; (digits only, no &#39;+&#39;) — at least one is required. If the conversation has no captured &#x60;ctwa_clid&#x60;, the request returns 422 — there&#39;s nothing to attribute.  Token + dataset coupling: the WhatsApp account&#39;s accessToken must have access to the configured &#x60;metaCapiDatasetId&#x60;. By default a WABA&#39;s system-user token is scoped to the WABA&#39;s own Business Manager and cannot post to a pixel owned by a different Business — Meta returns code 100 in that case. Either share the dataset with the WhatsApp app&#39;s Business in BM, or use a dataset already in the same Business as the WABA. 
+   * @param sendWhatsAppConversionRequest  (required)
+   * @return ApiResponse&lt;SendWhatsAppConversion200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<SendWhatsAppConversion200Response> sendWhatsAppConversionWithHttpInfo(@javax.annotation.Nonnull SendWhatsAppConversionRequest sendWhatsAppConversionRequest) throws ApiException {
+    return sendWhatsAppConversionWithHttpInfo(sendWhatsAppConversionRequest, null);
+  }
+
+  /**
+   * Send a WhatsApp conversation event to Meta CAPI for Business Messaging
+   * Forward a WhatsApp Business Messaging conversion event (&#x60;LeadSubmitted&#x60;, &#x60;Purchase&#x60;, &#x60;AddToCart&#x60;, &#x60;InitiateCheckout&#x60;, &#x60;ViewContent&#x60;) to Meta&#39;s Conversions API with &#x60;action_source &#x3D; business_messaging&#x60; and &#x60;messaging_channel &#x3D; whatsapp&#x60;. The endpoint looks up the originating CTWA click ID (&#x60;ctwa_clid&#x60;) captured on the first inbound message of the conversation and replays it on every event so Meta can attribute the conversion back to the Click-to-WhatsApp ad that drove the chat.  Configuration prerequisites on the WhatsApp account metadata:   - &#x60;metaCapiDatasetId&#x60;: the Meta Pixel/Dataset ID linked to the WABA.   - &#x60;connectedFacebookPageId&#x60;: the Facebook Page paired with the     WhatsApp Business number.  Identify the conversation by either &#x60;conversationId&#x60; (preferred) or &#x60;phoneE164&#x60; (digits only, no &#39;+&#39;) — at least one is required. If the conversation has no captured &#x60;ctwa_clid&#x60;, the request returns 422 — there&#39;s nothing to attribute.  Token + dataset coupling: the WhatsApp account&#39;s accessToken must have access to the configured &#x60;metaCapiDatasetId&#x60;. By default a WABA&#39;s system-user token is scoped to the WABA&#39;s own Business Manager and cannot post to a pixel owned by a different Business — Meta returns code 100 in that case. Either share the dataset with the WhatsApp app&#39;s Business in BM, or use a dataset already in the same Business as the WABA. 
+   * @param sendWhatsAppConversionRequest  (required)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;SendWhatsAppConversion200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<SendWhatsAppConversion200Response> sendWhatsAppConversionWithHttpInfo(@javax.annotation.Nonnull SendWhatsAppConversionRequest sendWhatsAppConversionRequest, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = sendWhatsAppConversionRequestBuilder(sendWhatsAppConversionRequest, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("sendWhatsAppConversion", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<SendWhatsAppConversion200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        SendWhatsAppConversion200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<SendWhatsAppConversion200Response>() {});
+        
+
+        return new ApiResponse<SendWhatsAppConversion200Response>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder sendWhatsAppConversionRequestBuilder(@javax.annotation.Nonnull SendWhatsAppConversionRequest sendWhatsAppConversionRequest, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'sendWhatsAppConversionRequest' is set
+    if (sendWhatsAppConversionRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'sendWhatsAppConversionRequest' when calling sendWhatsAppConversion");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/whatsapp/conversions";
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(sendWhatsAppConversionRequest);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
     } catch (IOException e) {
       throw new ApiException(e);
     }

@@ -118,6 +118,10 @@ docs/CreateContact200Response.md
 docs/CreateContact200ResponseChannel.md
 docs/CreateContact200ResponseContact.md
 docs/CreateContactRequest.md
+docs/CreateCtwaAd201Response.md
+docs/CreateCtwaAdRequest.md
+docs/CreateCtwaAdRequestInterestsInner.md
+docs/CreateCtwaAdRequestVideo.md
 docs/CreateCustomField200Response.md
 docs/CreateCustomFieldRequest.md
 docs/CreateGoogleBusinessMedia200Response.md
@@ -650,6 +654,8 @@ docs/SendInboxMessageRequestTemplateElementsInnerButtonsInner.md
 docs/SendPrivateReplyToComment200Response.md
 docs/SendPrivateReplyToCommentRequest.md
 docs/SendTypingIndicatorRequest.md
+docs/SendWhatsAppConversion200Response.md
+docs/SendWhatsAppConversionRequest.md
 docs/SendWhatsAppFlowMessage200Response.md
 docs/SendWhatsAppFlowMessageRequest.md
 docs/SendWhatsAppFlowMessageRequestFlowActionPayload.md
@@ -1025,6 +1031,10 @@ src/main/java/dev/zernio/model/CreateContact200Response.java
 src/main/java/dev/zernio/model/CreateContact200ResponseChannel.java
 src/main/java/dev/zernio/model/CreateContact200ResponseContact.java
 src/main/java/dev/zernio/model/CreateContactRequest.java
+src/main/java/dev/zernio/model/CreateCtwaAd201Response.java
+src/main/java/dev/zernio/model/CreateCtwaAdRequest.java
+src/main/java/dev/zernio/model/CreateCtwaAdRequestInterestsInner.java
+src/main/java/dev/zernio/model/CreateCtwaAdRequestVideo.java
 src/main/java/dev/zernio/model/CreateCustomField200Response.java
 src/main/java/dev/zernio/model/CreateCustomFieldRequest.java
 src/main/java/dev/zernio/model/CreateGoogleBusinessMedia200Response.java
@@ -1538,6 +1548,8 @@ src/main/java/dev/zernio/model/SendInboxMessageRequestTemplateElementsInnerButto
 src/main/java/dev/zernio/model/SendPrivateReplyToComment200Response.java
 src/main/java/dev/zernio/model/SendPrivateReplyToCommentRequest.java
 src/main/java/dev/zernio/model/SendTypingIndicatorRequest.java
+src/main/java/dev/zernio/model/SendWhatsAppConversion200Response.java
+src/main/java/dev/zernio/model/SendWhatsAppConversionRequest.java
 src/main/java/dev/zernio/model/SendWhatsAppFlowMessage200Response.java
 src/main/java/dev/zernio/model/SendWhatsAppFlowMessageRequest.java
 src/main/java/dev/zernio/model/SendWhatsAppFlowMessageRequestFlowActionPayload.java
@@ -1740,3 +1752,9 @@ src/main/java/dev/zernio/model/YouTubeDemographicsResponseDemographicsValueInner
 src/main/java/dev/zernio/model/YouTubePlatformData.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponseScopeStatus.java
+src/test/java/dev/zernio/model/CreateCtwaAd201ResponseTest.java
+src/test/java/dev/zernio/model/CreateCtwaAdRequestInterestsInnerTest.java
+src/test/java/dev/zernio/model/CreateCtwaAdRequestTest.java
+src/test/java/dev/zernio/model/CreateCtwaAdRequestVideoTest.java
+src/test/java/dev/zernio/model/SendWhatsAppConversion200ResponseTest.java
+src/test/java/dev/zernio/model/SendWhatsAppConversionRequestTest.java

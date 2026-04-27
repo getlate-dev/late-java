@@ -6,6 +6,8 @@ All URIs are relative to *https://zernio.com/api*
 |------------- | ------------- | -------------|
 | [**boostPost**](AdsApi.md#boostPost) | **POST** /v1/ads/boost | Boost post as ad |
 | [**boostPostWithHttpInfo**](AdsApi.md#boostPostWithHttpInfo) | **POST** /v1/ads/boost | Boost post as ad |
+| [**createCtwaAd**](AdsApi.md#createCtwaAd) | **POST** /v1/ads/ctwa | Create a Click-to-WhatsApp (CTWA) ad |
+| [**createCtwaAdWithHttpInfo**](AdsApi.md#createCtwaAdWithHttpInfo) | **POST** /v1/ads/ctwa | Create a Click-to-WhatsApp (CTWA) ad |
 | [**createStandaloneAd**](AdsApi.md#createStandaloneAd) | **POST** /v1/ads/create | Create standalone ad |
 | [**createStandaloneAdWithHttpInfo**](AdsApi.md#createStandaloneAdWithHttpInfo) | **POST** /v1/ads/create | Create standalone ad |
 | [**deleteAd**](AdsApi.md#deleteAd) | **DELETE** /v1/ads/{adId} | Cancel an ad |
@@ -26,6 +28,8 @@ All URIs are relative to *https://zernio.com/api*
 | [**searchAdInterestsWithHttpInfo**](AdsApi.md#searchAdInterestsWithHttpInfo) | **GET** /v1/ads/interests | Search targeting interests |
 | [**sendConversions**](AdsApi.md#sendConversions) | **POST** /v1/ads/conversions | Send conversion events to an ad platform |
 | [**sendConversionsWithHttpInfo**](AdsApi.md#sendConversionsWithHttpInfo) | **POST** /v1/ads/conversions | Send conversion events to an ad platform |
+| [**sendWhatsAppConversion**](AdsApi.md#sendWhatsAppConversion) | **POST** /v1/whatsapp/conversions | Send a WhatsApp conversation event to Meta CAPI for Business Messaging |
+| [**sendWhatsAppConversionWithHttpInfo**](AdsApi.md#sendWhatsAppConversionWithHttpInfo) | **POST** /v1/whatsapp/conversions | Send a WhatsApp conversation event to Meta CAPI for Business Messaging |
 | [**updateAd**](AdsApi.md#updateAd) | **PUT** /v1/ads/{adId} | Update ad |
 | [**updateAdWithHttpInfo**](AdsApi.md#updateAdWithHttpInfo) | **PUT** /v1/ads/{adId} | Update ad |
 
@@ -181,6 +185,162 @@ ApiResponse<[**UpdateAd200Response**](UpdateAd200Response.md)>
 | **401** | Unauthorized |  -  |
 | **403** | Ads add-on required |  -  |
 | **422** | Platform ads connection required (TikTok Ads, X Ads) or missing linked account |  -  |
+
+
+## createCtwaAd
+
+> CreateCtwaAd201Response createCtwaAd(createCtwaAdRequest)
+
+Create a Click-to-WhatsApp (CTWA) ad
+
+Create a CTWA ad on Meta — when tapped, the ad opens a WhatsApp conversation with the business attached to the supplied Facebook Page. The full hierarchy (campaign → ad set → creative → ad) is created and activated in one call.  The CTA is locked to &#x60;WHATSAPP_MESSAGE&#x60; and the destination is hard-coded to &#x60;https://api.whatsapp.com/send&#x60; — Meta resolves the actual WhatsApp number from the Page-to-WA pairing the user configured in Page settings or Business Manager.  Prerequisites enforced by Meta (failure surfaces as a &#x60;platform_error&#x60;):   - The Facebook Page must already be paired with a verified WhatsApp     Business number.   - The WhatsApp Business Account must be business-verified.   - The Meta access token must carry &#x60;ads_management&#x60;. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.AdsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        AdsApi apiInstance = new AdsApi(defaultClient);
+        CreateCtwaAdRequest createCtwaAdRequest = new CreateCtwaAdRequest(); // CreateCtwaAdRequest | 
+        try {
+            CreateCtwaAd201Response result = apiInstance.createCtwaAd(createCtwaAdRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AdsApi#createCtwaAd");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createCtwaAdRequest** | [**CreateCtwaAdRequest**](CreateCtwaAdRequest.md)|  | |
+
+### Return type
+
+[**CreateCtwaAd201Response**](CreateCtwaAd201Response.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | CTWA ad created and submitted to Meta for review. |  -  |
+| **400** | Invalid body. |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Ads add-on required. |  -  |
+| **404** | SocialAccount not found. |  -  |
+| **422** | Page is not connected to a verified WhatsApp number. |  -  |
+| **502** | Meta rejected the request (e.g. WABA business verification missing). Inspect &#x60;platformError&#x60; for the upstream Meta payload.  |  -  |
+
+## createCtwaAdWithHttpInfo
+
+> ApiResponse<CreateCtwaAd201Response> createCtwaAd createCtwaAdWithHttpInfo(createCtwaAdRequest)
+
+Create a Click-to-WhatsApp (CTWA) ad
+
+Create a CTWA ad on Meta — when tapped, the ad opens a WhatsApp conversation with the business attached to the supplied Facebook Page. The full hierarchy (campaign → ad set → creative → ad) is created and activated in one call.  The CTA is locked to &#x60;WHATSAPP_MESSAGE&#x60; and the destination is hard-coded to &#x60;https://api.whatsapp.com/send&#x60; — Meta resolves the actual WhatsApp number from the Page-to-WA pairing the user configured in Page settings or Business Manager.  Prerequisites enforced by Meta (failure surfaces as a &#x60;platform_error&#x60;):   - The Facebook Page must already be paired with a verified WhatsApp     Business number.   - The WhatsApp Business Account must be business-verified.   - The Meta access token must carry &#x60;ads_management&#x60;. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.ApiResponse;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.AdsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        AdsApi apiInstance = new AdsApi(defaultClient);
+        CreateCtwaAdRequest createCtwaAdRequest = new CreateCtwaAdRequest(); // CreateCtwaAdRequest | 
+        try {
+            ApiResponse<CreateCtwaAd201Response> response = apiInstance.createCtwaAdWithHttpInfo(createCtwaAdRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AdsApi#createCtwaAd");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createCtwaAdRequest** | [**CreateCtwaAdRequest**](CreateCtwaAdRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**CreateCtwaAd201Response**](CreateCtwaAd201Response.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | CTWA ad created and submitted to Meta for review. |  -  |
+| **400** | Invalid body. |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Ads add-on required. |  -  |
+| **404** | SocialAccount not found. |  -  |
+| **422** | Page is not connected to a verified WhatsApp number. |  -  |
+| **502** | Meta rejected the request (e.g. WABA business verification missing). Inspect &#x60;platformError&#x60; for the upstream Meta payload.  |  -  |
 
 
 ## createStandaloneAd
@@ -1745,6 +1905,158 @@ ApiResponse<[**SendConversions200Response**](SendConversions200Response.md)>
 | **401** | Unauthorized |  -  |
 | **403** | Ads add-on required. |  -  |
 | **404** | Account not found or not accessible. |  -  |
+
+
+## sendWhatsAppConversion
+
+> SendWhatsAppConversion200Response sendWhatsAppConversion(sendWhatsAppConversionRequest)
+
+Send a WhatsApp conversation event to Meta CAPI for Business Messaging
+
+Forward a WhatsApp Business Messaging conversion event (&#x60;LeadSubmitted&#x60;, &#x60;Purchase&#x60;, &#x60;AddToCart&#x60;, &#x60;InitiateCheckout&#x60;, &#x60;ViewContent&#x60;) to Meta&#39;s Conversions API with &#x60;action_source &#x3D; business_messaging&#x60; and &#x60;messaging_channel &#x3D; whatsapp&#x60;. The endpoint looks up the originating CTWA click ID (&#x60;ctwa_clid&#x60;) captured on the first inbound message of the conversation and replays it on every event so Meta can attribute the conversion back to the Click-to-WhatsApp ad that drove the chat.  Configuration prerequisites on the WhatsApp account metadata:   - &#x60;metaCapiDatasetId&#x60;: the Meta Pixel/Dataset ID linked to the WABA.   - &#x60;connectedFacebookPageId&#x60;: the Facebook Page paired with the     WhatsApp Business number.  Identify the conversation by either &#x60;conversationId&#x60; (preferred) or &#x60;phoneE164&#x60; (digits only, no &#39;+&#39;) — at least one is required. If the conversation has no captured &#x60;ctwa_clid&#x60;, the request returns 422 — there&#39;s nothing to attribute.  Token + dataset coupling: the WhatsApp account&#39;s accessToken must have access to the configured &#x60;metaCapiDatasetId&#x60;. By default a WABA&#39;s system-user token is scoped to the WABA&#39;s own Business Manager and cannot post to a pixel owned by a different Business — Meta returns code 100 in that case. Either share the dataset with the WhatsApp app&#39;s Business in BM, or use a dataset already in the same Business as the WABA. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.AdsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        AdsApi apiInstance = new AdsApi(defaultClient);
+        SendWhatsAppConversionRequest sendWhatsAppConversionRequest = new SendWhatsAppConversionRequest(); // SendWhatsAppConversionRequest | 
+        try {
+            SendWhatsAppConversion200Response result = apiInstance.sendWhatsAppConversion(sendWhatsAppConversionRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AdsApi#sendWhatsAppConversion");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sendWhatsAppConversionRequest** | [**SendWhatsAppConversionRequest**](SendWhatsAppConversionRequest.md)|  | |
+
+### Return type
+
+[**SendWhatsAppConversion200Response**](SendWhatsAppConversion200Response.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Event submitted to Meta. **Inspect &#x60;eventsFailed&#x60; and &#x60;failures[]&#x60; to detect partial failures** — a 200 does NOT mean Meta accepted the event. The status reflects \&quot;request reached Meta\&quot; only.  |  -  |
+| **400** | Invalid body. |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Conversation not found. |  -  |
+| **422** | Configuration missing (no &#x60;metaCapiDatasetId&#x60; / &#x60;connectedFacebookPageId&#x60; on the account) OR the resolved conversation has no captured &#x60;ctwa_clid&#x60;.  |  -  |
+
+## sendWhatsAppConversionWithHttpInfo
+
+> ApiResponse<SendWhatsAppConversion200Response> sendWhatsAppConversion sendWhatsAppConversionWithHttpInfo(sendWhatsAppConversionRequest)
+
+Send a WhatsApp conversation event to Meta CAPI for Business Messaging
+
+Forward a WhatsApp Business Messaging conversion event (&#x60;LeadSubmitted&#x60;, &#x60;Purchase&#x60;, &#x60;AddToCart&#x60;, &#x60;InitiateCheckout&#x60;, &#x60;ViewContent&#x60;) to Meta&#39;s Conversions API with &#x60;action_source &#x3D; business_messaging&#x60; and &#x60;messaging_channel &#x3D; whatsapp&#x60;. The endpoint looks up the originating CTWA click ID (&#x60;ctwa_clid&#x60;) captured on the first inbound message of the conversation and replays it on every event so Meta can attribute the conversion back to the Click-to-WhatsApp ad that drove the chat.  Configuration prerequisites on the WhatsApp account metadata:   - &#x60;metaCapiDatasetId&#x60;: the Meta Pixel/Dataset ID linked to the WABA.   - &#x60;connectedFacebookPageId&#x60;: the Facebook Page paired with the     WhatsApp Business number.  Identify the conversation by either &#x60;conversationId&#x60; (preferred) or &#x60;phoneE164&#x60; (digits only, no &#39;+&#39;) — at least one is required. If the conversation has no captured &#x60;ctwa_clid&#x60;, the request returns 422 — there&#39;s nothing to attribute.  Token + dataset coupling: the WhatsApp account&#39;s accessToken must have access to the configured &#x60;metaCapiDatasetId&#x60;. By default a WABA&#39;s system-user token is scoped to the WABA&#39;s own Business Manager and cannot post to a pixel owned by a different Business — Meta returns code 100 in that case. Either share the dataset with the WhatsApp app&#39;s Business in BM, or use a dataset already in the same Business as the WABA. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.ApiResponse;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.AdsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        AdsApi apiInstance = new AdsApi(defaultClient);
+        SendWhatsAppConversionRequest sendWhatsAppConversionRequest = new SendWhatsAppConversionRequest(); // SendWhatsAppConversionRequest | 
+        try {
+            ApiResponse<SendWhatsAppConversion200Response> response = apiInstance.sendWhatsAppConversionWithHttpInfo(sendWhatsAppConversionRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AdsApi#sendWhatsAppConversion");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sendWhatsAppConversionRequest** | [**SendWhatsAppConversionRequest**](SendWhatsAppConversionRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**SendWhatsAppConversion200Response**](SendWhatsAppConversion200Response.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Event submitted to Meta. **Inspect &#x60;eventsFailed&#x60; and &#x60;failures[]&#x60; to detect partial failures** — a 200 does NOT mean Meta accepted the event. The status reflects \&quot;request reached Meta\&quot; only.  |  -  |
+| **400** | Invalid body. |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Conversation not found. |  -  |
+| **422** | Configuration missing (no &#x60;metaCapiDatasetId&#x60; / &#x60;connectedFacebookPageId&#x60; on the account) OR the resolved conversation has no captured &#x60;ctwa_clid&#x60;.  |  -  |
 
 
 ## updateAd
