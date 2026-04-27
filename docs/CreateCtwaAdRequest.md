@@ -2,7 +2,7 @@
 
 # CreateCtwaAdRequest
 
-In addition to the `required` list, **exactly one of `imageUrl` or `video` must be supplied** (mutually exclusive). The route enforces this at the Zod boundary; OpenAPI's `required` cannot express OR-required cleanly. 
+In addition to the `required` list, exactly one of `imageUrl` or `video` must be supplied (they are mutually exclusive). The route enforces this at the Zod boundary; OpenAPI's `required` cannot express OR-required cleanly. 
 
 ## Properties
 
@@ -17,7 +17,7 @@ In addition to the `required` list, **exactly one of `imageUrl` or `video` must 
 |**video** | [**CreateCtwaAdRequestVideo**](CreateCtwaAdRequestVideo.md) |  |  [optional] |
 |**budgetAmount** | **BigDecimal** | Budget amount in the ad account&#39;s currency major units (e.g. dollars for USD, not cents). Must be &gt; 0.  |  |
 |**budgetType** | [**BudgetTypeEnum**](#BudgetTypeEnum) |  |  |
-|**currency** | **String** | ISO 4217 currency code matching the ad account&#39;s currency (e.g. &#x60;USD&#x60;). Optional — Meta infers from the ad account when omitted.  |  [optional] |
+|**currency** | **String** | ISO 4217 currency code matching the ad account&#39;s currency (e.g. &#x60;USD&#x60;). Optional; Meta infers from the ad account when omitted.  |  [optional] |
 |**endDate** | **OffsetDateTime** | ISO 8601 datetime. Required when &#x60;budgetType&#x60; is &#x60;lifetime&#x60;.  |  [optional] |
 |**countries** | **List&lt;String&gt;** | ISO 3166-1 alpha-2 country codes. Defaults to &#x60;[\&quot;US\&quot;]&#x60;. |  [optional] |
 |**ageMin** | **Integer** |  |  [optional] |

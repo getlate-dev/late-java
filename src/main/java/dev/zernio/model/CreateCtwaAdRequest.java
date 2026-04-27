@@ -37,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.zernio.ApiClient;
 /**
- * In addition to the &#x60;required&#x60; list, **exactly one of &#x60;imageUrl&#x60; or &#x60;video&#x60; must be supplied** (mutually exclusive). The route enforces this at the Zod boundary; OpenAPI&#39;s &#x60;required&#x60; cannot express OR-required cleanly. 
+ * In addition to the &#x60;required&#x60; list, exactly one of &#x60;imageUrl&#x60; or &#x60;video&#x60; must be supplied (they are mutually exclusive). The route enforces this at the Zod boundary; OpenAPI&#39;s &#x60;required&#x60; cannot express OR-required cleanly. 
  */
 @JsonPropertyOrder({
   CreateCtwaAdRequest.JSON_PROPERTY_ACCOUNT_ID,
@@ -59,7 +59,7 @@ import dev.zernio.ApiClient;
   CreateCtwaAdRequest.JSON_PROPERTY_ADVANTAGE_AUDIENCE,
   CreateCtwaAdRequest.JSON_PROPERTY_OBJECTIVE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-27T10:20:27.067841747Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-27T10:42:48.930914002Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateCtwaAdRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nonnull
@@ -466,7 +466,7 @@ public class CreateCtwaAdRequest {
   }
 
   /**
-   * ISO 4217 currency code matching the ad account&#39;s currency (e.g. &#x60;USD&#x60;). Optional — Meta infers from the ad account when omitted. 
+   * ISO 4217 currency code matching the ad account&#39;s currency (e.g. &#x60;USD&#x60;). Optional; Meta infers from the ad account when omitted. 
    * @return currency
    */
   @javax.annotation.Nullable

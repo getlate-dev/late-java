@@ -15319,14 +15319,14 @@ paths:
             WhatsApp Business number.
 
         Identify the conversation by either `conversationId` (preferred) or
-        `phoneE164` (digits only, no '+') — at least one is required. If the
-        conversation has no captured `ctwa_clid`, the request returns 422 —
-        there's nothing to attribute.
+        `phoneE164` (digits only, no `+`). At least one is required. If the
+        conversation has no captured `ctwa_clid`, the request returns 422
+        because there is nothing to attribute.
 
-        Token + dataset coupling: the WhatsApp account's accessToken must have
-        access to the configured `metaCapiDatasetId`. By default a WABA's
+        Token and dataset coupling: the WhatsApp account's accessToken must
+        have access to the configured `metaCapiDatasetId`. By default a WABA's
         system-user token is scoped to the WABA's own Business Manager and
-        cannot post to a pixel owned by a different Business — Meta returns
+        cannot post to a pixel owned by a different Business; Meta returns
         code 100 in that case. Either share the dataset with the WhatsApp
         app's Business in BM, or use a dataset already in the same Business
         as the WABA.
@@ -15344,9 +15344,9 @@ paths:
               schema:
                 $ref: "#/components/schemas/sendWhatsAppConversion_200_response"
           description: |
-            Event submitted to Meta. **Inspect `eventsFailed` and `failures[]`
-            to detect partial failures** — a 200 does NOT mean Meta accepted
-            the event. The status reflects "request reached Meta" only.
+            Event submitted to Meta. Inspect `eventsFailed` and `failures[]`
+            to detect partial failures. A 200 does not mean Meta accepted the
+            event; the status reflects "request reached Meta" only.
         "400":
           description: Invalid body.
         "401":
@@ -15360,7 +15360,7 @@ paths:
             conversation has no captured `ctwa_clid`.
       security:
       - bearerAuth: []
-      summary: Send a WhatsApp conversation event to Meta CAPI for Business Messaging
+      summary: Send WhatsApp conversion event
       tags:
       - WhatsApp
       - Ads
@@ -15370,17 +15370,17 @@ paths:
   /v1/ads/ctwa:
     post:
       description: |
-        Create a CTWA ad on Meta — when tapped, the ad opens a WhatsApp
-        conversation with the business attached to the supplied Facebook
-        Page. The full hierarchy (campaign → ad set → creative → ad) is
-        created and activated in one call.
+        Create a Click-to-WhatsApp (CTWA) ad on Meta. When tapped, the ad
+        opens a WhatsApp conversation with the business attached to the
+        supplied Facebook Page. The full hierarchy (campaign, ad set,
+        creative, ad) is created and activated in one call.
 
         The CTA is locked to `WHATSAPP_MESSAGE` and the destination is
-        hard-coded to `https://api.whatsapp.com/send` — Meta resolves the
+        hard-coded to `https://api.whatsapp.com/send`. Meta resolves the
         actual WhatsApp number from the Page-to-WA pairing the user
         configured in Page settings or Business Manager.
 
-        Prerequisites enforced by Meta (failure surfaces as a `platform_error`):
+        Prerequisites enforced by Meta (failure surfaces as a platform_error):
           - The Facebook Page must already be paired with a verified WhatsApp
             Business number.
           - The WhatsApp Business Account must be business-verified.
@@ -15415,7 +15415,7 @@ paths:
             missing). Inspect `platformError` for the upstream Meta payload.
       security:
       - bearerAuth: []
-      summary: Create a Click-to-WhatsApp (CTWA) ad
+      summary: Create Click-to-WhatsApp ad
       tags:
       - Ads
       x-content-type: application/json
@@ -38531,8 +38531,8 @@ components:
           type: array
     sendWhatsAppConversion_request:
       description: |
-        In addition to the `required` list, **at least one of
-        `conversationId` or `phoneE164` must be supplied** (used to
+        In addition to the `required` list, at least one of
+        `conversationId` or `phoneE164` must be supplied (used to
         resolve the originating CTWA conversation). The route enforces
         this at the Zod boundary; OpenAPI's `required` cannot express
         OR-required cleanly.
@@ -38686,10 +38686,10 @@ components:
       - id
     createCtwaAd_request:
       description: |
-        In addition to the `required` list, **exactly one of `imageUrl`
-        or `video` must be supplied** (mutually exclusive). The route
-        enforces this at the Zod boundary; OpenAPI's `required` cannot
-        express OR-required cleanly.
+        In addition to the `required` list, exactly one of `imageUrl`
+        or `video` must be supplied (they are mutually exclusive). The
+        route enforces this at the Zod boundary; OpenAPI's `required`
+        cannot express OR-required cleanly.
       properties:
         accountId:
           description: Facebook or Instagram SocialAccount ID.
@@ -38733,7 +38733,7 @@ components:
         currency:
           description: |
             ISO 4217 currency code matching the ad account's currency
-            (e.g. `USD`). Optional — Meta infers from the ad account
+            (e.g. `USD`). Optional; Meta infers from the ad account
             when omitted.
           maxLength: 3
           minLength: 3

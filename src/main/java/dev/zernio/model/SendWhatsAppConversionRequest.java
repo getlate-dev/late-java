@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.zernio.ApiClient;
 /**
- * In addition to the &#x60;required&#x60; list, **at least one of &#x60;conversationId&#x60; or &#x60;phoneE164&#x60; must be supplied** (used to resolve the originating CTWA conversation). The route enforces this at the Zod boundary; OpenAPI&#39;s &#x60;required&#x60; cannot express OR-required cleanly. 
+ * In addition to the &#x60;required&#x60; list, at least one of &#x60;conversationId&#x60; or &#x60;phoneE164&#x60; must be supplied (used to resolve the originating CTWA conversation). The route enforces this at the Zod boundary; OpenAPI&#39;s &#x60;required&#x60; cannot express OR-required cleanly. 
  */
 @JsonPropertyOrder({
   SendWhatsAppConversionRequest.JSON_PROPERTY_ACCOUNT_ID,
@@ -49,7 +49,7 @@ import dev.zernio.ApiClient;
   SendWhatsAppConversionRequest.JSON_PROPERTY_EXTERNAL_ID,
   SendWhatsAppConversionRequest.JSON_PROPERTY_TEST_CODE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-27T10:20:27.067841747Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-27T10:42:48.930914002Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class SendWhatsAppConversionRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nonnull
