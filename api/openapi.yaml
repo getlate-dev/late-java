@@ -37828,7 +37828,9 @@ components:
       - status
     listAdAccounts_200_response_accounts_inner:
       example:
+        timezoneOffsetHoursUtc: 0.8008281904610115
         name: name
+        timezoneName: timezoneName
         currency: currency
         id: id
         status: status
@@ -37842,14 +37844,25 @@ components:
           type: string
         status:
           type: string
+        timezoneName:
+          description: IANA timezone of the ad account (Meta only). Drives daily-budget
+            reset and Insights day boundaries.
+          type: string
+        timezoneOffsetHoursUtc:
+          description: "Signed UTC offset in hours, reflecting current DST (Meta only)."
+          type: number
     listAdAccounts_200_response:
       example:
         accounts:
-        - name: name
+        - timezoneOffsetHoursUtc: 0.8008281904610115
+          name: name
+          timezoneName: timezoneName
           currency: currency
           id: id
           status: status
-        - name: name
+        - timezoneOffsetHoursUtc: 0.8008281904610115
+          name: name
+          timezoneName: timezoneName
           currency: currency
           id: id
           status: status

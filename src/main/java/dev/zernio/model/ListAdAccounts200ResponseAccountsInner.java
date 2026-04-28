@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -36,9 +37,11 @@ import dev.zernio.ApiClient;
   ListAdAccounts200ResponseAccountsInner.JSON_PROPERTY_ID,
   ListAdAccounts200ResponseAccountsInner.JSON_PROPERTY_NAME,
   ListAdAccounts200ResponseAccountsInner.JSON_PROPERTY_CURRENCY,
-  ListAdAccounts200ResponseAccountsInner.JSON_PROPERTY_STATUS
+  ListAdAccounts200ResponseAccountsInner.JSON_PROPERTY_STATUS,
+  ListAdAccounts200ResponseAccountsInner.JSON_PROPERTY_TIMEZONE_NAME,
+  ListAdAccounts200ResponseAccountsInner.JSON_PROPERTY_TIMEZONE_OFFSET_HOURS_UTC
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-28T09:08:55.727608412Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-28T13:51:58.018843986Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ListAdAccounts200ResponseAccountsInner {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable
@@ -55,6 +58,14 @@ public class ListAdAccounts200ResponseAccountsInner {
   public static final String JSON_PROPERTY_STATUS = "status";
   @javax.annotation.Nullable
   private String status;
+
+  public static final String JSON_PROPERTY_TIMEZONE_NAME = "timezoneName";
+  @javax.annotation.Nullable
+  private String timezoneName;
+
+  public static final String JSON_PROPERTY_TIMEZONE_OFFSET_HOURS_UTC = "timezoneOffsetHoursUtc";
+  @javax.annotation.Nullable
+  private BigDecimal timezoneOffsetHoursUtc;
 
   public ListAdAccounts200ResponseAccountsInner() { 
   }
@@ -155,6 +166,54 @@ public class ListAdAccounts200ResponseAccountsInner {
   }
 
 
+  public ListAdAccounts200ResponseAccountsInner timezoneName(@javax.annotation.Nullable String timezoneName) {
+    this.timezoneName = timezoneName;
+    return this;
+  }
+
+  /**
+   * IANA timezone of the ad account (Meta only). Drives daily-budget reset and Insights day boundaries.
+   * @return timezoneName
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_TIMEZONE_NAME, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTimezoneName() {
+    return timezoneName;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_TIMEZONE_NAME, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTimezoneName(@javax.annotation.Nullable String timezoneName) {
+    this.timezoneName = timezoneName;
+  }
+
+
+  public ListAdAccounts200ResponseAccountsInner timezoneOffsetHoursUtc(@javax.annotation.Nullable BigDecimal timezoneOffsetHoursUtc) {
+    this.timezoneOffsetHoursUtc = timezoneOffsetHoursUtc;
+    return this;
+  }
+
+  /**
+   * Signed UTC offset in hours, reflecting current DST (Meta only).
+   * @return timezoneOffsetHoursUtc
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_TIMEZONE_OFFSET_HOURS_UTC, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public BigDecimal getTimezoneOffsetHoursUtc() {
+    return timezoneOffsetHoursUtc;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_TIMEZONE_OFFSET_HOURS_UTC, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTimezoneOffsetHoursUtc(@javax.annotation.Nullable BigDecimal timezoneOffsetHoursUtc) {
+    this.timezoneOffsetHoursUtc = timezoneOffsetHoursUtc;
+  }
+
+
   /**
    * Return true if this listAdAccounts_200_response_accounts_inner object is equal to o.
    */
@@ -170,12 +229,14 @@ public class ListAdAccounts200ResponseAccountsInner {
     return Objects.equals(this.id, listAdAccounts200ResponseAccountsInner.id) &&
         Objects.equals(this.name, listAdAccounts200ResponseAccountsInner.name) &&
         Objects.equals(this.currency, listAdAccounts200ResponseAccountsInner.currency) &&
-        Objects.equals(this.status, listAdAccounts200ResponseAccountsInner.status);
+        Objects.equals(this.status, listAdAccounts200ResponseAccountsInner.status) &&
+        Objects.equals(this.timezoneName, listAdAccounts200ResponseAccountsInner.timezoneName) &&
+        Objects.equals(this.timezoneOffsetHoursUtc, listAdAccounts200ResponseAccountsInner.timezoneOffsetHoursUtc);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, currency, status);
+    return Objects.hash(id, name, currency, status, timezoneName, timezoneOffsetHoursUtc);
   }
 
   @Override
@@ -186,6 +247,8 @@ public class ListAdAccounts200ResponseAccountsInner {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    timezoneName: ").append(toIndentedString(timezoneName)).append("\n");
+    sb.append("    timezoneOffsetHoursUtc: ").append(toIndentedString(timezoneOffsetHoursUtc)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -251,6 +314,16 @@ public class ListAdAccounts200ResponseAccountsInner {
     // add `status` to the URL query string
     if (getStatus() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sstatus%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getStatus()))));
+    }
+
+    // add `timezoneName` to the URL query string
+    if (getTimezoneName() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%stimezoneName%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getTimezoneName()))));
+    }
+
+    // add `timezoneOffsetHoursUtc` to the URL query string
+    if (getTimezoneOffsetHoursUtc() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%stimezoneOffsetHoursUtc%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getTimezoneOffsetHoursUtc()))));
     }
 
     return joiner.toString();

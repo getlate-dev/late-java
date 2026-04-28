@@ -11,6 +11,8 @@
 |**name** | **String** |  |  [optional] |
 |**currency** | **String** |  |  [optional] |
 |**status** | **String** |  |  [optional] |
+|**timezoneName** | **String** | IANA timezone of the ad account (Meta only). Drives daily-budget reset and Insights day boundaries. |  [optional] |
+|**timezoneOffsetHoursUtc** | **BigDecimal** | Signed UTC offset in hours, reflecting current DST (Meta only). |  [optional] |
 
 
 
