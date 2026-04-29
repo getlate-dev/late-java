@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import dev.zernio.model.AdBudget;
+import dev.zernio.model.BidStrategy;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -38,9 +40,12 @@ import dev.zernio.ApiClient;
   UpdateAdSet200Response.JSON_PROPERTY_BUDGET_LEVEL,
   UpdateAdSet200Response.JSON_PROPERTY_STATUS,
   UpdateAdSet200Response.JSON_PROPERTY_STATUS_UPDATED,
-  UpdateAdSet200Response.JSON_PROPERTY_STATUS_SKIPPED
+  UpdateAdSet200Response.JSON_PROPERTY_STATUS_SKIPPED,
+  UpdateAdSet200Response.JSON_PROPERTY_BID_STRATEGY,
+  UpdateAdSet200Response.JSON_PROPERTY_BID_AMOUNT,
+  UpdateAdSet200Response.JSON_PROPERTY_ROAS_AVERAGE_FLOOR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T10:23:19.131039113Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T14:57:45.159761018Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UpdateAdSet200Response {
   public static final String JSON_PROPERTY_BUDGET = "budget";
   @javax.annotation.Nullable
@@ -129,6 +134,18 @@ public class UpdateAdSet200Response {
   public static final String JSON_PROPERTY_STATUS_SKIPPED = "statusSkipped";
   @javax.annotation.Nullable
   private Integer statusSkipped;
+
+  public static final String JSON_PROPERTY_BID_STRATEGY = "bidStrategy";
+  @javax.annotation.Nullable
+  private BidStrategy bidStrategy;
+
+  public static final String JSON_PROPERTY_BID_AMOUNT = "bidAmount";
+  @javax.annotation.Nullable
+  private BigDecimal bidAmount;
+
+  public static final String JSON_PROPERTY_ROAS_AVERAGE_FLOOR = "roasAverageFloor";
+  @javax.annotation.Nullable
+  private BigDecimal roasAverageFloor;
 
   public UpdateAdSet200Response() { 
   }
@@ -253,6 +270,78 @@ public class UpdateAdSet200Response {
   }
 
 
+  public UpdateAdSet200Response bidStrategy(@javax.annotation.Nullable BidStrategy bidStrategy) {
+    this.bidStrategy = bidStrategy;
+    return this;
+  }
+
+  /**
+   * Get bidStrategy
+   * @return bidStrategy
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_BID_STRATEGY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public BidStrategy getBidStrategy() {
+    return bidStrategy;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_BID_STRATEGY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBidStrategy(@javax.annotation.Nullable BidStrategy bidStrategy) {
+    this.bidStrategy = bidStrategy;
+  }
+
+
+  public UpdateAdSet200Response bidAmount(@javax.annotation.Nullable BigDecimal bidAmount) {
+    this.bidAmount = bidAmount;
+    return this;
+  }
+
+  /**
+   * Get bidAmount
+   * @return bidAmount
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_BID_AMOUNT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public BigDecimal getBidAmount() {
+    return bidAmount;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_BID_AMOUNT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBidAmount(@javax.annotation.Nullable BigDecimal bidAmount) {
+    this.bidAmount = bidAmount;
+  }
+
+
+  public UpdateAdSet200Response roasAverageFloor(@javax.annotation.Nullable BigDecimal roasAverageFloor) {
+    this.roasAverageFloor = roasAverageFloor;
+    return this;
+  }
+
+  /**
+   * Get roasAverageFloor
+   * @return roasAverageFloor
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_ROAS_AVERAGE_FLOOR, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public BigDecimal getRoasAverageFloor() {
+    return roasAverageFloor;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ROAS_AVERAGE_FLOOR, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRoasAverageFloor(@javax.annotation.Nullable BigDecimal roasAverageFloor) {
+    this.roasAverageFloor = roasAverageFloor;
+  }
+
+
   /**
    * Return true if this updateAdSet_200_response object is equal to o.
    */
@@ -269,12 +358,15 @@ public class UpdateAdSet200Response {
         Objects.equals(this.budgetLevel, updateAdSet200Response.budgetLevel) &&
         Objects.equals(this.status, updateAdSet200Response.status) &&
         Objects.equals(this.statusUpdated, updateAdSet200Response.statusUpdated) &&
-        Objects.equals(this.statusSkipped, updateAdSet200Response.statusSkipped);
+        Objects.equals(this.statusSkipped, updateAdSet200Response.statusSkipped) &&
+        Objects.equals(this.bidStrategy, updateAdSet200Response.bidStrategy) &&
+        Objects.equals(this.bidAmount, updateAdSet200Response.bidAmount) &&
+        Objects.equals(this.roasAverageFloor, updateAdSet200Response.roasAverageFloor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(budget, budgetLevel, status, statusUpdated, statusSkipped);
+    return Objects.hash(budget, budgetLevel, status, statusUpdated, statusSkipped, bidStrategy, bidAmount, roasAverageFloor);
   }
 
   @Override
@@ -286,6 +378,9 @@ public class UpdateAdSet200Response {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusUpdated: ").append(toIndentedString(statusUpdated)).append("\n");
     sb.append("    statusSkipped: ").append(toIndentedString(statusSkipped)).append("\n");
+    sb.append("    bidStrategy: ").append(toIndentedString(bidStrategy)).append("\n");
+    sb.append("    bidAmount: ").append(toIndentedString(bidAmount)).append("\n");
+    sb.append("    roasAverageFloor: ").append(toIndentedString(roasAverageFloor)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -356,6 +451,21 @@ public class UpdateAdSet200Response {
     // add `statusSkipped` to the URL query string
     if (getStatusSkipped() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sstatusSkipped%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getStatusSkipped()))));
+    }
+
+    // add `bidStrategy` to the URL query string
+    if (getBidStrategy() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sbidStrategy%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getBidStrategy()))));
+    }
+
+    // add `bidAmount` to the URL query string
+    if (getBidAmount() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sbidAmount%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getBidAmount()))));
+    }
+
+    // add `roasAverageFloor` to the URL query string
+    if (getRoasAverageFloor() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sroasAverageFloor%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getRoasAverageFloor()))));
     }
 
     return joiner.toString();

@@ -4,7 +4,7 @@ Zernio API
 
 - API version: 1.0.1
 
-- Build date: 2026-04-29T10:23:19.131039113Z[Etc/UTC]
+- Build date: 2026-04-29T14:57:45.159761018Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -172,12 +172,12 @@ Class | Method | HTTP request | Description
 *AdCampaignsApi* | [**getAdTreeWithHttpInfo**](docs/AdCampaignsApi.md#getAdTreeWithHttpInfo) | **GET** /v1/ads/tree | Get campaign tree
 *AdCampaignsApi* | [**listAdCampaigns**](docs/AdCampaignsApi.md#listAdCampaigns) | **GET** /v1/ads/campaigns | List campaigns
 *AdCampaignsApi* | [**listAdCampaignsWithHttpInfo**](docs/AdCampaignsApi.md#listAdCampaignsWithHttpInfo) | **GET** /v1/ads/campaigns | List campaigns
-*AdCampaignsApi* | [**updateAdCampaign**](docs/AdCampaignsApi.md#updateAdCampaign) | **PUT** /v1/ads/campaigns/{campaignId} | Update a campaign (budget)
-*AdCampaignsApi* | [**updateAdCampaignWithHttpInfo**](docs/AdCampaignsApi.md#updateAdCampaignWithHttpInfo) | **PUT** /v1/ads/campaigns/{campaignId} | Update a campaign (budget)
+*AdCampaignsApi* | [**updateAdCampaign**](docs/AdCampaignsApi.md#updateAdCampaign) | **PUT** /v1/ads/campaigns/{campaignId} | Update a campaign (budget and/or bid strategy)
+*AdCampaignsApi* | [**updateAdCampaignWithHttpInfo**](docs/AdCampaignsApi.md#updateAdCampaignWithHttpInfo) | **PUT** /v1/ads/campaigns/{campaignId} | Update a campaign (budget and/or bid strategy)
 *AdCampaignsApi* | [**updateAdCampaignStatus**](docs/AdCampaignsApi.md#updateAdCampaignStatus) | **PUT** /v1/ads/campaigns/{campaignId}/status | Pause or resume a campaign
 *AdCampaignsApi* | [**updateAdCampaignStatusWithHttpInfo**](docs/AdCampaignsApi.md#updateAdCampaignStatusWithHttpInfo) | **PUT** /v1/ads/campaigns/{campaignId}/status | Pause or resume a campaign
-*AdCampaignsApi* | [**updateAdSet**](docs/AdCampaignsApi.md#updateAdSet) | **PUT** /v1/ads/ad-sets/{adSetId} | Update an ad set (budget and/or status)
-*AdCampaignsApi* | [**updateAdSetWithHttpInfo**](docs/AdCampaignsApi.md#updateAdSetWithHttpInfo) | **PUT** /v1/ads/ad-sets/{adSetId} | Update an ad set (budget and/or status)
+*AdCampaignsApi* | [**updateAdSet**](docs/AdCampaignsApi.md#updateAdSet) | **PUT** /v1/ads/ad-sets/{adSetId} | Update an ad set (budget, status, and/or bid strategy)
+*AdCampaignsApi* | [**updateAdSetWithHttpInfo**](docs/AdCampaignsApi.md#updateAdSetWithHttpInfo) | **PUT** /v1/ads/ad-sets/{adSetId} | Update an ad set (budget, status, and/or bid strategy)
 *AdCampaignsApi* | [**updateAdSetStatus**](docs/AdCampaignsApi.md#updateAdSetStatus) | **PUT** /v1/ads/ad-sets/{adSetId}/status | Pause or resume a single ad set
 *AdCampaignsApi* | [**updateAdSetStatusWithHttpInfo**](docs/AdCampaignsApi.md#updateAdSetStatusWithHttpInfo) | **PUT** /v1/ads/ad-sets/{adSetId}/status | Pause or resume a single ad set
 *AdsApi* | [**boostPost**](docs/AdsApi.md#boostPost) | **POST** /v1/ads/boost | Boost post as ad
@@ -694,6 +694,7 @@ Class | Method | HTTP request | Description
  - [BatchGetGoogleBusinessReviews200Response](docs/BatchGetGoogleBusinessReviews200Response.md)
  - [BatchGetGoogleBusinessReviews200ResponseLocationReviewsInner](docs/BatchGetGoogleBusinessReviews200ResponseLocationReviewsInner.md)
  - [BatchGetGoogleBusinessReviewsRequest](docs/BatchGetGoogleBusinessReviewsRequest.md)
+ - [BidStrategy](docs/BidStrategy.md)
  - [BlueskyPlatformData](docs/BlueskyPlatformData.md)
  - [BookmarkPost200Response](docs/BookmarkPost200Response.md)
  - [BookmarkPostRequest](docs/BookmarkPostRequest.md)

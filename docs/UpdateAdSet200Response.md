@@ -12,6 +12,9 @@
 |**status** | [**StatusEnum**](#StatusEnum) |  |  [optional] |
 |**statusUpdated** | **Integer** |  |  [optional] |
 |**statusSkipped** | **Integer** |  |  [optional] |
+|**bidStrategy** | **BidStrategy** |  |  [optional] |
+|**bidAmount** | **BigDecimal** |  |  [optional] |
+|**roasAverageFloor** | **BigDecimal** |  |  [optional] |
 
 
 

@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import dev.zernio.model.BidStrategy;
 import dev.zernio.model.CreateStandaloneAdRequestCreativesInner;
 import dev.zernio.model.CreateStandaloneAdRequestImages;
 import dev.zernio.model.CreateStandaloneAdRequestVideo;
@@ -73,10 +74,13 @@ import dev.zernio.ApiClient;
   CreateStandaloneAdRequest.JSON_PROPERTY_ADDITIONAL_DESCRIPTIONS,
   CreateStandaloneAdRequest.JSON_PROPERTY_ADVANTAGE_AUDIENCE,
   CreateStandaloneAdRequest.JSON_PROPERTY_GENDER,
+  CreateStandaloneAdRequest.JSON_PROPERTY_BID_STRATEGY,
+  CreateStandaloneAdRequest.JSON_PROPERTY_BID_AMOUNT,
+  CreateStandaloneAdRequest.JSON_PROPERTY_ROAS_AVERAGE_FLOOR,
   CreateStandaloneAdRequest.JSON_PROPERTY_DSA_BENEFICIARY,
   CreateStandaloneAdRequest.JSON_PROPERTY_DSA_PAYOR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T10:23:19.131039113Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T14:57:45.159761018Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateStandaloneAdRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nonnull
@@ -439,6 +443,18 @@ public class CreateStandaloneAdRequest {
   public static final String JSON_PROPERTY_GENDER = "gender";
   @javax.annotation.Nullable
   private GenderEnum gender = GenderEnum.ALL;
+
+  public static final String JSON_PROPERTY_BID_STRATEGY = "bidStrategy";
+  @javax.annotation.Nullable
+  private BidStrategy bidStrategy;
+
+  public static final String JSON_PROPERTY_BID_AMOUNT = "bidAmount";
+  @javax.annotation.Nullable
+  private BigDecimal bidAmount;
+
+  public static final String JSON_PROPERTY_ROAS_AVERAGE_FLOOR = "roasAverageFloor";
+  @javax.annotation.Nullable
+  private BigDecimal roasAverageFloor;
 
   public static final String JSON_PROPERTY_DSA_BENEFICIARY = "dsaBeneficiary";
   @javax.annotation.Nullable
@@ -849,7 +865,7 @@ public class CreateStandaloneAdRequest {
   }
 
   /**
-   * Meta-only. When present, switches to the attach shape: adds one new ad to this existing ad set without creating a new campaign. Budget, targeting, goal, and schedule are inherited from the ad set on Meta. Mutually exclusive with &#x60;creatives[]&#x60;. 
+   * Meta-only. When present, switches to the attach shape: adds one new ad to this existing ad set without creating a new campaign. Budget, targeting, goal, schedule, AND bid strategy are inherited from the ad set on Meta — passing &#x60;bidStrategy&#x60; in attach mode returns 400. To change an existing ad set&#39;s bid, use &#x60;PUT /v1/ads/ad-sets/{adSetId}&#x60;. Mutually exclusive with &#x60;creatives[]&#x60;. 
    * @return adSetId
    */
   @javax.annotation.Nullable
@@ -1247,6 +1263,78 @@ public class CreateStandaloneAdRequest {
   }
 
 
+  public CreateStandaloneAdRequest bidStrategy(@javax.annotation.Nullable BidStrategy bidStrategy) {
+    this.bidStrategy = bidStrategy;
+    return this;
+  }
+
+  /**
+   * Meta bid strategy applied to the ad set.
+   * @return bidStrategy
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_BID_STRATEGY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public BidStrategy getBidStrategy() {
+    return bidStrategy;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_BID_STRATEGY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBidStrategy(@javax.annotation.Nullable BidStrategy bidStrategy) {
+    this.bidStrategy = bidStrategy;
+  }
+
+
+  public CreateStandaloneAdRequest bidAmount(@javax.annotation.Nullable BigDecimal bidAmount) {
+    this.bidAmount = bidAmount;
+    return this;
+  }
+
+  /**
+   * Bid cap in WHOLE currency units (USD: 5 &#x3D; $5.00; JPY: 100 &#x3D; ¥100). Required when &#x60;bidStrategy&#x60; is &#x60;LOWEST_COST_WITH_BID_CAP&#x60; or &#x60;COST_CAP&#x60;. 
+   * @return bidAmount
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_BID_AMOUNT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public BigDecimal getBidAmount() {
+    return bidAmount;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_BID_AMOUNT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBidAmount(@javax.annotation.Nullable BigDecimal bidAmount) {
+    this.bidAmount = bidAmount;
+  }
+
+
+  public CreateStandaloneAdRequest roasAverageFloor(@javax.annotation.Nullable BigDecimal roasAverageFloor) {
+    this.roasAverageFloor = roasAverageFloor;
+    return this;
+  }
+
+  /**
+   * Minimum ROAS as a decimal multiplier (e.g. 2.0 &#x3D; 2.0x ROAS). Required when &#x60;bidStrategy&#x60; is &#x60;LOWEST_COST_WITH_MIN_ROAS&#x60;. Sent to Meta as &#x60;bid_constraints.roas_average_floor&#x60; × 10000. 
+   * @return roasAverageFloor
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_ROAS_AVERAGE_FLOOR, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public BigDecimal getRoasAverageFloor() {
+    return roasAverageFloor;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ROAS_AVERAGE_FLOOR, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRoasAverageFloor(@javax.annotation.Nullable BigDecimal roasAverageFloor) {
+    this.roasAverageFloor = roasAverageFloor;
+  }
+
+
   public CreateStandaloneAdRequest dsaBeneficiary(@javax.annotation.Nullable String dsaBeneficiary) {
     this.dsaBeneficiary = dsaBeneficiary;
     return this;
@@ -1338,13 +1426,16 @@ public class CreateStandaloneAdRequest {
         Objects.equals(this.additionalDescriptions, createStandaloneAdRequest.additionalDescriptions) &&
         Objects.equals(this.advantageAudience, createStandaloneAdRequest.advantageAudience) &&
         Objects.equals(this.gender, createStandaloneAdRequest.gender) &&
+        Objects.equals(this.bidStrategy, createStandaloneAdRequest.bidStrategy) &&
+        Objects.equals(this.bidAmount, createStandaloneAdRequest.bidAmount) &&
+        Objects.equals(this.roasAverageFloor, createStandaloneAdRequest.roasAverageFloor) &&
         Objects.equals(this.dsaBeneficiary, createStandaloneAdRequest.dsaBeneficiary) &&
         Objects.equals(this.dsaPayor, createStandaloneAdRequest.dsaPayor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, adAccountId, name, goal, budgetAmount, budgetType, currency, headline, longHeadline, body, callToAction, linkUrl, imageUrl, images, video, creatives, adSetId, businessName, boardId, countries, ageMin, ageMax, interests, endDate, audienceId, campaignType, keywords, additionalHeadlines, additionalDescriptions, advantageAudience, gender, dsaBeneficiary, dsaPayor);
+    return Objects.hash(accountId, adAccountId, name, goal, budgetAmount, budgetType, currency, headline, longHeadline, body, callToAction, linkUrl, imageUrl, images, video, creatives, adSetId, businessName, boardId, countries, ageMin, ageMax, interests, endDate, audienceId, campaignType, keywords, additionalHeadlines, additionalDescriptions, advantageAudience, gender, bidStrategy, bidAmount, roasAverageFloor, dsaBeneficiary, dsaPayor);
   }
 
   @Override
@@ -1382,6 +1473,9 @@ public class CreateStandaloneAdRequest {
     sb.append("    additionalDescriptions: ").append(toIndentedString(additionalDescriptions)).append("\n");
     sb.append("    advantageAudience: ").append(toIndentedString(advantageAudience)).append("\n");
     sb.append("    gender: ").append(toIndentedString(gender)).append("\n");
+    sb.append("    bidStrategy: ").append(toIndentedString(bidStrategy)).append("\n");
+    sb.append("    bidAmount: ").append(toIndentedString(bidAmount)).append("\n");
+    sb.append("    roasAverageFloor: ").append(toIndentedString(roasAverageFloor)).append("\n");
     sb.append("    dsaBeneficiary: ").append(toIndentedString(dsaBeneficiary)).append("\n");
     sb.append("    dsaPayor: ").append(toIndentedString(dsaPayor)).append("\n");
     sb.append("}");
@@ -1610,6 +1704,21 @@ public class CreateStandaloneAdRequest {
     // add `gender` to the URL query string
     if (getGender() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sgender%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getGender()))));
+    }
+
+    // add `bidStrategy` to the URL query string
+    if (getBidStrategy() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sbidStrategy%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getBidStrategy()))));
+    }
+
+    // add `bidAmount` to the URL query string
+    if (getBidAmount() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sbidAmount%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getBidAmount()))));
+    }
+
+    // add `roasAverageFloor` to the URL query string
+    if (getRoasAverageFloor() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sroasAverageFloor%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getRoasAverageFloor()))));
     }
 
     // add `dsaBeneficiary` to the URL query string

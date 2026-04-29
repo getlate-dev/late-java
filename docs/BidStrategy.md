@@ -1,0 +1,17 @@
+
+
+# BidStrategy
+
+## Enum
+
+
+* `LOWEST_COST_WITHOUT_CAP` (value: `"LOWEST_COST_WITHOUT_CAP"`)
+
+* `LOWEST_COST_WITH_BID_CAP` (value: `"LOWEST_COST_WITH_BID_CAP"`)
+
+* `COST_CAP` (value: `"COST_CAP"`)
+
+* `LOWEST_COST_WITH_MIN_ROAS` (value: `"LOWEST_COST_WITH_MIN_ROAS"`)
+
+
+

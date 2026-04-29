@@ -8,7 +8,8 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**platform** | [**PlatformEnum**](#PlatformEnum) |  |  |
-|**budget** | [**UpdateAdCampaignRequestBudget**](UpdateAdCampaignRequestBudget.md) |  |  |
+|**budget** | [**UpdateAdCampaignRequestBudget**](UpdateAdCampaignRequestBudget.md) |  |  [optional] |
+|**bidStrategy** | **BidStrategy** | Campaign-level default. Ad sets inherit this unless they override. |  [optional] |
 
 
 

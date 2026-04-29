@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import dev.zernio.model.BidStrategy;
 import dev.zernio.model.UpdateAdCampaignRequestBudget;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,9 +36,10 @@ import dev.zernio.ApiClient;
  */
 @JsonPropertyOrder({
   UpdateAdCampaignRequest.JSON_PROPERTY_PLATFORM,
-  UpdateAdCampaignRequest.JSON_PROPERTY_BUDGET
+  UpdateAdCampaignRequest.JSON_PROPERTY_BUDGET,
+  UpdateAdCampaignRequest.JSON_PROPERTY_BID_STRATEGY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T10:23:19.131039113Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T14:57:45.159761018Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UpdateAdCampaignRequest {
   /**
    * Gets or Sets platform
@@ -79,8 +81,12 @@ public class UpdateAdCampaignRequest {
   private PlatformEnum platform;
 
   public static final String JSON_PROPERTY_BUDGET = "budget";
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private UpdateAdCampaignRequestBudget budget;
+
+  public static final String JSON_PROPERTY_BID_STRATEGY = "bidStrategy";
+  @javax.annotation.Nullable
+  private BidStrategy bidStrategy;
 
   public UpdateAdCampaignRequest() { 
   }
@@ -109,7 +115,7 @@ public class UpdateAdCampaignRequest {
   }
 
 
-  public UpdateAdCampaignRequest budget(@javax.annotation.Nonnull UpdateAdCampaignRequestBudget budget) {
+  public UpdateAdCampaignRequest budget(@javax.annotation.Nullable UpdateAdCampaignRequestBudget budget) {
     this.budget = budget;
     return this;
   }
@@ -118,18 +124,42 @@ public class UpdateAdCampaignRequest {
    * Get budget
    * @return budget
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(value = JSON_PROPERTY_BUDGET, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_BUDGET, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UpdateAdCampaignRequestBudget getBudget() {
     return budget;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_BUDGET, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setBudget(@javax.annotation.Nonnull UpdateAdCampaignRequestBudget budget) {
+  @JsonProperty(value = JSON_PROPERTY_BUDGET, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBudget(@javax.annotation.Nullable UpdateAdCampaignRequestBudget budget) {
     this.budget = budget;
+  }
+
+
+  public UpdateAdCampaignRequest bidStrategy(@javax.annotation.Nullable BidStrategy bidStrategy) {
+    this.bidStrategy = bidStrategy;
+    return this;
+  }
+
+  /**
+   * Campaign-level default. Ad sets inherit this unless they override.
+   * @return bidStrategy
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_BID_STRATEGY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public BidStrategy getBidStrategy() {
+    return bidStrategy;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_BID_STRATEGY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBidStrategy(@javax.annotation.Nullable BidStrategy bidStrategy) {
+    this.bidStrategy = bidStrategy;
   }
 
 
@@ -146,12 +176,13 @@ public class UpdateAdCampaignRequest {
     }
     UpdateAdCampaignRequest updateAdCampaignRequest = (UpdateAdCampaignRequest) o;
     return Objects.equals(this.platform, updateAdCampaignRequest.platform) &&
-        Objects.equals(this.budget, updateAdCampaignRequest.budget);
+        Objects.equals(this.budget, updateAdCampaignRequest.budget) &&
+        Objects.equals(this.bidStrategy, updateAdCampaignRequest.bidStrategy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(platform, budget);
+    return Objects.hash(platform, budget, bidStrategy);
   }
 
   @Override
@@ -160,6 +191,7 @@ public class UpdateAdCampaignRequest {
     sb.append("class UpdateAdCampaignRequest {\n");
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
     sb.append("    budget: ").append(toIndentedString(budget)).append("\n");
+    sb.append("    bidStrategy: ").append(toIndentedString(bidStrategy)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -215,6 +247,11 @@ public class UpdateAdCampaignRequest {
     // add `budget` to the URL query string
     if (getBudget() != null) {
       joiner.add(getBudget().toUrlQueryString(prefix + "budget" + suffix));
+    }
+
+    // add `bidStrategy` to the URL query string
+    if (getBidStrategy() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sbidStrategy%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getBidStrategy()))));
     }
 
     return joiner.toString();

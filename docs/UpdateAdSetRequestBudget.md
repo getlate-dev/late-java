@@ -2,7 +2,7 @@
 
 # UpdateAdSetRequestBudget
 
-Omit if only toggling status
+Omit if not updating budget
 
 ## Properties
 

@@ -30,6 +30,8 @@ import dev.zernio.model.AdStatus;
 import dev.zernio.model.AdTreeAdSetAdSetBudget;
 import dev.zernio.model.AdTreeAdSetBudget;
 import dev.zernio.model.AdTreeAdSetPromotedObject;
+import dev.zernio.model.BidStrategy;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -50,10 +52,12 @@ import dev.zernio.ApiClient;
   AdTreeAdSet.JSON_PROPERTY_METRICS,
   AdTreeAdSet.JSON_PROPERTY_OPTIMIZATION_GOAL,
   AdTreeAdSet.JSON_PROPERTY_BID_STRATEGY,
+  AdTreeAdSet.JSON_PROPERTY_BID_AMOUNT,
+  AdTreeAdSet.JSON_PROPERTY_ROAS_AVERAGE_FLOOR,
   AdTreeAdSet.JSON_PROPERTY_PROMOTED_OBJECT,
   AdTreeAdSet.JSON_PROPERTY_ADS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T10:23:19.131039113Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T14:57:45.159761018Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AdTreeAdSet {
   public static final String JSON_PROPERTY_PLATFORM_AD_SET_ID = "platformAdSetId";
   @javax.annotation.Nullable
@@ -89,7 +93,15 @@ public class AdTreeAdSet {
 
   public static final String JSON_PROPERTY_BID_STRATEGY = "bidStrategy";
   @javax.annotation.Nullable
-  private String bidStrategy;
+  private BidStrategy bidStrategy;
+
+  public static final String JSON_PROPERTY_BID_AMOUNT = "bidAmount";
+  @javax.annotation.Nullable
+  private BigDecimal bidAmount;
+
+  public static final String JSON_PROPERTY_ROAS_AVERAGE_FLOOR = "roasAverageFloor";
+  @javax.annotation.Nullable
+  private BigDecimal roasAverageFloor;
 
   public static final String JSON_PROPERTY_PROMOTED_OBJECT = "promotedObject";
   @javax.annotation.Nullable
@@ -294,7 +306,7 @@ public class AdTreeAdSet {
   }
 
 
-  public AdTreeAdSet bidStrategy(@javax.annotation.Nullable String bidStrategy) {
+  public AdTreeAdSet bidStrategy(@javax.annotation.Nullable BidStrategy bidStrategy) {
     this.bidStrategy = bidStrategy;
     return this;
   }
@@ -306,15 +318,63 @@ public class AdTreeAdSet {
   @javax.annotation.Nullable
   @JsonProperty(value = JSON_PROPERTY_BID_STRATEGY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getBidStrategy() {
+  public BidStrategy getBidStrategy() {
     return bidStrategy;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_BID_STRATEGY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBidStrategy(@javax.annotation.Nullable String bidStrategy) {
+  public void setBidStrategy(@javax.annotation.Nullable BidStrategy bidStrategy) {
     this.bidStrategy = bidStrategy;
+  }
+
+
+  public AdTreeAdSet bidAmount(@javax.annotation.Nullable BigDecimal bidAmount) {
+    this.bidAmount = bidAmount;
+    return this;
+  }
+
+  /**
+   * Bid cap in whole currency units. Populated when bidStrategy is LOWEST_COST_WITH_BID_CAP or COST_CAP.
+   * @return bidAmount
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_BID_AMOUNT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public BigDecimal getBidAmount() {
+    return bidAmount;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_BID_AMOUNT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBidAmount(@javax.annotation.Nullable BigDecimal bidAmount) {
+    this.bidAmount = bidAmount;
+  }
+
+
+  public AdTreeAdSet roasAverageFloor(@javax.annotation.Nullable BigDecimal roasAverageFloor) {
+    this.roasAverageFloor = roasAverageFloor;
+    return this;
+  }
+
+  /**
+   * Minimum ROAS as a decimal multiplier (2.0 &#x3D; 2.0x). Populated when bidStrategy is LOWEST_COST_WITH_MIN_ROAS.
+   * @return roasAverageFloor
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_ROAS_AVERAGE_FLOOR, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public BigDecimal getRoasAverageFloor() {
+    return roasAverageFloor;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ROAS_AVERAGE_FLOOR, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRoasAverageFloor(@javax.annotation.Nullable BigDecimal roasAverageFloor) {
+    this.roasAverageFloor = roasAverageFloor;
   }
 
 
@@ -395,13 +455,15 @@ public class AdTreeAdSet {
         Objects.equals(this.metrics, adTreeAdSet.metrics) &&
         Objects.equals(this.optimizationGoal, adTreeAdSet.optimizationGoal) &&
         Objects.equals(this.bidStrategy, adTreeAdSet.bidStrategy) &&
+        Objects.equals(this.bidAmount, adTreeAdSet.bidAmount) &&
+        Objects.equals(this.roasAverageFloor, adTreeAdSet.roasAverageFloor) &&
         Objects.equals(this.promotedObject, adTreeAdSet.promotedObject) &&
         Objects.equals(this.ads, adTreeAdSet.ads);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(platformAdSetId, adSetName, status, adCount, budget, adSetBudget, metrics, optimizationGoal, bidStrategy, promotedObject, ads);
+    return Objects.hash(platformAdSetId, adSetName, status, adCount, budget, adSetBudget, metrics, optimizationGoal, bidStrategy, bidAmount, roasAverageFloor, promotedObject, ads);
   }
 
   @Override
@@ -417,6 +479,8 @@ public class AdTreeAdSet {
     sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    optimizationGoal: ").append(toIndentedString(optimizationGoal)).append("\n");
     sb.append("    bidStrategy: ").append(toIndentedString(bidStrategy)).append("\n");
+    sb.append("    bidAmount: ").append(toIndentedString(bidAmount)).append("\n");
+    sb.append("    roasAverageFloor: ").append(toIndentedString(roasAverageFloor)).append("\n");
     sb.append("    promotedObject: ").append(toIndentedString(promotedObject)).append("\n");
     sb.append("    ads: ").append(toIndentedString(ads)).append("\n");
     sb.append("}");
@@ -509,6 +573,16 @@ public class AdTreeAdSet {
     // add `bidStrategy` to the URL query string
     if (getBidStrategy() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sbidStrategy%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getBidStrategy()))));
+    }
+
+    // add `bidAmount` to the URL query string
+    if (getBidAmount() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sbidAmount%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getBidAmount()))));
+    }
+
+    // add `roasAverageFloor` to the URL query string
+    if (getRoasAverageFloor() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sroasAverageFloor%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getRoasAverageFloor()))));
     }
 
     // add `promotedObject` to the URL query string

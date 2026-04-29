@@ -42,7 +42,7 @@ public class Example {
         GmbLocationDetailsApi apiInstance = new GmbLocationDetailsApi(defaultClient);
         String accountId = "accountId_example"; // String | The Zernio account ID (from /v1/accounts)
         String locationId = "locationId_example"; // String | Override which location to query. If omitted, uses the account's selected location. Use GET /gmb-locations to list valid IDs.
-        String readMask = "readMask_example"; // String | Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, serviceItems, profile, openInfo, metadata, moreHours.
+        String readMask = "readMask_example"; // String | Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, serviceItems, profile, openInfo, metadata, moreHours. `title` and `metadata` are always included in the response so the `location` summary block can be populated, even if you omit them here. Note: `location` is a derived response field, not a Google readMask value, passing it returns 400. 
         try {
             GetGoogleBusinessLocationDetails200Response result = apiInstance.getGoogleBusinessLocationDetails(accountId, locationId, readMask);
             System.out.println(result);
@@ -64,7 +64,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **accountId** | **String**| The Zernio account ID (from /v1/accounts) | |
 | **locationId** | **String**| Override which location to query. If omitted, uses the account&#39;s selected location. Use GET /gmb-locations to list valid IDs. | [optional] |
-| **readMask** | **String**| Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, serviceItems, profile, openInfo, metadata, moreHours. | [optional] |
+| **readMask** | **String**| Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, serviceItems, profile, openInfo, metadata, moreHours. &#x60;title&#x60; and &#x60;metadata&#x60; are always included in the response so the &#x60;location&#x60; summary block can be populated, even if you omit them here. Note: &#x60;location&#x60; is a derived response field, not a Google readMask value, passing it returns 400.  | [optional] |
 
 ### Return type
 
@@ -84,7 +84,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Location details fetched successfully |  -  |
-| **400** | Invalid request |  -  |
+| **400** | Invalid request. Most commonly raised when the readMask query includes a value that is not a valid Google Business Information field (e.g. &#x60;location&#x60;, which is a response-only derived field).  |  -  |
 | **401** | Unauthorized or token expired |  -  |
 | **404** | Resource not found |  -  |
 
@@ -120,7 +120,7 @@ public class Example {
         GmbLocationDetailsApi apiInstance = new GmbLocationDetailsApi(defaultClient);
         String accountId = "accountId_example"; // String | The Zernio account ID (from /v1/accounts)
         String locationId = "locationId_example"; // String | Override which location to query. If omitted, uses the account's selected location. Use GET /gmb-locations to list valid IDs.
-        String readMask = "readMask_example"; // String | Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, serviceItems, profile, openInfo, metadata, moreHours.
+        String readMask = "readMask_example"; // String | Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, serviceItems, profile, openInfo, metadata, moreHours. `title` and `metadata` are always included in the response so the `location` summary block can be populated, even if you omit them here. Note: `location` is a derived response field, not a Google readMask value, passing it returns 400. 
         try {
             ApiResponse<GetGoogleBusinessLocationDetails200Response> response = apiInstance.getGoogleBusinessLocationDetailsWithHttpInfo(accountId, locationId, readMask);
             System.out.println("Status code: " + response.getStatusCode());
@@ -144,7 +144,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **accountId** | **String**| The Zernio account ID (from /v1/accounts) | |
 | **locationId** | **String**| Override which location to query. If omitted, uses the account&#39;s selected location. Use GET /gmb-locations to list valid IDs. | [optional] |
-| **readMask** | **String**| Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, serviceItems, profile, openInfo, metadata, moreHours. | [optional] |
+| **readMask** | **String**| Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, serviceItems, profile, openInfo, metadata, moreHours. &#x60;title&#x60; and &#x60;metadata&#x60; are always included in the response so the &#x60;location&#x60; summary block can be populated, even if you omit them here. Note: &#x60;location&#x60; is a derived response field, not a Google readMask value, passing it returns 400.  | [optional] |
 
 ### Return type
 
@@ -164,7 +164,7 @@ ApiResponse<[**GetGoogleBusinessLocationDetails200Response**](GetGoogleBusinessL
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Location details fetched successfully |  -  |
-| **400** | Invalid request |  -  |
+| **400** | Invalid request. Most commonly raised when the readMask query includes a value that is not a valid Google Business Information field (e.g. &#x60;location&#x60;, which is a response-only derived field).  |  -  |
 | **401** | Unauthorized or token expired |  -  |
 | **404** | Resource not found |  -  |
 

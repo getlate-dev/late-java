@@ -38,7 +38,7 @@ import dev.zernio.ApiClient;
   UpdateCustomFieldRequest.JSON_PROPERTY_NAME,
   UpdateCustomFieldRequest.JSON_PROPERTY_OPTIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T10:23:19.131039113Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T14:57:45.159761018Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UpdateCustomFieldRequest {
   public static final String JSON_PROPERTY_NAME = "name";
   @javax.annotation.Nullable

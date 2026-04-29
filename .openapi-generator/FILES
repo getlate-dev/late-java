@@ -55,6 +55,7 @@ docs/ApproveWhatsAppGroupJoinRequestsRequest.md
 docs/BatchGetGoogleBusinessReviews200Response.md
 docs/BatchGetGoogleBusinessReviews200ResponseLocationReviewsInner.md
 docs/BatchGetGoogleBusinessReviewsRequest.md
+docs/BidStrategy.md
 docs/BlueskyPlatformData.md
 docs/BookmarkPost200Response.md
 docs/BookmarkPostRequest.md
@@ -976,6 +977,7 @@ src/main/java/dev/zernio/model/ApproveWhatsAppGroupJoinRequestsRequest.java
 src/main/java/dev/zernio/model/BatchGetGoogleBusinessReviews200Response.java
 src/main/java/dev/zernio/model/BatchGetGoogleBusinessReviews200ResponseLocationReviewsInner.java
 src/main/java/dev/zernio/model/BatchGetGoogleBusinessReviewsRequest.java
+src/main/java/dev/zernio/model/BidStrategy.java
 src/main/java/dev/zernio/model/BlueskyPlatformData.java
 src/main/java/dev/zernio/model/BookmarkPost200Response.java
 src/main/java/dev/zernio/model/BookmarkPostRequest.java
@@ -1758,4 +1760,4 @@ src/main/java/dev/zernio/model/YouTubeDemographicsResponseDemographicsValueInner
 src/main/java/dev/zernio/model/YouTubePlatformData.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponseScopeStatus.java
-src/test/java/dev/zernio/model/GetGoogleBusinessLocationDetails200ResponseLocationTest.java
+src/test/java/dev/zernio/model/BidStrategyTest.java

@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import dev.zernio.model.AdBudget;
+import dev.zernio.model.BidStrategy;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -36,9 +37,10 @@ import dev.zernio.ApiClient;
 @JsonPropertyOrder({
   UpdateAdCampaign200Response.JSON_PROPERTY_UPDATED,
   UpdateAdCampaign200Response.JSON_PROPERTY_BUDGET,
-  UpdateAdCampaign200Response.JSON_PROPERTY_BUDGET_LEVEL
+  UpdateAdCampaign200Response.JSON_PROPERTY_BUDGET_LEVEL,
+  UpdateAdCampaign200Response.JSON_PROPERTY_BID_STRATEGY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T10:23:19.131039113Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T14:57:45.159761018Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UpdateAdCampaign200Response {
   public static final String JSON_PROPERTY_UPDATED = "updated";
   @javax.annotation.Nullable
@@ -84,6 +86,10 @@ public class UpdateAdCampaign200Response {
   public static final String JSON_PROPERTY_BUDGET_LEVEL = "budgetLevel";
   @javax.annotation.Nullable
   private BudgetLevelEnum budgetLevel;
+
+  public static final String JSON_PROPERTY_BID_STRATEGY = "bidStrategy";
+  @javax.annotation.Nullable
+  private BidStrategy bidStrategy;
 
   public UpdateAdCampaign200Response() { 
   }
@@ -160,6 +166,30 @@ public class UpdateAdCampaign200Response {
   }
 
 
+  public UpdateAdCampaign200Response bidStrategy(@javax.annotation.Nullable BidStrategy bidStrategy) {
+    this.bidStrategy = bidStrategy;
+    return this;
+  }
+
+  /**
+   * Get bidStrategy
+   * @return bidStrategy
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_BID_STRATEGY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public BidStrategy getBidStrategy() {
+    return bidStrategy;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_BID_STRATEGY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBidStrategy(@javax.annotation.Nullable BidStrategy bidStrategy) {
+    this.bidStrategy = bidStrategy;
+  }
+
+
   /**
    * Return true if this updateAdCampaign_200_response object is equal to o.
    */
@@ -174,12 +204,13 @@ public class UpdateAdCampaign200Response {
     UpdateAdCampaign200Response updateAdCampaign200Response = (UpdateAdCampaign200Response) o;
     return Objects.equals(this.updated, updateAdCampaign200Response.updated) &&
         Objects.equals(this.budget, updateAdCampaign200Response.budget) &&
-        Objects.equals(this.budgetLevel, updateAdCampaign200Response.budgetLevel);
+        Objects.equals(this.budgetLevel, updateAdCampaign200Response.budgetLevel) &&
+        Objects.equals(this.bidStrategy, updateAdCampaign200Response.bidStrategy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(updated, budget, budgetLevel);
+    return Objects.hash(updated, budget, budgetLevel, bidStrategy);
   }
 
   @Override
@@ -189,6 +220,7 @@ public class UpdateAdCampaign200Response {
     sb.append("    updated: ").append(toIndentedString(updated)).append("\n");
     sb.append("    budget: ").append(toIndentedString(budget)).append("\n");
     sb.append("    budgetLevel: ").append(toIndentedString(budgetLevel)).append("\n");
+    sb.append("    bidStrategy: ").append(toIndentedString(bidStrategy)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -249,6 +281,11 @@ public class UpdateAdCampaign200Response {
     // add `budgetLevel` to the URL query string
     if (getBudgetLevel() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sbudgetLevel%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getBudgetLevel()))));
+    }
+
+    // add `bidStrategy` to the URL query string
+    if (getBidStrategy() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sbidStrategy%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getBidStrategy()))));
     }
 
     return joiner.toString();

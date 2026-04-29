@@ -14,12 +14,12 @@ All URIs are relative to *https://zernio.com/api*
 | [**getAdTreeWithHttpInfo**](AdCampaignsApi.md#getAdTreeWithHttpInfo) | **GET** /v1/ads/tree | Get campaign tree |
 | [**listAdCampaigns**](AdCampaignsApi.md#listAdCampaigns) | **GET** /v1/ads/campaigns | List campaigns |
 | [**listAdCampaignsWithHttpInfo**](AdCampaignsApi.md#listAdCampaignsWithHttpInfo) | **GET** /v1/ads/campaigns | List campaigns |
-| [**updateAdCampaign**](AdCampaignsApi.md#updateAdCampaign) | **PUT** /v1/ads/campaigns/{campaignId} | Update a campaign (budget) |
-| [**updateAdCampaignWithHttpInfo**](AdCampaignsApi.md#updateAdCampaignWithHttpInfo) | **PUT** /v1/ads/campaigns/{campaignId} | Update a campaign (budget) |
+| [**updateAdCampaign**](AdCampaignsApi.md#updateAdCampaign) | **PUT** /v1/ads/campaigns/{campaignId} | Update a campaign (budget and/or bid strategy) |
+| [**updateAdCampaignWithHttpInfo**](AdCampaignsApi.md#updateAdCampaignWithHttpInfo) | **PUT** /v1/ads/campaigns/{campaignId} | Update a campaign (budget and/or bid strategy) |
 | [**updateAdCampaignStatus**](AdCampaignsApi.md#updateAdCampaignStatus) | **PUT** /v1/ads/campaigns/{campaignId}/status | Pause or resume a campaign |
 | [**updateAdCampaignStatusWithHttpInfo**](AdCampaignsApi.md#updateAdCampaignStatusWithHttpInfo) | **PUT** /v1/ads/campaigns/{campaignId}/status | Pause or resume a campaign |
-| [**updateAdSet**](AdCampaignsApi.md#updateAdSet) | **PUT** /v1/ads/ad-sets/{adSetId} | Update an ad set (budget and/or status) |
-| [**updateAdSetWithHttpInfo**](AdCampaignsApi.md#updateAdSetWithHttpInfo) | **PUT** /v1/ads/ad-sets/{adSetId} | Update an ad set (budget and/or status) |
+| [**updateAdSet**](AdCampaignsApi.md#updateAdSet) | **PUT** /v1/ads/ad-sets/{adSetId} | Update an ad set (budget, status, and/or bid strategy) |
+| [**updateAdSetWithHttpInfo**](AdCampaignsApi.md#updateAdSetWithHttpInfo) | **PUT** /v1/ads/ad-sets/{adSetId} | Update an ad set (budget, status, and/or bid strategy) |
 | [**updateAdSetStatus**](AdCampaignsApi.md#updateAdSetStatus) | **PUT** /v1/ads/ad-sets/{adSetId}/status | Pause or resume a single ad set |
 | [**updateAdSetStatusWithHttpInfo**](AdCampaignsApi.md#updateAdSetStatusWithHttpInfo) | **PUT** /v1/ads/ad-sets/{adSetId}/status | Pause or resume a single ad set |
 
@@ -847,9 +847,9 @@ ApiResponse<[**ListAdCampaigns200Response**](ListAdCampaigns200Response.md)>
 
 > UpdateAdCampaign200Response updateAdCampaign(campaignId, updateAdCampaignRequest)
 
-Update a campaign (budget)
+Update a campaign (budget and/or bid strategy)
 
-Campaign-level edits. Currently supports updating the CBO (Campaign Budget Optimization) budget. For ABO campaigns (where the budget lives on the ad set), use PUT /v1/ads/ad-sets/{adSetId} instead — this endpoint will return 409 with code BUDGET_LEVEL_MISMATCH.  Meta-only for now. Other platforms return 501 Not Implemented. 
+Campaign-level edits. At least one of &#x60;budget&#x60; or &#x60;bidStrategy&#x60; is required.  - &#x60;budget&#x60; updates the CBO (Campaign Budget Optimization) budget. For ABO campaigns   (where the budget lives on the ad set), use PUT /v1/ads/ad-sets/{adSetId} instead — this endpoint   will return 409 with code BUDGET_LEVEL_MISMATCH. - &#x60;bidStrategy&#x60; sets the campaign-level default bid strategy. Per Meta&#39;s spec, &#x60;bid_amount&#x60; and   &#x60;bid_constraints&#x60; do NOT exist at the campaign level — pass them via PUT /v1/ads/ad-sets/{adSetId}.  Meta-only for now. Other platforms return 501 Not Implemented. 
 
 ### Example
 
@@ -913,7 +913,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Campaign budget updated |  -  |
+| **200** | Campaign updated |  -  |
 | **400** | Invalid input |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Campaign not found |  -  |
@@ -924,9 +924,9 @@ public class Example {
 
 > ApiResponse<UpdateAdCampaign200Response> updateAdCampaign updateAdCampaignWithHttpInfo(campaignId, updateAdCampaignRequest)
 
-Update a campaign (budget)
+Update a campaign (budget and/or bid strategy)
 
-Campaign-level edits. Currently supports updating the CBO (Campaign Budget Optimization) budget. For ABO campaigns (where the budget lives on the ad set), use PUT /v1/ads/ad-sets/{adSetId} instead — this endpoint will return 409 with code BUDGET_LEVEL_MISMATCH.  Meta-only for now. Other platforms return 501 Not Implemented. 
+Campaign-level edits. At least one of &#x60;budget&#x60; or &#x60;bidStrategy&#x60; is required.  - &#x60;budget&#x60; updates the CBO (Campaign Budget Optimization) budget. For ABO campaigns   (where the budget lives on the ad set), use PUT /v1/ads/ad-sets/{adSetId} instead — this endpoint   will return 409 with code BUDGET_LEVEL_MISMATCH. - &#x60;bidStrategy&#x60; sets the campaign-level default bid strategy. Per Meta&#39;s spec, &#x60;bid_amount&#x60; and   &#x60;bid_constraints&#x60; do NOT exist at the campaign level — pass them via PUT /v1/ads/ad-sets/{adSetId}.  Meta-only for now. Other platforms return 501 Not Implemented. 
 
 ### Example
 
@@ -993,7 +993,7 @@ ApiResponse<[**UpdateAdCampaign200Response**](UpdateAdCampaign200Response.md)>
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Campaign budget updated |  -  |
+| **200** | Campaign updated |  -  |
 | **400** | Invalid input |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Campaign not found |  -  |
@@ -1159,9 +1159,9 @@ ApiResponse<[**UpdateAdCampaignStatus200Response**](UpdateAdCampaignStatus200Res
 
 > UpdateAdSet200Response updateAdSet(adSetId, updateAdSetRequest)
 
-Update an ad set (budget and/or status)
+Update an ad set (budget, status, and/or bid strategy)
 
-Ad-set-level writes. Use this for ABO budget updates and ad-set-scoped pause/resume. Provide &#x60;budget&#x60; and/or &#x60;status&#x60; in the body.  When updating &#x60;budget&#x60; on an ABO campaign: if the parent campaign is CBO, the response is 409 with code BUDGET_LEVEL_MISMATCH — route to PUT /v1/ads/campaigns/{campaignId} instead. 
+Ad-set-level writes. Use this for ABO budget updates, ad-set-scoped pause/resume, and bid-strategy edits. At least one of &#x60;budget&#x60;, &#x60;status&#x60;, or &#x60;bidStrategy&#x60; is required.  Bid strategy compatibility (per Meta&#39;s spec): - &#x60;LOWEST_COST_WITHOUT_CAP&#x60;: no &#x60;bidAmount&#x60;, no &#x60;roasAverageFloor&#x60;. - &#x60;LOWEST_COST_WITH_BID_CAP&#x60; / &#x60;COST_CAP&#x60;: &#x60;bidAmount&#x60; REQUIRED (whole currency units). - &#x60;LOWEST_COST_WITH_MIN_ROAS&#x60;: &#x60;roasAverageFloor&#x60; REQUIRED (decimal multiplier, e.g. 2.0 &#x3D; 2.0x ROAS).  When updating &#x60;budget&#x60; on an ABO campaign: if the parent campaign is CBO, the response is 409 with code BUDGET_LEVEL_MISMATCH — route to PUT /v1/ads/campaigns/{campaignId} instead. 
 
 ### Example
 
@@ -1230,14 +1230,15 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **404** | Ad set not found |  -  |
 | **409** | Campaign is CBO — route to /v1/ads/campaigns/{campaignId} instead |  -  |
+| **501** | bidStrategy not supported on the platform (Meta + TikTok only) |  -  |
 
 ## updateAdSetWithHttpInfo
 
 > ApiResponse<UpdateAdSet200Response> updateAdSet updateAdSetWithHttpInfo(adSetId, updateAdSetRequest)
 
-Update an ad set (budget and/or status)
+Update an ad set (budget, status, and/or bid strategy)
 
-Ad-set-level writes. Use this for ABO budget updates and ad-set-scoped pause/resume. Provide &#x60;budget&#x60; and/or &#x60;status&#x60; in the body.  When updating &#x60;budget&#x60; on an ABO campaign: if the parent campaign is CBO, the response is 409 with code BUDGET_LEVEL_MISMATCH — route to PUT /v1/ads/campaigns/{campaignId} instead. 
+Ad-set-level writes. Use this for ABO budget updates, ad-set-scoped pause/resume, and bid-strategy edits. At least one of &#x60;budget&#x60;, &#x60;status&#x60;, or &#x60;bidStrategy&#x60; is required.  Bid strategy compatibility (per Meta&#39;s spec): - &#x60;LOWEST_COST_WITHOUT_CAP&#x60;: no &#x60;bidAmount&#x60;, no &#x60;roasAverageFloor&#x60;. - &#x60;LOWEST_COST_WITH_BID_CAP&#x60; / &#x60;COST_CAP&#x60;: &#x60;bidAmount&#x60; REQUIRED (whole currency units). - &#x60;LOWEST_COST_WITH_MIN_ROAS&#x60;: &#x60;roasAverageFloor&#x60; REQUIRED (decimal multiplier, e.g. 2.0 &#x3D; 2.0x ROAS).  When updating &#x60;budget&#x60; on an ABO campaign: if the parent campaign is CBO, the response is 409 with code BUDGET_LEVEL_MISMATCH — route to PUT /v1/ads/campaigns/{campaignId} instead. 
 
 ### Example
 
@@ -1309,6 +1310,7 @@ ApiResponse<[**UpdateAdSet200Response**](UpdateAdSet200Response.md)>
 | **401** | Unauthorized |  -  |
 | **404** | Ad set not found |  -  |
 | **409** | Campaign is CBO — route to /v1/ads/campaigns/{campaignId} instead |  -  |
+| **501** | bidStrategy not supported on the platform (Meta + TikTok only) |  -  |
 
 
 ## updateAdSetStatus

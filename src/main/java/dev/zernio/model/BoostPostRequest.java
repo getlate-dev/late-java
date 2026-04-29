@@ -24,11 +24,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import dev.zernio.model.BidStrategy;
 import dev.zernio.model.BoostPostRequestBudget;
 import dev.zernio.model.BoostPostRequestSchedule;
 import dev.zernio.model.BoostPostRequestTargeting;
 import dev.zernio.model.BoostPostRequestTracking;
 import java.math.BigDecimal;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -50,13 +52,17 @@ import dev.zernio.ApiClient;
   BoostPostRequest.JSON_PROPERTY_CURRENCY,
   BoostPostRequest.JSON_PROPERTY_SCHEDULE,
   BoostPostRequest.JSON_PROPERTY_TARGETING,
+  BoostPostRequest.JSON_PROPERTY_BID_STRATEGY,
   BoostPostRequest.JSON_PROPERTY_BID_AMOUNT,
+  BoostPostRequest.JSON_PROPERTY_ROAS_AVERAGE_FLOOR,
   BoostPostRequest.JSON_PROPERTY_TRACKING,
   BoostPostRequest.JSON_PROPERTY_SPECIAL_AD_CATEGORIES,
+  BoostPostRequest.JSON_PROPERTY_LINK_URL,
+  BoostPostRequest.JSON_PROPERTY_CALL_TO_ACTION,
   BoostPostRequest.JSON_PROPERTY_DSA_BENEFICIARY,
   BoostPostRequest.JSON_PROPERTY_DSA_PAYOR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T10:23:19.131039113Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T14:57:45.159761018Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class BoostPostRequest {
   public static final String JSON_PROPERTY_POST_ID = "postId";
   @javax.annotation.Nullable
@@ -143,9 +149,17 @@ public class BoostPostRequest {
   @javax.annotation.Nullable
   private BoostPostRequestTargeting targeting;
 
+  public static final String JSON_PROPERTY_BID_STRATEGY = "bidStrategy";
+  @javax.annotation.Nullable
+  private BidStrategy bidStrategy;
+
   public static final String JSON_PROPERTY_BID_AMOUNT = "bidAmount";
   @javax.annotation.Nullable
   private BigDecimal bidAmount;
+
+  public static final String JSON_PROPERTY_ROAS_AVERAGE_FLOOR = "roasAverageFloor";
+  @javax.annotation.Nullable
+  private BigDecimal roasAverageFloor;
 
   public static final String JSON_PROPERTY_TRACKING = "tracking";
   @javax.annotation.Nullable
@@ -193,6 +207,14 @@ public class BoostPostRequest {
   public static final String JSON_PROPERTY_SPECIAL_AD_CATEGORIES = "specialAdCategories";
   @javax.annotation.Nullable
   private List<SpecialAdCategoriesEnum> specialAdCategories = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_LINK_URL = "linkUrl";
+  @javax.annotation.Nullable
+  private URI linkUrl;
+
+  public static final String JSON_PROPERTY_CALL_TO_ACTION = "callToAction";
+  @javax.annotation.Nullable
+  private String callToAction;
 
   public static final String JSON_PROPERTY_DSA_BENEFICIARY = "dsaBeneficiary";
   @javax.annotation.Nullable
@@ -445,13 +467,37 @@ public class BoostPostRequest {
   }
 
 
+  public BoostPostRequest bidStrategy(@javax.annotation.Nullable BidStrategy bidStrategy) {
+    this.bidStrategy = bidStrategy;
+    return this;
+  }
+
+  /**
+   * Meta bid strategy applied to the ad set. On TikTok, mapped to &#x60;bid_type&#x60; / &#x60;bid_price&#x60; / &#x60;deep_bid_type&#x60; automatically. 
+   * @return bidStrategy
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_BID_STRATEGY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public BidStrategy getBidStrategy() {
+    return bidStrategy;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_BID_STRATEGY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBidStrategy(@javax.annotation.Nullable BidStrategy bidStrategy) {
+    this.bidStrategy = bidStrategy;
+  }
+
+
   public BoostPostRequest bidAmount(@javax.annotation.Nullable BigDecimal bidAmount) {
     this.bidAmount = bidAmount;
     return this;
   }
 
   /**
-   * Max bid cap (Meta only)
+   * Bid cap in WHOLE currency units (USD: 5 &#x3D; $5.00; JPY: 100 &#x3D; ¥100). Required when &#x60;bidStrategy&#x60; is &#x60;LOWEST_COST_WITH_BID_CAP&#x60; or &#x60;COST_CAP&#x60;. Backward-compat: providing &#x60;bidAmount&#x60; without &#x60;bidStrategy&#x60; is treated as &#x60;LOWEST_COST_WITH_BID_CAP&#x60;. 
    * @return bidAmount
    */
   @javax.annotation.Nullable
@@ -466,6 +512,30 @@ public class BoostPostRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBidAmount(@javax.annotation.Nullable BigDecimal bidAmount) {
     this.bidAmount = bidAmount;
+  }
+
+
+  public BoostPostRequest roasAverageFloor(@javax.annotation.Nullable BigDecimal roasAverageFloor) {
+    this.roasAverageFloor = roasAverageFloor;
+    return this;
+  }
+
+  /**
+   * Minimum ROAS as a decimal multiplier (e.g. 2.0 &#x3D; 2.0x ROAS). Required when &#x60;bidStrategy&#x60; is &#x60;LOWEST_COST_WITH_MIN_ROAS&#x60;. Sent to Meta as &#x60;bid_constraints.roas_average_floor&#x60; × 10000 (Meta uses fixed-point integers). 
+   * @return roasAverageFloor
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_ROAS_AVERAGE_FLOOR, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public BigDecimal getRoasAverageFloor() {
+    return roasAverageFloor;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ROAS_AVERAGE_FLOOR, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRoasAverageFloor(@javax.annotation.Nullable BigDecimal roasAverageFloor) {
+    this.roasAverageFloor = roasAverageFloor;
   }
 
 
@@ -522,6 +592,54 @@ public class BoostPostRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSpecialAdCategories(@javax.annotation.Nullable List<SpecialAdCategoriesEnum> specialAdCategories) {
     this.specialAdCategories = specialAdCategories;
+  }
+
+
+  public BoostPostRequest linkUrl(@javax.annotation.Nullable URI linkUrl) {
+    this.linkUrl = linkUrl;
+    return this;
+  }
+
+  /**
+   * TikTok-only. Custom destination URL for the Spark Ad. Without this, TikTok Spark Ads have no clickable destination — required for traffic / conversion objectives. Maps to &#x60;landing_page_url&#x60; on the creative entry of /v2/ad/create/ (TikTok SDK &#x60;AdcreateCreatives.landing_page_url&#x60;). Ignored on Meta / LinkedIn / Pinterest / X / Google (those infer the destination from the boosted post). 
+   * @return linkUrl
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_LINK_URL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public URI getLinkUrl() {
+    return linkUrl;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_LINK_URL, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLinkUrl(@javax.annotation.Nullable URI linkUrl) {
+    this.linkUrl = linkUrl;
+  }
+
+
+  public BoostPostRequest callToAction(@javax.annotation.Nullable String callToAction) {
+    this.callToAction = callToAction;
+    return this;
+  }
+
+  /**
+   * TikTok-only. Call-to-action button label on the Spark Ad creative (e.g. &#x60;LEARN_MORE&#x60;, &#x60;SHOP_NOW&#x60;, &#x60;DOWNLOAD_NOW&#x60;, &#x60;SIGN_UP&#x60;, &#x60;WATCH_NOW&#x60;). Maps to &#x60;call_to_action&#x60; on the creative entry of /v2/ad/create/. Pass-through — the platform validates the value. See TikTok&#39;s \&quot;Enumeration - Call-to-Action\&quot; reference for the full list. 
+   * @return callToAction
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_CALL_TO_ACTION, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCallToAction() {
+    return callToAction;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_CALL_TO_ACTION, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCallToAction(@javax.annotation.Nullable String callToAction) {
+    this.callToAction = callToAction;
   }
 
 
@@ -595,16 +713,20 @@ public class BoostPostRequest {
         Objects.equals(this.currency, boostPostRequest.currency) &&
         Objects.equals(this.schedule, boostPostRequest.schedule) &&
         Objects.equals(this.targeting, boostPostRequest.targeting) &&
+        Objects.equals(this.bidStrategy, boostPostRequest.bidStrategy) &&
         Objects.equals(this.bidAmount, boostPostRequest.bidAmount) &&
+        Objects.equals(this.roasAverageFloor, boostPostRequest.roasAverageFloor) &&
         Objects.equals(this.tracking, boostPostRequest.tracking) &&
         Objects.equals(this.specialAdCategories, boostPostRequest.specialAdCategories) &&
+        Objects.equals(this.linkUrl, boostPostRequest.linkUrl) &&
+        Objects.equals(this.callToAction, boostPostRequest.callToAction) &&
         Objects.equals(this.dsaBeneficiary, boostPostRequest.dsaBeneficiary) &&
         Objects.equals(this.dsaPayor, boostPostRequest.dsaPayor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(postId, platformPostId, accountId, adAccountId, name, goal, budget, currency, schedule, targeting, bidAmount, tracking, specialAdCategories, dsaBeneficiary, dsaPayor);
+    return Objects.hash(postId, platformPostId, accountId, adAccountId, name, goal, budget, currency, schedule, targeting, bidStrategy, bidAmount, roasAverageFloor, tracking, specialAdCategories, linkUrl, callToAction, dsaBeneficiary, dsaPayor);
   }
 
   @Override
@@ -621,9 +743,13 @@ public class BoostPostRequest {
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
     sb.append("    targeting: ").append(toIndentedString(targeting)).append("\n");
+    sb.append("    bidStrategy: ").append(toIndentedString(bidStrategy)).append("\n");
     sb.append("    bidAmount: ").append(toIndentedString(bidAmount)).append("\n");
+    sb.append("    roasAverageFloor: ").append(toIndentedString(roasAverageFloor)).append("\n");
     sb.append("    tracking: ").append(toIndentedString(tracking)).append("\n");
     sb.append("    specialAdCategories: ").append(toIndentedString(specialAdCategories)).append("\n");
+    sb.append("    linkUrl: ").append(toIndentedString(linkUrl)).append("\n");
+    sb.append("    callToAction: ").append(toIndentedString(callToAction)).append("\n");
     sb.append("    dsaBeneficiary: ").append(toIndentedString(dsaBeneficiary)).append("\n");
     sb.append("    dsaPayor: ").append(toIndentedString(dsaPayor)).append("\n");
     sb.append("}");
@@ -723,9 +849,19 @@ public class BoostPostRequest {
       joiner.add(getTargeting().toUrlQueryString(prefix + "targeting" + suffix));
     }
 
+    // add `bidStrategy` to the URL query string
+    if (getBidStrategy() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sbidStrategy%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getBidStrategy()))));
+    }
+
     // add `bidAmount` to the URL query string
     if (getBidAmount() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sbidAmount%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getBidAmount()))));
+    }
+
+    // add `roasAverageFloor` to the URL query string
+    if (getRoasAverageFloor() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sroasAverageFloor%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getRoasAverageFloor()))));
     }
 
     // add `tracking` to the URL query string
@@ -740,6 +876,16 @@ public class BoostPostRequest {
             "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix),
             ApiClient.urlEncode(ApiClient.valueToString(getSpecialAdCategories().get(i)))));
       }
+    }
+
+    // add `linkUrl` to the URL query string
+    if (getLinkUrl() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%slinkUrl%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getLinkUrl()))));
+    }
+
+    // add `callToAction` to the URL query string
+    if (getCallToAction() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%scallToAction%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getCallToAction()))));
     }
 
     // add `dsaBeneficiary` to the URL query string

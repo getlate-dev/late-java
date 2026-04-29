@@ -23,7 +23,7 @@
 |**images** | [**CreateStandaloneAdRequestImages**](CreateStandaloneAdRequestImages.md) |  |  [optional] |
 |**video** | [**CreateStandaloneAdRequestVideo**](CreateStandaloneAdRequestVideo.md) |  |  [optional] |
 |**creatives** | [**List&lt;CreateStandaloneAdRequestCreativesInner&gt;**](CreateStandaloneAdRequestCreativesInner.md) | Meta-only. When present, switches to the multi-creative shape: creates 1 campaign + 1 ad set + N ads (one per entry here). Top-level &#x60;headline&#x60; / &#x60;body&#x60; / &#x60;imageUrl&#x60; / &#x60;linkUrl&#x60; / &#x60;callToAction&#x60; are ignored in this mode. Mutually exclusive with &#x60;adSetId&#x60;.  |  [optional] |
-|**adSetId** | **String** | Meta-only. When present, switches to the attach shape: adds one new ad to this existing ad set without creating a new campaign. Budget, targeting, goal, and schedule are inherited from the ad set on Meta. Mutually exclusive with &#x60;creatives[]&#x60;.  |  [optional] |
+|**adSetId** | **String** | Meta-only. When present, switches to the attach shape: adds one new ad to this existing ad set without creating a new campaign. Budget, targeting, goal, schedule, AND bid strategy are inherited from the ad set on Meta — passing &#x60;bidStrategy&#x60; in attach mode returns 400. To change an existing ad set&#39;s bid, use &#x60;PUT /v1/ads/ad-sets/{adSetId}&#x60;. Mutually exclusive with &#x60;creatives[]&#x60;.  |  [optional] |
 |**businessName** | **String** | Google Display only |  [optional] |
 |**boardId** | **String** | Pinterest only. Board ID (auto-creates if not provided). |  [optional] |
 |**countries** | **List&lt;String&gt;** |  |  [optional] |
@@ -38,6 +38,9 @@
 |**additionalDescriptions** | **List&lt;String&gt;** | Google Search RSA only. Extra descriptions. |  [optional] |
 |**advantageAudience** | [**AdvantageAudienceEnum**](#AdvantageAudienceEnum) | Meta only. Controls the Advantage audience feature (targeting_automation). 0 &#x3D; disabled (default), 1 &#x3D; enabled. Meta Marketing API requires this field on all ad set creation requests. |  [optional] |
 |**gender** | [**GenderEnum**](#GenderEnum) | Meta only. Restrict the audience by gender. &#39;male&#39; targets men only, &#39;female&#39; targets women only, &#39;all&#39; (default) targets everyone. Ignored by non-Meta platforms. |  [optional] |
+|**bidStrategy** | **BidStrategy** | Meta bid strategy applied to the ad set. |  [optional] |
+|**bidAmount** | **BigDecimal** | Bid cap in WHOLE currency units (USD: 5 &#x3D; $5.00; JPY: 100 &#x3D; ¥100). Required when &#x60;bidStrategy&#x60; is &#x60;LOWEST_COST_WITH_BID_CAP&#x60; or &#x60;COST_CAP&#x60;.  |  [optional] |
+|**roasAverageFloor** | **BigDecimal** | Minimum ROAS as a decimal multiplier (e.g. 2.0 &#x3D; 2.0x ROAS). Required when &#x60;bidStrategy&#x60; is &#x60;LOWEST_COST_WITH_MIN_ROAS&#x60;. Sent to Meta as &#x60;bid_constraints.roas_average_floor&#x60; × 10000.  |  [optional] |
 |**dsaBeneficiary** | **String** | Name of the legal entity benefiting from the ad. Required by Meta when targeting EU users (DSA Article 26). Not enforced at schema level; enforced server-side when targeting intersects EU member states.  |  [optional] |
 |**dsaPayor** | **String** | Name of the legal entity paying for the ad. Required by Meta when targeting EU users (DSA Article 26). Note Meta API spelling: dsa_payor (not dsa_payer).  |  [optional] |
 

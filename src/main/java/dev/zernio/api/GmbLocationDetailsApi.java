@@ -49,7 +49,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T10:23:19.131039113Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T14:57:45.159761018Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GmbLocationDetailsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -171,7 +171,7 @@ public class GmbLocationDetailsApi {
    * Returns detailed GBP location info (hours, description, phone, website, categories, services). Use readMask to request specific fields.
    * @param accountId The Zernio account ID (from /v1/accounts) (required)
    * @param locationId Override which location to query. If omitted, uses the account&#39;s selected location. Use GET /gmb-locations to list valid IDs. (optional)
-   * @param readMask Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, serviceItems, profile, openInfo, metadata, moreHours. (optional)
+   * @param readMask Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, serviceItems, profile, openInfo, metadata, moreHours. &#x60;title&#x60; and &#x60;metadata&#x60; are always included in the response so the &#x60;location&#x60; summary block can be populated, even if you omit them here. Note: &#x60;location&#x60; is a derived response field, not a Google readMask value, passing it returns 400.  (optional)
    * @return GetGoogleBusinessLocationDetails200Response
    * @throws ApiException if fails to make API call
    */
@@ -184,7 +184,7 @@ public class GmbLocationDetailsApi {
    * Returns detailed GBP location info (hours, description, phone, website, categories, services). Use readMask to request specific fields.
    * @param accountId The Zernio account ID (from /v1/accounts) (required)
    * @param locationId Override which location to query. If omitted, uses the account&#39;s selected location. Use GET /gmb-locations to list valid IDs. (optional)
-   * @param readMask Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, serviceItems, profile, openInfo, metadata, moreHours. (optional)
+   * @param readMask Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, serviceItems, profile, openInfo, metadata, moreHours. &#x60;title&#x60; and &#x60;metadata&#x60; are always included in the response so the &#x60;location&#x60; summary block can be populated, even if you omit them here. Note: &#x60;location&#x60; is a derived response field, not a Google readMask value, passing it returns 400.  (optional)
    * @param headers Optional headers to include in the request
    * @return GetGoogleBusinessLocationDetails200Response
    * @throws ApiException if fails to make API call
@@ -199,7 +199,7 @@ public class GmbLocationDetailsApi {
    * Returns detailed GBP location info (hours, description, phone, website, categories, services). Use readMask to request specific fields.
    * @param accountId The Zernio account ID (from /v1/accounts) (required)
    * @param locationId Override which location to query. If omitted, uses the account&#39;s selected location. Use GET /gmb-locations to list valid IDs. (optional)
-   * @param readMask Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, serviceItems, profile, openInfo, metadata, moreHours. (optional)
+   * @param readMask Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, serviceItems, profile, openInfo, metadata, moreHours. &#x60;title&#x60; and &#x60;metadata&#x60; are always included in the response so the &#x60;location&#x60; summary block can be populated, even if you omit them here. Note: &#x60;location&#x60; is a derived response field, not a Google readMask value, passing it returns 400.  (optional)
    * @return ApiResponse&lt;GetGoogleBusinessLocationDetails200Response&gt;
    * @throws ApiException if fails to make API call
    */
@@ -212,7 +212,7 @@ public class GmbLocationDetailsApi {
    * Returns detailed GBP location info (hours, description, phone, website, categories, services). Use readMask to request specific fields.
    * @param accountId The Zernio account ID (from /v1/accounts) (required)
    * @param locationId Override which location to query. If omitted, uses the account&#39;s selected location. Use GET /gmb-locations to list valid IDs. (optional)
-   * @param readMask Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, serviceItems, profile, openInfo, metadata, moreHours. (optional)
+   * @param readMask Comma-separated fields to return. Available: name, title, phoneNumbers, categories, storefrontAddress, websiteUri, regularHours, specialHours, serviceArea, serviceItems, profile, openInfo, metadata, moreHours. &#x60;title&#x60; and &#x60;metadata&#x60; are always included in the response so the &#x60;location&#x60; summary block can be populated, even if you omit them here. Note: &#x60;location&#x60; is a derived response field, not a Google readMask value, passing it returns 400.  (optional)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetGoogleBusinessLocationDetails200Response&gt;
    * @throws ApiException if fails to make API call
