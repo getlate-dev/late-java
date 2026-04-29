@@ -32,6 +32,7 @@ import dev.zernio.model.InlineObject;
 import dev.zernio.model.InlineObject1;
 import dev.zernio.model.ListAdAccounts200Response;
 import dev.zernio.model.ListAds200Response;
+import dev.zernio.model.ListAdsBusinessCenters200Response;
 import dev.zernio.model.ListConversionDestinations200Response;
 import java.time.LocalDate;
 import dev.zernio.model.SearchAdInterests200Response;
@@ -39,6 +40,8 @@ import dev.zernio.model.SendConversions200Response;
 import dev.zernio.model.SendConversionsRequest;
 import dev.zernio.model.SendWhatsAppConversion200Response;
 import dev.zernio.model.SendWhatsAppConversionRequest;
+import dev.zernio.model.TriggerAdsInitialSync202Response;
+import dev.zernio.model.TriggerAdsInitialSyncRequest;
 import dev.zernio.model.UpdateAd200Response;
 import dev.zernio.model.UpdateAdRequest;
 
@@ -67,7 +70,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T15:17:19.804997484Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T16:43:09.546129141Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AdsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -1085,23 +1088,27 @@ public class AdsApi {
    * List ad accounts
    * Returns the platform ad accounts available for the given social account (e.g. Meta ad accounts, TikTok advertiser IDs, Google Ads customer IDs).  For TikTok agencies: enumerates every advertiser under every Business Center the token can read (paginated server-side), then chunks the lookup against TikTok&#39;s &#x60;/advertiser/info/&#x60; endpoint (which has a per-call cap of ≤100 IDs). Solo advertisers without a BC fall back to the OAuth-time &#x60;advertiser_ids&#x60; list. Cached for 1h on the SocialAccount; lazy-refreshed on first call after expiry. 
    * @param accountId Social account ID (required)
+   * @param adAccountId Filter response to a single platform ad account ID (e.g. &#x60;act_123&#x60; for Meta, advertiser_id for TikTok). Returns at most one item. (optional)
+   * @param limit Clamp the returned &#x60;accounts[]&#x60; length. Useful for typeahead pickers on agency tokens with hundreds of advertisers. (optional)
    * @return ListAdAccounts200Response
    * @throws ApiException if fails to make API call
    */
-  public ListAdAccounts200Response listAdAccounts(@javax.annotation.Nonnull String accountId) throws ApiException {
-    return listAdAccounts(accountId, null);
+  public ListAdAccounts200Response listAdAccounts(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String adAccountId, @javax.annotation.Nullable Integer limit) throws ApiException {
+    return listAdAccounts(accountId, adAccountId, limit, null);
   }
 
   /**
    * List ad accounts
    * Returns the platform ad accounts available for the given social account (e.g. Meta ad accounts, TikTok advertiser IDs, Google Ads customer IDs).  For TikTok agencies: enumerates every advertiser under every Business Center the token can read (paginated server-side), then chunks the lookup against TikTok&#39;s &#x60;/advertiser/info/&#x60; endpoint (which has a per-call cap of ≤100 IDs). Solo advertisers without a BC fall back to the OAuth-time &#x60;advertiser_ids&#x60; list. Cached for 1h on the SocialAccount; lazy-refreshed on first call after expiry. 
    * @param accountId Social account ID (required)
+   * @param adAccountId Filter response to a single platform ad account ID (e.g. &#x60;act_123&#x60; for Meta, advertiser_id for TikTok). Returns at most one item. (optional)
+   * @param limit Clamp the returned &#x60;accounts[]&#x60; length. Useful for typeahead pickers on agency tokens with hundreds of advertisers. (optional)
    * @param headers Optional headers to include in the request
    * @return ListAdAccounts200Response
    * @throws ApiException if fails to make API call
    */
-  public ListAdAccounts200Response listAdAccounts(@javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
-    ApiResponse<ListAdAccounts200Response> localVarResponse = listAdAccountsWithHttpInfo(accountId, headers);
+  public ListAdAccounts200Response listAdAccounts(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String adAccountId, @javax.annotation.Nullable Integer limit, Map<String, String> headers) throws ApiException {
+    ApiResponse<ListAdAccounts200Response> localVarResponse = listAdAccountsWithHttpInfo(accountId, adAccountId, limit, headers);
     return localVarResponse.getData();
   }
 
@@ -1109,23 +1116,27 @@ public class AdsApi {
    * List ad accounts
    * Returns the platform ad accounts available for the given social account (e.g. Meta ad accounts, TikTok advertiser IDs, Google Ads customer IDs).  For TikTok agencies: enumerates every advertiser under every Business Center the token can read (paginated server-side), then chunks the lookup against TikTok&#39;s &#x60;/advertiser/info/&#x60; endpoint (which has a per-call cap of ≤100 IDs). Solo advertisers without a BC fall back to the OAuth-time &#x60;advertiser_ids&#x60; list. Cached for 1h on the SocialAccount; lazy-refreshed on first call after expiry. 
    * @param accountId Social account ID (required)
+   * @param adAccountId Filter response to a single platform ad account ID (e.g. &#x60;act_123&#x60; for Meta, advertiser_id for TikTok). Returns at most one item. (optional)
+   * @param limit Clamp the returned &#x60;accounts[]&#x60; length. Useful for typeahead pickers on agency tokens with hundreds of advertisers. (optional)
    * @return ApiResponse&lt;ListAdAccounts200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListAdAccounts200Response> listAdAccountsWithHttpInfo(@javax.annotation.Nonnull String accountId) throws ApiException {
-    return listAdAccountsWithHttpInfo(accountId, null);
+  public ApiResponse<ListAdAccounts200Response> listAdAccountsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String adAccountId, @javax.annotation.Nullable Integer limit) throws ApiException {
+    return listAdAccountsWithHttpInfo(accountId, adAccountId, limit, null);
   }
 
   /**
    * List ad accounts
    * Returns the platform ad accounts available for the given social account (e.g. Meta ad accounts, TikTok advertiser IDs, Google Ads customer IDs).  For TikTok agencies: enumerates every advertiser under every Business Center the token can read (paginated server-side), then chunks the lookup against TikTok&#39;s &#x60;/advertiser/info/&#x60; endpoint (which has a per-call cap of ≤100 IDs). Solo advertisers without a BC fall back to the OAuth-time &#x60;advertiser_ids&#x60; list. Cached for 1h on the SocialAccount; lazy-refreshed on first call after expiry. 
    * @param accountId Social account ID (required)
+   * @param adAccountId Filter response to a single platform ad account ID (e.g. &#x60;act_123&#x60; for Meta, advertiser_id for TikTok). Returns at most one item. (optional)
+   * @param limit Clamp the returned &#x60;accounts[]&#x60; length. Useful for typeahead pickers on agency tokens with hundreds of advertisers. (optional)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;ListAdAccounts200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListAdAccounts200Response> listAdAccountsWithHttpInfo(@javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = listAdAccountsRequestBuilder(accountId, headers);
+  public ApiResponse<ListAdAccounts200Response> listAdAccountsWithHttpInfo(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String adAccountId, @javax.annotation.Nullable Integer limit, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listAdAccountsRequestBuilder(accountId, adAccountId, limit, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -1172,7 +1183,7 @@ public class AdsApi {
     }
   }
 
-  private HttpRequest.Builder listAdAccountsRequestBuilder(@javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
+  private HttpRequest.Builder listAdAccountsRequestBuilder(@javax.annotation.Nonnull String accountId, @javax.annotation.Nullable String adAccountId, @javax.annotation.Nullable Integer limit, Map<String, String> headers) throws ApiException {
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       throw new ApiException(400, "Missing the required parameter 'accountId' when calling listAdAccounts");
@@ -1187,6 +1198,10 @@ public class AdsApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "accountId";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("accountId", accountId));
+    localVarQueryParameterBaseName = "adAccountId";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("adAccountId", adAccountId));
+    localVarQueryParameterBaseName = "limit";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("limit", limit));
 
     if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
       StringJoiner queryJoiner = new StringJoiner("&");
@@ -1375,6 +1390,138 @@ public class AdsApi {
     localVarQueryParams.addAll(ApiClient.parameterToPairs("fromDate", fromDate));
     localVarQueryParameterBaseName = "toDate";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("toDate", toDate));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * List TikTok Business Centers
+   * Returns the TikTok Business Centers (BCs) the connected &#x60;tiktokads&#x60; account can read. Each BC reports its advertiser count so callers can build agency-style pickers without re-walking &#x60;/v1/ads/accounts&#x60; per BC.  TikTok-only. Solo advertisers (non-agency tokens) return an empty array. 
+   * @param accountId ID of the &#x60;tiktokads&#x60; (or parent &#x60;tiktok&#x60; posting) SocialAccount (required)
+   * @return ListAdsBusinessCenters200Response
+   * @throws ApiException if fails to make API call
+   */
+  public ListAdsBusinessCenters200Response listAdsBusinessCenters(@javax.annotation.Nonnull String accountId) throws ApiException {
+    return listAdsBusinessCenters(accountId, null);
+  }
+
+  /**
+   * List TikTok Business Centers
+   * Returns the TikTok Business Centers (BCs) the connected &#x60;tiktokads&#x60; account can read. Each BC reports its advertiser count so callers can build agency-style pickers without re-walking &#x60;/v1/ads/accounts&#x60; per BC.  TikTok-only. Solo advertisers (non-agency tokens) return an empty array. 
+   * @param accountId ID of the &#x60;tiktokads&#x60; (or parent &#x60;tiktok&#x60; posting) SocialAccount (required)
+   * @param headers Optional headers to include in the request
+   * @return ListAdsBusinessCenters200Response
+   * @throws ApiException if fails to make API call
+   */
+  public ListAdsBusinessCenters200Response listAdsBusinessCenters(@javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
+    ApiResponse<ListAdsBusinessCenters200Response> localVarResponse = listAdsBusinessCentersWithHttpInfo(accountId, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * List TikTok Business Centers
+   * Returns the TikTok Business Centers (BCs) the connected &#x60;tiktokads&#x60; account can read. Each BC reports its advertiser count so callers can build agency-style pickers without re-walking &#x60;/v1/ads/accounts&#x60; per BC.  TikTok-only. Solo advertisers (non-agency tokens) return an empty array. 
+   * @param accountId ID of the &#x60;tiktokads&#x60; (or parent &#x60;tiktok&#x60; posting) SocialAccount (required)
+   * @return ApiResponse&lt;ListAdsBusinessCenters200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<ListAdsBusinessCenters200Response> listAdsBusinessCentersWithHttpInfo(@javax.annotation.Nonnull String accountId) throws ApiException {
+    return listAdsBusinessCentersWithHttpInfo(accountId, null);
+  }
+
+  /**
+   * List TikTok Business Centers
+   * Returns the TikTok Business Centers (BCs) the connected &#x60;tiktokads&#x60; account can read. Each BC reports its advertiser count so callers can build agency-style pickers without re-walking &#x60;/v1/ads/accounts&#x60; per BC.  TikTok-only. Solo advertisers (non-agency tokens) return an empty array. 
+   * @param accountId ID of the &#x60;tiktokads&#x60; (or parent &#x60;tiktok&#x60; posting) SocialAccount (required)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;ListAdsBusinessCenters200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<ListAdsBusinessCenters200Response> listAdsBusinessCentersWithHttpInfo(@javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listAdsBusinessCentersRequestBuilder(accountId, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("listAdsBusinessCenters", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<ListAdsBusinessCenters200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        ListAdsBusinessCenters200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<ListAdsBusinessCenters200Response>() {});
+        
+
+        return new ApiResponse<ListAdsBusinessCenters200Response>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder listAdsBusinessCentersRequestBuilder(@javax.annotation.Nonnull String accountId, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling listAdsBusinessCenters");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/ads/business-centers";
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "accountId";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("accountId", accountId));
 
     if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
       StringJoiner queryJoiner = new StringJoiner("&");
@@ -1908,8 +2055,131 @@ public class AdsApi {
   }
 
   /**
+   * Re-sync an ads account
+   * Enqueue a full re-sync (discovery + 90-day metrics backfill) for one ads SocialAccount. Returns immediately with a trace ID; subscribe to the &#x60;account.ads.initial_sync_completed&#x60; webhook for completion.  Use this when: - the customer changed which TikTok Business Center / Meta ad account a   token can reach and wants Zernio to discover the new ads, - a previous sync errored out and the customer wants a clean retry, - the customer rotated permissions on the platform side.  Per-account 1h debounce: subsequent calls within an hour return &#x60;202&#x60; with &#x60;status: \&quot;already_queued\&quot;&#x60; and the prior trace ID. 
+   * @param triggerAdsInitialSyncRequest  (required)
+   * @return TriggerAdsInitialSync202Response
+   * @throws ApiException if fails to make API call
+   */
+  public TriggerAdsInitialSync202Response triggerAdsInitialSync(@javax.annotation.Nonnull TriggerAdsInitialSyncRequest triggerAdsInitialSyncRequest) throws ApiException {
+    return triggerAdsInitialSync(triggerAdsInitialSyncRequest, null);
+  }
+
+  /**
+   * Re-sync an ads account
+   * Enqueue a full re-sync (discovery + 90-day metrics backfill) for one ads SocialAccount. Returns immediately with a trace ID; subscribe to the &#x60;account.ads.initial_sync_completed&#x60; webhook for completion.  Use this when: - the customer changed which TikTok Business Center / Meta ad account a   token can reach and wants Zernio to discover the new ads, - a previous sync errored out and the customer wants a clean retry, - the customer rotated permissions on the platform side.  Per-account 1h debounce: subsequent calls within an hour return &#x60;202&#x60; with &#x60;status: \&quot;already_queued\&quot;&#x60; and the prior trace ID. 
+   * @param triggerAdsInitialSyncRequest  (required)
+   * @param headers Optional headers to include in the request
+   * @return TriggerAdsInitialSync202Response
+   * @throws ApiException if fails to make API call
+   */
+  public TriggerAdsInitialSync202Response triggerAdsInitialSync(@javax.annotation.Nonnull TriggerAdsInitialSyncRequest triggerAdsInitialSyncRequest, Map<String, String> headers) throws ApiException {
+    ApiResponse<TriggerAdsInitialSync202Response> localVarResponse = triggerAdsInitialSyncWithHttpInfo(triggerAdsInitialSyncRequest, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Re-sync an ads account
+   * Enqueue a full re-sync (discovery + 90-day metrics backfill) for one ads SocialAccount. Returns immediately with a trace ID; subscribe to the &#x60;account.ads.initial_sync_completed&#x60; webhook for completion.  Use this when: - the customer changed which TikTok Business Center / Meta ad account a   token can reach and wants Zernio to discover the new ads, - a previous sync errored out and the customer wants a clean retry, - the customer rotated permissions on the platform side.  Per-account 1h debounce: subsequent calls within an hour return &#x60;202&#x60; with &#x60;status: \&quot;already_queued\&quot;&#x60; and the prior trace ID. 
+   * @param triggerAdsInitialSyncRequest  (required)
+   * @return ApiResponse&lt;TriggerAdsInitialSync202Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<TriggerAdsInitialSync202Response> triggerAdsInitialSyncWithHttpInfo(@javax.annotation.Nonnull TriggerAdsInitialSyncRequest triggerAdsInitialSyncRequest) throws ApiException {
+    return triggerAdsInitialSyncWithHttpInfo(triggerAdsInitialSyncRequest, null);
+  }
+
+  /**
+   * Re-sync an ads account
+   * Enqueue a full re-sync (discovery + 90-day metrics backfill) for one ads SocialAccount. Returns immediately with a trace ID; subscribe to the &#x60;account.ads.initial_sync_completed&#x60; webhook for completion.  Use this when: - the customer changed which TikTok Business Center / Meta ad account a   token can reach and wants Zernio to discover the new ads, - a previous sync errored out and the customer wants a clean retry, - the customer rotated permissions on the platform side.  Per-account 1h debounce: subsequent calls within an hour return &#x60;202&#x60; with &#x60;status: \&quot;already_queued\&quot;&#x60; and the prior trace ID. 
+   * @param triggerAdsInitialSyncRequest  (required)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;TriggerAdsInitialSync202Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<TriggerAdsInitialSync202Response> triggerAdsInitialSyncWithHttpInfo(@javax.annotation.Nonnull TriggerAdsInitialSyncRequest triggerAdsInitialSyncRequest, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = triggerAdsInitialSyncRequestBuilder(triggerAdsInitialSyncRequest, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("triggerAdsInitialSync", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<TriggerAdsInitialSync202Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        TriggerAdsInitialSync202Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<TriggerAdsInitialSync202Response>() {});
+        
+
+        return new ApiResponse<TriggerAdsInitialSync202Response>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder triggerAdsInitialSyncRequestBuilder(@javax.annotation.Nonnull TriggerAdsInitialSyncRequest triggerAdsInitialSyncRequest, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'triggerAdsInitialSyncRequest' is set
+    if (triggerAdsInitialSyncRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'triggerAdsInitialSyncRequest' when calling triggerAdsInitialSync");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/ads/sync/initial";
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(triggerAdsInitialSyncRequest);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
    * Update ad
-   * Update one or more fields on an ad. Status changes and budget updates are propagated to the platform. Targeting updates are Meta-only.
+   * Patch one or more fields on an ad. Status, budget, targeting, and creative changes are propagated to the platform.  Per-platform support: - **Meta** (Facebook + Instagram): all fields supported. - **TikTok**: status, budget, targeting (via &#x60;/v2/adgroup/update/&#x60;), and creative   (via &#x60;/v2/ad/update/&#x60; patch-style — &#x60;headline&#x60; is ignored, &#x60;body&#x60; becomes &#x60;ad_text&#x60;). - **Pinterest / X / LinkedIn / Google**: status + budget only. Sending &#x60;targeting&#x60;   or &#x60;creative&#x60; returns 501 with code &#x60;unsupported_platform_operation&#x60;. 
    * @param adId  (required)
    * @param updateAdRequest  (required)
    * @return UpdateAd200Response
@@ -1921,7 +2191,7 @@ public class AdsApi {
 
   /**
    * Update ad
-   * Update one or more fields on an ad. Status changes and budget updates are propagated to the platform. Targeting updates are Meta-only.
+   * Patch one or more fields on an ad. Status, budget, targeting, and creative changes are propagated to the platform.  Per-platform support: - **Meta** (Facebook + Instagram): all fields supported. - **TikTok**: status, budget, targeting (via &#x60;/v2/adgroup/update/&#x60;), and creative   (via &#x60;/v2/ad/update/&#x60; patch-style — &#x60;headline&#x60; is ignored, &#x60;body&#x60; becomes &#x60;ad_text&#x60;). - **Pinterest / X / LinkedIn / Google**: status + budget only. Sending &#x60;targeting&#x60;   or &#x60;creative&#x60; returns 501 with code &#x60;unsupported_platform_operation&#x60;. 
    * @param adId  (required)
    * @param updateAdRequest  (required)
    * @param headers Optional headers to include in the request
@@ -1935,7 +2205,7 @@ public class AdsApi {
 
   /**
    * Update ad
-   * Update one or more fields on an ad. Status changes and budget updates are propagated to the platform. Targeting updates are Meta-only.
+   * Patch one or more fields on an ad. Status, budget, targeting, and creative changes are propagated to the platform.  Per-platform support: - **Meta** (Facebook + Instagram): all fields supported. - **TikTok**: status, budget, targeting (via &#x60;/v2/adgroup/update/&#x60;), and creative   (via &#x60;/v2/ad/update/&#x60; patch-style — &#x60;headline&#x60; is ignored, &#x60;body&#x60; becomes &#x60;ad_text&#x60;). - **Pinterest / X / LinkedIn / Google**: status + budget only. Sending &#x60;targeting&#x60;   or &#x60;creative&#x60; returns 501 with code &#x60;unsupported_platform_operation&#x60;. 
    * @param adId  (required)
    * @param updateAdRequest  (required)
    * @return ApiResponse&lt;UpdateAd200Response&gt;
@@ -1947,7 +2217,7 @@ public class AdsApi {
 
   /**
    * Update ad
-   * Update one or more fields on an ad. Status changes and budget updates are propagated to the platform. Targeting updates are Meta-only.
+   * Patch one or more fields on an ad. Status, budget, targeting, and creative changes are propagated to the platform.  Per-platform support: - **Meta** (Facebook + Instagram): all fields supported. - **TikTok**: status, budget, targeting (via &#x60;/v2/adgroup/update/&#x60;), and creative   (via &#x60;/v2/ad/update/&#x60; patch-style — &#x60;headline&#x60; is ignored, &#x60;body&#x60; becomes &#x60;ad_text&#x60;). - **Pinterest / X / LinkedIn / Google**: status + budget only. Sending &#x60;targeting&#x60;   or &#x60;creative&#x60; returns 501 with code &#x60;unsupported_platform_operation&#x60;. 
    * @param adId  (required)
    * @param updateAdRequest  (required)
    * @param headers Optional headers to include in the request

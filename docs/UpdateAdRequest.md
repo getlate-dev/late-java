@@ -10,6 +10,7 @@
 |**status** | [**StatusEnum**](#StatusEnum) |  |  [optional] |
 |**budget** | [**UpdateAdRequestBudget**](UpdateAdRequestBudget.md) |  |  [optional] |
 |**targeting** | [**UpdateAdRequestTargeting**](UpdateAdRequestTargeting.md) |  |  [optional] |
+|**creative** | [**UpdateAdRequestCreative**](UpdateAdRequestCreative.md) |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 
 

@@ -59,6 +59,8 @@ import dev.zernio.ApiClient;
   Ad.JSON_PROPERTY_AD_SET_NAME,
   Ad.JSON_PROPERTY_PLATFORM_OBJECTIVE,
   Ad.JSON_PROPERTY_OPTIMIZATION_GOAL,
+  Ad.JSON_PROPERTY_PLATFORM_AD_ACCOUNT_NAME,
+  Ad.JSON_PROPERTY_PLATFORM_CREATED_AT,
   Ad.JSON_PROPERTY_BID_STRATEGY,
   Ad.JSON_PROPERTY_BID_AMOUNT,
   Ad.JSON_PROPERTY_ROAS_AVERAGE_FLOOR,
@@ -70,7 +72,7 @@ import dev.zernio.ApiClient;
   Ad.JSON_PROPERTY_CREATED_AT,
   Ad.JSON_PROPERTY_UPDATED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T15:17:19.804997484Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T16:43:09.546129141Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class Ad {
   public static final String JSON_PROPERTY_ID = "_id";
   @javax.annotation.Nullable
@@ -264,6 +266,14 @@ public class Ad {
   public static final String JSON_PROPERTY_OPTIMIZATION_GOAL = "optimizationGoal";
   @javax.annotation.Nullable
   private String optimizationGoal;
+
+  public static final String JSON_PROPERTY_PLATFORM_AD_ACCOUNT_NAME = "platformAdAccountName";
+  @javax.annotation.Nullable
+  private String platformAdAccountName;
+
+  public static final String JSON_PROPERTY_PLATFORM_CREATED_AT = "platformCreatedAt";
+  @javax.annotation.Nullable
+  private OffsetDateTime platformCreatedAt;
 
   public static final String JSON_PROPERTY_BID_STRATEGY = "bidStrategy";
   @javax.annotation.Nullable
@@ -716,6 +726,54 @@ public class Ad {
   }
 
 
+  public Ad platformAdAccountName(@javax.annotation.Nullable String platformAdAccountName) {
+    this.platformAdAccountName = platformAdAccountName;
+    return this;
+  }
+
+  /**
+   * Human-readable advertiser/account name (Meta &#x60;AdAccount.name&#x60;, TikTok &#x60;advertiser_name&#x60;, LinkedIn / X / Pinterest equivalents). Refreshed every sync so platform-side renames propagate within one cycle. &#x60;null&#x60; when the platform doesn&#39;t return a name or the sync hasn&#39;t run yet. 
+   * @return platformAdAccountName
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_PLATFORM_AD_ACCOUNT_NAME, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPlatformAdAccountName() {
+    return platformAdAccountName;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PLATFORM_AD_ACCOUNT_NAME, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPlatformAdAccountName(@javax.annotation.Nullable String platformAdAccountName) {
+    this.platformAdAccountName = platformAdAccountName;
+  }
+
+
+  public Ad platformCreatedAt(@javax.annotation.Nullable OffsetDateTime platformCreatedAt) {
+    this.platformCreatedAt = platformCreatedAt;
+    return this;
+  }
+
+  /**
+   * Platform-reported creation timestamp (Meta &#x60;created_time&#x60;, TikTok &#x60;create_time&#x60;). Distinct from &#x60;createdAt&#x60; which reflects when Zernio first synced the doc — for sort/filter by \&quot;when the ad was actually created on the platform\&quot;, read this field. &#x60;null&#x60; for legacy ads synced before this field was added; aggregations fall back to &#x60;createdAt&#x60; in that case. 
+   * @return platformCreatedAt
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_PLATFORM_CREATED_AT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getPlatformCreatedAt() {
+    return platformCreatedAt;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PLATFORM_CREATED_AT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPlatformCreatedAt(@javax.annotation.Nullable OffsetDateTime platformCreatedAt) {
+    this.platformCreatedAt = platformCreatedAt;
+  }
+
+
   public Ad bidStrategy(@javax.annotation.Nullable BidStrategy bidStrategy) {
     this.bidStrategy = bidStrategy;
     return this;
@@ -985,6 +1043,8 @@ public class Ad {
         Objects.equals(this.adSetName, ad.adSetName) &&
         Objects.equals(this.platformObjective, ad.platformObjective) &&
         Objects.equals(this.optimizationGoal, ad.optimizationGoal) &&
+        Objects.equals(this.platformAdAccountName, ad.platformAdAccountName) &&
+        Objects.equals(this.platformCreatedAt, ad.platformCreatedAt) &&
         Objects.equals(this.bidStrategy, ad.bidStrategy) &&
         Objects.equals(this.bidAmount, ad.bidAmount) &&
         Objects.equals(this.roasAverageFloor, ad.roasAverageFloor) &&
@@ -999,7 +1059,7 @@ public class Ad {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, platform, status, adType, goal, isExternal, budget, metrics, platformAdId, platformAdAccountId, platformCampaignId, platformAdSetId, campaignName, adSetName, platformObjective, optimizationGoal, bidStrategy, bidAmount, roasAverageFloor, promotedObject, creative, targeting, schedule, rejectionReason, createdAt, updatedAt);
+    return Objects.hash(id, name, platform, status, adType, goal, isExternal, budget, metrics, platformAdId, platformAdAccountId, platformCampaignId, platformAdSetId, campaignName, adSetName, platformObjective, optimizationGoal, platformAdAccountName, platformCreatedAt, bidStrategy, bidAmount, roasAverageFloor, promotedObject, creative, targeting, schedule, rejectionReason, createdAt, updatedAt);
   }
 
   @Override
@@ -1023,6 +1083,8 @@ public class Ad {
     sb.append("    adSetName: ").append(toIndentedString(adSetName)).append("\n");
     sb.append("    platformObjective: ").append(toIndentedString(platformObjective)).append("\n");
     sb.append("    optimizationGoal: ").append(toIndentedString(optimizationGoal)).append("\n");
+    sb.append("    platformAdAccountName: ").append(toIndentedString(platformAdAccountName)).append("\n");
+    sb.append("    platformCreatedAt: ").append(toIndentedString(platformCreatedAt)).append("\n");
     sb.append("    bidStrategy: ").append(toIndentedString(bidStrategy)).append("\n");
     sb.append("    bidAmount: ").append(toIndentedString(bidAmount)).append("\n");
     sb.append("    roasAverageFloor: ").append(toIndentedString(roasAverageFloor)).append("\n");
@@ -1163,6 +1225,16 @@ public class Ad {
     // add `optimizationGoal` to the URL query string
     if (getOptimizationGoal() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%soptimizationGoal%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getOptimizationGoal()))));
+    }
+
+    // add `platformAdAccountName` to the URL query string
+    if (getPlatformAdAccountName() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%splatformAdAccountName%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getPlatformAdAccountName()))));
+    }
+
+    // add `platformCreatedAt` to the URL query string
+    if (getPlatformCreatedAt() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%splatformCreatedAt%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getPlatformCreatedAt()))));
     }
 
     // add `bidStrategy` to the URL query string

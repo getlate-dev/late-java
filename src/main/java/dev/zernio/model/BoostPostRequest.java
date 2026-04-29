@@ -59,10 +59,11 @@ import dev.zernio.ApiClient;
   BoostPostRequest.JSON_PROPERTY_SPECIAL_AD_CATEGORIES,
   BoostPostRequest.JSON_PROPERTY_LINK_URL,
   BoostPostRequest.JSON_PROPERTY_CALL_TO_ACTION,
+  BoostPostRequest.JSON_PROPERTY_SPARK_AUTH_CODE,
   BoostPostRequest.JSON_PROPERTY_DSA_BENEFICIARY,
   BoostPostRequest.JSON_PROPERTY_DSA_PAYOR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T15:17:19.804997484Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T16:43:09.546129141Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class BoostPostRequest {
   public static final String JSON_PROPERTY_POST_ID = "postId";
   @javax.annotation.Nullable
@@ -215,6 +216,10 @@ public class BoostPostRequest {
   public static final String JSON_PROPERTY_CALL_TO_ACTION = "callToAction";
   @javax.annotation.Nullable
   private String callToAction;
+
+  public static final String JSON_PROPERTY_SPARK_AUTH_CODE = "sparkAuthCode";
+  @javax.annotation.Nullable
+  private String sparkAuthCode;
 
   public static final String JSON_PROPERTY_DSA_BENEFICIARY = "dsaBeneficiary";
   @javax.annotation.Nullable
@@ -643,6 +648,30 @@ public class BoostPostRequest {
   }
 
 
+  public BoostPostRequest sparkAuthCode(@javax.annotation.Nullable String sparkAuthCode) {
+    this.sparkAuthCode = sparkAuthCode;
+    return this;
+  }
+
+  /**
+   * TikTok-only. Spark Code (creator&#39;s &#x60;auth_code&#x60;) authorizing cross-creator Spark Ads — the advertiser can boost a video owned by a DIFFERENT TikTok account. Without this, boosts are limited to videos owned by the same account running the ads (same-BC creators only). The creator generates the code in their TikTok app&#39;s Promote settings and shares it with the advertiser. Maps to &#x60;auth_code&#x60; on the creative entry of /v2/ad/create/. 
+   * @return sparkAuthCode
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_SPARK_AUTH_CODE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSparkAuthCode() {
+    return sparkAuthCode;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SPARK_AUTH_CODE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSparkAuthCode(@javax.annotation.Nullable String sparkAuthCode) {
+    this.sparkAuthCode = sparkAuthCode;
+  }
+
+
   public BoostPostRequest dsaBeneficiary(@javax.annotation.Nullable String dsaBeneficiary) {
     this.dsaBeneficiary = dsaBeneficiary;
     return this;
@@ -720,13 +749,14 @@ public class BoostPostRequest {
         Objects.equals(this.specialAdCategories, boostPostRequest.specialAdCategories) &&
         Objects.equals(this.linkUrl, boostPostRequest.linkUrl) &&
         Objects.equals(this.callToAction, boostPostRequest.callToAction) &&
+        Objects.equals(this.sparkAuthCode, boostPostRequest.sparkAuthCode) &&
         Objects.equals(this.dsaBeneficiary, boostPostRequest.dsaBeneficiary) &&
         Objects.equals(this.dsaPayor, boostPostRequest.dsaPayor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(postId, platformPostId, accountId, adAccountId, name, goal, budget, currency, schedule, targeting, bidStrategy, bidAmount, roasAverageFloor, tracking, specialAdCategories, linkUrl, callToAction, dsaBeneficiary, dsaPayor);
+    return Objects.hash(postId, platformPostId, accountId, adAccountId, name, goal, budget, currency, schedule, targeting, bidStrategy, bidAmount, roasAverageFloor, tracking, specialAdCategories, linkUrl, callToAction, sparkAuthCode, dsaBeneficiary, dsaPayor);
   }
 
   @Override
@@ -750,6 +780,7 @@ public class BoostPostRequest {
     sb.append("    specialAdCategories: ").append(toIndentedString(specialAdCategories)).append("\n");
     sb.append("    linkUrl: ").append(toIndentedString(linkUrl)).append("\n");
     sb.append("    callToAction: ").append(toIndentedString(callToAction)).append("\n");
+    sb.append("    sparkAuthCode: ").append(toIndentedString(sparkAuthCode)).append("\n");
     sb.append("    dsaBeneficiary: ").append(toIndentedString(dsaBeneficiary)).append("\n");
     sb.append("    dsaPayor: ").append(toIndentedString(dsaPayor)).append("\n");
     sb.append("}");
@@ -886,6 +917,11 @@ public class BoostPostRequest {
     // add `callToAction` to the URL query string
     if (getCallToAction() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%scallToAction%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getCallToAction()))));
+    }
+
+    // add `sparkAuthCode` to the URL query string
+    if (getSparkAuthCode() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%ssparkAuthCode%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getSparkAuthCode()))));
     }
 
     // add `dsaBeneficiary` to the URL query string

@@ -22,6 +22,8 @@ All URIs are relative to *https://zernio.com/api*
 | [**listAdAccountsWithHttpInfo**](AdsApi.md#listAdAccountsWithHttpInfo) | **GET** /v1/ads/accounts | List ad accounts |
 | [**listAds**](AdsApi.md#listAds) | **GET** /v1/ads | List ads |
 | [**listAdsWithHttpInfo**](AdsApi.md#listAdsWithHttpInfo) | **GET** /v1/ads | List ads |
+| [**listAdsBusinessCenters**](AdsApi.md#listAdsBusinessCenters) | **GET** /v1/ads/business-centers | List TikTok Business Centers |
+| [**listAdsBusinessCentersWithHttpInfo**](AdsApi.md#listAdsBusinessCentersWithHttpInfo) | **GET** /v1/ads/business-centers | List TikTok Business Centers |
 | [**listConversionDestinations**](AdsApi.md#listConversionDestinations) | **GET** /v1/accounts/{accountId}/conversion-destinations | List destinations for the Conversions API |
 | [**listConversionDestinationsWithHttpInfo**](AdsApi.md#listConversionDestinationsWithHttpInfo) | **GET** /v1/accounts/{accountId}/conversion-destinations | List destinations for the Conversions API |
 | [**searchAdInterests**](AdsApi.md#searchAdInterests) | **GET** /v1/ads/interests | Search targeting interests |
@@ -30,6 +32,8 @@ All URIs are relative to *https://zernio.com/api*
 | [**sendConversionsWithHttpInfo**](AdsApi.md#sendConversionsWithHttpInfo) | **POST** /v1/ads/conversions | Send conversion events to an ad platform |
 | [**sendWhatsAppConversion**](AdsApi.md#sendWhatsAppConversion) | **POST** /v1/whatsapp/conversions | Send WhatsApp conversion event |
 | [**sendWhatsAppConversionWithHttpInfo**](AdsApi.md#sendWhatsAppConversionWithHttpInfo) | **POST** /v1/whatsapp/conversions | Send WhatsApp conversion event |
+| [**triggerAdsInitialSync**](AdsApi.md#triggerAdsInitialSync) | **POST** /v1/ads/sync/initial | Re-sync an ads account |
+| [**triggerAdsInitialSyncWithHttpInfo**](AdsApi.md#triggerAdsInitialSyncWithHttpInfo) | **POST** /v1/ads/sync/initial | Re-sync an ads account |
 | [**updateAd**](AdsApi.md#updateAd) | **PUT** /v1/ads/{adId} | Update ad |
 | [**updateAdWithHttpInfo**](AdsApi.md#updateAdWithHttpInfo) | **PUT** /v1/ads/{adId} | Update ad |
 
@@ -1117,7 +1121,7 @@ ApiResponse<[**GetAdComments200Response**](GetAdComments200Response.md)>
 
 ## listAdAccounts
 
-> ListAdAccounts200Response listAdAccounts(accountId)
+> ListAdAccounts200Response listAdAccounts(accountId, adAccountId, limit)
 
 List ad accounts
 
@@ -1145,8 +1149,10 @@ public class Example {
 
         AdsApi apiInstance = new AdsApi(defaultClient);
         String accountId = "accountId_example"; // String | Social account ID
+        String adAccountId = "adAccountId_example"; // String | Filter response to a single platform ad account ID (e.g. `act_123` for Meta, advertiser_id for TikTok). Returns at most one item.
+        Integer limit = 56; // Integer | Clamp the returned `accounts[]` length. Useful for typeahead pickers on agency tokens with hundreds of advertisers.
         try {
-            ListAdAccounts200Response result = apiInstance.listAdAccounts(accountId);
+            ListAdAccounts200Response result = apiInstance.listAdAccounts(accountId, adAccountId, limit);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AdsApi#listAdAccounts");
@@ -1165,6 +1171,8 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **accountId** | **String**| Social account ID | |
+| **adAccountId** | **String**| Filter response to a single platform ad account ID (e.g. &#x60;act_123&#x60; for Meta, advertiser_id for TikTok). Returns at most one item. | [optional] |
+| **limit** | **Integer**| Clamp the returned &#x60;accounts[]&#x60; length. Useful for typeahead pickers on agency tokens with hundreds of advertisers. | [optional] |
 
 ### Return type
 
@@ -1189,7 +1197,7 @@ public class Example {
 
 ## listAdAccountsWithHttpInfo
 
-> ApiResponse<ListAdAccounts200Response> listAdAccounts listAdAccountsWithHttpInfo(accountId)
+> ApiResponse<ListAdAccounts200Response> listAdAccounts listAdAccountsWithHttpInfo(accountId, adAccountId, limit)
 
 List ad accounts
 
@@ -1218,8 +1226,10 @@ public class Example {
 
         AdsApi apiInstance = new AdsApi(defaultClient);
         String accountId = "accountId_example"; // String | Social account ID
+        String adAccountId = "adAccountId_example"; // String | Filter response to a single platform ad account ID (e.g. `act_123` for Meta, advertiser_id for TikTok). Returns at most one item.
+        Integer limit = 56; // Integer | Clamp the returned `accounts[]` length. Useful for typeahead pickers on agency tokens with hundreds of advertisers.
         try {
-            ApiResponse<ListAdAccounts200Response> response = apiInstance.listAdAccountsWithHttpInfo(accountId);
+            ApiResponse<ListAdAccounts200Response> response = apiInstance.listAdAccountsWithHttpInfo(accountId, adAccountId, limit);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
             System.out.println("Response body: " + response.getData());
@@ -1240,6 +1250,8 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **accountId** | **String**| Social account ID | |
+| **adAccountId** | **String**| Filter response to a single platform ad account ID (e.g. &#x60;act_123&#x60; for Meta, advertiser_id for TikTok). Returns at most one item. | [optional] |
+| **limit** | **Integer**| Clamp the returned &#x60;accounts[]&#x60; length. Useful for typeahead pickers on agency tokens with hundreds of advertisers. | [optional] |
 
 ### Return type
 
@@ -1449,6 +1461,156 @@ ApiResponse<[**ListAds200Response**](ListAds200Response.md)>
 | **200** | Paginated ads |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Ads add-on required |  -  |
+
+
+## listAdsBusinessCenters
+
+> ListAdsBusinessCenters200Response listAdsBusinessCenters(accountId)
+
+List TikTok Business Centers
+
+Returns the TikTok Business Centers (BCs) the connected &#x60;tiktokads&#x60; account can read. Each BC reports its advertiser count so callers can build agency-style pickers without re-walking &#x60;/v1/ads/accounts&#x60; per BC.  TikTok-only. Solo advertisers (non-agency tokens) return an empty array. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.AdsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        AdsApi apiInstance = new AdsApi(defaultClient);
+        String accountId = "accountId_example"; // String | ID of the `tiktokads` (or parent `tiktok` posting) SocialAccount
+        try {
+            ListAdsBusinessCenters200Response result = apiInstance.listAdsBusinessCenters(accountId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AdsApi#listAdsBusinessCenters");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountId** | **String**| ID of the &#x60;tiktokads&#x60; (or parent &#x60;tiktok&#x60; posting) SocialAccount | |
+
+### Return type
+
+[**ListAdsBusinessCenters200Response**](ListAdsBusinessCenters200Response.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Business centers |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | TikTok account not found |  -  |
+| **422** | TikTok Ads not connected |  -  |
+
+## listAdsBusinessCentersWithHttpInfo
+
+> ApiResponse<ListAdsBusinessCenters200Response> listAdsBusinessCenters listAdsBusinessCentersWithHttpInfo(accountId)
+
+List TikTok Business Centers
+
+Returns the TikTok Business Centers (BCs) the connected &#x60;tiktokads&#x60; account can read. Each BC reports its advertiser count so callers can build agency-style pickers without re-walking &#x60;/v1/ads/accounts&#x60; per BC.  TikTok-only. Solo advertisers (non-agency tokens) return an empty array. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.ApiResponse;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.AdsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        AdsApi apiInstance = new AdsApi(defaultClient);
+        String accountId = "accountId_example"; // String | ID of the `tiktokads` (or parent `tiktok` posting) SocialAccount
+        try {
+            ApiResponse<ListAdsBusinessCenters200Response> response = apiInstance.listAdsBusinessCentersWithHttpInfo(accountId);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AdsApi#listAdsBusinessCenters");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountId** | **String**| ID of the &#x60;tiktokads&#x60; (or parent &#x60;tiktok&#x60; posting) SocialAccount | |
+
+### Return type
+
+ApiResponse<[**ListAdsBusinessCenters200Response**](ListAdsBusinessCenters200Response.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Business centers |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | TikTok account not found |  -  |
+| **422** | TikTok Ads not connected |  -  |
 
 
 ## listConversionDestinations
@@ -2059,13 +2221,165 @@ ApiResponse<[**SendWhatsAppConversion200Response**](SendWhatsAppConversion200Res
 | **422** | Configuration missing (no &#x60;metaCapiDatasetId&#x60; / &#x60;connectedFacebookPageId&#x60; on the account) OR the resolved conversation has no captured &#x60;ctwa_clid&#x60;.  |  -  |
 
 
+## triggerAdsInitialSync
+
+> TriggerAdsInitialSync202Response triggerAdsInitialSync(triggerAdsInitialSyncRequest)
+
+Re-sync an ads account
+
+Enqueue a full re-sync (discovery + 90-day metrics backfill) for one ads SocialAccount. Returns immediately with a trace ID; subscribe to the &#x60;account.ads.initial_sync_completed&#x60; webhook for completion.  Use this when: - the customer changed which TikTok Business Center / Meta ad account a   token can reach and wants Zernio to discover the new ads, - a previous sync errored out and the customer wants a clean retry, - the customer rotated permissions on the platform side.  Per-account 1h debounce: subsequent calls within an hour return &#x60;202&#x60; with &#x60;status: \&quot;already_queued\&quot;&#x60; and the prior trace ID. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.AdsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        AdsApi apiInstance = new AdsApi(defaultClient);
+        TriggerAdsInitialSyncRequest triggerAdsInitialSyncRequest = new TriggerAdsInitialSyncRequest(); // TriggerAdsInitialSyncRequest | 
+        try {
+            TriggerAdsInitialSync202Response result = apiInstance.triggerAdsInitialSync(triggerAdsInitialSyncRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AdsApi#triggerAdsInitialSync");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **triggerAdsInitialSyncRequest** | [**TriggerAdsInitialSyncRequest**](TriggerAdsInitialSyncRequest.md)|  | |
+
+### Return type
+
+[**TriggerAdsInitialSync202Response**](TriggerAdsInitialSync202Response.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Sync queued (or already-queued debounce hit) |  -  |
+| **400** | Invalid input |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Ads SocialAccount not found |  -  |
+| **503** | Sync queue not configured on this environment |  -  |
+
+## triggerAdsInitialSyncWithHttpInfo
+
+> ApiResponse<TriggerAdsInitialSync202Response> triggerAdsInitialSync triggerAdsInitialSyncWithHttpInfo(triggerAdsInitialSyncRequest)
+
+Re-sync an ads account
+
+Enqueue a full re-sync (discovery + 90-day metrics backfill) for one ads SocialAccount. Returns immediately with a trace ID; subscribe to the &#x60;account.ads.initial_sync_completed&#x60; webhook for completion.  Use this when: - the customer changed which TikTok Business Center / Meta ad account a   token can reach and wants Zernio to discover the new ads, - a previous sync errored out and the customer wants a clean retry, - the customer rotated permissions on the platform side.  Per-account 1h debounce: subsequent calls within an hour return &#x60;202&#x60; with &#x60;status: \&quot;already_queued\&quot;&#x60; and the prior trace ID. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.ApiResponse;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.AdsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        AdsApi apiInstance = new AdsApi(defaultClient);
+        TriggerAdsInitialSyncRequest triggerAdsInitialSyncRequest = new TriggerAdsInitialSyncRequest(); // TriggerAdsInitialSyncRequest | 
+        try {
+            ApiResponse<TriggerAdsInitialSync202Response> response = apiInstance.triggerAdsInitialSyncWithHttpInfo(triggerAdsInitialSyncRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AdsApi#triggerAdsInitialSync");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **triggerAdsInitialSyncRequest** | [**TriggerAdsInitialSyncRequest**](TriggerAdsInitialSyncRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**TriggerAdsInitialSync202Response**](TriggerAdsInitialSync202Response.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Sync queued (or already-queued debounce hit) |  -  |
+| **400** | Invalid input |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Ads SocialAccount not found |  -  |
+| **503** | Sync queue not configured on this environment |  -  |
+
+
 ## updateAd
 
 > UpdateAd200Response updateAd(adId, updateAdRequest)
 
 Update ad
 
-Update one or more fields on an ad. Status changes and budget updates are propagated to the platform. Targeting updates are Meta-only.
+Patch one or more fields on an ad. Status, budget, targeting, and creative changes are propagated to the platform.  Per-platform support: - **Meta** (Facebook + Instagram): all fields supported. - **TikTok**: status, budget, targeting (via &#x60;/v2/adgroup/update/&#x60;), and creative   (via &#x60;/v2/ad/update/&#x60; patch-style — &#x60;headline&#x60; is ignored, &#x60;body&#x60; becomes &#x60;ad_text&#x60;). - **Pinterest / X / LinkedIn / Google**: status + budget only. Sending &#x60;targeting&#x60;   or &#x60;creative&#x60; returns 501 with code &#x60;unsupported_platform_operation&#x60;. 
 
 ### Example
 
@@ -2133,6 +2447,7 @@ public class Example {
 | **400** | Invalid status transition or budget below minimum |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Resource not found |  -  |
+| **501** | targeting or creative not supported on the platform (Meta + TikTok only) |  -  |
 
 ## updateAdWithHttpInfo
 
@@ -2140,7 +2455,7 @@ public class Example {
 
 Update ad
 
-Update one or more fields on an ad. Status changes and budget updates are propagated to the platform. Targeting updates are Meta-only.
+Patch one or more fields on an ad. Status, budget, targeting, and creative changes are propagated to the platform.  Per-platform support: - **Meta** (Facebook + Instagram): all fields supported. - **TikTok**: status, budget, targeting (via &#x60;/v2/adgroup/update/&#x60;), and creative   (via &#x60;/v2/ad/update/&#x60; patch-style — &#x60;headline&#x60; is ignored, &#x60;body&#x60; becomes &#x60;ad_text&#x60;). - **Pinterest / X / LinkedIn / Google**: status + budget only. Sending &#x60;targeting&#x60;   or &#x60;creative&#x60; returns 501 with code &#x60;unsupported_platform_operation&#x60;. 
 
 ### Example
 
@@ -2211,4 +2526,5 @@ ApiResponse<[**UpdateAd200Response**](UpdateAd200Response.md)>
 | **400** | Invalid status transition or budget below minimum |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Resource not found |  -  |
+| **501** | targeting or creative not supported on the platform (Meta + TikTok only) |  -  |
 

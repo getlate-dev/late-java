@@ -4,7 +4,7 @@ Zernio API
 
 - API version: 1.0.1
 
-- Build date: 2026-04-29T15:17:19.804997484Z[Etc/UTC]
+- Build date: 2026-04-29T16:43:09.546129141Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -198,6 +198,8 @@ Class | Method | HTTP request | Description
 *AdsApi* | [**listAdAccountsWithHttpInfo**](docs/AdsApi.md#listAdAccountsWithHttpInfo) | **GET** /v1/ads/accounts | List ad accounts
 *AdsApi* | [**listAds**](docs/AdsApi.md#listAds) | **GET** /v1/ads | List ads
 *AdsApi* | [**listAdsWithHttpInfo**](docs/AdsApi.md#listAdsWithHttpInfo) | **GET** /v1/ads | List ads
+*AdsApi* | [**listAdsBusinessCenters**](docs/AdsApi.md#listAdsBusinessCenters) | **GET** /v1/ads/business-centers | List TikTok Business Centers
+*AdsApi* | [**listAdsBusinessCentersWithHttpInfo**](docs/AdsApi.md#listAdsBusinessCentersWithHttpInfo) | **GET** /v1/ads/business-centers | List TikTok Business Centers
 *AdsApi* | [**listConversionDestinations**](docs/AdsApi.md#listConversionDestinations) | **GET** /v1/accounts/{accountId}/conversion-destinations | List destinations for the Conversions API
 *AdsApi* | [**listConversionDestinationsWithHttpInfo**](docs/AdsApi.md#listConversionDestinationsWithHttpInfo) | **GET** /v1/accounts/{accountId}/conversion-destinations | List destinations for the Conversions API
 *AdsApi* | [**searchAdInterests**](docs/AdsApi.md#searchAdInterests) | **GET** /v1/ads/interests | Search targeting interests
@@ -206,6 +208,8 @@ Class | Method | HTTP request | Description
 *AdsApi* | [**sendConversionsWithHttpInfo**](docs/AdsApi.md#sendConversionsWithHttpInfo) | **POST** /v1/ads/conversions | Send conversion events to an ad platform
 *AdsApi* | [**sendWhatsAppConversion**](docs/AdsApi.md#sendWhatsAppConversion) | **POST** /v1/whatsapp/conversions | Send WhatsApp conversion event
 *AdsApi* | [**sendWhatsAppConversionWithHttpInfo**](docs/AdsApi.md#sendWhatsAppConversionWithHttpInfo) | **POST** /v1/whatsapp/conversions | Send WhatsApp conversion event
+*AdsApi* | [**triggerAdsInitialSync**](docs/AdsApi.md#triggerAdsInitialSync) | **POST** /v1/ads/sync/initial | Re-sync an ads account
+*AdsApi* | [**triggerAdsInitialSyncWithHttpInfo**](docs/AdsApi.md#triggerAdsInitialSyncWithHttpInfo) | **POST** /v1/ads/sync/initial | Re-sync an ads account
 *AdsApi* | [**updateAd**](docs/AdsApi.md#updateAd) | **PUT** /v1/ads/{adId} | Update ad
 *AdsApi* | [**updateAdWithHttpInfo**](docs/AdsApi.md#updateAdWithHttpInfo) | **PUT** /v1/ads/{adId} | Update ad
 *AnalyticsApi* | [**getAnalytics**](docs/AnalyticsApi.md#getAnalytics) | **GET** /v1/analytics | Get post analytics
@@ -715,6 +719,7 @@ Class | Method | HTTP request | Description
  - [BulkUploadPosts200ResponseErrorsInner](docs/BulkUploadPosts200ResponseErrorsInner.md)
  - [BulkUploadPosts429Response](docs/BulkUploadPosts429Response.md)
  - [BulkUploadPostsRequest](docs/BulkUploadPostsRequest.md)
+ - [BusinessCenter](docs/BusinessCenter.md)
  - [CancelBroadcast200Response](docs/CancelBroadcast200Response.md)
  - [CancelBroadcast200ResponseBroadcast](docs/CancelBroadcast200ResponseBroadcast.md)
  - [CompleteTelegramConnect200Response](docs/CompleteTelegramConnect200Response.md)
@@ -1089,6 +1094,7 @@ Class | Method | HTTP request | Description
  - [ListAdAudiences200ResponseAudiencesInner](docs/ListAdAudiences200ResponseAudiencesInner.md)
  - [ListAdCampaigns200Response](docs/ListAdCampaigns200Response.md)
  - [ListAds200Response](docs/ListAds200Response.md)
+ - [ListAdsBusinessCenters200Response](docs/ListAdsBusinessCenters200Response.md)
  - [ListApiKeys200Response](docs/ListApiKeys200Response.md)
  - [ListBroadcastRecipients200Response](docs/ListBroadcastRecipients200Response.md)
  - [ListBroadcastRecipients200ResponseRecipientsInner](docs/ListBroadcastRecipients200ResponseRecipientsInner.md)
@@ -1291,6 +1297,8 @@ Class | Method | HTTP request | Description
  - [TestWebhookRequest](docs/TestWebhookRequest.md)
  - [ThreadsPlatformData](docs/ThreadsPlatformData.md)
  - [TikTokPlatformData](docs/TikTokPlatformData.md)
+ - [TriggerAdsInitialSync202Response](docs/TriggerAdsInitialSync202Response.md)
+ - [TriggerAdsInitialSyncRequest](docs/TriggerAdsInitialSyncRequest.md)
  - [TwitterPlatformData](docs/TwitterPlatformData.md)
  - [TwitterPlatformDataPoll](docs/TwitterPlatformDataPoll.md)
  - [TwitterPlatformDataThreadItemsInner](docs/TwitterPlatformDataThreadItemsInner.md)
@@ -1311,6 +1319,7 @@ Class | Method | HTTP request | Description
  - [UpdateAdCampaignStatusRequest](docs/UpdateAdCampaignStatusRequest.md)
  - [UpdateAdRequest](docs/UpdateAdRequest.md)
  - [UpdateAdRequestBudget](docs/UpdateAdRequestBudget.md)
+ - [UpdateAdRequestCreative](docs/UpdateAdRequestCreative.md)
  - [UpdateAdRequestTargeting](docs/UpdateAdRequestTargeting.md)
  - [UpdateAdRequestTargetingInterestsInner](docs/UpdateAdRequestTargetingInterestsInner.md)
  - [UpdateAdSet200Response](docs/UpdateAdSet200Response.md)

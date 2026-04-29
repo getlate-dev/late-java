@@ -37,7 +37,7 @@ import dev.zernio.ApiClient;
   ReplyToInboxPost200ResponseData.JSON_PROPERTY_IS_REPLY,
   ReplyToInboxPost200ResponseData.JSON_PROPERTY_CID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T15:17:19.804997484Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T16:43:09.546129141Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ReplyToInboxPost200ResponseData {
   public static final String JSON_PROPERTY_COMMENT_ID = "commentId";
   @javax.annotation.Nullable

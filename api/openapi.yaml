@@ -80,7 +80,14 @@ tags:
 - name: Pinterest
 - name: TikTok
 - name: Queue
-- name: Analytics
+- description: |
+    Cross-platform analytics for connected social accounts: per-post timelines, account-level insights,
+    follower history, demographics, posting frequency, and best-time-to-post recommendations.
+
+    **Requires the Analytics add-on.** Endpoints in this group return `402` with code
+    `analytics_addon_required` when the calling user (or root user, for invited team members) does not
+    have the addon active. Subscribe via the Zernio dashboard or via Stripe.
+  name: Analytics
 - description: |
     Check and manage inbox feature access.
   name: Inbox Access
@@ -14412,16 +14419,23 @@ paths:
     post:
       description: |
         Duplicates a campaign, including its ad sets, ads, creatives, and
-        targeting by default (`deepCopy: true`). On Meta, this uses
-        `POST /{campaign-id}/copies`. The copy is created paused by default so
-        callers can review before launching.
+        targeting by default (`deepCopy: true`). The copy is created paused
+        so callers can review before launching.
 
-        The platform's duplication is asynchronous from our side; once the
-        copy is created on the platform, we trigger a sync discovery so the
-        new hierarchy shows up in /v1/ads/tree. Set `syncAfter: false` to
-        skip the discovery trigger and poll on your own cadence.
+        Per-platform implementation:
+        - **Meta** uses the native `POST /{campaign-id}/copies` endpoint.
+        - **TikTok** has no native copy primitive; Zernio walks the source
+          graph (`/v2/campaign/get/`, `/v2/adgroup/get/`, `/v2/ad/get/`) and
+          recreates each entity via the corresponding `/create/` endpoints,
+          carrying over budget / targeting / bid_type / bid_price /
+          deep_bid_type / creative fields. Spark Ad linkage (`tiktok_item_id`)
+          is preserved.
 
-        Meta-only for now. Other platforms return 501 Not Implemented.
+        The new hierarchy is asynchronous to materialize in our DB — we
+        trigger sync discovery automatically. Set `syncAfter: false` to
+        skip and poll `/v1/ads/tree` on your own cadence.
+
+        Other platforms return 501 Not Implemented.
       operationId: duplicateAdCampaign
       parameters:
       - description: Source platform campaign ID
@@ -14747,8 +14761,16 @@ paths:
       x-accepts:
       - application/json
     put:
-      description: Update one or more fields on an ad. Status changes and budget updates
-        are propagated to the platform. Targeting updates are Meta-only.
+      description: |
+        Patch one or more fields on an ad. Status, budget, targeting, and creative changes
+        are propagated to the platform.
+
+        Per-platform support:
+        - **Meta** (Facebook + Instagram): all fields supported.
+        - **TikTok**: status, budget, targeting (via `/v2/adgroup/update/`), and creative
+          (via `/v2/ad/update/` patch-style — `headline` is ignored, `body` becomes `ad_text`).
+        - **Pinterest / X / LinkedIn / Google**: status + budget only. Sending `targeting`
+          or `creative` returns 501 with code `unsupported_platform_operation`.
       operationId: updateAd
       parameters:
       - explode: false
@@ -14777,6 +14799,9 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
+        "501":
+          description: targeting or creative not supported on the platform (Meta +
+            TikTok only)
       security:
       - bearerAuth: []
       summary: Update ad
@@ -14919,6 +14944,89 @@ paths:
       - Ads
       x-accepts:
       - application/json
+  /v1/ads/business-centers:
+    get:
+      description: |
+        Returns the TikTok Business Centers (BCs) the connected `tiktokads` account can read.
+        Each BC reports its advertiser count so callers can build agency-style pickers
+        without re-walking `/v1/ads/accounts` per BC.
+
+        TikTok-only. Solo advertisers (non-agency tokens) return an empty array.
+      operationId: listAdsBusinessCenters
+      parameters:
+      - description: ID of the `tiktokads` (or parent `tiktok` posting) SocialAccount
+        explode: true
+        in: query
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/listAdsBusinessCenters_200_response"
+          description: Business centers
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: TikTok account not found
+        "422":
+          description: TikTok Ads not connected
+      security:
+      - bearerAuth: []
+      summary: List TikTok Business Centers
+      tags:
+      - Ads
+      x-accepts:
+      - application/json
+  /v1/ads/sync/initial:
+    post:
+      description: |
+        Enqueue a full re-sync (discovery + 90-day metrics backfill) for one ads
+        SocialAccount. Returns immediately with a trace ID; subscribe to the
+        `account.ads.initial_sync_completed` webhook for completion.
+
+        Use this when:
+        - the customer changed which TikTok Business Center / Meta ad account a
+          token can reach and wants Zernio to discover the new ads,
+        - a previous sync errored out and the customer wants a clean retry,
+        - the customer rotated permissions on the platform side.
+
+        Per-account 1h debounce: subsequent calls within an hour return `202`
+        with `status: "already_queued"` and the prior trace ID.
+      operationId: triggerAdsInitialSync
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/triggerAdsInitialSync_request"
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/triggerAdsInitialSync_202_response"
+          description: Sync queued (or already-queued debounce hit)
+        "400":
+          description: Invalid input
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: Ads SocialAccount not found
+        "503":
+          description: Sync queue not configured on this environment
+      security:
+      - bearerAuth: []
+      summary: Re-sync an ads account
+      tags:
+      - Ads
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /v1/ads/accounts:
     get:
       description: |
@@ -14939,6 +15047,26 @@ paths:
         required: true
         schema:
           type: string
+        style: form
+      - description: "Filter response to a single platform ad account ID (e.g. `act_123`\
+          \ for Meta, advertiser_id for TikTok). Returns at most one item."
+        explode: true
+        in: query
+        name: adAccountId
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Clamp the returned `accounts[]` length. Useful for typeahead\
+          \ pickers on agency tokens with hundreds of advertisers."
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          maximum: 1000
+          minimum: 1
+          type: integer
         style: form
       responses:
         "200":
@@ -21392,6 +21520,29 @@ components:
       - cancelled
       - error
       type: string
+    BusinessCenter:
+      description: |
+        TikTok Business Center entity. Returned by `GET /v1/ads/business-centers`. BCs are
+        TikTok's agency container — one BC owns N advertisers (ad accounts). Most solo
+        advertisers don't have one; the agency token uses BCs to roll up multi-client access.
+      example:
+        bcId: "7123456789012345678"
+        name: Acme Agency
+        advertiserCount: 23
+      properties:
+        bcId:
+          description: Business Center ID
+          example: "7123456789012345678"
+          type: string
+        name:
+          description: Display name set by the BC owner
+          example: Acme Agency
+          type: string
+        advertiserCount:
+          description: Number of advertisers (ad accounts) reachable under this BC
+            for the calling token
+          example: 23
+          type: integer
     BidStrategy:
       description: |
         Meta bid strategy. Same enum applies at campaign and ad-set level; ad-set value (when set)
@@ -21445,6 +21596,7 @@ components:
         budget:
           amount: 0.8008281904610115
           type: daily
+        platformAdAccountName: Zernio - previously Late
         updatedAt: 2000-01-23T04:56:07.000+00:00
         goal: engagement
         isExternal: true
@@ -21471,6 +21623,7 @@ components:
           startDate: 2000-01-23T04:56:07.000+00:00
         name: name
         platformObjective: OUTCOME_SALES
+        platformCreatedAt: 2000-01-23T04:56:07.000+00:00
         _id: _id
         metrics: ""
         rejectionReason: rejectionReason
@@ -21545,6 +21698,25 @@ components:
           description: "Meta ad set optimization goal (e.g. OFFSITE_CONVERSIONS, VALUE,\
             \ LEAD_GENERATION, LINK_CLICKS). Only present for Meta ads."
           example: OFFSITE_CONVERSIONS
+          type: string
+          nullable: true
+        platformAdAccountName:
+          description: |
+            Human-readable advertiser/account name (Meta `AdAccount.name`, TikTok
+            `advertiser_name`, LinkedIn / X / Pinterest equivalents). Refreshed every
+            sync so platform-side renames propagate within one cycle. `null` when the
+            platform doesn't return a name or the sync hasn't run yet.
+          example: Zernio - previously Late
+          type: string
+          nullable: true
+        platformCreatedAt:
+          description: |
+            Platform-reported creation timestamp (Meta `created_time`, TikTok `create_time`).
+            Distinct from `createdAt` which reflects when Zernio first synced the doc — for
+            sort/filter by "when the ad was actually created on the platform", read this field.
+            `null` for legacy ads synced before this field was added; aggregations fall back
+            to `createdAt` in that case.
+          format: date-time
           type: string
           nullable: true
         bidStrategy:
@@ -21635,6 +21807,7 @@ components:
           budget:
             amount: 0.8008281904610115
             type: daily
+          platformAdAccountName: Zernio - previously Late
           updatedAt: 2000-01-23T04:56:07.000+00:00
           goal: engagement
           isExternal: true
@@ -21661,6 +21834,7 @@ components:
             startDate: 2000-01-23T04:56:07.000+00:00
           name: name
           platformObjective: OUTCOME_SALES
+          platformCreatedAt: 2000-01-23T04:56:07.000+00:00
           _id: _id
           metrics: ""
           rejectionReason: rejectionReason
@@ -21686,6 +21860,7 @@ components:
           budget:
             amount: 0.8008281904610115
             type: daily
+          platformAdAccountName: Zernio - previously Late
           updatedAt: 2000-01-23T04:56:07.000+00:00
           goal: engagement
           isExternal: true
@@ -21712,6 +21887,7 @@ components:
             startDate: 2000-01-23T04:56:07.000+00:00
           name: name
           platformObjective: OUTCOME_SALES
+          platformCreatedAt: 2000-01-23T04:56:07.000+00:00
           _id: _id
           metrics: ""
           rejectionReason: rejectionReason
@@ -21812,6 +21988,7 @@ components:
         budget:
           amount: 1.4658129805029452
           type: daily
+        platformAdAccountName: platformAdAccountName
         budgetLevel: campaign
         adCount: 0
         bidAmount: 5.637376656633329
@@ -21855,6 +22032,7 @@ components:
             budget:
               amount: 0.8008281904610115
               type: daily
+            platformAdAccountName: Zernio - previously Late
             updatedAt: 2000-01-23T04:56:07.000+00:00
             goal: engagement
             isExternal: true
@@ -21881,6 +22059,7 @@ components:
               startDate: 2000-01-23T04:56:07.000+00:00
             name: name
             platformObjective: OUTCOME_SALES
+            platformCreatedAt: 2000-01-23T04:56:07.000+00:00
             _id: _id
             metrics: ""
             rejectionReason: rejectionReason
@@ -21906,6 +22085,7 @@ components:
             budget:
               amount: 0.8008281904610115
               type: daily
+            platformAdAccountName: Zernio - previously Late
             updatedAt: 2000-01-23T04:56:07.000+00:00
             goal: engagement
             isExternal: true
@@ -21932,6 +22112,7 @@ components:
               startDate: 2000-01-23T04:56:07.000+00:00
             name: name
             platformObjective: OUTCOME_SALES
+            platformCreatedAt: 2000-01-23T04:56:07.000+00:00
             _id: _id
             metrics: ""
             rejectionReason: rejectionReason
@@ -21997,6 +22178,7 @@ components:
             budget:
               amount: 0.8008281904610115
               type: daily
+            platformAdAccountName: Zernio - previously Late
             updatedAt: 2000-01-23T04:56:07.000+00:00
             goal: engagement
             isExternal: true
@@ -22023,6 +22205,7 @@ components:
               startDate: 2000-01-23T04:56:07.000+00:00
             name: name
             platformObjective: OUTCOME_SALES
+            platformCreatedAt: 2000-01-23T04:56:07.000+00:00
             _id: _id
             metrics: ""
             rejectionReason: rejectionReason
@@ -22048,6 +22231,7 @@ components:
             budget:
               amount: 0.8008281904610115
               type: daily
+            platformAdAccountName: Zernio - previously Late
             updatedAt: 2000-01-23T04:56:07.000+00:00
             goal: engagement
             isExternal: true
@@ -22074,6 +22258,7 @@ components:
               startDate: 2000-01-23T04:56:07.000+00:00
             name: name
             platformObjective: OUTCOME_SALES
+            platformCreatedAt: 2000-01-23T04:56:07.000+00:00
             _id: _id
             metrics: ""
             rejectionReason: rejectionReason
@@ -22218,6 +22403,11 @@ components:
           $ref: "#/components/schemas/AdMetrics"
         platformAdAccountId:
           type: string
+        platformAdAccountName:
+          description: Human-readable advertiser/account name from the platform. Refreshed
+            on every sync.
+          type: string
+          nullable: true
         accountId:
           type: string
         profileId:
@@ -22272,6 +22462,7 @@ components:
         budget:
           amount: 6.027456183070403
           type: daily
+        platformAdAccountName: platformAdAccountName
         budgetLevel: campaign
         adCount: 0
         bidAmount: 6.84685269835264
@@ -22377,6 +22568,11 @@ components:
           $ref: "#/components/schemas/AdMetrics"
         platformAdAccountId:
           type: string
+        platformAdAccountName:
+          description: Human-readable advertiser/account name from the platform. Refreshed
+            on every sync.
+          type: string
+          nullable: true
         accountId:
           type: string
         profileId:
@@ -36333,6 +36529,7 @@ components:
           budget:
             amount: 0.8008281904610115
             type: daily
+          platformAdAccountName: Zernio - previously Late
           updatedAt: 2000-01-23T04:56:07.000+00:00
           goal: engagement
           isExternal: true
@@ -36359,6 +36556,7 @@ components:
             startDate: 2000-01-23T04:56:07.000+00:00
           name: name
           platformObjective: OUTCOME_SALES
+          platformCreatedAt: 2000-01-23T04:56:07.000+00:00
           _id: _id
           metrics: ""
           rejectionReason: rejectionReason
@@ -36384,6 +36582,7 @@ components:
           budget:
             amount: 0.8008281904610115
             type: daily
+          platformAdAccountName: Zernio - previously Late
           updatedAt: 2000-01-23T04:56:07.000+00:00
           goal: engagement
           isExternal: true
@@ -36410,6 +36609,7 @@ components:
             startDate: 2000-01-23T04:56:07.000+00:00
           name: name
           platformObjective: OUTCOME_SALES
+          platformCreatedAt: 2000-01-23T04:56:07.000+00:00
           _id: _id
           metrics: ""
           rejectionReason: rejectionReason
@@ -36451,6 +36651,7 @@ components:
           budget:
             amount: 6.027456183070403
             type: daily
+          platformAdAccountName: platformAdAccountName
           budgetLevel: campaign
           adCount: 0
           bidAmount: 6.84685269835264
@@ -36505,6 +36706,7 @@ components:
           budget:
             amount: 6.027456183070403
             type: daily
+          platformAdAccountName: platformAdAccountName
           budgetLevel: campaign
           adCount: 0
           bidAmount: 6.84685269835264
@@ -36757,6 +36959,7 @@ components:
           enum:
           - facebook
           - instagram
+          - tiktok
           type: string
         deepCopy:
           default: true
@@ -36931,6 +37134,7 @@ components:
           budget:
             amount: 1.4658129805029452
             type: daily
+          platformAdAccountName: platformAdAccountName
           budgetLevel: campaign
           adCount: 0
           bidAmount: 5.637376656633329
@@ -36974,6 +37178,7 @@ components:
               budget:
                 amount: 0.8008281904610115
                 type: daily
+              platformAdAccountName: Zernio - previously Late
               updatedAt: 2000-01-23T04:56:07.000+00:00
               goal: engagement
               isExternal: true
@@ -37000,6 +37205,7 @@ components:
                 startDate: 2000-01-23T04:56:07.000+00:00
               name: name
               platformObjective: OUTCOME_SALES
+              platformCreatedAt: 2000-01-23T04:56:07.000+00:00
               _id: _id
               metrics: ""
               rejectionReason: rejectionReason
@@ -37025,6 +37231,7 @@ components:
               budget:
                 amount: 0.8008281904610115
                 type: daily
+              platformAdAccountName: Zernio - previously Late
               updatedAt: 2000-01-23T04:56:07.000+00:00
               goal: engagement
               isExternal: true
@@ -37051,6 +37258,7 @@ components:
                 startDate: 2000-01-23T04:56:07.000+00:00
               name: name
               platformObjective: OUTCOME_SALES
+              platformCreatedAt: 2000-01-23T04:56:07.000+00:00
               _id: _id
               metrics: ""
               rejectionReason: rejectionReason
@@ -37116,6 +37324,7 @@ components:
               budget:
                 amount: 0.8008281904610115
                 type: daily
+              platformAdAccountName: Zernio - previously Late
               updatedAt: 2000-01-23T04:56:07.000+00:00
               goal: engagement
               isExternal: true
@@ -37142,6 +37351,7 @@ components:
                 startDate: 2000-01-23T04:56:07.000+00:00
               name: name
               platformObjective: OUTCOME_SALES
+              platformCreatedAt: 2000-01-23T04:56:07.000+00:00
               _id: _id
               metrics: ""
               rejectionReason: rejectionReason
@@ -37167,6 +37377,7 @@ components:
               budget:
                 amount: 0.8008281904610115
                 type: daily
+              platformAdAccountName: Zernio - previously Late
               updatedAt: 2000-01-23T04:56:07.000+00:00
               goal: engagement
               isExternal: true
@@ -37193,6 +37404,7 @@ components:
                 startDate: 2000-01-23T04:56:07.000+00:00
               name: name
               platformObjective: OUTCOME_SALES
+              platformCreatedAt: 2000-01-23T04:56:07.000+00:00
               _id: _id
               metrics: ""
               rejectionReason: rejectionReason
@@ -37269,6 +37481,7 @@ components:
           budget:
             amount: 1.4658129805029452
             type: daily
+          platformAdAccountName: platformAdAccountName
           budgetLevel: campaign
           adCount: 0
           bidAmount: 5.637376656633329
@@ -37312,6 +37525,7 @@ components:
               budget:
                 amount: 0.8008281904610115
                 type: daily
+              platformAdAccountName: Zernio - previously Late
               updatedAt: 2000-01-23T04:56:07.000+00:00
               goal: engagement
               isExternal: true
@@ -37338,6 +37552,7 @@ components:
                 startDate: 2000-01-23T04:56:07.000+00:00
               name: name
               platformObjective: OUTCOME_SALES
+              platformCreatedAt: 2000-01-23T04:56:07.000+00:00
               _id: _id
               metrics: ""
               rejectionReason: rejectionReason
@@ -37363,6 +37578,7 @@ components:
               budget:
                 amount: 0.8008281904610115
                 type: daily
+              platformAdAccountName: Zernio - previously Late
               updatedAt: 2000-01-23T04:56:07.000+00:00
               goal: engagement
               isExternal: true
@@ -37389,6 +37605,7 @@ components:
                 startDate: 2000-01-23T04:56:07.000+00:00
               name: name
               platformObjective: OUTCOME_SALES
+              platformCreatedAt: 2000-01-23T04:56:07.000+00:00
               _id: _id
               metrics: ""
               rejectionReason: rejectionReason
@@ -37454,6 +37671,7 @@ components:
               budget:
                 amount: 0.8008281904610115
                 type: daily
+              platformAdAccountName: Zernio - previously Late
               updatedAt: 2000-01-23T04:56:07.000+00:00
               goal: engagement
               isExternal: true
@@ -37480,6 +37698,7 @@ components:
                 startDate: 2000-01-23T04:56:07.000+00:00
               name: name
               platformObjective: OUTCOME_SALES
+              platformCreatedAt: 2000-01-23T04:56:07.000+00:00
               _id: _id
               metrics: ""
               rejectionReason: rejectionReason
@@ -37505,6 +37724,7 @@ components:
               budget:
                 amount: 0.8008281904610115
                 type: daily
+              platformAdAccountName: Zernio - previously Late
               updatedAt: 2000-01-23T04:56:07.000+00:00
               goal: engagement
               isExternal: true
@@ -37531,6 +37751,7 @@ components:
                 startDate: 2000-01-23T04:56:07.000+00:00
               name: name
               platformObjective: OUTCOME_SALES
+              platformCreatedAt: 2000-01-23T04:56:07.000+00:00
               _id: _id
               metrics: ""
               rejectionReason: rejectionReason
@@ -37622,6 +37843,7 @@ components:
           budget:
             amount: 0.8008281904610115
             type: daily
+          platformAdAccountName: Zernio - previously Late
           updatedAt: 2000-01-23T04:56:07.000+00:00
           goal: engagement
           isExternal: true
@@ -37648,6 +37870,7 @@ components:
             startDate: 2000-01-23T04:56:07.000+00:00
           name: name
           platformObjective: OUTCOME_SALES
+          platformCreatedAt: 2000-01-23T04:56:07.000+00:00
           _id: _id
           metrics: ""
           rejectionReason: rejectionReason
@@ -37677,8 +37900,8 @@ components:
       - id
       - name
     updateAd_request_targeting:
-      description: Meta-only. Targeting updates for other platforms are not supported
-        after creation.
+      description: |
+        Meta + TikTok only. Pinterest / X / LinkedIn / Google return 501.
       properties:
         ageMin:
           maximum: 65
@@ -37705,6 +37928,33 @@ components:
           - 0
           - 1
           type: integer
+    updateAd_request_creative:
+      description: |
+        Replace the ad's creative. Meta + TikTok only.
+
+        - **Meta**: requires `headline`, `body`, `callToAction`, `linkUrl`, `imageUrl`. The
+          ad's existing creative is replaced via a new `/act_X/adcreatives` upload + ad
+          update. The old creative is retained on the ad account for historical reporting.
+        - **TikTok**: patch-style. Pass any subset; `headline` is ignored (TikTok creatives
+          have no headline slot). `body` becomes the in-feed `ad_text`; `linkUrl` becomes
+          `landing_page_url`; `videoUrl` triggers a fresh upload.
+      properties:
+        headline:
+          description: Meta only
+          type: string
+        body:
+          type: string
+        callToAction:
+          type: string
+        linkUrl:
+          format: uri
+          type: string
+        imageUrl:
+          format: uri
+          type: string
+        videoUrl:
+          format: uri
+          type: string
     updateAd_request:
       properties:
         status:
@@ -37716,6 +37966,8 @@ components:
           $ref: "#/components/schemas/updateAd_request_budget"
         targeting:
           $ref: "#/components/schemas/updateAd_request_targeting"
+        creative:
+          $ref: "#/components/schemas/updateAd_request_creative"
         name:
           type: string
     updateAd_200_response:
@@ -37740,6 +37992,7 @@ components:
           budget:
             amount: 0.8008281904610115
             type: daily
+          platformAdAccountName: Zernio - previously Late
           updatedAt: 2000-01-23T04:56:07.000+00:00
           goal: engagement
           isExternal: true
@@ -37766,6 +38019,7 @@ components:
             startDate: 2000-01-23T04:56:07.000+00:00
           name: name
           platformObjective: OUTCOME_SALES
+          platformCreatedAt: 2000-01-23T04:56:07.000+00:00
           _id: _id
           metrics: ""
           rejectionReason: rejectionReason
@@ -38066,6 +38320,47 @@ components:
       - meta
       - pagination
       - status
+    listAdsBusinessCenters_200_response:
+      example:
+        businessCenters:
+        - bcId: "7123456789012345678"
+          name: Acme Agency
+          advertiserCount: 23
+        - bcId: "7123456789012345678"
+          name: Acme Agency
+          advertiserCount: 23
+      properties:
+        businessCenters:
+          items:
+            $ref: "#/components/schemas/BusinessCenter"
+          type: array
+    triggerAdsInitialSync_request:
+      properties:
+        accountId:
+          description: |
+            ID of the ads SocialAccount to re-sync (e.g. `metaads` / `tiktokads` doc).
+            Posting accounts (`facebook` / `tiktok`) are rejected — pass the ads-side
+            account ID that owns the platform tokens.
+          type: string
+      required:
+      - accountId
+    triggerAdsInitialSync_202_response:
+      example:
+        traceId: traceId
+        message: message
+        status: queued
+      properties:
+        status:
+          enum:
+          - queued
+          - already_queued
+          type: string
+        traceId:
+          description: Trace ID for the enqueued job. Reused on `already_queued`.
+          type: string
+          nullable: true
+        message:
+          type: string
     listAdAccounts_200_response_accounts_inner:
       example:
         timezoneOffsetHoursUtc: 0.8008281904610115
@@ -38254,6 +38549,15 @@ components:
             `call_to_action` on the creative entry of /v2/ad/create/. Pass-through —
             the platform validates the value. See TikTok's "Enumeration - Call-to-Action"
             reference for the full list.
+          type: string
+        sparkAuthCode:
+          description: |
+            TikTok-only. Spark Code (creator's `auth_code`) authorizing cross-creator
+            Spark Ads — the advertiser can boost a video owned by a DIFFERENT TikTok
+            account. Without this, boosts are limited to videos owned by the same
+            account running the ads (same-BC creators only). The creator generates the
+            code in their TikTok app's Promote settings and shares it with the
+            advertiser. Maps to `auth_code` on the creative entry of /v2/ad/create/.
           type: string
         dsaBeneficiary:
           description: |
@@ -38458,6 +38762,10 @@ components:
             in attach mode returns 400. To change an existing ad set's
             bid, use `PUT /v1/ads/ad-sets/{adSetId}`. Mutually exclusive
             with `creatives[]`.
+
+            Supported on Meta (facebook, instagram) and TikTok. On TikTok
+            the `adSetId` is the ad group ID; the new ad inherits the
+            ad group's bid + budget + targeting.
           type: string
         businessName:
           description: Google Display only
@@ -38587,6 +38895,7 @@ components:
           budget:
             amount: 0.8008281904610115
             type: daily
+          platformAdAccountName: Zernio - previously Late
           updatedAt: 2000-01-23T04:56:07.000+00:00
           goal: engagement
           isExternal: true
@@ -38613,6 +38922,7 @@ components:
             startDate: 2000-01-23T04:56:07.000+00:00
           name: name
           platformObjective: OUTCOME_SALES
+          platformCreatedAt: 2000-01-23T04:56:07.000+00:00
           _id: _id
           metrics: ""
           rejectionReason: rejectionReason

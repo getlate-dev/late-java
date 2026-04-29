@@ -44,7 +44,7 @@ import dev.zernio.ApiClient;
   DuplicateAdCampaignRequest.JSON_PROPERTY_RENAME_SUFFIX,
   DuplicateAdCampaignRequest.JSON_PROPERTY_SYNC_AFTER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T15:17:19.804997484Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T16:43:09.546129141Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class DuplicateAdCampaignRequest {
   /**
    * Gets or Sets platform
@@ -52,7 +52,9 @@ public class DuplicateAdCampaignRequest {
   public enum PlatformEnum {
     FACEBOOK(String.valueOf("facebook")),
     
-    INSTAGRAM(String.valueOf("instagram"));
+    INSTAGRAM(String.valueOf("instagram")),
+    
+    TIKTOK(String.valueOf("tiktok"));
 
     private String value;
 

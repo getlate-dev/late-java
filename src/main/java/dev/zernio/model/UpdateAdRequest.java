@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import dev.zernio.model.UpdateAdRequestBudget;
+import dev.zernio.model.UpdateAdRequestCreative;
 import dev.zernio.model.UpdateAdRequestTargeting;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,9 +39,10 @@ import dev.zernio.ApiClient;
   UpdateAdRequest.JSON_PROPERTY_STATUS,
   UpdateAdRequest.JSON_PROPERTY_BUDGET,
   UpdateAdRequest.JSON_PROPERTY_TARGETING,
+  UpdateAdRequest.JSON_PROPERTY_CREATIVE,
   UpdateAdRequest.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T15:17:19.804997484Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T16:43:09.546129141Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UpdateAdRequest {
   /**
    * Gets or Sets status
@@ -88,6 +90,10 @@ public class UpdateAdRequest {
   public static final String JSON_PROPERTY_TARGETING = "targeting";
   @javax.annotation.Nullable
   private UpdateAdRequestTargeting targeting;
+
+  public static final String JSON_PROPERTY_CREATIVE = "creative";
+  @javax.annotation.Nullable
+  private UpdateAdRequestCreative creative;
 
   public static final String JSON_PROPERTY_NAME = "name";
   @javax.annotation.Nullable
@@ -168,6 +174,30 @@ public class UpdateAdRequest {
   }
 
 
+  public UpdateAdRequest creative(@javax.annotation.Nullable UpdateAdRequestCreative creative) {
+    this.creative = creative;
+    return this;
+  }
+
+  /**
+   * Get creative
+   * @return creative
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_CREATIVE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UpdateAdRequestCreative getCreative() {
+    return creative;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_CREATIVE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCreative(@javax.annotation.Nullable UpdateAdRequestCreative creative) {
+    this.creative = creative;
+  }
+
+
   public UpdateAdRequest name(@javax.annotation.Nullable String name) {
     this.name = name;
     return this;
@@ -207,12 +237,13 @@ public class UpdateAdRequest {
     return Objects.equals(this.status, updateAdRequest.status) &&
         Objects.equals(this.budget, updateAdRequest.budget) &&
         Objects.equals(this.targeting, updateAdRequest.targeting) &&
+        Objects.equals(this.creative, updateAdRequest.creative) &&
         Objects.equals(this.name, updateAdRequest.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, budget, targeting, name);
+    return Objects.hash(status, budget, targeting, creative, name);
   }
 
   @Override
@@ -222,6 +253,7 @@ public class UpdateAdRequest {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    budget: ").append(toIndentedString(budget)).append("\n");
     sb.append("    targeting: ").append(toIndentedString(targeting)).append("\n");
+    sb.append("    creative: ").append(toIndentedString(creative)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -283,6 +315,11 @@ public class UpdateAdRequest {
     // add `targeting` to the URL query string
     if (getTargeting() != null) {
       joiner.add(getTargeting().toUrlQueryString(prefix + "targeting" + suffix));
+    }
+
+    // add `creative` to the URL query string
+    if (getCreative() != null) {
+      joiner.add(getCreative().toUrlQueryString(prefix + "creative" + suffix));
     }
 
     // add `name` to the URL query string

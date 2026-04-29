@@ -38,7 +38,7 @@ import dev.zernio.ApiClient;
   GetAdAnalytics200Response.JSON_PROPERTY_AD,
   GetAdAnalytics200Response.JSON_PROPERTY_ANALYTICS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T15:17:19.804997484Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T16:43:09.546129141Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetAdAnalytics200Response {
   public static final String JSON_PROPERTY_AD = "ad";
   @javax.annotation.Nullable

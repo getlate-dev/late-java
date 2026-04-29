@@ -25,6 +25,7 @@
 |---- | -----|
 | FACEBOOK | &quot;facebook&quot; |
 | INSTAGRAM | &quot;instagram&quot; |
+| TIKTOK | &quot;tiktok&quot; |
 
 
 

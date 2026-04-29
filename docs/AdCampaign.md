@@ -22,6 +22,7 @@
 |**currency** | **String** | ISO 4217 currency code for all budget amounts. Budgets are NOT normalized to USD. |  [optional] |
 |**metrics** | [**AdMetrics**](AdMetrics.md) |  |  [optional] |
 |**platformAdAccountId** | **String** |  |  [optional] |
+|**platformAdAccountName** | **String** | Human-readable advertiser/account name from the platform. Refreshed on every sync. |  [optional] |
 |**accountId** | **String** |  |  [optional] |
 |**profileId** | **String** |  |  [optional] |
 |**platformObjective** | **String** | Raw Meta campaign objective (e.g. OUTCOME_SALES, OUTCOME_LEADS, OUTCOME_TRAFFIC) |  [optional] |

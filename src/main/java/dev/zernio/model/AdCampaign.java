@@ -58,6 +58,7 @@ import dev.zernio.ApiClient;
   AdCampaign.JSON_PROPERTY_CURRENCY,
   AdCampaign.JSON_PROPERTY_METRICS,
   AdCampaign.JSON_PROPERTY_PLATFORM_AD_ACCOUNT_ID,
+  AdCampaign.JSON_PROPERTY_PLATFORM_AD_ACCOUNT_NAME,
   AdCampaign.JSON_PROPERTY_ACCOUNT_ID,
   AdCampaign.JSON_PROPERTY_PROFILE_ID,
   AdCampaign.JSON_PROPERTY_PLATFORM_OBJECTIVE,
@@ -69,7 +70,7 @@ import dev.zernio.ApiClient;
   AdCampaign.JSON_PROPERTY_EARLIEST_AD,
   AdCampaign.JSON_PROPERTY_LATEST_AD
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T15:17:19.804997484Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T16:43:09.546129141Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AdCampaign {
   public static final String JSON_PROPERTY_PLATFORM_CAMPAIGN_ID = "platformCampaignId";
   @javax.annotation.Nullable
@@ -249,6 +250,10 @@ public class AdCampaign {
   public static final String JSON_PROPERTY_PLATFORM_AD_ACCOUNT_ID = "platformAdAccountId";
   @javax.annotation.Nullable
   private String platformAdAccountId;
+
+  public static final String JSON_PROPERTY_PLATFORM_AD_ACCOUNT_NAME = "platformAdAccountName";
+  @javax.annotation.Nullable
+  private String platformAdAccountName;
 
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nullable
@@ -661,6 +666,30 @@ public class AdCampaign {
   }
 
 
+  public AdCampaign platformAdAccountName(@javax.annotation.Nullable String platformAdAccountName) {
+    this.platformAdAccountName = platformAdAccountName;
+    return this;
+  }
+
+  /**
+   * Human-readable advertiser/account name from the platform. Refreshed on every sync.
+   * @return platformAdAccountName
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_PLATFORM_AD_ACCOUNT_NAME, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPlatformAdAccountName() {
+    return platformAdAccountName;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PLATFORM_AD_ACCOUNT_NAME, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPlatformAdAccountName(@javax.annotation.Nullable String platformAdAccountName) {
+    this.platformAdAccountName = platformAdAccountName;
+  }
+
+
   public AdCampaign accountId(@javax.annotation.Nullable String accountId) {
     this.accountId = accountId;
     return this;
@@ -928,6 +957,7 @@ public class AdCampaign {
         Objects.equals(this.currency, adCampaign.currency) &&
         Objects.equals(this.metrics, adCampaign.metrics) &&
         Objects.equals(this.platformAdAccountId, adCampaign.platformAdAccountId) &&
+        Objects.equals(this.platformAdAccountName, adCampaign.platformAdAccountName) &&
         Objects.equals(this.accountId, adCampaign.accountId) &&
         Objects.equals(this.profileId, adCampaign.profileId) &&
         Objects.equals(this.platformObjective, adCampaign.platformObjective) &&
@@ -942,7 +972,7 @@ public class AdCampaign {
 
   @Override
   public int hashCode() {
-    return Objects.hash(platformCampaignId, platform, campaignName, status, reviewStatus, platformCampaignStatus, campaignIssuesInfo, adCount, budget, campaignBudget, budgetLevel, isBudgetScheduleEnabled, currency, metrics, platformAdAccountId, accountId, profileId, platformObjective, optimizationGoal, bidStrategy, bidAmount, roasAverageFloor, promotedObject, earliestAd, latestAd);
+    return Objects.hash(platformCampaignId, platform, campaignName, status, reviewStatus, platformCampaignStatus, campaignIssuesInfo, adCount, budget, campaignBudget, budgetLevel, isBudgetScheduleEnabled, currency, metrics, platformAdAccountId, platformAdAccountName, accountId, profileId, platformObjective, optimizationGoal, bidStrategy, bidAmount, roasAverageFloor, promotedObject, earliestAd, latestAd);
   }
 
   @Override
@@ -964,6 +994,7 @@ public class AdCampaign {
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    platformAdAccountId: ").append(toIndentedString(platformAdAccountId)).append("\n");
+    sb.append("    platformAdAccountName: ").append(toIndentedString(platformAdAccountName)).append("\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    profileId: ").append(toIndentedString(profileId)).append("\n");
     sb.append("    platformObjective: ").append(toIndentedString(platformObjective)).append("\n");
@@ -1098,6 +1129,11 @@ public class AdCampaign {
     // add `platformAdAccountId` to the URL query string
     if (getPlatformAdAccountId() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%splatformAdAccountId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getPlatformAdAccountId()))));
+    }
+
+    // add `platformAdAccountName` to the URL query string
+    if (getPlatformAdAccountName() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%splatformAdAccountName%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getPlatformAdAccountName()))));
     }
 
     // add `accountId` to the URL query string

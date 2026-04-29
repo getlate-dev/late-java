@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import dev.zernio.ApiClient;
 /**
- * Meta-only. Targeting updates for other platforms are not supported after creation.
+ * Meta + TikTok only. Pinterest / X / LinkedIn / Google return 501. 
  */
 @JsonPropertyOrder({
   UpdateAdRequestTargeting.JSON_PROPERTY_AGE_MIN,
@@ -42,7 +42,7 @@ import dev.zernio.ApiClient;
   UpdateAdRequestTargeting.JSON_PROPERTY_INTERESTS,
   UpdateAdRequestTargeting.JSON_PROPERTY_ADVANTAGE_AUDIENCE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T15:17:19.804997484Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T16:43:09.546129141Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UpdateAdRequestTargeting {
   public static final String JSON_PROPERTY_AGE_MIN = "ageMin";
   @javax.annotation.Nullable
