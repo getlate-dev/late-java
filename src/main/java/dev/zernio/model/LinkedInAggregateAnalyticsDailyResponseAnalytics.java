@@ -43,7 +43,7 @@ import dev.zernio.ApiClient;
   LinkedInAggregateAnalyticsDailyResponseAnalytics.JSON_PROPERTY_SAVES,
   LinkedInAggregateAnalyticsDailyResponseAnalytics.JSON_PROPERTY_SENDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T14:57:45.159761018Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T15:17:19.804997484Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class LinkedInAggregateAnalyticsDailyResponseAnalytics {
   public static final String JSON_PROPERTY_IMPRESSIONS = "impressions";
   @javax.annotation.Nullable

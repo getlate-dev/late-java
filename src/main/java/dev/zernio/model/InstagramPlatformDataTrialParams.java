@@ -35,7 +35,7 @@ import dev.zernio.ApiClient;
 @JsonPropertyOrder({
   InstagramPlatformDataTrialParams.JSON_PROPERTY_GRADUATION_STRATEGY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T14:57:45.159761018Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T15:17:19.804997484Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class InstagramPlatformDataTrialParams {
   /**
    * MANUAL (graduate from Instagram app) or SS_PERFORMANCE (auto-graduate if performs well with non-followers)

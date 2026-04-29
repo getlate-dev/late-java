@@ -42,7 +42,7 @@ import dev.zernio.ApiClient;
   SendInboxMessageRequestInteractiveActionOneOf2Parameters.JSON_PROPERTY_FLOW_ACTION_PAYLOAD,
   SendInboxMessageRequestInteractiveActionOneOf2Parameters.JSON_PROPERTY_MODE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T14:57:45.159761018Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T15:17:19.804997484Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class SendInboxMessageRequestInteractiveActionOneOf2Parameters {
   /**
    * Defaults to \&quot;3\&quot; when omitted.
