@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import dev.zernio.model.GetGoogleBusinessLocationDetails200ResponseCategories;
+import dev.zernio.model.GetGoogleBusinessLocationDetails200ResponseLocation;
 import dev.zernio.model.GetGoogleBusinessLocationDetails200ResponsePhoneNumbers;
 import dev.zernio.model.GetGoogleBusinessLocationDetails200ResponseProfile;
 import dev.zernio.model.GetGoogleBusinessLocationDetails200ResponseRegularHours;
@@ -44,6 +45,7 @@ import dev.zernio.ApiClient;
   GetGoogleBusinessLocationDetails200Response.JSON_PROPERTY_SUCCESS,
   GetGoogleBusinessLocationDetails200Response.JSON_PROPERTY_ACCOUNT_ID,
   GetGoogleBusinessLocationDetails200Response.JSON_PROPERTY_LOCATION_ID,
+  GetGoogleBusinessLocationDetails200Response.JSON_PROPERTY_LOCATION,
   GetGoogleBusinessLocationDetails200Response.JSON_PROPERTY_TITLE,
   GetGoogleBusinessLocationDetails200Response.JSON_PROPERTY_REGULAR_HOURS,
   GetGoogleBusinessLocationDetails200Response.JSON_PROPERTY_SPECIAL_HOURS,
@@ -53,7 +55,7 @@ import dev.zernio.ApiClient;
   GetGoogleBusinessLocationDetails200Response.JSON_PROPERTY_CATEGORIES,
   GetGoogleBusinessLocationDetails200Response.JSON_PROPERTY_SERVICE_ITEMS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-28T13:51:58.018843986Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T10:23:19.131039113Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetGoogleBusinessLocationDetails200Response {
   public static final String JSON_PROPERTY_SUCCESS = "success";
   @javax.annotation.Nullable
@@ -66,6 +68,10 @@ public class GetGoogleBusinessLocationDetails200Response {
   public static final String JSON_PROPERTY_LOCATION_ID = "locationId";
   @javax.annotation.Nullable
   private String locationId;
+
+  public static final String JSON_PROPERTY_LOCATION = "location";
+  @javax.annotation.Nullable
+  private GetGoogleBusinessLocationDetails200ResponseLocation location;
 
   public static final String JSON_PROPERTY_TITLE = "title";
   @javax.annotation.Nullable
@@ -171,6 +177,30 @@ public class GetGoogleBusinessLocationDetails200Response {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLocationId(@javax.annotation.Nullable String locationId) {
     this.locationId = locationId;
+  }
+
+
+  public GetGoogleBusinessLocationDetails200Response location(@javax.annotation.Nullable GetGoogleBusinessLocationDetails200ResponseLocation location) {
+    this.location = location;
+    return this;
+  }
+
+  /**
+   * Get location
+   * @return location
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_LOCATION, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public GetGoogleBusinessLocationDetails200ResponseLocation getLocation() {
+    return location;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_LOCATION, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLocation(@javax.annotation.Nullable GetGoogleBusinessLocationDetails200ResponseLocation location) {
+    this.location = location;
   }
 
 
@@ -389,6 +419,7 @@ public class GetGoogleBusinessLocationDetails200Response {
     return Objects.equals(this.success, getGoogleBusinessLocationDetails200Response.success) &&
         Objects.equals(this.accountId, getGoogleBusinessLocationDetails200Response.accountId) &&
         Objects.equals(this.locationId, getGoogleBusinessLocationDetails200Response.locationId) &&
+        Objects.equals(this.location, getGoogleBusinessLocationDetails200Response.location) &&
         Objects.equals(this.title, getGoogleBusinessLocationDetails200Response.title) &&
         Objects.equals(this.regularHours, getGoogleBusinessLocationDetails200Response.regularHours) &&
         Objects.equals(this.specialHours, getGoogleBusinessLocationDetails200Response.specialHours) &&
@@ -401,7 +432,7 @@ public class GetGoogleBusinessLocationDetails200Response {
 
   @Override
   public int hashCode() {
-    return Objects.hash(success, accountId, locationId, title, regularHours, specialHours, profile, websiteUri, phoneNumbers, categories, serviceItems);
+    return Objects.hash(success, accountId, locationId, location, title, regularHours, specialHours, profile, websiteUri, phoneNumbers, categories, serviceItems);
   }
 
   @Override
@@ -411,6 +442,7 @@ public class GetGoogleBusinessLocationDetails200Response {
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    locationId: ").append(toIndentedString(locationId)).append("\n");
+    sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    regularHours: ").append(toIndentedString(regularHours)).append("\n");
     sb.append("    specialHours: ").append(toIndentedString(specialHours)).append("\n");
@@ -479,6 +511,11 @@ public class GetGoogleBusinessLocationDetails200Response {
     // add `locationId` to the URL query string
     if (getLocationId() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%slocationId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getLocationId()))));
+    }
+
+    // add `location` to the URL query string
+    if (getLocation() != null) {
+      joiner.add(getLocation().toUrlQueryString(prefix + "location" + suffix));
     }
 
     // add `title` to the URL query string

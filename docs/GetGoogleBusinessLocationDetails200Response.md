@@ -10,6 +10,7 @@
 |**success** | **Boolean** |  |  [optional] |
 |**accountId** | **String** |  |  [optional] |
 |**locationId** | **String** |  |  [optional] |
+|**location** | [**GetGoogleBusinessLocationDetails200ResponseLocation**](GetGoogleBusinessLocationDetails200ResponseLocation.md) |  |  [optional] |
 |**title** | **String** | Business name |  [optional] |
 |**regularHours** | [**GetGoogleBusinessLocationDetails200ResponseRegularHours**](GetGoogleBusinessLocationDetails200ResponseRegularHours.md) |  |  [optional] |
 |**specialHours** | [**GetGoogleBusinessLocationDetails200ResponseSpecialHours**](GetGoogleBusinessLocationDetails200ResponseSpecialHours.md) |  |  [optional] |

@@ -4,7 +4,7 @@ Zernio API
 
 - API version: 1.0.1
 
-- Build date: 2026-04-28T13:51:58.018843986Z[Etc/UTC]
+- Build date: 2026-04-29T10:23:19.131039113Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -913,6 +913,7 @@ Class | Method | HTTP request | Description
  - [GetGoogleBusinessLocationDetails200ResponseCategories](docs/GetGoogleBusinessLocationDetails200ResponseCategories.md)
  - [GetGoogleBusinessLocationDetails200ResponseCategoriesAdditionalCategoriesInner](docs/GetGoogleBusinessLocationDetails200ResponseCategoriesAdditionalCategoriesInner.md)
  - [GetGoogleBusinessLocationDetails200ResponseCategoriesPrimaryCategory](docs/GetGoogleBusinessLocationDetails200ResponseCategoriesPrimaryCategory.md)
+ - [GetGoogleBusinessLocationDetails200ResponseLocation](docs/GetGoogleBusinessLocationDetails200ResponseLocation.md)
  - [GetGoogleBusinessLocationDetails200ResponsePhoneNumbers](docs/GetGoogleBusinessLocationDetails200ResponsePhoneNumbers.md)
  - [GetGoogleBusinessLocationDetails200ResponseProfile](docs/GetGoogleBusinessLocationDetails200ResponseProfile.md)
  - [GetGoogleBusinessLocationDetails200ResponseRegularHours](docs/GetGoogleBusinessLocationDetails200ResponseRegularHours.md)

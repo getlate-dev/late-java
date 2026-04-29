@@ -36,7 +36,7 @@ import dev.zernio.ApiClient;
   FollowUserRequest.JSON_PROPERTY_ACCOUNT_ID,
   FollowUserRequest.JSON_PROPERTY_TARGET_USER_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-28T13:51:58.018843986Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T10:23:19.131039113Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class FollowUserRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nonnull
