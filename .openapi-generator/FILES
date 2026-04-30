@@ -83,6 +83,8 @@ docs/CancelBroadcast200ResponseBroadcast.md
 docs/CommentAutomationsApi.md
 docs/CommentsApi.md
 docs/CompleteTelegramConnect200Response.md
+docs/ConfigureTikTokAdsBrandIdentity200Response.md
+docs/ConfigureTikTokAdsBrandIdentityRequest.md
 docs/ConnectAds200Response.md
 docs/ConnectAds200ResponseOneOf.md
 docs/ConnectAds200ResponseOneOf1.md
@@ -158,6 +160,7 @@ docs/CreateStandaloneAd201Response.md
 docs/CreateStandaloneAd201ResponseOneOf.md
 docs/CreateStandaloneAd201ResponseOneOf1.md
 docs/CreateStandaloneAdRequest.md
+docs/CreateStandaloneAdRequestBrandIdentity.md
 docs/CreateStandaloneAdRequestCitiesInner.md
 docs/CreateStandaloneAdRequestCreativesInner.md
 docs/CreateStandaloneAdRequestCreativesInnerVideo.md
@@ -1011,6 +1014,8 @@ src/main/java/dev/zernio/model/BusinessCenter.java
 src/main/java/dev/zernio/model/CancelBroadcast200Response.java
 src/main/java/dev/zernio/model/CancelBroadcast200ResponseBroadcast.java
 src/main/java/dev/zernio/model/CompleteTelegramConnect200Response.java
+src/main/java/dev/zernio/model/ConfigureTikTokAdsBrandIdentity200Response.java
+src/main/java/dev/zernio/model/ConfigureTikTokAdsBrandIdentityRequest.java
 src/main/java/dev/zernio/model/ConnectAds200Response.java
 src/main/java/dev/zernio/model/ConnectAds200ResponseOneOf.java
 src/main/java/dev/zernio/model/ConnectAds200ResponseOneOf1.java
@@ -1084,6 +1089,7 @@ src/main/java/dev/zernio/model/CreateStandaloneAd201Response.java
 src/main/java/dev/zernio/model/CreateStandaloneAd201ResponseOneOf.java
 src/main/java/dev/zernio/model/CreateStandaloneAd201ResponseOneOf1.java
 src/main/java/dev/zernio/model/CreateStandaloneAdRequest.java
+src/main/java/dev/zernio/model/CreateStandaloneAdRequestBrandIdentity.java
 src/main/java/dev/zernio/model/CreateStandaloneAdRequestCitiesInner.java
 src/main/java/dev/zernio/model/CreateStandaloneAdRequestCreativesInner.java
 src/main/java/dev/zernio/model/CreateStandaloneAdRequestCreativesInnerVideo.java
@@ -1778,8 +1784,6 @@ src/main/java/dev/zernio/model/YouTubeDemographicsResponseDemographicsValueInner
 src/main/java/dev/zernio/model/YouTubePlatformData.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponseScopeStatus.java
-src/test/java/dev/zernio/model/CreateStandaloneAdRequestCitiesInnerTest.java
-src/test/java/dev/zernio/model/CreateStandaloneAdRequestRegionsInnerTest.java
-src/test/java/dev/zernio/model/SearchAdTargetingLocations200ResponseResultsInnerRegionIdTest.java
-src/test/java/dev/zernio/model/SearchAdTargetingLocations200ResponseResultsInnerTest.java
-src/test/java/dev/zernio/model/SearchAdTargetingLocations200ResponseTest.java
+src/test/java/dev/zernio/model/ConfigureTikTokAdsBrandIdentity200ResponseTest.java
+src/test/java/dev/zernio/model/ConfigureTikTokAdsBrandIdentityRequestTest.java
+src/test/java/dev/zernio/model/CreateStandaloneAdRequestBrandIdentityTest.java

@@ -4,7 +4,7 @@ Zernio API
 
 - API version: 1.0.1
 
-- Build date: 2026-04-30T12:59:05.421515593Z[Etc/UTC]
+- Build date: 2026-04-30T15:19:46.103552346Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -312,6 +312,8 @@ Class | Method | HTTP request | Description
 *CommentsApi* | [**unlikeInboxCommentWithHttpInfo**](docs/CommentsApi.md#unlikeInboxCommentWithHttpInfo) | **DELETE** /v1/inbox/comments/{postId}/{commentId}/like | Unlike comment
 *ConnectApi* | [**completeTelegramConnect**](docs/ConnectApi.md#completeTelegramConnect) | **PATCH** /v1/connect/telegram | Check Telegram status
 *ConnectApi* | [**completeTelegramConnectWithHttpInfo**](docs/ConnectApi.md#completeTelegramConnectWithHttpInfo) | **PATCH** /v1/connect/telegram | Check Telegram status
+*ConnectApi* | [**configureTikTokAdsBrandIdentity**](docs/ConnectApi.md#configureTikTokAdsBrandIdentity) | **PATCH** /v1/connect/tiktok-ads | Configure TikTok Ads Brand Identity
+*ConnectApi* | [**configureTikTokAdsBrandIdentityWithHttpInfo**](docs/ConnectApi.md#configureTikTokAdsBrandIdentityWithHttpInfo) | **PATCH** /v1/connect/tiktok-ads | Configure TikTok Ads Brand Identity
 *ConnectApi* | [**connectAds**](docs/ConnectApi.md#connectAds) | **GET** /v1/connect/{platform}/ads | Connect ads for a platform
 *ConnectApi* | [**connectAdsWithHttpInfo**](docs/ConnectApi.md#connectAdsWithHttpInfo) | **GET** /v1/connect/{platform}/ads | Connect ads for a platform
 *ConnectApi* | [**connectBlueskyCredentials**](docs/ConnectApi.md#connectBlueskyCredentials) | **POST** /v1/connect/bluesky/credentials | Connect Bluesky account
@@ -723,6 +725,8 @@ Class | Method | HTTP request | Description
  - [CancelBroadcast200Response](docs/CancelBroadcast200Response.md)
  - [CancelBroadcast200ResponseBroadcast](docs/CancelBroadcast200ResponseBroadcast.md)
  - [CompleteTelegramConnect200Response](docs/CompleteTelegramConnect200Response.md)
+ - [ConfigureTikTokAdsBrandIdentity200Response](docs/ConfigureTikTokAdsBrandIdentity200Response.md)
+ - [ConfigureTikTokAdsBrandIdentityRequest](docs/ConfigureTikTokAdsBrandIdentityRequest.md)
  - [ConnectAds200Response](docs/ConnectAds200Response.md)
  - [ConnectAds200ResponseOneOf](docs/ConnectAds200ResponseOneOf.md)
  - [ConnectAds200ResponseOneOf1](docs/ConnectAds200ResponseOneOf1.md)
@@ -796,6 +800,7 @@ Class | Method | HTTP request | Description
  - [CreateStandaloneAd201ResponseOneOf](docs/CreateStandaloneAd201ResponseOneOf.md)
  - [CreateStandaloneAd201ResponseOneOf1](docs/CreateStandaloneAd201ResponseOneOf1.md)
  - [CreateStandaloneAdRequest](docs/CreateStandaloneAdRequest.md)
+ - [CreateStandaloneAdRequestBrandIdentity](docs/CreateStandaloneAdRequestBrandIdentity.md)
  - [CreateStandaloneAdRequestCitiesInner](docs/CreateStandaloneAdRequestCitiesInner.md)
  - [CreateStandaloneAdRequestCreativesInner](docs/CreateStandaloneAdRequestCreativesInner.md)
  - [CreateStandaloneAdRequestCreativesInnerVideo](docs/CreateStandaloneAdRequestCreativesInnerVideo.md)

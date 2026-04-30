@@ -36,7 +36,7 @@ import dev.zernio.ApiClient;
 @JsonPropertyOrder({
   UserGetResponse.JSON_PROPERTY_USER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-30T12:59:05.421515593Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-30T15:19:46.103552346Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UserGetResponse {
   public static final String JSON_PROPERTY_USER = "user";
   @javax.annotation.Nullable

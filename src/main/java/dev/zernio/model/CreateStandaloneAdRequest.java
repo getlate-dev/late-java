@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import dev.zernio.model.BidStrategy;
+import dev.zernio.model.CreateStandaloneAdRequestBrandIdentity;
 import dev.zernio.model.CreateStandaloneAdRequestCitiesInner;
 import dev.zernio.model.CreateStandaloneAdRequestCreativesInner;
 import dev.zernio.model.CreateStandaloneAdRequestImages;
@@ -84,9 +85,11 @@ import dev.zernio.ApiClient;
   CreateStandaloneAdRequest.JSON_PROPERTY_ROAS_AVERAGE_FLOOR,
   CreateStandaloneAdRequest.JSON_PROPERTY_DSA_BENEFICIARY,
   CreateStandaloneAdRequest.JSON_PROPERTY_DSA_PAYOR,
+  CreateStandaloneAdRequest.JSON_PROPERTY_BRAND_IDENTITY,
+  CreateStandaloneAdRequest.JSON_PROPERTY_IDENTITY_TYPE,
   CreateStandaloneAdRequest.JSON_PROPERTY_PROMOTED_OBJECT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-30T12:59:05.421515593Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-30T15:19:46.103552346Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateStandaloneAdRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nonnull
@@ -477,6 +480,49 @@ public class CreateStandaloneAdRequest {
   public static final String JSON_PROPERTY_DSA_PAYOR = "dsaPayor";
   @javax.annotation.Nullable
   private String dsaPayor;
+
+  public static final String JSON_PROPERTY_BRAND_IDENTITY = "brandIdentity";
+  @javax.annotation.Nullable
+  private CreateStandaloneAdRequestBrandIdentity brandIdentity;
+
+  /**
+   * TikTok only. Forces the identity attribution on the ad:    - &#x60;TT_USER&#x60;: the posting account&#39;s open_id (real @username     branding). Requires a connected TikTok posting account     on the same profile.   - &#x60;CUSTOMIZED_USER&#x60;: synthetic Brand Identity (display     name + avatar). Requires a configured Brand Identity     (cached on the &#x60;tiktokads&#x60; SocialAccount via     &#x60;PATCH /v1/connect/tiktok-ads&#x60;) or an inline     &#x60;brandIdentity&#x60; to create one on the fly.  When omitted, defaults to &#x60;TT_USER&#x60; if a posting account is connected on this profile, else &#x60;CUSTOMIZED_USER&#x60;. Spark Ads (&#x60;POST /v1/ads/boost&#x60;) always use &#x60;TT_USER&#x60; regardless of this field — TikTok requires the original organic post&#39;s author identity for Spark. 
+   */
+  public enum IdentityTypeEnum {
+    TT_USER(String.valueOf("TT_USER")),
+    
+    CUSTOMIZED_USER(String.valueOf("CUSTOMIZED_USER"));
+
+    private String value;
+
+    IdentityTypeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static IdentityTypeEnum fromValue(String value) {
+      for (IdentityTypeEnum b : IdentityTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_IDENTITY_TYPE = "identityType";
+  @javax.annotation.Nullable
+  private IdentityTypeEnum identityType;
 
   public static final String JSON_PROPERTY_PROMOTED_OBJECT = "promotedObject";
   @javax.annotation.Nullable
@@ -1465,6 +1511,54 @@ public class CreateStandaloneAdRequest {
   }
 
 
+  public CreateStandaloneAdRequest brandIdentity(@javax.annotation.Nullable CreateStandaloneAdRequestBrandIdentity brandIdentity) {
+    this.brandIdentity = brandIdentity;
+    return this;
+  }
+
+  /**
+   * Get brandIdentity
+   * @return brandIdentity
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_BRAND_IDENTITY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CreateStandaloneAdRequestBrandIdentity getBrandIdentity() {
+    return brandIdentity;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_BRAND_IDENTITY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBrandIdentity(@javax.annotation.Nullable CreateStandaloneAdRequestBrandIdentity brandIdentity) {
+    this.brandIdentity = brandIdentity;
+  }
+
+
+  public CreateStandaloneAdRequest identityType(@javax.annotation.Nullable IdentityTypeEnum identityType) {
+    this.identityType = identityType;
+    return this;
+  }
+
+  /**
+   * TikTok only. Forces the identity attribution on the ad:    - &#x60;TT_USER&#x60;: the posting account&#39;s open_id (real @username     branding). Requires a connected TikTok posting account     on the same profile.   - &#x60;CUSTOMIZED_USER&#x60;: synthetic Brand Identity (display     name + avatar). Requires a configured Brand Identity     (cached on the &#x60;tiktokads&#x60; SocialAccount via     &#x60;PATCH /v1/connect/tiktok-ads&#x60;) or an inline     &#x60;brandIdentity&#x60; to create one on the fly.  When omitted, defaults to &#x60;TT_USER&#x60; if a posting account is connected on this profile, else &#x60;CUSTOMIZED_USER&#x60;. Spark Ads (&#x60;POST /v1/ads/boost&#x60;) always use &#x60;TT_USER&#x60; regardless of this field — TikTok requires the original organic post&#39;s author identity for Spark. 
+   * @return identityType
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_IDENTITY_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public IdentityTypeEnum getIdentityType() {
+    return identityType;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_IDENTITY_TYPE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIdentityType(@javax.annotation.Nullable IdentityTypeEnum identityType) {
+    this.identityType = identityType;
+  }
+
+
   public CreateStandaloneAdRequest promotedObject(@javax.annotation.Nullable CreateStandaloneAdRequestPromotedObject promotedObject) {
     this.promotedObject = promotedObject;
     return this;
@@ -1539,12 +1633,14 @@ public class CreateStandaloneAdRequest {
         Objects.equals(this.roasAverageFloor, createStandaloneAdRequest.roasAverageFloor) &&
         Objects.equals(this.dsaBeneficiary, createStandaloneAdRequest.dsaBeneficiary) &&
         Objects.equals(this.dsaPayor, createStandaloneAdRequest.dsaPayor) &&
+        Objects.equals(this.brandIdentity, createStandaloneAdRequest.brandIdentity) &&
+        Objects.equals(this.identityType, createStandaloneAdRequest.identityType) &&
         Objects.equals(this.promotedObject, createStandaloneAdRequest.promotedObject);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, adAccountId, name, goal, budgetAmount, budgetType, currency, headline, longHeadline, body, callToAction, linkUrl, imageUrl, images, video, creatives, adSetId, businessName, boardId, countries, cities, regions, ageMin, ageMax, interests, endDate, audienceId, campaignType, keywords, additionalHeadlines, additionalDescriptions, advantageAudience, gender, bidStrategy, bidAmount, roasAverageFloor, dsaBeneficiary, dsaPayor, promotedObject);
+    return Objects.hash(accountId, adAccountId, name, goal, budgetAmount, budgetType, currency, headline, longHeadline, body, callToAction, linkUrl, imageUrl, images, video, creatives, adSetId, businessName, boardId, countries, cities, regions, ageMin, ageMax, interests, endDate, audienceId, campaignType, keywords, additionalHeadlines, additionalDescriptions, advantageAudience, gender, bidStrategy, bidAmount, roasAverageFloor, dsaBeneficiary, dsaPayor, brandIdentity, identityType, promotedObject);
   }
 
   @Override
@@ -1589,6 +1685,8 @@ public class CreateStandaloneAdRequest {
     sb.append("    roasAverageFloor: ").append(toIndentedString(roasAverageFloor)).append("\n");
     sb.append("    dsaBeneficiary: ").append(toIndentedString(dsaBeneficiary)).append("\n");
     sb.append("    dsaPayor: ").append(toIndentedString(dsaPayor)).append("\n");
+    sb.append("    brandIdentity: ").append(toIndentedString(brandIdentity)).append("\n");
+    sb.append("    identityType: ").append(toIndentedString(identityType)).append("\n");
     sb.append("    promotedObject: ").append(toIndentedString(promotedObject)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1861,6 +1959,16 @@ public class CreateStandaloneAdRequest {
     // add `dsaPayor` to the URL query string
     if (getDsaPayor() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sdsaPayor%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDsaPayor()))));
+    }
+
+    // add `brandIdentity` to the URL query string
+    if (getBrandIdentity() != null) {
+      joiner.add(getBrandIdentity().toUrlQueryString(prefix + "brandIdentity" + suffix));
+    }
+
+    // add `identityType` to the URL query string
+    if (getIdentityType() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sidentityType%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getIdentityType()))));
     }
 
     // add `promotedObject` to the URL query string

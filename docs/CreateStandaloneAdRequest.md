@@ -45,6 +45,8 @@
 |**roasAverageFloor** | **BigDecimal** | Minimum ROAS as a decimal multiplier (e.g. 2.0 &#x3D; 2.0x ROAS). Required when &#x60;bidStrategy&#x60; is &#x60;LOWEST_COST_WITH_MIN_ROAS&#x60;. Sent to Meta as &#x60;bid_constraints.roas_average_floor&#x60; × 10000.  |  [optional] |
 |**dsaBeneficiary** | **String** | Name of the legal entity benefiting from the ad. Required by Meta when targeting EU users (DSA Article 26). Not enforced at schema level; enforced server-side when targeting intersects EU member states.  |  [optional] |
 |**dsaPayor** | **String** | Name of the legal entity paying for the ad. Required by Meta when targeting EU users (DSA Article 26). Note Meta API spelling: dsa_payor (not dsa_payer).  |  [optional] |
+|**brandIdentity** | [**CreateStandaloneAdRequestBrandIdentity**](CreateStandaloneAdRequestBrandIdentity.md) |  |  [optional] |
+|**identityType** | [**IdentityTypeEnum**](#IdentityTypeEnum) | TikTok only. Forces the identity attribution on the ad:    - &#x60;TT_USER&#x60;: the posting account&#39;s open_id (real @username     branding). Requires a connected TikTok posting account     on the same profile.   - &#x60;CUSTOMIZED_USER&#x60;: synthetic Brand Identity (display     name + avatar). Requires a configured Brand Identity     (cached on the &#x60;tiktokads&#x60; SocialAccount via     &#x60;PATCH /v1/connect/tiktok-ads&#x60;) or an inline     &#x60;brandIdentity&#x60; to create one on the fly.  When omitted, defaults to &#x60;TT_USER&#x60; if a posting account is connected on this profile, else &#x60;CUSTOMIZED_USER&#x60;. Spark Ads (&#x60;POST /v1/ads/boost&#x60;) always use &#x60;TT_USER&#x60; regardless of this field — TikTok requires the original organic post&#39;s author identity for Spark.  |  [optional] |
 |**promotedObject** | [**CreateStandaloneAdRequestPromotedObject**](CreateStandaloneAdRequestPromotedObject.md) |  |  [optional] |
 
 
@@ -114,6 +116,15 @@
 | ALL | &quot;all&quot; |
 | MALE | &quot;male&quot; |
 | FEMALE | &quot;female&quot; |
+
+
+
+## Enum: IdentityTypeEnum
+
+| Name | Value |
+|---- | -----|
+| TT_USER | &quot;TT_USER&quot; |
+| CUSTOMIZED_USER | &quot;CUSTOMIZED_USER&quot; |
 
 
 
