@@ -42,7 +42,7 @@ import dev.zernio.ApiClient;
   BoostPostRequestTargeting.JSON_PROPERTY_INTERESTS,
   BoostPostRequestTargeting.JSON_PROPERTY_ADVANTAGE_AUDIENCE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-30T07:16:36.674750912Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-30T10:35:04.786799483Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class BoostPostRequestTargeting {
   public static final String JSON_PROPERTY_AGE_MIN = "ageMin";
   @javax.annotation.Nullable
@@ -168,7 +168,7 @@ public class BoostPostRequestTargeting {
   }
 
   /**
-   * Get countries
+   * ISO country codes. Required for TikTok boosts (TikTok&#39;s ad group requires location_ids); optional on other platforms.
    * @return countries
    */
   @javax.annotation.Nullable

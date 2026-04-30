@@ -109,7 +109,7 @@ public class Example {
 | **400** | Missing required fields or invalid values |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Ads add-on required |  -  |
-| **422** | Platform ads connection required (TikTok Ads, X Ads) or missing linked account |  -  |
+| **422** | Platform ads connection required (TikTok Ads, X Ads), missing linked account, or — for TikTok — the connected TikTok user is not authorized as an Identity on the target advertiser. Returned with code &#x60;ads_connection_required&#x60;; the message includes the actionable \&quot;TikTok Ads Manager → Assets → Identity\&quot; remediation step.  |  -  |
 
 ## boostPostWithHttpInfo
 
@@ -186,7 +186,7 @@ ApiResponse<[**UpdateAd200Response**](UpdateAd200Response.md)>
 | **400** | Missing required fields or invalid values |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Ads add-on required |  -  |
-| **422** | Platform ads connection required (TikTok Ads, X Ads) or missing linked account |  -  |
+| **422** | Platform ads connection required (TikTok Ads, X Ads), missing linked account, or — for TikTok — the connected TikTok user is not authorized as an Identity on the target advertiser. Returned with code &#x60;ads_connection_required&#x60;; the message includes the actionable \&quot;TikTok Ads Manager → Assets → Identity\&quot; remediation step.  |  -  |
 
 
 ## createCtwaAd

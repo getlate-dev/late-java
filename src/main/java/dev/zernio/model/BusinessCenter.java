@@ -37,7 +37,7 @@ import dev.zernio.ApiClient;
   BusinessCenter.JSON_PROPERTY_NAME,
   BusinessCenter.JSON_PROPERTY_ADVERTISER_COUNT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-30T07:16:36.674750912Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-30T10:35:04.786799483Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class BusinessCenter {
   public static final String JSON_PROPERTY_BC_ID = "bcId";
   @javax.annotation.Nullable
@@ -108,7 +108,7 @@ public class BusinessCenter {
   }
 
   /**
-   * Number of advertisers (ad accounts) reachable under this BC for the calling token
+   * Number of advertisers reachable under this BC for the calling token. &#x60;null&#x60; when the BC asset walk returned empty or failed (typical for agency apps without full BC asset read scope) — distinct from &#x60;0&#x60;, which would imply the BC genuinely has no advertisers. 
    * @return advertiserCount
    */
   @javax.annotation.Nullable

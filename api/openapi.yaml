@@ -15084,8 +15084,12 @@ paths:
         "403":
           description: Ads add-on required
         "422":
-          description: "Platform ads connection required (TikTok Ads, X Ads) or missing\
-            \ linked account"
+          description: |
+            Platform ads connection required (TikTok Ads, X Ads), missing linked
+            account, or — for TikTok — the connected TikTok user is not authorized
+            as an Identity on the target advertiser. Returned with code
+            `ads_connection_required`; the message includes the actionable
+            "TikTok Ads Manager → Assets → Identity" remediation step.
       security:
       - bearerAuth: []
       summary: Boost post as ad
@@ -21511,10 +21515,14 @@ components:
           example: Acme Agency
           type: string
         advertiserCount:
-          description: Number of advertisers (ad accounts) reachable under this BC
-            for the calling token
+          description: |
+            Number of advertisers reachable under this BC for the calling token.
+            `null` when the BC asset walk returned empty or failed (typical for
+            agency apps without full BC asset read scope) — distinct from `0`,
+            which would imply the BC genuinely has no advertisers.
           example: 23
           type: integer
+          nullable: true
     BidStrategy:
       description: |
         Meta bid strategy. Same enum applies at campaign and ad-set level; ad-set value (when set)
@@ -38384,6 +38392,8 @@ components:
           minimum: 13
           type: integer
         countries:
+          description: ISO country codes. Required for TikTok boosts (TikTok's ad
+            group requires location_ids); optional on other platforms.
           items:
             type: string
           type: array
