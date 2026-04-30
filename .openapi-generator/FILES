@@ -161,6 +161,7 @@ docs/CreateStandaloneAdRequest.md
 docs/CreateStandaloneAdRequestCreativesInner.md
 docs/CreateStandaloneAdRequestCreativesInnerVideo.md
 docs/CreateStandaloneAdRequestImages.md
+docs/CreateStandaloneAdRequestPromotedObject.md
 docs/CreateStandaloneAdRequestVideo.md
 docs/CreateWebhookSettingsRequest.md
 docs/CreateWhatsAppFlow200Response.md
@@ -1081,6 +1082,7 @@ src/main/java/dev/zernio/model/CreateStandaloneAdRequest.java
 src/main/java/dev/zernio/model/CreateStandaloneAdRequestCreativesInner.java
 src/main/java/dev/zernio/model/CreateStandaloneAdRequestCreativesInnerVideo.java
 src/main/java/dev/zernio/model/CreateStandaloneAdRequestImages.java
+src/main/java/dev/zernio/model/CreateStandaloneAdRequestPromotedObject.java
 src/main/java/dev/zernio/model/CreateStandaloneAdRequestVideo.java
 src/main/java/dev/zernio/model/CreateWebhookSettingsRequest.java
 src/main/java/dev/zernio/model/CreateWhatsAppFlow200Response.java
@@ -1766,3 +1768,4 @@ src/main/java/dev/zernio/model/YouTubeDemographicsResponseDemographicsValueInner
 src/main/java/dev/zernio/model/YouTubePlatformData.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponseScopeStatus.java
+src/test/java/dev/zernio/model/CreateStandaloneAdRequestPromotedObjectTest.java

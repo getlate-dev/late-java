@@ -4,7 +4,7 @@ Zernio API
 
 - API version: 1.0.1
 
-- Build date: 2026-04-30T11:07:45.274036343Z[Etc/UTC]
+- Build date: 2026-04-30T11:21:38.000702959Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -797,6 +797,7 @@ Class | Method | HTTP request | Description
  - [CreateStandaloneAdRequestCreativesInner](docs/CreateStandaloneAdRequestCreativesInner.md)
  - [CreateStandaloneAdRequestCreativesInnerVideo](docs/CreateStandaloneAdRequestCreativesInnerVideo.md)
  - [CreateStandaloneAdRequestImages](docs/CreateStandaloneAdRequestImages.md)
+ - [CreateStandaloneAdRequestPromotedObject](docs/CreateStandaloneAdRequestPromotedObject.md)
  - [CreateStandaloneAdRequestVideo](docs/CreateStandaloneAdRequestVideo.md)
  - [CreateWebhookSettingsRequest](docs/CreateWebhookSettingsRequest.md)
  - [CreateWhatsAppFlow200Response](docs/CreateWhatsAppFlow200Response.md)

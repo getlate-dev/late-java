@@ -35,7 +35,7 @@ import dev.zernio.ApiClient;
 @JsonPropertyOrder({
   GetPostTimeline400Response.JSON_PROPERTY_ERROR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-30T11:07:45.274036343Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-30T11:21:38.000702959Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetPostTimeline400Response {
   public static final String JSON_PROPERTY_ERROR = "error";
   @javax.annotation.Nullable

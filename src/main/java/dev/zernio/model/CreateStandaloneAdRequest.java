@@ -27,6 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import dev.zernio.model.BidStrategy;
 import dev.zernio.model.CreateStandaloneAdRequestCreativesInner;
 import dev.zernio.model.CreateStandaloneAdRequestImages;
+import dev.zernio.model.CreateStandaloneAdRequestPromotedObject;
 import dev.zernio.model.CreateStandaloneAdRequestVideo;
 import dev.zernio.model.UpdateAdRequestTargetingInterestsInner;
 import java.math.BigDecimal;
@@ -78,9 +79,10 @@ import dev.zernio.ApiClient;
   CreateStandaloneAdRequest.JSON_PROPERTY_BID_AMOUNT,
   CreateStandaloneAdRequest.JSON_PROPERTY_ROAS_AVERAGE_FLOOR,
   CreateStandaloneAdRequest.JSON_PROPERTY_DSA_BENEFICIARY,
-  CreateStandaloneAdRequest.JSON_PROPERTY_DSA_PAYOR
+  CreateStandaloneAdRequest.JSON_PROPERTY_DSA_PAYOR,
+  CreateStandaloneAdRequest.JSON_PROPERTY_PROMOTED_OBJECT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-30T11:07:45.274036343Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-30T11:21:38.000702959Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateStandaloneAdRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nonnull
@@ -95,7 +97,7 @@ public class CreateStandaloneAdRequest {
   private String name;
 
   /**
-   * Required on legacy + multi-creative shapes. Inherited from the ad set on the attach shape. Available goals vary by platform.
+   * Required on legacy + multi-creative shapes. Inherited from the ad set on the attach shape. Available goals vary by platform. Meta-specific: &#x60;conversions&#x60; requires &#x60;promotedObject.pixelId&#x60; + &#x60;promotedObject.customEventType&#x60;; &#x60;app_promotion&#x60; requires &#x60;promotedObject.applicationId&#x60; + &#x60;promotedObject.objectStoreUrl&#x60;; &#x60;lead_generation&#x60; accepts an optional &#x60;promotedObject.pageId&#x60; (auto-filled from the connected Page when omitted).
    */
   public enum GoalEnum {
     ENGAGEMENT(String.valueOf("engagement")),
@@ -464,6 +466,10 @@ public class CreateStandaloneAdRequest {
   @javax.annotation.Nullable
   private String dsaPayor;
 
+  public static final String JSON_PROPERTY_PROMOTED_OBJECT = "promotedObject";
+  @javax.annotation.Nullable
+  private CreateStandaloneAdRequestPromotedObject promotedObject;
+
   public CreateStandaloneAdRequest() { 
   }
 
@@ -545,7 +551,7 @@ public class CreateStandaloneAdRequest {
   }
 
   /**
-   * Required on legacy + multi-creative shapes. Inherited from the ad set on the attach shape. Available goals vary by platform.
+   * Required on legacy + multi-creative shapes. Inherited from the ad set on the attach shape. Available goals vary by platform. Meta-specific: &#x60;conversions&#x60; requires &#x60;promotedObject.pixelId&#x60; + &#x60;promotedObject.customEventType&#x60;; &#x60;app_promotion&#x60; requires &#x60;promotedObject.applicationId&#x60; + &#x60;promotedObject.objectStoreUrl&#x60;; &#x60;lead_generation&#x60; accepts an optional &#x60;promotedObject.pageId&#x60; (auto-filled from the connected Page when omitted).
    * @return goal
    */
   @javax.annotation.Nullable
@@ -1383,6 +1389,30 @@ public class CreateStandaloneAdRequest {
   }
 
 
+  public CreateStandaloneAdRequest promotedObject(@javax.annotation.Nullable CreateStandaloneAdRequestPromotedObject promotedObject) {
+    this.promotedObject = promotedObject;
+    return this;
+  }
+
+  /**
+   * Get promotedObject
+   * @return promotedObject
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_PROMOTED_OBJECT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CreateStandaloneAdRequestPromotedObject getPromotedObject() {
+    return promotedObject;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PROMOTED_OBJECT, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPromotedObject(@javax.annotation.Nullable CreateStandaloneAdRequestPromotedObject promotedObject) {
+    this.promotedObject = promotedObject;
+  }
+
+
   /**
    * Return true if this createStandaloneAd_request object is equal to o.
    */
@@ -1430,12 +1460,13 @@ public class CreateStandaloneAdRequest {
         Objects.equals(this.bidAmount, createStandaloneAdRequest.bidAmount) &&
         Objects.equals(this.roasAverageFloor, createStandaloneAdRequest.roasAverageFloor) &&
         Objects.equals(this.dsaBeneficiary, createStandaloneAdRequest.dsaBeneficiary) &&
-        Objects.equals(this.dsaPayor, createStandaloneAdRequest.dsaPayor);
+        Objects.equals(this.dsaPayor, createStandaloneAdRequest.dsaPayor) &&
+        Objects.equals(this.promotedObject, createStandaloneAdRequest.promotedObject);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, adAccountId, name, goal, budgetAmount, budgetType, currency, headline, longHeadline, body, callToAction, linkUrl, imageUrl, images, video, creatives, adSetId, businessName, boardId, countries, ageMin, ageMax, interests, endDate, audienceId, campaignType, keywords, additionalHeadlines, additionalDescriptions, advantageAudience, gender, bidStrategy, bidAmount, roasAverageFloor, dsaBeneficiary, dsaPayor);
+    return Objects.hash(accountId, adAccountId, name, goal, budgetAmount, budgetType, currency, headline, longHeadline, body, callToAction, linkUrl, imageUrl, images, video, creatives, adSetId, businessName, boardId, countries, ageMin, ageMax, interests, endDate, audienceId, campaignType, keywords, additionalHeadlines, additionalDescriptions, advantageAudience, gender, bidStrategy, bidAmount, roasAverageFloor, dsaBeneficiary, dsaPayor, promotedObject);
   }
 
   @Override
@@ -1478,6 +1509,7 @@ public class CreateStandaloneAdRequest {
     sb.append("    roasAverageFloor: ").append(toIndentedString(roasAverageFloor)).append("\n");
     sb.append("    dsaBeneficiary: ").append(toIndentedString(dsaBeneficiary)).append("\n");
     sb.append("    dsaPayor: ").append(toIndentedString(dsaPayor)).append("\n");
+    sb.append("    promotedObject: ").append(toIndentedString(promotedObject)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1729,6 +1761,11 @@ public class CreateStandaloneAdRequest {
     // add `dsaPayor` to the URL query string
     if (getDsaPayor() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sdsaPayor%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDsaPayor()))));
+    }
+
+    // add `promotedObject` to the URL query string
+    if (getPromotedObject() != null) {
+      joiner.add(getPromotedObject().toUrlQueryString(prefix + "promotedObject" + suffix));
     }
 
     return joiner.toString();
