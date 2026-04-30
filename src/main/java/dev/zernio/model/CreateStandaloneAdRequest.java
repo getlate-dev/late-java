@@ -80,7 +80,7 @@ import dev.zernio.ApiClient;
   CreateStandaloneAdRequest.JSON_PROPERTY_DSA_BENEFICIARY,
   CreateStandaloneAdRequest.JSON_PROPERTY_DSA_PAYOR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-30T10:35:04.786799483Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-30T11:07:45.274036343Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateStandaloneAdRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nonnull
@@ -203,7 +203,7 @@ public class CreateStandaloneAdRequest {
   private String body;
 
   /**
-   * Required on legacy + attach shapes. Meta only.
+   * Required on legacy + attach shapes for Meta. Honoured on TikTok too — passes through to the Spark Ad creative&#39;s &#x60;call_to_action&#x60;. Ignored by other platforms.
    */
   public enum CallToActionEnum {
     LEARN_MORE(String.valueOf("LEARN_MORE")),
@@ -713,7 +713,7 @@ public class CreateStandaloneAdRequest {
   }
 
   /**
-   * Required on legacy + attach shapes. Meta only.
+   * Required on legacy + attach shapes for Meta. Honoured on TikTok too — passes through to the Spark Ad creative&#39;s &#x60;call_to_action&#x60;. Ignored by other platforms.
    * @return callToAction
    */
   @javax.annotation.Nullable

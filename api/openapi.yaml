@@ -38667,7 +38667,9 @@ components:
             \ is set). Max: Google=90, Pinterest=500."
           type: string
         callToAction:
-          description: Required on legacy + attach shapes. Meta only.
+          description: Required on legacy + attach shapes for Meta. Honoured on TikTok
+            too — passes through to the Spark Ad creative's `call_to_action`. Ignored
+            by other platforms.
           enum:
           - LEARN_MORE
           - SHOP_NOW
