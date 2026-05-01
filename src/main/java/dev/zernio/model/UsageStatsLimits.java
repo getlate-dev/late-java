@@ -36,7 +36,7 @@ import dev.zernio.ApiClient;
   UsageStatsLimits.JSON_PROPERTY_UPLOADS,
   UsageStatsLimits.JSON_PROPERTY_PROFILES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-30T15:19:46.103552346Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T08:31:59.518979470Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UsageStatsLimits {
   public static final String JSON_PROPERTY_UPLOADS = "uploads";
   @javax.annotation.Nullable

@@ -127,8 +127,10 @@ tags:
     between steps. Supports auto-exit on reply or unsubscribe.
   name: Sequences
 - description: |
-    Comment-to-DM growth automations. Set up keyword triggers on Instagram/Facebook posts so
-    commenters automatically receive a DM. Supports dedup, optional public comment reply, and
+    Comment-to-DM growth automations. Set up keyword triggers on Instagram/Facebook so
+    commenters automatically receive a DM. Scope per post or account-wide (omit
+    `platformPostId` to match comments on every post on the account, with unlimited
+    automations stacked per account). Supports dedup, optional public comment reply, and
     auto-creates contacts.
   name: Comment Automations
 - description: |
@@ -13913,9 +13915,16 @@ paths:
       - application/json
     post:
       description: |
-        Create a keyword-triggered DM automation on an Instagram or Facebook post.
+        Create a keyword-triggered DM automation on an Instagram or Facebook account.
         When someone comments a matching keyword, they automatically receive a DM.
-        Only one active automation per post is allowed.
+
+        Two modes:
+          * **Per-post** — set `platformPostId` to scope the automation to one specific post.
+            Only one active per-post automation is allowed per post.
+          * **Account-wide ("any post")** — omit `platformPostId` (and `postId`). The automation
+            evaluates every comment on every post on the account. You can stack unlimited
+            account-wide automations, each with its own keyword set, and they all run
+            independently. Per-post automations take priority on their post.
       operationId: createCommentAutomation
       requestBody:
         content:
@@ -13935,7 +13944,8 @@ paths:
         "401":
           $ref: "#/components/responses/Unauthorized"
         "409":
-          description: Active automation already exists for this post
+          description: Active per-post automation already exists for this platformPostId.
+            Does not apply to account-wide automations.
       security:
       - bearerAuth: []
       summary: Create comment-to-DM automation
@@ -36284,10 +36294,12 @@ components:
           description: Instagram or Facebook account ID
           type: string
         platformPostId:
-          description: Platform media/post ID
+          description: Platform media/post ID. Omit for an account-wide (any-post)
+            automation.
           type: string
         postId:
-          description: Zernio post ID (optional)
+          description: Zernio post ID. Required only when also targeting a specific
+            post via platformPostId.
           type: string
         postTitle:
           description: Post content snippet for display
@@ -36316,7 +36328,6 @@ components:
       - accountId
       - dmMessage
       - name
-      - platformPostId
       - profileId
     createCommentAutomation_200_response_automation_stats:
       example:

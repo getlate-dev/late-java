@@ -53,7 +53,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-30T15:19:46.103552346Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T08:31:59.518979470Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CommentAutomationsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -172,7 +172,7 @@ public class CommentAutomationsApi {
 
   /**
    * Create comment-to-DM automation
-   * Create a keyword-triggered DM automation on an Instagram or Facebook post. When someone comments a matching keyword, they automatically receive a DM. Only one active automation per post is allowed. 
+   * Create a keyword-triggered DM automation on an Instagram or Facebook account. When someone comments a matching keyword, they automatically receive a DM.  Two modes:   * **Per-post** — set &#x60;platformPostId&#x60; to scope the automation to one specific post.     Only one active per-post automation is allowed per post.   * **Account-wide (\&quot;any post\&quot;)** — omit &#x60;platformPostId&#x60; (and &#x60;postId&#x60;). The automation     evaluates every comment on every post on the account. You can stack unlimited     account-wide automations, each with its own keyword set, and they all run     independently. Per-post automations take priority on their post. 
    * @param createCommentAutomationRequest  (required)
    * @return CreateCommentAutomation200Response
    * @throws ApiException if fails to make API call
@@ -183,7 +183,7 @@ public class CommentAutomationsApi {
 
   /**
    * Create comment-to-DM automation
-   * Create a keyword-triggered DM automation on an Instagram or Facebook post. When someone comments a matching keyword, they automatically receive a DM. Only one active automation per post is allowed. 
+   * Create a keyword-triggered DM automation on an Instagram or Facebook account. When someone comments a matching keyword, they automatically receive a DM.  Two modes:   * **Per-post** — set &#x60;platformPostId&#x60; to scope the automation to one specific post.     Only one active per-post automation is allowed per post.   * **Account-wide (\&quot;any post\&quot;)** — omit &#x60;platformPostId&#x60; (and &#x60;postId&#x60;). The automation     evaluates every comment on every post on the account. You can stack unlimited     account-wide automations, each with its own keyword set, and they all run     independently. Per-post automations take priority on their post. 
    * @param createCommentAutomationRequest  (required)
    * @param headers Optional headers to include in the request
    * @return CreateCommentAutomation200Response
@@ -196,7 +196,7 @@ public class CommentAutomationsApi {
 
   /**
    * Create comment-to-DM automation
-   * Create a keyword-triggered DM automation on an Instagram or Facebook post. When someone comments a matching keyword, they automatically receive a DM. Only one active automation per post is allowed. 
+   * Create a keyword-triggered DM automation on an Instagram or Facebook account. When someone comments a matching keyword, they automatically receive a DM.  Two modes:   * **Per-post** — set &#x60;platformPostId&#x60; to scope the automation to one specific post.     Only one active per-post automation is allowed per post.   * **Account-wide (\&quot;any post\&quot;)** — omit &#x60;platformPostId&#x60; (and &#x60;postId&#x60;). The automation     evaluates every comment on every post on the account. You can stack unlimited     account-wide automations, each with its own keyword set, and they all run     independently. Per-post automations take priority on their post. 
    * @param createCommentAutomationRequest  (required)
    * @return ApiResponse&lt;CreateCommentAutomation200Response&gt;
    * @throws ApiException if fails to make API call
@@ -207,7 +207,7 @@ public class CommentAutomationsApi {
 
   /**
    * Create comment-to-DM automation
-   * Create a keyword-triggered DM automation on an Instagram or Facebook post. When someone comments a matching keyword, they automatically receive a DM. Only one active automation per post is allowed. 
+   * Create a keyword-triggered DM automation on an Instagram or Facebook account. When someone comments a matching keyword, they automatically receive a DM.  Two modes:   * **Per-post** — set &#x60;platformPostId&#x60; to scope the automation to one specific post.     Only one active per-post automation is allowed per post.   * **Account-wide (\&quot;any post\&quot;)** — omit &#x60;platformPostId&#x60; (and &#x60;postId&#x60;). The automation     evaluates every comment on every post on the account. You can stack unlimited     account-wide automations, each with its own keyword set, and they all run     independently. Per-post automations take priority on their post. 
    * @param createCommentAutomationRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;CreateCommentAutomation200Response&gt;

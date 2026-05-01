@@ -25,7 +25,7 @@ All URIs are relative to *https://zernio.com/api*
 
 Create comment-to-DM automation
 
-Create a keyword-triggered DM automation on an Instagram or Facebook post. When someone comments a matching keyword, they automatically receive a DM. Only one active automation per post is allowed. 
+Create a keyword-triggered DM automation on an Instagram or Facebook account. When someone comments a matching keyword, they automatically receive a DM.  Two modes:   * **Per-post** — set &#x60;platformPostId&#x60; to scope the automation to one specific post.     Only one active per-post automation is allowed per post.   * **Account-wide (\&quot;any post\&quot;)** — omit &#x60;platformPostId&#x60; (and &#x60;postId&#x60;). The automation     evaluates every comment on every post on the account. You can stack unlimited     account-wide automations, each with its own keyword set, and they all run     independently. Per-post automations take priority on their post. 
 
 ### Example
 
@@ -90,7 +90,7 @@ public class Example {
 | **200** | Automation created |  -  |
 | **400** | Validation error |  -  |
 | **401** | Unauthorized |  -  |
-| **409** | Active automation already exists for this post |  -  |
+| **409** | Active per-post automation already exists for this platformPostId. Does not apply to account-wide automations. |  -  |
 
 ## createCommentAutomationWithHttpInfo
 
@@ -98,7 +98,7 @@ public class Example {
 
 Create comment-to-DM automation
 
-Create a keyword-triggered DM automation on an Instagram or Facebook post. When someone comments a matching keyword, they automatically receive a DM. Only one active automation per post is allowed. 
+Create a keyword-triggered DM automation on an Instagram or Facebook account. When someone comments a matching keyword, they automatically receive a DM.  Two modes:   * **Per-post** — set &#x60;platformPostId&#x60; to scope the automation to one specific post.     Only one active per-post automation is allowed per post.   * **Account-wide (\&quot;any post\&quot;)** — omit &#x60;platformPostId&#x60; (and &#x60;postId&#x60;). The automation     evaluates every comment on every post on the account. You can stack unlimited     account-wide automations, each with its own keyword set, and they all run     independently. Per-post automations take priority on their post. 
 
 ### Example
 
@@ -166,7 +166,7 @@ ApiResponse<[**CreateCommentAutomation200Response**](CreateCommentAutomation200R
 | **200** | Automation created |  -  |
 | **400** | Validation error |  -  |
 | **401** | Unauthorized |  -  |
-| **409** | Active automation already exists for this post |  -  |
+| **409** | Active per-post automation already exists for this platformPostId. Does not apply to account-wide automations. |  -  |
 
 
 ## deleteCommentAutomation

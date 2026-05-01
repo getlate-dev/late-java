@@ -46,7 +46,7 @@ import dev.zernio.ApiClient;
   CreateCommentAutomationRequest.JSON_PROPERTY_DM_MESSAGE,
   CreateCommentAutomationRequest.JSON_PROPERTY_COMMENT_REPLY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-30T15:19:46.103552346Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T08:31:59.518979470Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateCommentAutomationRequest {
   public static final String JSON_PROPERTY_PROFILE_ID = "profileId";
   @javax.annotation.Nonnull
@@ -57,7 +57,7 @@ public class CreateCommentAutomationRequest {
   private String accountId;
 
   public static final String JSON_PROPERTY_PLATFORM_POST_ID = "platformPostId";
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String platformPostId;
 
   public static final String JSON_PROPERTY_POST_ID = "postId";
@@ -174,26 +174,26 @@ public class CreateCommentAutomationRequest {
   }
 
 
-  public CreateCommentAutomationRequest platformPostId(@javax.annotation.Nonnull String platformPostId) {
+  public CreateCommentAutomationRequest platformPostId(@javax.annotation.Nullable String platformPostId) {
     this.platformPostId = platformPostId;
     return this;
   }
 
   /**
-   * Platform media/post ID
+   * Platform media/post ID. Omit for an account-wide (any-post) automation.
    * @return platformPostId
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(value = JSON_PROPERTY_PLATFORM_POST_ID, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_PLATFORM_POST_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPlatformPostId() {
     return platformPostId;
   }
 
 
-  @JsonProperty(value = JSON_PROPERTY_PLATFORM_POST_ID, required = true)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPlatformPostId(@javax.annotation.Nonnull String platformPostId) {
+  @JsonProperty(value = JSON_PROPERTY_PLATFORM_POST_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPlatformPostId(@javax.annotation.Nullable String platformPostId) {
     this.platformPostId = platformPostId;
   }
 
@@ -204,7 +204,7 @@ public class CreateCommentAutomationRequest {
   }
 
   /**
-   * Zernio post ID (optional)
+   * Zernio post ID. Required only when also targeting a specific post via platformPostId.
    * @return postId
    */
   @javax.annotation.Nullable
