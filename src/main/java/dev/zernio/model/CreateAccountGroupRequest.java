@@ -36,9 +36,10 @@ import dev.zernio.ApiClient;
  */
 @JsonPropertyOrder({
   CreateAccountGroupRequest.JSON_PROPERTY_NAME,
-  CreateAccountGroupRequest.JSON_PROPERTY_ACCOUNT_IDS
+  CreateAccountGroupRequest.JSON_PROPERTY_ACCOUNT_IDS,
+  CreateAccountGroupRequest.JSON_PROPERTY_PROFILE_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T14:34:05.375870862Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T14:58:52.592709992Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateAccountGroupRequest {
   public static final String JSON_PROPERTY_NAME = "name";
   @javax.annotation.Nonnull
@@ -47,6 +48,10 @@ public class CreateAccountGroupRequest {
   public static final String JSON_PROPERTY_ACCOUNT_IDS = "accountIds";
   @javax.annotation.Nonnull
   private List<String> accountIds = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_PROFILE_ID = "profileId";
+  @javax.annotation.Nullable
+  private String profileId;
 
   public CreateAccountGroupRequest() { 
   }
@@ -107,6 +112,32 @@ public class CreateAccountGroupRequest {
   }
 
 
+  public CreateAccountGroupRequest profileId(@javax.annotation.Nullable String profileId) {
+    this.profileId = profileId;
+    return this;
+  }
+
+  /**
+   * Deprecated. Accepted for backward compatibility but ignored. Groups are no longer scoped to a single profile. 
+   * @return profileId
+   * @deprecated
+   */
+  @Deprecated
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_PROFILE_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getProfileId() {
+    return profileId;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PROFILE_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setProfileId(@javax.annotation.Nullable String profileId) {
+    this.profileId = profileId;
+  }
+
+
   /**
    * Return true if this createAccountGroup_request object is equal to o.
    */
@@ -120,12 +151,13 @@ public class CreateAccountGroupRequest {
     }
     CreateAccountGroupRequest createAccountGroupRequest = (CreateAccountGroupRequest) o;
     return Objects.equals(this.name, createAccountGroupRequest.name) &&
-        Objects.equals(this.accountIds, createAccountGroupRequest.accountIds);
+        Objects.equals(this.accountIds, createAccountGroupRequest.accountIds) &&
+        Objects.equals(this.profileId, createAccountGroupRequest.profileId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, accountIds);
+    return Objects.hash(name, accountIds, profileId);
   }
 
   @Override
@@ -134,6 +166,7 @@ public class CreateAccountGroupRequest {
     sb.append("class CreateAccountGroupRequest {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    accountIds: ").append(toIndentedString(accountIds)).append("\n");
+    sb.append("    profileId: ").append(toIndentedString(profileId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -193,6 +226,11 @@ public class CreateAccountGroupRequest {
             "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix),
             ApiClient.urlEncode(ApiClient.valueToString(getAccountIds().get(i)))));
       }
+    }
+
+    // add `profileId` to the URL query string
+    if (getProfileId() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sprofileId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getProfileId()))));
     }
 
     return joiner.toString();

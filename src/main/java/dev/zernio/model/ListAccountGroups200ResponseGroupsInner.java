@@ -37,9 +37,11 @@ import dev.zernio.ApiClient;
 @JsonPropertyOrder({
   ListAccountGroups200ResponseGroupsInner.JSON_PROPERTY_ID,
   ListAccountGroups200ResponseGroupsInner.JSON_PROPERTY_NAME,
-  ListAccountGroups200ResponseGroupsInner.JSON_PROPERTY_ACCOUNT_IDS
+  ListAccountGroups200ResponseGroupsInner.JSON_PROPERTY_ACCOUNT_IDS,
+  ListAccountGroups200ResponseGroupsInner.JSON_PROPERTY_CREATED_BY,
+  ListAccountGroups200ResponseGroupsInner.JSON_PROPERTY_PROFILE_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T14:34:05.375870862Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T14:58:52.592709992Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ListAccountGroups200ResponseGroupsInner {
   public static final String JSON_PROPERTY_ID = "_id";
   @javax.annotation.Nullable
@@ -52,6 +54,14 @@ public class ListAccountGroups200ResponseGroupsInner {
   public static final String JSON_PROPERTY_ACCOUNT_IDS = "accountIds";
   @javax.annotation.Nullable
   private List<String> accountIds = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_CREATED_BY = "createdBy";
+  @javax.annotation.Nullable
+  private String createdBy;
+
+  public static final String JSON_PROPERTY_PROFILE_ID = "profileId";
+  @javax.annotation.Nullable
+  private String profileId;
 
   public ListAccountGroups200ResponseGroupsInner() { 
   }
@@ -136,6 +146,54 @@ public class ListAccountGroups200ResponseGroupsInner {
   }
 
 
+  public ListAccountGroups200ResponseGroupsInner createdBy(@javax.annotation.Nullable String createdBy) {
+    this.createdBy = createdBy;
+    return this;
+  }
+
+  /**
+   * Get createdBy
+   * @return createdBy
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_CREATED_BY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCreatedBy() {
+    return createdBy;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_CREATED_BY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCreatedBy(@javax.annotation.Nullable String createdBy) {
+    this.createdBy = createdBy;
+  }
+
+
+  public ListAccountGroups200ResponseGroupsInner profileId(@javax.annotation.Nullable String profileId) {
+    this.profileId = profileId;
+    return this;
+  }
+
+  /**
+   * Legacy field. Present only on groups created before cross-profile groups were supported. New groups omit it. 
+   * @return profileId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_PROFILE_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getProfileId() {
+    return profileId;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PROFILE_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setProfileId(@javax.annotation.Nullable String profileId) {
+    this.profileId = profileId;
+  }
+
+
   /**
    * Return true if this listAccountGroups_200_response_groups_inner object is equal to o.
    */
@@ -150,12 +208,14 @@ public class ListAccountGroups200ResponseGroupsInner {
     ListAccountGroups200ResponseGroupsInner listAccountGroups200ResponseGroupsInner = (ListAccountGroups200ResponseGroupsInner) o;
     return Objects.equals(this.id, listAccountGroups200ResponseGroupsInner.id) &&
         Objects.equals(this.name, listAccountGroups200ResponseGroupsInner.name) &&
-        Objects.equals(this.accountIds, listAccountGroups200ResponseGroupsInner.accountIds);
+        Objects.equals(this.accountIds, listAccountGroups200ResponseGroupsInner.accountIds) &&
+        Objects.equals(this.createdBy, listAccountGroups200ResponseGroupsInner.createdBy) &&
+        Objects.equals(this.profileId, listAccountGroups200ResponseGroupsInner.profileId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, accountIds);
+    return Objects.hash(id, name, accountIds, createdBy, profileId);
   }
 
   @Override
@@ -165,6 +225,8 @@ public class ListAccountGroups200ResponseGroupsInner {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    accountIds: ").append(toIndentedString(accountIds)).append("\n");
+    sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
+    sb.append("    profileId: ").append(toIndentedString(profileId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -229,6 +291,16 @@ public class ListAccountGroups200ResponseGroupsInner {
             "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix),
             ApiClient.urlEncode(ApiClient.valueToString(getAccountIds().get(i)))));
       }
+    }
+
+    // add `createdBy` to the URL query string
+    if (getCreatedBy() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%screatedBy%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getCreatedBy()))));
+    }
+
+    // add `profileId` to the URL query string
+    if (getProfileId() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sprofileId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getProfileId()))));
     }
 
     return joiner.toString();

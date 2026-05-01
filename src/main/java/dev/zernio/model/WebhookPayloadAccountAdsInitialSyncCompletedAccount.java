@@ -25,7 +25,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -40,9 +42,11 @@ import dev.zernio.ApiClient;
   WebhookPayloadAccountAdsInitialSyncCompletedAccount.JSON_PROPERTY_USERNAME,
   WebhookPayloadAccountAdsInitialSyncCompletedAccount.JSON_PROPERTY_DISPLAY_NAME,
   WebhookPayloadAccountAdsInitialSyncCompletedAccount.JSON_PROPERTY_PLATFORM_USER_ID,
-  WebhookPayloadAccountAdsInitialSyncCompletedAccount.JSON_PROPERTY_PROFILE_PICTURE
+  WebhookPayloadAccountAdsInitialSyncCompletedAccount.JSON_PROPERTY_PROFILE_PICTURE,
+  WebhookPayloadAccountAdsInitialSyncCompletedAccount.JSON_PROPERTY_PLATFORM_AD_ACCOUNT_ID,
+  WebhookPayloadAccountAdsInitialSyncCompletedAccount.JSON_PROPERTY_PLATFORM_AD_ACCOUNT_IDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T14:34:05.375870862Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T14:58:52.592709992Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WebhookPayloadAccountAdsInitialSyncCompletedAccount {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nonnull
@@ -71,6 +75,14 @@ public class WebhookPayloadAccountAdsInitialSyncCompletedAccount {
   public static final String JSON_PROPERTY_PROFILE_PICTURE = "profilePicture";
   @javax.annotation.Nullable
   private URI profilePicture;
+
+  public static final String JSON_PROPERTY_PLATFORM_AD_ACCOUNT_ID = "platformAdAccountId";
+  @javax.annotation.Nullable
+  private String platformAdAccountId;
+
+  public static final String JSON_PROPERTY_PLATFORM_AD_ACCOUNT_IDS = "platformAdAccountIds";
+  @javax.annotation.Nullable
+  private List<String> platformAdAccountIds = new ArrayList<>();
 
   public WebhookPayloadAccountAdsInitialSyncCompletedAccount() { 
   }
@@ -243,6 +255,62 @@ public class WebhookPayloadAccountAdsInitialSyncCompletedAccount {
   }
 
 
+  public WebhookPayloadAccountAdsInitialSyncCompletedAccount platformAdAccountId(@javax.annotation.Nullable String platformAdAccountId) {
+    this.platformAdAccountId = platformAdAccountId;
+    return this;
+  }
+
+  /**
+   * When the consumer scoped the connect call to a single ad account, this echoes that ID back so the webhook can be correlated to the originating connect request without consulting the consumer&#39;s DB. Meta uses the &#x60;act_*&#x60; shape. 
+   * @return platformAdAccountId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_PLATFORM_AD_ACCOUNT_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPlatformAdAccountId() {
+    return platformAdAccountId;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PLATFORM_AD_ACCOUNT_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPlatformAdAccountId(@javax.annotation.Nullable String platformAdAccountId) {
+    this.platformAdAccountId = platformAdAccountId;
+  }
+
+
+  public WebhookPayloadAccountAdsInitialSyncCompletedAccount platformAdAccountIds(@javax.annotation.Nullable List<String> platformAdAccountIds) {
+    this.platformAdAccountIds = platformAdAccountIds;
+    return this;
+  }
+
+  public WebhookPayloadAccountAdsInitialSyncCompletedAccount addPlatformAdAccountIdsItem(String platformAdAccountIdsItem) {
+    if (this.platformAdAccountIds == null) {
+      this.platformAdAccountIds = new ArrayList<>();
+    }
+    this.platformAdAccountIds.add(platformAdAccountIdsItem);
+    return this;
+  }
+
+  /**
+   * Every ad-account ID that the connected token could see at discovery time. Useful for \&quot;we synced ads from these accounts\&quot; UX without a follow-up API call. Empty array when the token had no ad-account visibility. 
+   * @return platformAdAccountIds
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_PLATFORM_AD_ACCOUNT_IDS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getPlatformAdAccountIds() {
+    return platformAdAccountIds;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_PLATFORM_AD_ACCOUNT_IDS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPlatformAdAccountIds(@javax.annotation.Nullable List<String> platformAdAccountIds) {
+    this.platformAdAccountIds = platformAdAccountIds;
+  }
+
+
   /**
    * Return true if this WebhookPayloadAccountAdsInitialSyncCompleted_account object is equal to o.
    */
@@ -261,12 +329,14 @@ public class WebhookPayloadAccountAdsInitialSyncCompletedAccount {
         Objects.equals(this.username, webhookPayloadAccountAdsInitialSyncCompletedAccount.username) &&
         Objects.equals(this.displayName, webhookPayloadAccountAdsInitialSyncCompletedAccount.displayName) &&
         Objects.equals(this.platformUserId, webhookPayloadAccountAdsInitialSyncCompletedAccount.platformUserId) &&
-        Objects.equals(this.profilePicture, webhookPayloadAccountAdsInitialSyncCompletedAccount.profilePicture);
+        Objects.equals(this.profilePicture, webhookPayloadAccountAdsInitialSyncCompletedAccount.profilePicture) &&
+        Objects.equals(this.platformAdAccountId, webhookPayloadAccountAdsInitialSyncCompletedAccount.platformAdAccountId) &&
+        Objects.equals(this.platformAdAccountIds, webhookPayloadAccountAdsInitialSyncCompletedAccount.platformAdAccountIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, profileId, platform, username, displayName, platformUserId, profilePicture);
+    return Objects.hash(accountId, profileId, platform, username, displayName, platformUserId, profilePicture, platformAdAccountId, platformAdAccountIds);
   }
 
   @Override
@@ -280,6 +350,8 @@ public class WebhookPayloadAccountAdsInitialSyncCompletedAccount {
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    platformUserId: ").append(toIndentedString(platformUserId)).append("\n");
     sb.append("    profilePicture: ").append(toIndentedString(profilePicture)).append("\n");
+    sb.append("    platformAdAccountId: ").append(toIndentedString(platformAdAccountId)).append("\n");
+    sb.append("    platformAdAccountIds: ").append(toIndentedString(platformAdAccountIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -360,6 +432,20 @@ public class WebhookPayloadAccountAdsInitialSyncCompletedAccount {
     // add `profilePicture` to the URL query string
     if (getProfilePicture() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sprofilePicture%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getProfilePicture()))));
+    }
+
+    // add `platformAdAccountId` to the URL query string
+    if (getPlatformAdAccountId() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%splatformAdAccountId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getPlatformAdAccountId()))));
+    }
+
+    // add `platformAdAccountIds` to the URL query string
+    if (getPlatformAdAccountIds() != null) {
+      for (int i = 0; i < getPlatformAdAccountIds().size(); i++) {
+        joiner.add(String.format(java.util.Locale.ROOT, "%splatformAdAccountIds%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix),
+            ApiClient.urlEncode(ApiClient.valueToString(getPlatformAdAccountIds().get(i)))));
+      }
     }
 
     return joiner.toString();

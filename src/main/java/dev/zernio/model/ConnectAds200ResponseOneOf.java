@@ -24,7 +24,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -37,9 +39,10 @@ import dev.zernio.ApiClient;
   ConnectAds200ResponseOneOf.JSON_PROPERTY_ACCOUNT_ID,
   ConnectAds200ResponseOneOf.JSON_PROPERTY_PLATFORM,
   ConnectAds200ResponseOneOf.JSON_PROPERTY_USERNAME,
-  ConnectAds200ResponseOneOf.JSON_PROPERTY_DISPLAY_NAME
+  ConnectAds200ResponseOneOf.JSON_PROPERTY_DISPLAY_NAME,
+  ConnectAds200ResponseOneOf.JSON_PROPERTY_SCOPED_AD_ACCOUNT_IDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T14:34:05.375870862Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T14:58:52.592709992Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ConnectAds200ResponseOneOf {
   public static final String JSON_PROPERTY_ALREADY_CONNECTED = "alreadyConnected";
   @javax.annotation.Nullable
@@ -60,6 +63,10 @@ public class ConnectAds200ResponseOneOf {
   public static final String JSON_PROPERTY_DISPLAY_NAME = "displayName";
   @javax.annotation.Nullable
   private String displayName;
+
+  public static final String JSON_PROPERTY_SCOPED_AD_ACCOUNT_IDS = "scopedAdAccountIds";
+  @javax.annotation.Nullable
+  private List<String> scopedAdAccountIds = new ArrayList<>();
 
   public ConnectAds200ResponseOneOf() { 
   }
@@ -184,6 +191,38 @@ public class ConnectAds200ResponseOneOf {
   }
 
 
+  public ConnectAds200ResponseOneOf scopedAdAccountIds(@javax.annotation.Nullable List<String> scopedAdAccountIds) {
+    this.scopedAdAccountIds = scopedAdAccountIds;
+    return this;
+  }
+
+  public ConnectAds200ResponseOneOf addScopedAdAccountIdsItem(String scopedAdAccountIdsItem) {
+    if (this.scopedAdAccountIds == null) {
+      this.scopedAdAccountIds = new ArrayList<>();
+    }
+    this.scopedAdAccountIds.add(scopedAdAccountIdsItem);
+    return this;
+  }
+
+  /**
+   * Echo of the persisted ad-account scope when the caller passed &#x60;adAccountId&#x60; / &#x60;adAccountIds&#x60;. Omitted when no scope is set. 
+   * @return scopedAdAccountIds
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_SCOPED_AD_ACCOUNT_IDS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getScopedAdAccountIds() {
+    return scopedAdAccountIds;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SCOPED_AD_ACCOUNT_IDS, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setScopedAdAccountIds(@javax.annotation.Nullable List<String> scopedAdAccountIds) {
+    this.scopedAdAccountIds = scopedAdAccountIds;
+  }
+
+
   /**
    * Return true if this connectAds_200_response_oneOf object is equal to o.
    */
@@ -200,12 +239,13 @@ public class ConnectAds200ResponseOneOf {
         Objects.equals(this.accountId, connectAds200ResponseOneOf.accountId) &&
         Objects.equals(this.platform, connectAds200ResponseOneOf.platform) &&
         Objects.equals(this.username, connectAds200ResponseOneOf.username) &&
-        Objects.equals(this.displayName, connectAds200ResponseOneOf.displayName);
+        Objects.equals(this.displayName, connectAds200ResponseOneOf.displayName) &&
+        Objects.equals(this.scopedAdAccountIds, connectAds200ResponseOneOf.scopedAdAccountIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alreadyConnected, accountId, platform, username, displayName);
+    return Objects.hash(alreadyConnected, accountId, platform, username, displayName, scopedAdAccountIds);
   }
 
   @Override
@@ -217,6 +257,7 @@ public class ConnectAds200ResponseOneOf {
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    scopedAdAccountIds: ").append(toIndentedString(scopedAdAccountIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -287,6 +328,15 @@ public class ConnectAds200ResponseOneOf {
     // add `displayName` to the URL query string
     if (getDisplayName() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sdisplayName%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDisplayName()))));
+    }
+
+    // add `scopedAdAccountIds` to the URL query string
+    if (getScopedAdAccountIds() != null) {
+      for (int i = 0; i < getScopedAdAccountIds().size(); i++) {
+        joiner.add(String.format(java.util.Locale.ROOT, "%sscopedAdAccountIds%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix),
+            ApiClient.urlEncode(ApiClient.valueToString(getScopedAdAccountIds().get(i)))));
+      }
     }
 
     return joiner.toString();

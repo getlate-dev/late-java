@@ -2438,8 +2438,11 @@ paths:
       - application/json
   /v1/account-groups:
     get:
-      description: "Returns all account groups for the authenticated user, including\
-        \ group names and associated account IDs."
+      description: |
+        Returns all account groups visible to the authenticated user. Groups can
+        contain accounts from multiple profiles. For API keys scoped to specific
+        profiles, only groups whose accounts all live in allowed profiles are
+        returned.
       operationId: listAccountGroups
       responses:
         "200":
@@ -2469,8 +2472,10 @@ paths:
       x-accepts:
       - application/json
     post:
-      description: Creates a new account group with a name and a list of social account
-        IDs.
+      description: |
+        Creates a new account group with a name and a list of social account IDs.
+        Accounts can belong to different profiles; the caller must have access to
+        every account's profile. Group names must be unique per user.
       operationId: createAccountGroup
       requestBody:
         content:
@@ -5010,6 +5015,38 @@ paths:
         schema:
           default: false
           type: boolean
+        style: form
+      - description: |
+          (metaads only) Scope ad sync to a single Meta ad account. Without this
+          param, sync covers every `act_*` the connected token can see. Pass this
+          to limit `sync.totalAds` / `synced` and the resulting ads to one ad
+          account. Format: `act_<digits>` (matches what `/me/adaccounts` returns).
+          Validated against the connected token; unreachable IDs return 400.
+          For multiple accounts use `adAccountIds` instead.
+        example: act_1330190928038136
+        explode: true
+        in: query
+        name: adAccountId
+        required: false
+        schema:
+          pattern: ^act_\d+$
+          type: string
+        style: form
+      - description: |
+          (metaads only) Scope ad sync to multiple Meta ad accounts. Repeat the
+          param (`?adAccountIds=act_1&adAccountIds=act_2`) or comma-separate
+          (`?adAccountIds=act_1,act_2`). Validated against the connected token.
+          Persisted server-side; latest call wins. Omitting both `adAccountId`
+          and `adAccountIds` keeps any previously persisted scope unchanged.
+        explode: true
+        in: query
+        name: adAccountIds
+        required: false
+        schema:
+          items:
+            pattern: ^act_\d+$
+            type: string
+          type: array
         style: form
       responses:
         "200":
@@ -17146,9 +17183,13 @@ components:
         id: id
         event: account.ads.initial_sync_completed
         sync:
+          errorSubcode: errorSubcode
           synced: 6
+          errorCategory: token_invalid
+          errorCode: errorCode
           totalAds: 0
           failed: 1
+          error: error
           status: success
         account:
           accountId: accountId
@@ -17156,7 +17197,11 @@ components:
           platformUserId: platformUserId
           profileId: profileId
           displayName: displayName
+          platformAdAccountIds:
+          - act_1330190928038136
+          - act_98765432101234
           platform: platform
+          platformAdAccountId: act_1330190928038136
           username: username
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -23785,9 +23830,11 @@ components:
           type: string
     listAccountGroups_200_response_groups_inner:
       example:
+        createdBy: createdBy
         accountIds:
         - accountIds
         - accountIds
+        profileId: profileId
         name: name
         _id: _id
       properties:
@@ -23799,17 +23846,28 @@ components:
           items:
             type: string
           type: array
+        createdBy:
+          type: string
+        profileId:
+          description: |
+            Legacy field. Present only on groups created before
+            cross-profile groups were supported. New groups omit it.
+          type: string
     listAccountGroups_200_response:
       example:
         groups:
-        - accountIds:
+        - createdBy: createdBy
+          accountIds:
           - accountIds
           - accountIds
+          profileId: profileId
           name: name
           _id: _id
-        - accountIds:
+        - createdBy: createdBy
+          accountIds:
           - accountIds
           - accountIds
+          profileId: profileId
           name: name
           _id: _id
       properties:
@@ -23825,9 +23883,31 @@ components:
           items:
             type: string
           type: array
+        profileId:
+          deprecated: true
+          description: |
+            Deprecated. Accepted for backward compatibility but ignored.
+            Groups are no longer scoped to a single profile.
+          type: string
       required:
       - accountIds
       - name
+    createAccountGroup_201_response_group:
+      example:
+        accountIds:
+        - accountIds
+        - accountIds
+        name: name
+        _id: _id
+      properties:
+        _id:
+          type: string
+        name:
+          type: string
+        accountIds:
+          items:
+            type: string
+          type: array
     createAccountGroup_201_response:
       example:
         message: message
@@ -23841,7 +23921,7 @@ components:
         message:
           type: string
         group:
-          $ref: "#/components/schemas/listAccountGroups_200_response_groups_inner"
+          $ref: "#/components/schemas/createAccountGroup_201_response_group"
     updateAccountGroup_request:
       properties:
         name:
@@ -25687,6 +25767,8 @@ components:
         accountId: accountId
         alreadyConnected: true
         displayName: displayName
+        scopedAdAccountIds:
+        - act_1330190928038136
         platform: platform
         username: username
       properties:
@@ -25701,6 +25783,15 @@ components:
           type: string
         displayName:
           type: string
+        scopedAdAccountIds:
+          description: |
+            Echo of the persisted ad-account scope when the caller passed
+            `adAccountId` / `adAccountIds`. Omitted when no scope is set.
+          example:
+          - act_1330190928038136
+          items:
+            type: string
+          type: array
     connectAds_200_response_oneOf_1:
       description: OAuth URL to redirect user to
       properties:
@@ -40278,7 +40369,11 @@ components:
         platformUserId: platformUserId
         profileId: profileId
         displayName: displayName
+        platformAdAccountIds:
+        - act_1330190928038136
+        - act_98765432101234
         platform: platform
+        platformAdAccountId: act_1330190928038136
         username: username
       properties:
         accountId:
@@ -40301,6 +40396,24 @@ components:
           description: "URL of the account's profile picture, when available."
           format: uri
           type: string
+        platformAdAccountId:
+          description: |
+            When the consumer scoped the connect call to a single ad account, this echoes
+            that ID back so the webhook can be correlated to the originating connect
+            request without consulting the consumer's DB. Meta uses the `act_*` shape.
+          example: act_1330190928038136
+          type: string
+        platformAdAccountIds:
+          description: |
+            Every ad-account ID that the connected token could see at discovery time.
+            Useful for "we synced ads from these accounts" UX without a follow-up API call.
+            Empty array when the token had no ad-account visibility.
+          example:
+          - act_1330190928038136
+          - act_98765432101234
+          items:
+            type: string
+          type: array
       required:
       - accountId
       - platform
@@ -40309,9 +40422,13 @@ components:
     WebhookPayloadAccountAdsInitialSyncCompleted_sync:
       description: Summary of the initial ads sync backfill results.
       example:
+        errorSubcode: errorSubcode
         synced: 6
+        errorCategory: token_invalid
+        errorCode: errorCode
         totalAds: 0
         failed: 1
+        error: error
         status: success
       properties:
         status:
@@ -40329,6 +40446,41 @@ components:
         failed:
           description: Number of ads that failed to sync.
           type: integer
+        error:
+          description: |
+            Free-form error message from the platform (typically Meta's Marketing API).
+            Truncated to ~2KB. Present when `status` is `failure` (and sometimes on `success`
+            when discovery saw zero ad accounts). For UX branching prefer `errorCategory`;
+            this field is for human display and debugging.
+          type: string
+        errorCode:
+          description: "Platform-native error code if parsed (e.g. Meta `190`, `10`,\
+            \ `200`)."
+          type: string
+        errorSubcode:
+          description: Platform-native error subcode if parsed.
+          type: string
+        errorCategory:
+          description: |
+            Stable category for UX branching. New values may be added; existing ones are
+            stable. Mapping:
+              - `token_invalid`: access token is expired or revoked. Reconnect.
+              - `permission_denied`: token lacks required scope, or the user has no role
+                on the Business Manager that owns the ad account. Reconnect with full
+                permissions, or have an admin grant access.
+              - `no_ad_accounts`: token is valid but sees zero ad accounts. The user
+                needs to connect a Business Manager that owns ad accounts.
+              - `rate_limited`: platform throttled us. Sync will retry automatically.
+              - `discovery_failed`: any other platform-side failure. Inspect `error`.
+              - `unknown`: classifier could not categorize the failure.
+          enum:
+          - token_invalid
+          - permission_denied
+          - no_ad_accounts
+          - rate_limited
+          - discovery_failed
+          - unknown
+          type: string
       required:
       - failed
       - status

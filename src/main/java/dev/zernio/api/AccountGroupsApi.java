@@ -52,7 +52,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T14:34:05.375870862Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T14:58:52.592709992Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class AccountGroupsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -171,7 +171,7 @@ public class AccountGroupsApi {
 
   /**
    * Create group
-   * Creates a new account group with a name and a list of social account IDs.
+   * Creates a new account group with a name and a list of social account IDs. Accounts can belong to different profiles; the caller must have access to every account&#39;s profile. Group names must be unique per user. 
    * @param createAccountGroupRequest  (required)
    * @return CreateAccountGroup201Response
    * @throws ApiException if fails to make API call
@@ -182,7 +182,7 @@ public class AccountGroupsApi {
 
   /**
    * Create group
-   * Creates a new account group with a name and a list of social account IDs.
+   * Creates a new account group with a name and a list of social account IDs. Accounts can belong to different profiles; the caller must have access to every account&#39;s profile. Group names must be unique per user. 
    * @param createAccountGroupRequest  (required)
    * @param headers Optional headers to include in the request
    * @return CreateAccountGroup201Response
@@ -195,7 +195,7 @@ public class AccountGroupsApi {
 
   /**
    * Create group
-   * Creates a new account group with a name and a list of social account IDs.
+   * Creates a new account group with a name and a list of social account IDs. Accounts can belong to different profiles; the caller must have access to every account&#39;s profile. Group names must be unique per user. 
    * @param createAccountGroupRequest  (required)
    * @return ApiResponse&lt;CreateAccountGroup201Response&gt;
    * @throws ApiException if fails to make API call
@@ -206,7 +206,7 @@ public class AccountGroupsApi {
 
   /**
    * Create group
-   * Creates a new account group with a name and a list of social account IDs.
+   * Creates a new account group with a name and a list of social account IDs. Accounts can belong to different profiles; the caller must have access to every account&#39;s profile. Group names must be unique per user. 
    * @param createAccountGroupRequest  (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;CreateAccountGroup201Response&gt;
@@ -412,7 +412,7 @@ public class AccountGroupsApi {
 
   /**
    * List groups
-   * Returns all account groups for the authenticated user, including group names and associated account IDs.
+   * Returns all account groups visible to the authenticated user. Groups can contain accounts from multiple profiles. For API keys scoped to specific profiles, only groups whose accounts all live in allowed profiles are returned. 
    * @return ListAccountGroups200Response
    * @throws ApiException if fails to make API call
    */
@@ -422,7 +422,7 @@ public class AccountGroupsApi {
 
   /**
    * List groups
-   * Returns all account groups for the authenticated user, including group names and associated account IDs.
+   * Returns all account groups visible to the authenticated user. Groups can contain accounts from multiple profiles. For API keys scoped to specific profiles, only groups whose accounts all live in allowed profiles are returned. 
    * @param headers Optional headers to include in the request
    * @return ListAccountGroups200Response
    * @throws ApiException if fails to make API call
@@ -434,7 +434,7 @@ public class AccountGroupsApi {
 
   /**
    * List groups
-   * Returns all account groups for the authenticated user, including group names and associated account IDs.
+   * Returns all account groups visible to the authenticated user. Groups can contain accounts from multiple profiles. For API keys scoped to specific profiles, only groups whose accounts all live in allowed profiles are returned. 
    * @return ApiResponse&lt;ListAccountGroups200Response&gt;
    * @throws ApiException if fails to make API call
    */
@@ -444,7 +444,7 @@ public class AccountGroupsApi {
 
   /**
    * List groups
-   * Returns all account groups for the authenticated user, including group names and associated account IDs.
+   * Returns all account groups visible to the authenticated user. Groups can contain accounts from multiple profiles. For API keys scoped to specific profiles, only groups whose accounts all live in allowed profiles are returned. 
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;ListAccountGroups200Response&gt;
    * @throws ApiException if fails to make API call

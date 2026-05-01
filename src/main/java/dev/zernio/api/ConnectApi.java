@@ -93,7 +93,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T14:34:05.375870862Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T14:58:52.592709992Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ConnectApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -473,11 +473,13 @@ public class ConnectApi {
    * @param accountId Existing SocialAccount ID. Required for &#x60;twitter&#x60; (X Ads). Optional for &#x60;tiktok&#x60; — omit to enter ads-only mode (no TikTok posting account linked; ad creation uses a Brand Identity instead of a TT_USER). Ignored for same-token (&#x60;facebook&#x60;, &#x60;instagram&#x60;, &#x60;linkedin&#x60;, &#x60;pinterest&#x60;) and standalone (&#x60;googleads&#x60;) platforms.  (optional)
    * @param redirectUrl Custom redirect URL after OAuth completes (same-token platforms only) (optional)
    * @param headless Enable headless mode (same-token platforms only) (optional, default to false)
+   * @param adAccountId (metaads only) Scope ad sync to a single Meta ad account. Without this param, sync covers every &#x60;act_*&#x60; the connected token can see. Pass this to limit &#x60;sync.totalAds&#x60; / &#x60;synced&#x60; and the resulting ads to one ad account. Format: &#x60;act_&lt;digits&gt;&#x60; (matches what &#x60;/me/adaccounts&#x60; returns). Validated against the connected token; unreachable IDs return 400. For multiple accounts use &#x60;adAccountIds&#x60; instead.  (optional)
+   * @param adAccountIds (metaads only) Scope ad sync to multiple Meta ad accounts. Repeat the param (&#x60;?adAccountIds&#x3D;act_1&amp;adAccountIds&#x3D;act_2&#x60;) or comma-separate (&#x60;?adAccountIds&#x3D;act_1,act_2&#x60;). Validated against the connected token. Persisted server-side; latest call wins. Omitting both &#x60;adAccountId&#x60; and &#x60;adAccountIds&#x60; keeps any previously persisted scope unchanged.  (optional)
    * @return ConnectAds200Response
    * @throws ApiException if fails to make API call
    */
-  public ConnectAds200Response connectAds(@javax.annotation.Nonnull String platform, @javax.annotation.Nonnull String profileId, @javax.annotation.Nullable String accountId, @javax.annotation.Nullable URI redirectUrl, @javax.annotation.Nullable Boolean headless) throws ApiException {
-    return connectAds(platform, profileId, accountId, redirectUrl, headless, null);
+  public ConnectAds200Response connectAds(@javax.annotation.Nonnull String platform, @javax.annotation.Nonnull String profileId, @javax.annotation.Nullable String accountId, @javax.annotation.Nullable URI redirectUrl, @javax.annotation.Nullable Boolean headless, @javax.annotation.Nullable String adAccountId, @javax.annotation.Nullable List<String> adAccountIds) throws ApiException {
+    return connectAds(platform, profileId, accountId, redirectUrl, headless, adAccountId, adAccountIds, null);
   }
 
   /**
@@ -488,12 +490,14 @@ public class ConnectApi {
    * @param accountId Existing SocialAccount ID. Required for &#x60;twitter&#x60; (X Ads). Optional for &#x60;tiktok&#x60; — omit to enter ads-only mode (no TikTok posting account linked; ad creation uses a Brand Identity instead of a TT_USER). Ignored for same-token (&#x60;facebook&#x60;, &#x60;instagram&#x60;, &#x60;linkedin&#x60;, &#x60;pinterest&#x60;) and standalone (&#x60;googleads&#x60;) platforms.  (optional)
    * @param redirectUrl Custom redirect URL after OAuth completes (same-token platforms only) (optional)
    * @param headless Enable headless mode (same-token platforms only) (optional, default to false)
+   * @param adAccountId (metaads only) Scope ad sync to a single Meta ad account. Without this param, sync covers every &#x60;act_*&#x60; the connected token can see. Pass this to limit &#x60;sync.totalAds&#x60; / &#x60;synced&#x60; and the resulting ads to one ad account. Format: &#x60;act_&lt;digits&gt;&#x60; (matches what &#x60;/me/adaccounts&#x60; returns). Validated against the connected token; unreachable IDs return 400. For multiple accounts use &#x60;adAccountIds&#x60; instead.  (optional)
+   * @param adAccountIds (metaads only) Scope ad sync to multiple Meta ad accounts. Repeat the param (&#x60;?adAccountIds&#x3D;act_1&amp;adAccountIds&#x3D;act_2&#x60;) or comma-separate (&#x60;?adAccountIds&#x3D;act_1,act_2&#x60;). Validated against the connected token. Persisted server-side; latest call wins. Omitting both &#x60;adAccountId&#x60; and &#x60;adAccountIds&#x60; keeps any previously persisted scope unchanged.  (optional)
    * @param headers Optional headers to include in the request
    * @return ConnectAds200Response
    * @throws ApiException if fails to make API call
    */
-  public ConnectAds200Response connectAds(@javax.annotation.Nonnull String platform, @javax.annotation.Nonnull String profileId, @javax.annotation.Nullable String accountId, @javax.annotation.Nullable URI redirectUrl, @javax.annotation.Nullable Boolean headless, Map<String, String> headers) throws ApiException {
-    ApiResponse<ConnectAds200Response> localVarResponse = connectAdsWithHttpInfo(platform, profileId, accountId, redirectUrl, headless, headers);
+  public ConnectAds200Response connectAds(@javax.annotation.Nonnull String platform, @javax.annotation.Nonnull String profileId, @javax.annotation.Nullable String accountId, @javax.annotation.Nullable URI redirectUrl, @javax.annotation.Nullable Boolean headless, @javax.annotation.Nullable String adAccountId, @javax.annotation.Nullable List<String> adAccountIds, Map<String, String> headers) throws ApiException {
+    ApiResponse<ConnectAds200Response> localVarResponse = connectAdsWithHttpInfo(platform, profileId, accountId, redirectUrl, headless, adAccountId, adAccountIds, headers);
     return localVarResponse.getData();
   }
 
@@ -505,11 +509,13 @@ public class ConnectApi {
    * @param accountId Existing SocialAccount ID. Required for &#x60;twitter&#x60; (X Ads). Optional for &#x60;tiktok&#x60; — omit to enter ads-only mode (no TikTok posting account linked; ad creation uses a Brand Identity instead of a TT_USER). Ignored for same-token (&#x60;facebook&#x60;, &#x60;instagram&#x60;, &#x60;linkedin&#x60;, &#x60;pinterest&#x60;) and standalone (&#x60;googleads&#x60;) platforms.  (optional)
    * @param redirectUrl Custom redirect URL after OAuth completes (same-token platforms only) (optional)
    * @param headless Enable headless mode (same-token platforms only) (optional, default to false)
+   * @param adAccountId (metaads only) Scope ad sync to a single Meta ad account. Without this param, sync covers every &#x60;act_*&#x60; the connected token can see. Pass this to limit &#x60;sync.totalAds&#x60; / &#x60;synced&#x60; and the resulting ads to one ad account. Format: &#x60;act_&lt;digits&gt;&#x60; (matches what &#x60;/me/adaccounts&#x60; returns). Validated against the connected token; unreachable IDs return 400. For multiple accounts use &#x60;adAccountIds&#x60; instead.  (optional)
+   * @param adAccountIds (metaads only) Scope ad sync to multiple Meta ad accounts. Repeat the param (&#x60;?adAccountIds&#x3D;act_1&amp;adAccountIds&#x3D;act_2&#x60;) or comma-separate (&#x60;?adAccountIds&#x3D;act_1,act_2&#x60;). Validated against the connected token. Persisted server-side; latest call wins. Omitting both &#x60;adAccountId&#x60; and &#x60;adAccountIds&#x60; keeps any previously persisted scope unchanged.  (optional)
    * @return ApiResponse&lt;ConnectAds200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ConnectAds200Response> connectAdsWithHttpInfo(@javax.annotation.Nonnull String platform, @javax.annotation.Nonnull String profileId, @javax.annotation.Nullable String accountId, @javax.annotation.Nullable URI redirectUrl, @javax.annotation.Nullable Boolean headless) throws ApiException {
-    return connectAdsWithHttpInfo(platform, profileId, accountId, redirectUrl, headless, null);
+  public ApiResponse<ConnectAds200Response> connectAdsWithHttpInfo(@javax.annotation.Nonnull String platform, @javax.annotation.Nonnull String profileId, @javax.annotation.Nullable String accountId, @javax.annotation.Nullable URI redirectUrl, @javax.annotation.Nullable Boolean headless, @javax.annotation.Nullable String adAccountId, @javax.annotation.Nullable List<String> adAccountIds) throws ApiException {
+    return connectAdsWithHttpInfo(platform, profileId, accountId, redirectUrl, headless, adAccountId, adAccountIds, null);
   }
 
   /**
@@ -520,12 +526,14 @@ public class ConnectApi {
    * @param accountId Existing SocialAccount ID. Required for &#x60;twitter&#x60; (X Ads). Optional for &#x60;tiktok&#x60; — omit to enter ads-only mode (no TikTok posting account linked; ad creation uses a Brand Identity instead of a TT_USER). Ignored for same-token (&#x60;facebook&#x60;, &#x60;instagram&#x60;, &#x60;linkedin&#x60;, &#x60;pinterest&#x60;) and standalone (&#x60;googleads&#x60;) platforms.  (optional)
    * @param redirectUrl Custom redirect URL after OAuth completes (same-token platforms only) (optional)
    * @param headless Enable headless mode (same-token platforms only) (optional, default to false)
+   * @param adAccountId (metaads only) Scope ad sync to a single Meta ad account. Without this param, sync covers every &#x60;act_*&#x60; the connected token can see. Pass this to limit &#x60;sync.totalAds&#x60; / &#x60;synced&#x60; and the resulting ads to one ad account. Format: &#x60;act_&lt;digits&gt;&#x60; (matches what &#x60;/me/adaccounts&#x60; returns). Validated against the connected token; unreachable IDs return 400. For multiple accounts use &#x60;adAccountIds&#x60; instead.  (optional)
+   * @param adAccountIds (metaads only) Scope ad sync to multiple Meta ad accounts. Repeat the param (&#x60;?adAccountIds&#x3D;act_1&amp;adAccountIds&#x3D;act_2&#x60;) or comma-separate (&#x60;?adAccountIds&#x3D;act_1,act_2&#x60;). Validated against the connected token. Persisted server-side; latest call wins. Omitting both &#x60;adAccountId&#x60; and &#x60;adAccountIds&#x60; keeps any previously persisted scope unchanged.  (optional)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;ConnectAds200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ConnectAds200Response> connectAdsWithHttpInfo(@javax.annotation.Nonnull String platform, @javax.annotation.Nonnull String profileId, @javax.annotation.Nullable String accountId, @javax.annotation.Nullable URI redirectUrl, @javax.annotation.Nullable Boolean headless, Map<String, String> headers) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = connectAdsRequestBuilder(platform, profileId, accountId, redirectUrl, headless, headers);
+  public ApiResponse<ConnectAds200Response> connectAdsWithHttpInfo(@javax.annotation.Nonnull String platform, @javax.annotation.Nonnull String profileId, @javax.annotation.Nullable String accountId, @javax.annotation.Nullable URI redirectUrl, @javax.annotation.Nullable Boolean headless, @javax.annotation.Nullable String adAccountId, @javax.annotation.Nullable List<String> adAccountIds, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = connectAdsRequestBuilder(platform, profileId, accountId, redirectUrl, headless, adAccountId, adAccountIds, headers);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -572,7 +580,7 @@ public class ConnectApi {
     }
   }
 
-  private HttpRequest.Builder connectAdsRequestBuilder(@javax.annotation.Nonnull String platform, @javax.annotation.Nonnull String profileId, @javax.annotation.Nullable String accountId, @javax.annotation.Nullable URI redirectUrl, @javax.annotation.Nullable Boolean headless, Map<String, String> headers) throws ApiException {
+  private HttpRequest.Builder connectAdsRequestBuilder(@javax.annotation.Nonnull String platform, @javax.annotation.Nonnull String profileId, @javax.annotation.Nullable String accountId, @javax.annotation.Nullable URI redirectUrl, @javax.annotation.Nullable Boolean headless, @javax.annotation.Nullable String adAccountId, @javax.annotation.Nullable List<String> adAccountIds, Map<String, String> headers) throws ApiException {
     // verify the required parameter 'platform' is set
     if (platform == null) {
       throw new ApiException(400, "Missing the required parameter 'platform' when calling connectAds");
@@ -598,6 +606,10 @@ public class ConnectApi {
     localVarQueryParams.addAll(ApiClient.parameterToPairs("redirect_url", redirectUrl));
     localVarQueryParameterBaseName = "headless";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("headless", headless));
+    localVarQueryParameterBaseName = "adAccountId";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("adAccountId", adAccountId));
+    localVarQueryParameterBaseName = "adAccountIds";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("multi", "adAccountIds", adAccountIds));
 
     if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
       StringJoiner queryJoiner = new StringJoiner("&");

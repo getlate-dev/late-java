@@ -42,7 +42,7 @@ import dev.zernio.ApiClient;
   UpdateCommentAutomationRequest.JSON_PROPERTY_COMMENT_REPLY,
   UpdateCommentAutomationRequest.JSON_PROPERTY_IS_ACTIVE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T14:34:05.375870862Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T14:58:52.592709992Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UpdateCommentAutomationRequest {
   public static final String JSON_PROPERTY_NAME = "name";
   @javax.annotation.Nullable

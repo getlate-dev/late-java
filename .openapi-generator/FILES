@@ -102,6 +102,7 @@ docs/ConversionEventItemsInner.md
 docs/ConversionEventUser.md
 docs/ConversionEventUserClickIds.md
 docs/CreateAccountGroup201Response.md
+docs/CreateAccountGroup201ResponseGroup.md
 docs/CreateAccountGroupRequest.md
 docs/CreateAdAudience201Response.md
 docs/CreateAdAudienceRequest.md
@@ -1031,6 +1032,7 @@ src/main/java/dev/zernio/model/ConversionEventItemsInner.java
 src/main/java/dev/zernio/model/ConversionEventUser.java
 src/main/java/dev/zernio/model/ConversionEventUserClickIds.java
 src/main/java/dev/zernio/model/CreateAccountGroup201Response.java
+src/main/java/dev/zernio/model/CreateAccountGroup201ResponseGroup.java
 src/main/java/dev/zernio/model/CreateAccountGroupRequest.java
 src/main/java/dev/zernio/model/CreateAdAudience201Response.java
 src/main/java/dev/zernio/model/CreateAdAudienceRequest.java
@@ -1784,3 +1786,4 @@ src/main/java/dev/zernio/model/YouTubeDemographicsResponseDemographicsValueInner
 src/main/java/dev/zernio/model/YouTubePlatformData.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponseScopeStatus.java
+src/test/java/dev/zernio/model/CreateAccountGroup201ResponseGroupTest.java

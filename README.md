@@ -4,7 +4,7 @@ Zernio API
 
 - API version: 1.0.1
 
-- Build date: 2026-05-01T14:34:05.375870862Z[Etc/UTC]
+- Build date: 2026-05-01T14:58:52.592709992Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -742,6 +742,7 @@ Class | Method | HTTP request | Description
  - [ConversionEventUser](docs/ConversionEventUser.md)
  - [ConversionEventUserClickIds](docs/ConversionEventUserClickIds.md)
  - [CreateAccountGroup201Response](docs/CreateAccountGroup201Response.md)
+ - [CreateAccountGroup201ResponseGroup](docs/CreateAccountGroup201ResponseGroup.md)
  - [CreateAccountGroupRequest](docs/CreateAccountGroupRequest.md)
  - [CreateAdAudience201Response](docs/CreateAdAudience201Response.md)
  - [CreateAdAudienceRequest](docs/CreateAdAudienceRequest.md)

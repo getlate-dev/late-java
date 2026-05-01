@@ -21,7 +21,7 @@ All URIs are relative to *https://zernio.com/api*
 
 Create group
 
-Creates a new account group with a name and a list of social account IDs.
+Creates a new account group with a name and a list of social account IDs. Accounts can belong to different profiles; the caller must have access to every account&#39;s profile. Group names must be unique per user. 
 
 ### Example
 
@@ -94,7 +94,7 @@ public class Example {
 
 Create group
 
-Creates a new account group with a name and a list of social account IDs.
+Creates a new account group with a name and a list of social account IDs. Accounts can belong to different profiles; the caller must have access to every account&#39;s profile. Group names must be unique per user. 
 
 ### Example
 
@@ -319,7 +319,7 @@ ApiResponse<[**DeleteAccountGroup200Response**](DeleteAccountGroup200Response.md
 
 List groups
 
-Returns all account groups for the authenticated user, including group names and associated account IDs.
+Returns all account groups visible to the authenticated user. Groups can contain accounts from multiple profiles. For API keys scoped to specific profiles, only groups whose accounts all live in allowed profiles are returned. 
 
 ### Example
 
@@ -386,7 +386,7 @@ This endpoint does not need any parameter.
 
 List groups
 
-Returns all account groups for the authenticated user, including group names and associated account IDs.
+Returns all account groups visible to the authenticated user. Groups can contain accounts from multiple profiles. For API keys scoped to specific profiles, only groups whose accounts all live in allowed profiles are returned. 
 
 ### Example
 

@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import dev.zernio.model.ListAccountGroups200ResponseGroupsInner;
+import dev.zernio.model.CreateAccountGroup201ResponseGroup;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -37,7 +37,7 @@ import dev.zernio.ApiClient;
   CreateAccountGroup201Response.JSON_PROPERTY_MESSAGE,
   CreateAccountGroup201Response.JSON_PROPERTY_GROUP
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T14:34:05.375870862Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T14:58:52.592709992Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateAccountGroup201Response {
   public static final String JSON_PROPERTY_MESSAGE = "message";
   @javax.annotation.Nullable
@@ -45,7 +45,7 @@ public class CreateAccountGroup201Response {
 
   public static final String JSON_PROPERTY_GROUP = "group";
   @javax.annotation.Nullable
-  private ListAccountGroups200ResponseGroupsInner group;
+  private CreateAccountGroup201ResponseGroup group;
 
   public CreateAccountGroup201Response() { 
   }
@@ -74,7 +74,7 @@ public class CreateAccountGroup201Response {
   }
 
 
-  public CreateAccountGroup201Response group(@javax.annotation.Nullable ListAccountGroups200ResponseGroupsInner group) {
+  public CreateAccountGroup201Response group(@javax.annotation.Nullable CreateAccountGroup201ResponseGroup group) {
     this.group = group;
     return this;
   }
@@ -86,14 +86,14 @@ public class CreateAccountGroup201Response {
   @javax.annotation.Nullable
   @JsonProperty(value = JSON_PROPERTY_GROUP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ListAccountGroups200ResponseGroupsInner getGroup() {
+  public CreateAccountGroup201ResponseGroup getGroup() {
     return group;
   }
 
 
   @JsonProperty(value = JSON_PROPERTY_GROUP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGroup(@javax.annotation.Nullable ListAccountGroups200ResponseGroupsInner group) {
+  public void setGroup(@javax.annotation.Nullable CreateAccountGroup201ResponseGroup group) {
     this.group = group;
   }
 

@@ -36,9 +36,13 @@ import dev.zernio.ApiClient;
   WebhookPayloadAccountAdsInitialSyncCompletedSync.JSON_PROPERTY_STATUS,
   WebhookPayloadAccountAdsInitialSyncCompletedSync.JSON_PROPERTY_TOTAL_ADS,
   WebhookPayloadAccountAdsInitialSyncCompletedSync.JSON_PROPERTY_SYNCED,
-  WebhookPayloadAccountAdsInitialSyncCompletedSync.JSON_PROPERTY_FAILED
+  WebhookPayloadAccountAdsInitialSyncCompletedSync.JSON_PROPERTY_FAILED,
+  WebhookPayloadAccountAdsInitialSyncCompletedSync.JSON_PROPERTY_ERROR,
+  WebhookPayloadAccountAdsInitialSyncCompletedSync.JSON_PROPERTY_ERROR_CODE,
+  WebhookPayloadAccountAdsInitialSyncCompletedSync.JSON_PROPERTY_ERROR_SUBCODE,
+  WebhookPayloadAccountAdsInitialSyncCompletedSync.JSON_PROPERTY_ERROR_CATEGORY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T14:34:05.375870862Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T14:58:52.592709992Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WebhookPayloadAccountAdsInitialSyncCompletedSync {
   /**
    * Overall outcome of the initial sync.
@@ -90,6 +94,65 @@ public class WebhookPayloadAccountAdsInitialSyncCompletedSync {
   public static final String JSON_PROPERTY_FAILED = "failed";
   @javax.annotation.Nonnull
   private Integer failed;
+
+  public static final String JSON_PROPERTY_ERROR = "error";
+  @javax.annotation.Nullable
+  private String error;
+
+  public static final String JSON_PROPERTY_ERROR_CODE = "errorCode";
+  @javax.annotation.Nullable
+  private String errorCode;
+
+  public static final String JSON_PROPERTY_ERROR_SUBCODE = "errorSubcode";
+  @javax.annotation.Nullable
+  private String errorSubcode;
+
+  /**
+   * Stable category for UX branching. New values may be added; existing ones are stable. Mapping:   - &#x60;token_invalid&#x60;: access token is expired or revoked. Reconnect.   - &#x60;permission_denied&#x60;: token lacks required scope, or the user has no role     on the Business Manager that owns the ad account. Reconnect with full     permissions, or have an admin grant access.   - &#x60;no_ad_accounts&#x60;: token is valid but sees zero ad accounts. The user     needs to connect a Business Manager that owns ad accounts.   - &#x60;rate_limited&#x60;: platform throttled us. Sync will retry automatically.   - &#x60;discovery_failed&#x60;: any other platform-side failure. Inspect &#x60;error&#x60;.   - &#x60;unknown&#x60;: classifier could not categorize the failure. 
+   */
+  public enum ErrorCategoryEnum {
+    TOKEN_INVALID(String.valueOf("token_invalid")),
+    
+    PERMISSION_DENIED(String.valueOf("permission_denied")),
+    
+    NO_AD_ACCOUNTS(String.valueOf("no_ad_accounts")),
+    
+    RATE_LIMITED(String.valueOf("rate_limited")),
+    
+    DISCOVERY_FAILED(String.valueOf("discovery_failed")),
+    
+    UNKNOWN(String.valueOf("unknown"));
+
+    private String value;
+
+    ErrorCategoryEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static ErrorCategoryEnum fromValue(String value) {
+      for (ErrorCategoryEnum b : ErrorCategoryEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_ERROR_CATEGORY = "errorCategory";
+  @javax.annotation.Nullable
+  private ErrorCategoryEnum errorCategory;
 
   public WebhookPayloadAccountAdsInitialSyncCompletedSync() { 
   }
@@ -190,6 +253,102 @@ public class WebhookPayloadAccountAdsInitialSyncCompletedSync {
   }
 
 
+  public WebhookPayloadAccountAdsInitialSyncCompletedSync error(@javax.annotation.Nullable String error) {
+    this.error = error;
+    return this;
+  }
+
+  /**
+   * Free-form error message from the platform (typically Meta&#39;s Marketing API). Truncated to ~2KB. Present when &#x60;status&#x60; is &#x60;failure&#x60; (and sometimes on &#x60;success&#x60; when discovery saw zero ad accounts). For UX branching prefer &#x60;errorCategory&#x60;; this field is for human display and debugging. 
+   * @return error
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getError() {
+    return error;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setError(@javax.annotation.Nullable String error) {
+    this.error = error;
+  }
+
+
+  public WebhookPayloadAccountAdsInitialSyncCompletedSync errorCode(@javax.annotation.Nullable String errorCode) {
+    this.errorCode = errorCode;
+    return this;
+  }
+
+  /**
+   * Platform-native error code if parsed (e.g. Meta &#x60;190&#x60;, &#x60;10&#x60;, &#x60;200&#x60;).
+   * @return errorCode
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_ERROR_CODE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getErrorCode() {
+    return errorCode;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ERROR_CODE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setErrorCode(@javax.annotation.Nullable String errorCode) {
+    this.errorCode = errorCode;
+  }
+
+
+  public WebhookPayloadAccountAdsInitialSyncCompletedSync errorSubcode(@javax.annotation.Nullable String errorSubcode) {
+    this.errorSubcode = errorSubcode;
+    return this;
+  }
+
+  /**
+   * Platform-native error subcode if parsed.
+   * @return errorSubcode
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_ERROR_SUBCODE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getErrorSubcode() {
+    return errorSubcode;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ERROR_SUBCODE, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setErrorSubcode(@javax.annotation.Nullable String errorSubcode) {
+    this.errorSubcode = errorSubcode;
+  }
+
+
+  public WebhookPayloadAccountAdsInitialSyncCompletedSync errorCategory(@javax.annotation.Nullable ErrorCategoryEnum errorCategory) {
+    this.errorCategory = errorCategory;
+    return this;
+  }
+
+  /**
+   * Stable category for UX branching. New values may be added; existing ones are stable. Mapping:   - &#x60;token_invalid&#x60;: access token is expired or revoked. Reconnect.   - &#x60;permission_denied&#x60;: token lacks required scope, or the user has no role     on the Business Manager that owns the ad account. Reconnect with full     permissions, or have an admin grant access.   - &#x60;no_ad_accounts&#x60;: token is valid but sees zero ad accounts. The user     needs to connect a Business Manager that owns ad accounts.   - &#x60;rate_limited&#x60;: platform throttled us. Sync will retry automatically.   - &#x60;discovery_failed&#x60;: any other platform-side failure. Inspect &#x60;error&#x60;.   - &#x60;unknown&#x60;: classifier could not categorize the failure. 
+   * @return errorCategory
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_ERROR_CATEGORY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ErrorCategoryEnum getErrorCategory() {
+    return errorCategory;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_ERROR_CATEGORY, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setErrorCategory(@javax.annotation.Nullable ErrorCategoryEnum errorCategory) {
+    this.errorCategory = errorCategory;
+  }
+
+
   /**
    * Return true if this WebhookPayloadAccountAdsInitialSyncCompleted_sync object is equal to o.
    */
@@ -205,12 +364,16 @@ public class WebhookPayloadAccountAdsInitialSyncCompletedSync {
     return Objects.equals(this.status, webhookPayloadAccountAdsInitialSyncCompletedSync.status) &&
         Objects.equals(this.totalAds, webhookPayloadAccountAdsInitialSyncCompletedSync.totalAds) &&
         Objects.equals(this.synced, webhookPayloadAccountAdsInitialSyncCompletedSync.synced) &&
-        Objects.equals(this.failed, webhookPayloadAccountAdsInitialSyncCompletedSync.failed);
+        Objects.equals(this.failed, webhookPayloadAccountAdsInitialSyncCompletedSync.failed) &&
+        Objects.equals(this.error, webhookPayloadAccountAdsInitialSyncCompletedSync.error) &&
+        Objects.equals(this.errorCode, webhookPayloadAccountAdsInitialSyncCompletedSync.errorCode) &&
+        Objects.equals(this.errorSubcode, webhookPayloadAccountAdsInitialSyncCompletedSync.errorSubcode) &&
+        Objects.equals(this.errorCategory, webhookPayloadAccountAdsInitialSyncCompletedSync.errorCategory);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, totalAds, synced, failed);
+    return Objects.hash(status, totalAds, synced, failed, error, errorCode, errorSubcode, errorCategory);
   }
 
   @Override
@@ -221,6 +384,10 @@ public class WebhookPayloadAccountAdsInitialSyncCompletedSync {
     sb.append("    totalAds: ").append(toIndentedString(totalAds)).append("\n");
     sb.append("    synced: ").append(toIndentedString(synced)).append("\n");
     sb.append("    failed: ").append(toIndentedString(failed)).append("\n");
+    sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
+    sb.append("    errorSubcode: ").append(toIndentedString(errorSubcode)).append("\n");
+    sb.append("    errorCategory: ").append(toIndentedString(errorCategory)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -286,6 +453,26 @@ public class WebhookPayloadAccountAdsInitialSyncCompletedSync {
     // add `failed` to the URL query string
     if (getFailed() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%sfailed%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getFailed()))));
+    }
+
+    // add `error` to the URL query string
+    if (getError() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%serror%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getError()))));
+    }
+
+    // add `errorCode` to the URL query string
+    if (getErrorCode() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%serrorCode%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getErrorCode()))));
+    }
+
+    // add `errorSubcode` to the URL query string
+    if (getErrorSubcode() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%serrorSubcode%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getErrorSubcode()))));
+    }
+
+    // add `errorCategory` to the URL query string
+    if (getErrorCategory() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%serrorCategory%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getErrorCategory()))));
     }
 
     return joiner.toString();
