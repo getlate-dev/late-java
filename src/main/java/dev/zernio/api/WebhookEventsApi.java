@@ -22,7 +22,6 @@ import dev.zernio.model.WebhookPayloadAccountAdsInitialSyncCompleted;
 import dev.zernio.model.WebhookPayloadAccountConnected;
 import dev.zernio.model.WebhookPayloadAccountDisconnected;
 import dev.zernio.model.WebhookPayloadComment;
-import dev.zernio.model.WebhookPayloadLeadReceived;
 import dev.zernio.model.WebhookPayloadMessage;
 import dev.zernio.model.WebhookPayloadMessageDeleted;
 import dev.zernio.model.WebhookPayloadMessageDeliveryStatus;
@@ -64,7 +63,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-03T11:25:43.942041687Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-03T11:45:04.772816058Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class WebhookEventsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -602,115 +601,6 @@ public class WebhookEventsApi {
 
     try {
       byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(webhookPayloadComment);
-      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
-    } catch (IOException e) {
-      throw new ApiException(e);
-    }
-    if (memberVarReadTimeout != null) {
-      localVarRequestBuilder.timeout(memberVarReadTimeout);
-    }
-    // Add custom headers if provided
-    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
-    if (memberVarInterceptor != null) {
-      memberVarInterceptor.accept(localVarRequestBuilder);
-    }
-    return localVarRequestBuilder;
-  }
-
-  /**
-   * Lead received event
-   * Fired when a Meta Lead Gen (Instant) Form receives a new submission. Delivered in real time via Meta&#39;s &#x60;leadgen&#x60; page webhook. Requires the Ads add-on; subscribers without it are filtered at delivery time. 
-   * @param webhookPayloadLeadReceived  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void onLeadReceived(@javax.annotation.Nonnull WebhookPayloadLeadReceived webhookPayloadLeadReceived) throws ApiException {
-    onLeadReceived(webhookPayloadLeadReceived, null);
-  }
-
-  /**
-   * Lead received event
-   * Fired when a Meta Lead Gen (Instant) Form receives a new submission. Delivered in real time via Meta&#39;s &#x60;leadgen&#x60; page webhook. Requires the Ads add-on; subscribers without it are filtered at delivery time. 
-   * @param webhookPayloadLeadReceived  (required)
-   * @param headers Optional headers to include in the request
-   * @throws ApiException if fails to make API call
-   */
-  public void onLeadReceived(@javax.annotation.Nonnull WebhookPayloadLeadReceived webhookPayloadLeadReceived, Map<String, String> headers) throws ApiException {
-    onLeadReceivedWithHttpInfo(webhookPayloadLeadReceived, headers);
-  }
-
-  /**
-   * Lead received event
-   * Fired when a Meta Lead Gen (Instant) Form receives a new submission. Delivered in real time via Meta&#39;s &#x60;leadgen&#x60; page webhook. Requires the Ads add-on; subscribers without it are filtered at delivery time. 
-   * @param webhookPayloadLeadReceived  (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> onLeadReceivedWithHttpInfo(@javax.annotation.Nonnull WebhookPayloadLeadReceived webhookPayloadLeadReceived) throws ApiException {
-    return onLeadReceivedWithHttpInfo(webhookPayloadLeadReceived, null);
-  }
-
-  /**
-   * Lead received event
-   * Fired when a Meta Lead Gen (Instant) Form receives a new submission. Delivered in real time via Meta&#39;s &#x60;leadgen&#x60; page webhook. Requires the Ads add-on; subscribers without it are filtered at delivery time. 
-   * @param webhookPayloadLeadReceived  (required)
-   * @param headers Optional headers to include in the request
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<Void> onLeadReceivedWithHttpInfo(@javax.annotation.Nonnull WebhookPayloadLeadReceived webhookPayloadLeadReceived, Map<String, String> headers) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = onLeadReceivedRequestBuilder(webhookPayloadLeadReceived, headers);
-    try {
-      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
-      if (memberVarResponseInterceptor != null) {
-        memberVarResponseInterceptor.accept(localVarResponse);
-      }
-      InputStream localVarResponseBody = null;
-      try {
-        if (localVarResponse.statusCode()/ 100 != 2) {
-          throw getApiException("onLeadReceived", localVarResponse);
-        }
-        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
-        if (localVarResponseBody != null) {
-          localVarResponseBody.readAllBytes();
-        }
-        return new ApiResponse<>(
-            localVarResponse.statusCode(),
-            localVarResponse.headers().map(),
-            null
-        );
-      } finally {
-        if (localVarResponseBody != null) {
-          localVarResponseBody.close();
-        }
-      }
-    } catch (IOException e) {
-      throw new ApiException(e);
-    }
-    catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-      throw new ApiException(e);
-    }
-  }
-
-  private HttpRequest.Builder onLeadReceivedRequestBuilder(@javax.annotation.Nonnull WebhookPayloadLeadReceived webhookPayloadLeadReceived, Map<String, String> headers) throws ApiException {
-    // verify the required parameter 'webhookPayloadLeadReceived' is set
-    if (webhookPayloadLeadReceived == null) {
-      throw new ApiException(400, "Missing the required parameter 'webhookPayloadLeadReceived' when calling onLeadReceived");
-    }
-
-    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
-
-    String localVarPath = "/lead.received";
-
-    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
-
-    localVarRequestBuilder.header("Content-Type", "application/json");
-    localVarRequestBuilder.header("Accept", "application/json");
-
-    try {
-      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(webhookPayloadLeadReceived);
       localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
     } catch (IOException e) {
       throw new ApiException(e);

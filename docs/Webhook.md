@@ -43,7 +43,6 @@ Individual webhook configuration for receiving real-time notifications
 | COMMENT_RECEIVED | &quot;comment.received&quot; |
 | REVIEW_NEW | &quot;review.new&quot; |
 | REVIEW_UPDATED | &quot;review.updated&quot; |
-| LEAD_RECEIVED | &quot;lead.received&quot; |
 
 
 

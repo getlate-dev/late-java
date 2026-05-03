@@ -45,7 +45,7 @@ import dev.zernio.ApiClient;
   GetFollowerStats200Response.JSON_PROPERTY_DATE_RANGE,
   GetFollowerStats200Response.JSON_PROPERTY_GRANULARITY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-03T11:25:43.942041687Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-03T11:45:04.772816058Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetFollowerStats200Response {
   public static final String JSON_PROPERTY_ACCOUNTS = "accounts";
   @javax.annotation.Nullable

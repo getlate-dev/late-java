@@ -58,7 +58,6 @@ import dev.zernio.ApiClient;
   CreateStandaloneAdRequest.JSON_PROPERTY_LONG_HEADLINE,
   CreateStandaloneAdRequest.JSON_PROPERTY_BODY,
   CreateStandaloneAdRequest.JSON_PROPERTY_CALL_TO_ACTION,
-  CreateStandaloneAdRequest.JSON_PROPERTY_LEAD_GEN_FORM_ID,
   CreateStandaloneAdRequest.JSON_PROPERTY_LINK_URL,
   CreateStandaloneAdRequest.JSON_PROPERTY_IMAGE_URL,
   CreateStandaloneAdRequest.JSON_PROPERTY_IMAGES,
@@ -90,7 +89,7 @@ import dev.zernio.ApiClient;
   CreateStandaloneAdRequest.JSON_PROPERTY_IDENTITY_TYPE,
   CreateStandaloneAdRequest.JSON_PROPERTY_PROMOTED_OBJECT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-03T11:25:43.942041687Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-03T11:45:04.772816058Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateStandaloneAdRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nonnull
@@ -213,7 +212,7 @@ public class CreateStandaloneAdRequest {
   private String body;
 
   /**
-   * Required on legacy + attach shapes for Meta. Honoured on TikTok too — passes through to the Spark Ad creative&#39;s &#x60;call_to_action&#x60;. Ignored by other platforms. Ignored on Meta when &#x60;leadGenFormId&#x60; is set — lead ads force CTA type to SIGN_UP.
+   * Required on legacy + attach shapes for Meta. Honoured on TikTok too — passes through to the Spark Ad creative&#39;s &#x60;call_to_action&#x60;. Ignored by other platforms.
    */
   public enum CallToActionEnum {
     LEARN_MORE(String.valueOf("LEARN_MORE")),
@@ -266,10 +265,6 @@ public class CreateStandaloneAdRequest {
   public static final String JSON_PROPERTY_CALL_TO_ACTION = "callToAction";
   @javax.annotation.Nullable
   private CallToActionEnum callToAction;
-
-  public static final String JSON_PROPERTY_LEAD_GEN_FORM_ID = "leadGenFormId";
-  @javax.annotation.Nullable
-  private String leadGenFormId;
 
   public static final String JSON_PROPERTY_LINK_URL = "linkUrl";
   @javax.annotation.Nullable
@@ -782,7 +777,7 @@ public class CreateStandaloneAdRequest {
   }
 
   /**
-   * Required on legacy + attach shapes for Meta. Honoured on TikTok too — passes through to the Spark Ad creative&#39;s &#x60;call_to_action&#x60;. Ignored by other platforms. Ignored on Meta when &#x60;leadGenFormId&#x60; is set — lead ads force CTA type to SIGN_UP.
+   * Required on legacy + attach shapes for Meta. Honoured on TikTok too — passes through to the Spark Ad creative&#39;s &#x60;call_to_action&#x60;. Ignored by other platforms.
    * @return callToAction
    */
   @javax.annotation.Nullable
@@ -797,30 +792,6 @@ public class CreateStandaloneAdRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCallToAction(@javax.annotation.Nullable CallToActionEnum callToAction) {
     this.callToAction = callToAction;
-  }
-
-
-  public CreateStandaloneAdRequest leadGenFormId(@javax.annotation.Nullable String leadGenFormId) {
-    this.leadGenFormId = leadGenFormId;
-    return this;
-  }
-
-  /**
-   * Meta-only. Attaches a Lead Gen (Instant) Form to the creative. Required when &#x60;goal&#x3D;\&quot;lead_generation\&quot;&#x60;. Force-overrides the CTA to SIGN_UP. Create a form first via POST /v1/ads/lead-forms. On the multi-creative shape this can also be set per &#x60;creatives[i]&#x60; to A/B different forms inside one ad set.
-   * @return leadGenFormId
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(value = JSON_PROPERTY_LEAD_GEN_FORM_ID, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getLeadGenFormId() {
-    return leadGenFormId;
-  }
-
-
-  @JsonProperty(value = JSON_PROPERTY_LEAD_GEN_FORM_ID, required = false)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLeadGenFormId(@javax.annotation.Nullable String leadGenFormId) {
-    this.leadGenFormId = leadGenFormId;
   }
 
 
@@ -1635,7 +1606,6 @@ public class CreateStandaloneAdRequest {
         Objects.equals(this.longHeadline, createStandaloneAdRequest.longHeadline) &&
         Objects.equals(this.body, createStandaloneAdRequest.body) &&
         Objects.equals(this.callToAction, createStandaloneAdRequest.callToAction) &&
-        Objects.equals(this.leadGenFormId, createStandaloneAdRequest.leadGenFormId) &&
         Objects.equals(this.linkUrl, createStandaloneAdRequest.linkUrl) &&
         Objects.equals(this.imageUrl, createStandaloneAdRequest.imageUrl) &&
         Objects.equals(this.images, createStandaloneAdRequest.images) &&
@@ -1670,7 +1640,7 @@ public class CreateStandaloneAdRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, adAccountId, name, goal, budgetAmount, budgetType, currency, headline, longHeadline, body, callToAction, leadGenFormId, linkUrl, imageUrl, images, video, creatives, adSetId, businessName, boardId, countries, cities, regions, ageMin, ageMax, interests, endDate, audienceId, campaignType, keywords, additionalHeadlines, additionalDescriptions, advantageAudience, gender, bidStrategy, bidAmount, roasAverageFloor, dsaBeneficiary, dsaPayor, brandIdentity, identityType, promotedObject);
+    return Objects.hash(accountId, adAccountId, name, goal, budgetAmount, budgetType, currency, headline, longHeadline, body, callToAction, linkUrl, imageUrl, images, video, creatives, adSetId, businessName, boardId, countries, cities, regions, ageMin, ageMax, interests, endDate, audienceId, campaignType, keywords, additionalHeadlines, additionalDescriptions, advantageAudience, gender, bidStrategy, bidAmount, roasAverageFloor, dsaBeneficiary, dsaPayor, brandIdentity, identityType, promotedObject);
   }
 
   @Override
@@ -1688,7 +1658,6 @@ public class CreateStandaloneAdRequest {
     sb.append("    longHeadline: ").append(toIndentedString(longHeadline)).append("\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    callToAction: ").append(toIndentedString(callToAction)).append("\n");
-    sb.append("    leadGenFormId: ").append(toIndentedString(leadGenFormId)).append("\n");
     sb.append("    linkUrl: ").append(toIndentedString(linkUrl)).append("\n");
     sb.append("    imageUrl: ").append(toIndentedString(imageUrl)).append("\n");
     sb.append("    images: ").append(toIndentedString(images)).append("\n");
@@ -1819,11 +1788,6 @@ public class CreateStandaloneAdRequest {
     // add `callToAction` to the URL query string
     if (getCallToAction() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%scallToAction%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getCallToAction()))));
-    }
-
-    // add `leadGenFormId` to the URL query string
-    if (getLeadGenFormId() != null) {
-      joiner.add(String.format(java.util.Locale.ROOT, "%sleadGenFormId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getLeadGenFormId()))));
     }
 
     // add `linkUrl` to the URL query string

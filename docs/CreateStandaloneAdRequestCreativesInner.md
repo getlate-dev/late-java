@@ -14,7 +14,6 @@ Each creative must supply EXACTLY ONE of `imageUrl` (image creative) or `video` 
 |**video** | [**CreateStandaloneAdRequestCreativesInnerVideo**](CreateStandaloneAdRequestCreativesInnerVideo.md) |  |  [optional] |
 |**linkUrl** | **URI** |  |  |
 |**callToAction** | [**CallToActionEnum**](#CallToActionEnum) |  |  |
-|**leadGenFormId** | **String** | Per-creative Lead Gen Form ID. Wins over the top-level &#x60;leadGenFormId&#x60; so each ad in a campaign can A/B a different form. Forces CTA to SIGN_UP. |  [optional] |
 
 
 
