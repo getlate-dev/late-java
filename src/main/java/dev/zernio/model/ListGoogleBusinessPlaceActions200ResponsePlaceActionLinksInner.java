@@ -40,7 +40,7 @@ import dev.zernio.ApiClient;
   ListGoogleBusinessPlaceActions200ResponsePlaceActionLinksInner.JSON_PROPERTY_CREATE_TIME,
   ListGoogleBusinessPlaceActions200ResponsePlaceActionLinksInner.JSON_PROPERTY_UPDATE_TIME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T14:58:52.592709992Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-03T11:25:43.942041687Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ListGoogleBusinessPlaceActions200ResponsePlaceActionLinksInner {
   public static final String JSON_PROPERTY_NAME = "name";
   @javax.annotation.Nullable

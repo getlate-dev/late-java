@@ -40,9 +40,10 @@ import dev.zernio.ApiClient;
   CreateStandaloneAdRequestCreativesInner.JSON_PROPERTY_IMAGE_URL,
   CreateStandaloneAdRequestCreativesInner.JSON_PROPERTY_VIDEO,
   CreateStandaloneAdRequestCreativesInner.JSON_PROPERTY_LINK_URL,
-  CreateStandaloneAdRequestCreativesInner.JSON_PROPERTY_CALL_TO_ACTION
+  CreateStandaloneAdRequestCreativesInner.JSON_PROPERTY_CALL_TO_ACTION,
+  CreateStandaloneAdRequestCreativesInner.JSON_PROPERTY_LEAD_GEN_FORM_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T14:58:52.592709992Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-03T11:25:43.942041687Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateStandaloneAdRequestCreativesInner {
   public static final String JSON_PROPERTY_HEADLINE = "headline";
   @javax.annotation.Nonnull
@@ -118,6 +119,10 @@ public class CreateStandaloneAdRequestCreativesInner {
   public static final String JSON_PROPERTY_CALL_TO_ACTION = "callToAction";
   @javax.annotation.Nonnull
   private CallToActionEnum callToAction;
+
+  public static final String JSON_PROPERTY_LEAD_GEN_FORM_ID = "leadGenFormId";
+  @javax.annotation.Nullable
+  private String leadGenFormId;
 
   public CreateStandaloneAdRequestCreativesInner() { 
   }
@@ -266,6 +271,30 @@ public class CreateStandaloneAdRequestCreativesInner {
   }
 
 
+  public CreateStandaloneAdRequestCreativesInner leadGenFormId(@javax.annotation.Nullable String leadGenFormId) {
+    this.leadGenFormId = leadGenFormId;
+    return this;
+  }
+
+  /**
+   * Per-creative Lead Gen Form ID. Wins over the top-level &#x60;leadGenFormId&#x60; so each ad in a campaign can A/B a different form. Forces CTA to SIGN_UP.
+   * @return leadGenFormId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_LEAD_GEN_FORM_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLeadGenFormId() {
+    return leadGenFormId;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_LEAD_GEN_FORM_ID, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLeadGenFormId(@javax.annotation.Nullable String leadGenFormId) {
+    this.leadGenFormId = leadGenFormId;
+  }
+
+
   /**
    * Return true if this createStandaloneAd_request_creatives_inner object is equal to o.
    */
@@ -283,12 +312,13 @@ public class CreateStandaloneAdRequestCreativesInner {
         Objects.equals(this.imageUrl, createStandaloneAdRequestCreativesInner.imageUrl) &&
         Objects.equals(this.video, createStandaloneAdRequestCreativesInner.video) &&
         Objects.equals(this.linkUrl, createStandaloneAdRequestCreativesInner.linkUrl) &&
-        Objects.equals(this.callToAction, createStandaloneAdRequestCreativesInner.callToAction);
+        Objects.equals(this.callToAction, createStandaloneAdRequestCreativesInner.callToAction) &&
+        Objects.equals(this.leadGenFormId, createStandaloneAdRequestCreativesInner.leadGenFormId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(headline, body, imageUrl, video, linkUrl, callToAction);
+    return Objects.hash(headline, body, imageUrl, video, linkUrl, callToAction, leadGenFormId);
   }
 
   @Override
@@ -301,6 +331,7 @@ public class CreateStandaloneAdRequestCreativesInner {
     sb.append("    video: ").append(toIndentedString(video)).append("\n");
     sb.append("    linkUrl: ").append(toIndentedString(linkUrl)).append("\n");
     sb.append("    callToAction: ").append(toIndentedString(callToAction)).append("\n");
+    sb.append("    leadGenFormId: ").append(toIndentedString(leadGenFormId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -376,6 +407,11 @@ public class CreateStandaloneAdRequestCreativesInner {
     // add `callToAction` to the URL query string
     if (getCallToAction() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%scallToAction%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getCallToAction()))));
+    }
+
+    // add `leadGenFormId` to the URL query string
+    if (getLeadGenFormId() != null) {
+      joiner.add(String.format(java.util.Locale.ROOT, "%sleadGenFormId%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getLeadGenFormId()))));
     }
 
     return joiner.toString();
