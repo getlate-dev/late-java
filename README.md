@@ -4,7 +4,7 @@ Zernio API
 
 - API version: 1.0.1
 
-- Build date: 2026-05-04T16:19:36.438677673Z[Etc/UTC]
+- Build date: 2026-05-04T19:45:34.522646540Z[Etc/UTC]
 
 - Generator version: 7.19.0
 
@@ -312,6 +312,8 @@ Class | Method | HTTP request | Description
 *CommentsApi* | [**unlikeInboxCommentWithHttpInfo**](docs/CommentsApi.md#unlikeInboxCommentWithHttpInfo) | **DELETE** /v1/inbox/comments/{postId}/{commentId}/like | Unlike comment
 *ConnectApi* | [**completeTelegramConnect**](docs/ConnectApi.md#completeTelegramConnect) | **PATCH** /v1/connect/telegram | Check Telegram status
 *ConnectApi* | [**completeTelegramConnectWithHttpInfo**](docs/ConnectApi.md#completeTelegramConnectWithHttpInfo) | **PATCH** /v1/connect/telegram | Check Telegram status
+*ConnectApi* | [**completeWhatsAppPhoneSelection**](docs/ConnectApi.md#completeWhatsAppPhoneSelection) | **POST** /v1/connect/whatsapp/select-phone-number | Complete WhatsApp phone number selection
+*ConnectApi* | [**completeWhatsAppPhoneSelectionWithHttpInfo**](docs/ConnectApi.md#completeWhatsAppPhoneSelectionWithHttpInfo) | **POST** /v1/connect/whatsapp/select-phone-number | Complete WhatsApp phone number selection
 *ConnectApi* | [**configureTikTokAdsBrandIdentity**](docs/ConnectApi.md#configureTikTokAdsBrandIdentity) | **PATCH** /v1/connect/tiktok-ads | Configure TikTok Ads Brand Identity
 *ConnectApi* | [**configureTikTokAdsBrandIdentityWithHttpInfo**](docs/ConnectApi.md#configureTikTokAdsBrandIdentityWithHttpInfo) | **PATCH** /v1/connect/tiktok-ads | Configure TikTok Ads Brand Identity
 *ConnectApi* | [**connectAds**](docs/ConnectApi.md#connectAds) | **GET** /v1/connect/{platform}/ads | Connect ads for a platform
@@ -354,6 +356,8 @@ Class | Method | HTTP request | Description
 *ConnectApi* | [**listPinterestBoardsForSelectionWithHttpInfo**](docs/ConnectApi.md#listPinterestBoardsForSelectionWithHttpInfo) | **GET** /v1/connect/pinterest/select-board | List Pinterest boards
 *ConnectApi* | [**listSnapchatProfiles**](docs/ConnectApi.md#listSnapchatProfiles) | **GET** /v1/connect/snapchat/select-profile | List Snapchat profiles
 *ConnectApi* | [**listSnapchatProfilesWithHttpInfo**](docs/ConnectApi.md#listSnapchatProfilesWithHttpInfo) | **GET** /v1/connect/snapchat/select-profile | List Snapchat profiles
+*ConnectApi* | [**listWhatsAppPhoneNumbers**](docs/ConnectApi.md#listWhatsAppPhoneNumbers) | **GET** /v1/connect/whatsapp/select-phone-number | List WhatsApp phone numbers for selection
+*ConnectApi* | [**listWhatsAppPhoneNumbersWithHttpInfo**](docs/ConnectApi.md#listWhatsAppPhoneNumbersWithHttpInfo) | **GET** /v1/connect/whatsapp/select-phone-number | List WhatsApp phone numbers for selection
 *ConnectApi* | [**selectFacebookPage**](docs/ConnectApi.md#selectFacebookPage) | **POST** /v1/connect/facebook/select-page | Select Facebook page
 *ConnectApi* | [**selectFacebookPageWithHttpInfo**](docs/ConnectApi.md#selectFacebookPageWithHttpInfo) | **POST** /v1/connect/facebook/select-page | Select Facebook page
 *ConnectApi* | [**selectGoogleBusinessLocation**](docs/ConnectApi.md#selectGoogleBusinessLocation) | **POST** /v1/connect/googlebusiness/select-location | Select GBP location
@@ -727,6 +731,9 @@ Class | Method | HTTP request | Description
  - [CancelBroadcast200Response](docs/CancelBroadcast200Response.md)
  - [CancelBroadcast200ResponseBroadcast](docs/CancelBroadcast200ResponseBroadcast.md)
  - [CompleteTelegramConnect200Response](docs/CompleteTelegramConnect200Response.md)
+ - [CompleteWhatsAppPhoneSelection200Response](docs/CompleteWhatsAppPhoneSelection200Response.md)
+ - [CompleteWhatsAppPhoneSelection200ResponseAccount](docs/CompleteWhatsAppPhoneSelection200ResponseAccount.md)
+ - [CompleteWhatsAppPhoneSelectionRequest](docs/CompleteWhatsAppPhoneSelectionRequest.md)
  - [ConfigureTikTokAdsBrandIdentity200Response](docs/ConfigureTikTokAdsBrandIdentity200Response.md)
  - [ConfigureTikTokAdsBrandIdentityRequest](docs/ConfigureTikTokAdsBrandIdentityRequest.md)
  - [ConnectAds200Response](docs/ConnectAds200Response.md)
@@ -1173,6 +1180,8 @@ Class | Method | HTTP request | Description
  - [ListWhatsAppGroupChats200ResponsePagingCursors](docs/ListWhatsAppGroupChats200ResponsePagingCursors.md)
  - [ListWhatsAppGroupJoinRequests200Response](docs/ListWhatsAppGroupJoinRequests200Response.md)
  - [ListWhatsAppGroupJoinRequests200ResponseJoinRequestsInner](docs/ListWhatsAppGroupJoinRequests200ResponseJoinRequestsInner.md)
+ - [ListWhatsAppPhoneNumbers200Response](docs/ListWhatsAppPhoneNumbers200Response.md)
+ - [ListWhatsAppPhoneNumbers200ResponsePhoneNumbersInner](docs/ListWhatsAppPhoneNumbers200ResponsePhoneNumbersInner.md)
  - [MediaItem](docs/MediaItem.md)
  - [MediaUploadResponse](docs/MediaUploadResponse.md)
  - [Money](docs/Money.md)

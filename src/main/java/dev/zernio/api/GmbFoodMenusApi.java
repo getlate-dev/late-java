@@ -49,7 +49,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-04T16:19:36.438677673Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-04T19:45:34.522646540Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GmbFoodMenusApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.

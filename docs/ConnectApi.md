@@ -6,6 +6,8 @@ All URIs are relative to *https://zernio.com/api*
 |------------- | ------------- | -------------|
 | [**completeTelegramConnect**](ConnectApi.md#completeTelegramConnect) | **PATCH** /v1/connect/telegram | Check Telegram status |
 | [**completeTelegramConnectWithHttpInfo**](ConnectApi.md#completeTelegramConnectWithHttpInfo) | **PATCH** /v1/connect/telegram | Check Telegram status |
+| [**completeWhatsAppPhoneSelection**](ConnectApi.md#completeWhatsAppPhoneSelection) | **POST** /v1/connect/whatsapp/select-phone-number | Complete WhatsApp phone number selection |
+| [**completeWhatsAppPhoneSelectionWithHttpInfo**](ConnectApi.md#completeWhatsAppPhoneSelectionWithHttpInfo) | **POST** /v1/connect/whatsapp/select-phone-number | Complete WhatsApp phone number selection |
 | [**configureTikTokAdsBrandIdentity**](ConnectApi.md#configureTikTokAdsBrandIdentity) | **PATCH** /v1/connect/tiktok-ads | Configure TikTok Ads Brand Identity |
 | [**configureTikTokAdsBrandIdentityWithHttpInfo**](ConnectApi.md#configureTikTokAdsBrandIdentityWithHttpInfo) | **PATCH** /v1/connect/tiktok-ads | Configure TikTok Ads Brand Identity |
 | [**connectAds**](ConnectApi.md#connectAds) | **GET** /v1/connect/{platform}/ads | Connect ads for a platform |
@@ -48,6 +50,8 @@ All URIs are relative to *https://zernio.com/api*
 | [**listPinterestBoardsForSelectionWithHttpInfo**](ConnectApi.md#listPinterestBoardsForSelectionWithHttpInfo) | **GET** /v1/connect/pinterest/select-board | List Pinterest boards |
 | [**listSnapchatProfiles**](ConnectApi.md#listSnapchatProfiles) | **GET** /v1/connect/snapchat/select-profile | List Snapchat profiles |
 | [**listSnapchatProfilesWithHttpInfo**](ConnectApi.md#listSnapchatProfilesWithHttpInfo) | **GET** /v1/connect/snapchat/select-profile | List Snapchat profiles |
+| [**listWhatsAppPhoneNumbers**](ConnectApi.md#listWhatsAppPhoneNumbers) | **GET** /v1/connect/whatsapp/select-phone-number | List WhatsApp phone numbers for selection |
+| [**listWhatsAppPhoneNumbersWithHttpInfo**](ConnectApi.md#listWhatsAppPhoneNumbersWithHttpInfo) | **GET** /v1/connect/whatsapp/select-phone-number | List WhatsApp phone numbers for selection |
 | [**selectFacebookPage**](ConnectApi.md#selectFacebookPage) | **POST** /v1/connect/facebook/select-page | Select Facebook page |
 | [**selectFacebookPageWithHttpInfo**](ConnectApi.md#selectFacebookPageWithHttpInfo) | **POST** /v1/connect/facebook/select-page | Select Facebook page |
 | [**selectGoogleBusinessLocation**](ConnectApi.md#selectGoogleBusinessLocation) | **POST** /v1/connect/googlebusiness/select-location | Select GBP location |
@@ -221,6 +225,164 @@ ApiResponse<[**CompleteTelegramConnect200Response**](CompleteTelegramConnect200R
 | **401** | Unauthorized |  -  |
 | **404** | Code not found |  -  |
 | **500** | Internal error |  -  |
+
+
+## completeWhatsAppPhoneSelection
+
+> CompleteWhatsAppPhoneSelection200Response completeWhatsAppPhoneSelection(completeWhatsAppPhoneSelectionRequest, xConnectToken)
+
+Complete WhatsApp phone number selection
+
+Bind a specific WhatsApp phone number to the Zernio profile after the user picks one from &#x60;listWhatsAppPhoneNumbers&#x60;. Exchanges the short-lived OAuth token for a long-lived token, subscribes the WABA to webhooks, and creates the SocialAccount. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.ConnectApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        ConnectApi apiInstance = new ConnectApi(defaultClient);
+        CompleteWhatsAppPhoneSelectionRequest completeWhatsAppPhoneSelectionRequest = new CompleteWhatsAppPhoneSelectionRequest(); // CompleteWhatsAppPhoneSelectionRequest | 
+        String xConnectToken = "xConnectToken_example"; // String | Alternative auth for API users' end customers
+        try {
+            CompleteWhatsAppPhoneSelection200Response result = apiInstance.completeWhatsAppPhoneSelection(completeWhatsAppPhoneSelectionRequest, xConnectToken);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ConnectApi#completeWhatsAppPhoneSelection");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **completeWhatsAppPhoneSelectionRequest** | [**CompleteWhatsAppPhoneSelectionRequest**](CompleteWhatsAppPhoneSelectionRequest.md)|  | |
+| **xConnectToken** | **String**| Alternative auth for API users&#39; end customers | [optional] |
+
+### Return type
+
+[**CompleteWhatsAppPhoneSelection200Response**](CompleteWhatsAppPhoneSelection200Response.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Phone number connected successfully |  -  |
+| **400** | Missing required fields (profileId, phoneNumberId, wabaId, or tempToken) |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Profile limit exceeded for the user&#39;s plan (PROFILE_LIMIT_EXCEEDED) |  -  |
+| **404** | Selected phone number not found in the specified WABA |  -  |
+| **500** | Failed to bind phone number |  -  |
+
+## completeWhatsAppPhoneSelectionWithHttpInfo
+
+> ApiResponse<CompleteWhatsAppPhoneSelection200Response> completeWhatsAppPhoneSelection completeWhatsAppPhoneSelectionWithHttpInfo(completeWhatsAppPhoneSelectionRequest, xConnectToken)
+
+Complete WhatsApp phone number selection
+
+Bind a specific WhatsApp phone number to the Zernio profile after the user picks one from &#x60;listWhatsAppPhoneNumbers&#x60;. Exchanges the short-lived OAuth token for a long-lived token, subscribes the WABA to webhooks, and creates the SocialAccount. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.ApiResponse;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.ConnectApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        ConnectApi apiInstance = new ConnectApi(defaultClient);
+        CompleteWhatsAppPhoneSelectionRequest completeWhatsAppPhoneSelectionRequest = new CompleteWhatsAppPhoneSelectionRequest(); // CompleteWhatsAppPhoneSelectionRequest | 
+        String xConnectToken = "xConnectToken_example"; // String | Alternative auth for API users' end customers
+        try {
+            ApiResponse<CompleteWhatsAppPhoneSelection200Response> response = apiInstance.completeWhatsAppPhoneSelectionWithHttpInfo(completeWhatsAppPhoneSelectionRequest, xConnectToken);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ConnectApi#completeWhatsAppPhoneSelection");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **completeWhatsAppPhoneSelectionRequest** | [**CompleteWhatsAppPhoneSelectionRequest**](CompleteWhatsAppPhoneSelectionRequest.md)|  | |
+| **xConnectToken** | **String**| Alternative auth for API users&#39; end customers | [optional] |
+
+### Return type
+
+ApiResponse<[**CompleteWhatsAppPhoneSelection200Response**](CompleteWhatsAppPhoneSelection200Response.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Phone number connected successfully |  -  |
+| **400** | Missing required fields (profileId, phoneNumberId, wabaId, or tempToken) |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Profile limit exceeded for the user&#39;s plan (PROFILE_LIMIT_EXCEEDED) |  -  |
+| **404** | Selected phone number not found in the specified WABA |  -  |
+| **500** | Failed to bind phone number |  -  |
 
 
 ## configureTikTokAdsBrandIdentity
@@ -1467,7 +1629,7 @@ ApiResponse<[**GetLinkedInOrganizations200Response**](GetLinkedInOrganizations20
 
 Get pending OAuth data
 
-Fetch pending OAuth data for headless mode using the pendingDataToken from the redirect URL. One-time use, expires after 10 minutes. No authentication required.
+Fetch pending OAuth data for headless mode using the pendingDataToken from the redirect URL.  **Scope**: This endpoint is used only for LinkedIn organizations and Snapchat profiles, where the selection list is too large to fit in URL params. WhatsApp, Facebook, Pinterest, Google Business and other platforms pass selection state directly via URL query params on the redirect (&#x60;profileId&#x60;, &#x60;tempToken&#x60;, &#x60;step&#x60;), no pending record is created, so this endpoint will return 404 for those flows. Use the platform-specific selection endpoint instead (e.g. &#x60;/v1/connect/whatsapp/select-phone-number&#x60;).  Token is one-time use and expires after 10 minutes. No authentication required. 
 
 ### Example
 
@@ -1539,7 +1701,7 @@ public class Example {
 
 Get pending OAuth data
 
-Fetch pending OAuth data for headless mode using the pendingDataToken from the redirect URL. One-time use, expires after 10 minutes. No authentication required.
+Fetch pending OAuth data for headless mode using the pendingDataToken from the redirect URL.  **Scope**: This endpoint is used only for LinkedIn organizations and Snapchat profiles, where the selection list is too large to fit in URL params. WhatsApp, Facebook, Pinterest, Google Business and other platforms pass selection state directly via URL query params on the redirect (&#x60;profileId&#x60;, &#x60;tempToken&#x60;, &#x60;step&#x60;), no pending record is created, so this endpoint will return 404 for those flows. Use the platform-specific selection endpoint instead (e.g. &#x60;/v1/connect/whatsapp/select-phone-number&#x60;).  Token is one-time use and expires after 10 minutes. No authentication required. 
 
 ### Example
 
@@ -3481,6 +3643,164 @@ ApiResponse<[**ListSnapchatProfiles200Response**](ListSnapchatProfiles200Respons
 | **401** | Unauthorized |  -  |
 | **403** | No access to profile |  -  |
 | **500** | Failed to fetch public profiles |  -  |
+
+
+## listWhatsAppPhoneNumbers
+
+> ListWhatsAppPhoneNumbers200Response listWhatsAppPhoneNumbers(profileId, tempToken, xConnectToken)
+
+List WhatsApp phone numbers for selection
+
+Fetch the WhatsApp phone numbers available across the user&#39;s WhatsApp Business Accounts (WABAs) after a headless OAuth flow.  WhatsApp OAuth grants access at the WABA level. When a connected WABA has 2 or more phone numbers, you must call this endpoint to list them and then &#x60;POST /v1/connect/whatsapp/select-phone-number&#x60; to bind one to the Zernio profile. Single-phone WABAs auto-complete during the OAuth callback and never reach this endpoint.  Use the &#x60;profileId&#x60; and &#x60;tempToken&#x60; returned in the headless redirect (&#x60;step&#x3D;select_phone_number&#x60;).  Alternative: if you already know &#x60;wabaId&#x60; and &#x60;phoneNumberId&#x60; (e.g. from Meta Business Suite), use &#x60;connectWhatsAppCredentials&#x60; instead, which skips this two-step flow. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.ConnectApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        ConnectApi apiInstance = new ConnectApi(defaultClient);
+        String profileId = "profileId_example"; // String | The Zernio profile ID from the headless redirect
+        String tempToken = "tempToken_example"; // String | The temporary access token from the headless redirect
+        String xConnectToken = "xConnectToken_example"; // String | Alternative auth for API users' end customers (used when the bearer token is scoped to a different user)
+        try {
+            ListWhatsAppPhoneNumbers200Response result = apiInstance.listWhatsAppPhoneNumbers(profileId, tempToken, xConnectToken);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ConnectApi#listWhatsAppPhoneNumbers");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **profileId** | **String**| The Zernio profile ID from the headless redirect | |
+| **tempToken** | **String**| The temporary access token from the headless redirect | |
+| **xConnectToken** | **String**| Alternative auth for API users&#39; end customers (used when the bearer token is scoped to a different user) | [optional] |
+
+### Return type
+
+[**ListWhatsAppPhoneNumbers200Response**](ListWhatsAppPhoneNumbers200Response.md)
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Phone numbers fetched successfully |  -  |
+| **400** | Missing profileId or tempToken |  -  |
+| **401** | Unauthorized |  -  |
+| **500** | Failed to fetch phone numbers (Meta API error, expired token, or insufficient permissions) |  -  |
+
+## listWhatsAppPhoneNumbersWithHttpInfo
+
+> ApiResponse<ListWhatsAppPhoneNumbers200Response> listWhatsAppPhoneNumbers listWhatsAppPhoneNumbersWithHttpInfo(profileId, tempToken, xConnectToken)
+
+List WhatsApp phone numbers for selection
+
+Fetch the WhatsApp phone numbers available across the user&#39;s WhatsApp Business Accounts (WABAs) after a headless OAuth flow.  WhatsApp OAuth grants access at the WABA level. When a connected WABA has 2 or more phone numbers, you must call this endpoint to list them and then &#x60;POST /v1/connect/whatsapp/select-phone-number&#x60; to bind one to the Zernio profile. Single-phone WABAs auto-complete during the OAuth callback and never reach this endpoint.  Use the &#x60;profileId&#x60; and &#x60;tempToken&#x60; returned in the headless redirect (&#x60;step&#x3D;select_phone_number&#x60;).  Alternative: if you already know &#x60;wabaId&#x60; and &#x60;phoneNumberId&#x60; (e.g. from Meta Business Suite), use &#x60;connectWhatsAppCredentials&#x60; instead, which skips this two-step flow. 
+
+### Example
+
+```java
+// Import classes:
+import dev.zernio.ApiClient;
+import dev.zernio.ApiException;
+import dev.zernio.ApiResponse;
+import dev.zernio.Configuration;
+import dev.zernio.auth.*;
+import dev.zernio.models.*;
+import dev.zernio.api.ConnectApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://zernio.com/api");
+        
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        ConnectApi apiInstance = new ConnectApi(defaultClient);
+        String profileId = "profileId_example"; // String | The Zernio profile ID from the headless redirect
+        String tempToken = "tempToken_example"; // String | The temporary access token from the headless redirect
+        String xConnectToken = "xConnectToken_example"; // String | Alternative auth for API users' end customers (used when the bearer token is scoped to a different user)
+        try {
+            ApiResponse<ListWhatsAppPhoneNumbers200Response> response = apiInstance.listWhatsAppPhoneNumbersWithHttpInfo(profileId, tempToken, xConnectToken);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ConnectApi#listWhatsAppPhoneNumbers");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **profileId** | **String**| The Zernio profile ID from the headless redirect | |
+| **tempToken** | **String**| The temporary access token from the headless redirect | |
+| **xConnectToken** | **String**| Alternative auth for API users&#39; end customers (used when the bearer token is scoped to a different user) | [optional] |
+
+### Return type
+
+ApiResponse<[**ListWhatsAppPhoneNumbers200Response**](ListWhatsAppPhoneNumbers200Response.md)>
+
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Phone numbers fetched successfully |  -  |
+| **400** | Missing profileId or tempToken |  -  |
+| **401** | Unauthorized |  -  |
+| **500** | Failed to fetch phone numbers (Meta API error, expired token, or insufficient permissions) |  -  |
 
 
 ## selectFacebookPage

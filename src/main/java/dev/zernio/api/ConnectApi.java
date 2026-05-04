@@ -19,6 +19,8 @@ import dev.zernio.Configuration;
 import dev.zernio.Pair;
 
 import dev.zernio.model.CompleteTelegramConnect200Response;
+import dev.zernio.model.CompleteWhatsAppPhoneSelection200Response;
+import dev.zernio.model.CompleteWhatsAppPhoneSelectionRequest;
 import dev.zernio.model.ConfigureTikTokAdsBrandIdentity200Response;
 import dev.zernio.model.ConfigureTikTokAdsBrandIdentityRequest;
 import dev.zernio.model.ConnectAds200Response;
@@ -48,6 +50,7 @@ import dev.zernio.model.ListGoogleBusinessLocations200Response;
 import dev.zernio.model.ListLinkedInOrganizations200Response;
 import dev.zernio.model.ListPinterestBoardsForSelection200Response;
 import dev.zernio.model.ListSnapchatProfiles200Response;
+import dev.zernio.model.ListWhatsAppPhoneNumbers200Response;
 import dev.zernio.model.SelectFacebookPage200Response;
 import dev.zernio.model.SelectFacebookPageRequest;
 import dev.zernio.model.SelectGoogleBusinessLocation200Response;
@@ -94,7 +97,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-04T16:19:36.438677673Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-04T19:45:34.522646540Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class ConnectApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -332,6 +335,136 @@ public class ConnectApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
     localVarRequestBuilder.method("PATCH", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Complete WhatsApp phone number selection
+   * Bind a specific WhatsApp phone number to the Zernio profile after the user picks one from &#x60;listWhatsAppPhoneNumbers&#x60;. Exchanges the short-lived OAuth token for a long-lived token, subscribes the WABA to webhooks, and creates the SocialAccount. 
+   * @param completeWhatsAppPhoneSelectionRequest  (required)
+   * @param xConnectToken Alternative auth for API users&#39; end customers (optional)
+   * @return CompleteWhatsAppPhoneSelection200Response
+   * @throws ApiException if fails to make API call
+   */
+  public CompleteWhatsAppPhoneSelection200Response completeWhatsAppPhoneSelection(@javax.annotation.Nonnull CompleteWhatsAppPhoneSelectionRequest completeWhatsAppPhoneSelectionRequest, @javax.annotation.Nullable String xConnectToken) throws ApiException {
+    return completeWhatsAppPhoneSelection(completeWhatsAppPhoneSelectionRequest, xConnectToken, null);
+  }
+
+  /**
+   * Complete WhatsApp phone number selection
+   * Bind a specific WhatsApp phone number to the Zernio profile after the user picks one from &#x60;listWhatsAppPhoneNumbers&#x60;. Exchanges the short-lived OAuth token for a long-lived token, subscribes the WABA to webhooks, and creates the SocialAccount. 
+   * @param completeWhatsAppPhoneSelectionRequest  (required)
+   * @param xConnectToken Alternative auth for API users&#39; end customers (optional)
+   * @param headers Optional headers to include in the request
+   * @return CompleteWhatsAppPhoneSelection200Response
+   * @throws ApiException if fails to make API call
+   */
+  public CompleteWhatsAppPhoneSelection200Response completeWhatsAppPhoneSelection(@javax.annotation.Nonnull CompleteWhatsAppPhoneSelectionRequest completeWhatsAppPhoneSelectionRequest, @javax.annotation.Nullable String xConnectToken, Map<String, String> headers) throws ApiException {
+    ApiResponse<CompleteWhatsAppPhoneSelection200Response> localVarResponse = completeWhatsAppPhoneSelectionWithHttpInfo(completeWhatsAppPhoneSelectionRequest, xConnectToken, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Complete WhatsApp phone number selection
+   * Bind a specific WhatsApp phone number to the Zernio profile after the user picks one from &#x60;listWhatsAppPhoneNumbers&#x60;. Exchanges the short-lived OAuth token for a long-lived token, subscribes the WABA to webhooks, and creates the SocialAccount. 
+   * @param completeWhatsAppPhoneSelectionRequest  (required)
+   * @param xConnectToken Alternative auth for API users&#39; end customers (optional)
+   * @return ApiResponse&lt;CompleteWhatsAppPhoneSelection200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<CompleteWhatsAppPhoneSelection200Response> completeWhatsAppPhoneSelectionWithHttpInfo(@javax.annotation.Nonnull CompleteWhatsAppPhoneSelectionRequest completeWhatsAppPhoneSelectionRequest, @javax.annotation.Nullable String xConnectToken) throws ApiException {
+    return completeWhatsAppPhoneSelectionWithHttpInfo(completeWhatsAppPhoneSelectionRequest, xConnectToken, null);
+  }
+
+  /**
+   * Complete WhatsApp phone number selection
+   * Bind a specific WhatsApp phone number to the Zernio profile after the user picks one from &#x60;listWhatsAppPhoneNumbers&#x60;. Exchanges the short-lived OAuth token for a long-lived token, subscribes the WABA to webhooks, and creates the SocialAccount. 
+   * @param completeWhatsAppPhoneSelectionRequest  (required)
+   * @param xConnectToken Alternative auth for API users&#39; end customers (optional)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;CompleteWhatsAppPhoneSelection200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<CompleteWhatsAppPhoneSelection200Response> completeWhatsAppPhoneSelectionWithHttpInfo(@javax.annotation.Nonnull CompleteWhatsAppPhoneSelectionRequest completeWhatsAppPhoneSelectionRequest, @javax.annotation.Nullable String xConnectToken, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = completeWhatsAppPhoneSelectionRequestBuilder(completeWhatsAppPhoneSelectionRequest, xConnectToken, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("completeWhatsAppPhoneSelection", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<CompleteWhatsAppPhoneSelection200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        CompleteWhatsAppPhoneSelection200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<CompleteWhatsAppPhoneSelection200Response>() {});
+        
+
+        return new ApiResponse<CompleteWhatsAppPhoneSelection200Response>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder completeWhatsAppPhoneSelectionRequestBuilder(@javax.annotation.Nonnull CompleteWhatsAppPhoneSelectionRequest completeWhatsAppPhoneSelectionRequest, @javax.annotation.Nullable String xConnectToken, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'completeWhatsAppPhoneSelectionRequest' is set
+    if (completeWhatsAppPhoneSelectionRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'completeWhatsAppPhoneSelectionRequest' when calling completeWhatsAppPhoneSelection");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/connect/whatsapp/select-phone-number";
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    if (xConnectToken != null) {
+      localVarRequestBuilder.header("X-Connect-Token", xConnectToken.toString());
+    }
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(completeWhatsAppPhoneSelectionRequest);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
@@ -1392,7 +1525,7 @@ public class ConnectApi {
 
   /**
    * Get pending OAuth data
-   * Fetch pending OAuth data for headless mode using the pendingDataToken from the redirect URL. One-time use, expires after 10 minutes. No authentication required.
+   * Fetch pending OAuth data for headless mode using the pendingDataToken from the redirect URL.  **Scope**: This endpoint is used only for LinkedIn organizations and Snapchat profiles, where the selection list is too large to fit in URL params. WhatsApp, Facebook, Pinterest, Google Business and other platforms pass selection state directly via URL query params on the redirect (&#x60;profileId&#x60;, &#x60;tempToken&#x60;, &#x60;step&#x60;), no pending record is created, so this endpoint will return 404 for those flows. Use the platform-specific selection endpoint instead (e.g. &#x60;/v1/connect/whatsapp/select-phone-number&#x60;).  Token is one-time use and expires after 10 minutes. No authentication required. 
    * @param token The pending data token from the OAuth redirect URL (pendingDataToken parameter) (required)
    * @return GetPendingOAuthData200Response
    * @throws ApiException if fails to make API call
@@ -1403,7 +1536,7 @@ public class ConnectApi {
 
   /**
    * Get pending OAuth data
-   * Fetch pending OAuth data for headless mode using the pendingDataToken from the redirect URL. One-time use, expires after 10 minutes. No authentication required.
+   * Fetch pending OAuth data for headless mode using the pendingDataToken from the redirect URL.  **Scope**: This endpoint is used only for LinkedIn organizations and Snapchat profiles, where the selection list is too large to fit in URL params. WhatsApp, Facebook, Pinterest, Google Business and other platforms pass selection state directly via URL query params on the redirect (&#x60;profileId&#x60;, &#x60;tempToken&#x60;, &#x60;step&#x60;), no pending record is created, so this endpoint will return 404 for those flows. Use the platform-specific selection endpoint instead (e.g. &#x60;/v1/connect/whatsapp/select-phone-number&#x60;).  Token is one-time use and expires after 10 minutes. No authentication required. 
    * @param token The pending data token from the OAuth redirect URL (pendingDataToken parameter) (required)
    * @param headers Optional headers to include in the request
    * @return GetPendingOAuthData200Response
@@ -1416,7 +1549,7 @@ public class ConnectApi {
 
   /**
    * Get pending OAuth data
-   * Fetch pending OAuth data for headless mode using the pendingDataToken from the redirect URL. One-time use, expires after 10 minutes. No authentication required.
+   * Fetch pending OAuth data for headless mode using the pendingDataToken from the redirect URL.  **Scope**: This endpoint is used only for LinkedIn organizations and Snapchat profiles, where the selection list is too large to fit in URL params. WhatsApp, Facebook, Pinterest, Google Business and other platforms pass selection state directly via URL query params on the redirect (&#x60;profileId&#x60;, &#x60;tempToken&#x60;, &#x60;step&#x60;), no pending record is created, so this endpoint will return 404 for those flows. Use the platform-specific selection endpoint instead (e.g. &#x60;/v1/connect/whatsapp/select-phone-number&#x60;).  Token is one-time use and expires after 10 minutes. No authentication required. 
    * @param token The pending data token from the OAuth redirect URL (pendingDataToken parameter) (required)
    * @return ApiResponse&lt;GetPendingOAuthData200Response&gt;
    * @throws ApiException if fails to make API call
@@ -1427,7 +1560,7 @@ public class ConnectApi {
 
   /**
    * Get pending OAuth data
-   * Fetch pending OAuth data for headless mode using the pendingDataToken from the redirect URL. One-time use, expires after 10 minutes. No authentication required.
+   * Fetch pending OAuth data for headless mode using the pendingDataToken from the redirect URL.  **Scope**: This endpoint is used only for LinkedIn organizations and Snapchat profiles, where the selection list is too large to fit in URL params. WhatsApp, Facebook, Pinterest, Google Business and other platforms pass selection state directly via URL query params on the redirect (&#x60;profileId&#x60;, &#x60;tempToken&#x60;, &#x60;step&#x60;), no pending record is created, so this endpoint will return 404 for those flows. Use the platform-specific selection endpoint instead (e.g. &#x60;/v1/connect/whatsapp/select-phone-number&#x60;).  Token is one-time use and expires after 10 minutes. No authentication required. 
    * @param token The pending data token from the OAuth redirect URL (pendingDataToken parameter) (required)
    * @param headers Optional headers to include in the request
    * @return ApiResponse&lt;GetPendingOAuthData200Response&gt;
@@ -3083,6 +3216,155 @@ public class ConnectApi {
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
     String localVarPath = "/v1/connect/snapchat/select-profile";
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "profileId";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("profileId", profileId));
+    localVarQueryParameterBaseName = "tempToken";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("tempToken", tempToken));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    if (xConnectToken != null) {
+      localVarRequestBuilder.header("X-Connect-Token", xConnectToken.toString());
+    }
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    // Add custom headers if provided
+    localVarRequestBuilder = HttpRequestBuilderExtensions.withAdditionalHeaders(localVarRequestBuilder, headers);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * List WhatsApp phone numbers for selection
+   * Fetch the WhatsApp phone numbers available across the user&#39;s WhatsApp Business Accounts (WABAs) after a headless OAuth flow.  WhatsApp OAuth grants access at the WABA level. When a connected WABA has 2 or more phone numbers, you must call this endpoint to list them and then &#x60;POST /v1/connect/whatsapp/select-phone-number&#x60; to bind one to the Zernio profile. Single-phone WABAs auto-complete during the OAuth callback and never reach this endpoint.  Use the &#x60;profileId&#x60; and &#x60;tempToken&#x60; returned in the headless redirect (&#x60;step&#x3D;select_phone_number&#x60;).  Alternative: if you already know &#x60;wabaId&#x60; and &#x60;phoneNumberId&#x60; (e.g. from Meta Business Suite), use &#x60;connectWhatsAppCredentials&#x60; instead, which skips this two-step flow. 
+   * @param profileId The Zernio profile ID from the headless redirect (required)
+   * @param tempToken The temporary access token from the headless redirect (required)
+   * @param xConnectToken Alternative auth for API users&#39; end customers (used when the bearer token is scoped to a different user) (optional)
+   * @return ListWhatsAppPhoneNumbers200Response
+   * @throws ApiException if fails to make API call
+   */
+  public ListWhatsAppPhoneNumbers200Response listWhatsAppPhoneNumbers(@javax.annotation.Nonnull String profileId, @javax.annotation.Nonnull String tempToken, @javax.annotation.Nullable String xConnectToken) throws ApiException {
+    return listWhatsAppPhoneNumbers(profileId, tempToken, xConnectToken, null);
+  }
+
+  /**
+   * List WhatsApp phone numbers for selection
+   * Fetch the WhatsApp phone numbers available across the user&#39;s WhatsApp Business Accounts (WABAs) after a headless OAuth flow.  WhatsApp OAuth grants access at the WABA level. When a connected WABA has 2 or more phone numbers, you must call this endpoint to list them and then &#x60;POST /v1/connect/whatsapp/select-phone-number&#x60; to bind one to the Zernio profile. Single-phone WABAs auto-complete during the OAuth callback and never reach this endpoint.  Use the &#x60;profileId&#x60; and &#x60;tempToken&#x60; returned in the headless redirect (&#x60;step&#x3D;select_phone_number&#x60;).  Alternative: if you already know &#x60;wabaId&#x60; and &#x60;phoneNumberId&#x60; (e.g. from Meta Business Suite), use &#x60;connectWhatsAppCredentials&#x60; instead, which skips this two-step flow. 
+   * @param profileId The Zernio profile ID from the headless redirect (required)
+   * @param tempToken The temporary access token from the headless redirect (required)
+   * @param xConnectToken Alternative auth for API users&#39; end customers (used when the bearer token is scoped to a different user) (optional)
+   * @param headers Optional headers to include in the request
+   * @return ListWhatsAppPhoneNumbers200Response
+   * @throws ApiException if fails to make API call
+   */
+  public ListWhatsAppPhoneNumbers200Response listWhatsAppPhoneNumbers(@javax.annotation.Nonnull String profileId, @javax.annotation.Nonnull String tempToken, @javax.annotation.Nullable String xConnectToken, Map<String, String> headers) throws ApiException {
+    ApiResponse<ListWhatsAppPhoneNumbers200Response> localVarResponse = listWhatsAppPhoneNumbersWithHttpInfo(profileId, tempToken, xConnectToken, headers);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * List WhatsApp phone numbers for selection
+   * Fetch the WhatsApp phone numbers available across the user&#39;s WhatsApp Business Accounts (WABAs) after a headless OAuth flow.  WhatsApp OAuth grants access at the WABA level. When a connected WABA has 2 or more phone numbers, you must call this endpoint to list them and then &#x60;POST /v1/connect/whatsapp/select-phone-number&#x60; to bind one to the Zernio profile. Single-phone WABAs auto-complete during the OAuth callback and never reach this endpoint.  Use the &#x60;profileId&#x60; and &#x60;tempToken&#x60; returned in the headless redirect (&#x60;step&#x3D;select_phone_number&#x60;).  Alternative: if you already know &#x60;wabaId&#x60; and &#x60;phoneNumberId&#x60; (e.g. from Meta Business Suite), use &#x60;connectWhatsAppCredentials&#x60; instead, which skips this two-step flow. 
+   * @param profileId The Zernio profile ID from the headless redirect (required)
+   * @param tempToken The temporary access token from the headless redirect (required)
+   * @param xConnectToken Alternative auth for API users&#39; end customers (used when the bearer token is scoped to a different user) (optional)
+   * @return ApiResponse&lt;ListWhatsAppPhoneNumbers200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<ListWhatsAppPhoneNumbers200Response> listWhatsAppPhoneNumbersWithHttpInfo(@javax.annotation.Nonnull String profileId, @javax.annotation.Nonnull String tempToken, @javax.annotation.Nullable String xConnectToken) throws ApiException {
+    return listWhatsAppPhoneNumbersWithHttpInfo(profileId, tempToken, xConnectToken, null);
+  }
+
+  /**
+   * List WhatsApp phone numbers for selection
+   * Fetch the WhatsApp phone numbers available across the user&#39;s WhatsApp Business Accounts (WABAs) after a headless OAuth flow.  WhatsApp OAuth grants access at the WABA level. When a connected WABA has 2 or more phone numbers, you must call this endpoint to list them and then &#x60;POST /v1/connect/whatsapp/select-phone-number&#x60; to bind one to the Zernio profile. Single-phone WABAs auto-complete during the OAuth callback and never reach this endpoint.  Use the &#x60;profileId&#x60; and &#x60;tempToken&#x60; returned in the headless redirect (&#x60;step&#x3D;select_phone_number&#x60;).  Alternative: if you already know &#x60;wabaId&#x60; and &#x60;phoneNumberId&#x60; (e.g. from Meta Business Suite), use &#x60;connectWhatsAppCredentials&#x60; instead, which skips this two-step flow. 
+   * @param profileId The Zernio profile ID from the headless redirect (required)
+   * @param tempToken The temporary access token from the headless redirect (required)
+   * @param xConnectToken Alternative auth for API users&#39; end customers (used when the bearer token is scoped to a different user) (optional)
+   * @param headers Optional headers to include in the request
+   * @return ApiResponse&lt;ListWhatsAppPhoneNumbers200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<ListWhatsAppPhoneNumbers200Response> listWhatsAppPhoneNumbersWithHttpInfo(@javax.annotation.Nonnull String profileId, @javax.annotation.Nonnull String tempToken, @javax.annotation.Nullable String xConnectToken, Map<String, String> headers) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listWhatsAppPhoneNumbersRequestBuilder(profileId, tempToken, xConnectToken, headers);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      InputStream localVarResponseBody = null;
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("listWhatsAppPhoneNumbers", localVarResponse);
+        }
+        localVarResponseBody = ApiClient.getResponseBody(localVarResponse);
+        if (localVarResponseBody == null) {
+          return new ApiResponse<ListWhatsAppPhoneNumbers200Response>(
+              localVarResponse.statusCode(),
+              localVarResponse.headers().map(),
+              null
+          );
+        }
+
+        
+        
+        String responseBody = new String(localVarResponseBody.readAllBytes());
+        ListWhatsAppPhoneNumbers200Response responseValue = responseBody.isBlank()? null: memberVarObjectMapper.readValue(responseBody, new TypeReference<ListWhatsAppPhoneNumbers200Response>() {});
+        
+
+        return new ApiResponse<ListWhatsAppPhoneNumbers200Response>(
+            localVarResponse.statusCode(),
+            localVarResponse.headers().map(),
+            responseValue
+        );
+      } finally {
+        if (localVarResponseBody != null) {
+          localVarResponseBody.close();
+        }
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder listWhatsAppPhoneNumbersRequestBuilder(@javax.annotation.Nonnull String profileId, @javax.annotation.Nonnull String tempToken, @javax.annotation.Nullable String xConnectToken, Map<String, String> headers) throws ApiException {
+    // verify the required parameter 'profileId' is set
+    if (profileId == null) {
+      throw new ApiException(400, "Missing the required parameter 'profileId' when calling listWhatsAppPhoneNumbers");
+    }
+    // verify the required parameter 'tempToken' is set
+    if (tempToken == null) {
+      throw new ApiException(400, "Missing the required parameter 'tempToken' when calling listWhatsAppPhoneNumbers");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/v1/connect/whatsapp/select-phone-number";
 
     List<Pair> localVarQueryParams = new ArrayList<>();
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
