@@ -36,7 +36,7 @@ import dev.zernio.ApiClient;
   UnpublishPost200Response.JSON_PROPERTY_SUCCESS,
   UnpublishPost200Response.JSON_PROPERTY_MESSAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-04T15:50:04.292122953Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-04T16:19:36.438677673Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class UnpublishPost200Response {
   public static final String JSON_PROPERTY_SUCCESS = "success";
   @javax.annotation.Nullable

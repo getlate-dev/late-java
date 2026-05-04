@@ -35,7 +35,7 @@ import dev.zernio.ApiClient;
 @JsonPropertyOrder({
   DeleteInboxReviewReplyRequest.JSON_PROPERTY_ACCOUNT_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-04T15:50:04.292122953Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-04T16:19:36.438677673Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class DeleteInboxReviewReplyRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nonnull
