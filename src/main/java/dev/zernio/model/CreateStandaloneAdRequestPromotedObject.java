@@ -43,7 +43,7 @@ import dev.zernio.ApiClient;
   CreateStandaloneAdRequestPromotedObject.JSON_PROPERTY_PRODUCT_CATALOG_ID,
   CreateStandaloneAdRequestPromotedObject.JSON_PROPERTY_PRODUCT_SET_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-03T11:45:04.772816058Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-04T07:25:20.776668489Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CreateStandaloneAdRequestPromotedObject {
   public static final String JSON_PROPERTY_PIXEL_ID = "pixelId";
   @javax.annotation.Nullable

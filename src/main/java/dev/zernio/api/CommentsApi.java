@@ -60,7 +60,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-03T11:45:04.772816058Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-04T07:25:20.776668489Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class CommentsApi {
   /**
    * Utility class for extending HttpRequest.Builder functionality.
@@ -1085,7 +1085,7 @@ public class CommentsApi {
 
   /**
    * Send private reply
-   * Send a private message to the author of a comment. Supported on Instagram and Facebook only. One reply per comment, must be sent within 7 days, text only.
+   * Send a private message to the author of a comment. Supported on Instagram and Facebook only. One reply per comment, must be sent within 7 days. Optionally include up to 13 quick-reply chips (&#x60;quickReplies&#x60;) on the same first message — useful for comment-to-DM automations that want to capture intent in a single round-trip. 
    * @param postId The media/post ID (Instagram media ID or Facebook post ID) (required)
    * @param commentId The comment ID to send a private reply to (required)
    * @param sendPrivateReplyToCommentRequest  (required)
@@ -1098,7 +1098,7 @@ public class CommentsApi {
 
   /**
    * Send private reply
-   * Send a private message to the author of a comment. Supported on Instagram and Facebook only. One reply per comment, must be sent within 7 days, text only.
+   * Send a private message to the author of a comment. Supported on Instagram and Facebook only. One reply per comment, must be sent within 7 days. Optionally include up to 13 quick-reply chips (&#x60;quickReplies&#x60;) on the same first message — useful for comment-to-DM automations that want to capture intent in a single round-trip. 
    * @param postId The media/post ID (Instagram media ID or Facebook post ID) (required)
    * @param commentId The comment ID to send a private reply to (required)
    * @param sendPrivateReplyToCommentRequest  (required)
@@ -1113,7 +1113,7 @@ public class CommentsApi {
 
   /**
    * Send private reply
-   * Send a private message to the author of a comment. Supported on Instagram and Facebook only. One reply per comment, must be sent within 7 days, text only.
+   * Send a private message to the author of a comment. Supported on Instagram and Facebook only. One reply per comment, must be sent within 7 days. Optionally include up to 13 quick-reply chips (&#x60;quickReplies&#x60;) on the same first message — useful for comment-to-DM automations that want to capture intent in a single round-trip. 
    * @param postId The media/post ID (Instagram media ID or Facebook post ID) (required)
    * @param commentId The comment ID to send a private reply to (required)
    * @param sendPrivateReplyToCommentRequest  (required)
@@ -1126,7 +1126,7 @@ public class CommentsApi {
 
   /**
    * Send private reply
-   * Send a private message to the author of a comment. Supported on Instagram and Facebook only. One reply per comment, must be sent within 7 days, text only.
+   * Send a private message to the author of a comment. Supported on Instagram and Facebook only. One reply per comment, must be sent within 7 days. Optionally include up to 13 quick-reply chips (&#x60;quickReplies&#x60;) on the same first message — useful for comment-to-DM automations that want to capture intent in a single round-trip. 
    * @param postId The media/post ID (Instagram media ID or Facebook post ID) (required)
    * @param commentId The comment ID to send a private reply to (required)
    * @param sendPrivateReplyToCommentRequest  (required)

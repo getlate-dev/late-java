@@ -10775,9 +10775,11 @@ paths:
       - application/json
   /v1/inbox/comments/{postId}/{commentId}/private-reply:
     post:
-      description: "Send a private message to the author of a comment. Supported on\
-        \ Instagram and Facebook only. One reply per comment, must be sent within\
-        \ 7 days, text only."
+      description: |
+        Send a private message to the author of a comment. Supported on Instagram and Facebook only.
+        One reply per comment, must be sent within 7 days. Optionally include up to 13 quick-reply
+        chips (`quickReplies`) on the same first message — useful for comment-to-DM automations
+        that want to capture intent in a single round-trip.
       operationId: sendPrivateReplyToComment
       parameters:
       - description: The media/post ID (Instagram media ID or Facebook post ID)
@@ -10799,10 +10801,23 @@ paths:
       requestBody:
         content:
           application/json:
-            example:
-              accountId: 507f1f77bcf86cd799439011
-              message: Hi! Thanks for your comment. I wanted to reach out privately
-                to help with your question.
+            examples:
+              textOnly:
+                summary: Plain text reply
+                value:
+                  accountId: 507f1f77bcf86cd799439011
+                  message: Hi! Thanks for your comment. I wanted to reach out privately
+                    to help with your question.
+              withQuickReplies:
+                summary: Comment-to-DM with quick replies
+                value:
+                  accountId: 507f1f77bcf86cd799439011
+                  message: Thanks for commenting! Want me to send the link?
+                  quickReplies:
+                  - title: "Yes, send it"
+                    payload: SEND_LINK
+                  - title: No thanks
+                    payload: DECLINE
             schema:
               $ref: "#/components/schemas/sendPrivateReplyToComment_request"
         required: true
@@ -32776,6 +32791,23 @@ components:
           type: boolean
         platform:
           type: string
+    sendPrivateReplyToComment_request_quickReplies_inner:
+      properties:
+        title:
+          description: Label shown on the chip. Truncated by Meta beyond 20 characters.
+          maxLength: 20
+          type: string
+        payload:
+          description: Opaque value returned in the inbound webhook when the user
+            taps the chip.
+          type: string
+        imageUrl:
+          description: Optional thumbnail shown next to the chip title.
+          format: uri
+          type: string
+      required:
+      - payload
+      - title
     sendPrivateReplyToComment_request:
       properties:
         accountId:
@@ -32784,6 +32816,14 @@ components:
         message:
           description: The message text to send as a private DM
           type: string
+        quickReplies:
+          description: |
+            Optional quick-reply chips appended to the message. Visible only in the
+            Instagram and Messenger apps (not on web). Maximum 13 entries.
+          items:
+            $ref: "#/components/schemas/sendPrivateReplyToComment_request_quickReplies_inner"
+          maxItems: 13
+          type: array
       required:
       - accountId
       - message

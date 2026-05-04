@@ -41,7 +41,7 @@ import dev.zernio.ApiClient;
   GetCommentAutomation200Response.JSON_PROPERTY_AUTOMATION,
   GetCommentAutomation200Response.JSON_PROPERTY_LOGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-03T11:45:04.772816058Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-04T07:25:20.776668489Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetCommentAutomation200Response {
   public static final String JSON_PROPERTY_SUCCESS = "success";
   @javax.annotation.Nullable

@@ -24,7 +24,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import dev.zernio.model.SendPrivateReplyToCommentRequestQuickRepliesInner;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -34,9 +37,10 @@ import dev.zernio.ApiClient;
  */
 @JsonPropertyOrder({
   SendPrivateReplyToCommentRequest.JSON_PROPERTY_ACCOUNT_ID,
-  SendPrivateReplyToCommentRequest.JSON_PROPERTY_MESSAGE
+  SendPrivateReplyToCommentRequest.JSON_PROPERTY_MESSAGE,
+  SendPrivateReplyToCommentRequest.JSON_PROPERTY_QUICK_REPLIES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-03T11:45:04.772816058Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-04T07:25:20.776668489Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class SendPrivateReplyToCommentRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   @javax.annotation.Nonnull
@@ -45,6 +49,10 @@ public class SendPrivateReplyToCommentRequest {
   public static final String JSON_PROPERTY_MESSAGE = "message";
   @javax.annotation.Nonnull
   private String message;
+
+  public static final String JSON_PROPERTY_QUICK_REPLIES = "quickReplies";
+  @javax.annotation.Nullable
+  private List<SendPrivateReplyToCommentRequestQuickRepliesInner> quickReplies = new ArrayList<>();
 
   public SendPrivateReplyToCommentRequest() { 
   }
@@ -97,6 +105,38 @@ public class SendPrivateReplyToCommentRequest {
   }
 
 
+  public SendPrivateReplyToCommentRequest quickReplies(@javax.annotation.Nullable List<SendPrivateReplyToCommentRequestQuickRepliesInner> quickReplies) {
+    this.quickReplies = quickReplies;
+    return this;
+  }
+
+  public SendPrivateReplyToCommentRequest addQuickRepliesItem(SendPrivateReplyToCommentRequestQuickRepliesInner quickRepliesItem) {
+    if (this.quickReplies == null) {
+      this.quickReplies = new ArrayList<>();
+    }
+    this.quickReplies.add(quickRepliesItem);
+    return this;
+  }
+
+  /**
+   * Optional quick-reply chips appended to the message. Visible only in the Instagram and Messenger apps (not on web). Maximum 13 entries. 
+   * @return quickReplies
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_QUICK_REPLIES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SendPrivateReplyToCommentRequestQuickRepliesInner> getQuickReplies() {
+    return quickReplies;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_QUICK_REPLIES, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setQuickReplies(@javax.annotation.Nullable List<SendPrivateReplyToCommentRequestQuickRepliesInner> quickReplies) {
+    this.quickReplies = quickReplies;
+  }
+
+
   /**
    * Return true if this sendPrivateReplyToComment_request object is equal to o.
    */
@@ -110,12 +150,13 @@ public class SendPrivateReplyToCommentRequest {
     }
     SendPrivateReplyToCommentRequest sendPrivateReplyToCommentRequest = (SendPrivateReplyToCommentRequest) o;
     return Objects.equals(this.accountId, sendPrivateReplyToCommentRequest.accountId) &&
-        Objects.equals(this.message, sendPrivateReplyToCommentRequest.message);
+        Objects.equals(this.message, sendPrivateReplyToCommentRequest.message) &&
+        Objects.equals(this.quickReplies, sendPrivateReplyToCommentRequest.quickReplies);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, message);
+    return Objects.hash(accountId, message, quickReplies);
   }
 
   @Override
@@ -124,6 +165,7 @@ public class SendPrivateReplyToCommentRequest {
     sb.append("class SendPrivateReplyToCommentRequest {\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    quickReplies: ").append(toIndentedString(quickReplies)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -179,6 +221,16 @@ public class SendPrivateReplyToCommentRequest {
     // add `message` to the URL query string
     if (getMessage() != null) {
       joiner.add(String.format(java.util.Locale.ROOT, "%smessage%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getMessage()))));
+    }
+
+    // add `quickReplies` to the URL query string
+    if (getQuickReplies() != null) {
+      for (int i = 0; i < getQuickReplies().size(); i++) {
+        if (getQuickReplies().get(i) != null) {
+          joiner.add(getQuickReplies().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%squickReplies%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
     }
 
     return joiner.toString();

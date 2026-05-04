@@ -38,7 +38,7 @@ import dev.zernio.ApiClient;
 @JsonPropertyOrder({
   SetInstagramIceBreakersRequest.JSON_PROPERTY_ICE_BREAKERS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-03T11:45:04.772816058Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-04T07:25:20.776668489Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class SetInstagramIceBreakersRequest {
   public static final String JSON_PROPERTY_ICE_BREAKERS = "ice_breakers";
   @javax.annotation.Nonnull

@@ -668,6 +668,7 @@ docs/SendInboxMessageRequestTemplateElementsInner.md
 docs/SendInboxMessageRequestTemplateElementsInnerButtonsInner.md
 docs/SendPrivateReplyToComment200Response.md
 docs/SendPrivateReplyToCommentRequest.md
+docs/SendPrivateReplyToCommentRequestQuickRepliesInner.md
 docs/SendTypingIndicatorRequest.md
 docs/SendWhatsAppConversion200Response.md
 docs/SendWhatsAppConversionRequest.md
@@ -1579,6 +1580,7 @@ src/main/java/dev/zernio/model/SendInboxMessageRequestTemplateElementsInner.java
 src/main/java/dev/zernio/model/SendInboxMessageRequestTemplateElementsInnerButtonsInner.java
 src/main/java/dev/zernio/model/SendPrivateReplyToComment200Response.java
 src/main/java/dev/zernio/model/SendPrivateReplyToCommentRequest.java
+src/main/java/dev/zernio/model/SendPrivateReplyToCommentRequestQuickRepliesInner.java
 src/main/java/dev/zernio/model/SendTypingIndicatorRequest.java
 src/main/java/dev/zernio/model/SendWhatsAppConversion200Response.java
 src/main/java/dev/zernio/model/SendWhatsAppConversionRequest.java
@@ -1786,3 +1788,4 @@ src/main/java/dev/zernio/model/YouTubeDemographicsResponseDemographicsValueInner
 src/main/java/dev/zernio/model/YouTubePlatformData.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponse.java
 src/main/java/dev/zernio/model/YouTubeScopeMissingResponseScopeStatus.java
+src/test/java/dev/zernio/model/SendPrivateReplyToCommentRequestQuickRepliesInnerTest.java
