@@ -38,7 +38,7 @@ import dev.zernio.ApiClient;
   XApiPricingTiersInner.JSON_PROPERTY_PRICE_PER_CALL_USD,
   XApiPricingTiersInner.JSON_PROPERTY_OPERATION_COUNT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-04T13:39:47.794420047Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-04T15:50:04.292122953Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class XApiPricingTiersInner {
   /**
    * Historical bucket key used in &#x60;xApiCalls&#x60; aggregation.

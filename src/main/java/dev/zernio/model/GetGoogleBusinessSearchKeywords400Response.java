@@ -35,7 +35,7 @@ import dev.zernio.ApiClient;
 @JsonPropertyOrder({
   GetGoogleBusinessSearchKeywords400Response.JSON_PROPERTY_ERROR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-04T13:39:47.794420047Z[Etc/UTC]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-04T15:50:04.292122953Z[Etc/UTC]", comments = "Generator version: 7.19.0")
 public class GetGoogleBusinessSearchKeywords400Response {
   public static final String JSON_PROPERTY_ERROR = "error";
   @javax.annotation.Nullable
